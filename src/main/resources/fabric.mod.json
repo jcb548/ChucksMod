@@ -1,9 +1,9 @@
 {
 	"schemaVersion": 1,
-	"id": "experimentalmod",
+	"id": "pigsnstuff",
 	"version": "${version}",
-	"name": "Experimental Mod",
-	"description": "This is an mod where I am learning modding by experimenting with adding different content.",
+	"name": "Pigs N Stuff",
+	"description": "Mod full of random features inspired by me and my friends. ",
 	"authors": [
 		"jcb548"
 	],
@@ -12,21 +12,21 @@
 		"sources": "https://github.com/FabricMC/fabric-example-mod"
 	},
 	"license": "MIT",
-	"icon": "assets/experimentalmod/icon.png",
+	"icon": "assets/pigsnstuff/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"net.chuck.experimentalmod.ExperimentalMod"
+			"net.chuck.pigsnstuff.PigsNStuff"
 		],
 		"client": [
-			"net.chuck.experimentalmod.ExperimentalModClient"
+			"net.chuck.pigsnstuff.PigsNStuffClient"
 		],
 		"fabric-datagen": [
-			"net.chuck.experimentalmod.ExperimentalModDataGenerator"
+			"net.chuck.pigsnstuff.PigsNStuffDataGenerator"
 		]
 	},
 	"mixins": [
-		"experimentalmod.mixins.json"
+		"pigsnstuff.mixins.json"
 	],
 	"depends": {
 		"fabricloader": ">=0.14.22",
