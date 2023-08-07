@@ -1,0 +1,40 @@
+{
+	"schemaVersion": 1,
+	"id": "experimentalmod",
+	"version": "${version}",
+	"name": "Experimental Mod",
+	"description": "This is an mod where I am learning modding by experimenting with adding different content.",
+	"authors": [
+		"jcb548"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "MIT",
+	"icon": "assets/experimentalmod/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"net.chuck.experimentalmod.ExperimentalMod"
+		],
+		"client": [
+			"net.chuck.experimentalmod.ExperimentalModClient"
+		],
+		"fabric-datagen": [
+			"net.chuck.experimentalmod.ExperimentalModDataGenerator"
+		]
+	},
+	"mixins": [
+		"experimentalmod.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.14.22",
+		"minecraft": "~1.20.1",
+		"java": ">=17",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
