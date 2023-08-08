@@ -1,0 +1,7 @@
+{
+  "parent":"block/cube_column",
+  "textures": {
+    "end": "pigsnstuff:block/stripped_eucalyptus_log_top",
+    "side": "pigsnstuff:block/stripped_eucalyptus_log"
+  }
+}

@@ -27,6 +27,14 @@ public class ModItemGroups {
                         entries.add(ModItems.RAW_TIN);
                         entries.add(ModItems.TIN_INGOT);
                         entries.add(ModBlocks.TIN_BLOCK);
+
+                        entries.add(ModBlocks.EUCALYPTUS_LOG);
+                        entries.add(ModBlocks.EUCALYPTUS_WOOD);
+                        entries.add(ModBlocks.STRIPPED_EUCALYPTUS_LOG);
+                        entries.add(ModBlocks.STRIPPED_EUCALYPTUS_WOOD);
+                        entries.add(ModBlocks.EUCALYPTUS_PLANKS);
+                        entries.add(ModBlocks.EUCALYPTUS_LEAVES);
+                        //entries.add(ModBlocks.EUCALYPTUS_SAPLING);
                     }).build());
     public static void registerItemGroups() {
         PigsNStuff.LOGGER.info("Registering Item Groups for " + PigsNStuff.MOD_ID);

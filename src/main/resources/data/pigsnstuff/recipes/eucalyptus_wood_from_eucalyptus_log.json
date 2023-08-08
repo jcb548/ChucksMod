@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "##", "##"
+  ],
+  "key": {
+    "#": {
+      "item": "pigsnstuff:eucalyptus_log"
+    }
+  },
+  "result": {
+    "item": "pigsnstuff:eucalyptus_wood",
+    "count": 3
+  }
+}

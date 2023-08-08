@@ -3,9 +3,9 @@
   "category": "misc",
   "cookingtime": 200,
   "experience": 0.7,
-  "group": "tin_ingot",
+  "group": "iron_ingot",
   "ingredient": {
-    "item": "minecraft:raw_tin"
+    "item": "pigsnstuff:raw_tin"
   },
-  "result": "minecraft:tin_ingot"
+  "result": "pigsnstuff:tin_ingot"
 }

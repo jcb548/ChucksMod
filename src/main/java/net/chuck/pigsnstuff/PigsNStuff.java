@@ -3,6 +3,7 @@ package net.chuck.pigsnstuff;
 import net.chuck.pigsnstuff.block.ModBlocks;
 import net.chuck.pigsnstuff.item.custom.ModItemGroups;
 import net.chuck.pigsnstuff.item.custom.ModItems;
+import net.chuck.pigsnstuff.util.ModRegistries;
 import net.fabricmc.api.ModInitializer;
 
 import org.slf4j.Logger;
@@ -18,5 +19,6 @@ public class PigsNStuff implements ModInitializer {
 		ModItems.registerModItems();
 
 		ModBlocks.registerModBlocks();
+		ModRegistries.registerModStuffs();
 	}
 }

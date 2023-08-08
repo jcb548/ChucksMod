@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "pigsnstuff:eucalyptus_log"
+    }
+  ],
+  "result": {
+    "item": "pigsnstuff:eucalyptus_planks",
+    "count": 4
+  }
+}

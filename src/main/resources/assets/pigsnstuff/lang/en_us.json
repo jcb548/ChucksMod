@@ -12,5 +12,13 @@
   "item.pigsnstuff.tin_ingot": "Tin Ingot",
   "block.pigsnstuff.tin_block": "Block of Tin",
 
+  "block.pigsnstuff.eucalyptus_log": "Eucalyptus Log",
+  "block.pigsnstuff.eucalyptus_wood": "Eucalyptus Wood",
+  "block.pigsnstuff.stripped_eucalyptus_log": "Stripped Eucalyptus Log",
+  "block.pigsnstuff.stripped_eucalyptus_wood": "Stripped Eucalyptus Wood",
+  "block.pigsnstuff.eucalyptus_planks": "Eucalyptus Planks",
+  "block.pigsnstuff.eucalyptus_leaves": "Eucalyptus Leaves",
+  "block.pigsnstuff.eucalyptus_sapling": "Eucalyptus Sapling",
+
   "itemgroup.pigsnstuff": "Pigs N Stuff"
 }
