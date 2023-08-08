@@ -13,9 +13,20 @@ public class ModItems {
     public static final Item CHEESEBURGER = registerItem("cheeseburger",
             new Item(new FabricItemSettings().food(ModFoodComponents.CHEESEBURGER)));
 
-    public static final Item COPPER_SWORD = registerItem("copper_sword",
-            new SwordItem(ToolMaterials.IRON, 6, -2.0f, new FabricItemSettings()));
-
+    //Prismarine Tools
+    public static final Item PRISMARINE_SWORD = registerItem("prismarine_sword",
+        new ModAquaSwordItem(ModToolMaterials.PRISMARINE, 3, -2.0f, new FabricItemSettings()));
+    public static final Item PRISMARINE_PICKAXE = registerItem("prismarine_pickaxe",
+            new ModAquaPickaxeItem(ModToolMaterials.PRISMARINE, 1, -2.4f, new FabricItemSettings()));
+    public static final Item PRISMARINE_AXE = registerItem("prismarine_axe",
+        new ModAquaAxeItem(ModToolMaterials.PRISMARINE, 6, -2.6f, new FabricItemSettings()));
+    public static final Item PRISMARINE_SHOVEL = registerItem("prismarine_shovel",
+            new ModAquaShovelItem(ModToolMaterials.PRISMARINE, 1, -3.6f, new FabricItemSettings()));
+    public static final Item PRISMARINE_HOE = registerItem("prismarine_hoe",
+            new ModAquaHoeItem(ModToolMaterials.PRISMARINE, -2, -0.4f, new FabricItemSettings()));
+    // Tin
+    public static final Item RAW_TIN = registerItem("raw_tin", new Item(new FabricItemSettings()));
+    public static final Item TIN_INGOT = registerItem("tin_ingot", new Item(new FabricItemSettings()));
     private static Item registerItem(String name, Item item){
         return Registry.register(Registries.ITEM, new Identifier(PigsNStuff.MOD_ID, name), item);
     }

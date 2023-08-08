@@ -1,5 +1,6 @@
 package net.chuck.pigsnstuff;
 
+import net.chuck.pigsnstuff.block.ModBlocks;
 import net.chuck.pigsnstuff.item.custom.ModItemGroups;
 import net.chuck.pigsnstuff.item.custom.ModItems;
 import net.fabricmc.api.ModInitializer;
@@ -15,5 +16,7 @@ public class PigsNStuff implements ModInitializer {
 	public void onInitialize() {
 		ModItemGroups.registerItemGroups();
 		ModItems.registerModItems();
+
+		ModBlocks.registerModBlocks();
 	}
 }

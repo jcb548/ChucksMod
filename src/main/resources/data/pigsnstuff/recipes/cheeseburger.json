@@ -1,17 +1,14 @@
 {
-  "type": "minecraft:crafting_shaped",
+  "type": "minecraft:crafting_shapeless",
   "category": "food",
-  "pattern": [
-    "#", "S", "#"
-  ],
-  "key": {
-    "#": {
+  "ingredients": [
+    {
       "item": "minecraft:bread"
     },
-    "S": {
+    {
       "item": "minecraft:cooked_beef"
     }
-  },
+  ],
   "result": {
     "item": "pigsnstuff:cheeseburger",
     "count": 2

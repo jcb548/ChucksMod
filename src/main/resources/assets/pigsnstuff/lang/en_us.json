@@ -1,6 +1,16 @@
 {
   "item.pigsnstuff.cheeseburger": "Cheeseburger",
-  "item.pigsnstuff.copper_sword": "Copper Sword",
+
+  "item.pigsnstuff.prismarine_sword": "Prismarine Sword",
+  "item.pigsnstuff.prismarine_pickaxe": "Prismarine Pickaxe",
+  "item.pigsnstuff.prismarine_axe": "Prismarine Axe",
+  "item.pigsnstuff.prismarine_shovel": "Prismarine Shovel",
+  "item.pigsnstuff.prismarine_hoe": "Prismarine Hoe",
+  "tooltip.pigsnstuff.aqua_item.tooltip": "Deals double damage to Aquatic Mobs",
+
+  "item.pigsnstuff.raw_tin": "Raw Tin",
+  "item.pigsnstuff.tin_ingot": "Tin Ingot",
+  "block.pigsnstuff.tin_block": "Block of Tin",
 
   "itemgroup.pigsnstuff": "Pigs N Stuff"
 }
