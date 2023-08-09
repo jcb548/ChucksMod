@@ -30,6 +30,9 @@ public class ModItemGroups {
                         entries.add(ModBlocks.TIN_ORE);
                         entries.add(ModBlocks.DEEPSLATE_TIN_ORE);
 
+                        entries.add(ModItems.WITHER_BONE);
+                        entries.add(ModItems.WITHER_AXE);
+
                         entries.add(ModBlocks.EUCALYPTUS_LOG);
                         entries.add(ModBlocks.EUCALYPTUS_WOOD);
                         entries.add(ModBlocks.STRIPPED_EUCALYPTUS_LOG);

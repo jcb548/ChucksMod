@@ -20,8 +20,9 @@ public enum ModToolMaterials implements ToolMaterial
     PRISMARINE(MiningLevels.IRON, 200, 7.0f, 2.5f, 18,
             () -> Ingredient.ofItems(Items.PRISMARINE_SHARD)),
     TIN(MiningLevels.STONE, 144, 5.0f, 1.5f, 15,
-            () -> Ingredient.ofItems(ModItems.TIN_INGOT));
-
+            () -> Ingredient.ofItems(ModItems.TIN_INGOT)),
+    WITHER(MiningLevels.IRON, 1024, 3.0f, 4.0f,20,
+            () -> Ingredient.ofItems((ModItems.WITHER_BONE)));
     private final int miningLevel;
     private final int itemDurability;
     private final float miningSpeed;

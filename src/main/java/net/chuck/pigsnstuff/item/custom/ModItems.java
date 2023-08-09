@@ -27,6 +27,10 @@ public class ModItems {
     // Tin
     public static final Item RAW_TIN = registerItem("raw_tin", new Item(new FabricItemSettings()));
     public static final Item TIN_INGOT = registerItem("tin_ingot", new Item(new FabricItemSettings()));
+
+    public static final Item WITHER_BONE = registerItem("wither_bone", new Item(new FabricItemSettings()));
+    public static final Item WITHER_AXE = registerItem("wither_axe",
+            new ModWitherAxeItem(ModToolMaterials.WITHER, 6, -2.6f, new FabricItemSettings()));
     private static Item registerItem(String name, Item item){
         return Registry.register(Registries.ITEM, new Identifier(PigsNStuff.MOD_ID, name), item);
     }

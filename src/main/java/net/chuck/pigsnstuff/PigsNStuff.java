@@ -3,6 +3,7 @@ package net.chuck.pigsnstuff;
 import net.chuck.pigsnstuff.block.ModBlocks;
 import net.chuck.pigsnstuff.item.custom.ModItemGroups;
 import net.chuck.pigsnstuff.item.custom.ModItems;
+import net.chuck.pigsnstuff.util.ModLootTableModifiers;
 import net.chuck.pigsnstuff.util.ModRegistries;
 import net.chuck.pigsnstuff.world.gen.ModWorldGeneration;
 import net.fabricmc.api.ModInitializer;
@@ -23,5 +24,6 @@ public class PigsNStuff implements ModInitializer {
 
 		ModBlocks.registerModBlocks();
 		ModRegistries.registerModStuffs();
+		ModLootTableModifiers.modifyLootTables();
 	}
 }
