@@ -1,13 +1,13 @@
 {
   "type": "minecraft:crafting_shapeless",
-  "category": "misc",
+  "category": "building",
   "ingredients": [
     {
       "item": "pigsnstuff:tin_block"
     }
   ],
   "result": {
-    "item": "pigsnstuff:tin_ingot",
-    "count": 9
+    "count": 9,
+    "item": "pigsnstuff:tin_ingot"
   }
 }

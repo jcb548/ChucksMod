@@ -36,7 +36,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.STRIPPED_EUCALYPTUS_WOOD);
                         entries.add(ModBlocks.EUCALYPTUS_PLANKS);
                         entries.add(ModBlocks.EUCALYPTUS_LEAVES);
-                        //entries.add(ModBlocks.EUCALYPTUS_SAPLING);
+                        entries.add(ModBlocks.EUCALYPTUS_SAPLING);
                     }).build());
     public static void registerItemGroups() {
         PigsNStuff.LOGGER.info("Registering Item Groups for " + PigsNStuff.MOD_ID);

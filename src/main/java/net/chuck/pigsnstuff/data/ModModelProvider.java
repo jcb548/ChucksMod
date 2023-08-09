@@ -8,6 +8,7 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.data.client.BlockStateModelGenerator;
 import net.minecraft.data.client.ItemModelGenerator;
 import net.minecraft.data.client.Models;
+import net.minecraft.item.Item;
 
 public class ModModelProvider extends FabricModelProvider {
     public ModModelProvider(FabricDataOutput output) {
@@ -19,12 +20,31 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.TIN_BLOCK);
         blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.TIN_ORE);
         blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.DEEPSLATE_TIN_ORE);
+
+        blockStateModelGenerator.registerLog(ModBlocks.EUCALYPTUS_LOG);
+        blockStateModelGenerator.registerLog(ModBlocks.STRIPPED_EUCALYPTUS_LOG);
+        blockStateModelGenerator.registerLog(ModBlocks.EUCALYPTUS_WOOD);
+        blockStateModelGenerator.registerLog(ModBlocks.STRIPPED_EUCALYPTUS_WOOD);
+        blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.EUCALYPTUS_PLANKS);
+        blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.EUCALYPTUS_LEAVES);
+        blockStateModelGenerator.registerTintableCrossBlockState(ModBlocks.EUCALYPTUS_SAPLING,
+                BlockStateModelGenerator.TintType.NOT_TINTED);
+
     }
 
     @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
         itemModelGenerator.register(ModItems.RAW_TIN, Models.GENERATED);
         itemModelGenerator.register(ModItems.TIN_INGOT, Models.GENERATED);
+
         itemModelGenerator.register(ModItems.CHEESEBURGER, Models.GENERATED);
+
+        itemModelGenerator.register(ModItems.PRISMARINE_SWORD, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.PRISMARINE_PICKAXE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.PRISMARINE_AXE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.PRISMARINE_SHOVEL, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.PRISMARINE_HOE, Models.HANDHELD);
+
+        itemModelGenerator.register(ModBlocks.EUCALYPTUS_SAPLING.asItem(), Models.GENERATED);
     }
 }

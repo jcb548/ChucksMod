@@ -9,8 +9,9 @@
         }
       ],
       "entries": [
-        {"type": "minecraft:item",
-        "name": "pigsnstuff:tin_block"
+        {
+          "type": "minecraft:item",
+          "name": "pigsnstuff:tin_block"
         }
       ],
       "rolls": 1.0

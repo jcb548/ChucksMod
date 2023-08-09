@@ -1,15 +1,18 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "building",
-  "pattern": [
-    "###", "###", "###"
-  ],
+  "category": "misc",
   "key": {
     "#": {
       "item": "pigsnstuff:tin_ingot"
     }
   },
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
   "result": {
     "item": "pigsnstuff:tin_block"
-  }
+  },
+  "show_notification": true
 }
