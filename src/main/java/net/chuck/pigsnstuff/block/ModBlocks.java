@@ -21,6 +21,10 @@ public class ModBlocks {
 
     public static final Block TIN_BLOCK = registerBlock("tin_block",
             new Block(FabricBlockSettings.copy(Blocks.GOLD_BLOCK)));
+    public static final Block TIN_ORE = registerBlock("tin_ore",
+            new Block(FabricBlockSettings.copy(Blocks.IRON_ORE)));
+    public static final Block DEEPSLATE_TIN_ORE = registerBlock("deepslate_tin_ore",
+            new Block(FabricBlockSettings.copy(Blocks.DEEPSLATE_IRON_ORE)));
     public static final Block EUCALYPTUS_LOG = registerBlock("eucalyptus_log",
             new PillarBlock(FabricBlockSettings.copy(Blocks.OAK_LOG).strength(4.0f).requiresTool()));
     public static final Block EUCALYPTUS_WOOD = registerBlock("eucalyptus_wood",

@@ -1,5 +1,7 @@
 {
   "replace": false,
   "values": [
+    "pigsnstuff:tin_ore",
+    "pigsnstuff:deepslate_tin_ore"
   ]
 }
