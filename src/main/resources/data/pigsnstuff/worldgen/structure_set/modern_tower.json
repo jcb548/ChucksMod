@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "pigsnstuff:modern_tower",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "salt": 1642136475,
+    "spacing": 20,
+    "separation": 6,
+    "type": "minecraft:random_spread"
+  }
+}

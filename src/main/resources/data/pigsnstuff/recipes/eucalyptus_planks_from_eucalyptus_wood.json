@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "eucalyptus_planks",
+  "ingredients": [
+    {
+      "item": "pigsnstuff:eucalyptus_wood"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "item": "pigsnstuff:eucalyptus_planks"
+  }
+}

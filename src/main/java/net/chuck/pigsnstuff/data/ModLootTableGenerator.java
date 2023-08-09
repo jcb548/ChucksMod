@@ -15,5 +15,10 @@ public class ModLootTableGenerator extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.TIN_BLOCK);
         addDrop(ModBlocks.TIN_ORE, oreDrops(ModBlocks.TIN_ORE, ModItems.RAW_TIN));
         addDrop(ModBlocks.DEEPSLATE_TIN_ORE, oreDrops(ModBlocks.DEEPSLATE_TIN_ORE, ModItems.RAW_TIN));
+        addDrop(ModBlocks.EUCALYPTUS_SAPLING);
+        addDrop(ModBlocks.EUCALYPTUS_LOG);
+        addDrop(ModBlocks.EUCALYPTUS_WOOD);
+        addDrop(ModBlocks.STRIPPED_EUCALYPTUS_LOG);
+        addDrop(ModBlocks.STRIPPED_EUCALYPTUS_WOOD);
     }
 }

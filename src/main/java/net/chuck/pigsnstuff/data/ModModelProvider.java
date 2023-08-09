@@ -27,8 +27,8 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerLog(ModBlocks.STRIPPED_EUCALYPTUS_WOOD);
         blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.EUCALYPTUS_PLANKS);
         blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.EUCALYPTUS_LEAVES);
-        blockStateModelGenerator.registerTintableCrossBlockState(ModBlocks.EUCALYPTUS_SAPLING,
-                BlockStateModelGenerator.TintType.NOT_TINTED);
+        //blockStateModelGenerator.registerTintableCrossBlockState(ModBlocks.EUCALYPTUS_SAPLING,
+                //BlockStateModelGenerator.TintType.NOT_TINTED);
 
     }
 
