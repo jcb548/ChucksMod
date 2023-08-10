@@ -29,8 +29,16 @@ public class ModItems {
     public static final Item TIN_INGOT = registerItem("tin_ingot", new Item(new FabricItemSettings()));
 
     public static final Item WITHER_BONE = registerItem("wither_bone", new Item(new FabricItemSettings()));
+    public static final Item WITHER_SWORD = registerItem("wither_sword",
+            new ModWitherSwordItem(ModToolMaterials.WITHER, 3, -2.2f, new FabricItemSettings()));
+    public static final Item WITHER_PICKAXE = registerItem("wither_pickaxe",
+            new ModWitherPickaxeItem(ModToolMaterials.WITHER, 1, -2.8f, new FabricItemSettings()));
     public static final Item WITHER_AXE = registerItem("wither_axe",
-            new ModWitherAxeItem(ModToolMaterials.WITHER, 6, -2.6f, new FabricItemSettings()));
+            new ModWitherAxeItem(ModToolMaterials.WITHER, 6, -2.8f, new FabricItemSettings()));
+    public static final Item WITHER_SHOVEL = registerItem("wither_shovel",
+            new ModWitherShovelItem(ModToolMaterials.WITHER, 1, -3.8f, new FabricItemSettings()));
+    public static final Item WITHER_HOE = registerItem("wither_hoe",
+            new ModWitherHoeItem(ModToolMaterials.WITHER, -2, -0.6f, new FabricItemSettings()));
     private static Item registerItem(String name, Item item){
         return Registry.register(Registries.ITEM, new Identifier(PigsNStuff.MOD_ID, name), item);
     }

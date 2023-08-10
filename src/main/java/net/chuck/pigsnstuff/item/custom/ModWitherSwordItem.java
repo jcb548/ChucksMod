@@ -13,10 +13,11 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class ModWitherAxeItem extends ModAxeItem{
-    public ModWitherAxeItem(ToolMaterial toolMaterial, int attackDamage, float attackSpeed, Settings settings) {
+public class ModWitherSwordItem extends ModSwordItem{
+    public ModWitherSwordItem(ToolMaterial toolMaterial, int attackDamage, float attackSpeed, Settings settings) {
         super(toolMaterial, attackDamage, attackSpeed, settings);
     }
+
     @Override
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         target.addStatusEffect(new StatusEffectInstance(StatusEffects.WITHER, 100, 2), attacker);
@@ -26,7 +27,7 @@ public class ModWitherAxeItem extends ModAxeItem{
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        tooltip.add(Text.translatable("tooltip.pigsnstuff.wither_item.tooltip"));
+        tooltip.add(Text.translatable("tooltip.pigsnstuff.aqua_item.tooltip"));
         super.appendTooltip(stack, world, tooltip, context);
     }
 }

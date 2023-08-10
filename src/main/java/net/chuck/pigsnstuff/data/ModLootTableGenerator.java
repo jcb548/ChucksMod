@@ -20,5 +20,6 @@ public class ModLootTableGenerator extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.EUCALYPTUS_WOOD);
         addDrop(ModBlocks.STRIPPED_EUCALYPTUS_LOG);
         addDrop(ModBlocks.STRIPPED_EUCALYPTUS_WOOD);
+        addDrop(ModBlocks.INFUSER);
     }
 }

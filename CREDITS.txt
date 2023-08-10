@@ -1,0 +1,3 @@
+Most features have copied or taken heavy inspiration from features shown by
+Kaupenjoe Fabric modding series
+Found: https://www.youtube.com/@ModdingByKaupenjoe

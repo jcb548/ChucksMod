@@ -1,6 +1,7 @@
 package net.chuck.pigsnstuff.block;
 
 import net.chuck.pigsnstuff.PigsNStuff;
+import net.chuck.pigsnstuff.block.custom.InfuserBlock;
 import net.chuck.pigsnstuff.block.custom.ModSaplingBlock;
 import net.chuck.pigsnstuff.item.custom.ModItemGroups;
 import net.chuck.pigsnstuff.item.custom.ModItems;
@@ -39,6 +40,8 @@ public class ModBlocks {
             new LeavesBlock(FabricBlockSettings.copy(Blocks.OAK_LEAVES)));
     public static final Block EUCALYPTUS_SAPLING = registerBlock("eucalyptus_sapling",
             new SaplingBlock(new EucalyptusSaplingGenerator(),FabricBlockSettings.copy(Blocks.OAK_SAPLING)));
+    public static final Block INFUSER = registerBlock("infuser",
+            new InfuserBlock(FabricBlockSettings.copy(Blocks.SMOOTH_STONE)));
     private static Block registerBlock(String name, Block block){
         registerBlockItem(name, block);
         return Registry.register(Registries.BLOCK, new Identifier(PigsNStuff.MOD_ID, name), block);

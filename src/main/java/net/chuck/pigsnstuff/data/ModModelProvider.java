@@ -30,6 +30,7 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerTintableCrossBlockState(ModBlocks.EUCALYPTUS_SAPLING,
                 BlockStateModelGenerator.TintType.NOT_TINTED);
 
+        blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.INFUSER);
     }
 
     @Override
@@ -46,7 +47,11 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.PRISMARINE_HOE, Models.HANDHELD);
 
         itemModelGenerator.register(ModItems.WITHER_BONE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.WITHER_SWORD, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.WITHER_PICKAXE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.WITHER_AXE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.WITHER_SHOVEL, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.WITHER_HOE, Models.HANDHELD);
 
         itemModelGenerator.register(ModBlocks.EUCALYPTUS_SAPLING.asItem(), Models.GENERATED);
     }

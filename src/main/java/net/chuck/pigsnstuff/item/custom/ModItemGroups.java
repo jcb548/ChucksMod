@@ -31,7 +31,11 @@ public class ModItemGroups {
                         entries.add(ModBlocks.DEEPSLATE_TIN_ORE);
 
                         entries.add(ModItems.WITHER_BONE);
+                        entries.add(ModItems.WITHER_SWORD);
+                        entries.add(ModItems.WITHER_PICKAXE);
                         entries.add(ModItems.WITHER_AXE);
+                        entries.add(ModItems.WITHER_SHOVEL);
+                        entries.add(ModItems.WITHER_HOE);;
 
                         entries.add(ModBlocks.EUCALYPTUS_LOG);
                         entries.add(ModBlocks.EUCALYPTUS_WOOD);
@@ -40,6 +44,8 @@ public class ModItemGroups {
                         entries.add(ModBlocks.EUCALYPTUS_PLANKS);
                         entries.add(ModBlocks.EUCALYPTUS_LEAVES);
                         entries.add(ModBlocks.EUCALYPTUS_SAPLING);
+
+                        entries.add(ModBlocks.INFUSER);
                     }).build());
     public static void registerItemGroups() {
         PigsNStuff.LOGGER.info("Registering Item Groups for " + PigsNStuff.MOD_ID);

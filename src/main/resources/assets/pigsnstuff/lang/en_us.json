@@ -15,8 +15,12 @@
   "block.pigsnstuff.deepslate_tin_ore": "Deepslate Tin Ore",
 
   "item.pigsnstuff.wither_bone": "Wither Skeleton Bone",
+  "item.pigsnstuff.wither_sword": "Withering Sword",
+  "item.pigsnstuff.wither_pickaxe": "Withering Pickaxe",
   "item.pigsnstuff.wither_axe": "Withering Axe",
-  "tooltip.pigsnstuff.wither_item.tooltip": "Heals for 2 Health on hit",
+  "item.pigsnstuff.wither_shovel": "Withering Shovel",
+  "item.pigsnstuff.wither_hoe": "Withering Hoe",
+  "tooltip.pigsnstuff.wither_item.tooltip": "Applies wither effect on hit",
 
   "block.pigsnstuff.eucalyptus_log": "Eucalyptus Log",
   "block.pigsnstuff.eucalyptus_wood": "Eucalyptus Wood",
@@ -26,5 +30,6 @@
   "block.pigsnstuff.eucalyptus_leaves": "Eucalyptus Leaves",
   "block.pigsnstuff.eucalyptus_sapling": "Eucalyptus Sapling",
 
+  "block.pigsnstuff.infuser": "Infuser",
   "itemgroup.pigsnstuff": "Pigs N Stuff"
 }
