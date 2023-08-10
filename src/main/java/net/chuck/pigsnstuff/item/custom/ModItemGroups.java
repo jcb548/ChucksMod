@@ -30,6 +30,12 @@ public class ModItemGroups {
                         entries.add(ModBlocks.TIN_ORE);
                         entries.add(ModBlocks.DEEPSLATE_TIN_ORE);
 
+                        entries.add(ModItems.RAW_FABIUM);
+                        entries.add(ModItems.FABIUM_INGOT);
+                        entries.add(ModBlocks.RAW_FABIUM_BLOCK);
+                        entries.add(ModBlocks.FABIUM_BLOCK);
+                        entries.add(ModBlocks.FABIUM_ORE);
+
                         entries.add(ModItems.WITHER_BONE);
                         entries.add(ModItems.WITHER_SWORD);
                         entries.add(ModItems.WITHER_PICKAXE);

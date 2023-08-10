@@ -22,7 +22,9 @@ public enum ModToolMaterials implements ToolMaterial
     TIN(MiningLevels.STONE, 144, 5.0f, 1.5f, 15,
             () -> Ingredient.ofItems(ModItems.TIN_INGOT)),
     WITHER(MiningLevels.IRON, 1024, 3.0f, 4.0f,20,
-            () -> Ingredient.ofItems((ModItems.WITHER_BONE)));
+            () -> Ingredient.ofItems((ModItems.WITHER_BONE))),
+    FABIUM(MiningLevels.NETHERITE, 1200, 8.0f, 4.0f, 12,
+            () -> Ingredient.ofItems(ModItems.FABIUM_INGOT));
     private final int miningLevel;
     private final int itemDurability;
     private final float miningSpeed;

@@ -14,6 +14,12 @@
   "block.pigsnstuff.tin_ore": "Tin Ore",
   "block.pigsnstuff.deepslate_tin_ore": "Deepslate Tin Ore",
 
+  "item.pigsnstuff.raw_fabium": "Raw Fabium",
+  "item.pigsnstuff.fabium_ingot": "Fabium Ingot",
+  "block.pigsnstuff.fabium_block": "Block of Tin",
+  "block.pigsnstuff.raw_fabium_block": "Block of Raw Fabium",
+  "block.pigsnstuff.fabium_ore": "Fabium Ore",
+
   "item.pigsnstuff.wither_bone": "Wither Skeleton Bone",
   "item.pigsnstuff.wither_sword": "Withering Sword",
   "item.pigsnstuff.wither_pickaxe": "Withering Pickaxe",

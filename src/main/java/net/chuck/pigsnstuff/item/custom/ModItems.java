@@ -10,6 +10,7 @@ import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
 public class ModItems {
+    // random food items
     public static final Item CHEESEBURGER = registerItem("cheeseburger",
             new Item(new FabricItemSettings().food(ModFoodComponents.CHEESEBURGER)));
 
@@ -27,7 +28,7 @@ public class ModItems {
     // Tin
     public static final Item RAW_TIN = registerItem("raw_tin", new Item(new FabricItemSettings()));
     public static final Item TIN_INGOT = registerItem("tin_ingot", new Item(new FabricItemSettings()));
-
+    // Wither items
     public static final Item WITHER_BONE = registerItem("wither_bone", new Item(new FabricItemSettings()));
     public static final Item WITHER_SWORD = registerItem("wither_sword",
             new ModWitherSwordItem(ModToolMaterials.WITHER, 3, -2.2f, new FabricItemSettings()));
@@ -39,6 +40,9 @@ public class ModItems {
             new ModWitherShovelItem(ModToolMaterials.WITHER, 1, -3.8f, new FabricItemSettings()));
     public static final Item WITHER_HOE = registerItem("wither_hoe",
             new ModWitherHoeItem(ModToolMaterials.WITHER, -2, -0.6f, new FabricItemSettings()));
+    //Fabium
+    public static final Item RAW_FABIUM = registerItem("raw_fabium", new Item(new FabricItemSettings()));
+    public static final Item FABIUM_INGOT = registerItem("fabium_ingot", new Item(new FabricItemSettings()));
     private static Item registerItem(String name, Item item){
         return Registry.register(Registries.ITEM, new Identifier(PigsNStuff.MOD_ID, name), item);
     }

@@ -23,7 +23,7 @@ import java.util.List;
 public class ModPlacedFeatures {
     public static final RegistryKey<PlacedFeature> EUCALYPTUS_PLACED_KEY = registerKey("eucalyptus_placed");
     public static final RegistryKey<PlacedFeature> TIN_ORE_PLACED_KEY = registerKey("tin_ore_placed");
-
+    public static final RegistryKey<PlacedFeature> FABIUM_ORE_PLACED_KEY = registerKey("fabium_ore_placed");
     public static void bootstrap(Registerable<PlacedFeature> context) {
         var configuredFeatureRegistryEntryLookup = context.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE);
 
@@ -34,6 +34,9 @@ public class ModPlacedFeatures {
         register(context, TIN_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup
                         .getOrThrow(ModConfiguredFeatures.TIN_ORE_KEY), ModOrePlacement.modifiersWithCount(12,
                         HeightRangePlacementModifier.uniform(YOffset.fixed( -80), YOffset.fixed(80))));
+        register(context, FABIUM_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup
+                        .getOrThrow(ModConfiguredFeatures.FABIUM_ORE_KEY), ModOrePlacement.modifiersWithCount(30,
+                        HeightRangePlacementModifier.uniform(YOffset.fixed( 0), YOffset.fixed(128))));
     }
 
     public static RegistryKey<PlacedFeature> registerKey(String name) {

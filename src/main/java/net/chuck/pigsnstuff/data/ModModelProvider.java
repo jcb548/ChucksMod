@@ -21,6 +21,10 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.TIN_ORE);
         blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.DEEPSLATE_TIN_ORE);
 
+        blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.FABIUM_BLOCK);
+        blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.RAW_FABIUM_BLOCK);
+        blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.FABIUM_ORE);
+
         blockStateModelGenerator.registerLog(ModBlocks.EUCALYPTUS_LOG);
         blockStateModelGenerator.registerLog(ModBlocks.STRIPPED_EUCALYPTUS_LOG);
         blockStateModelGenerator.registerLog(ModBlocks.EUCALYPTUS_WOOD);
@@ -37,6 +41,9 @@ public class ModModelProvider extends FabricModelProvider {
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
         itemModelGenerator.register(ModItems.RAW_TIN, Models.GENERATED);
         itemModelGenerator.register(ModItems.TIN_INGOT, Models.GENERATED);
+
+        itemModelGenerator.register(ModItems.RAW_FABIUM, Models.GENERATED);
+        itemModelGenerator.register(ModItems.FABIUM_INGOT, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.CHEESEBURGER, Models.GENERATED);
 

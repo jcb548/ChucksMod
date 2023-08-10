@@ -1,5 +1,8 @@
 {
   "replace": false,
   "values": [
+    "pigsnstuff:fabium_block",
+    "pigsnstuff:raw_fabium_block",
+    "pigsnstuff:fabium_ore"
   ]
 }

@@ -19,13 +19,14 @@ import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 
 public class ModBlocks {
-
+    // Tin
     public static final Block TIN_BLOCK = registerBlock("tin_block",
             new Block(FabricBlockSettings.copy(Blocks.GOLD_BLOCK)));
     public static final Block TIN_ORE = registerBlock("tin_ore",
             new Block(FabricBlockSettings.copy(Blocks.IRON_ORE)));
     public static final Block DEEPSLATE_TIN_ORE = registerBlock("deepslate_tin_ore",
             new Block(FabricBlockSettings.copy(Blocks.DEEPSLATE_IRON_ORE)));
+    // Eucalyptus
     public static final Block EUCALYPTUS_LOG = registerBlock("eucalyptus_log",
             new PillarBlock(FabricBlockSettings.copy(Blocks.OAK_LOG).strength(4.0f)));
     public static final Block EUCALYPTUS_WOOD = registerBlock("eucalyptus_wood",
@@ -42,6 +43,14 @@ public class ModBlocks {
             new SaplingBlock(new EucalyptusSaplingGenerator(),FabricBlockSettings.copy(Blocks.OAK_SAPLING)));
     public static final Block INFUSER = registerBlock("infuser",
             new InfuserBlock(FabricBlockSettings.copy(Blocks.SMOOTH_STONE)));
+    // Fabium
+    public static final Block FABIUM_BLOCK = registerBlock("fabium_block",
+            new Block(FabricBlockSettings.copy(Blocks.GOLD_BLOCK)));
+    public static final Block RAW_FABIUM_BLOCK = registerBlock("raw_fabium_block",
+            new Block(FabricBlockSettings.copy(Blocks.RAW_GOLD_BLOCK)));
+    public static final Block FABIUM_ORE = registerBlock("fabium_ore",
+            new Block(FabricBlockSettings.copy(Blocks.NETHER_QUARTZ_ORE)));
+
     private static Block registerBlock(String name, Block block){
         registerBlockItem(name, block);
         return Registry.register(Registries.BLOCK, new Identifier(PigsNStuff.MOD_ID, name), block);
