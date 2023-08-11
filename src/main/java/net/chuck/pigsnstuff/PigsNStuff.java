@@ -10,7 +10,8 @@ import net.chuck.pigsnstuff.util.ModRegistries;
 import net.chuck.pigsnstuff.world.gen.ModWorldGeneration;
 import net.fabricmc.api.ModInitializer;
 
-import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
+import net.kyrptonaught.customportalapi.api.CustomPortalBuilder;
+import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -24,7 +25,6 @@ public class PigsNStuff implements ModInitializer {
 		ModItems.registerModItems();
 
 		ModWorldGeneration.generateModWorldGen();
-
 		ModBlocks.registerModBlocks();
 		ModRegistries.registerModStuffs();
 		ModLootTableModifiers.modifyLootTables();
@@ -32,6 +32,10 @@ public class PigsNStuff implements ModInitializer {
 		ModBlockEntities.registerBlockEntities();
 		ModScreenHandlers.registerAllScreenHandlers();
 
+		//Custom portals
+		CustomPortalBuilder.beginPortal().frameBlock(ModBlocks.FABIUM_BLOCK).lightWithItem(ModItems.WITHER_BONE)
+				.destDimID(new Identifier("pigsnstuff", "test"))
+				.tintColor(234, 183, 8).registerPortal();
 		//ServerTickEvents.START_SERVER_TICK.register(new PlayerTickHandler());
 	}
 }
