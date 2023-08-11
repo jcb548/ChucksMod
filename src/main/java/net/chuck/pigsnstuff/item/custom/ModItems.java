@@ -43,6 +43,16 @@ public class ModItems {
     //Fabium
     public static final Item RAW_FABIUM = registerItem("raw_fabium", new Item(new FabricItemSettings()));
     public static final Item FABIUM_INGOT = registerItem("fabium_ingot", new Item(new FabricItemSettings()));
+    public static final Item FABIUM_SWORD = registerItem("fabium_sword",
+            new ModAntiLargeSwordItem(ModToolMaterials.FABIUM, 3, -1.8f, new FabricItemSettings()));
+    public static final Item FABIUM_PICKAXE = registerItem("fabium_pickaxe",
+            new ModAntiLargeSwordItem(ModToolMaterials.FABIUM, 1, -2.4f, new FabricItemSettings()));
+    public static final Item FABIUM_AXE = registerItem("fabium_axe",
+            new ModAntiLargeSwordItem(ModToolMaterials.FABIUM, 6, -3.2f, new FabricItemSettings()));
+    public static final Item FABIUM_SHOVEL = registerItem("fabium_shovel",
+            new ModAntiLargeSwordItem(ModToolMaterials.FABIUM, 1, -2.0f, new FabricItemSettings()));
+    public static final Item FABIUM_HOE = registerItem("fabium_hoe",
+            new ModAntiLargeSwordItem(ModToolMaterials.FABIUM, -2, -2.0f, new FabricItemSettings()));
     private static Item registerItem(String name, Item item){
         return Registry.register(Registries.ITEM, new Identifier(PigsNStuff.MOD_ID, name), item);
     }

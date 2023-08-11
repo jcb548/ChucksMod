@@ -19,6 +19,12 @@
   "block.pigsnstuff.fabium_block": "Block of Tin",
   "block.pigsnstuff.raw_fabium_block": "Block of Raw Fabium",
   "block.pigsnstuff.fabium_ore": "Fabium Ore",
+  "item.pigsnstuff.fabium_sword": "Fabium Sword",
+  "item.pigsnstuff.fabium_pickaxe": "Fabium Pickaxe",
+  "item.pigsnstuff.fabium_axe": "Fabium Axe",
+  "item.pigsnstuff.fabium_shovel": "Fabium Shovel",
+  "item.pigsnstuff.fabium_hoe": "Fabium Hoe",
+  "tooltip.pigsnstuff.anti_large_item.tooltip": "Deals 1.5x damage to wide (> 1.2 blocks) mobs",
 
   "item.pigsnstuff.wither_bone": "Wither Skeleton Bone",
   "item.pigsnstuff.wither_sword": "Withering Sword",

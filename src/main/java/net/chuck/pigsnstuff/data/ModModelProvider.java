@@ -44,6 +44,11 @@ public class ModModelProvider extends FabricModelProvider {
 
         itemModelGenerator.register(ModItems.RAW_FABIUM, Models.GENERATED);
         itemModelGenerator.register(ModItems.FABIUM_INGOT, Models.GENERATED);
+        itemModelGenerator.register(ModItems.FABIUM_SWORD, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.FABIUM_PICKAXE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.FABIUM_AXE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.FABIUM_SHOVEL, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.FABIUM_HOE, Models.HANDHELD);
 
         itemModelGenerator.register(ModItems.CHEESEBURGER, Models.GENERATED);
 

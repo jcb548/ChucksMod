@@ -29,9 +29,9 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
         offerReversibleCompactingRecipes(exporter, RecipeCategory.BUILDING_BLOCKS, ModItems.TIN_INGOT,
                 RecipeCategory.DECORATIONS, ModBlocks.TIN_BLOCK);
 
-        offerSmelting(exporter, List.of(ModItems.RAW_FABIUM), RecipeCategory.MISC, ModItems.TIN_INGOT,
+        offerSmelting(exporter, List.of(ModItems.RAW_FABIUM), RecipeCategory.MISC, ModItems.FABIUM_INGOT,
                 0.7f, 200, "fabium_ingot");
-        offerBlasting(exporter, List.of(ModItems.RAW_FABIUM), RecipeCategory.MISC, ModItems.TIN_INGOT,
+        offerBlasting(exporter, List.of(ModItems.RAW_FABIUM), RecipeCategory.MISC, ModItems.FABIUM_INGOT,
                 0.7f, 100, "fabium_ingot");
         offerReversibleCompactingRecipes(exporter, RecipeCategory.BUILDING_BLOCKS, ModItems.RAW_FABIUM,
                 RecipeCategory.DECORATIONS, ModBlocks.RAW_FABIUM_BLOCK);

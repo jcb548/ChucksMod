@@ -118,6 +118,7 @@ public class InfuserBlockEntity extends BlockEntity implements NamedScreenHandle
             infuserBlockEntity.removeStack(1,1);
             infuserBlockEntity.setStack(2, new ItemStack(ModItems.WITHER_BONE,
                     infuserBlockEntity.getStack(2).getCount() + 1));
+            infuserBlockEntity.resetProgress();
         }
     }
 
@@ -128,7 +129,7 @@ public class InfuserBlockEntity extends BlockEntity implements NamedScreenHandle
         }
         boolean hasRawItemInFirstSlot = infuserBlockEntity.getStack(1).getItem() == Items.BONE;
 
-        return hasRawItemInFirstSlot && canInsertAmountIntoOutputSlot(inventory, 1) &&
+        return hasRawItemInFirstSlot && canInsertAmountIntoOutputSlot(inventory) &&
                 canInsertItemIntoOutputSlot(inventory, ModItems.WITHER_BONE);
     }
 
@@ -136,7 +137,7 @@ public class InfuserBlockEntity extends BlockEntity implements NamedScreenHandle
         return inventory.getStack(2).getItem() == output || inventory.getStack(2).isEmpty();
     }
 
-    private static boolean canInsertAmountIntoOutputSlot(SimpleInventory inventory, int count) {
-        return inventory.getStack(2).getMaxCount() > inventory.getStack(2).getCount() + count;
+    private static boolean canInsertAmountIntoOutputSlot(SimpleInventory inventory) {
+        return inventory.getStack(2).getMaxCount() > inventory.getStack(2).getCount();
     }
 }
