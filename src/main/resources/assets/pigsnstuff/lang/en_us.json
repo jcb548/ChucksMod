@@ -26,6 +26,17 @@
   "item.pigsnstuff.fabium_hoe": "Fabium Hoe",
   "tooltip.pigsnstuff.anti_large_item.tooltip": "Deals 1.5x damage to wide (> 1.2 blocks) mobs",
 
+  "item.pigsnstuff.raw_diritonium": "Raw Diritonium",
+  "item.pigsnstuff.diritonium_ingot": "Diritonium Ingot",
+  "block.pigsnstuff.diritonium_block": "Block of Diritonium",
+  "block.pigsnstuff.raw_diritonium_block": "Block of Raw Diritonium",
+  "block.pigsnstuff.diritonium_ore": "Diritonium Ore",
+  "item.pigsnstuff.diritonium_sword": "Diritonium Sword",
+  "item.pigsnstuff.diritonium_pickaxe": "Diritonium Pickaxe",
+  "item.pigsnstuff.diritonium_axe": "Diritonium Axe",
+  "item.pigsnstuff.diritonium_shovel": "Diritonium Shovel",
+  "item.pigsnstuff.diritonium_hoe": "Diritonium Hoe",
+
   "item.pigsnstuff.wither_bone": "Wither Skeleton Bone",
   "item.pigsnstuff.wither_sword": "Withering Sword",
   "item.pigsnstuff.wither_pickaxe": "Withering Pickaxe",

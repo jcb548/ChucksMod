@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "D": {
+      "item": "pigsnstuff:diritonium_ingot"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "DD",
+    "DS",
+    " S"
+  ],
+  "result": {
+    "item": "pigsnstuff:diritonium_axe"
+  },
+  "show_notification": true
+}

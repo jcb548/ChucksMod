@@ -1,7 +1,8 @@
-package net.chuck.pigsnstuff.item.custom;
+package net.chuck.pigsnstuff.item;
 
 import net.chuck.pigsnstuff.PigsNStuff;
 import net.chuck.pigsnstuff.block.ModBlocks;
+import net.chuck.pigsnstuff.item.ModItems;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
@@ -40,6 +41,17 @@ public class ModItemGroups {
                         entries.add(ModItems.FABIUM_AXE);
                         entries.add(ModItems.FABIUM_SHOVEL);
                         entries.add(ModItems.FABIUM_HOE);
+
+                        entries.add(ModItems.RAW_DIRITONIUM);
+                        entries.add(ModItems.DIRITONIUM_INGOT);
+                        entries.add(ModBlocks.RAW_DIRITONIUM_BLOCK);
+                        entries.add(ModBlocks.DIRITONIUM_BLOCK);
+                        entries.add(ModBlocks.DIRITONIUM_ORE);
+                        entries.add(ModItems.DIRITONIUM_SWORD);
+                        entries.add(ModItems.DIRITONIUM_PICKAXE);
+                        entries.add(ModItems.DIRITONIUM_AXE);
+                        entries.add(ModItems.DIRITONIUM_SHOVEL);
+                        entries.add(ModItems.DIRITONIUM_HOE);
 
                         entries.add(ModItems.WITHER_BONE);
                         entries.add(ModItems.WITHER_SWORD);

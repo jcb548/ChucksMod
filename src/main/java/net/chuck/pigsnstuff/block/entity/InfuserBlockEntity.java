@@ -1,10 +1,9 @@
 package net.chuck.pigsnstuff.block.entity;
 
-import net.chuck.pigsnstuff.item.custom.ModItems;
+import net.chuck.pigsnstuff.item.ModItems;
 import net.chuck.pigsnstuff.screen.InfusingScreenHandler;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;

@@ -2,20 +2,14 @@ package net.chuck.pigsnstuff.block;
 
 import net.chuck.pigsnstuff.PigsNStuff;
 import net.chuck.pigsnstuff.block.custom.InfuserBlock;
-import net.chuck.pigsnstuff.block.custom.ModSaplingBlock;
-import net.chuck.pigsnstuff.item.custom.ModItemGroups;
-import net.chuck.pigsnstuff.item.custom.ModItems;
 import net.chuck.pigsnstuff.world.tree.EucalyptusSaplingGenerator;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
-import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.minecraft.block.*;
-import net.minecraft.block.sapling.SaplingGenerator;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
-import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 
 public class ModBlocks {
@@ -50,6 +44,14 @@ public class ModBlocks {
             new Block(FabricBlockSettings.copy(Blocks.RAW_GOLD_BLOCK)));
     public static final Block FABIUM_ORE = registerBlock("fabium_ore",
             new Block(FabricBlockSettings.copy(Blocks.NETHER_QUARTZ_ORE)));
+
+    // Diritonium
+    public static final Block DIRITONIUM_BLOCK = registerBlock("diritonium_block",
+            new Block(FabricBlockSettings.copy(Blocks.GOLD_BLOCK)));
+    public static final Block RAW_DIRITONIUM_BLOCK = registerBlock("raw_diritonium_block",
+            new Block(FabricBlockSettings.copy(Blocks.RAW_GOLD_BLOCK)));
+    public static final Block DIRITONIUM_ORE = registerBlock("diritonium_ore",
+            new Block(FabricBlockSettings.copy(Blocks.GOLD_ORE).strength(5.0f, 9.0f)));
 
     private static Block registerBlock(String name, Block block){
         registerBlockItem(name, block);

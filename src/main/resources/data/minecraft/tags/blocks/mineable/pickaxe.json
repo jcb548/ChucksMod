@@ -9,6 +9,10 @@
     "pigsnstuff:raw_fabium_block",
     "pigsnstuff:fabium_ore",
 
+    "pigsnstuff:diritonium_block",
+    "pigsnstuff:raw_diritonium_block",
+    "pigsnstuff:diritonium_ore",
+
     "pigsnstuff:infuser"
   ]
 }

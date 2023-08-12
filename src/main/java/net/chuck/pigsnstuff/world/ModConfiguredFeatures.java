@@ -2,6 +2,9 @@ package net.chuck.pigsnstuff.world;
 
 import net.chuck.pigsnstuff.PigsNStuff;
 import net.chuck.pigsnstuff.block.ModBlocks;
+import net.chuck.pigsnstuff.block.custom.ModBlockTags;
+import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.registry.Registerable;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
@@ -21,6 +24,7 @@ public class ModConfiguredFeatures {
     public static final RegistryKey<ConfiguredFeature<?, ?>> EUCALYPTUS_KEY = registerKey("eucalyptus");
     public static final RegistryKey<ConfiguredFeature<?, ?>> TIN_ORE_KEY = registerKey("tin_ore");
     public static final RegistryKey<ConfiguredFeature<?, ?>> FABIUM_ORE_KEY = registerKey("fabium_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> DIRITONIUM_ORE_KEY = registerKey("diritonium_ore");
 
     public static RegistryKey<ConfiguredFeature<?, ?>> registerKey(String name) {
         return RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE, new Identifier(PigsNStuff.MOD_ID, name));
@@ -30,6 +34,7 @@ public class ModConfiguredFeatures {
         RuleTest stoneReplaceables = new TagMatchRuleTest(BlockTags.STONE_ORE_REPLACEABLES);
         RuleTest deepslateReplaceables = new TagMatchRuleTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES);
         RuleTest netherrackReplaceables = new TagMatchRuleTest(BlockTags.BASE_STONE_NETHER);
+        RuleTest endstoneReplaceables = new TagMatchRuleTest(BlockTags.DRAGON_IMMUNE);
 
         List<OreFeatureConfig.Target> overworldTinOres =
                 List.of(OreFeatureConfig.createTarget(stoneReplaceables,
@@ -40,6 +45,8 @@ public class ModConfiguredFeatures {
         List<OreFeatureConfig.Target> netherFabiumOre =
                 List.of(OreFeatureConfig.createTarget(netherrackReplaceables,
                         ModBlocks.FABIUM_ORE.getDefaultState()));
+        List<OreFeatureConfig.Target> endDiritoniumOre =
+                List.of(OreFeatureConfig.createTarget(endstoneReplaceables, ModBlocks.DIRITONIUM_ORE.getDefaultState()));
 
         register(context, EUCALYPTUS_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
                 BlockStateProvider.of(ModBlocks.EUCALYPTUS_LOG),
@@ -50,6 +57,7 @@ public class ModConfiguredFeatures {
 
         register(context, TIN_ORE_KEY, Feature.ORE, new OreFeatureConfig(overworldTinOres, 9));
         register(context, FABIUM_ORE_KEY, Feature.ORE, new OreFeatureConfig(netherFabiumOre, 6));
+        //register(context, DIRITONIUM_ORE_KEY, Feature.ORE, new OreFeatureConfig(endDiritoniumOre, 6));
     }
     private static <FC extends FeatureConfig, F extends Feature<FC>> void
         register(Registerable<ConfiguredFeature<?, ?>> context, RegistryKey<ConfiguredFeature<?, ?>> key,

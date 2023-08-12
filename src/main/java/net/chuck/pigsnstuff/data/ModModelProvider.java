@@ -1,14 +1,12 @@
 package net.chuck.pigsnstuff.data;
 
-import com.ibm.icu.text.Normalizer2;
 import net.chuck.pigsnstuff.block.ModBlocks;
-import net.chuck.pigsnstuff.item.custom.ModItems;
+import net.chuck.pigsnstuff.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.data.client.BlockStateModelGenerator;
 import net.minecraft.data.client.ItemModelGenerator;
 import net.minecraft.data.client.Models;
-import net.minecraft.item.Item;
 
 public class ModModelProvider extends FabricModelProvider {
     public ModModelProvider(FabricDataOutput output) {
@@ -24,6 +22,10 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.FABIUM_BLOCK);
         blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.RAW_FABIUM_BLOCK);
         blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.FABIUM_ORE);
+
+        blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.DIRITONIUM_BLOCK);
+        blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.RAW_DIRITONIUM_BLOCK);
+        blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.DIRITONIUM_ORE);
 
         blockStateModelGenerator.registerLog(ModBlocks.EUCALYPTUS_LOG);
         blockStateModelGenerator.registerLog(ModBlocks.STRIPPED_EUCALYPTUS_LOG);
@@ -49,6 +51,14 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.FABIUM_AXE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.FABIUM_SHOVEL, Models.HANDHELD);
         itemModelGenerator.register(ModItems.FABIUM_HOE, Models.HANDHELD);
+
+        itemModelGenerator.register(ModItems.RAW_DIRITONIUM, Models.GENERATED);
+        itemModelGenerator.register(ModItems.DIRITONIUM_INGOT, Models.GENERATED);
+        itemModelGenerator.register(ModItems.DIRITONIUM_SWORD, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.DIRITONIUM_PICKAXE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.DIRITONIUM_AXE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.DIRITONIUM_SHOVEL, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.DIRITONIUM_HOE, Models.HANDHELD);
 
         itemModelGenerator.register(ModItems.CHEESEBURGER, Models.GENERATED);
 

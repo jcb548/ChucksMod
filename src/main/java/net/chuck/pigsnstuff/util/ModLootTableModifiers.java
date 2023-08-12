@@ -1,6 +1,6 @@
 package net.chuck.pigsnstuff.util;
 
-import net.chuck.pigsnstuff.item.custom.ModItems;
+import net.chuck.pigsnstuff.item.ModItems;
 import net.fabricmc.fabric.api.loot.v2.LootTableEvents;
 import net.minecraft.item.Items;
 import net.minecraft.loot.LootPool;

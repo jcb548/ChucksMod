@@ -1,6 +1,7 @@
-package net.chuck.pigsnstuff.item.custom;
+package net.chuck.pigsnstuff.item;
 
 import net.chuck.pigsnstuff.PigsNStuff;
+import net.chuck.pigsnstuff.item.custom.*;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.Item;
 import net.minecraft.item.SwordItem;
@@ -46,13 +47,28 @@ public class ModItems {
     public static final Item FABIUM_SWORD = registerItem("fabium_sword",
             new ModAntiLargeSwordItem(ModToolMaterials.FABIUM, 3, -1.8f, new FabricItemSettings()));
     public static final Item FABIUM_PICKAXE = registerItem("fabium_pickaxe",
-            new ModAntiLargeSwordItem(ModToolMaterials.FABIUM, 1, -2.4f, new FabricItemSettings()));
+            new ModAntiLargePickaxeItem(ModToolMaterials.FABIUM, 1, -2.4f, new FabricItemSettings()));
     public static final Item FABIUM_AXE = registerItem("fabium_axe",
-            new ModAntiLargeSwordItem(ModToolMaterials.FABIUM, 6, -3.2f, new FabricItemSettings()));
+            new ModAntiLargeAxeItem(ModToolMaterials.FABIUM, 6, -3.2f, new FabricItemSettings()));
     public static final Item FABIUM_SHOVEL = registerItem("fabium_shovel",
-            new ModAntiLargeSwordItem(ModToolMaterials.FABIUM, 1, -2.0f, new FabricItemSettings()));
+            new ModAntiLargeShovelItem(ModToolMaterials.FABIUM, 1, -2.0f, new FabricItemSettings()));
     public static final Item FABIUM_HOE = registerItem("fabium_hoe",
-            new ModAntiLargeSwordItem(ModToolMaterials.FABIUM, -2, -2.0f, new FabricItemSettings()));
+            new ModAntiLargeHoeItem(ModToolMaterials.FABIUM, -2, -2.0f, new FabricItemSettings()));
+
+    // Diritonium
+    public static final Item RAW_DIRITONIUM = registerItem("raw_diritonium", new Item(new FabricItemSettings()));
+    public static final Item DIRITONIUM_INGOT = registerItem("diritonium_ingot", new Item(new FabricItemSettings()));
+    public static final Item DIRITONIUM_SWORD = registerItem("diritonium_sword",
+            new ModSwordItem(ModToolMaterials.DIRITONIUM, 3, -1.6f, new FabricItemSettings()));
+    public static final Item DIRITONIUM_PICKAXE = registerItem("diritonium_pickaxe",
+            new ModPickaxeItem(ModToolMaterials.DIRITONIUM, 1, -2.2f, new FabricItemSettings()));
+    public static final Item DIRITONIUM_AXE = registerItem("diritonium_axe",
+            new ModAxeItem(ModToolMaterials.DIRITONIUM, 6, -3.0f, new FabricItemSettings()));
+    public static final Item DIRITONIUM_SHOVEL = registerItem("diritonium_shovel",
+            new ModShovelItem(ModToolMaterials.DIRITONIUM, 1, -1.8f, new FabricItemSettings()));
+    public static final Item DIRITONIUM_HOE = registerItem("diritonium_hoe",
+            new ModHoeItem(ModToolMaterials.DIRITONIUM, -2, -1.8f, new FabricItemSettings()));
+
     private static Item registerItem(String name, Item item){
         return Registry.register(Registries.ITEM, new Identifier(PigsNStuff.MOD_ID, name), item);
     }

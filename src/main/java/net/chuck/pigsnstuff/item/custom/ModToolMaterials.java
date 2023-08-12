@@ -1,10 +1,10 @@
 package net.chuck.pigsnstuff.item.custom;
 
+import net.chuck.pigsnstuff.item.ModItems;
 import net.fabricmc.yarn.constants.MiningLevels;
 import net.minecraft.item.Items;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.recipe.Ingredient;
-import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.util.Lazy;
 
 import java.util.function.Supplier;
@@ -24,7 +24,9 @@ public enum ModToolMaterials implements ToolMaterial
     WITHER(MiningLevels.IRON, 1024, 3.0f, 4.0f,20,
             () -> Ingredient.ofItems((ModItems.WITHER_BONE))),
     FABIUM(MiningLevels.NETHERITE, 1200, 8.0f, 4.0f, 12,
-            () -> Ingredient.ofItems(ModItems.FABIUM_INGOT));
+            () -> Ingredient.ofItems(ModItems.FABIUM_INGOT)),
+    DIRITONIUM(5, 2431, 9.0f, 5.0f, 22,
+            () -> Ingredient.ofItems(ModItems.DIRITONIUM_INGOT));
     private final int miningLevel;
     private final int itemDurability;
     private final float miningSpeed;
