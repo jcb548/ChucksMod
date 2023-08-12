@@ -37,7 +37,7 @@ public class PigsNStuff implements ModInitializer {
 		//Custom portals
 		CustomPortalBuilder.beginPortal().frameBlock(ModBlocks.FABIUM_BLOCK)
 				.lightWithItem(ModItems.WITHER_BONE)
-				.destDimID(new Identifier("minecraft", "the_end"))
+				.destDimID(new Identifier("pigsnstuff", "test"))
 				.tintColor(256, 0, 0).registerPortal();
 		//ServerTickEvents.START_SERVER_TICK.register(new PlayerTickHandler());
 	}
