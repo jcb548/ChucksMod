@@ -10,10 +10,18 @@ import net.chuck.pigsnstuff.util.ModRegistries;
 import net.chuck.pigsnstuff.world.gen.ModWorldGeneration;
 import net.fabricmc.api.ModInitializer;
 
+import net.fabricmc.fabric.api.block.v1.FabricBlockState;
+import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.kyrptonaught.customportalapi.api.CustomPortalBuilder;
+import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.client.color.block.BlockColorProvider;
 import net.minecraft.item.Items;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.BlockRenderView;
+import net.minecraft.world.gen.stateprovider.BlockStateProvider;
+import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -35,10 +43,14 @@ public class PigsNStuff implements ModInitializer {
 		ModScreenHandlers.registerAllScreenHandlers();
 
 		//Custom portals
-		CustomPortalBuilder.beginPortal().frameBlock(ModBlocks.FABIUM_BLOCK)
+		CustomPortalBuilder.beginPortal().frameBlock(Blocks.GOLD_BLOCK)
 				.lightWithItem(ModItems.WITHER_BONE)
 				.destDimID(new Identifier("pigsnstuff", "test"))
 				.tintColor(256, 0, 0).registerPortal();
+		CustomPortalBuilder.beginPortal().frameBlock(ModBlocks.DIRITONIUM_BLOCK)
+				.lightWithItem(ModItems.WITHER_BONE)
+				.destDimID(new Identifier("pigsnstuff", "diritia"))
+				.tintColor(211, 185, 255).registerPortal();
 		//ServerTickEvents.START_SERVER_TICK.register(new PlayerTickHandler());
 	}
 }

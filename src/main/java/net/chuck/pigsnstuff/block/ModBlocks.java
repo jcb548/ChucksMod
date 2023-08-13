@@ -55,9 +55,9 @@ public class ModBlocks {
 
     // New base materials
     public static final Block SLATED_DIRT = registerBlock("slated_dirt",
-            new Block(FabricBlockSettings.copy(Blocks.DIRT).strength(1.0f)));
+            new Block(FabricBlockSettings.copy(Blocks.DIRT).strength(1.0f).requiresTool()));
     public static final Block SLATED_GRASS = registerBlock("slated_grass",
-            new GrassBlock(FabricBlockSettings.copy(Blocks.GRASS_BLOCK).strength(1.2f)));
+            new GrassBlock(FabricBlockSettings.copy(Blocks.GRASS_BLOCK).strength(1.2f).requiresTool()));
 
     private static Block registerBlock(String name, Block block){
         registerBlockItem(name, block);

@@ -2,6 +2,8 @@
   "replace": false,
   "values": [
     "pigsnstuff:tin_block",
-    "pigsnstuff:infuser"
+    "pigsnstuff:infuser",
+    "pigsnstuff:slated_dirt",
+    "pigsnstuff:slated_grass"
   ]
 }

@@ -69,6 +69,9 @@ public class ModItemGroups {
                         entries.add(ModBlocks.EUCALYPTUS_SAPLING);
 
                         entries.add(ModBlocks.INFUSER);
+
+                        entries.add(ModBlocks.SLATED_DIRT);
+                        entries.add(ModBlocks.SLATED_GRASS);
                     }).build());
     public static void registerItemGroups() {
         PigsNStuff.LOGGER.info("Registering Item Groups for " + PigsNStuff.MOD_ID);

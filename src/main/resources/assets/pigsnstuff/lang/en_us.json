@@ -54,5 +54,9 @@
   "block.pigsnstuff.eucalyptus_sapling": "Eucalyptus Sapling",
 
   "block.pigsnstuff.infuser": "Infuser",
+
+  "block.pigsnstuff.slated_dirt": "Slated Dirt",
+  "block.pigsnstuff.slated_grass": "Slated Grass",
+
   "itemgroup.pigsnstuff": "Pigs N Stuff"
 }

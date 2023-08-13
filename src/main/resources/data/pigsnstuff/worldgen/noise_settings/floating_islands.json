@@ -126,14 +126,14 @@
           "then_run": {
             "type": "minecraft:block",
             "result_state": {
-              "Name": "minecraft:grass_block"
+              "Name": "pigsnstuff:slated_grass"
             }
           }
         },
         {
           "type": "minecraft:block",
           "result_state": {
-            "Name": "minecraft:dirt"
+            "Name": "pigsnstuff:slated_dirt"
           }
         }
       ]
