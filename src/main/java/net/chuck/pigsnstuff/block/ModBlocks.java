@@ -53,6 +53,12 @@ public class ModBlocks {
     public static final Block DIRITONIUM_ORE = registerBlock("diritonium_ore",
             new Block(FabricBlockSettings.copy(Blocks.GOLD_ORE).strength(5.0f, 9.0f)));
 
+    // New base materials
+    public static final Block SLATED_DIRT = registerBlock("slated_dirt",
+            new Block(FabricBlockSettings.copy(Blocks.DIRT).strength(1.0f)));
+    public static final Block SLATED_GRASS = registerBlock("slated_grass",
+            new GrassBlock(FabricBlockSettings.copy(Blocks.GRASS_BLOCK).strength(1.2f)));
+
     private static Block registerBlock(String name, Block block){
         registerBlockItem(name, block);
         return Registry.register(Registries.BLOCK, new Identifier(PigsNStuff.MOD_ID, name), block);

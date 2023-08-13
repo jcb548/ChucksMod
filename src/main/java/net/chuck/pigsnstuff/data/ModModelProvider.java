@@ -36,6 +36,8 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerTintableCrossBlockState(ModBlocks.EUCALYPTUS_SAPLING,
                 BlockStateModelGenerator.TintType.NOT_TINTED);
 
+        blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.SLATED_DIRT);
+
         blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.INFUSER);
     }
 
