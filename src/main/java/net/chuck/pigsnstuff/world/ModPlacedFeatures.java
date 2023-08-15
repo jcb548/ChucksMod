@@ -25,6 +25,7 @@ public class ModPlacedFeatures {
     public static final RegistryKey<PlacedFeature> TIN_ORE_PLACED_KEY = registerKey("tin_ore_placed");
     public static final RegistryKey<PlacedFeature> FABIUM_ORE_PLACED_KEY = registerKey("fabium_ore_placed");
     public static final RegistryKey<PlacedFeature> DIRITONIUM_ORE_PLACED_KEY = registerKey("diritonium_ore_placed");
+    public static final RegistryKey<PlacedFeature> LIGHT_PILE_PLACED_KEY = registerKey("light_pile_placed");
     public static void bootstrap(Registerable<PlacedFeature> context) {
         var configuredFeatureRegistryEntryLookup = context.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE);
 
@@ -41,6 +42,8 @@ public class ModPlacedFeatures {
         /*register(context, DIRITONIUM_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup
                 .getOrThrow(ModConfiguredFeatures.DIRITONIUM_ORE_KEY), ModOrePlacement.modifiersWithCount(20,
                 HeightRangePlacementModifier.uniform(YOffset.fixed( 0), YOffset.fixed(128))));*/
+        register(context, LIGHT_PILE_PLACED_KEY, configuredFeatureRegistryEntryLookup
+                .getOrThrow(ModConfiguredFeatures.LIGHT_PILE_KEY));
     }
 
     public static RegistryKey<PlacedFeature> registerKey(String name) {

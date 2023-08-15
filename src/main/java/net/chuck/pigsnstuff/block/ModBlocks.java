@@ -2,6 +2,7 @@ package net.chuck.pigsnstuff.block;
 
 import net.chuck.pigsnstuff.PigsNStuff;
 import net.chuck.pigsnstuff.block.custom.InfuserBlock;
+import net.chuck.pigsnstuff.block.custom.ModSlatedGrassBlock;
 import net.chuck.pigsnstuff.world.tree.EucalyptusSaplingGenerator;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
@@ -57,7 +58,7 @@ public class ModBlocks {
     public static final Block SLATED_DIRT = registerBlock("slated_dirt",
             new Block(FabricBlockSettings.copy(Blocks.DIRT).strength(1.0f).requiresTool()));
     public static final Block SLATED_GRASS = registerBlock("slated_grass",
-            new GrassBlock(FabricBlockSettings.copy(Blocks.GRASS_BLOCK).strength(1.2f).requiresTool()));
+            new ModSlatedGrassBlock(FabricBlockSettings.copy(Blocks.GRASS_BLOCK).strength(1.2f).requiresTool()));
 
     private static Block registerBlock(String name, Block block){
         registerBlockItem(name, block);

@@ -25,6 +25,7 @@ public class ModConfiguredFeatures {
     public static final RegistryKey<ConfiguredFeature<?, ?>> TIN_ORE_KEY = registerKey("tin_ore");
     public static final RegistryKey<ConfiguredFeature<?, ?>> FABIUM_ORE_KEY = registerKey("fabium_ore");
     public static final RegistryKey<ConfiguredFeature<?, ?>> DIRITONIUM_ORE_KEY = registerKey("diritonium_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> LIGHT_PILE_KEY = registerKey("light_pile");
 
     public static RegistryKey<ConfiguredFeature<?, ?>> registerKey(String name) {
         return RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE, new Identifier(PigsNStuff.MOD_ID, name));
@@ -54,6 +55,9 @@ public class ModConfiguredFeatures {
                 BlockStateProvider.of(ModBlocks.EUCALYPTUS_LEAVES),
                 new BlobFoliagePlacer(ConstantIntProvider.create(3), ConstantIntProvider.create(0), 2),
                 new TwoLayersFeatureSize(1, 1, 1)).build());
+
+        register(context, LIGHT_PILE_KEY, Feature.BLOCK_PILE, new BlockPileFeatureConfig
+                (BlockStateProvider.of(Blocks.SHROOMLIGHT.getDefaultState())));
 
         register(context, TIN_ORE_KEY, Feature.ORE, new OreFeatureConfig(overworldTinOres, 9));
         register(context, FABIUM_ORE_KEY, Feature.ORE, new OreFeatureConfig(netherFabiumOre, 6));
