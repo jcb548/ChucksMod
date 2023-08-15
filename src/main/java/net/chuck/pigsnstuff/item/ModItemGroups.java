@@ -72,6 +72,8 @@ public class ModItemGroups {
 
                         entries.add(ModBlocks.SLATED_DIRT);
                         entries.add(ModBlocks.SLATED_GRASS);
+                        entries.add(ModBlocks.DIRITIA_PLANT);
+                        entries.add(ModBlocks.DIRITIA_LIGHT_PLANT);
                     }).build());
     public static void registerItemGroups() {
         PigsNStuff.LOGGER.info("Registering Item Groups for " + PigsNStuff.MOD_ID);

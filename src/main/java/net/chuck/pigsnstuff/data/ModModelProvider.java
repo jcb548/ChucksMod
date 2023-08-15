@@ -40,6 +40,10 @@ public class ModModelProvider extends FabricModelProvider {
                 BlockStateModelGenerator.TintType.NOT_TINTED);
 
         blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.SLATED_DIRT);
+        blockStateModelGenerator.registerTintableCrossBlockState(ModBlocks.DIRITIA_PLANT,
+                BlockStateModelGenerator.TintType.TINTED);
+        blockStateModelGenerator.registerTintableCrossBlockState(ModBlocks.DIRITIA_LIGHT_PLANT,
+                BlockStateModelGenerator.TintType.TINTED);
 
         blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.INFUSER);
     }

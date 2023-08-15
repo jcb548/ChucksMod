@@ -53,6 +53,11 @@ public class ModBlocks {
             new Block(FabricBlockSettings.copy(Blocks.RAW_GOLD_BLOCK)));
     public static final Block DIRITONIUM_ORE = registerBlock("diritonium_ore",
             new Block(FabricBlockSettings.copy(Blocks.GOLD_ORE).strength(5.0f, 9.0f)));
+    // Diritia blocks
+    public static final Block DIRITIA_PLANT = registerBlock("diritia_plant",
+            new PlantBlock(FabricBlockSettings.copy(Blocks.GRASS)));
+    public static final Block DIRITIA_LIGHT_PLANT = registerBlock("diritia_plant_light",
+            new PlantBlock(FabricBlockSettings.copy(Blocks.GRASS).luminance(state -> 15)));
 
     // New base materials
     public static final Block SLATED_DIRT = registerBlock("slated_dirt",
