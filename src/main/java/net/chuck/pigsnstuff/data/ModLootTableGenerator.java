@@ -43,6 +43,22 @@ public class ModLootTableGenerator extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.SLATED_DIRT);
         addDrop(ModBlocks.SLATED_GRASS);
 
+        addDrop(ModBlocks.DIRITIA_SAPLING);
+        addDrop(ModBlocks.DIRITIA_LOG);
+        addDrop(ModBlocks.DIRITIA_WOOD);
+        addDrop(ModBlocks.STRIPPED_DIRITIA_LOG);
+        addDrop(ModBlocks.STRIPPED_DIRITIA_WOOD);
+        addDrop(ModBlocks.DIRITIA_LEAVES, leavesDrops(ModBlocks.DIRITIA_LEAVES, ModBlocks.DIRITIA_SAPLING,
+                0.02f, 0.022222223f, 0.025f, 0.033333335f, 0.1f));
+        addDrop(ModBlocks.DIRITIA_BUTTON);
+        addDrop(ModBlocks.DIRITIA_DOOR, doorDrops(ModBlocks.DIRITIA_DOOR));
+        addDrop(ModBlocks.DIRITIA_TRAPDOOR);
+        addDrop(ModBlocks.DIRITIA_FENCE);
+        addDrop(ModBlocks.DIRITIA_FENCE_GATE);
+        addDrop(ModBlocks.DIRITIA_PRESSURE_PLATE);
+        addDrop(ModBlocks.DIRITIA_STAIRS);
+        addDrop(ModBlocks.DIRITIA_SLAB, slabDrops(ModBlocks.DIRITIA_SLAB));
+
         addDrop(ModBlocks.INFUSER);
     }
 }

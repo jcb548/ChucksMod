@@ -1,6 +1,6 @@
 {
-  "parent": "item/generated",
+  "parent": "minecraft:item/generated",
   "textures": {
-    "layer0":"pigsnstuff:item/raw_tin"
+    "layer0": "pigsnstuff:item/raw_tin"
   }
 }

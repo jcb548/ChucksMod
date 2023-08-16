@@ -13,6 +13,8 @@ import net.minecraft.client.color.world.GrassColors;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.render.RenderLayer;
 
+import java.awt.*;
+
 public class PigsNStuffClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
@@ -29,6 +31,13 @@ public class PigsNStuffClient implements ClientModInitializer {
                 ModBlocks.DIRITIA_PLANT);
         ColorProviderRegistry.BLOCK.register((state, view, pos, tintIndex) -> 0xFE8738,
                 ModBlocks.DIRITIA_LIGHT_PLANT);
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.DIRITIA_SAPLING, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.DIRITIA_LEAVES, RenderLayer.getCutout());
+        ColorProviderRegistry.BLOCK.register((state, view, pos, tintIndex) -> BiomeColors.getGrassColor(view, pos),
+                ModBlocks.DIRITIA_LEAVES);
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.DIRITIA_DOOR, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.DIRITIA_TRAPDOOR, RenderLayer.getCutout());
+
         HandledScreens.register(ModScreenHandlers.INFUSING_SCREEN_HANDLER, InfusingScreen::new);
     }
 }

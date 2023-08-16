@@ -4,6 +4,10 @@
     "pigsnstuff:eucalyptus_log",
     "pigsnstuff:eucalyptus_wood",
     "pigsnstuff:stripped_eucalyptus_log",
-    "pigsnstuff:stripped_eucalyptus_wood"
+    "pigsnstuff:stripped_eucalyptus_wood",
+    "pigsnstuff:diritia_log",
+    "pigsnstuff:diritia_wood",
+    "pigsnstuff:stripped_diritia_log",
+    "pigsnstuff:stripped_diritia_wood"
   ]
 }

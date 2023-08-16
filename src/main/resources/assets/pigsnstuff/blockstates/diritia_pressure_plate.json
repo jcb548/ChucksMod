@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "pigsnstuff:block/diritia_pressure_plate"
+    },
+    "powered=true": {
+      "model": "pigsnstuff:block/diritia_pressure_plate_down"
+    }
+  }
+}

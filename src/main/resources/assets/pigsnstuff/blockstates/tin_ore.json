@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model":"pigsnstuff:block/tin_ore"
+      "model": "pigsnstuff:block/tin_ore"
     }
   }
 }

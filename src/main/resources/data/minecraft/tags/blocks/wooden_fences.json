@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "pigsnstuff:eucalyptus_fence"
+    "pigsnstuff:eucalyptus_fence",
+    "pigsnstuff:diritia_fence"
   ]
 }

@@ -54,7 +54,6 @@ public class ModBlocks {
             new DoorBlock(FabricBlockSettings.copy(Blocks.OAK_DOOR), BlockSetType.OAK));
     public static final Block EUCALYPTUS_TRAPDOOR = registerBlock("eucalyptus_trapdoor",
             new TrapdoorBlock(FabricBlockSettings.copy(Blocks.OAK_TRAPDOOR), BlockSetType.OAK));
-
     public static final Block INFUSER = registerBlock("infuser",
             new InfuserBlock(FabricBlockSettings.copy(Blocks.SMOOTH_STONE)));
     // Fabium
@@ -77,7 +76,39 @@ public class ModBlocks {
             new PlantBlock(FabricBlockSettings.copy(Blocks.GRASS)));
     public static final Block DIRITIA_LIGHT_PLANT = registerBlock("diritia_plant_light",
             new PlantBlock(FabricBlockSettings.copy(Blocks.GRASS).luminance(state -> 15)));
-
+    // Eucalyptus
+    public static final Block DIRITIA_LOG = registerBlock("diritia_log",
+            new PillarBlock(FabricBlockSettings.copy(Blocks.OAK_LOG).strength(4.0f)));
+    public static final Block DIRITIA_WOOD = registerBlock("diritia_wood",
+            new PillarBlock(FabricBlockSettings.copy(Blocks.OAK_WOOD)));
+    public static final Block STRIPPED_DIRITIA_LOG = registerBlock("stripped_diritia_log",
+            new PillarBlock(FabricBlockSettings.copy(Blocks.STRIPPED_OAK_LOG)));
+    public static final Block STRIPPED_DIRITIA_WOOD = registerBlock("stripped_diritia_wood",
+            new PillarBlock(FabricBlockSettings.copy(Blocks.STRIPPED_OAK_WOOD)));
+    public static final Block DIRITIA_PLANKS = registerBlock("diritia_planks",
+            new Block(FabricBlockSettings.copy(Blocks.OAK_PLANKS)));
+    public static final Block DIRITIA_LEAVES = registerBlock("diritia_leaves",
+            new LeavesBlock(FabricBlockSettings.copy(Blocks.OAK_LEAVES)));
+    public static final Block DIRITIA_SAPLING = registerBlock("diritia_sapling",
+            new SaplingBlock(new EucalyptusSaplingGenerator(),FabricBlockSettings.copy(Blocks.OAK_SAPLING)));
+    public static final Block DIRITIA_STAIRS = registerBlock("diritia_stairs",
+            new StairsBlock(ModBlocks.DIRITIA_PLANKS.getDefaultState(),
+                    FabricBlockSettings.copy(Blocks.OAK_STAIRS)));
+    public static final Block DIRITIA_SLAB = registerBlock("diritia_slab",
+            new SlabBlock(FabricBlockSettings.copy(Blocks.OAK_SLAB)));
+    public static final Block DIRITIA_BUTTON = registerBlock("diritia_button",
+            new ButtonBlock(FabricBlockSettings.copy(Blocks.OAK_BUTTON), BlockSetType.OAK, 10, true));
+    public static final Block DIRITIA_PRESSURE_PLATE = registerBlock("diritia_pressure_plate",
+            new PressurePlateBlock(PressurePlateBlock.ActivationRule.EVERYTHING,
+                    FabricBlockSettings.copy(Blocks.OAK_PRESSURE_PLATE), BlockSetType.OAK));
+    public static final Block DIRITIA_FENCE = registerBlock("diritia_fence",
+            new FenceBlock(FabricBlockSettings.copy(Blocks.OAK_FENCE)));
+    public static final Block DIRITIA_FENCE_GATE = registerBlock("diritia_fence_gate",
+            new FenceGateBlock(FabricBlockSettings.copy(Blocks.OAK_FENCE_GATE), WoodType.OAK));
+    public static final Block DIRITIA_DOOR = registerBlock("diritia_door",
+            new DoorBlock(FabricBlockSettings.copy(Blocks.OAK_DOOR), BlockSetType.OAK));
+    public static final Block DIRITIA_TRAPDOOR = registerBlock("diritia_trapdoor",
+            new TrapdoorBlock(FabricBlockSettings.copy(Blocks.OAK_TRAPDOOR), BlockSetType.OAK));
     // New base materials
     public static final Block SLATED_DIRT = registerBlock("slated_dirt",
             new Block(FabricBlockSettings.copy(Blocks.DIRT).strength(1.0f).requiresTool()));

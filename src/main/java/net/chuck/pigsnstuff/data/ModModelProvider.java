@@ -30,10 +30,15 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.RAW_DIRITONIUM_BLOCK);
         blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.DIRITONIUM_ORE);
 
-        blockStateModelGenerator.registerLog(ModBlocks.EUCALYPTUS_LOG);
-        blockStateModelGenerator.registerLog(ModBlocks.STRIPPED_EUCALYPTUS_LOG);
-        blockStateModelGenerator.registerLog(ModBlocks.EUCALYPTUS_WOOD);
-        blockStateModelGenerator.registerLog(ModBlocks.STRIPPED_EUCALYPTUS_WOOD);
+        BlockStateModelGenerator.LogTexturePool eucalyptus_log_pool =
+                blockStateModelGenerator.registerLog(ModBlocks.EUCALYPTUS_LOG);
+        eucalyptus_log_pool.log(ModBlocks.EUCALYPTUS_LOG);
+        eucalyptus_log_pool.wood(ModBlocks.EUCALYPTUS_WOOD);
+        BlockStateModelGenerator.LogTexturePool stripped_eucalyptus_log_pool =
+                blockStateModelGenerator.registerLog(ModBlocks.STRIPPED_EUCALYPTUS_LOG);
+        stripped_eucalyptus_log_pool.log(ModBlocks.STRIPPED_EUCALYPTUS_LOG);
+        stripped_eucalyptus_log_pool.wood(ModBlocks.STRIPPED_EUCALYPTUS_WOOD);
+
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.EUCALYPTUS_LEAVES);
         BlockStateModelGenerator.BlockTexturePool eucalyptus_pool =
                 blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.EUCALYPTUS_PLANKS);
@@ -45,10 +50,8 @@ public class ModModelProvider extends FabricModelProvider {
         eucalyptus_pool.fenceGate(ModBlocks.EUCALYPTUS_FENCE_GATE);
         eucalyptus_pool.button(ModBlocks.EUCALYPTUS_BUTTON);
         eucalyptus_pool.pressurePlate(ModBlocks.EUCALYPTUS_PRESSURE_PLATE);
-
         blockStateModelGenerator.registerDoor(ModBlocks.EUCALYPTUS_DOOR);
         blockStateModelGenerator.registerTrapdoor(ModBlocks.EUCALYPTUS_TRAPDOOR);
-
 
         blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.SLATED_DIRT);
         blockStateModelGenerator.registerTintableCrossBlockState(ModBlocks.DIRITIA_PLANT,
@@ -56,8 +59,32 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerTintableCrossBlockState(ModBlocks.DIRITIA_LIGHT_PLANT,
                 BlockStateModelGenerator.TintType.TINTED);
 
+        BlockStateModelGenerator.LogTexturePool diritia_log_pool =
+                blockStateModelGenerator.registerLog(ModBlocks.DIRITIA_LOG);
+        diritia_log_pool.log(ModBlocks.DIRITIA_LOG);
+        diritia_log_pool.wood(ModBlocks.DIRITIA_WOOD);
+        BlockStateModelGenerator.LogTexturePool stripped_diritia_log_pool =
+                blockStateModelGenerator.registerLog(ModBlocks.STRIPPED_DIRITIA_LOG);
+        stripped_diritia_log_pool.log(ModBlocks.STRIPPED_DIRITIA_LOG);
+        stripped_diritia_log_pool.wood(ModBlocks.STRIPPED_DIRITIA_WOOD);
+
+        BlockStateModelGenerator.BlockTexturePool diritia_pool =
+                blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.DIRITIA_PLANKS);
+        blockStateModelGenerator.registerTintableCrossBlockState(ModBlocks.DIRITIA_SAPLING,
+                BlockStateModelGenerator.TintType.NOT_TINTED);
+        diritia_pool.stairs(ModBlocks.DIRITIA_STAIRS);
+        diritia_pool.slab(ModBlocks.DIRITIA_SLAB);
+        diritia_pool.fence(ModBlocks.DIRITIA_FENCE);
+        diritia_pool.fenceGate(ModBlocks.DIRITIA_FENCE_GATE);
+        diritia_pool.button(ModBlocks.DIRITIA_BUTTON);
+        diritia_pool.pressurePlate(ModBlocks.DIRITIA_PRESSURE_PLATE);
+        blockStateModelGenerator.registerDoor(ModBlocks.DIRITIA_DOOR);
+        blockStateModelGenerator.registerTrapdoor(ModBlocks.DIRITIA_TRAPDOOR);
+
         blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.INFUSER);
+
         blockStateModelGenerator.registerItemModel(ModBlocks.EUCALYPTUS_SAPLING);
+        blockStateModelGenerator.registerItemModel(ModBlocks.DIRITIA_SAPLING);
     }
 
     @Override

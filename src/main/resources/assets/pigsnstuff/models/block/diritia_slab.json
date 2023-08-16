@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "pigsnstuff:block/diritia_planks",
+    "side": "pigsnstuff:block/diritia_planks",
+    "top": "pigsnstuff:block/diritia_planks"
+  }
+}

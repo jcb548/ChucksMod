@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_top_right_open",
+  "textures": {
+    "bottom": "pigsnstuff:block/diritia_door_bottom",
+    "top": "pigsnstuff:block/diritia_door_top"
+  }
+}

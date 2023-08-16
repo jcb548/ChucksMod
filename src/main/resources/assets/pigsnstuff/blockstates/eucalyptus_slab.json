@@ -4,7 +4,7 @@
       "model": "pigsnstuff:block/eucalyptus_slab"
     },
     "type=double": {
-      "model": "pigsnstuff:block/eucalyptus_leaves"
+      "model": "pigsnstuff:block/eucalyptus_planks"
     },
     "type=top": {
       "model": "pigsnstuff:block/eucalyptus_slab_top"

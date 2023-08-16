@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model":"pigsnstuff:block/infuser"
+      "model": "pigsnstuff:block/infuser"
     }
   }
 }

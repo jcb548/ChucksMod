@@ -83,6 +83,22 @@ public class ModItemGroups {
                         entries.add(ModBlocks.SLATED_GRASS);
                         entries.add(ModBlocks.DIRITIA_PLANT);
                         entries.add(ModBlocks.DIRITIA_LIGHT_PLANT);
+
+                        entries.add(ModBlocks.DIRITIA_LOG);
+                        entries.add(ModBlocks.DIRITIA_WOOD);
+                        entries.add(ModBlocks.STRIPPED_DIRITIA_LOG);
+                        entries.add(ModBlocks.STRIPPED_DIRITIA_WOOD);
+                        entries.add(ModBlocks.DIRITIA_PLANKS);
+                        entries.add(ModBlocks.DIRITIA_LEAVES);
+                        entries.add(ModBlocks.DIRITIA_SAPLING);
+                        entries.add(ModBlocks.DIRITIA_SLAB);
+                        entries.add(ModBlocks.DIRITIA_STAIRS);
+                        entries.add(ModBlocks.DIRITIA_BUTTON);
+                        entries.add(ModBlocks.DIRITIA_PRESSURE_PLATE);
+                        entries.add(ModBlocks.DIRITIA_FENCE);
+                        entries.add(ModBlocks.DIRITIA_FENCE_GATE);
+                        entries.add(ModBlocks.DIRITIA_DOOR);
+                        entries.add(ModBlocks.DIRITIA_TRAPDOOR);
                     }).build());
     public static void registerItemGroups() {
         PigsNStuff.LOGGER.info("Registering Item Groups for " + PigsNStuff.MOD_ID);
