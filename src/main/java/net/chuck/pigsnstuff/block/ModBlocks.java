@@ -36,6 +36,25 @@ public class ModBlocks {
             new LeavesBlock(FabricBlockSettings.copy(Blocks.OAK_LEAVES)));
     public static final Block EUCALYPTUS_SAPLING = registerBlock("eucalyptus_sapling",
             new SaplingBlock(new EucalyptusSaplingGenerator(),FabricBlockSettings.copy(Blocks.OAK_SAPLING)));
+    public static final Block EUCALYPTUS_STAIRS = registerBlock("eucalyptus_stairs",
+            new StairsBlock(ModBlocks.EUCALYPTUS_PLANKS.getDefaultState(),
+                    FabricBlockSettings.copy(Blocks.OAK_STAIRS)));
+    public static final Block EUCALYPTUS_SLAB = registerBlock("eucalyptus_slab",
+            new SlabBlock(FabricBlockSettings.copy(Blocks.OAK_SLAB)));
+    public static final Block EUCALYPTUS_BUTTON = registerBlock("eucalyptus_button",
+            new ButtonBlock(FabricBlockSettings.copy(Blocks.OAK_BUTTON), BlockSetType.OAK, 10, true));
+    public static final Block EUCALYPTUS_PRESSURE_PLATE = registerBlock("eucalyptus_pressure_plate",
+            new PressurePlateBlock(PressurePlateBlock.ActivationRule.EVERYTHING,
+                    FabricBlockSettings.copy(Blocks.OAK_PRESSURE_PLATE), BlockSetType.OAK));
+    public static final Block EUCALYPTUS_FENCE = registerBlock("eucalyptus_fence",
+            new FenceBlock(FabricBlockSettings.copy(Blocks.OAK_FENCE)));
+    public static final Block EUCALYPTUS_FENCE_GATE = registerBlock("eucalyptus_fence_gate",
+            new FenceGateBlock(FabricBlockSettings.copy(Blocks.OAK_FENCE_GATE), WoodType.OAK));
+    public static final Block EUCALYPTUS_DOOR = registerBlock("eucalyptus_door",
+            new DoorBlock(FabricBlockSettings.copy(Blocks.OAK_DOOR), BlockSetType.OAK));
+    public static final Block EUCALYPTUS_TRAPDOOR = registerBlock("eucalyptus_trapdoor",
+            new TrapdoorBlock(FabricBlockSettings.copy(Blocks.OAK_TRAPDOOR), BlockSetType.OAK));
+
     public static final Block INFUSER = registerBlock("infuser",
             new InfuserBlock(FabricBlockSettings.copy(Blocks.SMOOTH_STONE)));
     // Fabium

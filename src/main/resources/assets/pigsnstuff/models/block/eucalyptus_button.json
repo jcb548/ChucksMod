@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/button",
+  "textures": {
+    "texture": "pigsnstuff:block/eucalyptus_planks"
+  }
+}

@@ -1,18 +1,15 @@
 {
   "replace": false,
   "values": [
+    "pigsnstuff:fabium_ore",
+    "pigsnstuff:raw_fabium_block",
+    "pigsnstuff:fabium_block",
     "pigsnstuff:tin_block",
     "pigsnstuff:tin_ore",
     "pigsnstuff:deepslate_tin_ore",
-
-    "pigsnstuff:fabium_block",
-    "pigsnstuff:raw_fabium_block",
-    "pigsnstuff:fabium_ore",
-
     "pigsnstuff:diritonium_block",
     "pigsnstuff:raw_diritonium_block",
     "pigsnstuff:diritonium_ore",
-
     "pigsnstuff:infuser"
   ]
 }

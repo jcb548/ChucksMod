@@ -1,9 +1,9 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
+  "category": "equipment",
   "key": {
     "P": {
-      "item": "minecraft:prismarine_shard"
+      "item": "pigsnstuff:prismarine_ingot"
     },
     "S": {
       "item": "minecraft:stick"

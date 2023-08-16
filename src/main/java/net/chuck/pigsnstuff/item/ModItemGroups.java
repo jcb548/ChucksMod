@@ -19,6 +19,7 @@ public class ModItemGroups {
                 .icon(() -> new ItemStack(Items.PORKCHOP)).entries((displayContext, entries) -> {
                         entries.add(ModItems.CHEESEBURGER);
 
+                        entries.add(ModItems.PRISMARINE_INGOT);
                         entries.add(ModItems.PRISMARINE_SWORD);
                         entries.add(ModItems.PRISMARINE_PICKAXE);
                         entries.add(ModItems.PRISMARINE_AXE);
@@ -67,6 +68,14 @@ public class ModItemGroups {
                         entries.add(ModBlocks.EUCALYPTUS_PLANKS);
                         entries.add(ModBlocks.EUCALYPTUS_LEAVES);
                         entries.add(ModBlocks.EUCALYPTUS_SAPLING);
+                        entries.add(ModBlocks.EUCALYPTUS_SLAB);
+                        entries.add(ModBlocks.EUCALYPTUS_STAIRS);
+                        entries.add(ModBlocks.EUCALYPTUS_BUTTON);
+                        entries.add(ModBlocks.EUCALYPTUS_PRESSURE_PLATE);
+                        entries.add(ModBlocks.EUCALYPTUS_FENCE);
+                        entries.add(ModBlocks.EUCALYPTUS_FENCE_GATE);
+                        entries.add(ModBlocks.EUCALYPTUS_DOOR);
+                        entries.add(ModBlocks.EUCALYPTUS_TRAPDOOR);
 
                         entries.add(ModBlocks.INFUSER);
 

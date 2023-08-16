@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "pigsnstuff:block/eucalyptus_slab"
+    },
+    "type=double": {
+      "model": "pigsnstuff:block/eucalyptus_leaves"
+    },
+    "type=top": {
+      "model": "pigsnstuff:block/eucalyptus_slab_top"
+    }
+  }
+}

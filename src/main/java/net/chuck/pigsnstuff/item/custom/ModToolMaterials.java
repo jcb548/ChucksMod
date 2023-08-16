@@ -18,7 +18,7 @@ public enum ModToolMaterials implements ToolMaterial
     //GOLD(MiningLevels.WOOD, 32, 12.0f, 0.0f, 22, () -> Ingredient.ofItems(Items.GOLD_INGOT)),
     //NETHERITE(MiningLevels.NETHERITE, 2031, 9.0f, 4.0f, 15, () -> Ingredient.ofItems(Items.NETHERITE_INGOT));*/
     PRISMARINE(MiningLevels.IRON, 200, 7.0f, 2.5f, 18,
-            () -> Ingredient.ofItems(Items.PRISMARINE_SHARD)),
+            () -> Ingredient.ofItems(ModItems.PRISMARINE_INGOT)),
     TIN(MiningLevels.STONE, 144, 5.0f, 1.5f, 15,
             () -> Ingredient.ofItems(ModItems.TIN_INGOT)),
     WITHER(MiningLevels.IRON, 1024, 3.0f, 4.0f,20,

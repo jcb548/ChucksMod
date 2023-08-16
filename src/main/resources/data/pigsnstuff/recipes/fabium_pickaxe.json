@@ -1,6 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
+  "category": "equipment",
   "key": {
     "F": {
       "item": "pigsnstuff:fabium_ingot"
@@ -15,7 +15,7 @@
     " S "
   ],
   "result": {
-    "item": "pigsnstuff:fabium_hoe"
+    "item": "pigsnstuff:fabium_pickaxe"
   },
   "show_notification": true
 }

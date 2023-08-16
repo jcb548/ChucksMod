@@ -15,11 +15,13 @@ public class ModItems {
     public static final Item CHEESEBURGER = registerItem("cheeseburger",
             new Item(new FabricItemSettings().food(ModFoodComponents.CHEESEBURGER)));
 
-    //Prismarine Tools
+    //Prismarine
+    public static final Item PRISMARINE_INGOT = registerItem("prismarine_ingot",
+            new Item(new FabricItemSettings()));
     public static final Item PRISMARINE_SWORD = registerItem("prismarine_sword",
         new ModAquaSwordItem(ModToolMaterials.PRISMARINE, 3, -2.0f, new FabricItemSettings()));
     public static final Item PRISMARINE_PICKAXE = registerItem("prismarine_pickaxe",
-            new ModAquaPickaxeItem(ModToolMaterials.PRISMARINE, 1, -2.4f, new FabricItemSettings()));
+        new ModAquaPickaxeItem(ModToolMaterials.PRISMARINE, 1, -2.4f, new FabricItemSettings()));
     public static final Item PRISMARINE_AXE = registerItem("prismarine_axe",
         new ModAquaAxeItem(ModToolMaterials.PRISMARINE, 6, -2.6f, new FabricItemSettings()));
     public static final Item PRISMARINE_SHOVEL = registerItem("prismarine_shovel",

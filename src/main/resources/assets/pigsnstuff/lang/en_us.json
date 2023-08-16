@@ -1,6 +1,7 @@
 {
   "item.pigsnstuff.cheeseburger": "Cheeseburger",
 
+  "item.pigsnstuff,prismarine_ingot": "Prismarine Ingot",
   "item.pigsnstuff.prismarine_sword": "Prismarine Sword",
   "item.pigsnstuff.prismarine_pickaxe": "Prismarine Pickaxe",
   "item.pigsnstuff.prismarine_axe": "Prismarine Axe",
@@ -36,6 +37,8 @@
   "item.pigsnstuff.diritonium_axe": "Diritonium Axe",
   "item.pigsnstuff.diritonium_shovel": "Diritonium Shovel",
   "item.pigsnstuff.diritonium_hoe": "Diritonium Hoe",
+  "block.pigsnstuff:diritia_plant": "Diritia Plant",
+  "block.pigsnstuff:diritia_plant_light": "Diritia Light Plant",
 
   "item.pigsnstuff.wither_bone": "Wither Skeleton Bone",
   "item.pigsnstuff.wither_sword": "Withering Sword",
@@ -52,6 +55,14 @@
   "block.pigsnstuff.eucalyptus_planks": "Eucalyptus Planks",
   "block.pigsnstuff.eucalyptus_leaves": "Eucalyptus Leaves",
   "block.pigsnstuff.eucalyptus_sapling": "Eucalyptus Sapling",
+  "block.pigsnstuff.eucalyptus_stairs": "Eucalyptus Stairs",
+  "block.pigsnstuff.eucalyptus_slab": "Eucalyptus Slab",
+  "block.pigsnstuff.eucalyptus_fence": "Eucalyptus Fence",
+  "block.pigsnstuff.eucalyptus_fence_gate": "Eucalyptus Fence Gate",
+  "block.pigsnstuff.eucalyptus_button": "Eucalyptus Button",
+  "block.pigsnstuff.eucalyptus_pressure_plate": "Eucalyptus Pressure Plate",
+  "block.pigsnstuff.eucalyptus_door": "Eucalyptus Door",
+  "block.pigsnstuff.eucalyptus_trapdoor": "Eucalyptus Trapdoor",
 
   "block.pigsnstuff.infuser": "Infuser",
 

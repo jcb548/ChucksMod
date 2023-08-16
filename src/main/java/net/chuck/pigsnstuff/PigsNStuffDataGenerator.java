@@ -1,9 +1,6 @@
 package net.chuck.pigsnstuff;
 
-import net.chuck.pigsnstuff.data.ModLootTableGenerator;
-import net.chuck.pigsnstuff.data.ModModelProvider;
-import net.chuck.pigsnstuff.data.ModRecipeGenerator;
-import net.chuck.pigsnstuff.data.ModWorldGenerator;
+import net.chuck.pigsnstuff.data.*;
 import net.chuck.pigsnstuff.world.ModConfiguredFeatures;
 import net.chuck.pigsnstuff.world.ModPlacedFeatures;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
@@ -20,6 +17,7 @@ public class PigsNStuffDataGenerator implements DataGeneratorEntrypoint {
 		pack.addProvider(ModRecipeGenerator::new);
 		pack.addProvider(ModModelProvider::new);
 		pack.addProvider(ModWorldGenerator::new);
+		pack.addProvider(ModBlockTagProvider::new);
 	}
 
 	@Override

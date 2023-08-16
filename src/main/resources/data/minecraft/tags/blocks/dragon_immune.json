@@ -2,7 +2,7 @@
   "replace": false,
   "values": [
     "pigsnstuff:diritonium_block",
-    "pigsnstuff:raw_diritonium_block",
-    "pigsnstuff:diritonium_ore"
+    "pigsnstuff:diritonium_ore",
+    "pigsnstuff:raw_diritonium_block"
   ]
 }
