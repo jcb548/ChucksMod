@@ -18,7 +18,9 @@ public class ModLootTableGenerator extends FabricBlockLootTableProvider {
 
         addDrop(ModBlocks.RAW_FABIUM_BLOCK);
         addDrop(ModBlocks.FABIUM_BLOCK);
-        addDrop(ModBlocks.FABIUM_ORE, oreDrops(ModBlocks.FABIUM_ORE, ModItems.RAW_FABIUM));
+        addDrop(ModBlocks.NETHER_FABIUM_ORE, oreDrops(ModBlocks.NETHER_FABIUM_ORE, ModItems.RAW_FABIUM));
+        addDrop(ModBlocks.END_STONE_FABIUM_ORE, oreDrops(ModBlocks.END_STONE_FABIUM_ORE, ModItems.RAW_FABIUM));
+        addDrop(ModBlocks.DEEPSLATE_FABIUM_ORE, oreDrops(ModBlocks.DEEPSLATE_FABIUM_ORE, ModItems.RAW_FABIUM));
 
         addDrop(ModBlocks.RAW_DIRITONIUM_BLOCK);
         addDrop(ModBlocks.DIRITONIUM_BLOCK);

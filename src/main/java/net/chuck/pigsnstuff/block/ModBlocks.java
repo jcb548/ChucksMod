@@ -62,7 +62,11 @@ public class ModBlocks {
             new Block(FabricBlockSettings.copy(Blocks.GOLD_BLOCK)));
     public static final Block RAW_FABIUM_BLOCK = registerBlock("raw_fabium_block",
             new Block(FabricBlockSettings.copy(Blocks.RAW_GOLD_BLOCK)));
-    public static final Block FABIUM_ORE = registerBlock("fabium_ore",
+    public static final Block NETHER_FABIUM_ORE = registerBlock("nether_fabium_ore",
+            new Block(FabricBlockSettings.copy(Blocks.NETHER_QUARTZ_ORE)));
+    public static final Block END_STONE_FABIUM_ORE = registerBlock("endstone_fabium_ore",
+            new Block(FabricBlockSettings.copy(Blocks.NETHER_QUARTZ_ORE)));
+    public static final Block DEEPSLATE_FABIUM_ORE = registerBlock("deepslate_fabium_ore",
             new Block(FabricBlockSettings.copy(Blocks.NETHER_QUARTZ_ORE)));
 
     // Diritonium

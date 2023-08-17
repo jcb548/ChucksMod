@@ -30,7 +30,9 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         getOrCreateTagBuilder(BlockTags.NEEDS_DIAMOND_TOOL)
                 .add(ModBlocks.FABIUM_BLOCK)
                 .add(ModBlocks.RAW_FABIUM_BLOCK)
-                .add(ModBlocks.FABIUM_ORE);
+                .add(ModBlocks.NETHER_FABIUM_ORE)
+                .add(ModBlocks.END_STONE_FABIUM_ORE)
+                .add(ModBlocks.DEEPSLATE_FABIUM_ORE);
 
         getOrCreateTagBuilder(BlockTags.NEEDS_IRON_TOOL)
                 .add(ModBlocks.INFUSER)
@@ -47,7 +49,9 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(Blocks.END_STONE);
 
         getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
-                .add(ModBlocks.FABIUM_ORE)
+                .add(ModBlocks.NETHER_FABIUM_ORE)
+                .add(ModBlocks.END_STONE_FABIUM_ORE)
+                .add(ModBlocks.DEEPSLATE_FABIUM_ORE)
                 .add(ModBlocks.RAW_FABIUM_BLOCK)
                 .add(ModBlocks.FABIUM_BLOCK)
 

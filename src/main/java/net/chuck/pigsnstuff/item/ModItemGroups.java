@@ -36,7 +36,9 @@ public class ModItemGroups {
                         entries.add(ModItems.FABIUM_INGOT);
                         entries.add(ModBlocks.RAW_FABIUM_BLOCK);
                         entries.add(ModBlocks.FABIUM_BLOCK);
-                        entries.add(ModBlocks.FABIUM_ORE);
+                        entries.add(ModBlocks.NETHER_FABIUM_ORE);
+                        entries.add(ModBlocks.END_STONE_FABIUM_ORE);
+                        entries.add(ModBlocks.DEEPSLATE_FABIUM_ORE);
                         entries.add(ModItems.FABIUM_SWORD);
                         entries.add(ModItems.FABIUM_PICKAXE);
                         entries.add(ModItems.FABIUM_AXE);
