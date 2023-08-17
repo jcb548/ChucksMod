@@ -24,28 +24,40 @@ public class ModPlacedFeatures {
     public static final RegistryKey<PlacedFeature> EUCALYPTUS_PLACED_KEY = registerKey("eucalyptus_placed");
     public static final RegistryKey<PlacedFeature> TIN_ORE_PLACED_KEY = registerKey("tin_ore_placed");
     public static final RegistryKey<PlacedFeature> FABIUM_ORE_PLACED_KEY = registerKey("fabium_ore_placed");
-    public static final RegistryKey<PlacedFeature> DIRITONIUM_ORE_PLACED_KEY = registerKey("diritonium_ore_placed");
+    public static final RegistryKey<PlacedFeature> END_DIRITONIUM_ORE_PLACED_KEY =
+            registerKey("end_diritonium_ore_placed");
+    // Generation for Diritia Islands
     public static final RegistryKey<PlacedFeature> DIRITIA_TREE_PLACED_KEY = registerKey("diritia_tree_placed");
+    public static final RegistryKey<PlacedFeature> DIRITIA_DIRITONIUM_ORE_PLACED_KEY =
+            registerKey("diritia_diritonium_ore_placed");
     public static void bootstrap(Registerable<PlacedFeature> context) {
         var configuredFeatureRegistryEntryLookup = context.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE);
 
+        // Register New Trees
         register(context, EUCALYPTUS_PLACED_KEY, configuredFeatureRegistryEntryLookup
                         .getOrThrow(ModConfiguredFeatures.EUCALYPTUS_KEY),
                 VegetationPlacedFeatures.treeModifiersWithWouldSurvive(PlacedFeatures
                         .createCountExtraModifier(1, 0.1f, 2), ModBlocks.EUCALYPTUS_SAPLING));
+        register(context, DIRITIA_TREE_PLACED_KEY, configuredFeatureRegistryEntryLookup
+                        .getOrThrow(ModConfiguredFeatures.DIRITIA_TREE_KEY),
+                VegetationPlacedFeatures.treeModifiersWithWouldSurvive(PlacedFeatures
+                        .createCountExtraModifier(1, 0.1f, 2), ModBlocks.DIRITIA_SAPLING));
+        //Register New Overworld Ores
         register(context, TIN_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup
                         .getOrThrow(ModConfiguredFeatures.TIN_ORE_KEY), ModOrePlacement.modifiersWithCount(12,
                         HeightRangePlacementModifier.trapezoid(YOffset.fixed( -128), YOffset.fixed(16))));
+        // Register New Nether Ores
         register(context, FABIUM_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup
                         .getOrThrow(ModConfiguredFeatures.FABIUM_ORE_KEY), ModOrePlacement.modifiersWithCount(30,
                         HeightRangePlacementModifier.uniform(YOffset.fixed( 0), YOffset.fixed(128))));
-        /*register(context, DIRITONIUM_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup
-                .getOrThrow(ModConfiguredFeatures.DIRITONIUM_ORE_KEY), ModOrePlacement.modifiersWithCount(20,
-                HeightRangePlacementModifier.uniform(YOffset.fixed( 0), YOffset.fixed(128))));*/
-        register(context, DIRITIA_TREE_PLACED_KEY, configuredFeatureRegistryEntryLookup
-                .getOrThrow(ModConfiguredFeatures.DIRITIA_TREE_KEY),
-                VegetationPlacedFeatures.treeModifiersWithWouldSurvive(PlacedFeatures
-                        .createCountExtraModifier(1, 0.1f, 2), ModBlocks.DIRITIA_SAPLING));
+        // Register End ores
+        register(context, END_DIRITONIUM_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup
+                .getOrThrow(ModConfiguredFeatures.END_DIRITONIUM_ORE_KEY), ModOrePlacement.modifiersWithCount(20,
+                HeightRangePlacementModifier.uniform(YOffset.fixed( 0), YOffset.fixed(128))));
+        //Register Diritia ores
+        register(context, DIRITIA_DIRITONIUM_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup
+                .getOrThrow(ModConfiguredFeatures.DIRITIA_DIRITONIUM_ORE_KEY), ModOrePlacement.modifiersWithCount(50,
+                HeightRangePlacementModifier.uniform(YOffset.fixed( 0), YOffset.fixed(128))));
     }
 
     public static RegistryKey<PlacedFeature> registerKey(String name) {

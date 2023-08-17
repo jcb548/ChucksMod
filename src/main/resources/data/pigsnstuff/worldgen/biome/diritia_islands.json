@@ -26,7 +26,7 @@
     [],
     [],
     [
-      "minecraft:ore_tuff"
+      "pigsnstuff:diritia_diritonium_ore_placed"
     ],
     [],
     [],
@@ -36,6 +36,7 @@
       "minecraft:brown_mushroom_taiga",
       "minecraft:red_mushroom_taiga",
       "pigsnstuff:diritia_tree_placed",
+      "minecraft:trees_cherry",
       "pigsnstuff:diritia_plants_placed"
     ],
     [

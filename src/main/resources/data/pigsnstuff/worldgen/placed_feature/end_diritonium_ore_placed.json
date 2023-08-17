@@ -1,9 +1,9 @@
 {
-  "feature": "pigsnstuff:diritonium_ore",
+  "feature": "pigsnstuff:end_diritonium_ore",
   "placement": [
     {
       "type": "minecraft:count",
-      "count": 20
+      "count": 30
     },
     {
       "type": "minecraft:in_square"

@@ -22,7 +22,8 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
     protected void configure(RegistryWrapper.WrapperLookup arg) {
         getOrCreateTagBuilder(TagKey.of(RegistryKeys.BLOCK,
                 new Identifier("fabric", "needs_tool_level_4")))
-                .add(ModBlocks.DIRITONIUM_ORE)
+                .add(ModBlocks.END_STONE_DIRITONIUM_ORE)
+                .add(ModBlocks.DEEPSLATE_DIRITONIUM_ORE)
                 .add(ModBlocks.DIRITONIUM_BLOCK)
                 .add(ModBlocks.RAW_DIRITONIUM_BLOCK);
 
@@ -56,7 +57,8 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
                 .add(ModBlocks.DIRITONIUM_BLOCK)
                 .add(ModBlocks.RAW_DIRITONIUM_BLOCK)
-                .add(ModBlocks.DIRITONIUM_ORE)
+                .add(ModBlocks.END_STONE_DIRITONIUM_ORE)
+                .add(ModBlocks.DEEPSLATE_DIRITONIUM_ORE)
 
                 .add(ModBlocks.INFUSER);
 
@@ -98,7 +100,8 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
         getOrCreateTagBuilder(BlockTags.DRAGON_IMMUNE)
                 .add(ModBlocks.DIRITONIUM_BLOCK)
-                .add(ModBlocks.DIRITONIUM_ORE)
+                .add(ModBlocks.END_STONE_DIRITONIUM_ORE)
+                .add(ModBlocks.DEEPSLATE_DIRITONIUM_ORE)
                 .add(ModBlocks.RAW_DIRITONIUM_BLOCK);
 
         getOrCreateTagBuilder(BlockTags.LOGS)

@@ -47,7 +47,8 @@ public class ModItemGroups {
                         entries.add(ModItems.DIRITONIUM_INGOT);
                         entries.add(ModBlocks.RAW_DIRITONIUM_BLOCK);
                         entries.add(ModBlocks.DIRITONIUM_BLOCK);
-                        entries.add(ModBlocks.DIRITONIUM_ORE);
+                        entries.add(ModBlocks.END_STONE_DIRITONIUM_ORE);
+                        entries.add(ModBlocks.DEEPSLATE_DIRITONIUM_ORE);
                         entries.add(ModItems.DIRITONIUM_SWORD);
                         entries.add(ModItems.DIRITONIUM_PICKAXE);
                         entries.add(ModItems.DIRITONIUM_AXE);

@@ -13,6 +13,6 @@ public class ModOreGeneration {
         BiomeModifications.addFeature(BiomeSelectors.foundInTheNether(),
                 GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.FABIUM_ORE_PLACED_KEY);
         BiomeModifications.addFeature(BiomeSelectors.foundInTheEnd(),
-                GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.DIRITONIUM_ORE_PLACED_KEY);
+                GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.END_DIRITONIUM_ORE_PLACED_KEY);
     }
 }

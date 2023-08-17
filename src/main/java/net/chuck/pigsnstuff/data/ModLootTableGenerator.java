@@ -22,7 +22,10 @@ public class ModLootTableGenerator extends FabricBlockLootTableProvider {
 
         addDrop(ModBlocks.RAW_DIRITONIUM_BLOCK);
         addDrop(ModBlocks.DIRITONIUM_BLOCK);
-        addDrop(ModBlocks.DIRITONIUM_ORE, oreDrops(ModBlocks.DIRITONIUM_ORE, ModItems.RAW_DIRITONIUM));
+        addDrop(ModBlocks.END_STONE_DIRITONIUM_ORE, oreDrops(ModBlocks.END_STONE_DIRITONIUM_ORE,
+                ModItems.RAW_DIRITONIUM));
+        addDrop(ModBlocks.DEEPSLATE_DIRITONIUM_ORE, oreDrops(ModBlocks.DEEPSLATE_DIRITONIUM_ORE,
+                ModItems.RAW_DIRITONIUM));
 
         addDrop(ModBlocks.EUCALYPTUS_SAPLING);
         addDrop(ModBlocks.EUCALYPTUS_LOG);

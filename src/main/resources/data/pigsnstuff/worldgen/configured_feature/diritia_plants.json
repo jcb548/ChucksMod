@@ -9,7 +9,7 @@
             "type": "minecraft:weighted_state_provider",
             "entries": [
               {
-                "weight": 3,
+                "weight": 6,
                 "data": {
                   "Name": "pigsnstuff:diritia_plant"
                 }
@@ -34,8 +34,8 @@
         }
       ]
     },
-    "tries": 8,
-    "xz_spread": 0,
-    "y_spread": 0
+    "tries": 32,
+    "xz_spread": 7,
+    "y_spread": 3
   }
 }

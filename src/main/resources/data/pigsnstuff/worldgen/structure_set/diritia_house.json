@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "pigsnstuff:diritia_house",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "salt": 1642136476,
+    "spacing": 30,
+    "separation": 10,
+    "type": "minecraft:random_spread"
+  }
+}

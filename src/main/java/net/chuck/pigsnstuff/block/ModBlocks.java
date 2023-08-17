@@ -3,6 +3,7 @@ package net.chuck.pigsnstuff.block;
 import net.chuck.pigsnstuff.PigsNStuff;
 import net.chuck.pigsnstuff.block.custom.InfuserBlock;
 import net.chuck.pigsnstuff.block.custom.ModSlatedGrassBlock;
+import net.chuck.pigsnstuff.world.tree.DiritiaSaplingGenerator;
 import net.chuck.pigsnstuff.world.tree.EucalyptusSaplingGenerator;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
@@ -69,7 +70,9 @@ public class ModBlocks {
             new Block(FabricBlockSettings.copy(Blocks.GOLD_BLOCK)));
     public static final Block RAW_DIRITONIUM_BLOCK = registerBlock("raw_diritonium_block",
             new Block(FabricBlockSettings.copy(Blocks.RAW_GOLD_BLOCK)));
-    public static final Block DIRITONIUM_ORE = registerBlock("diritonium_ore",
+    public static final Block END_STONE_DIRITONIUM_ORE = registerBlock("endstone_diritonium_ore",
+            new Block(FabricBlockSettings.copy(Blocks.GOLD_ORE).strength(5.0f, 9.0f)));
+    public static final Block DEEPSLATE_DIRITONIUM_ORE = registerBlock("deepslate_diritonium_ore",
             new Block(FabricBlockSettings.copy(Blocks.GOLD_ORE).strength(5.0f, 9.0f)));
     // Diritia blocks
     public static final Block DIRITIA_PLANT = registerBlock("diritia_plant",
@@ -90,7 +93,7 @@ public class ModBlocks {
     public static final Block DIRITIA_LEAVES = registerBlock("diritia_leaves",
             new LeavesBlock(FabricBlockSettings.copy(Blocks.OAK_LEAVES)));
     public static final Block DIRITIA_SAPLING = registerBlock("diritia_sapling",
-            new SaplingBlock(new EucalyptusSaplingGenerator(),FabricBlockSettings.copy(Blocks.OAK_SAPLING)));
+            new SaplingBlock(new DiritiaSaplingGenerator(),FabricBlockSettings.copy(Blocks.OAK_SAPLING)));
     public static final Block DIRITIA_STAIRS = registerBlock("diritia_stairs",
             new StairsBlock(ModBlocks.DIRITIA_PLANKS.getDefaultState(),
                     FabricBlockSettings.copy(Blocks.OAK_STAIRS)));

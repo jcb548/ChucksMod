@@ -26,6 +26,8 @@ public class ModRegistries {
     private static void registerStrippables(){
         StrippableBlockRegistry.register(ModBlocks.EUCALYPTUS_LOG, ModBlocks.STRIPPED_EUCALYPTUS_LOG);
         StrippableBlockRegistry.register(ModBlocks.EUCALYPTUS_WOOD, ModBlocks.STRIPPED_EUCALYPTUS_WOOD);
+        StrippableBlockRegistry.register(ModBlocks.DIRITIA_LOG, ModBlocks.STRIPPED_DIRITIA_LOG);
+        StrippableBlockRegistry.register(ModBlocks.DIRITIA_WOOD, ModBlocks.STRIPPED_DIRITIA_WOOD);
     }
 
     private static void registerFuels(){
@@ -34,5 +36,10 @@ public class ModRegistries {
         FuelRegistry.INSTANCE.add(ModBlocks.STRIPPED_EUCALYPTUS_LOG,300);
         FuelRegistry.INSTANCE.add(ModBlocks.STRIPPED_EUCALYPTUS_WOOD,300);
         FuelRegistry.INSTANCE.add(ModBlocks.EUCALYPTUS_PLANKS,300);
+        FuelRegistry.INSTANCE.add(ModBlocks.DIRITIA_LOG,300);
+        FuelRegistry.INSTANCE.add(ModBlocks.DIRITIA_WOOD,300);
+        FuelRegistry.INSTANCE.add(ModBlocks.STRIPPED_DIRITIA_LOG,300);
+        FuelRegistry.INSTANCE.add(ModBlocks.STRIPPED_DIRITIA_WOOD,300);
+        FuelRegistry.INSTANCE.add(ModBlocks.DIRITIA_PLANKS,300);
     }
 }

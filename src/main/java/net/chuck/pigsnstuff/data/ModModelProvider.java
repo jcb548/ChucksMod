@@ -18,17 +18,18 @@ public class ModModelProvider extends FabricModelProvider {
 
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
-        blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.TIN_BLOCK);
-        blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.TIN_ORE);
-        blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.DEEPSLATE_TIN_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.TIN_BLOCK);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.TIN_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_TIN_ORE);
 
-        blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.FABIUM_BLOCK);
-        blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.RAW_FABIUM_BLOCK);
-        blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.FABIUM_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.FABIUM_BLOCK);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RAW_FABIUM_BLOCK);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.FABIUM_ORE);
 
-        blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.DIRITONIUM_BLOCK);
-        blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.RAW_DIRITONIUM_BLOCK);
-        blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.DIRITONIUM_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DIRITONIUM_BLOCK);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RAW_DIRITONIUM_BLOCK);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.END_STONE_DIRITONIUM_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_DIRITONIUM_ORE);
 
         BlockStateModelGenerator.LogTexturePool eucalyptus_log_pool =
                 blockStateModelGenerator.registerLog(ModBlocks.EUCALYPTUS_LOG);
@@ -53,7 +54,7 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerDoor(ModBlocks.EUCALYPTUS_DOOR);
         blockStateModelGenerator.registerTrapdoor(ModBlocks.EUCALYPTUS_TRAPDOOR);
 
-        blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.SLATED_DIRT);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SLATED_DIRT);
         blockStateModelGenerator.registerTintableCrossBlockState(ModBlocks.DIRITIA_PLANT,
                 BlockStateModelGenerator.TintType.TINTED);
         blockStateModelGenerator.registerTintableCrossBlockState(ModBlocks.DIRITIA_LIGHT_PLANT,
