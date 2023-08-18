@@ -1,9 +1,11 @@
 package net.chuck.pigsnstuff.block.entity;
 
 import net.chuck.pigsnstuff.item.ModItems;
+import net.chuck.pigsnstuff.recipe.InfuserRecipe;
 import net.chuck.pigsnstuff.screen.InfusingScreenHandler;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.entity.ai.brain.MemoryQuery;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;
@@ -20,6 +22,9 @@ import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
+
+import javax.swing.text.html.Option;
+import java.util.Optional;
 
 /*
 Code adapted from Kaupenjoe modding tutorials
@@ -113,9 +118,12 @@ public class InfuserBlockEntity extends BlockEntity implements NamedScreenHandle
         for(int i=0; i< infuserBlockEntity.size(); i++){
             inventory.setStack(1, infuserBlockEntity.getStack(1));
         }
+        Optional<InfuserRecipe> recipe = infuserBlockEntity.getWorld().getRecipeManager()
+                .getFirstMatch(InfuserRecipe.Type.INSTANCE, inventory, infuserBlockEntity.getWorld());
+
         if(hasRecipe(infuserBlockEntity)) {
             infuserBlockEntity.removeStack(1,1);
-            infuserBlockEntity.setStack(2, new ItemStack(ModItems.WITHER_BONE,
+            infuserBlockEntity.setStack(2, new ItemStack(recipe.get().getOutputNoReg().getItem(),
                     infuserBlockEntity.getStack(2).getCount() + 1));
             infuserBlockEntity.resetProgress();
         }
@@ -126,10 +134,12 @@ public class InfuserBlockEntity extends BlockEntity implements NamedScreenHandle
         for(int i=0; i< infuserBlockEntity.size(); i++){
             inventory.setStack(1, infuserBlockEntity.getStack(1));
         }
-        boolean hasRawItemInFirstSlot = infuserBlockEntity.getStack(1).getItem() == Items.BONE;
+        //boolean hasRawItemInFirstSlot = infuserBlockEntity.getStack(1).getItem() == Items.BONE;
+        Optional<InfuserRecipe> match = infuserBlockEntity.getWorld().getRecipeManager()
+                .getFirstMatch(InfuserRecipe.Type.INSTANCE, inventory, infuserBlockEntity.getWorld());
 
-        return hasRawItemInFirstSlot && canInsertAmountIntoOutputSlot(inventory) &&
-                canInsertItemIntoOutputSlot(inventory, ModItems.WITHER_BONE);
+        return match.isPresent() && canInsertAmountIntoOutputSlot(inventory) &&
+                canInsertItemIntoOutputSlot(inventory, match.get().getOutputNoReg().getItem());
     }
 
     private static boolean canInsertItemIntoOutputSlot(SimpleInventory inventory, Item output) {

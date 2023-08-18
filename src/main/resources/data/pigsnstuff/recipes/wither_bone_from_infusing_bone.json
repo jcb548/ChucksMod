@@ -1,0 +1,11 @@
+{
+  "type": "pigsnstuff:infuser_recipe",
+  "ingredients": [
+    {
+      "item": "minecraft:bone"
+    }
+  ],
+  "output": {
+    "item": "pigsnstuff:wither_bone"
+  }
+}

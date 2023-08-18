@@ -4,6 +4,7 @@ import net.chuck.pigsnstuff.block.ModBlocks;
 import net.chuck.pigsnstuff.block.entity.ModBlockEntities;
 import net.chuck.pigsnstuff.item.ModItemGroups;
 import net.chuck.pigsnstuff.item.ModItems;
+import net.chuck.pigsnstuff.recipe.ModRecipes;
 import net.chuck.pigsnstuff.screen.ModScreenHandlers;
 import net.chuck.pigsnstuff.util.ModLootTableModifiers;
 import net.chuck.pigsnstuff.util.ModRegistries;
@@ -41,6 +42,8 @@ public class PigsNStuff implements ModInitializer {
 
 		ModBlockEntities.registerBlockEntities();
 		ModScreenHandlers.registerAllScreenHandlers();
+
+		ModRecipes.registerRecipes();
 
 		//Custom portals
 		CustomPortalBuilder.beginPortal().frameBlock(Blocks.GOLD_BLOCK)
