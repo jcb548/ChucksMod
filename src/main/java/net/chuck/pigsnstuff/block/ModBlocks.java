@@ -34,6 +34,12 @@ public class ModBlocks {
             new Block(FabricBlockSettings.copy(Blocks.IRON_ORE)));
     public static final Block DEEPSLATE_TIN_ORE = registerBlock("deepslate_tin_ore",
             new Block(FabricBlockSettings.copy(Blocks.DEEPSLATE_IRON_ORE)));
+    //Bronze
+    public static final Block BRONZE_BLOCK = registerBlock("bronze_block",
+            new Block(FabricBlockSettings.copy(Blocks.GOLD_BLOCK)));
+    public static final Block BRONZE_DUST_BLOCK = registerBlock("bronze_dust_block",
+            new FallingBlock(FabricBlockSettings.copy(Blocks.SAND)));
+
     // Eucalyptus
     public static final Block EUCALYPTUS_LOG = registerBlock("eucalyptus_log",
             new PillarBlock(FabricBlockSettings.copy(Blocks.OAK_LOG).strength(4.0f)));

@@ -22,6 +22,9 @@ public class ModItemGroups {
                         entries.add(ModItems.IRON_DUST);
                         entries.add(ModItems.COPPER_DUST);
                         entries.add(ModItems.GOLD_DUST);
+                        entries.add(ModItems.IRON_GEAR);
+                        entries.add(ModItems.COPPER_GEAR);
+                        entries.add(ModItems.GOLD_GEAR);
                         entries.add(ModBlocks.IRON_DUST_BLOCK);
                         entries.add(ModBlocks.COPPER_DUST_BLOCK);
                         entries.add(ModBlocks.GOLD_DUST_BLOCK);
@@ -32,6 +35,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.PRISMARINE_IRON_DUST_BLOCK);
                         entries.add(ModItems.PRISMARINE_IRON_DUST);
                         entries.add(ModItems.PRISMARINE_INGOT);
+                        entries.add(ModItems.PRISMARINE_GEAR);
                         entries.add(ModItems.PRISMARINE_SWORD);
                         entries.add(ModItems.PRISMARINE_PICKAXE);
                         entries.add(ModItems.PRISMARINE_AXE);
@@ -41,12 +45,25 @@ public class ModItemGroups {
                         entries.add(ModItems.RAW_TIN);
                         entries.add(ModItems.TIN_DUST);
                         entries.add(ModItems.TIN_INGOT);
+                        entries.add(ModItems.TIN_GEAR);
                         entries.add(ModBlocks.TIN_BLOCK);
                         entries.add(ModBlocks.TIN_ORE);
                         entries.add(ModBlocks.DEEPSLATE_TIN_ORE);
 
+                        entries.add(ModItems.BRONZE_DUST);
+                        entries.add(ModItems.BRONZE_INGOT);
+                        entries.add(ModItems.BRONZE_GEAR);
+                        entries.add(ModItems.BRONZE_SWORD);
+                        entries.add(ModItems.BRONZE_PICKAXE);
+                        entries.add(ModItems.BRONZE_AXE);
+                        entries.add(ModItems.BRONZE_SHOVEL);
+                        entries.add(ModItems.BRONZE_HOE);
+                        entries.add(ModBlocks.BRONZE_BLOCK);
+                        entries.add(ModBlocks.BRONZE_DUST_BLOCK);
+
                         entries.add(ModItems.RAW_FABIUM);
                         entries.add(ModItems.FABIUM_INGOT);
+                        entries.add(ModItems.FABIUM_GEAR);
                         entries.add(ModBlocks.RAW_FABIUM_BLOCK);
                         entries.add(ModBlocks.FABIUM_BLOCK);
                         entries.add(ModBlocks.NETHER_FABIUM_ORE);
@@ -60,6 +77,7 @@ public class ModItemGroups {
 
                         entries.add(ModItems.RAW_DIRITONIUM);
                         entries.add(ModItems.DIRITONIUM_INGOT);
+                        entries.add(ModItems.DIRITONIUM_GEAR);
                         entries.add(ModBlocks.RAW_DIRITONIUM_BLOCK);
                         entries.add(ModBlocks.DIRITONIUM_BLOCK);
                         entries.add(ModBlocks.END_STONE_DIRITONIUM_ORE);

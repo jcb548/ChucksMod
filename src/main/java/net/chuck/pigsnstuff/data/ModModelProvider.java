@@ -31,6 +31,9 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.TIN_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_TIN_ORE);
 
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.BRONZE_BLOCK);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.BRONZE_DUST_BLOCK);
+
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.FABIUM_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RAW_FABIUM_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.NETHER_FABIUM_ORE);
@@ -66,9 +69,9 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerTrapdoor(ModBlocks.EUCALYPTUS_TRAPDOOR);
 
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SLATED_DIRT);
-        blockStateModelGenerator.registerTintableCrossBlockState(ModBlocks.DIRITIA_PLANT,
+        blockStateModelGenerator.registerTintableCross(ModBlocks.DIRITIA_PLANT,
                 BlockStateModelGenerator.TintType.TINTED);
-        blockStateModelGenerator.registerTintableCrossBlockState(ModBlocks.DIRITIA_LIGHT_PLANT,
+        blockStateModelGenerator.registerTintableCross(ModBlocks.DIRITIA_LIGHT_PLANT,
                 BlockStateModelGenerator.TintType.TINTED);
 
         BlockStateModelGenerator.LogTexturePool diritia_log_pool =
@@ -97,8 +100,6 @@ public class ModModelProvider extends FabricModelProvider {
 
         blockStateModelGenerator.registerItemModel(ModBlocks.EUCALYPTUS_SAPLING);
         blockStateModelGenerator.registerItemModel(ModBlocks.DIRITIA_SAPLING);
-        blockStateModelGenerator.registerItemModel(ModBlocks.DIRITIA_PLANT);
-        blockStateModelGenerator.registerItemModel(ModBlocks.DIRITIA_LIGHT_PLANT);
     }
 
     @Override
@@ -106,15 +107,27 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.IRON_DUST, Models.GENERATED);
         itemModelGenerator.register(ModItems.COPPER_DUST, Models.GENERATED);
         itemModelGenerator.register(ModItems.GOLD_DUST, Models.GENERATED);
-        itemModelGenerator.register(ModItems.PRISMARINE_DUST, Models.GENERATED);
-        itemModelGenerator.register(ModItems.PRISMARINE_IRON_DUST, Models.GENERATED);
+        itemModelGenerator.register(ModItems.IRON_GEAR, Models.GENERATED);
+        itemModelGenerator.register(ModItems.COPPER_GEAR, Models.GENERATED);
+        itemModelGenerator.register(ModItems.GOLD_GEAR, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.TIN_DUST, Models.GENERATED);
         itemModelGenerator.register(ModItems.RAW_TIN, Models.GENERATED);
         itemModelGenerator.register(ModItems.TIN_INGOT, Models.GENERATED);
+        itemModelGenerator.register(ModItems.TIN_GEAR, Models.GENERATED);
+
+        itemModelGenerator.register(ModItems.BRONZE_INGOT, Models.GENERATED);
+        itemModelGenerator.register(ModItems.BRONZE_DUST, Models.GENERATED);
+        itemModelGenerator.register(ModItems.BRONZE_GEAR, Models.GENERATED);
+        itemModelGenerator.register(ModItems.BRONZE_SWORD, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.BRONZE_PICKAXE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.BRONZE_AXE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.BRONZE_SHOVEL, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.BRONZE_HOE, Models.HANDHELD);
 
         itemModelGenerator.register(ModItems.RAW_FABIUM, Models.GENERATED);
         itemModelGenerator.register(ModItems.FABIUM_INGOT, Models.GENERATED);
+        itemModelGenerator.register(ModItems.FABIUM_GEAR, Models.GENERATED);
         itemModelGenerator.register(ModItems.FABIUM_SWORD, Models.HANDHELD);
         itemModelGenerator.register(ModItems.FABIUM_PICKAXE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.FABIUM_AXE, Models.HANDHELD);
@@ -123,6 +136,7 @@ public class ModModelProvider extends FabricModelProvider {
 
         itemModelGenerator.register(ModItems.RAW_DIRITONIUM, Models.GENERATED);
         itemModelGenerator.register(ModItems.DIRITONIUM_INGOT, Models.GENERATED);
+        itemModelGenerator.register(ModItems.DIRITONIUM_GEAR, Models.GENERATED);
         itemModelGenerator.register(ModItems.DIRITONIUM_SWORD, Models.HANDHELD);
         itemModelGenerator.register(ModItems.DIRITONIUM_PICKAXE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.DIRITONIUM_AXE, Models.HANDHELD);
@@ -131,7 +145,10 @@ public class ModModelProvider extends FabricModelProvider {
 
         itemModelGenerator.register(ModItems.CHEESEBURGER, Models.GENERATED);
 
+        itemModelGenerator.register(ModItems.PRISMARINE_DUST, Models.GENERATED);
+        itemModelGenerator.register(ModItems.PRISMARINE_IRON_DUST, Models.GENERATED);
         itemModelGenerator.register(ModItems.PRISMARINE_INGOT, Models.GENERATED);
+        itemModelGenerator.register(ModItems.PRISMARINE_GEAR, Models.GENERATED);
         itemModelGenerator.register(ModItems.PRISMARINE_SWORD, Models.HANDHELD);
         itemModelGenerator.register(ModItems.PRISMARINE_PICKAXE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.PRISMARINE_AXE, Models.HANDHELD);

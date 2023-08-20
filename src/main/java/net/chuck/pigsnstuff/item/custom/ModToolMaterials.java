@@ -17,13 +17,15 @@ public enum ModToolMaterials implements ToolMaterial
     //DIAMOND(MiningLevels.DIAMOND, 1561, 8.0f, 3.0f, 10, () -> Ingredient.ofItems(Items.DIAMOND)),
     //GOLD(MiningLevels.WOOD, 32, 12.0f, 0.0f, 22, () -> Ingredient.ofItems(Items.GOLD_INGOT)),
     //NETHERITE(MiningLevels.NETHERITE, 2031, 9.0f, 4.0f, 15, () -> Ingredient.ofItems(Items.NETHERITE_INGOT));*/
-    PRISMARINE(MiningLevels.IRON, 200, 7.0f, 2.5f, 18,
+    PRISMARINE(MiningLevels.IRON, 400, 7.0f, 2.5f, 18,
             () -> Ingredient.ofItems(ModItems.PRISMARINE_INGOT)),
     TIN(MiningLevels.STONE, 144, 5.0f, 1.5f, 15,
             () -> Ingredient.ofItems(ModItems.TIN_INGOT)),
+    BRONZE(MiningLevels.IRON, 500, 7.0f, 2f, 19,
+    () -> Ingredient.ofItems(ModItems.BRONZE_INGOT)),
     WITHER(MiningLevels.IRON, 1024, 3.0f, 4.0f,20,
             () -> Ingredient.ofItems((ModItems.WITHER_BONE))),
-    FABIUM(MiningLevels.NETHERITE, 1200, 8.0f, 4.0f, 12,
+    FABIUM(MiningLevels.NETHERITE, 1267, 8.0f, 4.0f, 12,
             () -> Ingredient.ofItems(ModItems.FABIUM_INGOT)),
     DIRITONIUM(5, 2431, 9.0f, 5.0f, 22,
             () -> Ingredient.ofItems(ModItems.DIRITONIUM_INGOT));

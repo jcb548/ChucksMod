@@ -22,12 +22,22 @@ public class ModItems {
             new Item(new FabricItemSettings()));
     public static final Item GOLD_DUST = registerItem("gold_dust",
             new Item(new FabricItemSettings()));
+
+    //Vanilla gears
+    public static final Item IRON_GEAR = registerItem("iron_gear",
+            new Item(new FabricItemSettings()));
+    public static final Item COPPER_GEAR = registerItem("copper_gear",
+            new Item(new FabricItemSettings()));
+    public static final Item GOLD_GEAR = registerItem("gold_gear",
+            new Item(new FabricItemSettings()));
     //Prismarine
     public static final Item PRISMARINE_DUST = registerItem("prismarine_dust",
             new Item(new FabricItemSettings()));
     public static final Item PRISMARINE_IRON_DUST = registerItem("prismarine_iron_dust",
             new Item(new FabricItemSettings()));
     public static final Item PRISMARINE_INGOT = registerItem("prismarine_ingot",
+            new Item(new FabricItemSettings()));
+    public static final Item PRISMARINE_GEAR = registerItem("prismarine_gear",
             new Item(new FabricItemSettings()));
     public static final Item PRISMARINE_SWORD = registerItem("prismarine_sword",
         new ModAquaSwordItem(ModToolMaterials.PRISMARINE, 3, -2.0f, new FabricItemSettings()));
@@ -43,6 +53,22 @@ public class ModItems {
     public static final Item RAW_TIN = registerItem("raw_tin", new Item(new FabricItemSettings()));
     public static final Item TIN_DUST = registerItem("tin_dust", new Item(new FabricItemSettings()));
     public static final Item TIN_INGOT = registerItem("tin_ingot", new Item(new FabricItemSettings()));
+    public static final Item TIN_GEAR = registerItem("tin_gear", new Item(new FabricItemSettings()));
+
+    //Bronze
+    public static final Item BRONZE_DUST = registerItem("bronze_dust", new Item(new FabricItemSettings()));
+    public static final Item BRONZE_INGOT = registerItem("bronze_ingot", new Item(new FabricItemSettings()));
+    public static final Item BRONZE_GEAR = registerItem("bronze_gear", new Item(new FabricItemSettings()));
+    public static final Item BRONZE_SWORD = registerItem("bronze_sword",
+            new ModSwordItem(ModToolMaterials.BRONZE, 3, -1.6f, new FabricItemSettings()));
+    public static final Item BRONZE_PICKAXE = registerItem("bronze_pickaxe",
+            new ModPickaxeItem(ModToolMaterials.BRONZE, 1, -2.2f, new FabricItemSettings()));
+    public static final Item BRONZE_AXE = registerItem("bronze_axe",
+            new ModAxeItem(ModToolMaterials.BRONZE, 6, -3.0f, new FabricItemSettings()));
+    public static final Item BRONZE_SHOVEL = registerItem("bronze_shovel",
+            new ModShovelItem(ModToolMaterials.BRONZE, 1, -1.8f, new FabricItemSettings()));
+    public static final Item BRONZE_HOE = registerItem("bronze_hoe",
+            new ModHoeItem(ModToolMaterials.BRONZE, -2, -0.4f, new FabricItemSettings()));
     // Wither items
     public static final Item WITHER_BONE = registerItem("wither_bone", new Item(new FabricItemSettings()));
     public static final Item WITHER_SWORD = registerItem("wither_sword",
@@ -58,6 +84,7 @@ public class ModItems {
     //Fabium
     public static final Item RAW_FABIUM = registerItem("raw_fabium", new Item(new FabricItemSettings()));
     public static final Item FABIUM_INGOT = registerItem("fabium_ingot", new Item(new FabricItemSettings()));
+    public static final Item FABIUM_GEAR = registerItem("fabium_gear", new Item(new FabricItemSettings()));
     public static final Item FABIUM_SWORD = registerItem("fabium_sword",
             new ModAntiLargeSwordItem(ModToolMaterials.FABIUM, 3, -1.8f, new FabricItemSettings()));
     public static final Item FABIUM_PICKAXE = registerItem("fabium_pickaxe",
@@ -67,11 +94,14 @@ public class ModItems {
     public static final Item FABIUM_SHOVEL = registerItem("fabium_shovel",
             new ModAntiLargeShovelItem(ModToolMaterials.FABIUM, 1, -2.0f, new FabricItemSettings()));
     public static final Item FABIUM_HOE = registerItem("fabium_hoe",
-            new ModAntiLargeHoeItem(ModToolMaterials.FABIUM, -2, -2.0f, new FabricItemSettings()));
+            new ModAntiLargeHoeItem(ModToolMaterials.FABIUM, -2, -0.4f, new FabricItemSettings()));
 
     // Diritonium
     public static final Item RAW_DIRITONIUM = registerItem("raw_diritonium", new Item(new FabricItemSettings()));
-    public static final Item DIRITONIUM_INGOT = registerItem("diritonium_ingot", new Item(new FabricItemSettings()));
+    public static final Item DIRITONIUM_INGOT = registerItem("diritonium_ingot",
+            new Item(new FabricItemSettings()));
+    public static final Item DIRITONIUM_GEAR = registerItem("diritonium_gear",
+            new Item(new FabricItemSettings()));
     public static final Item DIRITONIUM_SWORD = registerItem("diritonium_sword",
             new ModSwordItem(ModToolMaterials.DIRITONIUM, 3, -1.6f, new FabricItemSettings()));
     public static final Item DIRITONIUM_PICKAXE = registerItem("diritonium_pickaxe",

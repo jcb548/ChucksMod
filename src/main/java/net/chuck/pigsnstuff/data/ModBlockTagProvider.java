@@ -42,7 +42,8 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         getOrCreateTagBuilder(BlockTags.NEEDS_STONE_TOOL)
                 .add(ModBlocks.TIN_BLOCK)
                 .add(ModBlocks.TIN_ORE)
-                .add(ModBlocks.DEEPSLATE_TIN_ORE);
+                .add(ModBlocks.DEEPSLATE_TIN_ORE)
+                .add(ModBlocks.BRONZE_BLOCK);
 
         getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
                 .add(ModBlocks.NETHER_FABIUM_ORE)
@@ -54,6 +55,8 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.TIN_BLOCK)
                 .add(ModBlocks.TIN_ORE)
                 .add(ModBlocks.DEEPSLATE_TIN_ORE)
+
+                .add(ModBlocks.BRONZE_BLOCK)
 
                 .add(ModBlocks.DIRITONIUM_BLOCK)
                 .add(ModBlocks.RAW_DIRITONIUM_BLOCK)
@@ -69,6 +72,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.PRISMARINE_DUST_BLOCK)
                 .add(ModBlocks.PRISMARINE_IRON_DUST_BLOCK)
                 .add(ModBlocks.TIN_DUST_BLOCK)
+                .add(ModBlocks.BRONZE_DUST_BLOCK)
                 .add(ModBlocks.SLATED_GRASS)
                 .add(ModBlocks.SLATED_DIRT);
 

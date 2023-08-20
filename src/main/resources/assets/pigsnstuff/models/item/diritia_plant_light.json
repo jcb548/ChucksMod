@@ -1,3 +1,6 @@
 {
-  "parent": "pigsnstuff:block/diritia_plant_light"
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "pigsnstuff:block/diritia_plant_light"
+  }
 }

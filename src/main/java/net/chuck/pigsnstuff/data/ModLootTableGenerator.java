@@ -23,6 +23,9 @@ public class ModLootTableGenerator extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.TIN_ORE, oreDrops(ModBlocks.TIN_ORE, ModItems.RAW_TIN));
         addDrop(ModBlocks.DEEPSLATE_TIN_ORE, oreDrops(ModBlocks.DEEPSLATE_TIN_ORE, ModItems.RAW_TIN));
 
+        addDrop(ModBlocks.BRONZE_BLOCK);
+        addDrop(ModBlocks.BRONZE_DUST_BLOCK);
+
         addDrop(ModBlocks.RAW_FABIUM_BLOCK);
         addDrop(ModBlocks.FABIUM_BLOCK);
         addDrop(ModBlocks.NETHER_FABIUM_ORE, oreDrops(ModBlocks.NETHER_FABIUM_ORE, ModItems.RAW_FABIUM));
