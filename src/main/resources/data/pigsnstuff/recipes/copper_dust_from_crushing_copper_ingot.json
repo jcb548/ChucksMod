@@ -1,0 +1,11 @@
+{
+  "type": "pigsnstuff:crusher_recipe",
+  "ingredients": [
+    {
+      "item": "minecraft:copper_ingot"
+    }
+  ],
+  "output": {
+    "item": "pigsnstuff:copper_dust"
+  }
+}

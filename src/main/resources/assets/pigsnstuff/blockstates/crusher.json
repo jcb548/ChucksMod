@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "pigsnstuff:block/crusher",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "pigsnstuff:block/crusher"
+    },
+    "facing=south": {
+      "model": "pigsnstuff:block/crusher",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "pigsnstuff:block/crusher",
+      "y": 270
+    }
+  }
+}

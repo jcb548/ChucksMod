@@ -21,28 +21,73 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
 
     @Override
     public void generate(Consumer<RecipeJsonProvider> exporter) {
+        // Vanilla Resource Dust smelting and block crafting
+        offerSmelting(exporter, List.of(ModItems.IRON_DUST), RecipeCategory.MISC, Items.IRON_INGOT,
+                0.7f, 200, "iron_ingot");
+        offerBlasting(exporter, List.of(ModItems.IRON_DUST), RecipeCategory.MISC, Items.IRON_INGOT,
+                0.7f, 100, "iron_ingot");
+        offerReversibleCompactingRecipes(exporter, RecipeCategory.DECORATIONS, ModItems.IRON_DUST,
+                RecipeCategory.DECORATIONS, ModBlocks.IRON_DUST_BLOCK);
+        offerSmelting(exporter, List.of(ModItems.COPPER_DUST), RecipeCategory.MISC, Items.COPPER_INGOT,
+                0.7f, 200, "copper_ingot");
+        offerBlasting(exporter, List.of(ModItems.COPPER_DUST), RecipeCategory.MISC, Items.COPPER_INGOT,
+                0.7f, 100, "copper_ingot");
+        offerReversibleCompactingRecipes(exporter, RecipeCategory.DECORATIONS, ModItems.COPPER_DUST,
+                RecipeCategory.DECORATIONS, ModBlocks.COPPER_DUST_BLOCK);
+        offerSmelting(exporter, List.of(ModItems.GOLD_DUST), RecipeCategory.MISC, Items.GOLD_INGOT,
+                0.7f, 200, "gold_ingot");
+        offerBlasting(exporter, List.of(ModItems.GOLD_DUST), RecipeCategory.MISC, Items.GOLD_INGOT,
+                0.7f, 100, "gold_ingot");
+        offerReversibleCompactingRecipes(exporter, RecipeCategory.DECORATIONS, ModItems.GOLD_DUST,
+                RecipeCategory.DECORATIONS, ModBlocks.GOLD_DUST_BLOCK);
 
-        offerSmelting(exporter, List.of(ModItems.RAW_TIN), RecipeCategory.MISC, ModItems.TIN_INGOT,
+        //Tin
+        offerSmelting(exporter, List.of(ModItems.RAW_TIN), RecipeCategory.TOOLS, ModItems.TIN_INGOT,
                 0.7f, 200, "tin_ingot");
-        offerBlasting(exporter, List.of(ModItems.RAW_TIN), RecipeCategory.MISC, ModItems.TIN_INGOT,
+        offerBlasting(exporter, List.of(ModItems.RAW_TIN), RecipeCategory.TOOLS, ModItems.TIN_INGOT,
                 0.7f, 100, "tin_ingot");
-        offerReversibleCompactingRecipes(exporter, RecipeCategory.BUILDING_BLOCKS, ModItems.TIN_INGOT,
+        offerSmelting(exporter, List.of(ModItems.TIN_DUST), RecipeCategory.TOOLS, ModItems.TIN_INGOT,
+                0.7f, 200, "tin_ingot");
+        offerBlasting(exporter, List.of(ModItems.TIN_DUST), RecipeCategory.TOOLS, ModItems.TIN_INGOT,
+                0.7f, 100, "tin_ingot");
+        offerReversibleCompactingRecipes(exporter, RecipeCategory.DECORATIONS, ModItems.TIN_INGOT,
                 RecipeCategory.DECORATIONS, ModBlocks.TIN_BLOCK);
+        offerReversibleCompactingRecipes(exporter, RecipeCategory.DECORATIONS, ModItems.TIN_DUST,
+                RecipeCategory.DECORATIONS, ModBlocks.TIN_DUST_BLOCK);
 
-        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.PRISMARINE_INGOT)
-                .pattern("scs").pattern("cic").pattern("scs")
-                .input('s', Items.PRISMARINE_SHARD)
-                .input('c', Items.PRISMARINE_CRYSTALS)
-                .input('i', Items.IRON_INGOT)
-                .criterion(FabricRecipeProvider.hasItem(Items.PRISMARINE_SHARD),
-                        FabricRecipeProvider.conditionsFromItem(Items.PRISMARINE_SHARD))
-                .criterion(FabricRecipeProvider.hasItem(Items.PRISMARINE_CRYSTALS),
-                        FabricRecipeProvider.conditionsFromItem(Items.PRISMARINE_CRYSTALS))
-                .criterion(FabricRecipeProvider.hasItem(Items.IRON_INGOT),
-                        FabricRecipeProvider.conditionsFromItem(Items.IRON_INGOT))
-                .offerTo(exporter);
+        // Prismarine
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.PRISMARINE_IRON_DUST, 2)
+                .pattern(" P ").pattern("PIP").pattern(" P ")
+                        .input('P', ModItems.PRISMARINE_DUST)
+                        .input('I', ModItems.IRON_DUST)
+                        .criterion(FabricRecipeProvider.hasItem(ModItems.PRISMARINE_DUST),
+                                FabricRecipeProvider.conditionsFromItem(ModItems.PRISMARINE_DUST))
+                        .criterion(FabricRecipeProvider.hasItem(ModItems.IRON_DUST),
+                                FabricRecipeProvider.conditionsFromItem(ModItems.IRON_DUST))
+                        .offerTo(exporter);
+        offerSmelting(exporter,
+                List.of(ModItems.PRISMARINE_IRON_DUST),
+                RecipeCategory.TOOLS,
+                ModItems.PRISMARINE_INGOT,
+                2f,
+                200,
+                "prismarine_ingot");
+        offerBlasting(exporter,
+                List.of(ModItems.PRISMARINE_IRON_DUST),
+                RecipeCategory.TOOLS,
+                ModItems.PRISMARINE_INGOT,
+                2f,
+                100,
+                "prismarine_ingot");
+        offerReversibleCompactingRecipes(exporter,
+                RecipeCategory.DECORATIONS,
+                ModItems.PRISMARINE_DUST,
+                RecipeCategory.DECORATIONS,
+                ModBlocks.PRISMARINE_DUST_BLOCK);
         ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.PRISMARINE_SWORD)
-                .pattern("P").pattern("P").pattern("S")
+                .pattern("P")
+                .pattern("P")
+                .pattern("S")
                 .input('P', ModItems.PRISMARINE_INGOT)
                 .input('S', Items.STICK)
                 .criterion(FabricRecipeProvider.hasItem(ModItems.PRISMARINE_INGOT),
@@ -51,7 +96,9 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                         FabricRecipeProvider.conditionsFromItem(Items.STICK))
                 .offerTo(exporter);
         ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.PRISMARINE_PICKAXE)
-                .pattern("PPP").pattern(" S ").pattern(" S ")
+                .pattern("PPP")
+                .pattern(" S ")
+                .pattern(" S ")
                 .input('P', ModItems.PRISMARINE_INGOT)
                 .input('S', Items.STICK)
                 .criterion(FabricRecipeProvider.hasItem(ModItems.PRISMARINE_INGOT),
@@ -87,9 +134,9 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                         FabricRecipeProvider.conditionsFromItem(Items.STICK))
                 .offerTo(exporter);
 
-        offerSmelting(exporter, List.of(ModItems.RAW_FABIUM), RecipeCategory.MISC, ModItems.FABIUM_INGOT,
+        offerSmelting(exporter, List.of(ModItems.RAW_FABIUM), RecipeCategory.TOOLS, ModItems.FABIUM_INGOT,
                 1.0f, 200, "fabium_ingot");
-        offerBlasting(exporter, List.of(ModItems.RAW_FABIUM), RecipeCategory.MISC, ModItems.FABIUM_INGOT,
+        offerBlasting(exporter, List.of(ModItems.RAW_FABIUM), RecipeCategory.TOOLS, ModItems.FABIUM_INGOT,
                 1.0f, 100, "fabium_ingot");
         offerReversibleCompactingRecipes(exporter, RecipeCategory.BUILDING_BLOCKS, ModItems.RAW_FABIUM,
                 RecipeCategory.DECORATIONS, ModBlocks.RAW_FABIUM_BLOCK);
@@ -141,9 +188,9 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                         FabricRecipeProvider.conditionsFromItem(Items.STICK))
                 .offerTo(exporter);
 
-        offerSmelting(exporter, List.of(ModItems.RAW_DIRITONIUM), RecipeCategory.MISC, ModItems.DIRITONIUM_INGOT,
+        offerSmelting(exporter, List.of(ModItems.RAW_DIRITONIUM), RecipeCategory.TOOLS, ModItems.DIRITONIUM_INGOT,
                 1.3f, 200, "diritonium_ingot");
-        offerBlasting(exporter, List.of(ModItems.RAW_DIRITONIUM), RecipeCategory.MISC, ModItems.DIRITONIUM_INGOT,
+        offerBlasting(exporter, List.of(ModItems.RAW_DIRITONIUM), RecipeCategory.TOOLS, ModItems.DIRITONIUM_INGOT,
                 1.3f, 100, "diritonium_ingot");
         offerReversibleCompactingRecipes(exporter, RecipeCategory.BUILDING_BLOCKS, ModItems.RAW_DIRITONIUM,
                 RecipeCategory.DECORATIONS, ModBlocks.RAW_DIRITONIUM_BLOCK);

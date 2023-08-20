@@ -9,6 +9,7 @@ import net.minecraft.block.GrassBlock;
 import net.minecraft.data.client.BlockStateModelGenerator;
 import net.minecraft.data.client.ItemModelGenerator;
 import net.minecraft.data.client.Models;
+import net.minecraft.data.client.TexturedModel;
 import net.minecraft.util.Identifier;
 
 public class ModModelProvider extends FabricModelProvider {
@@ -18,6 +19,14 @@ public class ModModelProvider extends FabricModelProvider {
 
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
+
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.IRON_DUST_BLOCK);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.COPPER_DUST_BLOCK);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.GOLD_DUST_BLOCK);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.PRISMARINE_DUST_BLOCK);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.PRISMARINE_IRON_DUST_BLOCK);
+
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.TIN_DUST_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.TIN_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.TIN_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_TIN_ORE);
@@ -84,14 +93,23 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerDoor(ModBlocks.DIRITIA_DOOR);
         blockStateModelGenerator.registerTrapdoor(ModBlocks.DIRITIA_TRAPDOOR);
 
-        blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.INFUSER);
+        blockStateModelGenerator.registerNorthDefaultHorizontalRotated(ModBlocks.CRUSHER, TexturedModel.ORIENTABLE);
 
         blockStateModelGenerator.registerItemModel(ModBlocks.EUCALYPTUS_SAPLING);
         blockStateModelGenerator.registerItemModel(ModBlocks.DIRITIA_SAPLING);
+        blockStateModelGenerator.registerItemModel(ModBlocks.DIRITIA_PLANT);
+        blockStateModelGenerator.registerItemModel(ModBlocks.DIRITIA_LIGHT_PLANT);
     }
 
     @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
+        itemModelGenerator.register(ModItems.IRON_DUST, Models.GENERATED);
+        itemModelGenerator.register(ModItems.COPPER_DUST, Models.GENERATED);
+        itemModelGenerator.register(ModItems.GOLD_DUST, Models.GENERATED);
+        itemModelGenerator.register(ModItems.PRISMARINE_DUST, Models.GENERATED);
+        itemModelGenerator.register(ModItems.PRISMARINE_IRON_DUST, Models.GENERATED);
+
+        itemModelGenerator.register(ModItems.TIN_DUST, Models.GENERATED);
         itemModelGenerator.register(ModItems.RAW_TIN, Models.GENERATED);
         itemModelGenerator.register(ModItems.TIN_INGOT, Models.GENERATED);
 

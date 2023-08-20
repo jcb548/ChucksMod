@@ -35,7 +35,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.DEEPSLATE_FABIUM_ORE);
 
         getOrCreateTagBuilder(BlockTags.NEEDS_IRON_TOOL)
-                .add(ModBlocks.INFUSER)
+                .add(ModBlocks.CRUSHER)
                 .add(ModBlocks.SLATED_DIRT)
                 .add(ModBlocks.SLATED_GRASS);
 
@@ -43,10 +43,6 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.TIN_BLOCK)
                 .add(ModBlocks.TIN_ORE)
                 .add(ModBlocks.DEEPSLATE_TIN_ORE);
-
-        getOrCreateTagBuilder(TagKey.of(RegistryKeys.BLOCK,
-                new Identifier("pigsnstuff", "base_end_stone")))
-                .add(Blocks.END_STONE);
 
         getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
                 .add(ModBlocks.NETHER_FABIUM_ORE)
@@ -64,9 +60,15 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.END_STONE_DIRITONIUM_ORE)
                 .add(ModBlocks.DEEPSLATE_DIRITONIUM_ORE)
 
-                .add(ModBlocks.INFUSER);
+                .add(ModBlocks.CRUSHER);
 
         getOrCreateTagBuilder(BlockTags.SHOVEL_MINEABLE)
+                .add(ModBlocks.IRON_DUST_BLOCK)
+                .add(ModBlocks.COPPER_DUST_BLOCK)
+                .add(ModBlocks.GOLD_DUST_BLOCK)
+                .add(ModBlocks.PRISMARINE_DUST_BLOCK)
+                .add(ModBlocks.PRISMARINE_IRON_DUST_BLOCK)
+                .add(ModBlocks.TIN_DUST_BLOCK)
                 .add(ModBlocks.SLATED_GRASS)
                 .add(ModBlocks.SLATED_DIRT);
 

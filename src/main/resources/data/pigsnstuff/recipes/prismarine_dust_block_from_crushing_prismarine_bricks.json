@@ -1,0 +1,11 @@
+{
+  "type": "pigsnstuff:crusher_recipe",
+  "ingredients": [
+    {
+      "item": "minecraft:prismarine_bricks"
+    }
+  ],
+  "output": {
+    "item": "pigsnstuff:prismarine_dust_block"
+  }
+}

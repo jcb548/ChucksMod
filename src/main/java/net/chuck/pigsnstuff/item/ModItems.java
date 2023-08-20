@@ -15,7 +15,18 @@ public class ModItems {
     public static final Item CHEESEBURGER = registerItem("cheeseburger",
             new Item(new FabricItemSettings().food(ModFoodComponents.CHEESEBURGER)));
 
+    // Crushed Vanilla Resources
+    public static final Item IRON_DUST = registerItem("iron_dust",
+            new Item(new FabricItemSettings()));
+    public static final Item COPPER_DUST = registerItem("copper_dust",
+            new Item(new FabricItemSettings()));
+    public static final Item GOLD_DUST = registerItem("gold_dust",
+            new Item(new FabricItemSettings()));
     //Prismarine
+    public static final Item PRISMARINE_DUST = registerItem("prismarine_dust",
+            new Item(new FabricItemSettings()));
+    public static final Item PRISMARINE_IRON_DUST = registerItem("prismarine_iron_dust",
+            new Item(new FabricItemSettings()));
     public static final Item PRISMARINE_INGOT = registerItem("prismarine_ingot",
             new Item(new FabricItemSettings()));
     public static final Item PRISMARINE_SWORD = registerItem("prismarine_sword",
@@ -30,6 +41,7 @@ public class ModItems {
             new ModAquaHoeItem(ModToolMaterials.PRISMARINE, -2, -0.4f, new FabricItemSettings()));
     // Tin
     public static final Item RAW_TIN = registerItem("raw_tin", new Item(new FabricItemSettings()));
+    public static final Item TIN_DUST = registerItem("tin_dust", new Item(new FabricItemSettings()));
     public static final Item TIN_INGOT = registerItem("tin_ingot", new Item(new FabricItemSettings()));
     // Wither items
     public static final Item WITHER_BONE = registerItem("wither_bone", new Item(new FabricItemSettings()));

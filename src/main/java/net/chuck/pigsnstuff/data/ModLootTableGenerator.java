@@ -12,6 +12,13 @@ public class ModLootTableGenerator extends FabricBlockLootTableProvider {
 
     @Override
     public void generate() {
+        addDrop(ModBlocks.IRON_DUST_BLOCK);
+        addDrop(ModBlocks.COPPER_DUST_BLOCK);
+        addDrop(ModBlocks.GOLD_DUST_BLOCK);
+        addDrop(ModBlocks.PRISMARINE_DUST_BLOCK);
+        addDrop(ModBlocks.PRISMARINE_IRON_DUST_BLOCK);
+
+        addDrop(ModBlocks.TIN_DUST_BLOCK);
         addDrop(ModBlocks.TIN_BLOCK);
         addDrop(ModBlocks.TIN_ORE, oreDrops(ModBlocks.TIN_ORE, ModItems.RAW_TIN));
         addDrop(ModBlocks.DEEPSLATE_TIN_ORE, oreDrops(ModBlocks.DEEPSLATE_TIN_ORE, ModItems.RAW_TIN));
@@ -64,6 +71,6 @@ public class ModLootTableGenerator extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.DIRITIA_STAIRS);
         addDrop(ModBlocks.DIRITIA_SLAB, slabDrops(ModBlocks.DIRITIA_SLAB));
 
-        addDrop(ModBlocks.INFUSER);
+        addDrop(ModBlocks.CRUSHER);
     }
 }

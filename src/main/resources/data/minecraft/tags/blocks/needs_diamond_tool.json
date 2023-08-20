@@ -3,6 +3,8 @@
   "values": [
     "pigsnstuff:fabium_block",
     "pigsnstuff:raw_fabium_block",
-    "pigsnstuff:fabium_ore"
+    "pigsnstuff:nether_fabium_ore",
+    "pigsnstuff:endstone_fabium_ore",
+    "pigsnstuff:deepslate_fabium_ore"
   ]
 }

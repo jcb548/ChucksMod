@@ -1,0 +1,11 @@
+{
+  "type": "pigsnstuff:crusher_recipe",
+  "ingredients": [
+    {
+      "item": "pigsnstuff:raw_tin"
+    }
+  ],
+  "output": {
+    "item": "pigsnstuff:tin_dust"
+  }
+}

@@ -1,7 +1,7 @@
 package net.chuck.pigsnstuff.block;
 
 import net.chuck.pigsnstuff.PigsNStuff;
-import net.chuck.pigsnstuff.block.custom.InfuserBlock;
+import net.chuck.pigsnstuff.block.custom.CrusherBlock;
 import net.chuck.pigsnstuff.block.custom.ModSlatedGrassBlock;
 import net.chuck.pigsnstuff.world.tree.DiritiaSaplingGenerator;
 import net.chuck.pigsnstuff.world.tree.EucalyptusSaplingGenerator;
@@ -15,9 +15,21 @@ import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
 public class ModBlocks {
+    public static final Block IRON_DUST_BLOCK = registerBlock("iron_dust_block",
+            new FallingBlock(FabricBlockSettings.copy(Blocks.SAND)));
+    public static final Block COPPER_DUST_BLOCK = registerBlock("copper_dust_block",
+            new FallingBlock(FabricBlockSettings.copy(Blocks.SAND)));
+    public static final Block GOLD_DUST_BLOCK = registerBlock("gold_dust_block",
+            new FallingBlock(FabricBlockSettings.copy(Blocks.SAND)));
+    public static final Block PRISMARINE_DUST_BLOCK = registerBlock("prismarine_dust_block",
+            new FallingBlock(FabricBlockSettings.copy(Blocks.SAND)));
+    public static final Block PRISMARINE_IRON_DUST_BLOCK = registerBlock("prismarine_iron_dust_block",
+            new FallingBlock(FabricBlockSettings.copy(Blocks.SAND)));
     // Tin
     public static final Block TIN_BLOCK = registerBlock("tin_block",
             new Block(FabricBlockSettings.copy(Blocks.GOLD_BLOCK)));
+    public static final Block TIN_DUST_BLOCK = registerBlock("tin_dust_block",
+            new FallingBlock(FabricBlockSettings.copy(Blocks.SAND)));
     public static final Block TIN_ORE = registerBlock("tin_ore",
             new Block(FabricBlockSettings.copy(Blocks.IRON_ORE)));
     public static final Block DEEPSLATE_TIN_ORE = registerBlock("deepslate_tin_ore",
@@ -55,8 +67,8 @@ public class ModBlocks {
             new DoorBlock(FabricBlockSettings.copy(Blocks.OAK_DOOR), BlockSetType.OAK));
     public static final Block EUCALYPTUS_TRAPDOOR = registerBlock("eucalyptus_trapdoor",
             new TrapdoorBlock(FabricBlockSettings.copy(Blocks.OAK_TRAPDOOR), BlockSetType.OAK));
-    public static final Block INFUSER = registerBlock("infuser",
-            new InfuserBlock(FabricBlockSettings.copy(Blocks.SMOOTH_STONE)));
+    public static final Block CRUSHER = registerBlock("crusher",
+            new CrusherBlock(FabricBlockSettings.copy(Blocks.SMOOTH_STONE)));
     // Fabium
     public static final Block FABIUM_BLOCK = registerBlock("fabium_block",
             new Block(FabricBlockSettings.copy(Blocks.GOLD_BLOCK)));

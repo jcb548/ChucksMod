@@ -1,7 +1,18 @@
 {
   "item.pigsnstuff.cheeseburger": "Cheeseburger",
 
-  "item.pigsnstuff,prismarine_ingot": "Prismarine Ingot",
+  "item.pigsnstuff.iron_dust": "Iron Dust",
+  "block.pigsnstuff.iron_dust_block": "Block of Iron Dust",
+  "item.pigsnstuff.copper_dust": "Copper Dust",
+  "block.pigsnstuff.copper_dust_block": "Block of Copper Dust",
+  "item.pigsnstuff.gold_dust": "Gold Dust",
+  "block.pigsnstuff.gold_dust_block": "Block of Gold Dust",
+
+  "item.pigsnstuff.prismarine_dust": "Prismarine Dust",
+  "block.pigsnstuff.prismarine_dust_block": "Prismarine Dust Block",
+  "item.pigsnstuff.prismarine_iron_dust": "Prismarine Iron Dust",
+  "block.pigsnstuff.prismarine_iron_dust_block": "Prismarine Iron Dust Block",
+  "item.pigsnstuff.prismarine_ingot": "Prismarine Ingot",
   "item.pigsnstuff.prismarine_sword": "Prismarine Sword",
   "item.pigsnstuff.prismarine_pickaxe": "Prismarine Pickaxe",
   "item.pigsnstuff.prismarine_axe": "Prismarine Axe",
@@ -11,7 +22,9 @@
 
   "item.pigsnstuff.raw_tin": "Raw Tin",
   "item.pigsnstuff.tin_ingot": "Tin Ingot",
+  "item.pigsnstuff.tin_dust": "Tin Dust",
   "block.pigsnstuff.tin_block": "Block of Tin",
+  "block.pigsnstuff.tin_dust_block": "Block of Tin Dust",
   "block.pigsnstuff.tin_ore": "Tin Ore",
   "block.pigsnstuff.deepslate_tin_ore": "Deepslate Tin Ore",
 
@@ -67,7 +80,7 @@
   "block.pigsnstuff.eucalyptus_door": "Eucalyptus Door",
   "block.pigsnstuff.eucalyptus_trapdoor": "Eucalyptus Trapdoor",
 
-  "block.pigsnstuff.infuser": "Infuser",
+  "block.pigsnstuff.crusher": "Crusher",
 
   "block.pigsnstuff.slated_dirt": "Slated Dirt",
   "block.pigsnstuff.slated_grass": "Slated Grass",

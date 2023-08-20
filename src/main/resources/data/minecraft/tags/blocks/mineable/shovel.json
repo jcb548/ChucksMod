@@ -1,6 +1,12 @@
 {
   "replace": false,
   "values": [
+    "pigsnstuff:iron_dust_block",
+    "pigsnstuff:copper_dust_block",
+    "pigsnstuff:gold_dust_block",
+    "pigsnstuff:prismarine_dust_block",
+    "pigsnstuff:prismarine_iron_dust_block",
+    "pigsnstuff:tin_dust_block",
     "pigsnstuff:slated_grass",
     "pigsnstuff:slated_dirt"
   ]

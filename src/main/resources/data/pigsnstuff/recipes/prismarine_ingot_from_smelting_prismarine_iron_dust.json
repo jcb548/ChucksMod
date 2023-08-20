@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 2.0,
+  "group": "prismarine_ingot",
+  "ingredient": {
+    "item": "pigsnstuff:prismarine_iron_dust"
+  },
+  "result": "pigsnstuff:prismarine_ingot"
+}

@@ -1,7 +1,9 @@
 {
   "replace": false,
   "values": [
-    "pigsnstuff:fabium_ore",
+    "pigsnstuff:nether_fabium_ore",
+    "pigsnstuff:endstone_fabium_ore",
+    "pigsnstuff:deepslate_fabium_ore",
     "pigsnstuff:raw_fabium_block",
     "pigsnstuff:fabium_block",
     "pigsnstuff:tin_block",
@@ -9,7 +11,8 @@
     "pigsnstuff:deepslate_tin_ore",
     "pigsnstuff:diritonium_block",
     "pigsnstuff:raw_diritonium_block",
-    "pigsnstuff:diritonium_ore",
-    "pigsnstuff:infuser"
+    "pigsnstuff:endstone_diritonium_ore",
+    "pigsnstuff:deepslate_diritonium_ore",
+    "pigsnstuff:crusher"
   ]
 }

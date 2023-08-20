@@ -19,6 +19,18 @@ public class ModItemGroups {
                 .icon(() -> new ItemStack(Items.PORKCHOP)).entries((displayContext, entries) -> {
                         entries.add(ModItems.CHEESEBURGER);
 
+                        entries.add(ModItems.IRON_DUST);
+                        entries.add(ModItems.COPPER_DUST);
+                        entries.add(ModItems.GOLD_DUST);
+                        entries.add(ModBlocks.IRON_DUST_BLOCK);
+                        entries.add(ModBlocks.COPPER_DUST_BLOCK);
+                        entries.add(ModBlocks.GOLD_DUST_BLOCK);
+                        entries.add(ModBlocks.TIN_DUST_BLOCK);
+
+                        entries.add(ModItems.PRISMARINE_DUST);
+                        entries.add(ModBlocks.PRISMARINE_DUST_BLOCK);
+                        entries.add(ModBlocks.PRISMARINE_IRON_DUST_BLOCK);
+                        entries.add(ModItems.PRISMARINE_IRON_DUST);
                         entries.add(ModItems.PRISMARINE_INGOT);
                         entries.add(ModItems.PRISMARINE_SWORD);
                         entries.add(ModItems.PRISMARINE_PICKAXE);
@@ -27,6 +39,7 @@ public class ModItemGroups {
                         entries.add(ModItems.PRISMARINE_HOE);
 
                         entries.add(ModItems.RAW_TIN);
+                        entries.add(ModItems.TIN_DUST);
                         entries.add(ModItems.TIN_INGOT);
                         entries.add(ModBlocks.TIN_BLOCK);
                         entries.add(ModBlocks.TIN_ORE);
@@ -80,7 +93,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.EUCALYPTUS_DOOR);
                         entries.add(ModBlocks.EUCALYPTUS_TRAPDOOR);
 
-                        entries.add(ModBlocks.INFUSER);
+                        entries.add(ModBlocks.CRUSHER);
 
                         entries.add(ModBlocks.SLATED_DIRT);
                         entries.add(ModBlocks.SLATED_GRASS);

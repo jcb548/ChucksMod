@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "I": {
+      "item": "pigsnstuff:iron_dust"
+    },
+    "P": {
+      "item": "pigsnstuff:prismarine_dust"
+    }
+  },
+  "pattern": [
+    " P ",
+    "PIP",
+    " P "
+  ],
+  "result": {
+    "count": 2,
+    "item": "pigsnstuff:prismarine_iron_dust"
+  },
+  "show_notification": true
+}
