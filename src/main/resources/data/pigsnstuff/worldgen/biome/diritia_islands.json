@@ -34,7 +34,11 @@
       "pigsnstuff:diritia_lapis_ore_placed",
       "pigsnstuff:diritia_copper_ore_placed",
       "pigsnstuff:diritia_fabium_ore_placed",
-      "pigsnstuff:diritia_diritonium_ore_placed"
+      "pigsnstuff:diritia_diritonium_ore_placed",
+      "pigsnstuff:diritia_calcite_vein_placed",
+      "pigsnstuff:diritia_slated_vein_placed",
+      "pigsnstuff:diritia_blackstone_vein_placed",
+      "pigsnstuff:diritia_endstone_vein_placed"
     ],
     [],
     [],
@@ -44,6 +48,7 @@
       "minecraft:brown_mushroom_taiga",
       "minecraft:red_mushroom_taiga",
       "pigsnstuff:diritia_tree_placed",
+      "pigsnstuff:diritia_cherry_tree_placed",
 
       "pigsnstuff:diritia_plants_placed"
     ],

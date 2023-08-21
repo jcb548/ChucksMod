@@ -9,7 +9,7 @@
             "type": "minecraft:weighted_state_provider",
             "entries": [
               {
-                "weight": 6,
+                "weight": 12,
                 "data": {
                   "Name": "pigsnstuff:diritia_plant"
                 }

@@ -32,8 +32,6 @@ public class CrusherBlockEntity extends BlockEntity implements NamedScreenHandle
     protected final PropertyDelegate propertyDelegate;
     private int progress = 0;
     private int maxProgress = 72;
-    private int fuelTime = 0;
-    private int maxFuelTime = 0;
     public CrusherBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.CRUSHER, pos, state);
         this.propertyDelegate = new PropertyDelegate() {

@@ -57,7 +57,7 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.EUCALYPTUS_LEAVES);
         BlockStateModelGenerator.BlockTexturePool eucalyptus_pool =
                 blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.EUCALYPTUS_PLANKS);
-        blockStateModelGenerator.registerTintableCrossBlockState(ModBlocks.EUCALYPTUS_SAPLING,
+        blockStateModelGenerator.registerTintableCross(ModBlocks.EUCALYPTUS_SAPLING,
                 BlockStateModelGenerator.TintType.NOT_TINTED);
         eucalyptus_pool.stairs(ModBlocks.EUCALYPTUS_STAIRS);
         eucalyptus_pool.slab(ModBlocks.EUCALYPTUS_SLAB);
@@ -72,7 +72,7 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerTintableCross(ModBlocks.DIRITIA_PLANT,
                 BlockStateModelGenerator.TintType.TINTED);
         blockStateModelGenerator.registerTintableCross(ModBlocks.DIRITIA_LIGHT_PLANT,
-                BlockStateModelGenerator.TintType.TINTED);
+                BlockStateModelGenerator.TintType.NOT_TINTED);
 
         BlockStateModelGenerator.LogTexturePool diritia_log_pool =
                 blockStateModelGenerator.registerLog(ModBlocks.DIRITIA_LOG);
@@ -85,7 +85,7 @@ public class ModModelProvider extends FabricModelProvider {
 
         BlockStateModelGenerator.BlockTexturePool diritia_pool =
                 blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.DIRITIA_PLANKS);
-        blockStateModelGenerator.registerTintableCrossBlockState(ModBlocks.DIRITIA_SAPLING,
+        blockStateModelGenerator.registerTintableCross(ModBlocks.DIRITIA_SAPLING,
                 BlockStateModelGenerator.TintType.NOT_TINTED);
         diritia_pool.stairs(ModBlocks.DIRITIA_STAIRS);
         diritia_pool.slab(ModBlocks.DIRITIA_SLAB);
@@ -97,9 +97,6 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerTrapdoor(ModBlocks.DIRITIA_TRAPDOOR);
 
         blockStateModelGenerator.registerNorthDefaultHorizontalRotated(ModBlocks.CRUSHER, TexturedModel.ORIENTABLE);
-
-        blockStateModelGenerator.registerItemModel(ModBlocks.EUCALYPTUS_SAPLING);
-        blockStateModelGenerator.registerItemModel(ModBlocks.DIRITIA_SAPLING);
     }
 
     @Override

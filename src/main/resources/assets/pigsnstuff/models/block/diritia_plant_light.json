@@ -1,5 +1,5 @@
 {
-  "parent": "minecraft:block/tinted_cross",
+  "parent": "minecraft:block/cross",
   "textures": {
     "cross": "pigsnstuff:block/diritia_plant_light"
   }

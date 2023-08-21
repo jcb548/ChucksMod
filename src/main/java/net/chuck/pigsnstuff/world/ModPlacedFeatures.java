@@ -2,6 +2,7 @@ package net.chuck.pigsnstuff.world;
 
 import net.chuck.pigsnstuff.PigsNStuff;
 import net.chuck.pigsnstuff.block.ModBlocks;
+import net.minecraft.block.Blocks;
 import net.minecraft.registry.Registerable;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
@@ -30,7 +31,12 @@ public class ModPlacedFeatures {
     public static final RegistryKey<PlacedFeature> END_DIRITONIUM_ORE_PLACED_KEY =
             registerKey("end_diritonium_ore_placed");
     // Generation for Diritia Islands
-    public static final RegistryKey<PlacedFeature> DIRITIA_TREE_PLACED_KEY = registerKey("diritia_tree_placed");
+    // Trees
+    public static final RegistryKey<PlacedFeature> DIRITIA_TREE_PLACED_KEY =
+            registerKey("diritia_tree_placed");
+    /*public static final RegistryKey<PlacedFeature> DIRITIA_CHERRY_TREE_PLACED_KEY =
+            registerKey("diritia_cherry_tree_placed");*/
+    // Ores
     public static final RegistryKey<PlacedFeature> DIRITIA_DIRITONIUM_ORE_PLACED_KEY =
             registerKey("diritia_diritonium_ore_placed");
     public static final RegistryKey<PlacedFeature> DIRITIA_COAL_ORE_PLACED_KEY =
@@ -49,6 +55,14 @@ public class ModPlacedFeatures {
             registerKey("diritia_copper_ore_placed");
     public static final RegistryKey<PlacedFeature> DIRITIA_FABIUM_ORE_PLACED_KEY =
             registerKey("diritia_fabium_ore_placed");
+    public static final RegistryKey<PlacedFeature> DIRITIA_CALCITE_VEIN_PLACED_KEY =
+            registerKey("diritia_calcite_vein_placed");
+    public static final RegistryKey<PlacedFeature> DIRITIA_SLATED_VEIN_PLACED_KEY =
+            registerKey("diritia_slated_vein_placed");
+    public static final RegistryKey<PlacedFeature> DIRITIA_BLACKSTONE_VEIN_PLACED_KEY =
+            registerKey("diritia_blackstone_vein_placed");
+    public static final RegistryKey<PlacedFeature> DIRITIA_ENDSTONE_VEIN_PLACED_KEY =
+            registerKey("diritia_endstone_vein_placed");
     public static void bootstrap(Registerable<PlacedFeature> context) {
         var configuredFeatureRegistryEntryLookup = context.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE);
 
@@ -61,6 +75,11 @@ public class ModPlacedFeatures {
                         .getOrThrow(ModConfiguredFeatures.DIRITIA_TREE_KEY),
                 VegetationPlacedFeatures.treeModifiersWithWouldSurvive(PlacedFeatures
                         .createCountExtraModifier(1, 0.1f, 2), ModBlocks.DIRITIA_SAPLING));
+        /*register(context, DIRITIA_CHERRY_TREE_PLACED_KEY, configuredFeatureRegistryEntryLookup
+                        .getOrThrow(ModConfiguredFeatures.DIRITIA_CHERRY_TREE_KEY),
+                VegetationPlacedFeatures.treeModifiersWithWouldSurvive(PlacedFeatures
+                        .createCountExtraModifier(1, 0.1f, 1), Blocks.CHERRY_SAPLING));*/
+
         //Register New Overworld Ores
         register(context, TIN_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup
                         .getOrThrow(ModConfiguredFeatures.TIN_ORE_KEY), ModOrePlacement.modifiersWithCount(12,
@@ -104,6 +123,18 @@ public class ModPlacedFeatures {
         register(context, DIRITIA_FABIUM_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup
                 .getOrThrow(ModConfiguredFeatures.DIRITIA_FABIUM_ORE_KEY), ModOrePlacement.modifiersWithCount(20,
                 HeightRangePlacementModifier.uniform(YOffset.fixed( 0), YOffset.fixed(128))));
+        register(context, DIRITIA_CALCITE_VEIN_PLACED_KEY, configuredFeatureRegistryEntryLookup
+                .getOrThrow(ModConfiguredFeatures.DIRITIA_CALCITE_VEIN_KEY), ModOrePlacement.modifiersWithCount(4,
+                HeightRangePlacementModifier.uniform(YOffset.fixed(0), YOffset.fixed(256))));
+        register(context, DIRITIA_SLATED_VEIN_PLACED_KEY, configuredFeatureRegistryEntryLookup
+                .getOrThrow(ModConfiguredFeatures.DIRITIA_SLATED_VEIN_KEY), ModOrePlacement.modifiersWithCount(4,
+                HeightRangePlacementModifier.uniform(YOffset.fixed(0), YOffset.fixed(256))));
+        register(context, DIRITIA_BLACKSTONE_VEIN_PLACED_KEY, configuredFeatureRegistryEntryLookup
+                .getOrThrow(ModConfiguredFeatures.DIRITIA_BLACKSTONE_VEIN_KEY), ModOrePlacement.modifiersWithCount(4,
+                HeightRangePlacementModifier.uniform(YOffset.fixed(0), YOffset.fixed(256))));
+        register(context, DIRITIA_ENDSTONE_VEIN_PLACED_KEY, configuredFeatureRegistryEntryLookup
+                .getOrThrow(ModConfiguredFeatures.DIRITIA_ENDSTONE_VEIN_KEY), ModOrePlacement.modifiersWithCount(4,
+                HeightRangePlacementModifier.uniform(YOffset.fixed(0), YOffset.fixed(256))));
     }
 
     public static RegistryKey<PlacedFeature> registerKey(String name) {

@@ -15,6 +15,8 @@ import net.minecraft.structure.rule.RuleTest;
 import net.minecraft.structure.rule.TagMatchRuleTest;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.intprovider.ConstantIntProvider;
+import net.minecraft.util.math.intprovider.IntProvider;
+import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.minecraft.world.GameRules;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.feature.size.TwoLayersFeatureSize;
@@ -22,13 +24,17 @@ import net.minecraft.world.gen.foliage.BlobFoliagePlacer;
 import net.minecraft.world.gen.foliage.CherryFoliagePlacer;
 import net.minecraft.world.gen.foliage.JungleFoliagePlacer;
 import net.minecraft.world.gen.stateprovider.BlockStateProvider;
+import net.minecraft.world.gen.trunk.CherryTrunkPlacer;
 import net.minecraft.world.gen.trunk.ForkingTrunkPlacer;
 import net.minecraft.world.gen.trunk.StraightTrunkPlacer;
 import java.util.List;
+import java.util.Locale;
 
 public class ModConfiguredFeatures {
     public static final RegistryKey<ConfiguredFeature<?, ?>> EUCALYPTUS_KEY = registerKey("eucalyptus");
     public static final RegistryKey<ConfiguredFeature<?, ?>> TIN_ORE_KEY = registerKey("tin_ore");
+    /*public static final RegistryKey<ConfiguredFeature<?, ?>> DIRITIA_CHERRY_TREE_KEY =
+            registerKey("diritia_cherry_tree");*/
     public static final RegistryKey<ConfiguredFeature<?, ?>> NETHER_FABIUM_ORE_KEY = registerKey("nether_fabium_ore");
     public static final RegistryKey<ConfiguredFeature<?, ?>> END_FABIUM_ORE_KEY = registerKey("end_fabium_ore");
     public static final RegistryKey<ConfiguredFeature<?, ?>> END_DIRITONIUM_ORE_KEY = registerKey("end_diritonium_ore");
@@ -51,7 +57,16 @@ public class ModConfiguredFeatures {
             registerKey("diritia_lapis_ore");
     public static final RegistryKey<ConfiguredFeature<?, ?>> DIRITIA_COPPER_ORE_KEY =
             registerKey("diritia_copper_ore");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> DIRITIA_TREE_KEY = registerKey("diritia_tree");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> DIRITIA_CALCITE_VEIN_KEY =
+            registerKey("diritia_calcite_vein");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> DIRITIA_SLATED_VEIN_KEY =
+            registerKey("diritia_slated_vein");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> DIRITIA_BLACKSTONE_VEIN_KEY =
+            registerKey("diritia_blackstone_vein");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> DIRITIA_ENDSTONE_VEIN_KEY =
+            registerKey("diritia_endstone_vein");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> DIRITIA_TREE_KEY =
+            registerKey("diritia_tree");
 
 
     public static RegistryKey<ConfiguredFeature<?, ?>> registerKey(String name) {
@@ -111,6 +126,18 @@ public class ModConfiguredFeatures {
         List<OreFeatureConfig.Target> diritiaLapisOre =
                 List.of(OreFeatureConfig.createTarget(deepslateReplaceables,
                         Blocks.DEEPSLATE_LAPIS_ORE.getDefaultState()));
+        List<OreFeatureConfig.Target> diritiaCalcite =
+                List.of(OreFeatureConfig.createTarget(deepslateReplaceables,
+                        Blocks.CALCITE.getDefaultState()));
+        List<OreFeatureConfig.Target> diritiaSlatedVein =
+                List.of(OreFeatureConfig.createTarget(deepslateReplaceables,
+                        ModBlocks.SLATED_DIRT.getDefaultState()));
+        List<OreFeatureConfig.Target> diritiaBlackstoneVein =
+                List.of(OreFeatureConfig.createTarget(deepslateReplaceables,
+                        Blocks.BLACKSTONE.getDefaultState()));
+        List<OreFeatureConfig.Target> diritiaEndstoneVein =
+                List.of(OreFeatureConfig.createTarget(deepslateReplaceables,
+                        Blocks.END_STONE.getDefaultState()));
 
         // Register New Trees
         register(context, EUCALYPTUS_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
@@ -126,6 +153,16 @@ public class ModConfiguredFeatures {
                 BlockStateProvider.of(ModBlocks.DIRITIA_LEAVES),
                 new JungleFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(0), 2),
                 new TwoLayersFeatureSize(1,1,1)).build());
+
+        /*register(context, DIRITIA_CHERRY_TREE_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
+                BlockStateProvider.of(Blocks.CHERRY_LOG),
+                new CherryTrunkPlacer(7, 3, 3, ConstantIntProvider.create(2),
+                        UniformIntProvider.create(3, 5), UniformIntProvider.create(1, 2), ConstantIntProvider.create(1)),
+                BlockStateProvider.of(Blocks.CHERRY_LEAVES),
+                new CherryFoliagePlacer(ConstantIntProvider.create(5), ConstantIntProvider.create(-1),
+                        ConstantIntProvider.create(4), 0.25f, 0.25f,
+                        0.16666667f, 0.33333f),
+                new TwoLayersFeatureSize(1, 1, 1)).build());*/
 
         // Register Overworld Ores
         register(context, TIN_ORE_KEY, Feature.ORE, new OreFeatureConfig(overworldTinOres, 9));
@@ -144,6 +181,10 @@ public class ModConfiguredFeatures {
         register(context, DIRITIA_REDSTONE_ORE_KEY, Feature.ORE, new OreFeatureConfig(diritiaRedstoneOre, 9));
         register(context, DIRITIA_LAPIS_ORE_KEY, Feature.ORE, new OreFeatureConfig(diritiaLapisOre, 6));
         register(context, DIRITIA_COPPER_ORE_KEY, Feature.ORE, new OreFeatureConfig(diritiaCopperOre, 16));
+        register(context, DIRITIA_CALCITE_VEIN_KEY, Feature.ORE, new OreFeatureConfig(diritiaCalcite, 64));
+        register(context, DIRITIA_SLATED_VEIN_KEY, Feature.ORE, new OreFeatureConfig(diritiaSlatedVein, 64));
+        register(context, DIRITIA_BLACKSTONE_VEIN_KEY, Feature.ORE, new OreFeatureConfig(diritiaBlackstoneVein, 64));
+        register(context, DIRITIA_ENDSTONE_VEIN_KEY, Feature.ORE, new OreFeatureConfig(diritiaEndstoneVein, 64));
     }
     private static <FC extends FeatureConfig, F extends Feature<FC>> void
         register(Registerable<ConfiguredFeature<?, ?>> context, RegistryKey<ConfiguredFeature<?, ?>> key,
