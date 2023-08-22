@@ -431,10 +431,10 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .offerTo(exporter);
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.CRUSHER)
-                .pattern("IPI")
+                .pattern("CPC")
                 .pattern("GDG")
-                .pattern("I I")
-                .input('I', Items.IRON_INGOT)
+                .pattern("C C")
+                .input('C', Blocks.COBBLESTONE)
                 .input('G', ModItems.IRON_GEAR)
                 .input('P', Blocks.PISTON)
                 .input('D', Items.DIAMOND)

@@ -34,7 +34,7 @@ public class CrusherScreen extends HandledScreen<CrusherScreenHandler> {
 
     private void renderProgressArrow(DrawContext context, int x, int y){
         if(handler.isCrafting()){
-            context.drawTexture(TEXTURE,x + 79, y + 34, 176, 0, handler.getScaledProgress(), 17);
+            context.drawTexture(TEXTURE,x + 84, y + 35, 176, 0, 16, handler.getScaledProgress());
         }
     }
     private void renderBurnFlames(DrawContext context, int x, int y){
