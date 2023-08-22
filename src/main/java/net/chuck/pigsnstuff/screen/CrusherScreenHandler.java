@@ -15,7 +15,7 @@ public class CrusherScreenHandler extends ScreenHandler {
     private final Inventory inventory;
     private final PropertyDelegate propertyDelegate;
     public CrusherScreenHandler(int syncId, PlayerInventory inventory){
-        this(syncId, inventory, new SimpleInventory(3), new ArrayPropertyDelegate(2));
+        this(syncId, inventory, new SimpleInventory(3), new ArrayPropertyDelegate(4));
     }
     public CrusherScreenHandler(int syncId, PlayerInventory playerInventory, Inventory inventory,
                                 PropertyDelegate delegate) {
@@ -39,12 +39,24 @@ public class CrusherScreenHandler extends ScreenHandler {
         return propertyDelegate.get(0) > 0;
     }
 
+    public boolean isBurning() {
+        return propertyDelegate.get(2) > 0;
+    }
+
     public int getScaledProgress() {
         int progress = this.propertyDelegate.get(0);
         int maxProgress = this.propertyDelegate.get(1);
         int progressArrowSize = 24;
 
         return maxProgress != 0 && progress != 0 ? progress * progressArrowSize / maxProgress : 0;
+    }
+
+    public int getScaledBurning() {
+        int burnTime = this.propertyDelegate.get(2);
+        int fuelTime = this.propertyDelegate.get(3);
+        int burnFlameSize = 13;
+
+        return fuelTime != 0 && burnTime != 0 ? burnTime * burnFlameSize / fuelTime : 0;
     }
     @Override
     public ItemStack quickMove(PlayerEntity player, int invSlot) {

@@ -10,6 +10,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.state.StateManager;
+import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.*;
@@ -21,8 +22,11 @@ import org.jetbrains.annotations.Nullable;
 
 public class CrusherBlock extends BlockWithEntity implements BlockEntityProvider {
     public static final DirectionProperty FACING = Properties.HORIZONTAL_FACING;
+    public static final BooleanProperty LIT = Properties.LIT;
     public CrusherBlock(Settings settings) {
         super(settings);
+        this.setDefaultState((BlockState)((BlockState)((BlockState)this.stateManager
+                .getDefaultState()).with(FACING, Direction.NORTH)).with(LIT, false));
     }
 
     @Nullable
@@ -43,7 +47,7 @@ public class CrusherBlock extends BlockWithEntity implements BlockEntityProvider
 
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(FACING);
+        builder.add(FACING, LIT);
     }
 
     // block entity stuff

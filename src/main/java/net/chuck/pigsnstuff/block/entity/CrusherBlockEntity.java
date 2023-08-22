@@ -1,37 +1,63 @@
 package net.chuck.pigsnstuff.block.entity;
 
+import com.google.common.collect.Maps;
 import net.chuck.pigsnstuff.block.custom.CrusherBlock;
 import net.chuck.pigsnstuff.recipe.CrusherRecipe;
 import net.chuck.pigsnstuff.screen.CrusherScreenHandler;
+import net.minecraft.SharedConstants;
+import net.minecraft.block.AbstractFurnaceBlock;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
+import net.minecraft.block.entity.AbstractFurnaceBlockEntity;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;
 import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.entry.RegistryEntry;
+import net.minecraft.registry.tag.ItemTags;
+import net.minecraft.registry.tag.TagKey;
 import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.text.Text;
+import net.minecraft.util.Util;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.Optional;
 
 /*
 Code adapted from Kaupenjoe modding tutorials
 */
-public class CrusherBlockEntity extends BlockEntity implements NamedScreenHandlerFactory, ImplementedInventory {
+public class CrusherBlockEntity extends BlockEntity implements NamedScreenHandlerFactory, ImplementedInventory {protected static final int INPUT_SLOT_INDEX = 0;
+    protected static final int FUEL_SLOT = 0;
+    protected static final int INPUT_SLOT = 1;
+    protected static final int OUTPUT_SLOT = 2;
+    public static final int PROGRESS_PROPERTY_INDEX = 0;
+    public static final int MAX_PROGRESS_PROPERTY_INDEX = 1;
+    public static final int BURN_TIME_PROPERTY_INDEX = 2;
+    public static final int FUEL_TIME_PROPERTY_INDEX = 3;
+    public static final int DEFAULT_CRUSH_TIME = 200;
     private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(3, ItemStack.EMPTY);
     protected final PropertyDelegate propertyDelegate;
     private int progress = 0;
     private int maxProgress = 72;
+    private int burnTime = 0;
+    private int fuelTime = 0;
+    public static final Map<Item, Integer> FUELS = AbstractFurnaceBlockEntity.createFuelTimeMap();
     public CrusherBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.CRUSHER, pos, state);
         this.propertyDelegate = new PropertyDelegate() {
@@ -40,6 +66,8 @@ public class CrusherBlockEntity extends BlockEntity implements NamedScreenHandle
                 switch (index){
                     case 0: return CrusherBlockEntity.this.progress;
                     case 1: return CrusherBlockEntity.this.maxProgress;
+                    case 2: return CrusherBlockEntity.this.burnTime;
+                    case 3: return CrusherBlockEntity.this.fuelTime;
                     default: return 0;
                 }
             }
@@ -49,16 +77,44 @@ public class CrusherBlockEntity extends BlockEntity implements NamedScreenHandle
                 switch (index) {
                     case 0: CrusherBlockEntity.this.progress = value; break;
                     case 1: CrusherBlockEntity.this.maxProgress = value; break;
+                    case 2: CrusherBlockEntity.this.burnTime = value; break;
+                    case 3: CrusherBlockEntity.this.fuelTime = value; break;
                 }
             }
 
             @Override
             public int size() {
-                return 2;
+                return 4;
             }
         };
     }
+    //fuel
+    private static void addFuel(Map<Item, Integer> fuelTimes, TagKey<Item> tag, int fuelTime) {
+        for (RegistryEntry<Item> registryEntry : Registries.ITEM.iterateEntries(tag)) {
+            fuelTimes.put(registryEntry.value(), fuelTime);
+        }
+    }
 
+    private static void addFuel(Map<Item, Integer> fuelTimes, ItemConvertible item, int fuelTime) {
+        Item item2 = item.asItem();
+        fuelTimes.put(item2, fuelTime);
+    }
+    public static Map<Item, Integer> createFuelTimeMap() {
+        LinkedHashMap<Item, Integer> map = Maps.newLinkedHashMap();
+        addFuel(map, Items.COAL, 1600);
+        addFuel(map, Items.CHARCOAL, 1600);
+        return map;
+    }
+    public static boolean canUseAsFuel(ItemStack stack) {
+        return FUELS.containsKey(stack.getItem());
+    }
+    protected int getFuelTime(ItemStack fuel) {
+        if (fuel.isEmpty()) {
+            return 0;
+        }
+        Item item = fuel.getItem();
+        return FUELS.getOrDefault(item, 0);
+    }
     @Override
     public DefaultedList<ItemStack> getItems() {
         return this.inventory;
@@ -79,6 +135,7 @@ public class CrusherBlockEntity extends BlockEntity implements NamedScreenHandle
         Inventories.writeNbt(nbt, inventory);
         super.writeNbt(nbt);
         nbt.putInt("infuser.progress", progress);
+        nbt.putInt("infuser.burnTime", burnTime);
     }
 
     @Override
@@ -86,14 +143,25 @@ public class CrusherBlockEntity extends BlockEntity implements NamedScreenHandle
         Inventories.readNbt(nbt, inventory);
         super.readNbt(nbt);
         nbt.getInt("infuser.progress");
+        nbt.getInt("infuser.burnTime");
     }
 
+    private boolean isBurning() {
+        return this.burnTime > 0;
+    }
     public static void tick(World world, BlockPos blockPos, BlockState blockState,
                             CrusherBlockEntity crusherBlockEntity) {
+        boolean burning_start_of_tick = crusherBlockEntity.isBurning();
         if (world.isClient()){
             return;
         }
-        if(hasRecipe(crusherBlockEntity)){
+        if (crusherBlockEntity.isBurning()){
+            --crusherBlockEntity.burnTime;
+        }
+        if(hasRecipe(crusherBlockEntity) && !crusherBlockEntity.isBurning()){
+            burnFuel(crusherBlockEntity);
+        }
+        if(hasRecipe(crusherBlockEntity) && crusherBlockEntity.isBurning()){
             crusherBlockEntity.progress++;
             markDirty(world, blockPos, blockState);
             if(crusherBlockEntity.progress >= crusherBlockEntity.maxProgress){
@@ -102,6 +170,18 @@ public class CrusherBlockEntity extends BlockEntity implements NamedScreenHandle
         } else {
             crusherBlockEntity.resetProgress();
             markDirty(world, blockPos, blockState);
+        }
+        if (burning_start_of_tick != crusherBlockEntity.isBurning()){
+            blockState = (BlockState)blockState.with(AbstractFurnaceBlock.LIT, crusherBlockEntity.isBurning());
+            world.setBlockState(blockPos, blockState, Block.NOTIFY_ALL);
+            markDirty(world, blockPos, blockState);
+        }
+    }
+    private static void burnFuel(CrusherBlockEntity crusherBlockEntity){
+        if (crusherBlockEntity.getFuelTime(crusherBlockEntity.inventory.get(FUEL_SLOT)) > 0){
+            crusherBlockEntity.fuelTime = crusherBlockEntity.getFuelTime(crusherBlockEntity.inventory.get(FUEL_SLOT));
+            crusherBlockEntity.burnTime = crusherBlockEntity.getFuelTime(crusherBlockEntity.inventory.get(FUEL_SLOT));
+            crusherBlockEntity.removeStack(FUEL_SLOT, 1);
         }
     }
 
@@ -112,15 +192,15 @@ public class CrusherBlockEntity extends BlockEntity implements NamedScreenHandle
     private static void craftItem(CrusherBlockEntity crusherBlockEntity) {
         SimpleInventory inventory = new SimpleInventory(crusherBlockEntity.size());
         for(int i = 0; i< crusherBlockEntity.size(); i++){
-            inventory.setStack(1, crusherBlockEntity.getStack(1));
+            inventory.setStack(INPUT_SLOT, crusherBlockEntity.getStack(INPUT_SLOT));
         }
         Optional<CrusherRecipe> recipe = crusherBlockEntity.getWorld().getRecipeManager()
                 .getFirstMatch(CrusherRecipe.Type.INSTANCE, inventory, crusherBlockEntity.getWorld());
 
         if(hasRecipe(crusherBlockEntity)) {
-            crusherBlockEntity.removeStack(1,1);
-            crusherBlockEntity.setStack(2, new ItemStack(recipe.get().getOutputNoReg().getItem(),
-                    crusherBlockEntity.getStack(2).getCount() + 1));
+            crusherBlockEntity.removeStack(INPUT_SLOT,1);
+            crusherBlockEntity.setStack(OUTPUT_SLOT, new ItemStack(recipe.get().getOutputNoReg().getItem(),
+                    crusherBlockEntity.getStack(OUTPUT_SLOT).getCount() + 1));
             crusherBlockEntity.resetProgress();
         }
     }
@@ -128,7 +208,7 @@ public class CrusherBlockEntity extends BlockEntity implements NamedScreenHandle
     private static boolean hasRecipe(CrusherBlockEntity crusherBlockEntity) {
         SimpleInventory inventory = new SimpleInventory(crusherBlockEntity.size());
         for(int i = 0; i< crusherBlockEntity.size(); i++){
-            inventory.setStack(1, crusherBlockEntity.getStack(1));
+            inventory.setStack(i, crusherBlockEntity.getStack(i));
         }
         //boolean hasRawItemInFirstSlot = crusherBlockEntity.getStack(1).getItem() == Items.BONE;
         Optional<CrusherRecipe> match = crusherBlockEntity.getWorld().getRecipeManager()
@@ -139,11 +219,11 @@ public class CrusherBlockEntity extends BlockEntity implements NamedScreenHandle
     }
 
     private static boolean canInsertItemIntoOutputSlot(SimpleInventory inventory, Item output) {
-        return inventory.getStack(2).getItem() == output || inventory.getStack(2).isEmpty();
+        return inventory.getStack(OUTPUT_SLOT).getItem() == output || inventory.getStack(2).isEmpty();
     }
 
     private static boolean canInsertAmountIntoOutputSlot(SimpleInventory inventory) {
-        return inventory.getStack(2).getMaxCount() > inventory.getStack(2).getCount();
+        return inventory.getStack(OUTPUT_SLOT).getMaxCount() > inventory.getStack(2).getCount();
     }
 
     @Override

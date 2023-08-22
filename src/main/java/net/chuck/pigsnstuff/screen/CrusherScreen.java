@@ -29,11 +29,17 @@ public class CrusherScreen extends HandledScreen<CrusherScreenHandler> {
         int y = (height - backgroundHeight)/2;
         context.drawTexture(TEXTURE, x, y, 0, 0, backgroundWidth, backgroundHeight);
         renderProgressArrow(context, x, y);
+        renderBurnFlames(context, x, y);
     }
 
     private void renderProgressArrow(DrawContext context, int x, int y){
         if(handler.isCrafting()){
             context.drawTexture(TEXTURE,x + 79, y + 34, 176, 0, handler.getScaledProgress(), 17);
+        }
+    }
+    private void renderBurnFlames(DrawContext context, int x, int y){
+        if(handler.isBurning()){
+            context.drawTexture(TEXTURE, x + 56, y+36+(12-handler.getScaledBurning()), 176, 17+(12-handler.getScaledBurning()),  14, handler.getScaledBurning() + 1);
         }
     }
     @Override
