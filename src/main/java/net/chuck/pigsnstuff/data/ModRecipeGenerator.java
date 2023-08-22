@@ -4,6 +4,8 @@ import net.chuck.pigsnstuff.block.ModBlocks;
 import net.chuck.pigsnstuff.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
+import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.data.server.recipe.RecipeJsonProvider;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
 import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
@@ -11,6 +13,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.book.RecipeCategory;
+import net.minecraft.registry.tag.BlockTags;
 
 import java.util.List;
 import java.util.function.Consumer;
@@ -425,6 +428,24 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .offerTo(exporter);
         createStairsRecipe(ModBlocks.DIRITIA_STAIRS, Ingredient.ofItems(ModBlocks.DIRITIA_PLANKS))
                 .criterion(hasItem(ModBlocks.DIRITIA_PLANKS), conditionsFromItem(ModBlocks.DIRITIA_PLANKS))
+                .offerTo(exporter);
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.CRUSHER)
+                .pattern("IPI")
+                .pattern("GDG")
+                .pattern("I I")
+                .input('I', Items.IRON_INGOT)
+                .input('G', ModItems.IRON_GEAR)
+                .input('P', Blocks.PISTON)
+                .input('D', Items.DIAMOND)
+                .criterion(FabricRecipeProvider.hasItem(Items.IRON_INGOT),
+                        FabricRecipeProvider.conditionsFromItem(Items.IRON_INGOT))
+                .criterion(FabricRecipeProvider.hasItem(ModItems.IRON_GEAR),
+                        FabricRecipeProvider.conditionsFromItem(ModItems.IRON_GEAR))
+                .criterion(FabricRecipeProvider.hasItem(Blocks.PISTON),
+                        FabricRecipeProvider.conditionsFromItem(Blocks.PISTON))
+                .criterion(FabricRecipeProvider.hasItem(Items.DIAMOND),
+                        FabricRecipeProvider.conditionsFromItem(Items.DIAMOND))
                 .offerTo(exporter);
     }
 }

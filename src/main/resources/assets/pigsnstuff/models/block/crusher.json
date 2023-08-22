@@ -1,8 +1,8 @@
 {
   "parent": "minecraft:block/orientable",
   "textures": {
-    "front": "pigsnstuff:block/crusher",
-    "side": "pigsnstuff:block/tin_block",
-    "top": "pigsnstuff:block/diritonium_block"
+    "front": "pigsnstuff:block/crusher_front",
+    "side": "pigsnstuff:block/crusher_side",
+    "top": "pigsnstuff:block/crusher_top"
   }
 }

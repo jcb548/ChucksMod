@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "D": {
+      "item": "minecraft:diamond"
+    },
+    "G": {
+      "item": "pigsnstuff:iron_gear"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "P": {
+      "item": "minecraft:piston"
+    }
+  },
+  "pattern": [
+    "IPI",
+    "GDG",
+    "I I"
+  ],
+  "result": {
+    "item": "pigsnstuff:crusher"
+  },
+  "show_notification": true
+}
