@@ -97,6 +97,7 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerTrapdoor(ModBlocks.DIRITIA_TRAPDOOR);
 
         blockStateModelGenerator.registerCooker(ModBlocks.CRUSHER, TexturedModel.ORIENTABLE);
+        blockStateModelGenerator.registerCooker(ModBlocks.POWERED_CRUSHER, TexturedModel.ORIENTABLE);
     }
 
     @Override

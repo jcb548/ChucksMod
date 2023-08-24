@@ -67,7 +67,7 @@ public class CrusherRecipe implements Recipe<SimpleInventory> {
     public static class Type implements RecipeType<CrusherRecipe> {
         private Type() { }
         public static final Type INSTANCE = new Type();
-        public static final String ID = "infuser_recipe";
+        public static final String ID = "crusher_recipe";
     }
     public static class Serializer implements RecipeSerializer<CrusherRecipe> {
         public static final Serializer INSTANCE = new Serializer();

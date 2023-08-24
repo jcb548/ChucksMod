@@ -112,6 +112,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.EUCALYPTUS_TRAPDOOR);
 
                         entries.add(ModBlocks.CRUSHER);
+                        entries.add(ModBlocks.POWERED_CRUSHER);
 
                         entries.add(ModBlocks.SLATED_DIRT);
                         entries.add(ModBlocks.SLATED_GRASS);

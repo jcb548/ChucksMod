@@ -77,5 +77,6 @@ public class ModLootTableGenerator extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.DIRITIA_LIGHT_PLANT);
 
         addDrop(ModBlocks.CRUSHER);
+        addDrop(ModBlocks.POWERED_CRUSHER);
     }
 }

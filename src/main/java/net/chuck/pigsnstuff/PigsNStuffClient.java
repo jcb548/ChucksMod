@@ -3,6 +3,7 @@ package net.chuck.pigsnstuff;
 import net.chuck.pigsnstuff.block.ModBlocks;
 import net.chuck.pigsnstuff.screen.CrusherScreen;
 import net.chuck.pigsnstuff.screen.ModScreenHandlers;
+import net.chuck.pigsnstuff.screen.PoweredCrusherScreen;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
@@ -33,6 +34,7 @@ public class PigsNStuffClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.DIRITIA_DOOR, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.DIRITIA_TRAPDOOR, RenderLayer.getCutout());
 
-        HandledScreens.register(ModScreenHandlers.INFUSING_SCREEN_HANDLER, CrusherScreen::new);
+        HandledScreens.register(ModScreenHandlers.CRUSHER_SCREEN_HANDLER, CrusherScreen::new);
+        HandledScreens.register(ModScreenHandlers.POWERED_CRUSHER_SCREEN_HANDLER, PoweredCrusherScreen::new);
     }
 }

@@ -10,16 +10,15 @@ import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.slot.Slot;
 
-/* Contains code from Kaupenjoe modding series on youtube*/
-public class CrusherScreenHandler extends ScreenHandler {
+public class PoweredCrusherScreenHandler extends ScreenHandler {
     private final Inventory inventory;
     private final PropertyDelegate propertyDelegate;
-    public CrusherScreenHandler(int syncId, PlayerInventory inventory){
+    public PoweredCrusherScreenHandler(int syncId, PlayerInventory inventory){
         this(syncId, inventory, new SimpleInventory(3), new ArrayPropertyDelegate(4));
     }
-    public CrusherScreenHandler(int syncId, PlayerInventory playerInventory, Inventory inventory,
+    public PoweredCrusherScreenHandler(int syncId, PlayerInventory playerInventory, Inventory inventory,
                                 PropertyDelegate delegate) {
-        super(ModScreenHandlers.CRUSHER_SCREEN_HANDLER, syncId);
+        super(ModScreenHandlers.POWERED_CRUSHER_SCREEN_HANDLER, syncId);
         checkSize(inventory, 3);
         this.inventory = inventory;
         inventory.onOpen(playerInventory.player);

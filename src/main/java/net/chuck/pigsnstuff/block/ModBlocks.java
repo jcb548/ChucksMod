@@ -3,6 +3,7 @@ package net.chuck.pigsnstuff.block;
 import net.chuck.pigsnstuff.PigsNStuff;
 import net.chuck.pigsnstuff.block.custom.CrusherBlock;
 import net.chuck.pigsnstuff.block.custom.ModSlatedGrassBlock;
+import net.chuck.pigsnstuff.block.custom.PoweredCrusherBlock;
 import net.chuck.pigsnstuff.world.tree.DiritiaSaplingGenerator;
 import net.chuck.pigsnstuff.world.tree.EucalyptusSaplingGenerator;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
@@ -75,6 +76,8 @@ public class ModBlocks {
             new TrapdoorBlock(FabricBlockSettings.copy(Blocks.OAK_TRAPDOOR), BlockSetType.OAK));
     public static final Block CRUSHER = registerBlock("crusher",
             new CrusherBlock(FabricBlockSettings.copy(Blocks.SMOOTH_STONE)));
+    public static final Block POWERED_CRUSHER = registerBlock("powered_crusher",
+            new PoweredCrusherBlock(FabricBlockSettings.copy(Blocks.SMOOTH_STONE)));
     // Fabium
     public static final Block FABIUM_BLOCK = registerBlock("fabium_block",
             new Block(FabricBlockSettings.copy(Blocks.GOLD_BLOCK)));
