@@ -4,7 +4,14 @@ import net.minecraft.world.gen.feature.OrePlacedFeatures;
 import net.minecraft.world.gen.placementmodifier.*;
 
 import java.util.List;
-
+/*
+ *  Code inspired by or copied from
+ *  Kaupenjoe
+ *  Copyright (c) 2023
+ *
+ *  This code is licensed under MIT License
+ *  Details can be found in the license file in the root folder of this project
+ */
 public class ModOrePlacement {
     public static List<PlacementModifier> modifiers(PlacementModifier countModifier, PlacementModifier heightModifier) {
         return List.of(countModifier, SquarePlacementModifier.of(), heightModifier, BiomePlacementModifier.of());

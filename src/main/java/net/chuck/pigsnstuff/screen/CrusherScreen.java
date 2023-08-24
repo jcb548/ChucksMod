@@ -7,6 +7,14 @@ import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
+/*
+ *  Code inspired by or copied from
+ *  Kaupenjoe
+ *  Copyright (c) 2023
+ *
+ *  This code is licensed under MIT License
+ *  Details can be found in the license file in the root folder of this project
+ */
 
 public class CrusherScreen extends HandledScreen<CrusherScreenHandler> {
     private static final Identifier TEXTURE = new Identifier(PigsNStuff.MOD_ID,

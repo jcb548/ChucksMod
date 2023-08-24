@@ -20,7 +20,14 @@ import net.minecraft.world.gen.stateprovider.BlockStateProvider;
 import net.minecraft.world.gen.trunk.StraightTrunkPlacer;
 
 import java.util.List;
-
+/*
+ *  Code inspired by or copied from
+ *  Kaupenjoe
+ *  Copyright (c) 2023
+ *
+ *  This code is licensed under MIT License
+ *  Details can be found in the license file in the root folder of this project
+ */
 public class ModPlacedFeatures {
     public static final RegistryKey<PlacedFeature> EUCALYPTUS_PLACED_KEY = registerKey("eucalyptus_placed");
     public static final RegistryKey<PlacedFeature> TIN_ORE_PLACED_KEY = registerKey("tin_ore_placed");

@@ -4,7 +4,14 @@ import net.chuck.pigsnstuff.block.ModBlocks;
 import net.chuck.pigsnstuff.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
-
+/*
+ *  Code inspired by or copied from
+ *  Kaupenjoe
+ *  Copyright (c) 2023
+ *
+ *  This code is licensed under MIT License
+ *  Details can be found in the license file in the root folder of this project
+ */
 public class ModLootTableGenerator extends FabricBlockLootTableProvider {
     public ModLootTableGenerator(FabricDataOutput dataOutput) {
         super(dataOutput);

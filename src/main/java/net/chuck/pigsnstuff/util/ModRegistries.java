@@ -5,7 +5,14 @@ import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
-
+/*
+ *  Code inspired by or copied from
+ *  Kaupenjoe
+ *  Copyright (c) 2023
+ *
+ *  This code is licensed under MIT License
+ *  Details can be found in the license file in the root folder of this project
+ */
 public class ModRegistries {
     public static void registerModStuffs(){
         registerFlammableBlocks();

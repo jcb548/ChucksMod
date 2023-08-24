@@ -8,7 +8,14 @@ import net.minecraft.recipe.Ingredient;
 import net.minecraft.util.Lazy;
 
 import java.util.function.Supplier;
-
+/*
+ *  Code inspired by or copied from
+ *  Kaupenjoe
+ *  Copyright (c) 2023
+ *
+ *  This code is licensed under MIT License
+ *  Details can be found in the license file in the root folder of this project
+ */
 public enum ModToolMaterials implements ToolMaterial
 {
     //WOOD(MiningLevels.WOOD, 59, 2.0f, 0.0f, 15, () -> Ingredient.fromTag(ItemTags.PLANKS)),

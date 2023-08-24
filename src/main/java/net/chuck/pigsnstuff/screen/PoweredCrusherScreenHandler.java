@@ -1,10 +1,13 @@
 package net.chuck.pigsnstuff.screen;
 
+import net.chuck.pigsnstuff.block.entity.PoweredCrusherBlockEntity;
+import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.ItemStack;
+import net.minecraft.network.PacketByteBuf;
 import net.minecraft.screen.ArrayPropertyDelegate;
 import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
@@ -13,16 +16,18 @@ import net.minecraft.screen.slot.Slot;
 public class PoweredCrusherScreenHandler extends ScreenHandler {
     private final Inventory inventory;
     private final PropertyDelegate propertyDelegate;
-    public PoweredCrusherScreenHandler(int syncId, PlayerInventory inventory){
-        this(syncId, inventory, new SimpleInventory(3), new ArrayPropertyDelegate(4));
+    public final PoweredCrusherBlockEntity blockEntity;
+    public PoweredCrusherScreenHandler(int syncId, PlayerInventory inventory, PacketByteBuf buf){
+        this(syncId, inventory, inventory.player.getWorld().getBlockEntity(buf.readBlockPos()), new ArrayPropertyDelegate(4));
     }
-    public PoweredCrusherScreenHandler(int syncId, PlayerInventory playerInventory, Inventory inventory,
+    public PoweredCrusherScreenHandler(int syncId, PlayerInventory playerInventory, BlockEntity entity,
                                 PropertyDelegate delegate) {
         super(ModScreenHandlers.POWERED_CRUSHER_SCREEN_HANDLER, syncId);
-        checkSize(inventory, 3);
-        this.inventory = inventory;
+        checkSize(((Inventory) entity), 3);
+        this.inventory = (Inventory) entity;
         inventory.onOpen(playerInventory.player);
         this.propertyDelegate = delegate;
+        this.blockEntity = (PoweredCrusherBlockEntity) entity;
 
         this.addSlot(new Slot(inventory, 0, 56, 53));
         this.addSlot(new Slot(inventory, 1, 56, 17));

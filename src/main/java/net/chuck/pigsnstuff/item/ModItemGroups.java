@@ -11,7 +11,14 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
-
+/*
+ *  Code inspired by or copied from
+ *  Kaupenjoe
+ *  Copyright (c) 2023
+ *
+ *  This code is licensed under MIT License
+ *  Details can be found in the license file in the root folder of this project
+ */
 public class ModItemGroups {
     public static final ItemGroup PIGS_GROUP = Registry.register(Registries.ITEM_GROUP,
             new Identifier(PigsNStuff.MOD_ID, "pigsnstuff"),

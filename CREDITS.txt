@@ -1,3 +1,9 @@
-Most features have copied or taken heavy inspiration from features shown by
-Kaupenjoe Fabric modding series
-Found: https://www.youtube.com/@ModdingByKaupenjoe
+Most features have copied or taken heavy inspiration from features shown in
+Kaupenjoe Fabric modding series under MIT License
+https://www.youtube.com/@ModdingByKaupenjoe,
+https://github.com/Tutorials-By-Kaupenjoe
+https://github.com/Tutorials-By-Kaupenjoe/Fabric-Tutorial-1.19/blob/25-energy/LICENSE
+
+EnergyInfoArea & InfoArea (FORGE) from BluSunrize:
+https://github.com/BluSunrize/ImmersiveEngineering Under Blu's License of Common Sense:
+https://github.com/BluSunrize/ImmersiveEngineering/blob/1.18.2/LICENSE

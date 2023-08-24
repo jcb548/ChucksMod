@@ -1,6 +1,7 @@
 package net.chuck.pigsnstuff;
 
 import net.chuck.pigsnstuff.block.ModBlocks;
+import net.chuck.pigsnstuff.networking.ModMessages;
 import net.chuck.pigsnstuff.screen.CrusherScreen;
 import net.chuck.pigsnstuff.screen.ModScreenHandlers;
 import net.chuck.pigsnstuff.screen.PoweredCrusherScreen;
@@ -10,10 +11,19 @@ import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.minecraft.client.color.world.BiomeColors;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.render.RenderLayer;
-
+/*
+ *  Code inspired by or copied from
+ *  Kaupenjoe
+ *  Copyright (c) 2023
+ *
+ *  This code is licensed under MIT License
+ *  Details can be found in the license file in the root folder of this project
+ */
 public class PigsNStuffClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
+        ModMessages.registerS2CPackets();
+
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.EUCALYPTUS_SAPLING, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.EUCALYPTUS_LEAVES, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.EUCALYPTUS_DOOR, RenderLayer.getCutout());

@@ -40,8 +40,13 @@ import java.util.Map;
 import java.util.Optional;
 
 /*
-Code adapted from Kaupenjoe modding tutorials
-*/
+ *  Code inspired by or copied from
+ *  Kaupenjoe
+ *  Copyright (c) 2023
+ *
+ *  This code is licensed under MIT License
+ *  Details can be found in the license file in the root folder of this project
+ */
 public class CrusherBlockEntity extends BlockEntity implements NamedScreenHandlerFactory, ImplementedInventory {protected static final int INPUT_SLOT_INDEX = 0;
     protected static final int FUEL_SLOT = 0;
     protected static final int INPUT_SLOT = 1;
@@ -125,8 +130,8 @@ public class CrusherBlockEntity extends BlockEntity implements NamedScreenHandle
     public void readNbt(NbtCompound nbt) {
         Inventories.readNbt(nbt, inventory);
         super.readNbt(nbt);
-        nbt.getInt("crusher.progress");
-        nbt.getInt("crusher.burnTime");
+        progress = nbt.getInt("crusher.progress");
+        burnTime = nbt.getInt("crusher.burnTime");
     }
 
     private boolean isBurning() {

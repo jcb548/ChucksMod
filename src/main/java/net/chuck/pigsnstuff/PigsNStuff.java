@@ -25,7 +25,14 @@ import net.minecraft.world.gen.stateprovider.BlockStateProvider;
 import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
+/*
+ *  Code inspired by or copied from
+ *  Kaupenjoe
+ *  Copyright (c) 2023
+ *
+ *  This code is licensed under MIT License
+ *  Details can be found in the license file in the root folder of this project
+ */
 public class PigsNStuff implements ModInitializer {
 	public static final String MOD_ID = "pigsnstuff";
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);

@@ -14,7 +14,14 @@ import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
-
+/*
+ *  Code inspired by or copied from
+ *  Kaupenjoe
+ *  Copyright (c) 2023
+ *
+ *  This code is licensed under MIT License
+ *  Details can be found in the license file in the root folder of this project
+ */
 public class ModBlocks {
     public static final Block IRON_DUST_BLOCK = registerBlock("iron_dust_block",
             new FallingBlock(FabricBlockSettings.copy(Blocks.SAND)));

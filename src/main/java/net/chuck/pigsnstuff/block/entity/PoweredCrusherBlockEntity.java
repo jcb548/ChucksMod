@@ -2,10 +2,15 @@ package net.chuck.pigsnstuff.block.entity;
 
 import com.google.common.collect.Maps;
 import net.chuck.pigsnstuff.block.custom.PoweredCrusherBlock;
+import net.chuck.pigsnstuff.item.ModItems;
+import net.chuck.pigsnstuff.networking.ModMessages;
 import net.chuck.pigsnstuff.recipe.CrusherRecipe;
 import net.chuck.pigsnstuff.screen.PoweredCrusherScreenHandler;
-import net.minecraft.block.AbstractFurnaceBlock;
-import net.minecraft.block.Block;
+import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
+import net.fabricmc.fabric.api.networking.v1.PlayerLookup;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
+import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
+import net.fabricmc.fabric.api.transfer.v1.transaction.Transaction;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.AbstractFurnaceBlockEntity;
 import net.minecraft.block.entity.BlockEntity;
@@ -14,33 +19,35 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;
 import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.entry.RegistryEntry;
-import net.minecraft.registry.tag.ItemTags;
-import net.minecraft.registry.tag.TagKey;
+import net.minecraft.network.PacketByteBuf;
 import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
+import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.Text;
-import net.minecraft.util.Util;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
+import team.reborn.energy.api.base.SimpleEnergyStorage;
 
-import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Optional;
 
 /*
-Code adapted from Kaupenjoe modding tutorials
-*/
-public class PoweredCrusherBlockEntity extends BlockEntity implements NamedScreenHandlerFactory, ImplementedInventory {protected static final int INPUT_SLOT_INDEX = 0;
+ *  Code inspired by or copied from
+ *  Kaupenjoe
+ *  Copyright (c) 2023
+ *
+ *  This code is licensed under MIT License
+ *  Details can be found in the license file in the root folder of this project
+ */
+public class PoweredCrusherBlockEntity extends BlockEntity implements ExtendedScreenHandlerFactory, ImplementedInventory {protected static final int INPUT_SLOT_INDEX = 0;
     protected static final int FUEL_SLOT = 0;
     protected static final int INPUT_SLOT = 1;
     protected static final int OUTPUT_SLOT = 2;
@@ -49,7 +56,25 @@ public class PoweredCrusherBlockEntity extends BlockEntity implements NamedScree
     public static final int BURN_TIME_PROPERTY_INDEX = 2;
     public static final int FUEL_TIME_PROPERTY_INDEX = 3;
     public static final int DEFAULT_CRUSH_TIME = 200;
+    public static final int MAX_INSERT = 32;
+    public static final int MAX_EXTRACT = MAX_INSERT;
     private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(3, ItemStack.EMPTY);
+    public final SimpleEnergyStorage energyStorage = new SimpleEnergyStorage(30000, MAX_INSERT, MAX_EXTRACT){
+        @Override
+        protected void onFinalCommit() {
+            markDirty();
+            if(!world.isClient()){
+                PacketByteBuf data = PacketByteBufs.create();
+                data.writeLong(amount);
+                data.writeBlockPos(getPos());
+
+                for(ServerPlayerEntity player : PlayerLookup.tracking((ServerWorld) world, getPos())){
+                    ServerPlayNetworking.send(player, ModMessages.ENERGY_SYNC, data);
+                }
+            }
+
+        }
+    };
     protected final PropertyDelegate propertyDelegate;
     private int progress = 0;
     private int maxProgress = 72;
@@ -76,7 +101,7 @@ public class PoweredCrusherBlockEntity extends BlockEntity implements NamedScree
 
             @Override
             public int size() {
-                return 4;
+                return 2;
             }
         };
     }
@@ -104,27 +129,42 @@ public class PoweredCrusherBlockEntity extends BlockEntity implements NamedScree
     public ScreenHandler createMenu(int syncId, PlayerInventory playerInventory, PlayerEntity player) {
         return new PoweredCrusherScreenHandler(syncId, playerInventory, this, propertyDelegate);
     }
+
+    @Override
+    public void writeScreenOpeningData(ServerPlayerEntity player, PacketByteBuf buf) {
+        buf.writeBlockPos(this.pos);
+    }
     // For saving nbt on world close
     @Override
     protected void writeNbt(NbtCompound nbt) {
         Inventories.writeNbt(nbt, inventory);
         super.writeNbt(nbt);
         nbt.putInt("powered_crusher.progress", progress);
+        nbt.putLong("powered_crusher.energy", energyStorage.amount);
     }
 
     @Override
     public void readNbt(NbtCompound nbt) {
         Inventories.readNbt(nbt, inventory);
         super.readNbt(nbt);
-        nbt.getInt("powered_crusher.progress");
+        progress = nbt.getInt("powered_crusher.progress");
+        energyStorage.amount= nbt.getLong("powered_crusher.energy");
     }
     public static void tick(World world, BlockPos blockPos, BlockState blockState,
                             PoweredCrusherBlockEntity entity) {
         if (world.isClient()){
             return;
         }
-        if(hasRecipe(entity)){
+
+        if(hasEnergyItem(entity)){
+            try(Transaction transaction = Transaction.openOuter()){
+                entity.energyStorage.insert(16, transaction);
+                transaction.commit();
+            }
+        }
+        if(hasRecipe(entity) && hasEnoughEnergy(entity)){
             entity.progress++;
+            extractEnergy(entity);
             markDirty(world, blockPos, blockState);
             if(entity.progress >= entity.maxProgress){
                 craftItem(entity);
@@ -134,10 +174,23 @@ public class PoweredCrusherBlockEntity extends BlockEntity implements NamedScree
             markDirty(world, blockPos, blockState);
         }
     }
-    private static void burnFuel(PoweredCrusherBlockEntity entity){
-        if (entity.getFuelTime(entity.inventory.get(FUEL_SLOT)) > 0){
-            entity.removeStack(FUEL_SLOT, 1);
+    public void setEnergyLevel(long energyLevel){
+        this.energyStorage.amount = energyLevel;
+    }
+
+    private static void extractEnergy(PoweredCrusherBlockEntity entity) {
+        try(Transaction transaction = Transaction.openOuter()){
+            entity.energyStorage.extract(32, transaction);
+            transaction.commit();
         }
+    }
+
+    private static boolean hasEnoughEnergy(PoweredCrusherBlockEntity entity) {
+        return entity.energyStorage.amount >= 32;
+    }
+
+    private static boolean hasEnergyItem(PoweredCrusherBlockEntity entity) {
+        return entity.getStack(0).getItem() == Items.IRON_INGOT;
     }
 
     private void resetProgress() {
