@@ -2,6 +2,7 @@ package net.chuck.pigsnstuff.recipe;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import net.chuck.pigsnstuff.block.entity.AbstractCrusherBlockEntity;
 import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketByteBuf;
@@ -35,7 +36,7 @@ public class CrusherRecipe implements Recipe<SimpleInventory> {
             return false;
         }
 
-        return this.recipeItems.get(0).test(inventory.getStack(1));
+        return this.recipeItems.get(0).test(inventory.getStack(AbstractCrusherBlockEntity.INPUT_SLOT));
     }
 
     @Override

@@ -17,12 +17,14 @@ import net.minecraft.util.Identifier;
  *  Details can be found in the license file in the root folder of this project
  */
 public class ModScreenHandlers {
-    public static ScreenHandlerType<CrusherScreenHandler> CRUSHER_SCREEN_HANDLER;
+    public static ScreenHandlerType<CrusherScreenHandler> CRUSHER_SCREEN_HANDLER =
+            new ExtendedScreenHandlerType<>(CrusherScreenHandler::new);
     public static ScreenHandlerType<PoweredCrusherScreenHandler> POWERED_CRUSHER_SCREEN_HANDLER =
             new ExtendedScreenHandlerType<>(PoweredCrusherScreenHandler::new);
 
     public static void registerAllScreenHandlers() {
-        CRUSHER_SCREEN_HANDLER = new ScreenHandlerType<>(CrusherScreenHandler::new, FeatureFlags.VANILLA_FEATURES);
+        Registry.register(Registries.SCREEN_HANDLER, new Identifier(PigsNStuff.MOD_ID, "crusher"),
+                CRUSHER_SCREEN_HANDLER);
         Registry.register(Registries.SCREEN_HANDLER, new Identifier(PigsNStuff.MOD_ID, "powered_crusher"),
                 POWERED_CRUSHER_SCREEN_HANDLER);
     }

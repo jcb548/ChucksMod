@@ -5,6 +5,7 @@ import net.chuck.pigsnstuff.PigsNStuff;
 import net.chuck.pigsnstuff.screen.renderer.EnergyInfoArea;
 import net.chuck.pigsnstuff.util.MouseUtil;
 import net.minecraft.client.Mouse;
+import net.minecraft.client.font.TextRenderer;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.entity.player.PlayerInventory;
@@ -20,7 +21,7 @@ import java.util.Optional;
  *  This code is licensed under MIT License
  *  Details can be found in the license file in the root folder of this project
  */
-public class PoweredCrusherScreen extends HandledScreen<PoweredCrusherScreenHandler> {
+public class PoweredCrusherScreen extends AbstractCrusherScreen<PoweredCrusherScreenHandler> {
     private static final Identifier TEXTURE = new Identifier(PigsNStuff.MOD_ID,
             "textures/gui/crusher_gui.png");
     private EnergyInfoArea energyInfoArea;
@@ -42,6 +43,7 @@ public class PoweredCrusherScreen extends HandledScreen<PoweredCrusherScreenHand
 
     @Override
     protected void drawForeground(DrawContext context, int mouseX, int mouseY) {
+        super.drawForeground(context, mouseX, mouseY);
         int x = (width-backgroundWidth)/2;
         int y = (height-backgroundHeight)/2;
 
@@ -55,7 +57,6 @@ public class PoweredCrusherScreen extends HandledScreen<PoweredCrusherScreenHand
         int y = (height - backgroundHeight)/2;
         context.drawTexture(TEXTURE, x, y, 0, 0, backgroundWidth, backgroundHeight);
         renderProgressArrow(context, x, y);
-        renderBurnFlames(context, x, y);
         energyInfoArea.draw(context);
     }
 
@@ -75,16 +76,5 @@ public class PoweredCrusherScreen extends HandledScreen<PoweredCrusherScreenHand
         if(handler.isCrafting()){
             context.drawTexture(TEXTURE,x + 84, y + 35, 176, 0, 16, handler.getScaledProgress());
         }
-    }
-    private void renderBurnFlames(DrawContext context, int x, int y){
-        if(handler.isBurning()){
-            context.drawTexture(TEXTURE, x + 56, y+36+(12-handler.getScaledBurning()), 176, 17+(12-handler.getScaledBurning()),  14, handler.getScaledBurning() + 1);
-        }
-    }
-    @Override
-    public void render(DrawContext context, int mouseX, int mouseY, float delta) {
-        renderBackground(context);
-        super.render(context, mouseX, mouseY, delta);
-        drawMouseoverTooltip(context, mouseX, mouseY);
     }
 }

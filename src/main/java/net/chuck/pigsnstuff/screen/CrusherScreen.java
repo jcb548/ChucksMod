@@ -16,7 +16,7 @@ import net.minecraft.util.Identifier;
  *  Details can be found in the license file in the root folder of this project
  */
 
-public class CrusherScreen extends HandledScreen<CrusherScreenHandler> {
+public class CrusherScreen extends AbstractCrusherScreen<CrusherScreenHandler> {
     private static final Identifier TEXTURE = new Identifier(PigsNStuff.MOD_ID,
             "textures/gui/crusher_gui.png");
     public CrusherScreen(CrusherScreenHandler handler, PlayerInventory inventory, Text title) {
@@ -24,14 +24,7 @@ public class CrusherScreen extends HandledScreen<CrusherScreenHandler> {
     }
 
     @Override
-    protected void init() {
-        super.init();
-        titleX = (backgroundWidth - textRenderer.getWidth(title)) / 2;
-    }
-
-    @Override
     protected void drawBackground(DrawContext context, float delta, int mouseX, int mouseY) {
-        //RenderSystem.setShader(GameRenderer::getPositionProgram);
         RenderSystem.setShaderColor(1.0f, 1.0f, 1.0f, 1.0f);
         int x = (width - backgroundWidth) /2;
         int y = (height - backgroundHeight)/2;
@@ -49,11 +42,5 @@ public class CrusherScreen extends HandledScreen<CrusherScreenHandler> {
         if(handler.isBurning()){
             context.drawTexture(TEXTURE, x + 56, y+36+(12-handler.getScaledBurning()), 176, 17+(12-handler.getScaledBurning()),  14, handler.getScaledBurning() + 1);
         }
-    }
-    @Override
-    public void render(DrawContext context, int mouseX, int mouseY, float delta) {
-        renderBackground(context);
-        super.render(context, mouseX, mouseY, delta);
-        drawMouseoverTooltip(context, mouseX, mouseY);
     }
 }

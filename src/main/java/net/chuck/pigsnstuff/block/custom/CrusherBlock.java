@@ -2,6 +2,7 @@ package net.chuck.pigsnstuff.block.custom;
 
 import net.chuck.pigsnstuff.block.entity.CrusherBlockEntity;
 import net.chuck.pigsnstuff.block.entity.ModBlockEntities;
+import net.chuck.pigsnstuff.block.entity.PoweredCrusherBlockEntity;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
@@ -28,40 +29,9 @@ import org.jetbrains.annotations.Nullable;
  *  Details can be found in the license file in the root folder of this project
  */
 
-public class CrusherBlock extends BlockWithEntity implements BlockEntityProvider {
-    public static final DirectionProperty FACING = Properties.HORIZONTAL_FACING;
-    public static final BooleanProperty LIT = Properties.LIT;
+public class CrusherBlock extends AbstractCrusherBlock {
     public CrusherBlock(Settings settings) {
         super(settings);
-        this.setDefaultState((BlockState)((BlockState)((BlockState)this.stateManager
-                .getDefaultState()).with(FACING, Direction.NORTH)).with(LIT, false));
-    }
-
-    @Nullable
-    @Override
-    public BlockState getPlacementState(ItemPlacementContext ctx) {
-        return (BlockState) this.getDefaultState().with(FACING, ctx.getHorizontalPlayerFacing().getOpposite());
-    }
-
-    @Override
-    public BlockState rotate(BlockState state, BlockRotation rotation) {
-        return state.with(FACING, rotation.rotate(state.get(FACING)));
-    }
-
-    @Override
-    public BlockState mirror(BlockState state, BlockMirror mirror) {
-        return state.rotate(mirror.getRotation(state.get(FACING)));
-    }
-
-    @Override
-    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(FACING, LIT);
-    }
-
-    // block entity stuff
-    @Override
-    public BlockRenderType getRenderType(BlockState state) {
-        return BlockRenderType.MODEL;
     }
 
     @Override
@@ -75,17 +45,6 @@ public class CrusherBlock extends BlockWithEntity implements BlockEntityProvider
             super.onStateReplaced(state, world, pos, newState, moved);
         }
     }
-    @Override
-    public ActionResult onUse(BlockState state, World world, BlockPos pos,
-                              PlayerEntity player, Hand hand, BlockHitResult hit) {
-        if (!world.isClient) {
-            NamedScreenHandlerFactory screenHandlerFactory = state.createScreenHandlerFactory(world, pos);
-            if(screenHandlerFactory != null){
-                player.openHandledScreen(screenHandlerFactory);
-            }
-        }
-        return ActionResult.SUCCESS;
-    }
 
     @Nullable
     @Override
@@ -97,5 +56,16 @@ public class CrusherBlock extends BlockWithEntity implements BlockEntityProvider
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
         return checkType(type, ModBlockEntities.CRUSHER, CrusherBlockEntity::tick);
+    }
+    @Override
+    public ActionResult onUse(BlockState state, World world, BlockPos pos,
+                              PlayerEntity player, Hand hand, BlockHitResult hit) {
+        if (!world.isClient) {
+            NamedScreenHandlerFactory screenHandlerFactory = ((CrusherBlockEntity) world.getBlockEntity(pos));
+            if(screenHandlerFactory != null){
+                player.openHandledScreen(screenHandlerFactory);
+            }
+        }
+        return ActionResult.SUCCESS;
     }
 }

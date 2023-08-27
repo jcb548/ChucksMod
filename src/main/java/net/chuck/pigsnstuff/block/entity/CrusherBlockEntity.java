@@ -47,19 +47,14 @@ import java.util.Optional;
  *  This code is licensed under MIT License
  *  Details can be found in the license file in the root folder of this project
  */
-public class CrusherBlockEntity extends BlockEntity implements NamedScreenHandlerFactory, ImplementedInventory {protected static final int INPUT_SLOT_INDEX = 0;
-    protected static final int FUEL_SLOT = 0;
-    protected static final int INPUT_SLOT = 1;
-    protected static final int OUTPUT_SLOT = 2;
-    public static final int PROGRESS_PROPERTY_INDEX = 0;
-    public static final int MAX_PROGRESS_PROPERTY_INDEX = 1;
-    public static final int BURN_TIME_PROPERTY_INDEX = 2;
-    public static final int FUEL_TIME_PROPERTY_INDEX = 3;
-    public static final int DEFAULT_CRUSH_TIME = 200;
-    private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(3, ItemStack.EMPTY);
+public class CrusherBlockEntity extends AbstractCrusherBlockEntity {
+    public static final int FUEL_SLOT = 2;
+    public static final int BURN_TIME_IDX = 2;
+    public static final int FUEL_TIME_IDX = 3;
+    public static final int DELEGATE_SIZE = 4;
+    public static final int INV_SIZE = 3;
+    private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(INV_SIZE, ItemStack.EMPTY);
     protected final PropertyDelegate propertyDelegate;
-    private int progress = 0;
-    private int maxProgress = 72;
     private int burnTime = 0;
     private int fuelTime = 0;
     public static final Map<Item, Integer> FUELS = AbstractFurnaceBlockEntity.createFuelTimeMap();
@@ -69,27 +64,26 @@ public class CrusherBlockEntity extends BlockEntity implements NamedScreenHandle
             @Override
             public int get(int index) {
                 switch (index){
-                    case 0: return CrusherBlockEntity.this.progress;
-                    case 1: return CrusherBlockEntity.this.maxProgress;
-                    case 2: return CrusherBlockEntity.this.burnTime;
-                    case 3: return CrusherBlockEntity.this.fuelTime;
-                    default: return 0;
+                    case PROGRESS_IDX: return CrusherBlockEntity.this.progress;
+                    case MAX_PROGRESS_IDX: return CrusherBlockEntity.this.maxProgress;
+                    case BURN_TIME_IDX: return CrusherBlockEntity.this.burnTime;
+                    case FUEL_TIME_IDX: return CrusherBlockEntity.this.fuelTime;
+                    default: return PROGRESS_IDX;
                 }
             }
 
             @Override
             public void set(int index, int value) {
                 switch (index) {
-                    case 0: CrusherBlockEntity.this.progress = value; break;
-                    case 1: CrusherBlockEntity.this.maxProgress = value; break;
-                    case 2: CrusherBlockEntity.this.burnTime = value; break;
-                    case 3: CrusherBlockEntity.this.fuelTime = value; break;
+                    case PROGRESS_IDX: CrusherBlockEntity.this.progress = value; break;
+                    case MAX_PROGRESS_IDX: CrusherBlockEntity.this.maxProgress = value; break;
+                    case BURN_TIME_IDX: CrusherBlockEntity.this.burnTime = value; break;
+                    case FUEL_TIME_IDX: CrusherBlockEntity.this.fuelTime = value; break;
                 }
             }
-
             @Override
             public int size() {
-                return 4;
+                return DELEGATE_SIZE;
             }
         };
     }
@@ -124,6 +118,7 @@ public class CrusherBlockEntity extends BlockEntity implements NamedScreenHandle
         super.writeNbt(nbt);
         nbt.putInt("crusher.progress", progress);
         nbt.putInt("crusher.burnTime", burnTime);
+        nbt.putInt("crusher.fuelTime", fuelTime);
     }
 
     @Override
@@ -132,86 +127,47 @@ public class CrusherBlockEntity extends BlockEntity implements NamedScreenHandle
         super.readNbt(nbt);
         progress = nbt.getInt("crusher.progress");
         burnTime = nbt.getInt("crusher.burnTime");
+        fuelTime = nbt.getInt("crusher.fuelTime");
     }
 
     private boolean isBurning() {
         return this.burnTime > 0;
     }
+
     public static void tick(World world, BlockPos blockPos, BlockState blockState,
-                            CrusherBlockEntity crusherBlockEntity) {
-        boolean burning_start_of_tick = crusherBlockEntity.isBurning();
+                            CrusherBlockEntity entity) {
+        boolean burning_start_of_tick = entity.isBurning();
         if (world.isClient()){
             return;
         }
-        if (crusherBlockEntity.isBurning()){
-            --crusherBlockEntity.burnTime;
+        if (entity.isBurning()){
+            --entity.burnTime;
         }
-        if(hasRecipe(crusherBlockEntity) && !crusherBlockEntity.isBurning()){
-            burnFuel(crusherBlockEntity);
+        if(hasRecipe(entity) && !entity.isBurning()){
+            burnFuel(entity);
         }
-        if(hasRecipe(crusherBlockEntity) && crusherBlockEntity.isBurning()){
-            crusherBlockEntity.progress++;
+        if(hasRecipe(entity) && entity.isBurning()){
+            entity.progress++;
             markDirty(world, blockPos, blockState);
-            if(crusherBlockEntity.progress >= crusherBlockEntity.maxProgress){
-                craftItem(crusherBlockEntity);
+            if(entity.progress >= entity.maxProgress){
+                craftItem(entity);
             }
         } else {
-            crusherBlockEntity.resetProgress();
+            entity.resetProgress();
             markDirty(world, blockPos, blockState);
         }
-        if (burning_start_of_tick != crusherBlockEntity.isBurning()){
-            blockState = (BlockState)blockState.with(AbstractFurnaceBlock.LIT, crusherBlockEntity.isBurning());
+        if (burning_start_of_tick != entity.isBurning()){
+            blockState = (BlockState)blockState.with(AbstractFurnaceBlock.LIT, entity.isBurning());
             world.setBlockState(blockPos, blockState, Block.NOTIFY_ALL);
             markDirty(world, blockPos, blockState);
         }
     }
-    private static void burnFuel(CrusherBlockEntity crusherBlockEntity){
-        if (crusherBlockEntity.getFuelTime(crusherBlockEntity.inventory.get(FUEL_SLOT)) > 0){
-            crusherBlockEntity.fuelTime = crusherBlockEntity.getFuelTime(crusherBlockEntity.inventory.get(FUEL_SLOT));
-            crusherBlockEntity.burnTime = crusherBlockEntity.getFuelTime(crusherBlockEntity.inventory.get(FUEL_SLOT));
-            crusherBlockEntity.removeStack(FUEL_SLOT, 1);
+    private static void burnFuel(CrusherBlockEntity entity){
+        if (entity.getFuelTime(entity.inventory.get(FUEL_SLOT)) > 0){
+            entity.fuelTime = entity.getFuelTime(entity.inventory.get(FUEL_SLOT));
+            entity.burnTime = entity.getFuelTime(entity.inventory.get(FUEL_SLOT));
+            entity.removeStack(FUEL_SLOT, 1);
         }
-    }
-
-    private void resetProgress() {
-        this.progress = 0;
-    }
-
-    private static void craftItem(CrusherBlockEntity crusherBlockEntity) {
-        SimpleInventory inventory = new SimpleInventory(crusherBlockEntity.size());
-        for(int i = 0; i< crusherBlockEntity.size(); i++){
-            inventory.setStack(INPUT_SLOT, crusherBlockEntity.getStack(INPUT_SLOT));
-        }
-        Optional<CrusherRecipe> recipe = crusherBlockEntity.getWorld().getRecipeManager()
-                .getFirstMatch(CrusherRecipe.Type.INSTANCE, inventory, crusherBlockEntity.getWorld());
-
-        if(hasRecipe(crusherBlockEntity)) {
-            crusherBlockEntity.removeStack(INPUT_SLOT,1);
-            crusherBlockEntity.setStack(OUTPUT_SLOT, new ItemStack(recipe.get().getOutputNoReg().getItem(),
-                    crusherBlockEntity.getStack(OUTPUT_SLOT).getCount() + 1));
-            crusherBlockEntity.resetProgress();
-        }
-    }
-
-    private static boolean hasRecipe(CrusherBlockEntity crusherBlockEntity) {
-        SimpleInventory inventory = new SimpleInventory(crusherBlockEntity.size());
-        for(int i = 0; i< crusherBlockEntity.size(); i++){
-            inventory.setStack(i, crusherBlockEntity.getStack(i));
-        }
-        //boolean hasRawItemInFirstSlot = crusherBlockEntity.getStack(1).getItem() == Items.BONE;
-        Optional<CrusherRecipe> match = crusherBlockEntity.getWorld().getRecipeManager()
-                .getFirstMatch(CrusherRecipe.Type.INSTANCE, inventory, crusherBlockEntity.getWorld());
-
-        return match.isPresent() && canInsertAmountIntoOutputSlot(inventory) &&
-                canInsertItemIntoOutputSlot(inventory, match.get().getOutputNoReg().getItem());
-    }
-
-    private static boolean canInsertItemIntoOutputSlot(SimpleInventory inventory, Item output) {
-        return inventory.getStack(OUTPUT_SLOT).getItem() == output || inventory.getStack(2).isEmpty();
-    }
-
-    private static boolean canInsertAmountIntoOutputSlot(SimpleInventory inventory) {
-        return inventory.getStack(OUTPUT_SLOT).getMaxCount() > inventory.getStack(2).getCount();
     }
 
     @Override
@@ -223,60 +179,27 @@ public class CrusherBlockEntity extends BlockEntity implements NamedScreenHandle
         }
         // From top insert into 1
         if(side == Direction.UP){
-            return slot == 1;
+            return slot == INPUT_SLOT;
         }
         // right insert into 1
         // From left insert into 0
         return switch (localDir) {
             default ->
-                side.getOpposite() == Direction.NORTH && slot == 1 || //&& stack.getItem() == ModBlockTags.CRUSHABLE
-                        side.getOpposite() == Direction.EAST && slot == 1 ||
-                        side.getOpposite() == Direction.WEST && slot == 0;
+                side.getOpposite() == Direction.NORTH && slot == INPUT_SLOT || //&& stack.getItem() == ModBlockTags.CRUSHABLE
+                        side.getOpposite() == Direction.EAST && slot == INPUT_SLOT ||
+                        side.getOpposite() == Direction.WEST && slot == FUEL_SLOT;
             case EAST ->
-                side.rotateYClockwise() == Direction.NORTH && slot == 1 ||
-                        side.rotateYClockwise() == Direction.EAST && slot == 1 ||
-                        side.rotateYClockwise() == Direction.WEST && slot == 0;
+                side.rotateYClockwise() == Direction.NORTH && slot == INPUT_SLOT ||
+                        side.rotateYClockwise() == Direction.EAST && slot == INPUT_SLOT ||
+                        side.rotateYClockwise() == Direction.WEST && slot == FUEL_SLOT;
             case SOUTH ->
-                side  == Direction.NORTH && slot == 1 ||
-                        side == Direction.EAST && slot == 1 ||
-                        side == Direction.WEST && slot == 0;
+                side  == Direction.NORTH && slot == INPUT_SLOT ||
+                        side == Direction.EAST && slot == INPUT_SLOT ||
+                        side == Direction.WEST && slot == FUEL_SLOT;
             case WEST ->
-                side.rotateYCounterclockwise() == Direction.NORTH && slot == 1 ||
-                        side.rotateYCounterclockwise() == Direction.EAST && slot == 1 ||
-                        side.rotateYCounterclockwise() == Direction.WEST && slot == 0;
-        };
-    }
-
-
-
-
-    @Override
-    public boolean canExtract(int slot, ItemStack stack, Direction side) {
-        Direction localDir = this.getWorld().getBlockState(this.pos).get(CrusherBlock.FACING);
-
-        if(side == Direction.UP){
-            return false;
-        }
-
-        // From Down extract from 2
-        if(side == Direction.DOWN){
-            return slot == 2;
-        }
-        // From bottom extract from 2
-        // From right extract from 2
-        return switch (localDir) {
-            default ->
-                    side.getOpposite() == Direction.NORTH && slot == 2 || //&& stack.getItem() == ModBlockTags.CRUSHABLE
-                            side.getOpposite() == Direction.EAST && slot == 2;
-            case EAST ->
-                    side.rotateYClockwise() == Direction.NORTH && slot == 2 ||
-                            side.rotateYClockwise() == Direction.EAST && slot == 2;
-            case SOUTH ->
-                    side  == Direction.NORTH && slot == 2 ||
-                            side == Direction.EAST && slot == 2;
-            case WEST ->
-                    side.rotateYCounterclockwise() == Direction.NORTH && slot == 2 ||
-                            side.rotateYCounterclockwise() == Direction.EAST && slot == 2;
+                side.rotateYCounterclockwise() == Direction.NORTH && slot == INPUT_SLOT ||
+                        side.rotateYCounterclockwise() == Direction.EAST && slot == INPUT_SLOT ||
+                        side.rotateYCounterclockwise() == Direction.WEST && slot == FUEL_SLOT;
         };
     }
 }
