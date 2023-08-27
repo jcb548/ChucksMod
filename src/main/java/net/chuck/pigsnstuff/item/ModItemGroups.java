@@ -81,6 +81,10 @@ public class ModItemGroups {
                         entries.add(ModItems.FABIUM_AXE);
                         entries.add(ModItems.FABIUM_SHOVEL);
                         entries.add(ModItems.FABIUM_HOE);
+                        entries.add(ModItems.FABIUM_HELMET);
+                        entries.add(ModItems.FABIUM_CHESTPLATE);
+                        entries.add(ModItems.FABIUM_LEGGINGS);
+                        entries.add(ModItems.FABIUM_BOOTS);
 
                         entries.add(ModItems.RAW_DIRITONIUM);
                         entries.add(ModItems.DIRITONIUM_INGOT);

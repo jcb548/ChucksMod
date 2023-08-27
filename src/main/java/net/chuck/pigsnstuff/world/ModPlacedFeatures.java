@@ -30,9 +30,17 @@ import java.util.List;
  */
 public class ModPlacedFeatures {
     public static final RegistryKey<PlacedFeature> EUCALYPTUS_PLACED_KEY = registerKey("eucalyptus_placed");
+    // Overworld Ores
     public static final RegistryKey<PlacedFeature> TIN_ORE_PLACED_KEY = registerKey("tin_ore_placed");
+    public static final RegistryKey<PlacedFeature> NEW_COPPER_ORE_PLACED_KEY = registerKey("new_copper_ore_placed");
+    public static final RegistryKey<PlacedFeature> NEW_IRON_ORE_PLACED_KEY = registerKey("new_iron_ore_placed");
+    public static final RegistryKey<PlacedFeature> NEW_GOLD_ORE_PLACED_KEY = registerKey("new_gold_ore_placed");
+    public static final RegistryKey<PlacedFeature> NEW_LAPIS_ORE_PLACED_KEY = registerKey("new_lapis_ore_placed");
+    public static final RegistryKey<PlacedFeature> NEW_DIAMOND_ORE_PLACED_KEY = registerKey("new_diamond_ore_placed");
+    public static final RegistryKey<PlacedFeature> NEW_REDSTONE_ORE_PLACED_KEY = registerKey("new_redstone_ore_placed");
     public static final RegistryKey<PlacedFeature> NETHER_FABIUM_ORE_PLACED_KEY =
             registerKey("nether_fabium_ore_placed");
+    public static final RegistryKey<PlacedFeature> NEW_QUARTZ_PLACED_KEY = registerKey("new_quartz_ore_placed");
     public static final RegistryKey<PlacedFeature> END_FABIUM_ORE_PLACED_KEY =
             registerKey("end_fabium_ore_placed");
     public static final RegistryKey<PlacedFeature> END_DIRITONIUM_ORE_PLACED_KEY =
@@ -89,18 +97,39 @@ public class ModPlacedFeatures {
 
         //Register New Overworld Ores
         register(context, TIN_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup
-                        .getOrThrow(ModConfiguredFeatures.TIN_ORE_KEY), ModOrePlacement.modifiersWithCount(12,
-                        HeightRangePlacementModifier.trapezoid(YOffset.fixed( -128), YOffset.fixed(16))));
+                        .getOrThrow(ModConfiguredFeatures.TIN_ORE_KEY), ModOrePlacement.modifiersWithCount(48,
+                        HeightRangePlacementModifier.uniform(YOffset.fixed( -16), YOffset.fixed(128))));
+        register(context, NEW_COPPER_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup
+                        .getOrThrow(ModConfiguredFeatures.NEW_COPPER_ORE_KEY), ModOrePlacement.modifiersWithCount(32,
+                        HeightRangePlacementModifier.uniform(YOffset.fixed( -16), YOffset.fixed(128))));
+        register(context, NEW_IRON_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup
+                        .getOrThrow(ModConfiguredFeatures.NEW_IRON_ORE_KEY), ModOrePlacement.modifiersWithCount(48,
+                        HeightRangePlacementModifier.uniform(YOffset.fixed( -64), YOffset.fixed(64))));
+        register(context, NEW_GOLD_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup
+                        .getOrThrow(ModConfiguredFeatures.NEW_GOLD_ORE_KEY), ModOrePlacement.modifiersWithCount(32,
+                        HeightRangePlacementModifier.uniform(YOffset.fixed( -64), YOffset.fixed(32))));
+        register(context, NEW_LAPIS_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup
+                        .getOrThrow(ModConfiguredFeatures.NEW_LAPIS_ORE_KEY), ModOrePlacement.modifiersWithCount(32,
+                        HeightRangePlacementModifier.uniform(YOffset.fixed( -64), YOffset.fixed(32))));
+        register(context, NEW_DIAMOND_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup
+                        .getOrThrow(ModConfiguredFeatures.NEW_DIAMOND_ORE_KEY), ModOrePlacement.modifiersWithCount(24,
+                        HeightRangePlacementModifier.uniform(YOffset.fixed( -64), YOffset.fixed(16))));
+        register(context, NEW_REDSTONE_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup
+                        .getOrThrow(ModConfiguredFeatures.NEW_REDSTONE_ORE_KEY), ModOrePlacement.modifiersWithCount(96,
+                        HeightRangePlacementModifier.uniform(YOffset.fixed( -64), YOffset.fixed(128))));
         // Register New Nether Ores
         register(context, NETHER_FABIUM_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup
-                        .getOrThrow(ModConfiguredFeatures.NETHER_FABIUM_ORE_KEY), ModOrePlacement.modifiersWithCount(30,
+                        .getOrThrow(ModConfiguredFeatures.NETHER_FABIUM_ORE_KEY), ModOrePlacement.modifiersWithCount(32,
+                        HeightRangePlacementModifier.uniform(YOffset.fixed( 0), YOffset.fixed(128))));
+        register(context, NEW_QUARTZ_PLACED_KEY, configuredFeatureRegistryEntryLookup
+                        .getOrThrow(ModConfiguredFeatures.NEW_QUARTZ_ORE_KEY), ModOrePlacement.modifiersWithCount(16,
                         HeightRangePlacementModifier.uniform(YOffset.fixed( 0), YOffset.fixed(128))));
         // Register End ores
         register(context, END_FABIUM_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup
-                .getOrThrow(ModConfiguredFeatures.END_FABIUM_ORE_KEY), ModOrePlacement.modifiersWithCount(20,
+                .getOrThrow(ModConfiguredFeatures.END_FABIUM_ORE_KEY), ModOrePlacement.modifiersWithCount(32,
                 HeightRangePlacementModifier.uniform(YOffset.fixed( 0), YOffset.fixed(128))));
         register(context, END_DIRITONIUM_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup
-                .getOrThrow(ModConfiguredFeatures.END_DIRITONIUM_ORE_KEY), ModOrePlacement.modifiersWithCount(10,
+                .getOrThrow(ModConfiguredFeatures.END_DIRITONIUM_ORE_KEY), ModOrePlacement.modifiersWithCount(16,
                 HeightRangePlacementModifier.uniform(YOffset.fixed( 0), YOffset.fixed(128))));
         //Register Diritia ores
         register(context, DIRITIA_DIRITONIUM_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup

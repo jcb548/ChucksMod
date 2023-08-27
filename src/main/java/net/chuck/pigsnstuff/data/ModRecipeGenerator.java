@@ -326,6 +326,30 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .criterion(FabricRecipeProvider.hasItem(Items.STICK),
                         FabricRecipeProvider.conditionsFromItem(Items.STICK))
                 .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.FABIUM_HELMET)
+                .pattern("FFF").pattern("F F")
+                .input('F', ModItems.FABIUM_INGOT)
+                .criterion(FabricRecipeProvider.hasItem(ModItems.FABIUM_INGOT),
+                        FabricRecipeProvider.conditionsFromItem(ModItems.FABIUM_INGOT))
+                .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.FABIUM_CHESTPLATE)
+                .pattern("F F").pattern("FFF").pattern("FFF")
+                .input('F', ModItems.FABIUM_INGOT)
+                .criterion(FabricRecipeProvider.hasItem(ModItems.FABIUM_INGOT),
+                        FabricRecipeProvider.conditionsFromItem(ModItems.FABIUM_INGOT))
+                .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.FABIUM_LEGGINGS)
+                .pattern("FFF").pattern("F F").pattern("F F")
+                .input('F', ModItems.FABIUM_INGOT)
+                .criterion(FabricRecipeProvider.hasItem(ModItems.FABIUM_INGOT),
+                        FabricRecipeProvider.conditionsFromItem(ModItems.FABIUM_INGOT))
+                .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.FABIUM_BOOTS)
+                .pattern("F F").pattern("F F")
+                .input('F', ModItems.FABIUM_INGOT)
+                .criterion(FabricRecipeProvider.hasItem(ModItems.FABIUM_INGOT),
+                        FabricRecipeProvider.conditionsFromItem(ModItems.FABIUM_INGOT))
+                .offerTo(exporter);
 
         offerSmelting(exporter, List.of(ModItems.RAW_DIRITONIUM), RecipeCategory.TOOLS, ModItems.DIRITONIUM_INGOT,
                 1.3f, 200, "diritonium_ingot");

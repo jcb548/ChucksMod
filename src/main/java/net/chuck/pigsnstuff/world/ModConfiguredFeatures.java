@@ -40,11 +40,31 @@ import java.util.Locale;
 public class ModConfiguredFeatures {
     public static final RegistryKey<ConfiguredFeature<?, ?>> EUCALYPTUS_KEY = registerKey("eucalyptus");
     public static final RegistryKey<ConfiguredFeature<?, ?>> TIN_ORE_KEY = registerKey("tin_ore");
-    /*public static final RegistryKey<ConfiguredFeature<?, ?>> DIRITIA_CHERRY_TREE_KEY =
+    /* public static final RegistryKey<ConfiguredFeature<?, ?>> DIRITIA_CHERRY_TREE_KEY =
             registerKey("diritia_cherry_tree");*/
-    public static final RegistryKey<ConfiguredFeature<?, ?>> NETHER_FABIUM_ORE_KEY = registerKey("nether_fabium_ore");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> END_FABIUM_ORE_KEY = registerKey("end_fabium_ore");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> END_DIRITONIUM_ORE_KEY = registerKey("end_diritonium_ore");
+    // Make Vanilla ores easier to find for faster progression
+    // Overworld
+    public static final RegistryKey<ConfiguredFeature<?, ?>> NEW_COPPER_ORE_KEY =
+            registerKey("new_copper_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> NEW_IRON_ORE_KEY =
+            registerKey("new_iron_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> NEW_GOLD_ORE_KEY =
+            registerKey("new_gold_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> NEW_LAPIS_ORE_KEY =
+            registerKey("new_lapis_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> NEW_DIAMOND_ORE_KEY =
+            registerKey("new_diamond_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> NEW_REDSTONE_ORE_KEY =
+            registerKey("new_redstone_ore");
+    // Nether
+    public static final RegistryKey<ConfiguredFeature <?, ?>> NEW_QUARTZ_ORE_KEY =
+            registerKey("new_quartz_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> NETHER_FABIUM_ORE_KEY =
+            registerKey("nether_fabium_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> END_FABIUM_ORE_KEY =
+            registerKey("end_fabium_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> END_DIRITONIUM_ORE_KEY =
+            registerKey("end_diritonium_ore");
     // Generation for Diritia Islands
     public static final RegistryKey<ConfiguredFeature<?, ?>> DIRITIA_DIRITONIUM_ORE_KEY =
             registerKey("diritia_diritonium_ore");
@@ -86,6 +106,42 @@ public class ModConfiguredFeatures {
         RuleTest netherrackReplaceables = new TagMatchRuleTest(BlockTags.BASE_STONE_NETHER);
         RuleTest endstoneReplaceables = new BlockMatchRuleTest(Blocks.END_STONE);
 
+        // Extra gen of overworld ores
+        List<OreFeatureConfig.Target> newCopperOres =
+                List.of(OreFeatureConfig.createTarget(stoneReplaceables,
+                                Blocks.COPPER_ORE.getDefaultState()),
+                        OreFeatureConfig.createTarget(deepslateReplaceables,
+                                Blocks.DEEPSLATE_COPPER_ORE.getDefaultState()));
+        List<OreFeatureConfig.Target> newIronOres =
+                List.of(OreFeatureConfig.createTarget(stoneReplaceables,
+                                Blocks.IRON_ORE.getDefaultState()),
+                        OreFeatureConfig.createTarget(deepslateReplaceables,
+                                Blocks.DEEPSLATE_IRON_ORE.getDefaultState()));
+        List<OreFeatureConfig.Target> newGoldOres =
+                List.of(OreFeatureConfig.createTarget(stoneReplaceables,
+                                Blocks.GOLD_ORE.getDefaultState()),
+                        OreFeatureConfig.createTarget(deepslateReplaceables,
+                                Blocks.DEEPSLATE_GOLD_ORE.getDefaultState()));
+        List<OreFeatureConfig.Target> newLapisOres =
+                List.of(OreFeatureConfig.createTarget(stoneReplaceables,
+                                Blocks.LAPIS_ORE.getDefaultState()),
+                        OreFeatureConfig.createTarget(deepslateReplaceables,
+                                Blocks.DEEPSLATE_LAPIS_ORE.getDefaultState()));
+        List<OreFeatureConfig.Target> newDiamondOres =
+                List.of(OreFeatureConfig.createTarget(stoneReplaceables,
+                                Blocks.DIAMOND_ORE.getDefaultState()),
+                        OreFeatureConfig.createTarget(deepslateReplaceables,
+                                Blocks.DEEPSLATE_DIAMOND_ORE.getDefaultState()));
+        List<OreFeatureConfig.Target> newRedstoneOres =
+                List.of(OreFeatureConfig.createTarget(stoneReplaceables,
+                                Blocks.REDSTONE_ORE.getDefaultState()),
+                        OreFeatureConfig.createTarget(deepslateReplaceables,
+                                Blocks.DEEPSLATE_REDSTONE_ORE.getDefaultState()));
+
+        // Increase gen of nether ores
+        List<OreFeatureConfig.Target> newQuartzOres =
+                List.of(OreFeatureConfig.createTarget(netherrackReplaceables,
+                                Blocks.NETHER_QUARTZ_ORE.getDefaultState()));
         // New Overworld Ores
         List<OreFeatureConfig.Target> overworldTinOres =
                 List.of(OreFeatureConfig.createTarget(stoneReplaceables,
@@ -173,8 +229,15 @@ public class ModConfiguredFeatures {
 
         // Register Overworld Ores
         register(context, TIN_ORE_KEY, Feature.ORE, new OreFeatureConfig(overworldTinOres, 9));
+        register(context, NEW_COPPER_ORE_KEY, Feature.ORE, new OreFeatureConfig(newCopperOres, 12));
+        register(context, NEW_IRON_ORE_KEY, Feature.ORE, new OreFeatureConfig(newIronOres, 9));
+        register(context, NEW_GOLD_ORE_KEY, Feature.ORE, new OreFeatureConfig(newGoldOres, 9));
+        register(context, NEW_LAPIS_ORE_KEY, Feature.ORE, new OreFeatureConfig(newLapisOres, 7));
+        register(context, NEW_DIAMOND_ORE_KEY, Feature.ORE, new OreFeatureConfig(newDiamondOres, 8));
+        register(context, NEW_REDSTONE_ORE_KEY, Feature.ORE, new OreFeatureConfig(newRedstoneOres, 8));
         // Register new Nether Ores
         register(context, NETHER_FABIUM_ORE_KEY, Feature.ORE, new OreFeatureConfig(netherFabiumOre, 6));
+        register(context, NEW_QUARTZ_ORE_KEY, Feature.ORE, new OreFeatureConfig(newQuartzOres, 14));
         // Register End Ores
         register(context, END_FABIUM_ORE_KEY, Feature.ORE, new OreFeatureConfig(endFabiumOre, 8));
         register(context, END_DIRITONIUM_ORE_KEY, Feature.ORE, new OreFeatureConfig(endDiritoniumOre, 6));

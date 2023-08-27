@@ -25,6 +25,7 @@ public class PigsNStuffDataGenerator implements DataGeneratorEntrypoint {
 		pack.addProvider(ModModelProvider::new);
 		pack.addProvider(ModWorldGenerator::new);
 		pack.addProvider(ModBlockTagProvider::new);
+		pack.addProvider(ModItemTagProvider::new);
 	}
 
 	@Override

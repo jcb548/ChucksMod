@@ -10,6 +10,7 @@ import net.minecraft.data.client.BlockStateModelGenerator;
 import net.minecraft.data.client.ItemModelGenerator;
 import net.minecraft.data.client.Models;
 import net.minecraft.data.client.TexturedModel;
+import net.minecraft.item.ArmorItem;
 import net.minecraft.util.Identifier;
 /*
  *  Code inspired by or copied from
@@ -138,6 +139,10 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.FABIUM_AXE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.FABIUM_SHOVEL, Models.HANDHELD);
         itemModelGenerator.register(ModItems.FABIUM_HOE, Models.HANDHELD);
+        itemModelGenerator.registerArmor((ArmorItem) ModItems.FABIUM_HELMET);
+        itemModelGenerator.registerArmor((ArmorItem) ModItems.FABIUM_CHESTPLATE);
+        itemModelGenerator.registerArmor((ArmorItem) ModItems.FABIUM_LEGGINGS);
+        itemModelGenerator.registerArmor((ArmorItem) ModItems.FABIUM_BOOTS);
 
         itemModelGenerator.register(ModItems.RAW_DIRITONIUM, Models.GENERATED);
         itemModelGenerator.register(ModItems.DIRITONIUM_INGOT, Models.GENERATED);

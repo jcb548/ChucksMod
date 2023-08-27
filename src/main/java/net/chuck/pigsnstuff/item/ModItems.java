@@ -3,6 +3,7 @@ package net.chuck.pigsnstuff.item;
 import net.chuck.pigsnstuff.PigsNStuff;
 import net.chuck.pigsnstuff.item.custom.*;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
+import net.minecraft.item.ArmorItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.SwordItem;
 import net.minecraft.item.ToolMaterials;
@@ -102,6 +103,14 @@ public class ModItems {
             new ModAntiLargeShovelItem(ModToolMaterials.FABIUM, 1, -2.0f, new FabricItemSettings()));
     public static final Item FABIUM_HOE = registerItem("fabium_hoe",
             new ModAntiLargeHoeItem(ModToolMaterials.FABIUM, -2, -0.4f, new FabricItemSettings()));
+    public static final Item FABIUM_HELMET = registerItem("fabium_helmet",
+            new ArmorItem(ModArmorMaterials.FABIUM, ArmorItem.Type.HELMET, new FabricItemSettings()));
+    public static final Item FABIUM_CHESTPLATE = registerItem("fabium_chestplate",
+            new ArmorItem(ModArmorMaterials.FABIUM, ArmorItem.Type.CHESTPLATE, new FabricItemSettings()));
+    public static final Item FABIUM_LEGGINGS = registerItem("fabium_leggings",
+            new ArmorItem(ModArmorMaterials.FABIUM, ArmorItem.Type.LEGGINGS, new FabricItemSettings()));
+    public static final Item FABIUM_BOOTS = registerItem("fabium_boots",
+            new ArmorItem(ModArmorMaterials.FABIUM, ArmorItem.Type.BOOTS, new FabricItemSettings()));
 
     // Diritonium
     public static final Item RAW_DIRITONIUM = registerItem("raw_diritonium", new Item(new FabricItemSettings()));
