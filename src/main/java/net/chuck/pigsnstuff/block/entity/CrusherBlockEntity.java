@@ -1,6 +1,5 @@
 package net.chuck.pigsnstuff.block.entity;
 
-import com.google.common.collect.Maps;
 import net.chuck.pigsnstuff.block.custom.CrusherBlock;
 import net.chuck.pigsnstuff.recipe.CrusherRecipe;
 import net.chuck.pigsnstuff.screen.CrusherScreenHandler;
@@ -109,6 +108,7 @@ public class CrusherBlockEntity extends AbstractCrusherBlockEntity {
     @Nullable
     @Override
     public ScreenHandler createMenu(int syncId, PlayerInventory playerInventory, PlayerEntity player) {
+        this.markDirty();
         return new CrusherScreenHandler(syncId, playerInventory, this, propertyDelegate);
     }
     // For saving nbt on world close

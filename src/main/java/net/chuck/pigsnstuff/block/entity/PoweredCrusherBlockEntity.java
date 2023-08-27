@@ -110,6 +110,7 @@ public class PoweredCrusherBlockEntity extends AbstractCrusherBlockEntity {
     @Nullable
     @Override
     public ScreenHandler createMenu(int syncId, PlayerInventory playerInventory, PlayerEntity player) {
+        this.markDirty();
         return new PoweredCrusherScreenHandler(syncId, playerInventory, this, propertyDelegate);
     }
     // For saving nbt on world close
@@ -132,13 +133,6 @@ public class PoweredCrusherBlockEntity extends AbstractCrusherBlockEntity {
                             PoweredCrusherBlockEntity entity) {
         if (world.isClient()){
             return;
-        }
-
-        if(hasEnergyItem(entity)){
-            try(Transaction transaction = Transaction.openOuter()){
-                entity.energyStorage.insert(16, transaction);
-                transaction.commit();
-            }
         }
         if(hasRecipe(entity) && hasEnoughEnergy(entity)){
             entity.progress++;
@@ -165,9 +159,5 @@ public class PoweredCrusherBlockEntity extends AbstractCrusherBlockEntity {
 
     private static boolean hasEnoughEnergy(PoweredCrusherBlockEntity entity) {
         return entity.energyStorage.amount >= 32;
-    }
-
-    private static boolean hasEnergyItem(PoweredCrusherBlockEntity entity) {
-        return entity.getStack(0).getItem() == Items.IRON_INGOT;
     }
 }

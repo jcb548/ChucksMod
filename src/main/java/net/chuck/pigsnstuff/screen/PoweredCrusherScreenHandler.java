@@ -25,6 +25,8 @@ public class PoweredCrusherScreenHandler extends AbstractCrusherScreenHandler {
                                 PropertyDelegate delegate) {
         super(syncId, playerInventory, entity, delegate, ModScreenHandlers.POWERED_CRUSHER_SCREEN_HANDLER);
         this.blockEntity = (PoweredCrusherBlockEntity) entity;
+        this.slots.set(AbstractCrusherBlockEntity.INPUT_SLOT,
+                new Slot(inventory, AbstractCrusherBlockEntity.INPUT_SLOT, 56, 35));
     }
 
 }

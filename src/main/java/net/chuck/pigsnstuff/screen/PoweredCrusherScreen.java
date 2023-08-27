@@ -23,7 +23,7 @@ import java.util.Optional;
  */
 public class PoweredCrusherScreen extends AbstractCrusherScreen<PoweredCrusherScreenHandler> {
     private static final Identifier TEXTURE = new Identifier(PigsNStuff.MOD_ID,
-            "textures/gui/crusher_gui.png");
+            "textures/gui/powered_crusher_gui.png");
     private EnergyInfoArea energyInfoArea;
     public PoweredCrusherScreen(PoweredCrusherScreenHandler handler, PlayerInventory inventory, Text title) {
         super(handler, inventory, title);
