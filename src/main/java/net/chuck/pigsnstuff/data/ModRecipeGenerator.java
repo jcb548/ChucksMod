@@ -184,6 +184,30 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .criterion(FabricRecipeProvider.hasItem(Items.STICK),
                         FabricRecipeProvider.conditionsFromItem(Items.STICK))
                 .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.BRONZE_HELMET)
+                .pattern("BBB").pattern("B B")
+                .input('B', ModItems.BRONZE_INGOT)
+                .criterion(FabricRecipeProvider.hasItem(ModItems.BRONZE_INGOT),
+                        FabricRecipeProvider.conditionsFromItem(ModItems.BRONZE_INGOT))
+                .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.BRONZE_CHESTPLATE)
+                .pattern("B B").pattern("BBB").pattern("BBB")
+                .input('B', ModItems.BRONZE_INGOT)
+                .criterion(FabricRecipeProvider.hasItem(ModItems.BRONZE_INGOT),
+                        FabricRecipeProvider.conditionsFromItem(ModItems.BRONZE_INGOT))
+                .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.BRONZE_LEGGINGS)
+                .pattern("BBB").pattern("B B").pattern("B B")
+                .input('B', ModItems.BRONZE_INGOT)
+                .criterion(FabricRecipeProvider.hasItem(ModItems.BRONZE_INGOT),
+                        FabricRecipeProvider.conditionsFromItem(ModItems.BRONZE_INGOT))
+                .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.BRONZE_BOOTS)
+                .pattern("B B").pattern("B B")
+                .input('B', ModItems.BRONZE_INGOT)
+                .criterion(FabricRecipeProvider.hasItem(ModItems.BRONZE_INGOT),
+                        FabricRecipeProvider.conditionsFromItem(ModItems.BRONZE_INGOT))
+                .offerTo(exporter);
         // Prismarine
         ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.PRISMARINE_IRON_DUST, 2)
                 .pattern(" P ")
@@ -271,6 +295,30 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                         FabricRecipeProvider.conditionsFromItem(ModItems.PRISMARINE_INGOT))
                 .criterion(FabricRecipeProvider.hasItem(Items.STICK),
                         FabricRecipeProvider.conditionsFromItem(Items.STICK))
+                .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.PRISMARINE_HELMET)
+                .pattern("PPP").pattern("P P")
+                .input('P', ModItems.PRISMARINE_INGOT)
+                .criterion(FabricRecipeProvider.hasItem(ModItems.PRISMARINE_INGOT),
+                        FabricRecipeProvider.conditionsFromItem(ModItems.PRISMARINE_INGOT))
+                .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.PRISMARINE_CHESTPLATE)
+                .pattern("P P").pattern("PPP").pattern("PPP")
+                .input('P', ModItems.PRISMARINE_INGOT)
+                .criterion(FabricRecipeProvider.hasItem(ModItems.PRISMARINE_INGOT),
+                        FabricRecipeProvider.conditionsFromItem(ModItems.PRISMARINE_INGOT))
+                .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.PRISMARINE_LEGGINGS)
+                .pattern("PPP").pattern("P P").pattern("P P")
+                .input('P', ModItems.PRISMARINE_INGOT)
+                .criterion(FabricRecipeProvider.hasItem(ModItems.PRISMARINE_INGOT),
+                        FabricRecipeProvider.conditionsFromItem(ModItems.PRISMARINE_INGOT))
+                .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.PRISMARINE_BOOTS)
+                .pattern("P P").pattern("P P")
+                .input('P', ModItems.PRISMARINE_INGOT)
+                .criterion(FabricRecipeProvider.hasItem(ModItems.PRISMARINE_INGOT),
+                        FabricRecipeProvider.conditionsFromItem(ModItems.PRISMARINE_INGOT))
                 .offerTo(exporter);
 
         offerSmelting(exporter, List.of(ModItems.RAW_FABIUM), RecipeCategory.TOOLS, ModItems.FABIUM_INGOT,
@@ -403,6 +451,30 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                         FabricRecipeProvider.conditionsFromItem(ModItems.DIRITONIUM_INGOT))
                 .criterion(FabricRecipeProvider.hasItem(Items.STICK),
                         FabricRecipeProvider.conditionsFromItem(Items.STICK))
+                .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.DIRITONIUM_HELMET)
+                .pattern("DDD").pattern("D D")
+                .input('D', ModItems.DIRITONIUM_INGOT)
+                .criterion(FabricRecipeProvider.hasItem(ModItems.DIRITONIUM_INGOT),
+                        FabricRecipeProvider.conditionsFromItem(ModItems.DIRITONIUM_INGOT))
+                .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.DIRITONIUM_CHESTPLATE)
+                .pattern("D D").pattern("DDD").pattern("DDD")
+                .input('D', ModItems.DIRITONIUM_INGOT)
+                .criterion(FabricRecipeProvider.hasItem(ModItems.DIRITONIUM_INGOT),
+                        FabricRecipeProvider.conditionsFromItem(ModItems.DIRITONIUM_INGOT))
+                .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.DIRITONIUM_LEGGINGS)
+                .pattern("DDD").pattern("D D").pattern("D D")
+                .input('D', ModItems.DIRITONIUM_INGOT)
+                .criterion(FabricRecipeProvider.hasItem(ModItems.DIRITONIUM_INGOT),
+                        FabricRecipeProvider.conditionsFromItem(ModItems.DIRITONIUM_INGOT))
+                .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.DIRITONIUM_BOOTS)
+                .pattern("D D").pattern("D D")
+                .input('D', ModItems.DIRITONIUM_INGOT)
+                .criterion(FabricRecipeProvider.hasItem(ModItems.DIRITONIUM_INGOT),
+                        FabricRecipeProvider.conditionsFromItem(ModItems.DIRITONIUM_INGOT))
                 .offerTo(exporter);
 
         offerShapelessRecipe(exporter, ModBlocks.EUCALYPTUS_PLANKS, ModBlocks.EUCALYPTUS_LOG,

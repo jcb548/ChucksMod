@@ -48,6 +48,10 @@ public class ModItemGroups {
                         entries.add(ModItems.PRISMARINE_AXE);
                         entries.add(ModItems.PRISMARINE_SHOVEL);
                         entries.add(ModItems.PRISMARINE_HOE);
+                        entries.add(ModItems.PRISMARINE_HELMET);
+                        entries.add(ModItems.PRISMARINE_CHESTPLATE);
+                        entries.add(ModItems.PRISMARINE_LEGGINGS);
+                        entries.add(ModItems.PRISMARINE_BOOTS);
 
                         entries.add(ModItems.RAW_TIN);
                         entries.add(ModItems.TIN_DUST);
@@ -67,6 +71,10 @@ public class ModItemGroups {
                         entries.add(ModItems.BRONZE_HOE);
                         entries.add(ModBlocks.BRONZE_BLOCK);
                         entries.add(ModBlocks.BRONZE_DUST_BLOCK);
+                        entries.add(ModItems.BRONZE_HELMET);
+                        entries.add(ModItems.BRONZE_CHESTPLATE);
+                        entries.add(ModItems.BRONZE_LEGGINGS);
+                        entries.add(ModItems.BRONZE_BOOTS);
 
                         entries.add(ModItems.RAW_FABIUM);
                         entries.add(ModItems.FABIUM_INGOT);
@@ -98,6 +106,10 @@ public class ModItemGroups {
                         entries.add(ModItems.DIRITONIUM_AXE);
                         entries.add(ModItems.DIRITONIUM_SHOVEL);
                         entries.add(ModItems.DIRITONIUM_HOE);
+                        entries.add(ModItems.DIRITONIUM_HELMET);
+                        entries.add(ModItems.DIRITONIUM_CHESTPLATE);
+                        entries.add(ModItems.DIRITONIUM_LEGGINGS);
+                        entries.add(ModItems.DIRITONIUM_BOOTS);
 
                         entries.add(ModItems.WITHER_BONE);
                         entries.add(ModItems.WITHER_SWORD);

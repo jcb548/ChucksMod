@@ -25,13 +25,24 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
     public ModItemTagProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
         super(output, registriesFuture);
     }
-
     @Override
     protected void configure(RegistryWrapper.WrapperLookup arg) {
         getOrCreateTagBuilder(ItemTags.TRIMMABLE_ARMOR)
+                .add(ModItems.BRONZE_HELMET)
+                .add(ModItems.BRONZE_CHESTPLATE)
+                .add(ModItems.BRONZE_LEGGINGS)
+                .add(ModItems.BRONZE_BOOTS)
+                .add(ModItems.PRISMARINE_HELMET)
+                .add(ModItems.PRISMARINE_CHESTPLATE)
+                .add(ModItems.PRISMARINE_LEGGINGS)
+                .add(ModItems.PRISMARINE_BOOTS)
                 .add(ModItems.FABIUM_HELMET)
                 .add(ModItems.FABIUM_CHESTPLATE)
                 .add(ModItems.FABIUM_LEGGINGS)
-                .add(ModItems.FABIUM_BOOTS);
+                .add(ModItems.FABIUM_BOOTS)
+                .add(ModItems.DIRITONIUM_HELMET)
+                .add(ModItems.DIRITONIUM_CHESTPLATE)
+                .add(ModItems.DIRITONIUM_LEGGINGS)
+                .add(ModItems.DIRITONIUM_BOOTS);
     }
 }

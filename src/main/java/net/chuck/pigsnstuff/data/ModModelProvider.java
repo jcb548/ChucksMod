@@ -130,6 +130,10 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.BRONZE_AXE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.BRONZE_SHOVEL, Models.HANDHELD);
         itemModelGenerator.register(ModItems.BRONZE_HOE, Models.HANDHELD);
+        itemModelGenerator.registerArmor((ArmorItem) ModItems.BRONZE_HELMET);
+        itemModelGenerator.registerArmor((ArmorItem) ModItems.BRONZE_CHESTPLATE);
+        itemModelGenerator.registerArmor((ArmorItem) ModItems.BRONZE_LEGGINGS);
+        itemModelGenerator.registerArmor((ArmorItem) ModItems.BRONZE_BOOTS);
 
         itemModelGenerator.register(ModItems.RAW_FABIUM, Models.GENERATED);
         itemModelGenerator.register(ModItems.FABIUM_INGOT, Models.GENERATED);
@@ -152,6 +156,10 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.DIRITONIUM_AXE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.DIRITONIUM_SHOVEL, Models.HANDHELD);
         itemModelGenerator.register(ModItems.DIRITONIUM_HOE, Models.HANDHELD);
+        itemModelGenerator.registerArmor((ArmorItem) ModItems.DIRITONIUM_HELMET);
+        itemModelGenerator.registerArmor((ArmorItem) ModItems.DIRITONIUM_CHESTPLATE);
+        itemModelGenerator.registerArmor((ArmorItem) ModItems.DIRITONIUM_LEGGINGS);
+        itemModelGenerator.registerArmor((ArmorItem) ModItems.DIRITONIUM_BOOTS);
 
         itemModelGenerator.register(ModItems.CHEESEBURGER, Models.GENERATED);
 
@@ -164,6 +172,10 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.PRISMARINE_AXE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.PRISMARINE_SHOVEL, Models.HANDHELD);
         itemModelGenerator.register(ModItems.PRISMARINE_HOE, Models.HANDHELD);
+        itemModelGenerator.registerArmor((ArmorItem) ModItems.PRISMARINE_HELMET);
+        itemModelGenerator.registerArmor((ArmorItem) ModItems.PRISMARINE_CHESTPLATE);
+        itemModelGenerator.registerArmor((ArmorItem) ModItems.PRISMARINE_LEGGINGS);
+        itemModelGenerator.registerArmor((ArmorItem) ModItems.PRISMARINE_BOOTS);
 
         itemModelGenerator.register(ModItems.WITHER_BONE, Models.GENERATED);
         itemModelGenerator.register(ModItems.WITHER_SWORD, Models.HANDHELD);

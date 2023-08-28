@@ -4,6 +4,7 @@ import net.chuck.pigsnstuff.PigsNStuff;
 import net.chuck.pigsnstuff.item.ModItems;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ArmorMaterial;
+import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
@@ -11,8 +12,19 @@ import net.minecraft.sound.SoundEvents;
 import java.util.function.Supplier;
 
 public enum ModArmorMaterials implements ArmorMaterial {
-    FABIUM("fabium", 33, new int [] {8, 10, 9, 7}, 19, SoundEvents.ITEM_ARMOR_EQUIP_IRON,
-            2f, 0.1f, () -> Ingredient.ofItems(ModItems.FABIUM_INGOT));
+    BRONZE("bronze", 16, new int [] {2, 7, 5, 2}, 14,
+            SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0f, 0.0f,
+            () -> Ingredient.ofItems(ModItems.BRONZE_INGOT)),
+    PRISMARINE("prismarine", 16, new int [] {2, 7, 5, 2}, 17,
+            SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0f, 0.0f,
+            () -> Ingredient.ofItems(ModItems.PRISMARINE_INGOT)),
+    FABIUM("fabium", 36, new int [] {4, 9, 8, 4}, 19,
+            SoundEvents.ITEM_ARMOR_EQUIP_IRON, 2f, 0.1f,
+            () -> Ingredient.ofItems(ModItems.FABIUM_INGOT)),
+    DIRITONIUM("diritonium", 42, new int [] {5, 10, 9, 5}, 21,
+            SoundEvents.ITEM_ARMOR_EQUIP_IRON, 3f, 0.2f,
+            () -> Ingredient.ofItems(ModItems.DIRITONIUM_INGOT));
+
     private final String name;
     private final int durabilityMultiplier;
     private final int[] protectionAmounts;

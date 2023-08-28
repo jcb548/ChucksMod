@@ -9,5 +9,5 @@ import org.spongepowered.asm.mixin.Shadow;
 @Mixin(EntityAttributes.class)
 public class ModGenericArmorModification {
     @Shadow
-    public static EntityAttribute GENERIC_ARMOR = EntityAttributes.register("mod.armor", new ClampedEntityAttribute("attribute.name.mod.armor", 0.0, 0.0, 50.0).setTracked(true));
+    public static EntityAttribute GENERIC_ARMOR = EntityAttributes.register("mod.armor", new ClampedEntityAttribute("attribute.name.generic.armor", 0.0, 0.0, 50.0).setTracked(true));
 }

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "D": {
+      "item": "pigsnstuff:diritonium_ingot"
+    }
+  },
+  "pattern": [
+    "D D",
+    "D D"
+  ],
+  "result": {
+    "item": "pigsnstuff:diritonium_boots"
+  },
+  "show_notification": true
+}

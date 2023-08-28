@@ -22,6 +22,10 @@
   "item.pigsnstuff.prismarine_axe": "Prismarine Axe",
   "item.pigsnstuff.prismarine_shovel": "Prismarine Shovel",
   "item.pigsnstuff.prismarine_hoe": "Prismarine Hoe",
+  "item.pigsnstuff.prismarine_helmet": "Prismarine Helmet",
+  "item.pigsnstuff.prismarine_chestplate": "Prismarine Chestplate",
+  "item.pigsnstuff.prismarine_leggings": "Prismarine Leggings",
+  "item.pigsnstuff.prismarine_boots": "Prismarine Boots",
   "tooltip.pigsnstuff.aqua_item.tooltip": "Deals double damage to Aquatic Mobs",
 
   "item.pigsnstuff.raw_tin": "Raw Tin",
@@ -40,6 +44,10 @@
   "item.pigsnstuff:bronze_axe": "Bronze Axe",
   "item.pigsnstuff:bronze_shovel": "Bronze Shovel",
   "item.pigsnstuff:bronze_hoe": "Bronze Hoe",
+  "item.pigsnstuff.bronze_helmet": "Bronze Helmet",
+  "item.pigsnstuff.bronze_chestplate": "Bronze Chestplate",
+  "item.pigsnstuff.bronze_leggings": "Bronze Leggings",
+  "item.pigsnstuff.bronze_boots": "Bronze Boots",
   "block.pigsnstuff:bronze_block": "Block of Bronze",
   "block.pigsnstuff:bronze_dust_block": "Block of Bronze Dust",
 
@@ -74,6 +82,10 @@
   "item.pigsnstuff.diritonium_axe": "Diritonium Axe",
   "item.pigsnstuff.diritonium_shovel": "Diritonium Shovel",
   "item.pigsnstuff.diritonium_hoe": "Diritonium Hoe",
+  "item.pigsnstuff.diritonium_helmet": "Diritonium Helmet",
+  "item.pigsnstuff.diritonium_chestplate": "Diritonium Chestplate",
+  "item.pigsnstuff.diritonium_leggings": "Diritonium Leggings",
+  "item.pigsnstuff.diritonium_boots": "Diritonium Boots",
   "block.pigsnstuff:diritia_plant": "Diritia Plant",
   "block.pigsnstuff:diritia_plant_light": "Diritia Light Plant",
 

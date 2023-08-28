@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "P": {
+      "item": "pigsnstuff:prismarine_ingot"
+    }
+  },
+  "pattern": [
+    "P P",
+    "PPP",
+    "PPP"
+  ],
+  "result": {
+    "item": "pigsnstuff:prismarine_chestplate"
+  },
+  "show_notification": true
+}

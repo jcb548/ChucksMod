@@ -57,6 +57,14 @@ public class ModItems {
             new ModAquaShovelItem(ModToolMaterials.PRISMARINE, 1, -3.6f, new FabricItemSettings()));
     public static final Item PRISMARINE_HOE = registerItem("prismarine_hoe",
             new ModAquaHoeItem(ModToolMaterials.PRISMARINE, -2, -0.4f, new FabricItemSettings()));
+    public static final Item PRISMARINE_HELMET = registerItem("prismarine_helmet",
+            new ArmorItem(ModArmorMaterials.PRISMARINE, ArmorItem.Type.HELMET, new FabricItemSettings()));
+    public static final Item PRISMARINE_CHESTPLATE = registerItem("prismarine_chestplate",
+            new ArmorItem(ModArmorMaterials.PRISMARINE, ArmorItem.Type.CHESTPLATE, new FabricItemSettings()));
+    public static final Item PRISMARINE_LEGGINGS = registerItem("prismarine_leggings",
+            new ArmorItem(ModArmorMaterials.PRISMARINE, ArmorItem.Type.LEGGINGS, new FabricItemSettings()));
+    public static final Item PRISMARINE_BOOTS = registerItem("prismarine_boots",
+            new ArmorItem(ModArmorMaterials.PRISMARINE, ArmorItem.Type.BOOTS, new FabricItemSettings()));
     // Tin
     public static final Item RAW_TIN = registerItem("raw_tin", new Item(new FabricItemSettings()));
     public static final Item TIN_DUST = registerItem("tin_dust", new Item(new FabricItemSettings()));
@@ -77,6 +85,14 @@ public class ModItems {
             new ModShovelItem(ModToolMaterials.BRONZE, 1, -1.8f, new FabricItemSettings()));
     public static final Item BRONZE_HOE = registerItem("bronze_hoe",
             new ModHoeItem(ModToolMaterials.BRONZE, -2, -0.4f, new FabricItemSettings()));
+    public static final Item BRONZE_HELMET = registerItem("bronze_helmet",
+            new ArmorItem(ModArmorMaterials.BRONZE, ArmorItem.Type.HELMET, new FabricItemSettings()));
+    public static final Item BRONZE_CHESTPLATE = registerItem("bronze_chestplate",
+            new ArmorItem(ModArmorMaterials.BRONZE, ArmorItem.Type.CHESTPLATE, new FabricItemSettings()));
+    public static final Item BRONZE_LEGGINGS = registerItem("bronze_leggings",
+            new ArmorItem(ModArmorMaterials.BRONZE, ArmorItem.Type.LEGGINGS, new FabricItemSettings()));
+    public static final Item BRONZE_BOOTS = registerItem("bronze_boots",
+            new ArmorItem(ModArmorMaterials.BRONZE, ArmorItem.Type.BOOTS, new FabricItemSettings()));
     // Wither items
     public static final Item WITHER_BONE = registerItem("wither_bone", new Item(new FabricItemSettings()));
     public static final Item WITHER_SWORD = registerItem("wither_sword",
@@ -128,6 +144,14 @@ public class ModItems {
             new ModShovelItem(ModToolMaterials.DIRITONIUM, 1, -1.8f, new FabricItemSettings()));
     public static final Item DIRITONIUM_HOE = registerItem("diritonium_hoe",
             new ModHoeItem(ModToolMaterials.DIRITONIUM, -2, -1.8f, new FabricItemSettings()));
+    public static final Item DIRITONIUM_HELMET = registerItem("diritonium_helmet",
+            new ArmorItem(ModArmorMaterials.DIRITONIUM, ArmorItem.Type.HELMET, new FabricItemSettings()));
+    public static final Item DIRITONIUM_CHESTPLATE = registerItem("diritonium_chestplate",
+            new ArmorItem(ModArmorMaterials.DIRITONIUM, ArmorItem.Type.CHESTPLATE, new FabricItemSettings()));
+    public static final Item DIRITONIUM_LEGGINGS = registerItem("diritonium_leggings",
+            new ArmorItem(ModArmorMaterials.DIRITONIUM, ArmorItem.Type.LEGGINGS, new FabricItemSettings()));
+    public static final Item DIRITONIUM_BOOTS = registerItem("diritonium_boots",
+            new ArmorItem(ModArmorMaterials.DIRITONIUM, ArmorItem.Type.BOOTS, new FabricItemSettings()));
 
     private static Item registerItem(String name, Item item){
         return Registry.register(Registries.ITEM, new Identifier(PigsNStuff.MOD_ID, name), item);
