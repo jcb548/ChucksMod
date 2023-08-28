@@ -11,7 +11,7 @@ import net.minecraft.sound.SoundEvents;
 import java.util.function.Supplier;
 
 public enum ModArmorMaterials implements ArmorMaterial {
-    FABIUM("fabium", 33, new int [] {3, 8, 6, 3}, 19, SoundEvents.ITEM_ARMOR_EQUIP_IRON,
+    FABIUM("fabium", 33, new int [] {8, 10, 9, 7}, 19, SoundEvents.ITEM_ARMOR_EQUIP_IRON,
             2f, 0.1f, () -> Ingredient.ofItems(ModItems.FABIUM_INGOT));
     private final String name;
     private final int durabilityMultiplier;

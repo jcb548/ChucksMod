@@ -1,6 +1,7 @@
 package net.chuck.pigsnstuff;
 
 import net.chuck.pigsnstuff.block.ModBlocks;
+import net.chuck.pigsnstuff.client.ArmorHudOverlay;
 import net.chuck.pigsnstuff.networking.ModMessages;
 import net.chuck.pigsnstuff.screen.CrusherScreen;
 import net.chuck.pigsnstuff.screen.ModScreenHandlers;
@@ -8,6 +9,7 @@ import net.chuck.pigsnstuff.screen.PoweredCrusherScreen;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.minecraft.client.color.world.BiomeColors;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.render.RenderLayer;
@@ -46,5 +48,7 @@ public class PigsNStuffClient implements ClientModInitializer {
 
         HandledScreens.register(ModScreenHandlers.CRUSHER_SCREEN_HANDLER, CrusherScreen::new);
         HandledScreens.register(ModScreenHandlers.POWERED_CRUSHER_SCREEN_HANDLER, PoweredCrusherScreen::new);
+
+        HudRenderCallback.EVENT.register(new ArmorHudOverlay());
     }
 }

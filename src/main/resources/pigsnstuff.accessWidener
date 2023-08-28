@@ -1,0 +1,5 @@
+accessWidener v1 named
+
+mutable field net/minecraft/entity/attribute/EntityAttributes GENERIC_ARMOR Lnet/minecraft/entity/attribute/EntityAttribute;
+accessible method net/minecraft/entity/attribute/EntityAttributes register (Ljava/lang/String;Lnet/minecraft/entity/attribute/EntityAttribute;)Lnet/minecraft/entity/attribute/EntityAttribute;
+accessible method net/minecraft/resource/NamespaceResourceManager validate (Lnet/minecraft/util/Identifier;)V

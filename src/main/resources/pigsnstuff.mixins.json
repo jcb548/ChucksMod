@@ -3,7 +3,8 @@
 	"package": "net.chuck.pigsnstuff.mixin",
 	"compatibilityLevel": "JAVA_17",
 	"mixins": [
-		"ExampleMixin"
+		"ModArmorFunction",
+		"ModGenericArmorModification"
 	],
 	"injectors": {
 		"defaultRequire": 1
