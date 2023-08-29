@@ -2,6 +2,7 @@ package net.chuck.pigsnstuff.block;
 
 import net.chuck.pigsnstuff.PigsNStuff;
 import net.chuck.pigsnstuff.block.custom.CrusherBlock;
+import net.chuck.pigsnstuff.block.custom.GeneratorBlock;
 import net.chuck.pigsnstuff.block.custom.ModSlatedGrassBlock;
 import net.chuck.pigsnstuff.block.custom.PoweredCrusherBlock;
 import net.chuck.pigsnstuff.world.tree.DiritiaSaplingGenerator;
@@ -85,6 +86,8 @@ public class ModBlocks {
             new CrusherBlock(FabricBlockSettings.copy(Blocks.SMOOTH_STONE)));
     public static final Block POWERED_CRUSHER = registerBlock("powered_crusher",
             new PoweredCrusherBlock(FabricBlockSettings.copy(Blocks.SMOOTH_STONE)));
+    public static final Block GENERATOR = registerBlock("generator",
+            new GeneratorBlock(FabricBlockSettings.copy(Blocks.SMOOTH_STONE)));
     // Fabium
     public static final Block FABIUM_BLOCK = registerBlock("fabium_block",
             new Block(FabricBlockSettings.copy(Blocks.GOLD_BLOCK)));

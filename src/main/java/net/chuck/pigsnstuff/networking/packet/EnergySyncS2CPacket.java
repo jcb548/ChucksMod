@@ -1,6 +1,8 @@
 package net.chuck.pigsnstuff.networking.packet;
 
+import net.chuck.pigsnstuff.block.entity.GeneratorBlockEntity;
 import net.chuck.pigsnstuff.block.entity.PoweredCrusherBlockEntity;
+import net.chuck.pigsnstuff.screen.GeneratorScreenHandler;
 import net.chuck.pigsnstuff.screen.PoweredCrusherScreenHandler;
 import net.fabricmc.fabric.api.networking.v1.PacketSender;
 import net.minecraft.client.MinecraftClient;
@@ -25,6 +27,14 @@ public class EnergySyncS2CPacket {
             blockEntity.setEnergyLevel(energy);
 
             if(client.player.currentScreenHandler instanceof PoweredCrusherScreenHandler screenHandler &&
+                    screenHandler.blockEntity.getPos().equals(position)) {
+                blockEntity.setEnergyLevel(energy);
+            }
+        }
+        if(client.world.getBlockEntity(position) instanceof GeneratorBlockEntity blockEntity) {
+            blockEntity.setEnergyLevel(energy);
+
+            if(client.player.currentScreenHandler instanceof GeneratorScreenHandler screenHandler &&
                     screenHandler.blockEntity.getPos().equals(position)) {
                 blockEntity.setEnergyLevel(energy);
             }

@@ -2,6 +2,7 @@ package net.chuck.pigsnstuff.block.entity;
 
 import net.chuck.pigsnstuff.PigsNStuff;
 import net.chuck.pigsnstuff.block.ModBlocks;
+import net.chuck.pigsnstuff.block.custom.GeneratorBlock;
 import net.chuck.pigsnstuff.block.custom.PoweredCrusherBlock;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.minecraft.block.entity.BlockEntityType;
@@ -20,6 +21,7 @@ import team.reborn.energy.api.EnergyStorage;
 public class ModBlockEntities {
     public static BlockEntityType<CrusherBlockEntity> CRUSHER;
     public static BlockEntityType<PoweredCrusherBlockEntity> POWERED_CRUSHER;
+    public static BlockEntityType<GeneratorBlockEntity> GENERATOR;
     public static void registerBlockEntities() {
         CRUSHER = Registry.register(Registries.BLOCK_ENTITY_TYPE,
                 new Identifier(PigsNStuff.MOD_ID, "crusher"),
@@ -29,6 +31,13 @@ public class ModBlockEntities {
                 new Identifier(PigsNStuff.MOD_ID, "powered_crusher"),
                 FabricBlockEntityTypeBuilder.create(PoweredCrusherBlockEntity::new,
                         ModBlocks.POWERED_CRUSHER).build(null));
+        // Cables can now connect to block entity
+        EnergyStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.energyStorage,
+                POWERED_CRUSHER);
+        GENERATOR = Registry.register(Registries.BLOCK_ENTITY_TYPE,
+                new Identifier(PigsNStuff.MOD_ID, "generator"),
+                FabricBlockEntityTypeBuilder.create(GeneratorBlockEntity::new,
+                        ModBlocks.GENERATOR).build(null));
         // Cables can now connect to block entity
         EnergyStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.energyStorage,
                 POWERED_CRUSHER);

@@ -21,11 +21,15 @@ public class ModScreenHandlers {
             new ExtendedScreenHandlerType<>(CrusherScreenHandler::new);
     public static ScreenHandlerType<PoweredCrusherScreenHandler> POWERED_CRUSHER_SCREEN_HANDLER =
             new ExtendedScreenHandlerType<>(PoweredCrusherScreenHandler::new);
+    public static ScreenHandlerType<GeneratorScreenHandler> GENERATOR_SCREEN_HANDLER =
+            new ExtendedScreenHandlerType<>(GeneratorScreenHandler::new);
 
     public static void registerAllScreenHandlers() {
         Registry.register(Registries.SCREEN_HANDLER, new Identifier(PigsNStuff.MOD_ID, "crusher"),
                 CRUSHER_SCREEN_HANDLER);
         Registry.register(Registries.SCREEN_HANDLER, new Identifier(PigsNStuff.MOD_ID, "powered_crusher"),
                 POWERED_CRUSHER_SCREEN_HANDLER);
+        Registry.register(Registries.SCREEN_HANDLER, new Identifier(PigsNStuff.MOD_ID, "generator"),
+                GENERATOR_SCREEN_HANDLER);
     }
 }

@@ -4,6 +4,7 @@ import net.chuck.pigsnstuff.block.ModBlocks;
 import net.chuck.pigsnstuff.client.ArmorHudOverlay;
 import net.chuck.pigsnstuff.networking.ModMessages;
 import net.chuck.pigsnstuff.screen.CrusherScreen;
+import net.chuck.pigsnstuff.screen.GeneratorScreen;
 import net.chuck.pigsnstuff.screen.ModScreenHandlers;
 import net.chuck.pigsnstuff.screen.PoweredCrusherScreen;
 import net.fabricmc.api.ClientModInitializer;
@@ -48,6 +49,7 @@ public class PigsNStuffClient implements ClientModInitializer {
 
         HandledScreens.register(ModScreenHandlers.CRUSHER_SCREEN_HANDLER, CrusherScreen::new);
         HandledScreens.register(ModScreenHandlers.POWERED_CRUSHER_SCREEN_HANDLER, PoweredCrusherScreen::new);
+        HandledScreens.register(ModScreenHandlers.GENERATOR_SCREEN_HANDLER, GeneratorScreen::new);
 
         HudRenderCallback.EVENT.register(new ArmorHudOverlay());
     }
