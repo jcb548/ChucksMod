@@ -142,6 +142,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.SLATED_GRASS);
                         entries.add(ModBlocks.DIRITIA_PLANT);
                         entries.add(ModBlocks.DIRITIA_LIGHT_PLANT);
+                        entries.add(ModItems.DIRITIA_HOSTILE_SPAWN_EGG);
 
                         entries.add(ModBlocks.DIRITIA_LOG);
                         entries.add(ModBlocks.DIRITIA_WOOD);

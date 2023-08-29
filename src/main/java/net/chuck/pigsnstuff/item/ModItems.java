@@ -1,12 +1,10 @@
 package net.chuck.pigsnstuff.item;
 
 import net.chuck.pigsnstuff.PigsNStuff;
+import net.chuck.pigsnstuff.entity.ModEntities;
 import net.chuck.pigsnstuff.item.custom.*;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
-import net.minecraft.item.ArmorItem;
-import net.minecraft.item.Item;
-import net.minecraft.item.SwordItem;
-import net.minecraft.item.ToolMaterials;
+import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
@@ -152,6 +150,10 @@ public class ModItems {
             new ArmorItem(ModArmorMaterials.DIRITONIUM, ArmorItem.Type.LEGGINGS, new FabricItemSettings()));
     public static final Item DIRITONIUM_BOOTS = registerItem("diritonium_boots",
             new ArmorItem(ModArmorMaterials.DIRITONIUM, ArmorItem.Type.BOOTS, new FabricItemSettings()));
+    public static final Item DIRITIA_HOSTILE_SPAWN_EGG = registerItem("diritia_hostile_spawn_egg",
+            new SpawnEggItem(ModEntities.DIRITIA_HOSTILE, 0xA175B6, 0x54002C,
+                    new FabricItemSettings()));
+
 
     private static Item registerItem(String name, Item item){
         return Registry.register(Registries.ITEM, new Identifier(PigsNStuff.MOD_ID, name), item);
