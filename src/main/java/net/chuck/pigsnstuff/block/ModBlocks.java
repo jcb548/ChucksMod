@@ -144,6 +144,8 @@ public class ModBlocks {
             new DoorBlock(FabricBlockSettings.copy(Blocks.OAK_DOOR), BlockSetType.OAK));
     public static final Block DIRITIA_TRAPDOOR = registerBlock("diritia_trapdoor",
             new TrapdoorBlock(FabricBlockSettings.copy(Blocks.OAK_TRAPDOOR), BlockSetType.OAK));
+    public static final Block CORPORATE_ALTAR = registerBlock("corporate_altar",
+            new Block(FabricBlockSettings.copy(Blocks.BEDROCK)));
     // New base materials
     public static final Block SLATED_DIRT = registerBlock("slated_dirt",
             new Block(FabricBlockSettings.copy(Blocks.DIRT).strength(1.0f).requiresTool()));

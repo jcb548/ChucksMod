@@ -106,6 +106,8 @@ public class ModModelProvider extends FabricModelProvider {
 
         blockStateModelGenerator.registerCooker(ModBlocks.CRUSHER, TexturedModel.ORIENTABLE);
         blockStateModelGenerator.registerCooker(ModBlocks.POWERED_CRUSHER, TexturedModel.ORIENTABLE);
+
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.CORPORATE_ALTAR);
     }
 
     @Override
