@@ -106,7 +106,7 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerCooker(ModBlocks.GENERATOR, TexturedModel.ORIENTABLE);
 
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.CORPORATE_ALTAR);
-        blockStateModelGenerator.registerParentedItemModel(ModItems.DIRITIA_HOSTILE_SPAWN_EGG,
+        blockStateModelGenerator.registerParentedItemModel(ModItems.WYATT_SPAWN_EGG,
                 ModelIds.getMinecraftNamespacedItem("template_spawn_egg"));
     }
 

@@ -3,7 +3,7 @@ package net.chuck.pigsnstuff;
 import net.chuck.pigsnstuff.block.ModBlocks;
 import net.chuck.pigsnstuff.client.ArmorHudOverlay;
 import net.chuck.pigsnstuff.entity.ModEntities;
-import net.chuck.pigsnstuff.entity.custom.client.DiritiaHostileRenderer;
+import net.chuck.pigsnstuff.entity.custom.client.WyattRenderer;
 import net.chuck.pigsnstuff.networking.ModMessages;
 import net.chuck.pigsnstuff.screen.CrusherScreen;
 import net.chuck.pigsnstuff.screen.GeneratorScreen;
@@ -55,6 +55,6 @@ public class PigsNStuffClient implements ClientModInitializer {
         HandledScreens.register(ModScreenHandlers.GENERATOR_SCREEN_HANDLER, GeneratorScreen::new);
 
         HudRenderCallback.EVENT.register(new ArmorHudOverlay());
-        EntityRendererRegistry.register(ModEntities.DIRITIA_HOSTILE, DiritiaHostileRenderer::new);
+        EntityRendererRegistry.register(ModEntities.WYATT, WyattRenderer::new);
     }
 }

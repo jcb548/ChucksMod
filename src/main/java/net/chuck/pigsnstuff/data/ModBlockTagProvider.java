@@ -130,5 +130,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.DIRITIA_WOOD)
                 .add(ModBlocks.STRIPPED_DIRITIA_LOG)
                 .add(ModBlocks.STRIPPED_DIRITIA_WOOD);
+        getOrCreateTagBuilder(BlockTags.ANIMALS_SPAWNABLE_ON)
+                .add(ModBlocks.SLATED_GRASS);
     }
 }

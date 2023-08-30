@@ -17,8 +17,8 @@ import net.minecraft.world.chunk.light.ChunkLightProvider;
  *  This code is licensed under MIT License
  *  Details can be found in the license file in the root folder of this project
  */
-public class ModSlatedGrassBlock extends GrassBlock {
-    public ModSlatedGrassBlock(Settings settings) {
+public class SlatedGrassBlock extends GrassBlock {
+    public SlatedGrassBlock(Settings settings) {
         super(settings);
     }
 
@@ -37,7 +37,7 @@ public class ModSlatedGrassBlock extends GrassBlock {
     }
     @Override
     public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
-        if (!ModSlatedGrassBlock.canSurvive(state, world, pos)) {
+        if (!SlatedGrassBlock.canSurvive(state, world, pos)) {
             world.setBlockState(pos, ModBlocks.SLATED_DIRT.getDefaultState());
             return;
         }
@@ -47,7 +47,7 @@ public class ModSlatedGrassBlock extends GrassBlock {
                 BlockPos blockPos = pos.add(random.nextInt(3) - 1, random.nextInt(5) - 3,
                         random.nextInt(3) - 1);
                 if (!world.getBlockState(blockPos).isOf(ModBlocks.SLATED_DIRT) ||
-                        !ModSlatedGrassBlock.canSpread(blockState, world, blockPos)) continue;
+                        !SlatedGrassBlock.canSpread(blockState, world, blockPos)) continue;
                 world.setBlockState(blockPos,
                         (BlockState)blockState.with(SNOWY, world.getBlockState(blockPos.up()).isOf(Blocks.SNOW)));
             }
@@ -55,6 +55,6 @@ public class ModSlatedGrassBlock extends GrassBlock {
     }
     private static boolean canSpread(BlockState state, WorldView world, BlockPos pos) {
         BlockPos blockPos = pos.up();
-        return ModSlatedGrassBlock.canSurvive(state, world, pos) && !world.getFluidState(blockPos).isIn(FluidTags.WATER);
+        return SlatedGrassBlock.canSurvive(state, world, pos) && !world.getFluidState(blockPos).isIn(FluidTags.WATER);
     }
 }

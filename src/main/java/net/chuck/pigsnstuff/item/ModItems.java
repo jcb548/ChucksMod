@@ -150,8 +150,8 @@ public class ModItems {
             new ArmorItem(ModArmorMaterials.DIRITONIUM, ArmorItem.Type.LEGGINGS, new FabricItemSettings()));
     public static final Item DIRITONIUM_BOOTS = registerItem("diritonium_boots",
             new ArmorItem(ModArmorMaterials.DIRITONIUM, ArmorItem.Type.BOOTS, new FabricItemSettings()));
-    public static final Item DIRITIA_HOSTILE_SPAWN_EGG = registerItem("diritia_hostile_spawn_egg",
-            new SpawnEggItem(ModEntities.DIRITIA_HOSTILE, 0xA175B6, 0x54002C,
+    public static final Item WYATT_SPAWN_EGG = registerItem("wyatt_spawn_egg",
+            new SpawnEggItem(ModEntities.WYATT, 0xA175B6, 0x54002C,
                     new FabricItemSettings()));
 
 

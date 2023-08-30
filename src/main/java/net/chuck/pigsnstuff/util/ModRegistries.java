@@ -1,10 +1,16 @@
 package net.chuck.pigsnstuff.util;
 
+import com.google.common.collect.ImmutableMap;
+import com.mojang.datafixers.util.Pair;
 import net.chuck.pigsnstuff.block.ModBlocks;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
+import net.fabricmc.fabric.api.registry.TillableBlockRegistry;
+import net.minecraft.block.Blocks;
+import net.minecraft.item.HoeItem;
+
 /*
  *  Code inspired by or copied from
  *  Kaupenjoe

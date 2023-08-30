@@ -1,7 +1,7 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
-		"animation.diritia_hostile.idle": {
+		"animation.wyatt.idle": {
 			"loop": true,
 			"animation_length": 2.88,
 			"bones": {
@@ -57,7 +57,36 @@
 				}
 			}
 		},
-		"animation.diritia_hostile.walk": {
+		"animation.wyatt.attack": {
+			"animation_length": 0.375,
+			"bones": {
+				"right_arm": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.0417": {
+							"vector": [-9.9907, -0.43399, -10.0379],
+							"easing": "easeInBack"
+						},
+						"0.2083": {
+							"vector": [-92.9333, 33.0307, 4.8448],
+							"easing": "linear"
+						},
+						"0.2917": {
+							"vector": [-63.8445, 8.6489, 10.2992]
+						},
+						"0.375": {
+							"vector": [0, 0, 0]
+						}
+					},
+					"position": {
+						"vector": [0, 0, 0]
+					}
+				}
+			}
+		},
+		"animation.wyatt.walk": {
 			"loop": true,
 			"animation_length": 1.44,
 			"bones": {
@@ -123,35 +152,6 @@
 						"1.44": {
 							"vector": [0, 0, 0]
 						}
-					}
-				}
-			}
-		},
-		"animation.diritia_hostile.attack": {
-			"animation_length": 0.375,
-			"bones": {
-				"right_arm": {
-					"rotation": {
-						"0.0": {
-							"vector": [0, 0, 0]
-						},
-						"0.0417": {
-							"vector": [-9.9907, -0.43399, -10.0379],
-							"easing": "easeInBack"
-						},
-						"0.2083": {
-							"vector": [-92.9333, 33.0307, 4.8448],
-							"easing": "linear"
-						},
-						"0.2917": {
-							"vector": [-63.8445, 8.6489, 10.2992]
-						},
-						"0.375": {
-							"vector": [0, 0, 0]
-						}
-					},
-					"position": {
-						"vector": [0, 0, 0]
 					}
 				}
 			}

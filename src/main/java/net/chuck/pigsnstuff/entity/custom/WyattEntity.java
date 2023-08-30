@@ -1,15 +1,11 @@
 package net.chuck.pigsnstuff.entity.custom;
 
-import net.fabricmc.fabric.api.networking.v1.PlayerLookup;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.mob.HostileEntity;
-import net.minecraft.entity.passive.AnimalEntity;
-import net.minecraft.entity.passive.TameableEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.world.World;
 import software.bernie.geckolib.animatable.GeoEntity;
@@ -19,9 +15,9 @@ import software.bernie.geckolib.core.animation.*;
 import software.bernie.geckolib.core.object.PlayState;
 import software.bernie.geckolib.util.GeckoLibUtil;
 
-public class DiritiaHostileEntity extends HostileEntity implements GeoEntity{
+public class WyattEntity extends HostileEntity implements GeoEntity{
     private AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
-    public DiritiaHostileEntity(EntityType<? extends HostileEntity> entityType, World world) {
+    public WyattEntity(EntityType<? extends HostileEntity> entityType, World world) {
         super(entityType, world);
     }
     public static DefaultAttributeContainer.Builder setAttributes() {
@@ -31,7 +27,6 @@ public class DiritiaHostileEntity extends HostileEntity implements GeoEntity{
                 .add(EntityAttributes.GENERIC_ATTACK_SPEED, 2.0f)
                 .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.4f);
     }
-
     @Override
     protected void initGoals() {
         this.goalSelector.add(1, new SwimGoal(this));
@@ -40,7 +35,6 @@ public class DiritiaHostileEntity extends HostileEntity implements GeoEntity{
         this.goalSelector.add(4, new LookAroundGoal(this));
 
         targetSelector.add(1, new ActiveTargetGoal<>(this, PlayerEntity.class, true));
-        targetSelector.add(2, new ActiveTargetGoal<>(this, LivingEntity.class, true));
     }
 
     @Override
@@ -52,17 +46,13 @@ public class DiritiaHostileEntity extends HostileEntity implements GeoEntity{
     }
 
     private <T extends GeoAnimatable> PlayState predicate(AnimationState<T> tAnimationState) {
-        /*if(tAnimationState.isMoving() && this.handSwinging){
+        if(tAnimationState.isMoving()){
             tAnimationState.getController().setAnimation(RawAnimation.begin()
-                    .then("animation.diritia_hostile.attack", Animation.LoopType.LOOP));
-            return PlayState.CONTINUE;
-        } else */if(tAnimationState.isMoving()){
-            tAnimationState.getController().setAnimation(RawAnimation.begin()
-                    .then("animation.diritia_hostile.walk", Animation.LoopType.LOOP));
+                    .then("animation.wyatt.walk", Animation.LoopType.LOOP));
             return PlayState.CONTINUE;
         } else {
             tAnimationState.getController().setAnimation(RawAnimation.begin()
-                    .then("animation.diritia_hostile.idle", Animation.LoopType.LOOP));
+                    .then("animation.wyatt.idle", Animation.LoopType.LOOP));
             return PlayState.CONTINUE;
         }
     }
@@ -70,7 +60,7 @@ public class DiritiaHostileEntity extends HostileEntity implements GeoEntity{
     private <T extends GeoAnimatable> PlayState attackPredicate(AnimationState<T> tAnimationState){
         if(this.handSwinging) {
             return tAnimationState.setAndContinue(RawAnimation.begin()
-                    .thenPlay("animation.diritia_hostile.attack"));
+                    .thenPlay("animation.wyatt.attack"));
         }
             tAnimationState.getController().forceAnimationReset();
         return PlayState.STOP;

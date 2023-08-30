@@ -3,10 +3,9 @@ package net.chuck.pigsnstuff;
 import net.chuck.pigsnstuff.block.ModBlocks;
 import net.chuck.pigsnstuff.block.entity.ModBlockEntities;
 import net.chuck.pigsnstuff.entity.ModEntities;
-import net.chuck.pigsnstuff.entity.custom.DiritiaHostileEntity;
+import net.chuck.pigsnstuff.entity.custom.WyattEntity;
 import net.chuck.pigsnstuff.item.ModItemGroups;
 import net.chuck.pigsnstuff.item.ModItems;
-import net.chuck.pigsnstuff.networking.ModMessages;
 import net.chuck.pigsnstuff.recipe.ModRecipes;
 import net.chuck.pigsnstuff.screen.ModScreenHandlers;
 import net.chuck.pigsnstuff.util.ModLootTableModifiers;
@@ -14,20 +13,10 @@ import net.chuck.pigsnstuff.util.ModRegistries;
 import net.chuck.pigsnstuff.world.gen.ModWorldGeneration;
 import net.fabricmc.api.ModInitializer;
 
-import net.fabricmc.fabric.api.block.v1.FabricBlockState;
-import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
-import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.kyrptonaught.customportalapi.api.CustomPortalBuilder;
-import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.client.color.block.BlockColorProvider;
-import net.minecraft.item.Items;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.BlockRenderView;
-import net.minecraft.world.gen.stateprovider.BlockStateProvider;
-import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import software.bernie.geckolib.GeckoLib;
@@ -70,6 +59,6 @@ public class PigsNStuff implements ModInitializer {
 				.tintColor(211, 185, 255).registerPortal();
 		//ServerTickEvents.START_SERVER_TICK.register(new PlayerTickHandler());
 		GeckoLib.initialize();
-		FabricDefaultAttributeRegistry.register(ModEntities.DIRITIA_HOSTILE, DiritiaHostileEntity.setAttributes());
+		FabricDefaultAttributeRegistry.register(ModEntities.WYATT, WyattEntity.setAttributes());
 	}
 }
