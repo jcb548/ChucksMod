@@ -1,6 +1,7 @@
 package net.chuck.pigsnstuff.entity.custom;
 
 import net.fabricmc.fabric.api.networking.v1.PlayerLookup;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.goal.*;
@@ -45,9 +46,9 @@ public class DiritiaHostileEntity extends HostileEntity implements GeoEntity{
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllerRegistrar) {
         controllerRegistrar.add(new AnimationController<>(this, "controller",
-                -20, this::predicate),
+                0, this::predicate),
                 new AnimationController<>(this, "attackController",
-                -20, this::attackPredicate));
+                0, this::attackPredicate));
     }
 
     private <T extends GeoAnimatable> PlayState predicate(AnimationState<T> tAnimationState) {
@@ -67,13 +68,12 @@ public class DiritiaHostileEntity extends HostileEntity implements GeoEntity{
     }
 
     private <T extends GeoAnimatable> PlayState attackPredicate(AnimationState<T> tAnimationState){
-        if(this.isAttacking()) {
-            tAnimationState.getController().stop();
-            tAnimationState.getController().forceAnimationReset();
-            tAnimationState.getController().setAnimation(RawAnimation.begin()
+        if(this.handSwinging) {
+            return tAnimationState.setAndContinue(RawAnimation.begin()
                     .thenPlay("animation.diritia_hostile.attack"));
         }
-        return PlayState.CONTINUE;
+            tAnimationState.getController().forceAnimationReset();
+        return PlayState.STOP;
     }
     @Override
     public AnimatableInstanceCache getAnimatableInstanceCache() {

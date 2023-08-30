@@ -128,25 +128,25 @@
 			}
 		},
 		"animation.diritia_hostile.attack": {
-			"animation_length": 0.5,
+			"animation_length": 0.375,
 			"bones": {
 				"right_arm": {
 					"rotation": {
 						"0.0": {
 							"vector": [0, 0, 0]
 						},
-						"0.1667": {
+						"0.0417": {
 							"vector": [-9.9907, -0.43399, -10.0379],
 							"easing": "easeInBack"
 						},
-						"0.375": {
+						"0.2083": {
 							"vector": [-92.9333, 33.0307, 4.8448],
-							"easing": "easeInSine"
+							"easing": "linear"
 						},
-						"0.4167": {
+						"0.2917": {
 							"vector": [-63.8445, 8.6489, 10.2992]
 						},
-						"0.5": {
+						"0.375": {
 							"vector": [0, 0, 0]
 						}
 					},
