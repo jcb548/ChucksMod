@@ -24,6 +24,8 @@ import java.util.function.BiConsumer;
 
 public class ModChestLootTableGenerator extends SimpleFabricLootTableProvider {
     public static final Identifier DIRITIA_HOUSE = new Identifier(PigsNStuff.MOD_ID, "chests/diritia_house");
+    public static final Identifier DIRITIA_DUNGEON = new Identifier(PigsNStuff.MOD_ID, "chests/diritia_dungeon");
+    public static final Identifier DIRITIA_LIBRARY = new Identifier(PigsNStuff.MOD_ID, "chests/diritia_library");
     public ModChestLootTableGenerator(FabricDataOutput output) {
         super(output, LootContextTypes.CHEST);
     }
@@ -72,6 +74,7 @@ public class ModChestLootTableGenerator extends SimpleFabricLootTableProvider {
                         .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 8.0f)))))
                     .with((LootPoolEntry.Builder<?>)((Object)((LeafEntry.Builder)ItemEntry.builder(Items.STRING).weight(10))
                         .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 8.0f)))))));*/
+        // /setblock ~ ~ ~ minecraft:chest{LootTable:"pigsnstuff:chests/diritia_house"}
         exporter.accept(DIRITIA_HOUSE, LootTable.builder()
                 .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0f))
                     .with(ItemEntry.builder(Items.GOLDEN_APPLE).weight(15))
@@ -110,6 +113,46 @@ public class ModChestLootTableGenerator extends SimpleFabricLootTableProvider {
                             .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 8.0f)))
                     .with(ItemEntry.builder(Items.BLAZE_POWDER).weight(10))
                             .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 8.0f)))));
-
+        exporter.accept(DIRITIA_DUNGEON, LootTable.builder()
+                .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0f))
+                    .with(ItemEntry.builder(Items.ENCHANTED_GOLDEN_APPLE).weight(5))
+                    .with(ItemEntry.builder(ModItems.DIRITONIUM_INGOT).weight(10))
+                    .with(ItemEntry.builder(Items.NAME_TAG).weight(20))
+                    .with(ItemEntry.builder(Items.BOOK).weight(30))
+                        .apply(EnchantWithLevelsLootFunction.builder(UniformLootNumberProvider.create(20.0f, 39.0f))))
+                .pool(LootPool.builder().rolls(UniformLootNumberProvider.create(1.0f, 4.0f))
+                    .with(ItemEntry.builder(Items.REDSTONE).weight(15))
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(4.0f, 16.0f)))
+                    .with(ItemEntry.builder(Items.POTION).weight(10))
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 3.0f))))
+                        .apply(SetPotionLootFunction.builder(Potions.STRONG_REGENERATION))
+                .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(3.0f))
+                    .with(ItemEntry.builder(Items.IRON_INGOT).weight(10))
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 8.0f)))
+                    .with(ItemEntry.builder(Items.GOLD_INGOT).weight(5))
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 4.0f)))
+                    .with(ItemEntry.builder(Items.COPPER_INGOT).weight(15))
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 8.0f)))
+                    .with(ItemEntry.builder(ModItems.PRISMARINE_INGOT).weight(5))
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 8.0f)))
+                    .with(ItemEntry.builder(ModItems.BRONZE_INGOT).weight(10))
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 8.0f)))
+                    .with(ItemEntry.builder(ModItems.TIN_INGOT).weight(10))
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 4.0f)))
+                    .with(ItemEntry.builder(ModItems.CHEESEBURGER).weight(20))
+                    .with(ItemEntry.builder(Items.QUARTZ).weight(10))
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(2.0f, 12.0f)))
+                    .with(ItemEntry.builder(Items.COAL).weight(15))
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 8.0f)))
+                    .with(ItemEntry.builder(ModItems.RAW_DIRITONIUM).weight(10))
+                            .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 8.0f)))
+                    .with(ItemEntry.builder(Items.BONE).weight(10))
+                            .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 8.0f)))
+                    .with(ItemEntry.builder(Items.BLAZE_POWDER).weight(10))
+                            .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 8.0f)))));
+        exporter.accept(DIRITIA_LIBRARY, LootTable.builder()
+                .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(4.0f))
+                        .with(ItemEntry.builder(Items.BOOK).weight(100))
+                        .apply(EnchantWithLevelsLootFunction.builder(UniformLootNumberProvider.create(1.0f, 39.0f)))));
     }
 }
