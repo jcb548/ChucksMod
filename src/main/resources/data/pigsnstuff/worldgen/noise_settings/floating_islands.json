@@ -14,8 +14,8 @@
     }
   },
   "noise": {
-    "min_y": 0,
-    "height": 256,
+    "min_y": -64,
+    "height": 192,
     "size_horizontal": 2,
     "size_vertical": 1
   },
@@ -63,8 +63,8 @@
                 "type": "minecraft:mul",
                 "argument1": {
                   "type": "minecraft:y_clamped_gradient",
-                  "from_y": 4,
-                  "to_y": 32,
+                  "from_y": -64,
+                  "to_y": -32,
                   "from_value": 0,
                   "to_value": 1
                 },
@@ -78,7 +78,7 @@
                       "type": "minecraft:mul",
                       "argument1": {
                         "type": "minecraft:y_clamped_gradient",
-                        "from_y": 128,
+                        "from_y": 64,
                         "to_y": 440,
                         "from_value": 1,
                         "to_value": 0
@@ -126,14 +126,14 @@
           "then_run": {
             "type": "minecraft:block",
             "result_state": {
-              "Name": "pigsnstuff:slated_grass"
+              "Name": "minecraft:grass_block"
             }
           }
         },
         {
           "type": "minecraft:block",
           "result_state": {
-            "Name": "pigsnstuff:slated_dirt"
+            "Name": "minecraft:dirt"
           }
         }
       ]

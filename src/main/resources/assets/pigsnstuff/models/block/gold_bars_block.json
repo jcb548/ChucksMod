@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "pigsnstuff:block/gold_bars_block"
+  }
+}

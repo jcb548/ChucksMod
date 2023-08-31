@@ -5,11 +5,13 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.MossBlock;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.Identifier;
+import software.bernie.shadowed.eliotlash.mclib.math.functions.classic.Mod;
 
 import java.util.concurrent.CompletableFuture;
 /*
@@ -32,25 +34,32 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.END_STONE_DIRITONIUM_ORE)
                 .add(ModBlocks.DEEPSLATE_DIRITONIUM_ORE)
                 .add(ModBlocks.DIRITONIUM_BLOCK)
-                .add(ModBlocks.RAW_DIRITONIUM_BLOCK);
+                .add(ModBlocks.RAW_DIRITONIUM_BLOCK)
+                .add(ModBlocks.DIRITONIUM_BLOCK);
 
         getOrCreateTagBuilder(BlockTags.NEEDS_DIAMOND_TOOL)
                 .add(ModBlocks.FABIUM_BLOCK)
                 .add(ModBlocks.RAW_FABIUM_BLOCK)
                 .add(ModBlocks.NETHER_FABIUM_ORE)
                 .add(ModBlocks.END_STONE_FABIUM_ORE)
-                .add(ModBlocks.DEEPSLATE_FABIUM_ORE);
+                .add(ModBlocks.DEEPSLATE_FABIUM_ORE)
+                .add(ModBlocks.DIRITONIUM_BARS);
 
         getOrCreateTagBuilder(BlockTags.NEEDS_IRON_TOOL)
                 .add(ModBlocks.CRUSHER)
+                .add(ModBlocks.POWERED_CRUSHER)
+                .add(ModBlocks.GENERATOR)
                 .add(ModBlocks.SLATED_DIRT)
-                .add(ModBlocks.SLATED_GRASS);
+                .add(ModBlocks.SLATED_GRASS)
+                .add(ModBlocks.GOLD_BARS);
 
         getOrCreateTagBuilder(BlockTags.NEEDS_STONE_TOOL)
                 .add(ModBlocks.TIN_BLOCK)
                 .add(ModBlocks.TIN_ORE)
                 .add(ModBlocks.DEEPSLATE_TIN_ORE)
-                .add(ModBlocks.BRONZE_BLOCK);
+                .add(ModBlocks.TIN_BARS)
+                .add(ModBlocks.BRONZE_BLOCK)
+                .add(ModBlocks.BRONZE_BARS);
 
         getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
                 .add(ModBlocks.NETHER_FABIUM_ORE)
@@ -58,19 +67,25 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.DEEPSLATE_FABIUM_ORE)
                 .add(ModBlocks.RAW_FABIUM_BLOCK)
                 .add(ModBlocks.FABIUM_BLOCK)
+                .add(ModBlocks.FABIUM_BARS)
 
                 .add(ModBlocks.TIN_BLOCK)
                 .add(ModBlocks.TIN_ORE)
                 .add(ModBlocks.DEEPSLATE_TIN_ORE)
+                .add(ModBlocks.TIN_BARS)
 
                 .add(ModBlocks.BRONZE_BLOCK)
+                .add(ModBlocks.BRONZE_BARS)
 
                 .add(ModBlocks.DIRITONIUM_BLOCK)
                 .add(ModBlocks.RAW_DIRITONIUM_BLOCK)
                 .add(ModBlocks.END_STONE_DIRITONIUM_ORE)
                 .add(ModBlocks.DEEPSLATE_DIRITONIUM_ORE)
+                .add(ModBlocks.DIRITONIUM_BARS)
 
-                .add(ModBlocks.CRUSHER);
+                .add(ModBlocks.CRUSHER)
+                .add(ModBlocks.POWERED_CRUSHER)
+                .add(ModBlocks.GENERATOR);
 
         getOrCreateTagBuilder(BlockTags.SHOVEL_MINEABLE)
                 .add(ModBlocks.IRON_DUST_BLOCK)

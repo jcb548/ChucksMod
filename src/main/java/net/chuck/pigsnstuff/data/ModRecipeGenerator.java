@@ -61,6 +61,7 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .criterion(FabricRecipeProvider.hasItem(Items.COPPER_INGOT),
                         FabricRecipeProvider.conditionsFromItem(Items.COPPER_INGOT))
                 .offerTo(exporter);
+        offerStainedGlassPaneRecipe(exporter, ModBlocks.COPPER_BARS, Items.COPPER_INGOT);
         offerSmelting(exporter, List.of(ModItems.GOLD_DUST), RecipeCategory.MISC, Items.GOLD_INGOT,
                 0.7f, 200, "gold_ingot");
         offerBlasting(exporter, List.of(ModItems.GOLD_DUST), RecipeCategory.MISC, Items.GOLD_INGOT,
@@ -75,6 +76,7 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .criterion(FabricRecipeProvider.hasItem(Items.GOLD_INGOT),
                         FabricRecipeProvider.conditionsFromItem(Items.GOLD_INGOT))
                 .offerTo(exporter);
+        offerStainedGlassPaneRecipe(exporter, ModBlocks.GOLD_BARS, Items.GOLD_INGOT);
 
         //Tin
         offerSmelting(exporter, List.of(ModItems.RAW_TIN), RecipeCategory.TOOLS, ModItems.TIN_INGOT,
@@ -97,6 +99,7 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .criterion(FabricRecipeProvider.hasItem(ModItems.TIN_INGOT),
                         FabricRecipeProvider.conditionsFromItem(ModItems.TIN_INGOT))
                 .offerTo(exporter);
+        offerStainedGlassPaneRecipe(exporter, ModBlocks.TIN_BARS, ModItems.TIN_INGOT);
         // Bronze
         offerReversibleCompactingRecipes(exporter,
                 RecipeCategory.DECORATIONS,
@@ -208,6 +211,7 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .criterion(FabricRecipeProvider.hasItem(ModItems.BRONZE_INGOT),
                         FabricRecipeProvider.conditionsFromItem(ModItems.BRONZE_INGOT))
                 .offerTo(exporter);
+        offerStainedGlassPaneRecipe(exporter, ModBlocks.BRONZE_BARS, ModItems.BRONZE_INGOT);
         // Prismarine
         ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.PRISMARINE_IRON_DUST, 2)
                 .pattern(" P ")
@@ -320,6 +324,7 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .criterion(FabricRecipeProvider.hasItem(ModItems.PRISMARINE_INGOT),
                         FabricRecipeProvider.conditionsFromItem(ModItems.PRISMARINE_INGOT))
                 .offerTo(exporter);
+        offerStainedGlassPaneRecipe(exporter, ModBlocks.PRISMARINE_BARS, ModItems.PRISMARINE_INGOT);
 
         offerSmelting(exporter, List.of(ModItems.RAW_FABIUM), RecipeCategory.TOOLS, ModItems.FABIUM_INGOT,
                 1.0f, 200, "fabium_ingot");
@@ -398,6 +403,7 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .criterion(FabricRecipeProvider.hasItem(ModItems.FABIUM_INGOT),
                         FabricRecipeProvider.conditionsFromItem(ModItems.FABIUM_INGOT))
                 .offerTo(exporter);
+        offerStainedGlassPaneRecipe(exporter, ModBlocks.FABIUM_BARS, ModItems.FABIUM_INGOT);
 
         offerSmelting(exporter, List.of(ModItems.RAW_DIRITONIUM), RecipeCategory.TOOLS, ModItems.DIRITONIUM_INGOT,
                 1.3f, 200, "diritonium_ingot");
@@ -476,6 +482,7 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .criterion(FabricRecipeProvider.hasItem(ModItems.DIRITONIUM_INGOT),
                         FabricRecipeProvider.conditionsFromItem(ModItems.DIRITONIUM_INGOT))
                 .offerTo(exporter);
+        offerStainedGlassPaneRecipe(exporter, ModBlocks.DIRITONIUM_BARS, ModItems.DIRITONIUM_INGOT);
 
         offerShapelessRecipe(exporter, ModBlocks.EUCALYPTUS_PLANKS, ModBlocks.EUCALYPTUS_LOG,
                 "eucalyptus_planks", 4);

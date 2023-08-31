@@ -4,6 +4,8 @@ import net.chuck.pigsnstuff.block.ModBlocks;
 import net.chuck.pigsnstuff.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
+import software.bernie.shadowed.eliotlash.mclib.math.functions.classic.Mod;
+
 /*
  *  Code inspired by or copied from
  *  Kaupenjoe
@@ -12,8 +14,8 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
  *  This code is licensed under MIT License
  *  Details can be found in the license file in the root folder of this project
  */
-public class ModLootTableGenerator extends FabricBlockLootTableProvider {
-    public ModLootTableGenerator(FabricDataOutput dataOutput) {
+public class ModBlockLootTableGenerator extends FabricBlockLootTableProvider {
+    public ModBlockLootTableGenerator(FabricDataOutput dataOutput) {
         super(dataOutput);
     }
 
@@ -27,11 +29,13 @@ public class ModLootTableGenerator extends FabricBlockLootTableProvider {
 
         addDrop(ModBlocks.TIN_DUST_BLOCK);
         addDrop(ModBlocks.TIN_BLOCK);
+        addDrop(ModBlocks.TIN_BARS);
         addDrop(ModBlocks.TIN_ORE, oreDrops(ModBlocks.TIN_ORE, ModItems.RAW_TIN));
         addDrop(ModBlocks.DEEPSLATE_TIN_ORE, oreDrops(ModBlocks.DEEPSLATE_TIN_ORE, ModItems.RAW_TIN));
 
         addDrop(ModBlocks.BRONZE_BLOCK);
         addDrop(ModBlocks.BRONZE_DUST_BLOCK);
+        addDrop(ModBlocks.BRONZE_BARS);
 
         addDrop(ModBlocks.RAW_FABIUM_BLOCK);
         addDrop(ModBlocks.FABIUM_BLOCK);

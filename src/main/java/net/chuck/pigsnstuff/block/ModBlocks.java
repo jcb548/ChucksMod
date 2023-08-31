@@ -25,13 +25,18 @@ public class ModBlocks {
             new FallingBlock(FabricBlockSettings.copy(Blocks.SAND)));
     public static final Block COPPER_DUST_BLOCK = registerBlock("copper_dust_block",
             new FallingBlock(FabricBlockSettings.copy(Blocks.SAND)));
+    public static final Block COPPER_BARS = registerBlock("copper_bars",
+            new PaneBlock(FabricBlockSettings.copy(Blocks.IRON_BARS).strength(3.0f, 6.0f)));
     public static final Block GOLD_DUST_BLOCK = registerBlock("gold_dust_block",
             new FallingBlock(FabricBlockSettings.copy(Blocks.SAND)));
+    public static final Block GOLD_BARS = registerBlock("gold_bars",
+            new PaneBlock(FabricBlockSettings.copy(Blocks.IRON_BARS).strength(3.0f, 6.0f)));
     public static final Block PRISMARINE_DUST_BLOCK = registerBlock("prismarine_dust_block",
             new FallingBlock(FabricBlockSettings.copy(Blocks.SAND)));
     public static final Block PRISMARINE_IRON_DUST_BLOCK = registerBlock("prismarine_iron_dust_block",
             new FallingBlock(FabricBlockSettings.copy(Blocks.SAND)));
-    // Tin
+    public static final Block PRISMARINE_BARS = registerBlock("prismarine_bars",
+            new PaneBlock(FabricBlockSettings.copy(Blocks.IRON_BARS)));
     public static final Block TIN_BLOCK = registerBlock("tin_block",
             new Block(FabricBlockSettings.copy(Blocks.GOLD_BLOCK)));
     public static final Block TIN_DUST_BLOCK = registerBlock("tin_dust_block",
@@ -40,11 +45,15 @@ public class ModBlocks {
             new Block(FabricBlockSettings.copy(Blocks.IRON_ORE)));
     public static final Block DEEPSLATE_TIN_ORE = registerBlock("deepslate_tin_ore",
             new Block(FabricBlockSettings.copy(Blocks.DEEPSLATE_IRON_ORE)));
+    public static final Block TIN_BARS = registerBlock("tin_bars",
+            new PaneBlock(FabricBlockSettings.copy(Blocks.IRON_BARS).strength(3.0f, 6.0f)));
     //Bronze
     public static final Block BRONZE_BLOCK = registerBlock("bronze_block",
             new Block(FabricBlockSettings.copy(Blocks.GOLD_BLOCK)));
     public static final Block BRONZE_DUST_BLOCK = registerBlock("bronze_dust_block",
             new FallingBlock(FabricBlockSettings.copy(Blocks.SAND)));
+    public static final Block BRONZE_BARS = registerBlock("bronze_bars",
+            new PaneBlock(FabricBlockSettings.copy(Blocks.IRON_BARS)));
 
     // Eucalyptus
     public static final Block EUCALYPTUS_LOG = registerBlock("eucalyptus_log",
@@ -95,7 +104,9 @@ public class ModBlocks {
     public static final Block END_STONE_FABIUM_ORE = registerBlock("endstone_fabium_ore",
             new Block(FabricBlockSettings.copy(Blocks.NETHER_QUARTZ_ORE)));
     public static final Block DEEPSLATE_FABIUM_ORE = registerBlock("deepslate_fabium_ore",
-            new Block(FabricBlockSettings.copy(Blocks.NETHER_QUARTZ_ORE)));
+            new Block(FabricBlockSettings.copy(Blocks.DEEPSLATE_DIAMOND_ORE)));
+    public static final Block FABIUM_BARS = registerBlock("fabium_bars",
+            new PaneBlock(FabricBlockSettings.copy(Blocks.IRON_BARS)));
 
     // Diritonium
     public static final Block DIRITONIUM_BLOCK = registerBlock("diritonium_block",
@@ -106,6 +117,8 @@ public class ModBlocks {
             new Block(FabricBlockSettings.copy(Blocks.GOLD_ORE).strength(5.0f, 9.0f)));
     public static final Block DEEPSLATE_DIRITONIUM_ORE = registerBlock("deepslate_diritonium_ore",
             new Block(FabricBlockSettings.copy(Blocks.GOLD_ORE).strength(5.0f, 9.0f)));
+    public static final Block DIRITONIUM_BARS = registerBlock("diritonium_bars",
+            new PaneBlock(FabricBlockSettings.copy(Blocks.IRON_BARS)));
     // Diritia blocks
     public static final Block DIRITIA_PLANT = registerBlock("diritia_plant",
             new PlantBlock(FabricBlockSettings.copy(Blocks.GRASS)));
