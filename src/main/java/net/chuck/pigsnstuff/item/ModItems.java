@@ -153,6 +153,10 @@ public class ModItems {
     public static final Item WYATT_SPAWN_EGG = registerItem("wyatt_spawn_egg",
             new SpawnEggItem(ModEntities.WYATT, 0xA175B6, 0x54002C,
                     new FabricItemSettings()));
+    public static final Item DIRITIA_CRYSTAL = registerItem("diritia_crystal",
+            new Item(new FabricItemSettings()));
+    public static final Item DIRITIA_CRYSTAL_SHARD = registerItem("diritia_crystal_shard",
+            new Item(new FabricItemSettings()));
 
 
     private static Item registerItem(String name, Item item){

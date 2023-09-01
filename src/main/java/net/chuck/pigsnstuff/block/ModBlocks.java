@@ -116,7 +116,7 @@ public class ModBlocks {
     public static final Block END_STONE_DIRITONIUM_ORE = registerBlock("endstone_diritonium_ore",
             new Block(FabricBlockSettings.copy(Blocks.GOLD_ORE).strength(5.0f, 9.0f)));
     public static final Block DEEPSLATE_DIRITONIUM_ORE = registerBlock("deepslate_diritonium_ore",
-            new Block(FabricBlockSettings.copy(Blocks.GOLD_ORE).strength(5.0f, 9.0f)));
+            new Block(FabricBlockSettings.copy(Blocks.DEEPSLATE_GOLD_ORE).strength(5.0f, 9.0f)));
     public static final Block DIRITONIUM_BARS = registerBlock("diritonium_bars",
             new PaneBlock(FabricBlockSettings.copy(Blocks.IRON_BARS)));
     // Diritia blocks

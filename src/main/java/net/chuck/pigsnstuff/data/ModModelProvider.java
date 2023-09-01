@@ -170,6 +170,8 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.registerArmor((ArmorItem) ModItems.DIRITONIUM_CHESTPLATE);
         itemModelGenerator.registerArmor((ArmorItem) ModItems.DIRITONIUM_LEGGINGS);
         itemModelGenerator.registerArmor((ArmorItem) ModItems.DIRITONIUM_BOOTS);
+        itemModelGenerator.register(ModItems.DIRITIA_CRYSTAL, Models.GENERATED);
+        itemModelGenerator.register(ModItems.DIRITIA_CRYSTAL_SHARD, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.CHEESEBURGER, Models.GENERATED);
 

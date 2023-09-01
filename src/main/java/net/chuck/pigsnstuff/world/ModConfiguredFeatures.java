@@ -59,17 +59,24 @@ public class ModConfiguredFeatures {
     // Nether
     public static final RegistryKey<ConfiguredFeature <?, ?>> NEW_QUARTZ_ORE_KEY =
             registerKey("new_quartz_ore");
+    public static final RegistryKey<ConfiguredFeature <?, ?>> NEW_ANCIENT_DEBRIS_KEY =
+            registerKey("new_ancient_debris");
     public static final RegistryKey<ConfiguredFeature<?, ?>> NETHER_FABIUM_ORE_KEY =
             registerKey("nether_fabium_ore");
+    // End
     public static final RegistryKey<ConfiguredFeature<?, ?>> END_FABIUM_ORE_KEY =
             registerKey("end_fabium_ore");
     public static final RegistryKey<ConfiguredFeature<?, ?>> END_DIRITONIUM_ORE_KEY =
             registerKey("end_diritonium_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> END_ANCIENT_DEBRIS_KEY =
+            registerKey("end_ancient_debris");
     // Generation for Diritia Islands
     public static final RegistryKey<ConfiguredFeature<?, ?>> DIRITIA_DIRITONIUM_ORE_KEY =
             registerKey("diritia_diritonium_ore");
     public static final RegistryKey<ConfiguredFeature<?, ?>> DIRITIA_FABIUM_ORE_KEY =
             registerKey("diritia_fabium_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> DIRITIA_ANCIENT_DEBRIS_KEY =
+            registerKey("diritia_ancient_debris");
     public static final RegistryKey<ConfiguredFeature<?, ?>> DIRITIA_COAL_ORE_KEY =
             registerKey("diritia_coal_ore");
     public static final RegistryKey<ConfiguredFeature<?, ?>> DIRITIA_IRON_ORE_KEY =
@@ -142,6 +149,9 @@ public class ModConfiguredFeatures {
         List<OreFeatureConfig.Target> newQuartzOres =
                 List.of(OreFeatureConfig.createTarget(netherrackReplaceables,
                                 Blocks.NETHER_QUARTZ_ORE.getDefaultState()));
+        List<OreFeatureConfig.Target> newAncientDebris =
+                List.of(OreFeatureConfig.createTarget(netherrackReplaceables,
+                                Blocks.ANCIENT_DEBRIS.getDefaultState()));
         // New Overworld Ores
         List<OreFeatureConfig.Target> overworldTinOres =
                 List.of(OreFeatureConfig.createTarget(stoneReplaceables,
@@ -161,6 +171,9 @@ public class ModConfiguredFeatures {
         List<OreFeatureConfig.Target> endDiritoniumOre =
                 List.of(OreFeatureConfig.createTarget(endstoneReplaceables,
                         ModBlocks.END_STONE_DIRITONIUM_ORE.getDefaultState()));
+        List<OreFeatureConfig.Target> endAncientDebris =
+                List.of(OreFeatureConfig.createTarget(endstoneReplaceables,
+                        Blocks.ANCIENT_DEBRIS.getDefaultState()));
         //Diritia Ores
         List<OreFeatureConfig.Target> diritiaDiritoniumOre =
                 List.of(OreFeatureConfig.createTarget(deepslateReplaceables,
@@ -168,6 +181,9 @@ public class ModConfiguredFeatures {
         List<OreFeatureConfig.Target> diritiaFabiumOre =
                 List.of(OreFeatureConfig.createTarget(deepslateReplaceables,
                         ModBlocks.DEEPSLATE_FABIUM_ORE.getDefaultState()));
+        List<OreFeatureConfig.Target> diritiaAncientDebris =
+                List.of(OreFeatureConfig.createTarget(deepslateReplaceables,
+                        Blocks.ANCIENT_DEBRIS.getDefaultState()));
         List<OreFeatureConfig.Target> diritiaCoalOre =
                 List.of(OreFeatureConfig.createTarget(deepslateReplaceables,
                         Blocks.DEEPSLATE_COAL_ORE.getDefaultState()));
@@ -238,12 +254,15 @@ public class ModConfiguredFeatures {
         // Register new Nether Ores
         register(context, NETHER_FABIUM_ORE_KEY, Feature.ORE, new OreFeatureConfig(netherFabiumOre, 6));
         register(context, NEW_QUARTZ_ORE_KEY, Feature.ORE, new OreFeatureConfig(newQuartzOres, 14));
+        register(context, NEW_ANCIENT_DEBRIS_KEY, Feature.ORE, new OreFeatureConfig(newAncientDebris, 8));
         // Register End Ores
         register(context, END_FABIUM_ORE_KEY, Feature.ORE, new OreFeatureConfig(endFabiumOre, 8));
         register(context, END_DIRITONIUM_ORE_KEY, Feature.ORE, new OreFeatureConfig(endDiritoniumOre, 6));
+        register(context, END_ANCIENT_DEBRIS_KEY, Feature.ORE, new OreFeatureConfig(endAncientDebris, 6));
         // Register Diritia Ores
         register(context, DIRITIA_DIRITONIUM_ORE_KEY, Feature.ORE, new OreFeatureConfig(diritiaDiritoniumOre, 12));
         register(context, DIRITIA_FABIUM_ORE_KEY, Feature.ORE, new OreFeatureConfig(diritiaFabiumOre, 12));
+        register(context, DIRITIA_ANCIENT_DEBRIS_KEY, Feature.ORE, new OreFeatureConfig(diritiaAncientDebris, 10));
         register(context, DIRITIA_COAL_ORE_KEY, Feature.ORE, new OreFeatureConfig(diritiaCoalOre, 16));
         register(context, DIRITIA_IRON_ORE_KEY, Feature.ORE, new OreFeatureConfig(diritiaIronOre, 9));
         register(context, DIRITIA_DIAMOND_ORE_KEY, Feature.ORE, new OreFeatureConfig(diritiaDiamondOre, 8));

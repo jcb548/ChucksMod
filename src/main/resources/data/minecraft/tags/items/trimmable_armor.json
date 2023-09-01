@@ -1,9 +1,21 @@
 {
   "replace": false,
   "values": [
+    "pigsnstuff:bronze_helmet",
+    "pigsnstuff:bronze_chestplate",
+    "pigsnstuff:bronze_leggings",
+    "pigsnstuff:bronze_boots",
+    "pigsnstuff:prismarine_helmet",
+    "pigsnstuff:prismarine_chestplate",
+    "pigsnstuff:prismarine_leggings",
+    "pigsnstuff:prismarine_boots",
     "pigsnstuff:fabium_helmet",
     "pigsnstuff:fabium_chestplate",
     "pigsnstuff:fabium_leggings",
-    "pigsnstuff:fabium_boots"
+    "pigsnstuff:fabium_boots",
+    "pigsnstuff:diritonium_helmet",
+    "pigsnstuff:diritonium_chestplate",
+    "pigsnstuff:diritonium_leggings",
+    "pigsnstuff:diritonium_boots"
   ]
 }

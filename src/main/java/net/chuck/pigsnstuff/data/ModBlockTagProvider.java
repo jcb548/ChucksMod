@@ -134,7 +134,8 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.DIRITONIUM_BLOCK)
                 .add(ModBlocks.END_STONE_DIRITONIUM_ORE)
                 .add(ModBlocks.DEEPSLATE_DIRITONIUM_ORE)
-                .add(ModBlocks.RAW_DIRITONIUM_BLOCK);
+                .add(ModBlocks.RAW_DIRITONIUM_BLOCK)
+                .add(Blocks.ANCIENT_DEBRIS);
 
         getOrCreateTagBuilder(BlockTags.LOGS)
                 .add(ModBlocks.EUCALYPTUS_LOG)

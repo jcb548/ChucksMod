@@ -4,6 +4,8 @@
     "pigsnstuff:tin_block",
     "pigsnstuff:tin_ore",
     "pigsnstuff:deepslate_tin_ore",
-    "pigsnstuff:bronze_block"
+    "pigsnstuff:tin_bars",
+    "pigsnstuff:bronze_block",
+    "pigsnstuff:bronze_bars"
   ]
 }

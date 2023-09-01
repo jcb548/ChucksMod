@@ -2,14 +2,14 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
+    "C": {
+      "item": "minecraft:cobblestone"
+    },
     "D": {
       "item": "minecraft:diamond"
     },
     "G": {
       "item": "pigsnstuff:iron_gear"
-    },
-    "C": {
-      "item": "minecraft:cobblestone"
     },
     "P": {
       "item": "minecraft:piston"

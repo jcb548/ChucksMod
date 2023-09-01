@@ -4,6 +4,7 @@
     "pigsnstuff:diritonium_block",
     "pigsnstuff:endstone_diritonium_ore",
     "pigsnstuff:deepslate_diritonium_ore",
-    "pigsnstuff:raw_diritonium_block"
+    "pigsnstuff:raw_diritonium_block",
+    "minecraft:ancient_debris"
   ]
 }

@@ -6,14 +6,20 @@
     "pigsnstuff:deepslate_fabium_ore",
     "pigsnstuff:raw_fabium_block",
     "pigsnstuff:fabium_block",
+    "pigsnstuff:fabium_bars",
     "pigsnstuff:tin_block",
     "pigsnstuff:tin_ore",
     "pigsnstuff:deepslate_tin_ore",
+    "pigsnstuff:tin_bars",
     "pigsnstuff:bronze_block",
+    "pigsnstuff:bronze_bars",
     "pigsnstuff:diritonium_block",
     "pigsnstuff:raw_diritonium_block",
     "pigsnstuff:endstone_diritonium_ore",
     "pigsnstuff:deepslate_diritonium_ore",
-    "pigsnstuff:crusher"
+    "pigsnstuff:diritonium_bars",
+    "pigsnstuff:crusher",
+    "pigsnstuff:powered_crusher",
+    "pigsnstuff:generator"
   ]
 }

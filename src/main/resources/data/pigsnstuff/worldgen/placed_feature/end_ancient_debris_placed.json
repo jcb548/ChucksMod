@@ -1,9 +1,9 @@
 {
-  "feature": "pigsnstuff:diritia_diritonium_ore",
+  "feature": "pigsnstuff:end_ancient_debris",
   "placement": [
     {
       "type": "minecraft:count",
-      "count": 20
+      "count": 16
     },
     {
       "type": "minecraft:in_square"

@@ -2,7 +2,10 @@
   "replace": false,
   "values": [
     "pigsnstuff:crusher",
+    "pigsnstuff:powered_crusher",
+    "pigsnstuff:generator",
     "pigsnstuff:slated_dirt",
-    "pigsnstuff:slated_grass"
+    "pigsnstuff:slated_grass",
+    "pigsnstuff:gold_bars"
   ]
 }

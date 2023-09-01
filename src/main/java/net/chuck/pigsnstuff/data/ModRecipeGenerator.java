@@ -483,6 +483,8 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                         FabricRecipeProvider.conditionsFromItem(ModItems.DIRITONIUM_INGOT))
                 .offerTo(exporter);
         offerStainedGlassPaneRecipe(exporter, ModBlocks.DIRITONIUM_BARS, ModItems.DIRITONIUM_INGOT);
+        offerCompactingRecipe(exporter, RecipeCategory.MISC, ModItems.DIRITIA_CRYSTAL,
+                ModItems.DIRITIA_CRYSTAL_SHARD);
 
         offerShapelessRecipe(exporter, ModBlocks.EUCALYPTUS_PLANKS, ModBlocks.EUCALYPTUS_LOG,
                 "eucalyptus_planks", 4);

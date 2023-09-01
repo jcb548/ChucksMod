@@ -7,7 +7,17 @@
         {
           "type": "minecraft:item",
           "name": "minecraft:book",
-          "weight": 100
+          "weight": 50
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:paper",
+          "weight": 50
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:book",
+          "weight": 50
         }
       ],
       "functions": [

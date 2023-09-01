@@ -117,6 +117,8 @@ public class ModItemGroups {
                         entries.add(ModItems.DIRITONIUM_CHESTPLATE);
                         entries.add(ModItems.DIRITONIUM_LEGGINGS);
                         entries.add(ModItems.DIRITONIUM_BOOTS);
+                        entries.add(ModItems.DIRITIA_CRYSTAL);
+                        entries.add(ModItems.DIRITIA_CRYSTAL_SHARD);
 
                         entries.add(ModItems.WITHER_BONE);
                         entries.add(ModItems.WITHER_SWORD);

@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "pigsnstuff:diritia_crystal_shard"
+    },
+    {
+      "item": "pigsnstuff:diritia_crystal_shard"
+    },
+    {
+      "item": "pigsnstuff:diritia_crystal_shard"
+    },
+    {
+      "item": "pigsnstuff:diritia_crystal_shard"
+    },
+    {
+      "item": "pigsnstuff:diritia_crystal_shard"
+    },
+    {
+      "item": "pigsnstuff:diritia_crystal_shard"
+    },
+    {
+      "item": "pigsnstuff:diritia_crystal_shard"
+    },
+    {
+      "item": "pigsnstuff:diritia_crystal_shard"
+    },
+    {
+      "item": "pigsnstuff:diritia_crystal_shard"
+    }
+  ],
+  "result": {
+    "item": "pigsnstuff:diritia_crystal"
+  }
+}

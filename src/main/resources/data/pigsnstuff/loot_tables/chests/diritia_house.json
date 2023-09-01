@@ -22,6 +22,11 @@
         },
         {
           "type": "minecraft:item",
+          "name": "pigsnstuff:diritia_crystal_shard",
+          "weight": 10
+        },
+        {
+          "type": "minecraft:item",
           "name": "pigsnstuff:diritonium_ingot",
           "weight": 10
         },
