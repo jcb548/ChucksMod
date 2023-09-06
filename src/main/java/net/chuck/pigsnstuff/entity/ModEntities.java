@@ -1,6 +1,7 @@
 package net.chuck.pigsnstuff.entity;
 
 import net.chuck.pigsnstuff.PigsNStuff;
+import net.chuck.pigsnstuff.entity.custom.FrankEntity;
 import net.chuck.pigsnstuff.entity.custom.WyattEntity;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
 import net.minecraft.entity.EntityDimensions;
@@ -15,4 +16,14 @@ public class ModEntities {
             Registries.ENTITY_TYPE, new Identifier(PigsNStuff.MOD_ID, "wyatt"),
             FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, WyattEntity::new)
                     .dimensions(EntityDimensions.fixed(0.6f, 1.6f)).build());
+    public static final EntityType<FrankEntity> FRANK_BOSS = Registry.register(
+            Registries.ENTITY_TYPE, new Identifier(PigsNStuff.MOD_ID, "frank"),
+            FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, FrankEntity::new)
+                    .dimensions(EntityDimensions.fixed(0.6f, 1.8f)).build());
+    public static final EntityType<FrankFireballEntity> FRANK_FIREBALL = Registry.register(
+            Registries.ENTITY_TYPE, new Identifier(PigsNStuff.MOD_ID, "frank_fireball"),
+            FabricEntityTypeBuilder.<FrankFireballEntity>create(SpawnGroup.MISC, FrankFireballEntity::new)
+                    .dimensions(EntityDimensions.fixed(0.25f, 0.25f))
+                    .trackRangeBlocks(4).trackedUpdateRate(10)
+                    .build());
 }

@@ -3,6 +3,7 @@ package net.chuck.pigsnstuff;
 import net.chuck.pigsnstuff.block.ModBlocks;
 import net.chuck.pigsnstuff.block.entity.ModBlockEntities;
 import net.chuck.pigsnstuff.entity.ModEntities;
+import net.chuck.pigsnstuff.entity.custom.FrankEntity;
 import net.chuck.pigsnstuff.entity.custom.WyattEntity;
 import net.chuck.pigsnstuff.item.ModItemGroups;
 import net.chuck.pigsnstuff.item.ModItems;
@@ -60,5 +61,6 @@ public class PigsNStuff implements ModInitializer {
 		//ServerTickEvents.START_SERVER_TICK.register(new PlayerTickHandler());
 		GeckoLib.initialize();
 		FabricDefaultAttributeRegistry.register(ModEntities.WYATT, WyattEntity.setAttributes());
+		FabricDefaultAttributeRegistry.register(ModEntities.FRANK_BOSS, FrankEntity.setAttributes());
 	}
 }

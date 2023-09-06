@@ -2,7 +2,6 @@ package net.chuck.pigsnstuff.item;
 
 import net.chuck.pigsnstuff.PigsNStuff;
 import net.chuck.pigsnstuff.block.ModBlocks;
-import net.chuck.pigsnstuff.item.ModItems;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
@@ -125,7 +124,7 @@ public class ModItemGroups {
                         entries.add(ModItems.WITHER_PICKAXE);
                         entries.add(ModItems.WITHER_AXE);
                         entries.add(ModItems.WITHER_SHOVEL);
-                        entries.add(ModItems.WITHER_HOE);;
+                        entries.add(ModItems.WITHER_HOE);
 
                         entries.add(ModBlocks.EUCALYPTUS_LOG);
                         entries.add(ModBlocks.EUCALYPTUS_WOOD);
@@ -152,6 +151,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.DIRITIA_PLANT);
                         entries.add(ModBlocks.DIRITIA_LIGHT_PLANT);
                         entries.add(ModItems.WYATT_SPAWN_EGG);
+                        entries.add(ModItems.FRANK_SPAWN_EGG);
 
                         entries.add(ModBlocks.DIRITIA_LOG);
                         entries.add(ModBlocks.DIRITIA_WOOD);

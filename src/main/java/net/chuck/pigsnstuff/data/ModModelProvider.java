@@ -4,12 +4,8 @@ import net.chuck.pigsnstuff.block.ModBlocks;
 import net.chuck.pigsnstuff.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
 import net.minecraft.data.client.*;
 import net.minecraft.item.ArmorItem;
-import net.minecraft.state.property.Properties;
-import net.minecraft.util.Identifier;
 
 /*
  *  Code inspired by or copied from
@@ -115,6 +111,8 @@ public class ModModelProvider extends FabricModelProvider {
 
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.CORPORATE_ALTAR);
         blockStateModelGenerator.registerParentedItemModel(ModItems.WYATT_SPAWN_EGG,
+                ModelIds.getMinecraftNamespacedItem("template_spawn_egg"));
+        blockStateModelGenerator.registerParentedItemModel(ModItems.FRANK_SPAWN_EGG,
                 ModelIds.getMinecraftNamespacedItem("template_spawn_egg"));
     }
 

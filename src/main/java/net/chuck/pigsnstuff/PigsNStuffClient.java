@@ -3,6 +3,9 @@ package net.chuck.pigsnstuff;
 import net.chuck.pigsnstuff.block.ModBlocks;
 import net.chuck.pigsnstuff.client.ArmorHudOverlay;
 import net.chuck.pigsnstuff.entity.ModEntities;
+import net.chuck.pigsnstuff.entity.custom.client.FrankFireballModel;
+import net.chuck.pigsnstuff.entity.custom.client.FrankFireballRenderer;
+import net.chuck.pigsnstuff.entity.custom.client.FrankRenderer;
 import net.chuck.pigsnstuff.entity.custom.client.WyattRenderer;
 import net.chuck.pigsnstuff.networking.ModMessages;
 import net.chuck.pigsnstuff.screen.CrusherScreen;
@@ -17,6 +20,8 @@ import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.minecraft.client.color.world.BiomeColors;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.render.RenderLayer;
+import software.bernie.shadowed.eliotlash.mclib.math.functions.classic.Mod;
+
 /*
  *  Code inspired by or copied from
  *  Kaupenjoe
@@ -63,5 +68,7 @@ public class PigsNStuffClient implements ClientModInitializer {
 
         HudRenderCallback.EVENT.register(new ArmorHudOverlay());
         EntityRendererRegistry.register(ModEntities.WYATT, WyattRenderer::new);
+        EntityRendererRegistry.register(ModEntities.FRANK_BOSS, FrankRenderer::new);
+        EntityRendererRegistry.register(ModEntities.FRANK_FIREBALL, FrankFireballRenderer::new);
     }
 }
