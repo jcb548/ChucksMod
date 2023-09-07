@@ -1,13 +1,11 @@
 package net.chuck.pigsnstuff.entity.custom.client;
 
 import net.chuck.pigsnstuff.PigsNStuff;
-import net.chuck.pigsnstuff.entity.FrankFireballEntity;
-import net.chuck.pigsnstuff.entity.custom.FrankEntity;
+import net.chuck.pigsnstuff.entity.custom.FrankFireballEntity;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
-import software.bernie.geckolib.model.GeoModel;
 import software.bernie.geckolib.renderer.GeoEntityRenderer;
 
 public class FrankFireballRenderer extends GeoEntityRenderer<FrankFireballEntity> {

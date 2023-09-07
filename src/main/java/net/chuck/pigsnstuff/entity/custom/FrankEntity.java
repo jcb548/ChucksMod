@@ -1,7 +1,7 @@
 package net.chuck.pigsnstuff.entity.custom;
 
-import net.chuck.pigsnstuff.entity.FrankFireballEntity;
 import net.chuck.pigsnstuff.entity.ModEntities;
+import net.chuck.pigsnstuff.item.ModItems;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.RangedAttackMob;
@@ -13,9 +13,11 @@ import net.minecraft.entity.boss.ServerBossBar;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
+import net.minecraft.util.Hand;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldEvents;
 import org.jetbrains.annotations.Nullable;
@@ -32,6 +34,7 @@ public class FrankEntity extends HostileEntity implements GeoEntity, RangedAttac
     private AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
     public FrankEntity(EntityType<? extends HostileEntity> entityType, World world) {
         super(entityType, world);
+        this.setStackInHand(Hand.OFF_HAND, new ItemStack(ModItems.DIRITONIUM_SWORD));
     }
     public boolean throwing_fireball = false;
     private final int THROWING_TICKS = 13;
@@ -141,10 +144,5 @@ public class FrankEntity extends HostileEntity implements GeoEntity, RangedAttac
         frankFireballEntity.setPos(this.getX(), this.getY()+2.0f, this.getZ());
         this.getWorld().spawnEntity(frankFireballEntity);
         this.swingHand(this.getActiveHand());
-    }
-
-    @Override
-    public boolean damage(DamageSource source, float amount) {
-        return super.damage(source, amount);
     }
 }

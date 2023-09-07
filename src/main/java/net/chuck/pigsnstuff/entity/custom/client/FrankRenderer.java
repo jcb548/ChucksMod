@@ -23,6 +23,7 @@ public class FrankRenderer extends GeoEntityRenderer<FrankEntity> {
     @Override
     public void render(FrankEntity entity, float entityYaw, float partialTick, MatrixStack poseStack,
                        VertexConsumerProvider bufferSource, int packedLight) {
+        poseStack.scale(1.5f, 1.5f, 1.5f);
         super.render(entity, entityYaw, partialTick, poseStack, bufferSource, packedLight);
     }
 }

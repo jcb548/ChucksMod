@@ -1,8 +1,7 @@
 package net.chuck.pigsnstuff.entity.custom.client;
 
 import net.chuck.pigsnstuff.PigsNStuff;
-import net.chuck.pigsnstuff.entity.FrankFireballEntity;
-import net.chuck.pigsnstuff.entity.custom.FrankEntity;
+import net.chuck.pigsnstuff.entity.custom.FrankFireballEntity;
 import net.minecraft.util.Identifier;
 import software.bernie.geckolib.model.GeoModel;
 

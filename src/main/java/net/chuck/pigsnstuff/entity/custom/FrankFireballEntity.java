@@ -1,4 +1,4 @@
-package net.chuck.pigsnstuff.entity;
+package net.chuck.pigsnstuff.entity.custom;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
