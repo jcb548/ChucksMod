@@ -13,7 +13,6 @@ import net.minecraft.entity.boss.ServerBossBar;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.projectile.WitherSkullEntity;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
@@ -34,6 +33,9 @@ public class FrankEntity extends HostileEntity implements GeoEntity, RangedAttac
     public FrankEntity(EntityType<? extends HostileEntity> entityType, World world) {
         super(entityType, world);
     }
+    public boolean throwing_fireball = false;
+    private final int THROWING_TICKS = 13;
+    private int throwing_progress = 0;
 
     public static DefaultAttributeContainer.Builder setAttributes() {
         return HostileEntity.createMobAttributes()
@@ -45,9 +47,9 @@ public class FrankEntity extends HostileEntity implements GeoEntity, RangedAttac
     @Override
     protected void initGoals() {
         this.goalSelector.add(1, new SwimGoal(this));
-        this.goalSelector.add(2, new ProjectileAttackGoal(this, 1.0, 40, 20.0f));
+        this.goalSelector.add(2, new ProjectileAttackGoal(this, 1.0, 20, 30.0f));
         this.goalSelector.add(3, new WanderAroundFarGoal(this, 0.75f, 1));
-        //this.goalSelector.add(4, new LookAroundGoal(this));
+        this.goalSelector.add(4, new LookAroundGoal(this));
 
         targetSelector.add(1, new ActiveTargetGoal<>(this, PlayerEntity.class, true));
         targetSelector.add(2, new ActiveTargetGoal<>(this, LivingEntity.class, true));
@@ -55,7 +57,9 @@ public class FrankEntity extends HostileEntity implements GeoEntity, RangedAttac
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllerRegistrar) {
         controllerRegistrar.add(new AnimationController<>(this, "controller",
-                0, this::predicate));
+                0, this::predicate),
+                new AnimationController<>(this, "attack_controller",
+                        0, this::attackPredicate));
     }
 
     private <T extends GeoAnimatable> PlayState predicate(AnimationState<T> tAnimationState) {
@@ -68,6 +72,15 @@ public class FrankEntity extends HostileEntity implements GeoEntity, RangedAttac
                     .then("animation.frank.idle", Animation.LoopType.LOOP));
             return PlayState.CONTINUE;
         }
+    }
+
+    private <T extends GeoAnimatable> PlayState attackPredicate(AnimationState<T> tAnimationState){
+        if(this.handSwinging) {
+            return tAnimationState.setAndContinue(RawAnimation.begin()
+                    .thenPlay("animation.frank.throw_fireball"));
+        }
+        tAnimationState.getController().forceAnimationReset();
+        return PlayState.STOP;
     }
 
     @Override
@@ -127,6 +140,7 @@ public class FrankEntity extends HostileEntity implements GeoEntity, RangedAttac
         frankFireballEntity.setOwner(this);
         frankFireballEntity.setPos(this.getX(), this.getY()+2.0f, this.getZ());
         this.getWorld().spawnEntity(frankFireballEntity);
+        this.swingHand(this.getActiveHand());
     }
 
     @Override
