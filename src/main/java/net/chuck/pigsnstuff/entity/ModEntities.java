@@ -19,7 +19,7 @@ public class ModEntities {
     public static final EntityType<FrankEntity> FRANK_BOSS = Registry.register(
             Registries.ENTITY_TYPE, new Identifier(PigsNStuff.MOD_ID, "frank"),
             FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, FrankEntity::new)
-                    .dimensions(EntityDimensions.fixed(0.6f, 1.8f)).build());
+                    .dimensions(EntityDimensions.fixed(0.6f, 1.8f)).fireImmune().build());
     public static final EntityType<FrankFireballEntity> FRANK_FIREBALL = Registry.register(
             Registries.ENTITY_TYPE, new Identifier(PigsNStuff.MOD_ID, "frank_fireball"),
             FabricEntityTypeBuilder.<FrankFireballEntity>create(SpawnGroup.MISC, FrankFireballEntity::new)

@@ -10,6 +10,7 @@ import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.boss.BossBar;
 import net.minecraft.entity.boss.ServerBossBar;
+import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.WitherSkullEntity;
@@ -39,14 +40,14 @@ public class FrankEntity extends HostileEntity implements GeoEntity, RangedAttac
                 .add(EntityAttributes.GENERIC_MAX_HEALTH, 500.0d)
                 .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 18.0f)
                 .add(EntityAttributes.GENERIC_ATTACK_SPEED, 2.0f)
-                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.5f);
+                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.3f);
     }
     @Override
     protected void initGoals() {
         this.goalSelector.add(1, new SwimGoal(this));
         this.goalSelector.add(2, new ProjectileAttackGoal(this, 1.0, 40, 20.0f));
         this.goalSelector.add(3, new WanderAroundFarGoal(this, 0.75f, 1));
-        this.goalSelector.add(4, new LookAroundGoal(this));
+        //this.goalSelector.add(4, new LookAroundGoal(this));
 
         targetSelector.add(1, new ActiveTargetGoal<>(this, PlayerEntity.class, true));
         targetSelector.add(2, new ActiveTargetGoal<>(this, LivingEntity.class, true));
@@ -119,12 +120,17 @@ public class FrankEntity extends HostileEntity implements GeoEntity, RangedAttac
             this.getWorld().syncWorldEvent(null, WorldEvents.WITHER_SHOOTS, this.getBlockPos(), 0);
         }
         double xDir = targetX - this.getX();
-        double yDir = targetY - this.getY();
+        double yDir = targetY - (this.getY()+2.0f);
         double zDir = targetZ - this.getZ();
-        FrankFireballEntity frankFireballEntity = new FrankFireballEntity(ModEntities.FRANK_FIREBALL, this.getX(), this.getY(),
+        FrankFireballEntity frankFireballEntity = new FrankFireballEntity(ModEntities.FRANK_FIREBALL, this.getX(), this.getY()+2.0f,
                 this.getZ(), xDir, yDir, zDir, this.getWorld());
         frankFireballEntity.setOwner(this);
-        frankFireballEntity.setPos(this.getX(), this.getY(), this.getZ());
+        frankFireballEntity.setPos(this.getX(), this.getY()+2.0f, this.getZ());
         this.getWorld().spawnEntity(frankFireballEntity);
+    }
+
+    @Override
+    public boolean damage(DamageSource source, float amount) {
+        return super.damage(source, amount);
     }
 }
