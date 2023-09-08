@@ -1,13 +1,19 @@
 package net.chuck.pigsnstuff.entity.custom;
 
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
+import net.minecraft.text.Text;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.Hand;
 import net.minecraft.world.World;
+import software.bernie.geckolib.GeckoLib;
 import software.bernie.geckolib.animatable.GeoEntity;
 import software.bernie.geckolib.core.animatable.GeoAnimatable;
 import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
@@ -68,5 +74,22 @@ public class WyattEntity extends HostileEntity implements GeoEntity{
     @Override
     public AnimatableInstanceCache getAnimatableInstanceCache() {
         return cache;
+    }
+    @Override
+    protected ActionResult interactMob(PlayerEntity player, Hand hand) {
+        ItemStack stack = player.getStackInHand(hand);
+
+        if (this.getWorld().isClient() || stack.isEmpty())
+            return super.interactMob(player, hand);
+
+        EquipmentSlot slot = LivingEntity.getPreferredEquipmentSlot(stack);
+
+        equipStack(slot, stack.copy());
+        player.sendMessage(Text.translatable("entity." + GeckoLib.MOD_ID + ".mutant_zombie.equip", stack.toHoverableText()));
+
+        if (slot == EquipmentSlot.MAINHAND || slot == EquipmentSlot.OFFHAND)
+            triggerAnim(getActiveHand() == hand ? "Left Hand" : "Right Hand", "interact");
+
+        return ActionResult.SUCCESS;
     }
 }

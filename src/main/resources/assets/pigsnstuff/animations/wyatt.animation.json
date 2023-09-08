@@ -5,7 +5,7 @@
 			"loop": true,
 			"animation_length": 2.88,
 			"bones": {
-				"left_arm": {
+				"right_arm": {
 					"relative_to": {
 						"rotation": "entity"
 					},
@@ -21,7 +21,7 @@
 						}
 					}
 				},
-				"right_arm": {
+				"left_arm": {
 					"rotation": {
 						"0.0": {
 							"vector": [0, 0, 0]
@@ -57,40 +57,11 @@
 				}
 			}
 		},
-		"animation.wyatt.attack": {
-			"animation_length": 0.375,
-			"bones": {
-				"right_arm": {
-					"rotation": {
-						"0.0": {
-							"vector": [0, 0, 0]
-						},
-						"0.0417": {
-							"vector": [-9.9907, -0.43399, -10.0379],
-							"easing": "easeInBack"
-						},
-						"0.2083": {
-							"vector": [-92.9333, 33.0307, 4.8448],
-							"easing": "linear"
-						},
-						"0.2917": {
-							"vector": [-63.8445, 8.6489, 10.2992]
-						},
-						"0.375": {
-							"vector": [0, 0, 0]
-						}
-					},
-					"position": {
-						"vector": [0, 0, 0]
-					}
-				}
-			}
-		},
 		"animation.wyatt.walk": {
 			"loop": true,
 			"animation_length": 1.44,
 			"bones": {
-				"left_leg": {
+				"right_leg": {
 					"rotation": {
 						"0.0": {
 							"vector": [0, 0, 0]
@@ -106,7 +77,23 @@
 						}
 					}
 				},
-				"right_leg": {
+				"left_leg": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.36": {
+							"vector": [30, 0, 0]
+						},
+						"1.08": {
+							"vector": [-30, 0, 0]
+						},
+						"1.44": {
+							"vector": [0, 0, 0]
+						}
+					}
+				},
+				"right_arm": {
 					"rotation": {
 						"0.0": {
 							"vector": [0, 0, 0]
@@ -128,30 +115,43 @@
 							"vector": [0, 0, 0]
 						},
 						"0.36": {
-							"vector": [30, 0, 0]
+							"vector": [-30, 0, 0]
 						},
 						"1.08": {
-							"vector": [-30, 0, 0]
+							"vector": [30, 0, 0]
 						},
 						"1.44": {
 							"vector": [0, 0, 0]
 						}
 					}
-				},
-				"right_arm": {
+				}
+			}
+		},
+		"animation.wyatt.attack": {
+			"animation_length": 0.375,
+			"bones": {
+				"left_arm": {
 					"rotation": {
 						"0.0": {
 							"vector": [0, 0, 0]
 						},
-						"0.36": {
-							"vector": [-30, 0, 0]
+						"0.0417": {
+							"vector": [-9.9907, -0.43399, -10.0379],
+							"easing": "easeInBack"
 						},
-						"1.08": {
-							"vector": [30, 0, 0]
+						"0.2083": {
+							"vector": [-92.9333, 33.0307, 4.8448],
+							"easing": "linear"
 						},
-						"1.44": {
+						"0.2917": {
+							"vector": [-63.8445, 8.6489, 10.2992]
+						},
+						"0.375": {
 							"vector": [0, 0, 0]
 						}
+					},
+					"position": {
+						"vector": [0, 0, 0]
 					}
 				}
 			}
