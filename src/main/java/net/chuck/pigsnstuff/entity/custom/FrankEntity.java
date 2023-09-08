@@ -2,8 +2,7 @@ package net.chuck.pigsnstuff.entity.custom;
 
 import net.chuck.pigsnstuff.entity.ModEntities;
 import net.chuck.pigsnstuff.item.ModItems;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.*;
 import net.minecraft.entity.ai.RangedAttackMob;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
@@ -14,19 +13,29 @@ import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
+import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
+import net.minecraft.util.math.random.Random;
+import net.minecraft.util.math.random.RandomSplitter;
+import net.minecraft.world.LocalDifficulty;
+import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldEvents;
 import org.jetbrains.annotations.Nullable;
+import software.bernie.geckolib.GeckoLib;
 import software.bernie.geckolib.animatable.GeoEntity;
 import software.bernie.geckolib.core.animatable.GeoAnimatable;
 import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.core.animation.*;
+import software.bernie.geckolib.core.animation.AnimationState;
 import software.bernie.geckolib.core.object.PlayState;
 import software.bernie.geckolib.util.GeckoLibUtil;
+
+import java.util.Arrays;
 
 public class FrankEntity extends HostileEntity implements GeoEntity, RangedAttackMob {
     private final ServerBossBar bossBar = (ServerBossBar)new ServerBossBar(this.getDisplayName(), BossBar.Color.PURPLE,
@@ -34,11 +43,8 @@ public class FrankEntity extends HostileEntity implements GeoEntity, RangedAttac
     private AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
     public FrankEntity(EntityType<? extends HostileEntity> entityType, World world) {
         super(entityType, world);
-        this.setStackInHand(Hand.OFF_HAND, new ItemStack(ModItems.DIRITONIUM_SWORD));
+        Arrays.fill(this.handDropChances, 1.0f);
     }
-    public boolean throwing_fireball = false;
-    private final int THROWING_TICKS = 13;
-    private int throwing_progress = 0;
 
     public static DefaultAttributeContainer.Builder setAttributes() {
         return HostileEntity.createMobAttributes()
@@ -52,7 +58,7 @@ public class FrankEntity extends HostileEntity implements GeoEntity, RangedAttac
         this.goalSelector.add(1, new SwimGoal(this));
         this.goalSelector.add(2, new ProjectileAttackGoal(this, 1.0, 20, 30.0f));
         this.goalSelector.add(3, new WanderAroundFarGoal(this, 0.75f, 1));
-        this.goalSelector.add(4, new LookAroundGoal(this));
+        //this.goalSelector.add(4, new LookAroundGoal(this));
 
         targetSelector.add(1, new ActiveTargetGoal<>(this, PlayerEntity.class, true));
         targetSelector.add(2, new ActiveTargetGoal<>(this, LivingEntity.class, true));
@@ -144,5 +150,18 @@ public class FrankEntity extends HostileEntity implements GeoEntity, RangedAttac
         frankFireballEntity.setPos(this.getX(), this.getY()+2.0f, this.getZ());
         this.getWorld().spawnEntity(frankFireballEntity);
         this.swingHand(this.getActiveHand());
+    }
+    @Override
+    protected void initEquipment(Random random, LocalDifficulty localDifficulty) {
+        this.equipStack(EquipmentSlot.MAINHAND, new ItemStack(ModItems.DIRITONIUM_SWORD));
+    }
+
+    @Nullable
+    @Override
+    public EntityData initialize(ServerWorldAccess world, LocalDifficulty difficulty, SpawnReason spawnReason, @Nullable EntityData entityData, @Nullable NbtCompound entityNbt) {
+        EntityData data = super.initialize(world, difficulty, spawnReason, entityData, entityNbt);
+        this.initEquipment(world.getRandom(), difficulty);
+        this.setLeftHanded(true);
+        return data;
     }
 }
