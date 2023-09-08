@@ -109,7 +109,7 @@
           "function": "minecraft:enchant_randomly"
         }
       ],
-      "rolls": 3.0
+      "rolls": 1.0
     },
     {
       "bonus_rolls": 0.0,
@@ -219,7 +219,7 @@
           "function": "minecraft:enchant_randomly"
         }
       ],
-      "rolls": 2.0
+      "rolls": 1.0
     },
     {
       "bonus_rolls": 0.0,

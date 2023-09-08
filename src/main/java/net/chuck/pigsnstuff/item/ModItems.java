@@ -28,6 +28,8 @@ public class ModItems {
             new Item(new FabricItemSettings()));
     public static final Item GOLD_DUST = registerItem("gold_dust",
             new Item(new FabricItemSettings()));
+    public static final Item OBSIDIAN_DUST = registerItem("obsidian_dust",
+            new Item(new FabricItemSettings()));
 
     //Vanilla gears
     public static final Item IRON_GEAR = registerItem("iron_gear",

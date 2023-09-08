@@ -28,6 +28,7 @@ public class ModItemGroups {
                         entries.add(ModItems.IRON_DUST);
                         entries.add(ModItems.COPPER_DUST);
                         entries.add(ModItems.GOLD_DUST);
+                        entries.add(ModItems.OBSIDIAN_DUST);
                         entries.add(ModItems.IRON_GEAR);
                         entries.add(ModItems.COPPER_GEAR);
                         entries.add(ModItems.GOLD_GEAR);
@@ -36,6 +37,44 @@ public class ModItemGroups {
                         entries.add(ModBlocks.COPPER_BARS);
                         entries.add(ModBlocks.GOLD_DUST_BLOCK);
                         entries.add(ModBlocks.GOLD_BARS);
+                        entries.add(ModBlocks.OBSIDIAN_SAND);
+
+                        entries.add(ModBlocks.HARDENED_GLASS);
+                        entries.add(ModBlocks.HARDENED_TINTED_GLASS);
+                        entries.add(ModBlocks.HARDENED_BLACK_GLASS);
+                        entries.add(ModBlocks.HARDENED_BLUE_GLASS);
+                        entries.add(ModBlocks.HARDENED_BROWN_GLASS);
+                        entries.add(ModBlocks.HARDENED_CYAN_GLASS);
+                        entries.add(ModBlocks.HARDENED_GRAY_GLASS);
+                        entries.add(ModBlocks.HARDENED_GREEN_GLASS);
+                        entries.add(ModBlocks.HARDENED_LIGHT_BLUE_GLASS);
+                        entries.add(ModBlocks.HARDENED_LIGHT_GRAY_GLASS);
+                        entries.add(ModBlocks.HARDENED_LIME_GLASS);
+                        entries.add(ModBlocks.HARDENED_MAGENTA_GLASS);
+                        entries.add(ModBlocks.HARDENED_ORANGE_GLASS);
+                        entries.add(ModBlocks.HARDENED_PINK_GLASS);
+                        entries.add(ModBlocks.HARDENED_PURPLE_GLASS);
+                        entries.add(ModBlocks.HARDENED_RED_GLASS);
+                        entries.add(ModBlocks.HARDENED_WHITE_GLASS);
+                        entries.add(ModBlocks.HARDENED_YELLOW_GLASS);
+
+                        entries.add(ModBlocks.HARDENED_GLASS_PANE);
+                        entries.add(ModBlocks.HARDENED_BLACK_GLASS_PANE);
+                        entries.add(ModBlocks.HARDENED_BLUE_GLASS_PANE);
+                        entries.add(ModBlocks.HARDENED_BROWN_GLASS_PANE);
+                        entries.add(ModBlocks.HARDENED_CYAN_GLASS_PANE);
+                        entries.add(ModBlocks.HARDENED_GRAY_GLASS_PANE);
+                        entries.add(ModBlocks.HARDENED_GREEN_GLASS_PANE);
+                        entries.add(ModBlocks.HARDENED_LIGHT_BLUE_GLASS_PANE);
+                        entries.add(ModBlocks.HARDENED_LIGHT_GRAY_GLASS_PANE);
+                        entries.add(ModBlocks.HARDENED_LIME_GLASS_PANE);
+                        entries.add(ModBlocks.HARDENED_MAGENTA_GLASS_PANE);
+                        entries.add(ModBlocks.HARDENED_ORANGE_GLASS_PANE);
+                        entries.add(ModBlocks.HARDENED_PINK_GLASS_PANE);
+                        entries.add(ModBlocks.HARDENED_PURPLE_GLASS_PANE);
+                        entries.add(ModBlocks.HARDENED_RED_GLASS_PANE);
+                        entries.add(ModBlocks.HARDENED_WHITE_GLASS_PANE);
+                        entries.add(ModBlocks.HARDENED_YELLOW_GLASS_PANE);
 
                         entries.add(ModItems.PRISMARINE_DUST);
                         entries.add(ModBlocks.PRISMARINE_DUST_BLOCK);

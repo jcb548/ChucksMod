@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "D": {
+      "item": "minecraft:light_blue_dye"
+    },
+    "G": {
+      "item": "pigsnstuff:hardened_glass"
+    }
+  },
+  "pattern": [
+    "GGG",
+    "GDG",
+    "GGG"
+  ],
+  "result": {
+    "count": 8,
+    "item": "pigsnstuff:hardened_light_blue_stained_glass"
+  },
+  "show_notification": true
+}

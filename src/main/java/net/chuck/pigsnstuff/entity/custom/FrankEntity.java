@@ -58,7 +58,7 @@ public class FrankEntity extends HostileEntity implements GeoEntity, RangedAttac
         this.goalSelector.add(1, new SwimGoal(this));
         this.goalSelector.add(2, new ProjectileAttackGoal(this, 1.0, 20, 30.0f));
         this.goalSelector.add(3, new WanderAroundFarGoal(this, 0.75f, 1));
-        //this.goalSelector.add(4, new LookAroundGoal(this));
+        this.goalSelector.add(4, new LookAroundGoal(this));
 
         targetSelector.add(1, new ActiveTargetGoal<>(this, PlayerEntity.class, true));
         targetSelector.add(2, new ActiveTargetGoal<>(this, LivingEntity.class, true));

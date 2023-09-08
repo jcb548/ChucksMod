@@ -14,6 +14,7 @@ import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.tag.BlockTags;
+import net.minecraft.registry.tag.ItemTags;
 
 import java.util.List;
 import java.util.function.Consumer;
@@ -559,5 +560,211 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .criterion(FabricRecipeProvider.hasItem(Items.DIAMOND),
                         FabricRecipeProvider.conditionsFromItem(Items.DIAMOND))
                 .offerTo(exporter);
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.OBSIDIAN_SAND, 2)
+                .pattern(" D ")
+                .pattern("DSD")
+                .pattern(" D ")
+                .input('D', ModItems.OBSIDIAN_DUST)
+                .input('S', ItemTags.SAND)
+                .group("obsidian_sand_from_sand")
+                .criterion(FabricRecipeProvider.hasItem(ModItems.OBSIDIAN_DUST),
+                        FabricRecipeProvider.conditionsFromItem(ModItems.OBSIDIAN_DUST))
+                .offerTo(exporter);
+        offerSmelting(exporter, List.of(ModBlocks.OBSIDIAN_SAND), RecipeCategory.MISC, ModBlocks.HARDENED_GLASS,
+                2f, 200, "hardened_glass");
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.HARDENED_BLACK_GLASS, 8)
+                .pattern("GGG")
+                .pattern("GDG")
+                .pattern("GGG")
+                .input('G', ModBlocks.HARDENED_GLASS)
+                .input('D', Items.BLACK_DYE)
+                .criterion(FabricRecipeProvider.hasItem(ModBlocks.HARDENED_GLASS),
+                        FabricRecipeProvider.conditionsFromItem(ModBlocks.HARDENED_GLASS))
+                .criterion(FabricRecipeProvider.hasItem(Items.BLACK_DYE),
+                        FabricRecipeProvider.conditionsFromItem(Items.BLACK_DYE))
+                .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.HARDENED_BLUE_GLASS, 8)
+                .pattern("GGG")
+                .pattern("GDG")
+                .pattern("GGG")
+                .input('G', ModBlocks.HARDENED_GLASS)
+                .input('D', Items.BLUE_DYE)
+                .criterion(FabricRecipeProvider.hasItem(ModBlocks.HARDENED_GLASS),
+                        FabricRecipeProvider.conditionsFromItem(ModBlocks.HARDENED_GLASS))
+                .criterion(FabricRecipeProvider.hasItem(Items.BLUE_DYE),
+                        FabricRecipeProvider.conditionsFromItem(Items.BLUE_DYE))
+                .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.HARDENED_BROWN_GLASS, 8)
+                .pattern("GGG")
+                .pattern("GDG")
+                .pattern("GGG")
+                .input('G', ModBlocks.HARDENED_GLASS)
+                .input('D', Items.BROWN_DYE)
+                .criterion(FabricRecipeProvider.hasItem(ModBlocks.HARDENED_GLASS),
+                        FabricRecipeProvider.conditionsFromItem(ModBlocks.HARDENED_GLASS))
+                .criterion(FabricRecipeProvider.hasItem(Items.BROWN_DYE),
+                        FabricRecipeProvider.conditionsFromItem(Items.BROWN_DYE))
+                .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.HARDENED_CYAN_GLASS, 8)
+                .pattern("GGG")
+                .pattern("GDG")
+                .pattern("GGG")
+                .input('G', ModBlocks.HARDENED_GLASS)
+                .input('D', Items.CYAN_DYE)
+                .criterion(FabricRecipeProvider.hasItem(ModBlocks.HARDENED_GLASS),
+                        FabricRecipeProvider.conditionsFromItem(ModBlocks.HARDENED_GLASS))
+                .criterion(FabricRecipeProvider.hasItem(Items.CYAN_DYE),
+                        FabricRecipeProvider.conditionsFromItem(Items.CYAN_DYE))
+                .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.HARDENED_GRAY_GLASS, 8)
+                .pattern("GGG")
+                .pattern("GDG")
+                .pattern("GGG")
+                .input('G', ModBlocks.HARDENED_GLASS)
+                .input('D', Items.GRAY_DYE)
+                .criterion(FabricRecipeProvider.hasItem(ModBlocks.HARDENED_GLASS),
+                        FabricRecipeProvider.conditionsFromItem(ModBlocks.HARDENED_GLASS))
+                .criterion(FabricRecipeProvider.hasItem(Items.GRAY_DYE),
+                        FabricRecipeProvider.conditionsFromItem(Items.GRAY_DYE))
+                .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.HARDENED_GREEN_GLASS, 8)
+                .pattern("GGG")
+                .pattern("GDG")
+                .pattern("GGG")
+                .input('G', ModBlocks.HARDENED_GLASS)
+                .input('D', Items.GREEN_DYE)
+                .criterion(FabricRecipeProvider.hasItem(ModBlocks.HARDENED_GLASS),
+                        FabricRecipeProvider.conditionsFromItem(ModBlocks.HARDENED_GLASS))
+                .criterion(FabricRecipeProvider.hasItem(Items.GREEN_DYE),
+                        FabricRecipeProvider.conditionsFromItem(Items.GREEN_DYE))
+                .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.HARDENED_LIGHT_BLUE_GLASS, 8)
+                .pattern("GGG")
+                .pattern("GDG")
+                .pattern("GGG")
+                .input('G', ModBlocks.HARDENED_GLASS)
+                .input('D', Items.LIGHT_BLUE_DYE)
+                .criterion(FabricRecipeProvider.hasItem(ModBlocks.HARDENED_GLASS),
+                        FabricRecipeProvider.conditionsFromItem(ModBlocks.HARDENED_GLASS))
+                .criterion(FabricRecipeProvider.hasItem(Items.LIGHT_BLUE_DYE),
+                        FabricRecipeProvider.conditionsFromItem(Items.LIGHT_BLUE_DYE))
+                .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.HARDENED_LIGHT_GRAY_GLASS, 8)
+                .pattern("GGG")
+                .pattern("GDG")
+                .pattern("GGG")
+                .input('G', ModBlocks.HARDENED_GLASS)
+                .input('D', Items.LIGHT_GRAY_DYE)
+                .criterion(FabricRecipeProvider.hasItem(ModBlocks.HARDENED_GLASS),
+                        FabricRecipeProvider.conditionsFromItem(ModBlocks.HARDENED_GLASS))
+                .criterion(FabricRecipeProvider.hasItem(Items.LIGHT_GRAY_DYE),
+                        FabricRecipeProvider.conditionsFromItem(Items.LIGHT_GRAY_DYE))
+                .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.HARDENED_LIME_GLASS, 8)
+                .pattern("GGG")
+                .pattern("GDG")
+                .pattern("GGG")
+                .input('G', ModBlocks.HARDENED_GLASS)
+                .input('D', Items.LIME_DYE)
+                .criterion(FabricRecipeProvider.hasItem(ModBlocks.HARDENED_GLASS),
+                        FabricRecipeProvider.conditionsFromItem(ModBlocks.HARDENED_GLASS))
+                .criterion(FabricRecipeProvider.hasItem(Items.LIME_DYE),
+                        FabricRecipeProvider.conditionsFromItem(Items.LIME_DYE))
+                .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.HARDENED_MAGENTA_GLASS, 8)
+                .pattern("GGG")
+                .pattern("GDG")
+                .pattern("GGG")
+                .input('G', ModBlocks.HARDENED_GLASS)
+                .input('D', Items.MAGENTA_DYE)
+                .criterion(FabricRecipeProvider.hasItem(ModBlocks.HARDENED_GLASS),
+                        FabricRecipeProvider.conditionsFromItem(ModBlocks.HARDENED_GLASS))
+                .criterion(FabricRecipeProvider.hasItem(Items.MAGENTA_DYE),
+                        FabricRecipeProvider.conditionsFromItem(Items.MAGENTA_DYE))
+                .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.HARDENED_ORANGE_GLASS, 8)
+                .pattern("GGG")
+                .pattern("GDG")
+                .pattern("GGG")
+                .input('G', ModBlocks.HARDENED_GLASS)
+                .input('D', Items.ORANGE_DYE)
+                .criterion(FabricRecipeProvider.hasItem(ModBlocks.HARDENED_GLASS),
+                        FabricRecipeProvider.conditionsFromItem(ModBlocks.HARDENED_GLASS))
+                .criterion(FabricRecipeProvider.hasItem(Items.ORANGE_DYE),
+                        FabricRecipeProvider.conditionsFromItem(Items.ORANGE_DYE))
+                .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.HARDENED_PINK_GLASS, 8)
+                .pattern("GGG")
+                .pattern("GDG")
+                .pattern("GGG")
+                .input('G', ModBlocks.HARDENED_GLASS)
+                .input('D', Items.PINK_DYE)
+                .criterion(FabricRecipeProvider.hasItem(ModBlocks.HARDENED_GLASS),
+                        FabricRecipeProvider.conditionsFromItem(ModBlocks.HARDENED_GLASS))
+                .criterion(FabricRecipeProvider.hasItem(Items.PINK_DYE),
+                        FabricRecipeProvider.conditionsFromItem(Items.PINK_DYE))
+                .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.HARDENED_PURPLE_GLASS, 8)
+                .pattern("GGG")
+                .pattern("GDG")
+                .pattern("GGG")
+                .input('G', ModBlocks.HARDENED_GLASS)
+                .input('D', Items.PURPLE_DYE)
+                .criterion(FabricRecipeProvider.hasItem(ModBlocks.HARDENED_GLASS),
+                        FabricRecipeProvider.conditionsFromItem(ModBlocks.HARDENED_GLASS))
+                .criterion(FabricRecipeProvider.hasItem(Items.PURPLE_DYE),
+                        FabricRecipeProvider.conditionsFromItem(Items.PURPLE_DYE))
+                .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.HARDENED_RED_GLASS, 8)
+                .pattern("GGG")
+                .pattern("GDG")
+                .pattern("GGG")
+                .input('G', ModBlocks.HARDENED_GLASS)
+                .input('D', Items.RED_DYE)
+                .criterion(FabricRecipeProvider.hasItem(ModBlocks.HARDENED_GLASS),
+                        FabricRecipeProvider.conditionsFromItem(ModBlocks.HARDENED_GLASS))
+                .criterion(FabricRecipeProvider.hasItem(Items.RED_DYE),
+                        FabricRecipeProvider.conditionsFromItem(Items.RED_DYE))
+                .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.HARDENED_WHITE_GLASS, 8)
+                .pattern("GGG")
+                .pattern("GDG")
+                .pattern("GGG")
+                .input('G', ModBlocks.HARDENED_GLASS)
+                .input('D', Items.WHITE_DYE)
+                .criterion(FabricRecipeProvider.hasItem(ModBlocks.HARDENED_GLASS),
+                        FabricRecipeProvider.conditionsFromItem(ModBlocks.HARDENED_GLASS))
+                .criterion(FabricRecipeProvider.hasItem(Items.WHITE_DYE),
+                        FabricRecipeProvider.conditionsFromItem(Items.WHITE_DYE))
+                .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.HARDENED_YELLOW_GLASS, 8)
+                .pattern("GGG")
+                .pattern("GDG")
+                .pattern("GGG")
+                .input('G', ModBlocks.HARDENED_GLASS)
+                .input('D', Items.YELLOW_DYE)
+                .criterion(FabricRecipeProvider.hasItem(ModBlocks.HARDENED_GLASS),
+                        FabricRecipeProvider.conditionsFromItem(ModBlocks.HARDENED_GLASS))
+                .criterion(FabricRecipeProvider.hasItem(Items.YELLOW_DYE),
+                        FabricRecipeProvider.conditionsFromItem(Items.YELLOW_DYE))
+                .offerTo(exporter);
+        offerStainedGlassPaneRecipe(exporter, ModBlocks.HARDENED_GLASS_PANE, ModBlocks.HARDENED_GLASS);
+        offerStainedGlassPaneRecipe(exporter, ModBlocks.HARDENED_BLACK_GLASS_PANE, ModBlocks.HARDENED_BLACK_GLASS);
+        offerStainedGlassPaneRecipe(exporter, ModBlocks.HARDENED_BLUE_GLASS_PANE, ModBlocks.HARDENED_BLUE_GLASS);
+        offerStainedGlassPaneRecipe(exporter, ModBlocks.HARDENED_BROWN_GLASS_PANE, ModBlocks.HARDENED_BROWN_GLASS);
+        offerStainedGlassPaneRecipe(exporter, ModBlocks.HARDENED_CYAN_GLASS_PANE, ModBlocks.HARDENED_CYAN_GLASS);
+        offerStainedGlassPaneRecipe(exporter, ModBlocks.HARDENED_GRAY_GLASS_PANE, ModBlocks.HARDENED_GRAY_GLASS);
+        offerStainedGlassPaneRecipe(exporter, ModBlocks.HARDENED_GREEN_GLASS_PANE, ModBlocks.HARDENED_GREEN_GLASS);
+        offerStainedGlassPaneRecipe(exporter, ModBlocks.HARDENED_LIGHT_BLUE_GLASS_PANE, ModBlocks.HARDENED_LIGHT_BLUE_GLASS);
+        offerStainedGlassPaneRecipe(exporter, ModBlocks.HARDENED_LIGHT_GRAY_GLASS_PANE, ModBlocks.HARDENED_LIGHT_GRAY_GLASS);
+        offerStainedGlassPaneRecipe(exporter, ModBlocks.HARDENED_LIME_GLASS_PANE, ModBlocks.HARDENED_LIME_GLASS);
+        offerStainedGlassPaneRecipe(exporter, ModBlocks.HARDENED_MAGENTA_GLASS_PANE, ModBlocks.HARDENED_MAGENTA_GLASS);
+        offerStainedGlassPaneRecipe(exporter, ModBlocks.HARDENED_ORANGE_GLASS_PANE, ModBlocks.HARDENED_ORANGE_GLASS);
+        offerStainedGlassPaneRecipe(exporter, ModBlocks.HARDENED_PINK_GLASS_PANE, ModBlocks.HARDENED_PINK_GLASS);
+        offerStainedGlassPaneRecipe(exporter, ModBlocks.HARDENED_PURPLE_GLASS_PANE, ModBlocks.HARDENED_PURPLE_GLASS);
+        offerStainedGlassPaneRecipe(exporter, ModBlocks.HARDENED_RED_GLASS_PANE, ModBlocks.HARDENED_RED_GLASS);
+        offerStainedGlassPaneRecipe(exporter, ModBlocks.HARDENED_WHITE_GLASS_PANE, ModBlocks.HARDENED_WHITE_GLASS);
+        offerStainedGlassPaneRecipe(exporter, ModBlocks.HARDENED_YELLOW_GLASS_PANE, ModBlocks.HARDENED_YELLOW_GLASS);
     }
 }

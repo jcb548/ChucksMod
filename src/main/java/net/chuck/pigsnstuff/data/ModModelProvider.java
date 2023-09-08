@@ -6,6 +6,7 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.data.client.*;
 import net.minecraft.item.ArmorItem;
+import software.bernie.shadowed.eliotlash.mclib.math.functions.classic.Mod;
 
 /*
  *  Code inspired by or copied from
@@ -30,7 +31,43 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.PRISMARINE_DUST_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.PRISMARINE_IRON_DUST_BLOCK);
         blockStateModelGenerator.registerItemModel(ModBlocks.PRISMARINE_BARS);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.OBSIDIAN_SAND);
 
+        blockStateModelGenerator.registerGlassPane(ModBlocks.HARDENED_GLASS, ModBlocks.HARDENED_GLASS_PANE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.HARDENED_TINTED_GLASS);
+        blockStateModelGenerator.registerGlassPane(ModBlocks.HARDENED_BLACK_GLASS, 
+                ModBlocks.HARDENED_BLACK_GLASS_PANE);
+        blockStateModelGenerator.registerGlassPane(ModBlocks.HARDENED_BLUE_GLASS,
+                ModBlocks.HARDENED_BLUE_GLASS_PANE);
+        blockStateModelGenerator.registerGlassPane(ModBlocks.HARDENED_BROWN_GLASS,
+                ModBlocks.HARDENED_BROWN_GLASS_PANE);
+        blockStateModelGenerator.registerGlassPane(ModBlocks.HARDENED_CYAN_GLASS,
+                ModBlocks.HARDENED_CYAN_GLASS_PANE);
+        blockStateModelGenerator.registerGlassPane(ModBlocks.HARDENED_GRAY_GLASS,
+                ModBlocks.HARDENED_GRAY_GLASS_PANE);
+        blockStateModelGenerator.registerGlassPane(ModBlocks.HARDENED_GREEN_GLASS,
+                ModBlocks.HARDENED_GREEN_GLASS_PANE);
+        blockStateModelGenerator.registerGlassPane(ModBlocks.HARDENED_LIGHT_BLUE_GLASS,
+                ModBlocks.HARDENED_LIGHT_BLUE_GLASS_PANE);
+        blockStateModelGenerator.registerGlassPane(ModBlocks.HARDENED_LIGHT_GRAY_GLASS,
+                ModBlocks.HARDENED_LIGHT_GRAY_GLASS_PANE);
+        blockStateModelGenerator.registerGlassPane(ModBlocks.HARDENED_LIME_GLASS,
+                ModBlocks.HARDENED_LIME_GLASS_PANE);
+        blockStateModelGenerator.registerGlassPane(ModBlocks.HARDENED_MAGENTA_GLASS,
+                ModBlocks.HARDENED_MAGENTA_GLASS_PANE);
+        blockStateModelGenerator.registerGlassPane(ModBlocks.HARDENED_ORANGE_GLASS,
+                ModBlocks.HARDENED_ORANGE_GLASS_PANE);
+        blockStateModelGenerator.registerGlassPane(ModBlocks.HARDENED_PINK_GLASS,
+                ModBlocks.HARDENED_PINK_GLASS_PANE);
+        blockStateModelGenerator.registerGlassPane(ModBlocks.HARDENED_PURPLE_GLASS,
+                ModBlocks.HARDENED_PURPLE_GLASS_PANE);
+        blockStateModelGenerator.registerGlassPane(ModBlocks.HARDENED_RED_GLASS,
+                ModBlocks.HARDENED_RED_GLASS_PANE);
+        blockStateModelGenerator.registerGlassPane(ModBlocks.HARDENED_WHITE_GLASS,
+                ModBlocks.HARDENED_WHITE_GLASS_PANE);
+        blockStateModelGenerator.registerGlassPane(ModBlocks.HARDENED_YELLOW_GLASS, 
+                ModBlocks.HARDENED_YELLOW_GLASS_PANE);
+        
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.TIN_DUST_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.TIN_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.TIN_ORE);
@@ -193,5 +230,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.WITHER_AXE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.WITHER_SHOVEL, Models.HANDHELD);
         itemModelGenerator.register(ModItems.WITHER_HOE, Models.HANDHELD);
+
+        itemModelGenerator.register(ModItems.OBSIDIAN_DUST, Models.GENERATED);
     }
 }

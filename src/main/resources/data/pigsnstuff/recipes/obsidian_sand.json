@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "obsidian_sand_from_sand",
+  "key": {
+    "D": {
+      "item": "pigsnstuff:obsidian_dust"
+    },
+    "S": {
+      "tag": "minecraft:sand"
+    }
+  },
+  "pattern": [
+    " D ",
+    "DSD",
+    " D "
+  ],
+  "result": {
+    "count": 2,
+    "item": "pigsnstuff:obsidian_sand"
+  },
+  "show_notification": true
+}
