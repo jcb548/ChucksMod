@@ -207,7 +207,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.DIRITIA_FENCE_GATE);
                         entries.add(ModBlocks.DIRITIA_DOOR);
                         entries.add(ModBlocks.DIRITIA_TRAPDOOR);
-                        entries.add(ModBlocks.CORPORATE_ALTAR);
+                        entries.add(ModBlocks.FRANK_ALTAR);
                     }).build());
     public static void registerItemGroups() {
         PigsNStuff.LOGGER.info("Registering Item Groups for " + PigsNStuff.MOD_ID);

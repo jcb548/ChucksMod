@@ -146,7 +146,7 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerCooker(ModBlocks.POWERED_CRUSHER, TexturedModel.ORIENTABLE);
         blockStateModelGenerator.registerCooker(ModBlocks.GENERATOR, TexturedModel.ORIENTABLE);
 
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.CORPORATE_ALTAR);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.FRANK_ALTAR);
         blockStateModelGenerator.registerParentedItemModel(ModItems.WYATT_SPAWN_EGG,
                 ModelIds.getMinecraftNamespacedItem("template_spawn_egg"));
         blockStateModelGenerator.registerParentedItemModel(ModItems.FRANK_SPAWN_EGG,
