@@ -305,6 +305,17 @@ public class ModBlocks {
             new TintedGlassBlock(FabricBlockSettings.copy(Blocks.SMOOTH_STONE)
                     .requiresTool().resistance(1200.0f).solidBlock(Blocks::never).suffocates(Blocks::never)
                     .blockVision(Blocks::never).nonOpaque()));
+    public static final Block SANDSTONE_BRICKS = registerBlock("sandstone_bricks",
+            new Block(FabricBlockSettings.copy(Blocks.SANDSTONE)));
+    public static final Block SANDSTONE_BRICK_STAIRS = registerBlock("sandstone_brick_stairs",
+            new StairsBlock(ModBlocks.SANDSTONE_BRICKS.getDefaultState(),
+                    FabricBlockSettings.copy(Blocks.SANDSTONE_STAIRS)));
+    public static final Block SANDSTONE_BRICK_SLAB = registerBlock("sandstone_brick_slab",
+            new SlabBlock(FabricBlockSettings.copy(Blocks.SANDSTONE_SLAB)));
+    public static final Block SANDSTONE_BRICK_WALL = registerBlock("sandstone_brick_wall",
+            new WallBlock(FabricBlockSettings.copy(Blocks.SANDSTONE_WALL)));
+    public static final Block CRACKED_SANDSTONE_BRICKS = registerBlock("cracked_sandstone_bricks",
+            new Block(FabricBlockSettings.copy(Blocks.SANDSTONE)));
     private static Block registerBlock(String name, Block block){
         registerBlockItem(name, block);
         return Registry.register(Registries.BLOCK, new Identifier(PigsNStuff.MOD_ID, name), block);

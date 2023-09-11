@@ -1,6 +1,11 @@
 {
   "replace": false,
   "values": [
+    "pigsnstuff:sandstone_bricks",
+    "pigsnstuff:sandstone_brick_stairs",
+    "pigsnstuff:sandstone_brick_slab",
+    "pigsnstuff:sandstone_brick_wall",
+    "pigsnstuff:cracked_sandstone_bricks",
     "pigsnstuff:nether_fabium_ore",
     "pigsnstuff:endstone_fabium_ore",
     "pigsnstuff:deepslate_fabium_ore",

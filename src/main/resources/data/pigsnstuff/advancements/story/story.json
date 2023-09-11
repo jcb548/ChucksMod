@@ -1,0 +1,25 @@
+{
+  "display": {
+    "icon": {
+      "item": "pigsnstuff:raw_diritonium"
+    },
+    "title": "Story",
+    "description": "Welcome to (modname). Check your advancements tab to see what to do next",
+    "background": "pigsnstuff:textures/block/eucalyptus_planks.png",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "minecraft:logs"
+          }
+        ]
+      }
+    }
+  }
+}

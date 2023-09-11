@@ -1,0 +1,28 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:wheat_seeds"
+    },
+    "title": "Seeds",
+    "description": "Break tall grass for Wheat or Beetroot seeds",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "parent": "pigsnstuff:story/stone_tools",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:wheat_seeds",
+              "minecraft:beetroot_seeds"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

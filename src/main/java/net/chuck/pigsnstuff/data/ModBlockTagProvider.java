@@ -99,6 +99,12 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.BRONZE_BARS);
 
         getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
+                .add(ModBlocks.SANDSTONE_BRICKS)
+                .add(ModBlocks.SANDSTONE_BRICK_STAIRS)
+                .add(ModBlocks.SANDSTONE_BRICK_SLAB)
+                .add(ModBlocks.SANDSTONE_BRICK_WALL)
+                .add(ModBlocks.CRACKED_SANDSTONE_BRICKS)
+
                 .add(ModBlocks.NETHER_FABIUM_ORE)
                 .add(ModBlocks.END_STONE_FABIUM_ORE)
                 .add(ModBlocks.DEEPSLATE_FABIUM_ORE)
@@ -220,7 +226,11 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.DIRITIA_WOOD)
                 .add(ModBlocks.STRIPPED_DIRITIA_LOG)
                 .add(ModBlocks.STRIPPED_DIRITIA_WOOD);
+
         getOrCreateTagBuilder(BlockTags.ANIMALS_SPAWNABLE_ON)
                 .add(ModBlocks.SLATED_GRASS);
+
+        getOrCreateTagBuilder(BlockTags.WALLS)
+                .add(ModBlocks.SANDSTONE_BRICK_WALL);
     }
 }

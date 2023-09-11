@@ -187,5 +187,12 @@
   "block.pigsnstuff.hardened_white_stained_glass_pane": "Hardened White Stained Glass Pane",
   "block.pigsnstuff.hardened_yellow_stained_glass": "Hardened Yellow Stained Glass",
   "block.pigsnstuff.hardened_yellow_stained_glass_pane": "Hardened Yellow Stained Glass Pane",
+
+  "block.pigsnstuff.sandstone_bricks": "Sandstone Bricks",
+  "block.pigsnstuff.sandstone_brick_stairs": "Sandstone Brick Stairs",
+  "block.pigsnstuff.sandstone_brick_slab": "Sandstone Brick Slab",
+  "block.pigsnstuff.sandstone_brick_wall": "Sandstone Brick Wall",
+  "block.pigsnstuff.cracked_sandstone_bricks": "Cracked Sandstone Bricks",
+
   "itemgroup.pigsnstuff": "Pigs N Stuff"
 }

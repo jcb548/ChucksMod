@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/wall_inventory",
+  "textures": {
+    "wall": "pigsnstuff:block/sandstone_bricks"
+  }
+}

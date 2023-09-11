@@ -119,6 +119,8 @@ public class ModModelProvider extends FabricModelProvider {
                 BlockStateModelGenerator.TintType.TINTED);
         blockStateModelGenerator.registerTintableCross(ModBlocks.DIRITIA_LIGHT_PLANT,
                 BlockStateModelGenerator.TintType.NOT_TINTED);
+        blockStateModelGenerator.registerTintableCross(ModBlocks.DIRITIA_SAPLING,
+                BlockStateModelGenerator.TintType.NOT_TINTED);
 
         BlockStateModelGenerator.LogTexturePool diritia_log_pool =
                 blockStateModelGenerator.registerLog(ModBlocks.DIRITIA_LOG);
@@ -131,8 +133,6 @@ public class ModModelProvider extends FabricModelProvider {
 
         BlockStateModelGenerator.BlockTexturePool diritia_pool =
                 blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.DIRITIA_PLANKS);
-        blockStateModelGenerator.registerTintableCross(ModBlocks.DIRITIA_SAPLING,
-                BlockStateModelGenerator.TintType.NOT_TINTED);
         diritia_pool.stairs(ModBlocks.DIRITIA_STAIRS);
         diritia_pool.slab(ModBlocks.DIRITIA_SLAB);
         diritia_pool.fence(ModBlocks.DIRITIA_FENCE);
@@ -146,7 +146,15 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerCooker(ModBlocks.POWERED_CRUSHER, TexturedModel.ORIENTABLE);
         blockStateModelGenerator.registerCooker(ModBlocks.GENERATOR, TexturedModel.ORIENTABLE);
 
+        BlockStateModelGenerator.BlockTexturePool sandstone_bricks_pool =
+                blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.SANDSTONE_BRICKS);
+        sandstone_bricks_pool.stairs(ModBlocks.SANDSTONE_BRICK_STAIRS);
+        sandstone_bricks_pool.slab(ModBlocks.SANDSTONE_BRICK_SLAB);
+        sandstone_bricks_pool.wall(ModBlocks.SANDSTONE_BRICK_WALL);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.CRACKED_SANDSTONE_BRICKS);
+
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.FRANK_ALTAR);
+
         blockStateModelGenerator.registerParentedItemModel(ModItems.WYATT_SPAWN_EGG,
                 ModelIds.getMinecraftNamespacedItem("template_spawn_egg"));
         blockStateModelGenerator.registerParentedItemModel(ModItems.FRANK_SPAWN_EGG,

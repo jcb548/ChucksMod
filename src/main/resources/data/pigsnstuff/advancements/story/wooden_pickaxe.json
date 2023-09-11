@@ -1,0 +1,27 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:wooden_pickaxe"
+    },
+    "title": "Wooden Pickaxe",
+    "description": "Craft a Wooden Pickaxe",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "parent": "pigsnstuff:story/story",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:wooden_pickaxe"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

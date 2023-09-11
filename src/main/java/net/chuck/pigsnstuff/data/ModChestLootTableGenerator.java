@@ -4,6 +4,7 @@ import net.chuck.pigsnstuff.PigsNStuff;
 import net.chuck.pigsnstuff.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.SimpleFabricLootTableProvider;
+import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.loot.LootPool;
 import net.minecraft.loot.LootTable;
@@ -28,6 +29,8 @@ public class ModChestLootTableGenerator extends SimpleFabricLootTableProvider {
     public static final Identifier DIRITIA_LIBRARY = new Identifier(PigsNStuff.MOD_ID, "chests/diritia_library");
     // /setblock ~ ~ ~ minecraft:chest{LootTable:"pigsnstuff:chests/diritia_armoury"}
     public static final Identifier DIRITIA_ARMOURY = new Identifier(PigsNStuff.MOD_ID, "chests/diritia_armoury");
+    public static final Identifier GUNPOWDER = new Identifier(PigsNStuff.MOD_ID, "chests/gunpowder");
+    public static final Identifier SUGAR_CANE = new Identifier(PigsNStuff.MOD_ID, "chests/sugar_cane");
     public ModChestLootTableGenerator(FabricDataOutput output) {
         super(output, LootContextTypes.CHEST);
     }
@@ -177,5 +180,13 @@ public class ModChestLootTableGenerator extends SimpleFabricLootTableProvider {
                     .with(ItemEntry.builder(ModItems.DIRITONIUM_AXE).weight(10))
                         .apply(SetDamageLootFunction.builder(UniformLootNumberProvider.create(0.1f, 0.9f)))
                         .apply(EnchantRandomlyLootFunction.builder())));
+        exporter.accept(GUNPOWDER, LootTable.builder()
+                .pool(LootPool.builder().rolls(UniformLootNumberProvider.create(1.0f, 8.0f))
+                    .with(ItemEntry.builder(Items.GUNPOWDER).weight(100))
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 32.0f)))));
+        exporter.accept(SUGAR_CANE, LootTable.builder()
+                .pool(LootPool.builder().rolls(UniformLootNumberProvider.create(1.0f, 8.0f))
+                    .with(ItemEntry.builder(Items.SUGAR_CANE).weight(100))
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 32.0f)))));
     }
 }

@@ -25,6 +25,12 @@ public class ModItemGroups {
                 .icon(() -> new ItemStack(Items.PORKCHOP)).entries((displayContext, entries) -> {
                         entries.add(ModItems.CHEESEBURGER);
 
+                        entries.add(ModBlocks.SANDSTONE_BRICKS);
+                        entries.add(ModBlocks.SANDSTONE_BRICK_STAIRS);
+                        entries.add(ModBlocks.SANDSTONE_BRICK_SLAB);
+                        entries.add(ModBlocks.SANDSTONE_BRICK_WALL);
+                        entries.add(ModBlocks.CRACKED_SANDSTONE_BRICKS);
+
                         entries.add(ModItems.IRON_DUST);
                         entries.add(ModItems.COPPER_DUST);
                         entries.add(ModItems.GOLD_DUST);
