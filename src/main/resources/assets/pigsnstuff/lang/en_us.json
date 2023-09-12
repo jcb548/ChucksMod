@@ -194,5 +194,44 @@
   "block.pigsnstuff.sandstone_brick_wall": "Sandstone Brick Wall",
   "block.pigsnstuff.cracked_sandstone_bricks": "Cracked Sandstone Bricks",
 
-  "itemgroup.pigsnstuff": "Pigs N Stuff"
+  "itemgroup.pigsnstuff": "Pigs N Stuff",
+
+  "advancements.pigsnstuff.root.title": "Story",
+  "advancements.pigsnstuff.root.desc": "Welcome to pigsnstuff. Check your advancements tab to see what to do next",
+
+  "advancements.pigsnstuff.crafting_table.title": "Crafting Table",
+  "advancements.pigsnstuff.crafting_table.desc": "Craft a Crafting Table, to allow for crafting more complex items",
+
+  "advancements.pigsnstuff.wooden_pickaxe.title": "Wooden Pickaxe",
+  "advancements.pigsnstuff.wooden_pickaxe.desc": "Craft a Wooden Pickaxe",
+
+  "advancements.pigsnstuff.stone_tools.title": "Stone Tools",
+  "advancements.pigsnstuff.stone_tools.desc": "Craft a set of stone tools (sword, pickaxe, axe, shovel, hoe)",
+
+  "advancements.pigsnstuff.furnace.title": "Furnace",
+  "advancements.pigsnstuff.furnace.desc": "Craft a furnace",
+
+  "advancements.pigsnstuff.coal.title": "Coal",
+  "advancements.pigsnstuff.coal.desc": "Mine coal to use in a furnace",
+
+  "advancements.pigsnstuff.meat.title": "Meat",
+  "advancements.pigsnstuff.meat.desc": "Kill an animal for meat",
+
+  "advancements.pigsnstuff.cooked_meat.title": "Sustenance",
+  "advancements.pigsnstuff.cooked_meat.desc": "Cook raw meat from an animal for a good food source",
+
+  "advancements.pigsnstuff.seeds.title": "Seeds",
+  "advancements.pigsnstuff.seeds.desc": "Break tall grass for Wheat or Beetroot seeds",
+  
+  "advancements.pigsnstuff.farmland.title": "Create Farmland",
+  "advancements.pigsnstuff.farmland.desc": "Use a hoe on dirt or grass within 4 blocks of water to create saturated farmland",
+
+  "advancements.pigsnstuff.plant_seeds.title": "Plant Seeds",
+  "advancements.pigsnstuff.plant_seeds.desc": "Plant Beetroot or Wheat seeds on farmland to grow food",
+
+  "advancements.pigsnstuff.wheat.title": "Harvest Wheat",
+  "advancements.pigsnstuff.wheat.desc": "Harvest fully grown wheat crops",
+
+  "advancements.pigsnstuff.bread.title": "Craft Bread",
+  "advancements.pigsnstuff.bread.desc": "Craft Bread to use as a source of food"
 }

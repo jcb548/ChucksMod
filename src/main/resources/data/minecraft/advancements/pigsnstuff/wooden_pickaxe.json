@@ -1,0 +1,38 @@
+{
+  "parent": "minecraft:pigsnstuff/crafting_table",
+  "criteria": {
+    "get_wooden_pick": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:wooden_pickaxe"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.pigsnstuff.wooden_pickaxe.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "minecraft:crafting_table"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.pigsnstuff.wooden_pickaxe.title"
+    }
+  },
+  "requirements": [
+    [
+      "get_wooden_pick"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -1,0 +1,36 @@
+{
+  "parent": "minecraft:pigsnstuff/stone_tools",
+  "criteria": {
+    "get_meat": {
+      "conditions": {
+        "items": [
+          {
+            "tag": "c:raw_meat"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.pigsnstuff.meat.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "minecraft:porkchop"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.pigsnstuff.meat.title"
+    }
+  },
+  "requirements": [
+    [
+      "get_meat"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

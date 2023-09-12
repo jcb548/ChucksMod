@@ -1,0 +1,49 @@
+{
+  "parent": "minecraft:pigsnstuff/seeds",
+  "criteria": {
+    "create_farmland": {
+      "conditions": {
+        "location": [
+          {
+            "condition": "minecraft:location_check",
+            "predicate": {
+              "block": {
+                "blocks": [
+                  "minecraft:farmland"
+                ]
+              }
+            }
+          },
+          {
+            "condition": "minecraft:match_tool",
+            "predicate": {
+              "tag": "minecraft:hoes"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:item_used_on_block"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.pigsnstuff.farmland.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "minecraft:farmland"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.pigsnstuff.farmland.title"
+    }
+  },
+  "requirements": [
+    [
+      "create_farmland"
+    ]
+  ],
+  "sends_telemetry_event": true
+}
