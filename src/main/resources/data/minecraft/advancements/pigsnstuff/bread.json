@@ -1,12 +1,12 @@
 {
-  "parent": "minecraft:pigsnstuff/root",
+  "parent": "minecraft:pigsnstuff/wheat",
   "criteria": {
-    "crafting_table": {
+    "get_bread": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:crafting_table"
+              "minecraft:bread"
             ]
           }
         ]
@@ -17,21 +17,21 @@
   "display": {
     "announce_to_chat": true,
     "description": {
-      "translate": "advancements.pigsnstuff.crafting_table.desc"
+      "translate": "advancements.pigsnstuff.bread.desc"
     },
     "frame": "task",
     "hidden": false,
     "icon": {
-      "item": "minecraft:crafting_table"
+      "item": "minecraft:bread"
     },
     "show_toast": true,
     "title": {
-      "translate": "advancements.pigsnstuff.crafting_table.title"
+      "translate": "advancements.pigsnstuff.bread.title"
     }
   },
   "requirements": [
     [
-      "crafting_table"
+      "get_bread"
     ]
   ],
   "sends_telemetry_event": true

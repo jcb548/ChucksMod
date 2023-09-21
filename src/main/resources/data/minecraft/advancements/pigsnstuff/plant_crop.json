@@ -32,7 +32,7 @@
     "frame": "task",
     "hidden": false,
     "icon": {
-      "item": "minecraft:wheat"
+      "item": "minecraft:wheat_seeds"
     },
     "show_toast": true,
     "title": {

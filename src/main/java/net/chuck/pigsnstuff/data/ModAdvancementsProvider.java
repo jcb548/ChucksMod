@@ -144,7 +144,6 @@ public class ModAdvancementsProvider extends FabricAdvancementProvider {
                 .parent(farmland)
                 .build(consumer, PigsNStuff.MOD_ID + "/plant_crop");
 
-
         Advancement wheat = Advancement.Builder.create().display(Items.WHEAT,
                 Text.translatable("advancements." + PigsNStuff.MOD_ID + ".wheat.title"),
                 Text.translatable("advancements." + PigsNStuff.MOD_ID + ".wheat.desc"),
@@ -158,7 +157,7 @@ public class ModAdvancementsProvider extends FabricAdvancementProvider {
                 Text.translatable("advancements." + PigsNStuff.MOD_ID + ".bread.desc"),
                 null, AdvancementFrame.TASK, true, true, false)
                 .criterion("get_bread", InventoryChangedCriterion.Conditions.items(Items.BREAD))
-                .parent(plant_crop)
+                .parent(wheat)
                 .build(consumer, PigsNStuff.MOD_ID + "/bread");
     }
 }
