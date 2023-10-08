@@ -165,5 +165,15 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
         getOrCreateTagBuilder(ItemTags.WALLS)
                 .add(ModBlocks.SANDSTONE_BRICK_WALL.asItem());
+
+        getOrCreateTagBuilder(ModItemTags.DUSTS)
+                .add(ModItems.BRONZE_DUST)
+                .add(ModItems.IRON_DUST)
+                .add(ModItems.COPPER_DUST)
+                .add(ModItems.TIN_DUST)
+                .add(ModItems.GOLD_DUST)
+                .add(ModItems.OBSIDIAN_DUST)
+                .add(ModItems.PRISMARINE_DUST)
+                .add(ModItems.PRISMARINE_IRON_DUST);
     }
 }

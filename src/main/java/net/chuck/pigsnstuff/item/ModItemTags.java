@@ -16,5 +16,6 @@ public class ModItemTags {
             new Identifier("c", "tin_ingots"));
     public static final TagKey<Item> BRONZE_INGOTS = TagKey.of(RegistryKeys.ITEM,
             new Identifier("c", "bronze_ingots"));
-
+    public static final TagKey<Item> DUSTS = TagKey.of(RegistryKeys.ITEM,
+            new Identifier("c", "dusts"));
 }

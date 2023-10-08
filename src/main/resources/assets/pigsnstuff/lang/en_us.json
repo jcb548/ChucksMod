@@ -229,18 +229,36 @@
 
   "advancements.pigsnstuff.seeds.title": "Seeds",
   "advancements.pigsnstuff.seeds.desc": "Break tall grass for Wheat or Beetroot seeds",
-  
+
   "advancements.pigsnstuff.farmland.title": "Create Farmland",
   "advancements.pigsnstuff.farmland.desc": "Use a hoe on dirt or grass within 4 blocks of water to create saturated farmland",
 
-  "advancements.pigsnstuff.plant_seeds.title": "Plant Seeds",
-  "advancements.pigsnstuff.plant_seeds.desc": "Plant Beetroot or Wheat seeds on farmland to grow food",
+  "advancements.pigsnstuff.plant_seeds.title": "Plant Wheat",
+  "advancements.pigsnstuff.plant_seeds.desc": "Plant Wheat seeds on farmland",
 
   "advancements.pigsnstuff.wheat.title": "Harvest Wheat",
   "advancements.pigsnstuff.wheat.desc": "Harvest fully grown wheat crops",
 
   "advancements.pigsnstuff.bread.title": "Craft Bread",
   "advancements.pigsnstuff.bread.desc": "Craft Bread to use as a source of food",
+
+  "advancements.pigsnstuff.plant_beetroot.title": "Plant Beetroot",
+  "advancements.pigsnstuff.plant_beetroot.desc": "Plant Beetroot seeds on farmland",
+
+  "advancements.pigsnstuff.beetroot.title": "Harvest Beetroot",
+  "advancements.pigsnstuff.beetroot.desc": "Harvest fully grown beetroot crops",
+
+  "advancements.pigsnstuff.plant_tomato.title": "Plant Tomato",
+  "advancements.pigsnstuff.plant_tomato.desc": "Plant Tomato seeds on farmland",
+
+  "advancements.pigsnstuff.tomato.title": "Harvest Tomato",
+  "advancements.pigsnstuff.tomato.desc": "Harvest fully grown tomato crops",
+
+  "advancements.pigsnstuff.plant_lettuce.title": "Plant Lettuce",
+  "advancements.pigsnstuff.plant_lettuce.desc": "Plant Lettuce seeds on farmland",
+
+  "advancements.pigsnstuff.lettuce.title": "Harvest Lettuce",
+  "advancements.pigsnstuff.lettuce.desc": "Harvest fully grown lettuce crops",
 
   "advancements.pigsnstuff.raw_iron.title": "Collect Raw Iron",
   "advancements.pigsnstuff.raw_iron.desc": "Mine and collect some Raw Iron",
@@ -252,5 +270,62 @@
   "advancements.pigsnstuff.iron_tools.desc": "Craft a set of iron tools (sword, pickaxe, axe, shovel, hoe)",
 
   "advancements.pigsnstuff.iron_armor.title": "Iron Armor",
-  "advancements.pigsnstuff.iron_armor.desc": "Craft a set of iron armor (helmet, chestplate, leggings, boots)"
+  "advancements.pigsnstuff.iron_armor.desc": "Craft a set of iron armor (helmet, chestplate, leggings, boots)",
+  
+  "advancements.pigsnstuff.diamonds.title": "Obtain Diamonds",
+  "advancements.pigsnstuff.diamonds.desc": "Obtain diamonds from a chest or by mining diamond ore",
+
+  "advancements.pigsnstuff.diamond_tools.title": "Diamond Tools",
+  "advancements.pigsnstuff.diamond_tools.desc": "Craft a set of diamond tools (sword, pickaxe, axe, shovel, hoe)",
+
+  "advancements.pigsnstuff.diamond_armor.title": "Diamond Armor",
+  "advancements.pigsnstuff.diamond_armor.desc": "Craft a set of diamond armor (helmet, chestplate, leggings, boots)",
+
+  "advancements.pigsnstuff.redstone.title": "Redstone",
+  "advancements.pigsnstuff.redstone.desc": "Obtain redstone from a chest or by mining redstone ore",
+
+  "advancements.pigsnstuff.piston.title": "Craft a Piston",
+  "advancements.pigsnstuff.piston.desc": "Craft a piston which can push blocks",
+
+  "advancements.pigsnstuff.iron_gear.title": "Craft an Iron Gear",
+  "advancements.pigsnstuff.iron_gear.desc": "Craft an Iron Gear from 4 iron",
+
+  "advancements.pigsnstuff.crusher.title": "Craft a Crusher",
+  "advancements.pigsnstuff.crusher.desc": "Craft a crusher, which can crush resources into dust",
+
+  "advancements.pigsnstuff.dust.title": "Crush material into dust",
+  "advancements.pigsnstuff.dust.desc": "Crush a material into dust",
+
+  "advancements.pigsnstuff.obsidian.title": "Obsidian",
+  "advancements.pigsnstuff.obsidian.desc": "Mine Obsidian, which is created when water touches lava",
+
+  "advancements.pigsnstuff.gravel.title": "Gravel",
+  "advancements.pigsnstuff.gravel.desc": "Mine Gravel",
+
+  "advancements.pigsnstuff.flint.title": "Flint",
+  "advancements.pigsnstuff.flint.desc": "Break gravel until a piece of flint drops",
+
+  "advancements.pigsnstuff.sugar_cane.title": "Sugar Cane",
+  "advancements.pigsnstuff.sugar_cane.desc": "Obtain sugar cane, which is found near bodies of water",
+
+  "advancements.pigsnstuff.paper.title": "Paper",
+  "advancements.pigsnstuff.paper.desc": "Craft paper from sugar cane",
+
+  "advancements.pigsnstuff.leather.title": "Leather",
+  "advancements.pigsnstuff.leather.desc": "Kill a cow or horse to obtain leather",
+
+  "advancements.pigsnstuff.book.title": "Book",
+  "advancements.pigsnstuff.book.desc": "Craft a book from paper and leather",
+
+  "advancements.pigsnstuff.enchanting_table.title": "Enchanting Table",
+  "advancements.pigsnstuff.enchanting_table.desc": "Craft an enchanting table from obsidian, diamonds and a book",
+
+  "advancements.pigsnstuff.lapis.title": "Lapis Lazuli",
+  "advancements.pigsnstuff.lapis.desc": "Mine lapis lazuli ore to obtain lapis lazuli, which can be used for enchanting or crafting blue dye",
+
+  "advancements.pigsnstuff.flint_and_steel.title": "Flint and Steel",
+  "advancements.pigsnstuff.flint_and_steel.desc": "Craft a flint and steel, which can be used to light fires, or a nether portal",
+
+  "advancements.pigsnstuff.nether_portal.title": "Light Nether Portal",
+  "advancements.pigsnstuff.nether_portal.desc": "Place obsidian in a closed vertical rectangle, with a center at least 2 blocks wide and 3 blocks tall, and use flint and steel on inside"
 }
