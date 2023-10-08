@@ -1,6 +1,8 @@
 package net.chuck.pigsnstuff.data;
 
 import net.chuck.pigsnstuff.block.ModBlocks;
+import net.chuck.pigsnstuff.block.custom.LettuceCropBlock;
+import net.chuck.pigsnstuff.block.custom.TomatoCropBlock;
 import net.chuck.pigsnstuff.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
@@ -23,6 +25,9 @@ public class ModModelProvider extends FabricModelProvider {
 
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
+        blockStateModelGenerator.registerCrop(ModBlocks.TOMATO_CROP, TomatoCropBlock.AGE, 0, 1, 2, 3, 4);
+        blockStateModelGenerator.registerCrop(ModBlocks.LETTUCE_CROP, LettuceCropBlock.AGE, 0, 1, 2, 3, 4);
+
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.IRON_DUST_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.COPPER_DUST_BLOCK);
         blockStateModelGenerator.registerItemModel(ModBlocks.COPPER_BARS);
@@ -216,7 +221,9 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.DIRITIA_CRYSTAL, Models.GENERATED);
         itemModelGenerator.register(ModItems.DIRITIA_CRYSTAL_SHARD, Models.GENERATED);
 
-        itemModelGenerator.register(ModItems.CHEESEBURGER, Models.GENERATED);
+        itemModelGenerator.register(ModItems.HAMBURGER, Models.GENERATED);
+        itemModelGenerator.register(ModItems.TOMATO, Models.GENERATED);
+        itemModelGenerator.register(ModItems.LETTUCE, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.PRISMARINE_DUST, Models.GENERATED);
         itemModelGenerator.register(ModItems.PRISMARINE_IRON_DUST, Models.GENERATED);

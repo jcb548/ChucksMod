@@ -1,5 +1,9 @@
 {
-  "item.pigsnstuff.cheeseburger": "Cheeseburger",
+  "item.pigsnstuff.hamburger": "Hamburger",
+  "item.pigsnstuff.tomato": "Tomato",
+  "item.pigsnstuff.tomato_seeds": "Tomato Seeds",
+  "item.pigsnstuff.lettuce": "Lettuce",
+  "item.pigsnstuff.lettuce_seeds": "Lettuce Seeds",
 
   "item.pigsnstuff.iron_dust": "Iron Dust",
   "item.pigsnstuff.iron_gear": "Iron Gear",
@@ -205,6 +209,9 @@
   "advancements.pigsnstuff.wooden_pickaxe.title": "Wooden Pickaxe",
   "advancements.pigsnstuff.wooden_pickaxe.desc": "Craft a Wooden Pickaxe",
 
+  "advancements.pigsnstuff.cobble.title": "Obtain Cobblestone",
+  "advancements.pigsnstuff.cobble.desc": "Mine stone with your pickaxe to obtain Cobblestone",
+
   "advancements.pigsnstuff.stone_tools.title": "Stone Tools",
   "advancements.pigsnstuff.stone_tools.desc": "Craft a set of stone tools (sword, pickaxe, axe, shovel, hoe)",
 
@@ -233,5 +240,17 @@
   "advancements.pigsnstuff.wheat.desc": "Harvest fully grown wheat crops",
 
   "advancements.pigsnstuff.bread.title": "Craft Bread",
-  "advancements.pigsnstuff.bread.desc": "Craft Bread to use as a source of food"
+  "advancements.pigsnstuff.bread.desc": "Craft Bread to use as a source of food",
+
+  "advancements.pigsnstuff.raw_iron.title": "Collect Raw Iron",
+  "advancements.pigsnstuff.raw_iron.desc": "Mine and collect some Raw Iron",
+
+  "advancements.pigsnstuff.iron.title": "Smelt Iron",
+  "advancements.pigsnstuff.iron.desc": "Smelt Raw Iron into Iron Ingots",
+
+  "advancements.pigsnstuff.iron_tools.title": "Iron Tools",
+  "advancements.pigsnstuff.iron_tools.desc": "Craft a set of iron tools (sword, pickaxe, axe, shovel, hoe)",
+
+  "advancements.pigsnstuff.iron_armor.title": "Iron Armor",
+  "advancements.pigsnstuff.iron_armor.desc": "Craft a set of iron armor (helmet, chestplate, leggings, boots)"
 }

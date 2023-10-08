@@ -316,6 +316,13 @@ public class ModBlocks {
             new WallBlock(FabricBlockSettings.copy(Blocks.SANDSTONE_WALL)));
     public static final Block CRACKED_SANDSTONE_BRICKS = registerBlock("cracked_sandstone_bricks",
             new Block(FabricBlockSettings.copy(Blocks.SANDSTONE)));
+
+    public static final Block TOMATO_CROP =
+            Registry.register(Registries.BLOCK, new Identifier(PigsNStuff.MOD_ID, "tomato_crop"),
+        new TomatoCropBlock(FabricBlockSettings.copy(Blocks.WHEAT)));
+    public static final Block LETTUCE_CROP =
+            Registry.register(Registries.BLOCK, new Identifier(PigsNStuff.MOD_ID, "lettuce_crop"),
+        new LettuceCropBlock(FabricBlockSettings.copy(Blocks.WHEAT)));
     private static Block registerBlock(String name, Block block){
         registerBlockItem(name, block);
         return Registry.register(Registries.BLOCK, new Identifier(PigsNStuff.MOD_ID, name), block);

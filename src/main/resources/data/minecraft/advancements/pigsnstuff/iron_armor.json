@@ -1,32 +1,27 @@
 {
-  "parent": "minecraft:pigsnstuff/cobble",
+  "parent": "minecraft:pigsnstuff/iron",
   "criteria": {
     "get_stone_tools": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:stone_sword"
+              "minecraft:iron_helmet"
             ]
           },
           {
             "items": [
-              "minecraft:stone_pickaxe"
+              "minecraft:iron_chestplate"
             ]
           },
           {
             "items": [
-              "minecraft:stone_axe"
+              "minecraft:iron_leggings"
             ]
           },
           {
             "items": [
-              "minecraft:stone_shovel"
-            ]
-          },
-          {
-            "items": [
-              "minecraft:stone_hoe"
+              "minecraft:iron_boots"
             ]
           }
         ]
@@ -37,17 +32,17 @@
   "display": {
     "announce_to_chat": true,
     "description": {
-      "translate": "advancements.pigsnstuff.stone_tools.desc"
+      "translate": "advancements.pigsnstuff.iron_armor.desc"
     },
     "frame": "task",
     "hidden": false,
     "icon": {
-      "item": "minecraft:stone_axe",
+      "item": "minecraft:iron_chestplate",
       "nbt": "{Damage:0}"
     },
     "show_toast": true,
     "title": {
-      "translate": "advancements.pigsnstuff.stone_tools.title"
+      "translate": "advancements.pigsnstuff.iron_armor.title"
     }
   },
   "requirements": [

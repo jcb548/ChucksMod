@@ -1,12 +1,12 @@
 {
-  "parent": "minecraft:pigsnstuff/cobble",
+  "parent": "minecraft:pigsnstuff/stone_tools",
   "criteria": {
-    "get_furnace": {
+    "get_raw_iron": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:furnace"
+              "minecraft:raw_iron"
             ]
           }
         ]
@@ -17,21 +17,21 @@
   "display": {
     "announce_to_chat": true,
     "description": {
-      "translate": "advancements.pigsnstuff.furnace.desc"
+      "translate": "advancements.pigsnstuff.raw_iron.desc"
     },
     "frame": "task",
     "hidden": false,
     "icon": {
-      "item": "minecraft:furnace"
+      "item": "minecraft:raw_iron"
     },
     "show_toast": true,
     "title": {
-      "translate": "advancements.pigsnstuff.furnace.title"
+      "translate": "advancements.pigsnstuff.raw_iron.title"
     }
   },
   "requirements": [
     [
-      "get_furnace"
+      "get_raw_iron"
     ]
   ],
   "sends_telemetry_event": true

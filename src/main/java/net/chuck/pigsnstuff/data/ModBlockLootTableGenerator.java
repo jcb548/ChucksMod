@@ -1,9 +1,13 @@
 package net.chuck.pigsnstuff.data;
 
 import net.chuck.pigsnstuff.block.ModBlocks;
+import net.chuck.pigsnstuff.block.custom.LettuceCropBlock;
+import net.chuck.pigsnstuff.block.custom.TomatoCropBlock;
 import net.chuck.pigsnstuff.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
+import net.minecraft.loot.condition.BlockStatePropertyLootCondition;
+import net.minecraft.predicate.StatePredicate;
 import software.bernie.shadowed.eliotlash.mclib.math.functions.classic.Mod;
 
 /*
@@ -132,5 +136,16 @@ public class ModBlockLootTableGenerator extends FabricBlockLootTableProvider {
 
         addDrop(ModBlocks.CRUSHER);
         addDrop(ModBlocks.POWERED_CRUSHER);
+
+        BlockStatePropertyLootCondition.Builder tomatoCropBuilder = BlockStatePropertyLootCondition.builder
+                        (ModBlocks.TOMATO_CROP).properties(StatePredicate.Builder.create()
+                .exactMatch(TomatoCropBlock.AGE, TomatoCropBlock.MAX_AGE));
+        addDrop(ModBlocks.TOMATO_CROP, cropDrops(ModBlocks.TOMATO_CROP, ModItems.TOMATO, ModItems.TOMATO_SEEDS,
+                tomatoCropBuilder));
+        BlockStatePropertyLootCondition.Builder lettuceCropBuilder = BlockStatePropertyLootCondition.builder
+                        (ModBlocks.LETTUCE_CROP).properties(StatePredicate.Builder.create()
+                .exactMatch(LettuceCropBlock.AGE, LettuceCropBlock.MAX_AGE));
+        addDrop(ModBlocks.LETTUCE_CROP, cropDrops(ModBlocks.LETTUCE_CROP, ModItems.LETTUCE, ModItems.LETTUCE_SEEDS,
+                lettuceCropBuilder));
     }
 }

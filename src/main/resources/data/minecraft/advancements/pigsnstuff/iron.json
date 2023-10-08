@@ -1,12 +1,12 @@
 {
-  "parent": "minecraft:pigsnstuff/cobble",
+  "parent": "minecraft:pigsnstuff/raw_iron",
   "criteria": {
-    "get_furnace": {
+    "get_iron": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:furnace"
+              "minecraft:iron_ingot"
             ]
           }
         ]
@@ -17,21 +17,21 @@
   "display": {
     "announce_to_chat": true,
     "description": {
-      "translate": "advancements.pigsnstuff.furnace.desc"
+      "translate": "advancements.pigsnstuff.iron.desc"
     },
     "frame": "task",
     "hidden": false,
     "icon": {
-      "item": "minecraft:furnace"
+      "item": "minecraft:iron_ingot"
     },
     "show_toast": true,
     "title": {
-      "translate": "advancements.pigsnstuff.furnace.title"
+      "translate": "advancements.pigsnstuff.iron.title"
     }
   },
   "requirements": [
     [
-      "get_furnace"
+      "get_iron"
     ]
   ],
   "sends_telemetry_event": true

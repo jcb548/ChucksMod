@@ -2,6 +2,7 @@ package net.chuck.pigsnstuff.data;
 
 import net.chuck.pigsnstuff.PigsNStuff;
 import net.chuck.pigsnstuff.item.ModItemTags;
+import net.chuck.pigsnstuff.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricAdvancementProvider;
 import net.minecraft.advancement.Advancement;
@@ -54,7 +55,6 @@ public class ModAdvancementsProvider extends FabricAdvancementProvider {
                 .criterion("crafting_table", InventoryChangedCriterion.Conditions.items(Items.CRAFTING_TABLE))
                 .parent(root)
                 .build(consumer,PigsNStuff.MOD_ID + "/crafting_table");
-
         Advancement woodPickaxe = Advancement.Builder.create()
                 .display(Items.WOODEN_PICKAXE,
                         Text.translatable("advancements." + PigsNStuff.MOD_ID + ".wooden_pickaxe.title"),
@@ -64,6 +64,15 @@ public class ModAdvancementsProvider extends FabricAdvancementProvider {
                 .parent(craftingTable)
                 .build(consumer,PigsNStuff.MOD_ID + "/wooden_pickaxe");
 
+        Advancement cobble = Advancement.Builder.create()
+                .display(Items.COBBLESTONE,
+                        Text.translatable("advancements." + PigsNStuff.MOD_ID + ".cobble.title"),
+                        Text.translatable("advancements." + PigsNStuff.MOD_ID + ".cobble.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("get_cobble", InventoryChangedCriterion.Conditions.items(Items.COBBLESTONE))
+                .parent(woodPickaxe)
+                .build(consumer,PigsNStuff.MOD_ID + "/cobble");
+
         Advancement stoneTools = Advancement.Builder.create()
                 .display(Items.STONE_AXE,
                         Text.translatable("advancements." + PigsNStuff.MOD_ID + ".stone_tools.title"),
@@ -71,7 +80,7 @@ public class ModAdvancementsProvider extends FabricAdvancementProvider {
                         null, AdvancementFrame.TASK, true, true, false)
                 .criterion("get_stone_tools", InventoryChangedCriterion.Conditions.items(Items.STONE_SWORD,
                         Items.STONE_PICKAXE, Items.STONE_AXE, Items.STONE_SHOVEL, Items.STONE_HOE))
-                .parent(woodPickaxe)
+                .parent(cobble)
                 .build(consumer,PigsNStuff.MOD_ID + "/stone_tools");
 
         Advancement furnace = Advancement.Builder.create()
@@ -80,7 +89,7 @@ public class ModAdvancementsProvider extends FabricAdvancementProvider {
                         Text.translatable("advancements." + PigsNStuff.MOD_ID + ".furnace.desc"),
                         null, AdvancementFrame.TASK, true, true, false)
                 .criterion("get_furnace", InventoryChangedCriterion.Conditions.items(Items.FURNACE))
-                .parent(woodPickaxe)
+                .parent(cobble)
                 .build(consumer,PigsNStuff.MOD_ID + "/furnace");
 
         Advancement coal = Advancement.Builder.create()
@@ -159,5 +168,41 @@ public class ModAdvancementsProvider extends FabricAdvancementProvider {
                 .criterion("get_bread", InventoryChangedCriterion.Conditions.items(Items.BREAD))
                 .parent(wheat)
                 .build(consumer, PigsNStuff.MOD_ID + "/bread");
+
+        Advancement raw_iron = Advancement.Builder.create().display(Items.RAW_IRON,
+                Text.translatable("advancements." + PigsNStuff.MOD_ID + ".raw_iron.title"),
+                Text.translatable("advancements." + PigsNStuff.MOD_ID + ".raw_iron.desc"),
+                null, AdvancementFrame.TASK, true, true, false)
+                .criterion("get_raw_iron", InventoryChangedCriterion.Conditions.items(Items.RAW_IRON))
+                .parent(stoneTools)
+                .build(consumer, PigsNStuff.MOD_ID + "/raw_iron");
+
+        Advancement iron = Advancement.Builder.create().display(Items.IRON_INGOT,
+                Text.translatable("advancements." + PigsNStuff.MOD_ID + ".iron.title"),
+                Text.translatable("advancements." + PigsNStuff.MOD_ID + ".iron.desc"),
+                null, AdvancementFrame.TASK, true, true, false)
+                .criterion("get_iron", InventoryChangedCriterion.Conditions.items(Items.IRON_INGOT))
+                .parent(raw_iron)
+                .build(consumer, PigsNStuff.MOD_ID + "/iron");
+
+        Advancement ironTools = Advancement.Builder.create()
+                .display(Items.IRON_PICKAXE,
+                        Text.translatable("advancements." + PigsNStuff.MOD_ID + ".iron_tools.title"),
+                        Text.translatable("advancements." + PigsNStuff.MOD_ID + ".iron_tools.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("get_stone_tools", InventoryChangedCriterion.Conditions.items(Items.IRON_SWORD,
+                        Items.IRON_PICKAXE, Items.IRON_AXE, Items.IRON_SHOVEL, Items.IRON_HOE))
+                .parent(iron)
+                .build(consumer,PigsNStuff.MOD_ID + "/iron_tools");
+
+        Advancement ironArmor = Advancement.Builder.create()
+                .display(Items.IRON_CHESTPLATE,
+                        Text.translatable("advancements." + PigsNStuff.MOD_ID + ".iron_armor.title"),
+                        Text.translatable("advancements." + PigsNStuff.MOD_ID + ".iron_armor.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("get_stone_tools", InventoryChangedCriterion.Conditions.items(Items.IRON_HELMET,
+                    Items.IRON_CHESTPLATE, Items.IRON_LEGGINGS, Items.IRON_BOOTS))
+                .parent(iron)
+                .build(consumer,PigsNStuff.MOD_ID + "/iron_armor");
     }
 }

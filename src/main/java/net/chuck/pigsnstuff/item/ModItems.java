@@ -1,9 +1,12 @@
 package net.chuck.pigsnstuff.item;
 
 import net.chuck.pigsnstuff.PigsNStuff;
+import net.chuck.pigsnstuff.block.ModBlocks;
 import net.chuck.pigsnstuff.entity.ModEntities;
 import net.chuck.pigsnstuff.item.custom.*;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
+import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
+import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -18,9 +21,16 @@ import net.minecraft.util.Identifier;
  */
 public class ModItems {
     // random food items
-    public static final Item CHEESEBURGER = registerItem("cheeseburger",
-            new Item(new FabricItemSettings().food(ModFoodComponents.CHEESEBURGER)));
-
+    public static final Item HAMBURGER = registerItem("hamburger",
+            new Item(new FabricItemSettings().food(ModFoodComponents.HAMBURGER)));
+    public static final Item TOMATO = registerItem("tomato",
+            new Item(new FabricItemSettings().food(ModFoodComponents.TOMATO)));
+    public static final Item TOMATO_SEEDS = registerItem("tomato_seeds",
+            new AliasedBlockItem(ModBlocks.TOMATO_CROP, new FabricItemSettings()));
+    public static final Item LETTUCE = registerItem("lettuce",
+            new Item(new FabricItemSettings().food(ModFoodComponents.LETTUCE)));
+    public static final Item LETTUCE_SEEDS = registerItem("lettuce_seeds",
+            new AliasedBlockItem(ModBlocks.LETTUCE_CROP, new FabricItemSettings()));
     // Crushed Vanilla Resources
     public static final Item IRON_DUST = registerItem("iron_dust",
             new Item(new FabricItemSettings()));
@@ -163,7 +173,13 @@ public class ModItems {
     public static final Item DIRITIA_CRYSTAL_SHARD = registerItem("diritia_crystal_shard",
             new Item(new FabricItemSettings()));
 
-
+    private static void addItemsToIngredientGroup(FabricItemGroupEntries entries){
+        entries.add(RAW_TIN);
+        entries.add(TIN_DUST);
+        entries.add(TIN_INGOT);
+        entries.add(BRONZE_DUST);
+        entries.add(BRONZE_INGOT);
+    }
     private static Item registerItem(String name, Item item){
         return Registry.register(Registries.ITEM, new Identifier(PigsNStuff.MOD_ID, name), item);
     }

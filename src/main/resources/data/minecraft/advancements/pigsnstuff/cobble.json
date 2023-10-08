@@ -1,12 +1,12 @@
 {
-  "parent": "minecraft:pigsnstuff/cobble",
+  "parent": "minecraft:pigsnstuff/wooden_pickaxe",
   "criteria": {
-    "get_furnace": {
+    "get_cobble": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:furnace"
+              "minecraft:cobblestone"
             ]
           }
         ]
@@ -17,21 +17,21 @@
   "display": {
     "announce_to_chat": true,
     "description": {
-      "translate": "advancements.pigsnstuff.furnace.desc"
+      "translate": "advancements.pigsnstuff.cobble.desc"
     },
     "frame": "task",
     "hidden": false,
     "icon": {
-      "item": "minecraft:furnace"
+      "item": "minecraft:cobblestone"
     },
     "show_toast": true,
     "title": {
-      "translate": "advancements.pigsnstuff.furnace.title"
+      "translate": "advancements.pigsnstuff.cobble.title"
     }
   },
   "requirements": [
     [
-      "get_furnace"
+      "get_cobble"
     ]
   ],
   "sends_telemetry_event": true

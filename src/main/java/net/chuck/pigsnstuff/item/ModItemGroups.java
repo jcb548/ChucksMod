@@ -23,7 +23,11 @@ public class ModItemGroups {
             new Identifier(PigsNStuff.MOD_ID, "pigsnstuff"),
             FabricItemGroup.builder().displayName(Text.translatable("itemgroup.pigsnstuff"))
                 .icon(() -> new ItemStack(Items.PORKCHOP)).entries((displayContext, entries) -> {
-                        entries.add(ModItems.CHEESEBURGER);
+                        entries.add(ModItems.HAMBURGER);
+                        entries.add(ModItems.TOMATO);
+                        entries.add(ModItems.TOMATO_SEEDS);
+                        entries.add(ModItems.LETTUCE);
+                        entries.add(ModItems.LETTUCE_SEEDS);
 
                         entries.add(ModBlocks.SANDSTONE_BRICKS);
                         entries.add(ModBlocks.SANDSTONE_BRICK_STAIRS);
