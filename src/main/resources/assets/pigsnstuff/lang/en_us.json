@@ -4,6 +4,8 @@
   "item.pigsnstuff.tomato_seeds": "Tomato Seeds",
   "item.pigsnstuff.lettuce": "Lettuce",
   "item.pigsnstuff.lettuce_seeds": "Lettuce Seeds",
+  "item.pigsnstuff.pineapple": "Pineapple",
+  "item.pigsnstuff.pineapple_seeds": "Pineapple Seeds",
 
   "item.pigsnstuff.iron_dust": "Iron Dust",
   "item.pigsnstuff.iron_gear": "Iron Gear",
@@ -200,132 +202,135 @@
 
   "itemgroup.pigsnstuff": "Pigs N Stuff",
 
-  "advancements.pigsnstuff.root.title": "Story",
-  "advancements.pigsnstuff.root.desc": "Welcome to pigsnstuff. Check your advancements tab to see what to do next",
+  "advancements.pigsnstuff.overworld.root.title": "Story",
+  "advancements.pigsnstuff.overworld.root.desc": "Welcome to pigsnstuff. Check your advancements tab to see what to do next",
 
-  "advancements.pigsnstuff.crafting_table.title": "Crafting Table",
-  "advancements.pigsnstuff.crafting_table.desc": "Craft a Crafting Table, to allow for crafting more complex items",
+  "advancements.pigsnstuff.overworld.crafting_table.title": "Crafting Table",
+  "advancements.pigsnstuff.overworld.crafting_table.desc": "Craft a Crafting Table, to allow for crafting more complex items",
 
-  "advancements.pigsnstuff.wooden_pickaxe.title": "Wooden Pickaxe",
-  "advancements.pigsnstuff.wooden_pickaxe.desc": "Craft a Wooden Pickaxe",
+  "advancements.pigsnstuff.overworld.wooden_pickaxe.title": "Wooden Pickaxe",
+  "advancements.pigsnstuff.overworld.wooden_pickaxe.desc": "Craft a Wooden Pickaxe",
 
-  "advancements.pigsnstuff.cobble.title": "Obtain Cobblestone",
-  "advancements.pigsnstuff.cobble.desc": "Mine stone with your pickaxe to obtain Cobblestone",
+  "advancements.pigsnstuff.overworld.cobble.title": "Obtain Cobblestone",
+  "advancements.pigsnstuff.overworld.cobble.desc": "Mine stone with your pickaxe to obtain Cobblestone",
 
-  "advancements.pigsnstuff.stone_tools.title": "Stone Tools",
-  "advancements.pigsnstuff.stone_tools.desc": "Craft a set of stone tools (sword, pickaxe, axe, shovel, hoe)",
+  "advancements.pigsnstuff.overworld.stone_tools.title": "Stone Tools",
+  "advancements.pigsnstuff.overworld.stone_tools.desc": "Craft a set of stone tools (sword, pickaxe, axe, shovel, hoe)",
 
-  "advancements.pigsnstuff.furnace.title": "Furnace",
-  "advancements.pigsnstuff.furnace.desc": "Craft a furnace",
+  "advancements.pigsnstuff.overworld.furnace.title": "Furnace",
+  "advancements.pigsnstuff.overworld.furnace.desc": "Craft a furnace",
 
-  "advancements.pigsnstuff.coal.title": "Coal",
-  "advancements.pigsnstuff.coal.desc": "Mine coal to use in a furnace",
+  "advancements.pigsnstuff.overworld.coal.title": "Coal",
+  "advancements.pigsnstuff.overworld.coal.desc": "Mine coal to use in a furnace",
 
-  "advancements.pigsnstuff.meat.title": "Meat",
-  "advancements.pigsnstuff.meat.desc": "Kill an animal for meat",
+  "advancements.pigsnstuff.overworld.meat.title": "Meat",
+  "advancements.pigsnstuff.overworld.meat.desc": "Kill an animal for meat",
 
-  "advancements.pigsnstuff.cooked_meat.title": "Sustenance",
-  "advancements.pigsnstuff.cooked_meat.desc": "Cook raw meat from an animal for a good food source",
+  "advancements.pigsnstuff.overworld.cooked_meat.title": "Sustenance",
+  "advancements.pigsnstuff.overworld.cooked_meat.desc": "Cook raw meat from an animal for a good food source",
 
-  "advancements.pigsnstuff.seeds.title": "Seeds",
-  "advancements.pigsnstuff.seeds.desc": "Break tall grass for Wheat or Beetroot seeds",
+  "advancements.pigsnstuff.overworld.seeds.title": "Seeds",
+  "advancements.pigsnstuff.overworld.seeds.desc": "Break tall grass for Wheat or Beetroot seeds",
 
-  "advancements.pigsnstuff.farmland.title": "Create Farmland",
-  "advancements.pigsnstuff.farmland.desc": "Use a hoe on dirt or grass within 4 blocks of water to create saturated farmland",
+  "advancements.pigsnstuff.overworld.farmland.title": "Create Farmland",
+  "advancements.pigsnstuff.overworld.farmland.desc": "Use a hoe on dirt or grass within 4 blocks of water to create saturated farmland",
 
-  "advancements.pigsnstuff.plant_seeds.title": "Plant Wheat",
-  "advancements.pigsnstuff.plant_seeds.desc": "Plant Wheat seeds on farmland",
+  "advancements.pigsnstuff.overworld.plant_seeds.title": "Plant Wheat",
+  "advancements.pigsnstuff.overworld.plant_seeds.desc": "Plant Wheat seeds on farmland",
 
-  "advancements.pigsnstuff.wheat.title": "Harvest Wheat",
-  "advancements.pigsnstuff.wheat.desc": "Harvest fully grown wheat crops",
+  "advancements.pigsnstuff.overworld.wheat.title": "Harvest Wheat",
+  "advancements.pigsnstuff.overworld.wheat.desc": "Harvest fully grown wheat crops",
 
-  "advancements.pigsnstuff.bread.title": "Craft Bread",
-  "advancements.pigsnstuff.bread.desc": "Craft Bread to use as a source of food",
+  "advancements.pigsnstuff.overworld.bread.title": "Craft Bread",
+  "advancements.pigsnstuff.overworld.bread.desc": "Craft Bread to use as a source of food",
 
-  "advancements.pigsnstuff.plant_beetroot.title": "Plant Beetroot",
-  "advancements.pigsnstuff.plant_beetroot.desc": "Plant Beetroot seeds on farmland",
+  "advancements.pigsnstuff.overworld.plant_beetroot.title": "Plant Beetroot",
+  "advancements.pigsnstuff.overworld.plant_beetroot.desc": "Plant Beetroot seeds on farmland",
 
-  "advancements.pigsnstuff.beetroot.title": "Harvest Beetroot",
-  "advancements.pigsnstuff.beetroot.desc": "Harvest fully grown beetroot crops",
+  "advancements.pigsnstuff.overworld.beetroot.title": "Harvest Beetroot",
+  "advancements.pigsnstuff.overworld.beetroot.desc": "Harvest fully grown beetroot crops",
 
-  "advancements.pigsnstuff.plant_tomato.title": "Plant Tomato",
-  "advancements.pigsnstuff.plant_tomato.desc": "Plant Tomato seeds on farmland",
+  "advancements.pigsnstuff.overworld.plant_tomato.title": "Plant Tomato",
+  "advancements.pigsnstuff.overworld.plant_tomato.desc": "Plant Tomato seeds on farmland",
 
-  "advancements.pigsnstuff.tomato.title": "Harvest Tomato",
-  "advancements.pigsnstuff.tomato.desc": "Harvest fully grown tomato crops",
+  "advancements.pigsnstuff.overworld.tomato.title": "Harvest Tomato",
+  "advancements.pigsnstuff.overworld.tomato.desc": "Harvest fully grown tomato crops",
 
-  "advancements.pigsnstuff.plant_lettuce.title": "Plant Lettuce",
-  "advancements.pigsnstuff.plant_lettuce.desc": "Plant Lettuce seeds on farmland",
+  "advancements.pigsnstuff.overworld.plant_lettuce.title": "Plant Lettuce",
+  "advancements.pigsnstuff.overworld.plant_lettuce.desc": "Plant Lettuce seeds on farmland",
 
-  "advancements.pigsnstuff.lettuce.title": "Harvest Lettuce",
-  "advancements.pigsnstuff.lettuce.desc": "Harvest fully grown lettuce crops",
+  "advancements.pigsnstuff.overworld.lettuce.title": "Harvest Lettuce",
+  "advancements.pigsnstuff.overworld.lettuce.desc": "Harvest fully grown lettuce crops",
 
-  "advancements.pigsnstuff.raw_iron.title": "Collect Raw Iron",
-  "advancements.pigsnstuff.raw_iron.desc": "Mine and collect some Raw Iron",
+  "advancements.pigsnstuff.overworld.raw_iron.title": "Collect Raw Iron",
+  "advancements.pigsnstuff.overworld.raw_iron.desc": "Mine and collect some Raw Iron",
 
-  "advancements.pigsnstuff.iron.title": "Smelt Iron",
-  "advancements.pigsnstuff.iron.desc": "Smelt Raw Iron into Iron Ingots",
+  "advancements.pigsnstuff.overworld.iron.title": "Smelt Iron",
+  "advancements.pigsnstuff.overworld.iron.desc": "Smelt Raw Iron into Iron Ingots",
 
-  "advancements.pigsnstuff.iron_tools.title": "Iron Tools",
-  "advancements.pigsnstuff.iron_tools.desc": "Craft a set of iron tools (sword, pickaxe, axe, shovel, hoe)",
+  "advancements.pigsnstuff.overworld.iron_tools.title": "Iron Tools",
+  "advancements.pigsnstuff.overworld.iron_tools.desc": "Craft a set of iron tools (sword, pickaxe, axe, shovel, hoe)",
 
-  "advancements.pigsnstuff.iron_armor.title": "Iron Armor",
-  "advancements.pigsnstuff.iron_armor.desc": "Craft a set of iron armor (helmet, chestplate, leggings, boots)",
+  "advancements.pigsnstuff.overworld.iron_armor.title": "Iron Armor",
+  "advancements.pigsnstuff.overworld.iron_armor.desc": "Craft a set of iron armor (helmet, chestplate, leggings, boots)",
   
-  "advancements.pigsnstuff.diamonds.title": "Obtain Diamonds",
-  "advancements.pigsnstuff.diamonds.desc": "Obtain diamonds from a chest or by mining diamond ore",
+  "advancements.pigsnstuff.overworld.diamonds.title": "Obtain Diamonds",
+  "advancements.pigsnstuff.overworld.diamonds.desc": "Obtain diamonds from a chest or by mining diamond ore",
 
-  "advancements.pigsnstuff.diamond_tools.title": "Diamond Tools",
-  "advancements.pigsnstuff.diamond_tools.desc": "Craft a set of diamond tools (sword, pickaxe, axe, shovel, hoe)",
+  "advancements.pigsnstuff.overworld.diamond_tools.title": "Diamond Tools",
+  "advancements.pigsnstuff.overworld.diamond_tools.desc": "Craft a set of diamond tools (sword, pickaxe, axe, shovel, hoe)",
 
-  "advancements.pigsnstuff.diamond_armor.title": "Diamond Armor",
-  "advancements.pigsnstuff.diamond_armor.desc": "Craft a set of diamond armor (helmet, chestplate, leggings, boots)",
+  "advancements.pigsnstuff.overworld.diamond_armor.title": "Diamond Armor",
+  "advancements.pigsnstuff.overworld.diamond_armor.desc": "Craft a set of diamond armor (helmet, chestplate, leggings, boots)",
 
-  "advancements.pigsnstuff.redstone.title": "Redstone",
-  "advancements.pigsnstuff.redstone.desc": "Obtain redstone from a chest or by mining redstone ore",
+  "advancements.pigsnstuff.overworld.redstone.title": "Redstone",
+  "advancements.pigsnstuff.overworld.redstone.desc": "Obtain redstone from a chest or by mining redstone ore",
 
-  "advancements.pigsnstuff.piston.title": "Craft a Piston",
-  "advancements.pigsnstuff.piston.desc": "Craft a piston which can push blocks",
+  "advancements.pigsnstuff.overworld.piston.title": "Craft a Piston",
+  "advancements.pigsnstuff.overworld.piston.desc": "Craft a piston which can push blocks",
 
-  "advancements.pigsnstuff.iron_gear.title": "Craft an Iron Gear",
-  "advancements.pigsnstuff.iron_gear.desc": "Craft an Iron Gear from 4 iron",
+  "advancements.pigsnstuff.overworld.iron_gear.title": "Craft an Iron Gear",
+  "advancements.pigsnstuff.overworld.iron_gear.desc": "Craft an Iron Gear from 4 iron",
 
-  "advancements.pigsnstuff.crusher.title": "Craft a Crusher",
-  "advancements.pigsnstuff.crusher.desc": "Craft a crusher, which can crush resources into dust",
+  "advancements.pigsnstuff.overworld.crusher.title": "Craft a Crusher",
+  "advancements.pigsnstuff.overworld.crusher.desc": "Craft a crusher, which can crush resources into dust",
 
-  "advancements.pigsnstuff.dust.title": "Crush material into dust",
-  "advancements.pigsnstuff.dust.desc": "Crush a material into dust",
+  "advancements.pigsnstuff.overworld.dust.title": "Crush material into dust",
+  "advancements.pigsnstuff.overworld.dust.desc": "Crush a material into dust",
 
-  "advancements.pigsnstuff.obsidian.title": "Obsidian",
-  "advancements.pigsnstuff.obsidian.desc": "Mine Obsidian, which is created when water touches lava",
+  "advancements.pigsnstuff.overworld.obsidian.title": "Obsidian",
+  "advancements.pigsnstuff.overworld.obsidian.desc": "Mine Obsidian, which is created when water touches lava",
 
-  "advancements.pigsnstuff.gravel.title": "Gravel",
-  "advancements.pigsnstuff.gravel.desc": "Mine Gravel",
+  "advancements.pigsnstuff.overworld.gravel.title": "Gravel",
+  "advancements.pigsnstuff.overworld.gravel.desc": "Mine Gravel",
 
-  "advancements.pigsnstuff.flint.title": "Flint",
-  "advancements.pigsnstuff.flint.desc": "Break gravel until a piece of flint drops",
+  "advancements.pigsnstuff.overworld.flint.title": "Flint",
+  "advancements.pigsnstuff.overworld.flint.desc": "Break gravel until a piece of flint drops",
 
-  "advancements.pigsnstuff.sugar_cane.title": "Sugar Cane",
-  "advancements.pigsnstuff.sugar_cane.desc": "Obtain sugar cane, which is found near bodies of water",
+  "advancements.pigsnstuff.overworld.sugar_cane.title": "Sugar Cane",
+  "advancements.pigsnstuff.overworld.sugar_cane.desc": "Obtain sugar cane, which is found near bodies of water",
 
-  "advancements.pigsnstuff.paper.title": "Paper",
-  "advancements.pigsnstuff.paper.desc": "Craft paper from sugar cane",
+  "advancements.pigsnstuff.overworld.paper.title": "Paper",
+  "advancements.pigsnstuff.overworld.paper.desc": "Craft paper from sugar cane",
 
-  "advancements.pigsnstuff.leather.title": "Leather",
-  "advancements.pigsnstuff.leather.desc": "Kill a cow or horse to obtain leather",
+  "advancements.pigsnstuff.overworld.leather.title": "Leather",
+  "advancements.pigsnstuff.overworld.leather.desc": "Kill a cow or horse to obtain leather",
 
-  "advancements.pigsnstuff.book.title": "Book",
-  "advancements.pigsnstuff.book.desc": "Craft a book from paper and leather",
+  "advancements.pigsnstuff.overworld.book.title": "Book",
+  "advancements.pigsnstuff.overworld.book.desc": "Craft a book from paper and leather",
 
-  "advancements.pigsnstuff.enchanting_table.title": "Enchanting Table",
-  "advancements.pigsnstuff.enchanting_table.desc": "Craft an enchanting table from obsidian, diamonds and a book",
+  "advancements.pigsnstuff.overworld.enchanting_table.title": "Enchanting Table",
+  "advancements.pigsnstuff.overworld.enchanting_table.desc": "Craft an enchanting table from obsidian, diamonds and a book",
 
-  "advancements.pigsnstuff.lapis.title": "Lapis Lazuli",
-  "advancements.pigsnstuff.lapis.desc": "Mine lapis lazuli ore to obtain lapis lazuli, which can be used for enchanting or crafting blue dye",
+  "advancements.pigsnstuff.overworld.lapis.title": "Lapis Lazuli",
+  "advancements.pigsnstuff.overworld.lapis.desc": "Mine lapis lazuli ore to obtain lapis lazuli, which can be used for enchanting or crafting blue dye",
 
-  "advancements.pigsnstuff.flint_and_steel.title": "Flint and Steel",
-  "advancements.pigsnstuff.flint_and_steel.desc": "Craft a flint and steel, which can be used to light fires, or a nether portal",
+  "advancements.pigsnstuff.overworld.flint_and_steel.title": "Flint and Steel",
+  "advancements.pigsnstuff.overworld.flint_and_steel.desc": "Craft a flint and steel, which can be used to light fires, or a nether portal",
 
-  "advancements.pigsnstuff.nether_portal.title": "Light Nether Portal",
-  "advancements.pigsnstuff.nether_portal.desc": "Place obsidian in a closed vertical rectangle, with a center at least 2 blocks wide and 3 blocks tall, and use flint and steel on inside"
+  "advancements.pigsnstuff.overworld.nether_portal.title": "Light Nether Portal",
+  "advancements.pigsnstuff.overworld.nether_portal.desc": "Place obsidian in a closed vertical rectangle, with a center at least 2 blocks wide and 3 blocks tall, and use flint and steel on inside",
+
+  "advancements.pigsnstuff.nether.root.title": "Enter Nether",
+  "advancements.pigsnstuff.nether.root.desc": "Welcome to the nether, a fiery dimension where every 1 block travelled is equal to 8 blocks in the overworld"
 }

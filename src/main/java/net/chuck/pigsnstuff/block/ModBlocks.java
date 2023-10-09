@@ -323,6 +323,9 @@ public class ModBlocks {
     public static final Block LETTUCE_CROP =
             Registry.register(Registries.BLOCK, new Identifier(PigsNStuff.MOD_ID, "lettuce_crop"),
         new LettuceCropBlock(FabricBlockSettings.copy(Blocks.WHEAT)));
+    public static final Block PINEAPPLE_CROP =
+            Registry.register(Registries.BLOCK, new Identifier(PigsNStuff.MOD_ID, "pineapple_crop"),
+        new PineappleCropBlock(FabricBlockSettings.copy(Blocks.WHEAT)));
     private static Block registerBlock(String name, Block block){
         registerBlockItem(name, block);
         return Registry.register(Registries.BLOCK, new Identifier(PigsNStuff.MOD_ID, name), block);

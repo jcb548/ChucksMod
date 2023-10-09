@@ -2,6 +2,7 @@ package net.chuck.pigsnstuff.data;
 
 import net.chuck.pigsnstuff.block.ModBlocks;
 import net.chuck.pigsnstuff.block.custom.LettuceCropBlock;
+import net.chuck.pigsnstuff.block.custom.PineappleCropBlock;
 import net.chuck.pigsnstuff.block.custom.TomatoCropBlock;
 import net.chuck.pigsnstuff.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
@@ -27,6 +28,8 @@ public class ModModelProvider extends FabricModelProvider {
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
         blockStateModelGenerator.registerCrop(ModBlocks.TOMATO_CROP, TomatoCropBlock.AGE, 0, 1, 2, 3, 4);
         blockStateModelGenerator.registerCrop(ModBlocks.LETTUCE_CROP, LettuceCropBlock.AGE, 0, 1, 2, 3, 4);
+        blockStateModelGenerator.registerCrop(ModBlocks.PINEAPPLE_CROP, PineappleCropBlock.AGE,
+                0, 1, 2, 3, 4, 5, 6, 7, 8);
 
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.IRON_DUST_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.COPPER_DUST_BLOCK);
@@ -224,6 +227,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.HAMBURGER, Models.GENERATED);
         itemModelGenerator.register(ModItems.TOMATO, Models.GENERATED);
         itemModelGenerator.register(ModItems.LETTUCE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.PINEAPPLE, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.PRISMARINE_DUST, Models.GENERATED);
         itemModelGenerator.register(ModItems.PRISMARINE_IRON_DUST, Models.GENERATED);

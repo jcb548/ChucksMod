@@ -28,6 +28,8 @@ public class ModItemGroups {
                         entries.add(ModItems.TOMATO_SEEDS);
                         entries.add(ModItems.LETTUCE);
                         entries.add(ModItems.LETTUCE_SEEDS);
+                        entries.add(ModItems.PINEAPPLE);
+                        entries.add(ModItems.PINEAPPLE_SEEDS);
 
                         entries.add(ModBlocks.SANDSTONE_BRICKS);
                         entries.add(ModBlocks.SANDSTONE_BRICK_STAIRS);

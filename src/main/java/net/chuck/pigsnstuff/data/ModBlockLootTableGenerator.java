@@ -2,6 +2,7 @@ package net.chuck.pigsnstuff.data;
 
 import net.chuck.pigsnstuff.block.ModBlocks;
 import net.chuck.pigsnstuff.block.custom.LettuceCropBlock;
+import net.chuck.pigsnstuff.block.custom.PineappleCropBlock;
 import net.chuck.pigsnstuff.block.custom.TomatoCropBlock;
 import net.chuck.pigsnstuff.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
@@ -142,10 +143,17 @@ public class ModBlockLootTableGenerator extends FabricBlockLootTableProvider {
                 .exactMatch(TomatoCropBlock.AGE, TomatoCropBlock.MAX_AGE));
         addDrop(ModBlocks.TOMATO_CROP, cropDrops(ModBlocks.TOMATO_CROP, ModItems.TOMATO, ModItems.TOMATO_SEEDS,
                 tomatoCropBuilder));
+
         BlockStatePropertyLootCondition.Builder lettuceCropBuilder = BlockStatePropertyLootCondition.builder
                         (ModBlocks.LETTUCE_CROP).properties(StatePredicate.Builder.create()
                 .exactMatch(LettuceCropBlock.AGE, LettuceCropBlock.MAX_AGE));
         addDrop(ModBlocks.LETTUCE_CROP, cropDrops(ModBlocks.LETTUCE_CROP, ModItems.LETTUCE, ModItems.LETTUCE_SEEDS,
                 lettuceCropBuilder));
+
+        BlockStatePropertyLootCondition.Builder pineappleCropBuilder = BlockStatePropertyLootCondition.builder
+                        (ModBlocks.PINEAPPLE_CROP).properties(StatePredicate.Builder.create()
+                .exactMatch(PineappleCropBlock.AGE, PineappleCropBlock.MAX_AGE));
+        addDrop(ModBlocks.PINEAPPLE_CROP, cropDrops(ModBlocks.PINEAPPLE_CROP, ModItems.PINEAPPLE, ModItems.PINEAPPLE_SEEDS,
+                pineappleCropBuilder));
     }
 }

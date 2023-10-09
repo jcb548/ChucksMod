@@ -7,6 +7,7 @@ import net.chuck.pigsnstuff.item.custom.*;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
+import net.minecraft.block.Blocks;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -31,6 +32,10 @@ public class ModItems {
             new Item(new FabricItemSettings().food(ModFoodComponents.LETTUCE)));
     public static final Item LETTUCE_SEEDS = registerItem("lettuce_seeds",
             new AliasedBlockItem(ModBlocks.LETTUCE_CROP, new FabricItemSettings()));
+    public static final Item PINEAPPLE = registerItem("pineapple",
+            new Item(new FabricItemSettings().food(ModFoodComponents.PINEAPPLE)));
+    public static final Item PINEAPPLE_SEEDS = registerItem("pineapple_seeds",
+            new AliasedBlockItem(ModBlocks.PINEAPPLE_CROP, new FabricItemSettings()));
     // Crushed Vanilla Resources
     public static final Item IRON_DUST = registerItem("iron_dust",
             new Item(new FabricItemSettings()));
