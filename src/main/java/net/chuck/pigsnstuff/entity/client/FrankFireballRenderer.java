@@ -1,4 +1,4 @@
-package net.chuck.pigsnstuff.entity.custom.client;
+package net.chuck.pigsnstuff.entity.client;
 
 import net.chuck.pigsnstuff.PigsNStuff;
 import net.chuck.pigsnstuff.entity.custom.FrankFireballEntity;

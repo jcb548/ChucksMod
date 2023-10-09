@@ -3,10 +3,7 @@ package net.chuck.pigsnstuff;
 import net.chuck.pigsnstuff.block.ModBlocks;
 import net.chuck.pigsnstuff.client.ArmorHudOverlay;
 import net.chuck.pigsnstuff.entity.ModEntities;
-import net.chuck.pigsnstuff.entity.custom.client.FrankFireballModel;
-import net.chuck.pigsnstuff.entity.custom.client.FrankFireballRenderer;
-import net.chuck.pigsnstuff.entity.custom.client.FrankRenderer;
-import net.chuck.pigsnstuff.entity.custom.client.WyattRenderer;
+import net.chuck.pigsnstuff.entity.client.*;
 import net.chuck.pigsnstuff.networking.ModMessages;
 import net.chuck.pigsnstuff.screen.CrusherScreen;
 import net.chuck.pigsnstuff.screen.GeneratorScreen;
@@ -15,12 +12,13 @@ import net.chuck.pigsnstuff.screen.PoweredCrusherScreen;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.minecraft.client.color.world.BiomeColors;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.render.RenderLayer;
-import software.bernie.shadowed.eliotlash.mclib.math.functions.classic.Mod;
+import net.minecraft.client.render.entity.model.EntityModelLayer;
 
 /*
  *  Code inspired by or copied from
@@ -107,6 +105,7 @@ public class PigsNStuffClient implements ClientModInitializer {
         HandledScreens.register(ModScreenHandlers.GENERATOR_SCREEN_HANDLER, GeneratorScreen::new);
 
         HudRenderCallback.EVENT.register(new ArmorHudOverlay());
+        EntityModelLayerRegistry.registerModelLayer(ModModelLayers.WYATT, WyattModel::getTexturedModelData);
         EntityRendererRegistry.register(ModEntities.WYATT, WyattRenderer::new);
         EntityRendererRegistry.register(ModEntities.FRANK_BOSS, FrankRenderer::new);
         EntityRendererRegistry.register(ModEntities.FRANK_FIREBALL, FrankFireballRenderer::new);

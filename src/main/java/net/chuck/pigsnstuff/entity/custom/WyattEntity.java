@@ -1,8 +1,6 @@
 package net.chuck.pigsnstuff.entity.custom;
 
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.EquipmentSlot;
-import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.*;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
@@ -13,18 +11,30 @@ import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.world.World;
-import software.bernie.geckolib.GeckoLib;
-import software.bernie.geckolib.animatable.GeoEntity;
-import software.bernie.geckolib.core.animatable.GeoAnimatable;
-import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.core.animation.*;
-import software.bernie.geckolib.core.object.PlayState;
-import software.bernie.geckolib.util.GeckoLibUtil;
 
-public class WyattEntity extends HostileEntity implements GeoEntity{
-    private AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
+public class WyattEntity extends HostileEntity{
+    public final AnimationState idleAnimationState = new AnimationState();
+    private int idleAnimationTimeout = 0;
+    public final AnimationState attackingAnimationState = new AnimationState();
+    private int attackingAnimationTimeout = 8;
     public WyattEntity(EntityType<? extends HostileEntity> entityType, World world) {
         super(entityType, world);
+    }
+
+    private void setupAnimationStates(){
+        if(this.idleAnimationTimeout <=0){
+            this.idleAnimationTimeout = this.random.nextInt(40) + 80;
+            this.idleAnimationState.start(this.age);
+        } else {
+            --this.idleAnimationTimeout;
+        }
+    }
+    @Override
+    public void tick() {
+        super.tick();
+        if(this.getWorld().isClient()){
+            setupAnimationStates();
+        }
     }
     public static DefaultAttributeContainer.Builder setAttributes() {
         return HostileEntity.createMobAttributes()
@@ -44,52 +54,18 @@ public class WyattEntity extends HostileEntity implements GeoEntity{
     }
 
     @Override
-    public void registerControllers(AnimatableManager.ControllerRegistrar controllerRegistrar) {
-        controllerRegistrar.add(new AnimationController<>(this, "controller",
-                0, this::predicate),
-                new AnimationController<>(this, "attackController",
-                0, this::attackPredicate));
-    }
-
-    private <T extends GeoAnimatable> PlayState predicate(AnimationState<T> tAnimationState) {
-        if(tAnimationState.isMoving()){
-            tAnimationState.getController().setAnimation(RawAnimation.begin()
-                    .then("animation.wyatt.walk", Animation.LoopType.LOOP));
-            return PlayState.CONTINUE;
+    public void handleStatus(byte status) {
+        if (status == EntityStatuses.PLAY_ATTACK_SOUND) {
+            this.idleAnimationState.stop();
+            this.attackingAnimationState.start(this.age);
         } else {
-            tAnimationState.getController().setAnimation(RawAnimation.begin()
-                    .then("animation.wyatt.idle", Animation.LoopType.LOOP));
-            return PlayState.CONTINUE;
+            super.handleStatus(status);
         }
     }
 
-    private <T extends GeoAnimatable> PlayState attackPredicate(AnimationState<T> tAnimationState){
-        if(this.handSwinging) {
-            return tAnimationState.setAndContinue(RawAnimation.begin()
-                    .thenPlay("animation.wyatt.attack"));
-        }
-            tAnimationState.getController().forceAnimationReset();
-        return PlayState.STOP;
-    }
     @Override
-    public AnimatableInstanceCache getAnimatableInstanceCache() {
-        return cache;
-    }
-    @Override
-    protected ActionResult interactMob(PlayerEntity player, Hand hand) {
-        ItemStack stack = player.getStackInHand(hand);
-
-        if (this.getWorld().isClient() || stack.isEmpty())
-            return super.interactMob(player, hand);
-
-        EquipmentSlot slot = LivingEntity.getPreferredEquipmentSlot(stack);
-
-        equipStack(slot, stack.copy());
-        player.sendMessage(Text.translatable("entity." + GeckoLib.MOD_ID + ".mutant_zombie.equip", stack.toHoverableText()));
-
-        if (slot == EquipmentSlot.MAINHAND || slot == EquipmentSlot.OFFHAND)
-            triggerAnim(getActiveHand() == hand ? "Left Hand" : "Right Hand", "interact");
-
-        return ActionResult.SUCCESS;
+    public boolean tryAttack(Entity target) {
+        this.getWorld().sendEntityStatus(this, EntityStatuses.PLAY_ATTACK_SOUND);
+        return super.tryAttack(target);
     }
 }
