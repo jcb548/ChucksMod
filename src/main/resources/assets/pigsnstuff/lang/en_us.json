@@ -331,6 +331,18 @@
   "advancements.pigsnstuff.overworld.nether_portal.title": "Light Nether Portal",
   "advancements.pigsnstuff.overworld.nether_portal.desc": "Place obsidian in a closed vertical rectangle, with a center at least 2 blocks wide and 3 blocks tall, and use flint and steel on inside",
 
+  "advancements.pigsnstuff.overworld.enchant_item.title": "Enchant an Item",
+  "advancements.pigsnstuff.overworld.enchant_item.desc": "Enchant an item in your enchanting table, It is recommended to place at least 15 bookshelves 1 unobstructed block away for max level (30) enchantments",
+
+  "advancements.pigsnstuff.overworld.bookshelf.title": "Bookshelf",
+  "advancements.pigsnstuff.overworld.bookshelf.desc": "Craft a bookshelf from 3 books and 6 planks",
+
+  "advancements.pigsnstuff.overworld.village.title": "Village",
+  "advancements.pigsnstuff.overworld.village.desc": "Enter a Village (Can be found in plains, savanna, snowy plains, taiga and deserts)",
+
+  "advancements.pigsnstuff.overworld.trade.title": "Trade",
+  "advancements.pigsnstuff.overworld.trade.desc": "Trade with a villager",
+
   "advancements.pigsnstuff.nether.root.title": "Enter Nether",
   "advancements.pigsnstuff.nether.root.desc": "Welcome to the nether, a fiery dimension where every 1 block travelled is equal to 8 blocks in the overworld"
 }

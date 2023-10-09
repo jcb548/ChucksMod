@@ -11,7 +11,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class ModAquaShovelItem extends ModAxeItem{
+public class ModAquaShovelItem extends ModShovelItem{
     public ModAquaShovelItem(ToolMaterial toolMaterial, int attackDamage, float attackSpeed, Settings settings) {
         super(toolMaterial, attackDamage, attackSpeed, settings);
     }

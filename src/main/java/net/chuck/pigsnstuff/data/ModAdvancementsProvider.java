@@ -15,6 +15,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.passive.AnimalEntity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.predicate.BlockPredicate;
 import net.minecraft.predicate.entity.EntityPredicate;
@@ -25,6 +26,7 @@ import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
+import net.minecraft.world.gen.structure.StructureKeys;
 
 import java.util.function.Consumer;
 
@@ -435,6 +437,48 @@ public class ModAdvancementsProvider extends FabricAdvancementProvider {
                 .parent(obsidian)
                 .rewards(AdvancementRewards.Builder.experience(100))
                 .build(consumer, PigsNStuff.MOD_ID + "/overworld/nether_portal");
+
+        Advancement enchantItem = Advancement.Builder.create().display(Items.ENCHANTED_BOOK,
+                        Text.translatable("advancements." + PigsNStuff.MOD_ID + ".overworld.enchant_item.title"),
+                        Text.translatable("advancements." + PigsNStuff.MOD_ID + ".overworld.enchant_item.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("enchant_item", EnchantedItemCriterion.Conditions.any())
+                .parent(enchantmentTable)
+                .build(consumer, PigsNStuff.MOD_ID + "/overworld/enchant_item");
+
+        Advancement bookshelf = Advancement.Builder.create().display(Blocks.BOOKSHELF,
+                        Text.translatable("advancements." + PigsNStuff.MOD_ID + ".overworld.bookshelf.title"),
+                        Text.translatable("advancements." + PigsNStuff.MOD_ID + ".overworld.bookshelf.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("enchant_item", InventoryChangedCriterion.Conditions.items(Blocks.BOOKSHELF))
+                .parent(book)
+                .build(consumer, PigsNStuff.MOD_ID + "/overworld/bookshelf");
+
+        Advancement village = Advancement.Builder.create().display(Blocks.OAK_PLANKS,
+                        Text.translatable("advancements." + PigsNStuff.MOD_ID + ".overworld.village.title"),
+                        Text.translatable("advancements." + PigsNStuff.MOD_ID + ".overworld.village.desc"),
+                null, AdvancementFrame.TASK, true, true, false)
+                .criteriaMerger(CriterionMerger.OR)
+                .criterion("desert_village",
+                        TickCriterion.Conditions.createLocation(LocationPredicate.feature(StructureKeys.VILLAGE_DESERT)))
+                .criterion("plains_village",
+                        TickCriterion.Conditions.createLocation(LocationPredicate.feature(StructureKeys.VILLAGE_PLAINS)))
+                .criterion("savanna_village",
+                        TickCriterion.Conditions.createLocation(LocationPredicate.feature(StructureKeys.VILLAGE_SAVANNA)))
+                .criterion("snowy_village",
+                        TickCriterion.Conditions.createLocation(LocationPredicate.feature(StructureKeys.VILLAGE_SNOWY)))
+                .criterion("taiga_village",
+                        TickCriterion.Conditions.createLocation(LocationPredicate.feature(StructureKeys.VILLAGE_TAIGA)))
+                .parent(root)
+                .build(consumer, PigsNStuff.MOD_ID + "/overworld/village");
+
+        Advancement trade = Advancement.Builder.create().display(Items.EMERALD,
+                        Text.translatable("advancements." + PigsNStuff.MOD_ID + ".overworld.trade.title"),
+                        Text.translatable("advancements." + PigsNStuff.MOD_ID + ".overworld.trade.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("trade", VillagerTradeCriterion.Conditions.any())
+                .parent(village)
+                .build(consumer, PigsNStuff.MOD_ID + "/overworld/trade");
     }
     private void netherAdvancements(Consumer<Advancement> consumer) {
         Advancement root = Advancement.Builder.create()

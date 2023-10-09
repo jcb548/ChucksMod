@@ -9,6 +9,7 @@ import net.chuck.pigsnstuff.item.ModItemGroups;
 import net.chuck.pigsnstuff.item.ModItems;
 import net.chuck.pigsnstuff.recipe.ModRecipes;
 import net.chuck.pigsnstuff.screen.ModScreenHandlers;
+import net.chuck.pigsnstuff.util.ModCustomTrades;
 import net.chuck.pigsnstuff.util.ModLootTableModifiers;
 import net.chuck.pigsnstuff.util.ModRegistries;
 import net.chuck.pigsnstuff.world.gen.ModWorldGeneration;
@@ -43,6 +44,7 @@ public class PigsNStuff implements ModInitializer {
 		ModBlocks.registerModBlocks();
 		ModRegistries.registerModStuffs();
 		ModLootTableModifiers.modifyLootTables();
+		ModCustomTrades.registerCustomTrades();
 
 		ModBlockEntities.registerBlockEntities();
 		ModScreenHandlers.registerAllScreenHandlers();
