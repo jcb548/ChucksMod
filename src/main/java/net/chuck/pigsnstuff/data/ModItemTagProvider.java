@@ -74,7 +74,8 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(Items.MELON_SEEDS)
                 .add(Items.PUMPKIN_SEEDS)
                 .add(ModItems.TOMATO_SEEDS)
-                .add(ModItems.LETTUCE_SEEDS);
+                .add(ModItems.LETTUCE_SEEDS)
+                .add(ModItems.PINEAPPLE_SEEDS);
 
         getOrCreateTagBuilder(ItemTags.SWORDS)
                 .add(ModItems.BRONZE_SWORD)

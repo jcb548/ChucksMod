@@ -23,6 +23,8 @@ public class ModLootTableModifiers {
             = new Identifier("minecraft", "blocks/grass");
     private static final Identifier WITHER_SKELETON_ID =
             new Identifier("minecraft", "entities/wither_skeleton");
+    private static final Identifier MINESHAFT_ID =
+             new Identifier("minecraft", "chests/abandoned_mineshaft");
 
     public static void modifyLootTables() {
         LootTableEvents.MODIFY.register(((resourceManager, lootManager, id, tableBuilder, source) -> {
@@ -58,6 +60,14 @@ public class ModLootTableModifiers {
                         .conditionally(RandomChanceLootCondition.builder(0.15f)) // drops 15% of the time
                         .with(ItemEntry.builder(ModItems.WITHER_BONE))
                         .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build());
+                tableBuilder.pool(poolBuilder.build());
+            }
+            if(MINESHAFT_ID.equals(id)){
+                LootPool.Builder poolBuilder = LootPool.builder()
+                        .rolls(ConstantLootNumberProvider.create(1))
+                        .conditionally(RandomChanceLootCondition.builder(0.25f)) // drops 25% of the time
+                        .with(ItemEntry.builder(ModItems.PINEAPPLE_SEEDS))
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 2.0f)).build());
                 tableBuilder.pool(poolBuilder.build());
             }
         }));
