@@ -6,17 +6,12 @@ import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.text.Text;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.Hand;
 import net.minecraft.world.World;
 
 public class WyattEntity extends HostileEntity{
     public final AnimationState idleAnimationState = new AnimationState();
     private int idleAnimationTimeout = 0;
     public final AnimationState attackingAnimationState = new AnimationState();
-    private int attackingAnimationTimeout = 8;
     public WyattEntity(EntityType<? extends HostileEntity> entityType, World world) {
         super(entityType, world);
     }

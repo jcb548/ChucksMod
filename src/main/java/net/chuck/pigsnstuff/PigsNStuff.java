@@ -3,7 +3,7 @@ package net.chuck.pigsnstuff;
 import net.chuck.pigsnstuff.block.ModBlocks;
 import net.chuck.pigsnstuff.block.entity.ModBlockEntities;
 import net.chuck.pigsnstuff.entity.ModEntities;
-import net.chuck.pigsnstuff.entity.custom.FrankEntity;
+import net.chuck.pigsnstuff.entity.custom.FrankBoss;
 import net.chuck.pigsnstuff.entity.custom.WyattEntity;
 import net.chuck.pigsnstuff.item.ModItemGroups;
 import net.chuck.pigsnstuff.item.ModItems;
@@ -21,7 +21,6 @@ import net.minecraft.block.Blocks;
 import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import software.bernie.geckolib.GeckoLib;
 
 /*
  *  Code inspired by or copied from
@@ -61,8 +60,7 @@ public class PigsNStuff implements ModInitializer {
 				.destDimID(new Identifier("pigsnstuff", "diritia"))
 				.tintColor(211, 185, 255).registerPortal();
 		//ServerTickEvents.START_SERVER_TICK.register(new PlayerTickHandler());
-		GeckoLib.initialize();
 		FabricDefaultAttributeRegistry.register(ModEntities.WYATT, WyattEntity.setAttributes());
-		FabricDefaultAttributeRegistry.register(ModEntities.FRANK_BOSS, FrankEntity.setAttributes());
+		FabricDefaultAttributeRegistry.register(ModEntities.FRANK_BOSS, FrankBoss.setAttributes());
 	}
 }

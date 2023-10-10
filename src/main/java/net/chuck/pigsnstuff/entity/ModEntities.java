@@ -1,7 +1,7 @@
 package net.chuck.pigsnstuff.entity;
 
 import net.chuck.pigsnstuff.PigsNStuff;
-import net.chuck.pigsnstuff.entity.custom.FrankEntity;
+import net.chuck.pigsnstuff.entity.custom.FrankBoss;
 import net.chuck.pigsnstuff.entity.custom.FrankFireballEntity;
 import net.chuck.pigsnstuff.entity.custom.WyattEntity;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
@@ -17,9 +17,9 @@ public class ModEntities {
             Registries.ENTITY_TYPE, new Identifier(PigsNStuff.MOD_ID, "wyatt"),
             FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, WyattEntity::new)
                     .dimensions(EntityDimensions.fixed(0.6f, 1.6f)).build());
-    public static final EntityType<FrankEntity> FRANK_BOSS = Registry.register(
+    public static final EntityType<FrankBoss> FRANK_BOSS = Registry.register(
             Registries.ENTITY_TYPE, new Identifier(PigsNStuff.MOD_ID, "frank"),
-            FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, FrankEntity::new)
+            FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, FrankBoss::new)
                     .dimensions(EntityDimensions.fixed(0.8f, 2.0f)).fireImmune().build());
     public static final EntityType<FrankFireballEntity> FRANK_FIREBALL = Registry.register(
             Registries.ENTITY_TYPE, new Identifier(PigsNStuff.MOD_ID, "frank_fireball"),

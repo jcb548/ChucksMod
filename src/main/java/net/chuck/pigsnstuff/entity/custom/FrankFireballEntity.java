@@ -3,20 +3,12 @@ package net.chuck.pigsnstuff.entity.custom;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.projectile.AbstractFireballEntity;
 import net.minecraft.entity.projectile.ExplosiveProjectileEntity;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.hit.HitResult;
 import net.minecraft.world.World;
-import software.bernie.geckolib.animatable.GeoEntity;
-import software.bernie.geckolib.core.animatable.GeoAnimatable;
-import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.core.animation.*;
-import software.bernie.geckolib.core.object.PlayState;
-import software.bernie.geckolib.util.GeckoLibUtil;
 
-public class FrankFireballEntity extends ExplosiveProjectileEntity implements GeoEntity {
-    private AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
+public class FrankFireballEntity extends ExplosiveProjectileEntity{
     public FrankFireballEntity(EntityType<? extends ExplosiveProjectileEntity> entityType, World world) {
         super(entityType, world);
     }
@@ -33,23 +25,6 @@ public class FrankFireballEntity extends ExplosiveProjectileEntity implements Ge
             this.powerZ = directionZ / d * 0.2;
         }
     }
-
-    @Override
-    public void registerControllers(AnimatableManager.ControllerRegistrar controllerRegistrar) {
-        controllerRegistrar.add(new AnimationController<>(this, "controller",
-                0, this::predicate));
-    }
-
-    private <T extends GeoAnimatable> PlayState predicate(AnimationState<T> tAnimationState) {
-        tAnimationState.getController().setAnimation(RawAnimation.begin()
-                .then("animation.frank_fireball.idle", Animation.LoopType.LOOP));
-        return PlayState.CONTINUE;
-    }
-    @Override
-    public AnimatableInstanceCache getAnimatableInstanceCache() {
-        return cache;
-    }
-
     @Override
     protected void onCollision(HitResult hitResult) {
         super.onCollision(hitResult);
@@ -59,7 +34,6 @@ public class FrankFireballEntity extends ExplosiveProjectileEntity implements Ge
             this.discard();
         }
     }
-
     @Override
     protected void onEntityHit(EntityHitResult entityHitResult) {
         super.onEntityHit(entityHitResult);
@@ -77,7 +51,6 @@ public class FrankFireballEntity extends ExplosiveProjectileEntity implements Ge
         }
 
     }
-
     @Override
     public boolean canHit() {
         return false;

@@ -9,7 +9,6 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.data.client.*;
 import net.minecraft.item.ArmorItem;
-import software.bernie.shadowed.eliotlash.mclib.math.functions.classic.Mod;
 
 /*
  *  Code inspired by or copied from

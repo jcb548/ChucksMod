@@ -1,13 +1,11 @@
 package net.chuck.pigsnstuff.entity.client;
 
-import net.chuck.pigsnstuff.entity.animation.ModAnimations;
+import net.chuck.pigsnstuff.entity.animation.WyattAnimations;
 import net.chuck.pigsnstuff.entity.custom.WyattEntity;
 import net.minecraft.client.model.*;
 import net.minecraft.client.render.VertexConsumer;
-import net.minecraft.client.render.entity.model.EntityModel;
 import net.minecraft.client.render.entity.model.SinglePartEntityModel;
 import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
 
 // Made with Blockbench 4.8.3
@@ -53,11 +51,12 @@ public class WyattModel<T extends WyattEntity> extends SinglePartEntityModel<T> 
 		return TexturedModelData.of(modelData, 64, 64);
 	}
 	@Override
-	public void setAngles(WyattEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+	public void setAngles(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 		this.getPart().traverse().forEach(ModelPart::resetTransform);
 		this.setHeadAngles(netHeadYaw, headPitch);
-		this.animateMovement(ModAnimations.WYATT_WALK, limbSwing, limbSwingAmount, 1f, 1f);
-		this.updateAnimation(entity.attackingAnimationState, ModAnimations.WYATT_ATTACK, ageInTicks);
+		this.animateMovement(WyattAnimations.WALK, limbSwing, limbSwingAmount, 1f, 1f);
+		this.updateAnimation(entity.idleAnimationState, WyattAnimations.IDLE, ageInTicks);
+		this.updateAnimation(entity.attackingAnimationState, WyattAnimations.ATTACK, ageInTicks);
 	}
 
 	private void setHeadAngles(float headYaw, float headPitch){

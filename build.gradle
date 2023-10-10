@@ -20,10 +20,6 @@ repositories {
 			includeGroup "curse.maven"
 		}
 	}
-	maven {
-		name = 'GeckoLib'
-		url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/'
-	}
 	// Add repositories to retrieve artifacts from in here.
 	// You should only use this when depending on other mods because
 	// Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
@@ -76,7 +72,6 @@ dependencies {
 	include 'net.kyrptonaught:customportalapi:0.0.1-beta64-1.20'
 	modImplementation("curse.maven:reborncore-237903:4708961")
 	modImplementation("curse.maven:techreborn-233564:4708962")
-	modImplementation 'software.bernie.geckolib:geckolib-fabric-1.20.1:4.2.2'
 }
 
 processResources {

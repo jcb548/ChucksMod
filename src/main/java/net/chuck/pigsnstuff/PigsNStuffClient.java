@@ -107,7 +107,9 @@ public class PigsNStuffClient implements ClientModInitializer {
         HudRenderCallback.EVENT.register(new ArmorHudOverlay());
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.WYATT, WyattModel::getTexturedModelData);
         EntityRendererRegistry.register(ModEntities.WYATT, WyattRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(ModModelLayers.FRANK, FrankModel::getTexturedModelData);
         EntityRendererRegistry.register(ModEntities.FRANK_BOSS, FrankRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(ModModelLayers.FRANK_FIREBALL, FrankFireballModel::getTexturedModelData);
         EntityRendererRegistry.register(ModEntities.FRANK_FIREBALL, FrankFireballRenderer::new);
     }
 }

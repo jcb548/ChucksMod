@@ -1,23 +1,86 @@
 package net.chuck.pigsnstuff.entity.client;
 
-import net.chuck.pigsnstuff.PigsNStuff;
-import net.chuck.pigsnstuff.entity.custom.FrankEntity;
-import net.minecraft.util.Identifier;
-import software.bernie.geckolib.model.GeoModel;
+import net.chuck.pigsnstuff.entity.animation.FrankAnimations;
+import net.chuck.pigsnstuff.entity.custom.FrankBoss;
+import net.minecraft.client.model.*;
+import net.minecraft.client.render.VertexConsumer;
+import net.minecraft.client.render.entity.model.SinglePartEntityModel;
+import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.util.math.MathHelper;
 
-public class FrankModel extends GeoModel<FrankEntity> {
-    @Override
-    public Identifier getModelResource(FrankEntity animatable) {
-        return new Identifier(PigsNStuff.MOD_ID, "geo/frank.geo.json");
-    }
+// Made with Blockbench 4.8.3
+// Exported for Minecraft version 1.17+ for Yarn
+// Paste this class into your mod and generate all required imports
+public class FrankModel<T extends FrankBoss> extends SinglePartEntityModel<T> {
+	private final ModelPart bone;
+	private final ModelPart head;
+	public FrankModel(ModelPart root) {
+		this.bone = root.getChild("bone");
+		this.head = bone.getChild("upper_body").getChild("head");
+	}
+	public static TexturedModelData getTexturedModelData() {
+		ModelData modelData = new ModelData();
+		ModelPartData modelPartData = modelData.getRoot();
+		ModelPartData bone = modelPartData.addChild("bone", ModelPartBuilder.create(), ModelTransform.pivot(-6.0F, -2.0F, -1.0F));
 
-    @Override
-    public Identifier getTextureResource(FrankEntity animatable) {
-        return new Identifier(PigsNStuff.MOD_ID, "textures/entity/frank_texture.png");
-    }
+		ModelPartData upper_body = bone.addChild("upper_body", ModelPartBuilder.create(), ModelTransform.pivot(0.0F, 0.0F, 0.0F));
 
-    @Override
-    public Identifier getAnimationResource(FrankEntity animatable) {
-        return new Identifier(PigsNStuff.MOD_ID, "animations/frank.animation.json");
-    }
+		ModelPartData body = upper_body.addChild("body", ModelPartBuilder.create(), ModelTransform.pivot(0.0F, 0.0F, 0.0F));
+
+		ModelPartData main_body = body.addChild("main_body", ModelPartBuilder.create().uv(0, 16).cuboid(2.0F, 2.0F, -2.0F, 8.0F, 12.0F, 4.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, 0.0F, 0.0F));
+
+		ModelPartData left_arm = body.addChild("left_arm", ModelPartBuilder.create(), ModelTransform.pivot(10.0F, 2.0F, 0.0F));
+
+		ModelPartData left_arm_upper = left_arm.addChild("left_arm_upper", ModelPartBuilder.create().uv(36, 10).cuboid(0.0F, 0.0F, -2.0F, 4.0F, 6.0F, 4.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, 0.0F, 0.0F));
+
+		ModelPartData left_arm_lower = left_arm.addChild("left_arm_lower", ModelPartBuilder.create().uv(32, 0).cuboid(10.0F, 8.0F, -2.0F, 4.0F, 6.0F, 4.0F, new Dilation(0.0F)), ModelTransform.pivot(-10.0F, -2.0F, 0.0F));
+
+		ModelPartData right_arm = body.addChild("right_arm", ModelPartBuilder.create(), ModelTransform.pivot(2.0F, 2.0F, 0.0F));
+
+		ModelPartData right_arm_upper = right_arm.addChild("right_arm_upper", ModelPartBuilder.create().uv(16, 36).cuboid(-4.0F, 0.0F, -2.0F, 4.0F, 6.0F, 4.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, 0.0F, 0.0F));
+
+		ModelPartData right_arm_lower = right_arm.addChild("right_arm_lower", ModelPartBuilder.create().uv(0, 32).cuboid(-2.0F, 0.0F, -2.0F, 4.0F, 6.0F, 4.0F, new Dilation(0.0F)), ModelTransform.pivot(-2.0F, 6.0F, 0.0F));
+
+		ModelPartData head = upper_body.addChild("head", ModelPartBuilder.create().uv(0, 0).cuboid(-4.0F, -8.0F, -4.0F, 8.0F, 8.0F, 8.0F, new Dilation(0.0F)), ModelTransform.pivot(6.0F, 2.0F, 0.0F));
+
+		ModelPartData legs = bone.addChild("legs", ModelPartBuilder.create(), ModelTransform.pivot(0.0F, 0.0F, 0.0F));
+
+		ModelPartData right_leg = legs.addChild("right_leg", ModelPartBuilder.create(), ModelTransform.pivot(4.0F, 14.0F, 0.0F));
+
+		ModelPartData right_leg_upper = right_leg.addChild("right_leg_upper", ModelPartBuilder.create().uv(40, 20).cuboid(-2.0F, 0.0F, -2.0F, 4.0F, 6.0F, 4.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, 0.0F, 0.0F));
+
+		ModelPartData right_leg_lower = right_leg.addChild("right_leg_lower", ModelPartBuilder.create().uv(24, 16).cuboid(-2.0F, 0.0F, -2.0F, 4.0F, 6.0F, 4.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, 6.0F, 0.0F));
+
+		ModelPartData left_leg = legs.addChild("left_leg", ModelPartBuilder.create(), ModelTransform.pivot(8.0F, 14.0F, 0.0F));
+
+		ModelPartData left_leg_upper = left_leg.addChild("left_leg_upper", ModelPartBuilder.create().uv(32, 36).cuboid(-2.0F, 0.0F, -2.0F, 4.0F, 6.0F, 4.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, 0.0F, 0.0F));
+
+		ModelPartData left_leg_lower = left_leg.addChild("left_leg_lower", ModelPartBuilder.create().uv(24, 26).cuboid(-2.0F, 0.0F, -2.0F, 4.0F, 6.0F, 4.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, 6.0F, 0.0F));
+		return TexturedModelData.of(modelData, 64, 64);
+	}
+	@Override
+	public void render(MatrixStack matrices, VertexConsumer vertexConsumer, int light, int overlay, float red, float green, float blue, float alpha) {
+		bone.render(matrices, vertexConsumer, light, overlay, red, green, blue, alpha);
+	}
+
+	@Override
+	public ModelPart getPart() {
+		return bone;
+	}
+
+	@Override
+	public void setAngles(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+		this.getPart().traverse().forEach(ModelPart::resetTransform);
+		this.setHeadAngles(netHeadYaw, headPitch);
+		this.animateMovement(FrankAnimations.WALK, limbSwing, limbSwingAmount, 2f, 2f);
+		this.updateAnimation(entity.idleAnimationState, FrankAnimations.IDLE, ageInTicks);
+		this.updateAnimation(entity.attackingAnimationState, FrankAnimations.THROW_FIREBALL, ageInTicks);
+	}
+
+	private void setHeadAngles(float headYaw, float headPitch){
+		headYaw = MathHelper.clamp(headYaw, -30.0f, 30.0f);
+		headPitch = MathHelper.clamp(headPitch, -25.0f, 25.0f);
+		this.head.yaw = headYaw * ((float)Math.PI/180);
+		this.head.pitch = headPitch * ((float)Math.PI/180);
+	}
 }

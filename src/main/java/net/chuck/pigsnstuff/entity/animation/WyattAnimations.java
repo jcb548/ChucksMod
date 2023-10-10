@@ -5,8 +5,8 @@ import net.minecraft.client.render.entity.animation.AnimationHelper;
 import net.minecraft.client.render.entity.animation.Keyframe;
 import net.minecraft.client.render.entity.animation.Transformation;
 
-public class ModAnimations {
-    public static final Animation WYATT_IDLE = Animation.Builder.create(2.88f).looping()
+public class WyattAnimations {
+    public static final Animation IDLE = Animation.Builder.create(2.88f).looping()
             .addBoneAnimation("right_arm",
                     new Transformation(Transformation.Targets.ROTATE,
                             new Keyframe(0f, AnimationHelper.createRotationalVector(0f, 0f, 0f),
@@ -39,7 +39,7 @@ public class ModAnimations {
                     new Transformation(Transformation.Targets.ROTATE,
                             new Keyframe(0f, AnimationHelper.createRotationalVector(0f, 0f, 0f),
                                     Transformation.Interpolations.LINEAR))).build();
-    public static final Animation WYATT_WALK = Animation.Builder.create(1.44f).looping()
+    public static final Animation WALK = Animation.Builder.create(1.44f).looping()
             .addBoneAnimation("right_leg",
                     new Transformation(Transformation.Targets.ROTATE,
                             new Keyframe(0f, AnimationHelper.createRotationalVector(0f, 0f, 0f),
@@ -80,7 +80,7 @@ public class ModAnimations {
                                     Transformation.Interpolations.LINEAR),
                             new Keyframe(1.44f, AnimationHelper.createRotationalVector(0f, 0f, 0f),
                                     Transformation.Interpolations.LINEAR))).build();
-    public static final Animation WYATT_ATTACK = Animation.Builder.create(0.375f)
+    public static final Animation ATTACK = Animation.Builder.create(0.375f)
             .addBoneAnimation("left_arm",
                     new Transformation(Transformation.Targets.TRANSLATE,
                             new Keyframe(0f, AnimationHelper.createTranslationalVector(0f, 0f, 0f),

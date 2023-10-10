@@ -1,49 +1,34 @@
 package net.chuck.pigsnstuff.entity.custom;
 
 import net.chuck.pigsnstuff.entity.ModEntities;
-import net.chuck.pigsnstuff.item.ModItems;
+import net.chuck.pigsnstuff.util.ModEntityStatuses;
 import net.minecraft.entity.*;
+import net.minecraft.entity.AnimationState;
 import net.minecraft.entity.ai.RangedAttackMob;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.boss.BossBar;
 import net.minecraft.entity.boss.ServerBossBar;
-import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.Hand;
-import net.minecraft.util.math.random.Random;
-import net.minecraft.util.math.random.RandomSplitter;
 import net.minecraft.world.LocalDifficulty;
 import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldEvents;
 import org.jetbrains.annotations.Nullable;
-import software.bernie.geckolib.GeckoLib;
-import software.bernie.geckolib.animatable.GeoEntity;
-import software.bernie.geckolib.core.animatable.GeoAnimatable;
-import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.core.animation.*;
-import software.bernie.geckolib.core.animation.AnimationState;
-import software.bernie.geckolib.core.object.PlayState;
-import software.bernie.geckolib.util.GeckoLibUtil;
 
-import java.util.Arrays;
-
-public class FrankEntity extends HostileEntity implements GeoEntity, RangedAttackMob {
+public class FrankBoss extends HostileEntity implements RangedAttackMob{
+    public final net.minecraft.entity.AnimationState idleAnimationState = new net.minecraft.entity.AnimationState();
+    private int idleAnimationTimeout = 0;
+    public final net.minecraft.entity.AnimationState attackingAnimationState = new AnimationState();
     private final ServerBossBar bossBar = (ServerBossBar)new ServerBossBar(this.getDisplayName(), BossBar.Color.PURPLE,
             BossBar.Style.PROGRESS).setDarkenSky(false);
-    private AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
-    public FrankEntity(EntityType<? extends HostileEntity> entityType, World world) {
+    public FrankBoss(EntityType<? extends HostileEntity> entityType, World world) {
         super(entityType, world);
-        Arrays.fill(this.handDropChances, 1.0f);
     }
 
     public static DefaultAttributeContainer.Builder setAttributes() {
@@ -62,46 +47,6 @@ public class FrankEntity extends HostileEntity implements GeoEntity, RangedAttac
 
         targetSelector.add(1, new ActiveTargetGoal<>(this, PlayerEntity.class, true));
         targetSelector.add(2, new ActiveTargetGoal<>(this, LivingEntity.class, true));
-    }
-    @Override
-    public void registerControllers(AnimatableManager.ControllerRegistrar controllerRegistrar) {
-        controllerRegistrar.add(new AnimationController<>(this, "controller",
-                0, this::predicate),
-                new AnimationController<>(this, "attack_controller",
-                        0, this::attackPredicate));
-    }
-
-    private <T extends GeoAnimatable> PlayState predicate(AnimationState<T> tAnimationState) {
-        if(tAnimationState.isMoving()){
-            tAnimationState.getController().setAnimation(RawAnimation.begin()
-                    .then("animation.frank.walk", Animation.LoopType.LOOP));
-            return PlayState.CONTINUE;
-        } else {
-            tAnimationState.getController().setAnimation(RawAnimation.begin()
-                    .then("animation.frank.idle", Animation.LoopType.LOOP));
-            return PlayState.CONTINUE;
-        }
-    }
-
-    private <T extends GeoAnimatable> PlayState attackPredicate(AnimationState<T> tAnimationState){
-        if(this.handSwinging) {
-            return tAnimationState.setAndContinue(RawAnimation.begin()
-                    .thenPlay("animation.frank.throw_fireball"));
-        }
-        tAnimationState.getController().forceAnimationReset();
-        return PlayState.STOP;
-    }
-
-    @Override
-    public AnimatableInstanceCache getAnimatableInstanceCache() {
-        return cache;
-    }
-    @Override
-    public void readCustomDataFromNbt(NbtCompound nbt) {
-        super.readCustomDataFromNbt(nbt);
-        if (this.hasCustomName()) {
-            this.bossBar.setName(this.getDisplayName());
-        }
     }
 
     @Override
@@ -141,6 +86,7 @@ public class FrankEntity extends HostileEntity implements GeoEntity, RangedAttac
         if (!this.isSilent()) {
             this.getWorld().syncWorldEvent(null, WorldEvents.WITHER_SHOOTS, this.getBlockPos(), 0);
         }
+        this.getWorld().sendEntityStatus(this, ModEntityStatuses.SHOOT_FIREBALL);
         double xDir = targetX - this.getX();
         double yDir = targetY - (this.getY()+2.0f);
         double zDir = targetZ - this.getZ();
@@ -151,17 +97,38 @@ public class FrankEntity extends HostileEntity implements GeoEntity, RangedAttac
         this.getWorld().spawnEntity(frankFireballEntity);
         this.swingHand(this.getActiveHand());
     }
-    @Override
-    protected void initEquipment(Random random, LocalDifficulty localDifficulty) {
-        this.equipStack(EquipmentSlot.MAINHAND, new ItemStack(ModItems.DIRITONIUM_SWORD));
-    }
 
     @Nullable
     @Override
     public EntityData initialize(ServerWorldAccess world, LocalDifficulty difficulty, SpawnReason spawnReason, @Nullable EntityData entityData, @Nullable NbtCompound entityNbt) {
         EntityData data = super.initialize(world, difficulty, spawnReason, entityData, entityNbt);
-        this.initEquipment(world.getRandom(), difficulty);
         this.setLeftHanded(true);
         return data;
+    }
+
+    @Override
+    public void tick() {
+        super.tick();
+        if(this.getWorld().isClient()){
+            setupAnimationStates();
+        }
+    }
+    private void setupAnimationStates(){
+        if(this.idleAnimationTimeout <=0){
+            this.idleAnimationTimeout = this.random.nextInt(40) + 80;
+            this.idleAnimationState.start(this.age);
+        } else {
+            --this.idleAnimationTimeout;
+        }
+    }
+
+    @Override
+    public void handleStatus(byte status) {
+        if (status == ModEntityStatuses.SHOOT_FIREBALL) {
+            this.idleAnimationState.stop();
+            this.attackingAnimationState.start(this.age);
+        } else {
+            super.handleStatus(status);
+        }
     }
 }
