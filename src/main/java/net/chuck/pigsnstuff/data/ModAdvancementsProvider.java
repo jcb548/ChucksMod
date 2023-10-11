@@ -490,5 +490,37 @@ public class ModAdvancementsProvider extends FabricAdvancementProvider {
                 )
                 .criterion("enter_nether", ChangedDimensionCriterion.Conditions.to(World.NETHER))
                 .build(consumer, PigsNStuff.MOD_ID + "/nether/root");
+
+        Advancement rawFabium = Advancement.Builder.create().display(ModItems.RAW_FABIUM,
+                        Text.translatable("advancements." + PigsNStuff.MOD_ID + ".nether.raw_fabium.title"),
+                        Text.translatable("advancements." + PigsNStuff.MOD_ID + ".nether.raw_fabium.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("raw_fabium", InventoryChangedCriterion.Conditions.items(ModItems.RAW_FABIUM))
+                .parent(root)
+                .build(consumer, PigsNStuff.MOD_ID + "/nether/raw_fabium");
+
+        Advancement ancientDebris = Advancement.Builder.create().display(Blocks.ANCIENT_DEBRIS,
+                        Text.translatable("advancements." + PigsNStuff.MOD_ID + ".nether.ancient_debris.title"),
+                        Text.translatable("advancements." + PigsNStuff.MOD_ID + ".nether.ancient_debris.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("ancient_debris", InventoryChangedCriterion.Conditions.items(Blocks.ANCIENT_DEBRIS))
+                .parent(root)
+                .build(consumer, PigsNStuff.MOD_ID + "/nether/ancient_debris");
+
+        Advancement quartz = Advancement.Builder.create().display(Items.QUARTZ,
+                        Text.translatable("advancements." + PigsNStuff.MOD_ID + ".nether.quartz.title"),
+                        Text.translatable("advancements." + PigsNStuff.MOD_ID + ".nether.quartz.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("quartz", InventoryChangedCriterion.Conditions.items(Items.QUARTZ))
+                .parent(root)
+                .build(consumer, PigsNStuff.MOD_ID + "/nether/quartz");
+        Advancement enterFortress = Advancement.Builder.create().display(Blocks.NETHER_BRICKS,
+                        Text.translatable("advancements." + PigsNStuff.MOD_ID + ".nether.enter_fortress.title"),
+                        Text.translatable("advancements." + PigsNStuff.MOD_ID + ".nether.enter_fortress.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("enter_fortress",
+                        TickCriterion.Conditions.createLocation(LocationPredicate.feature(StructureKeys.FORTRESS)))
+                .parent(root)
+                .build(consumer, PigsNStuff.MOD_ID + "/nether/fortress");
     }
 }

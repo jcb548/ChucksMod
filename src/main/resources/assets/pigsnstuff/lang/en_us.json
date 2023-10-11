@@ -344,5 +344,17 @@
   "advancements.pigsnstuff.overworld.trade.desc": "Trade with a villager",
 
   "advancements.pigsnstuff.nether.root.title": "Enter Nether",
-  "advancements.pigsnstuff.nether.root.desc": "Welcome to the nether, a fiery dimension where every 1 block travelled is equal to 8 blocks in the overworld"
+  "advancements.pigsnstuff.nether.root.desc": "Welcome to the nether, a fiery dimension where every 1 block travelled is equal to 8 blocks in the overworld",
+
+  "advancements.pigsnstuff.nether.raw_fabium.title": "Raw Fabium",
+  "advancements.pigsnstuff.nether.raw_fabium.desc": "Find and mine Fabium ore to obtain raw fabium",
+
+  "advancements.pigsnstuff.nether.ancient_debris.title": "Ancient Debris",
+  "advancements.pigsnstuff.nether.ancient_debris.desc": "Find and mine ancient debris to unlock netherite tier items",
+
+  "advancements.pigsnstuff.nether.quartz.title": "Nether Quartz",
+  "advancements.pigsnstuff.nether.quartz.desc": "Mine Quartz ore to obtain quartz, a great source of experience",
+
+  "advancements.pigsnstuff.nether.quartz.title": "Nether Fortress",
+  "advancements.pigsnstuff.nether.quartz.desc": "Enter a Nether Fortress, where mobs such as Blazes and Wither Skeletons can be found"
 }
