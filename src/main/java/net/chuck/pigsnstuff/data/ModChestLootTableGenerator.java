@@ -1,9 +1,11 @@
 package net.chuck.pigsnstuff.data;
 
 import net.chuck.pigsnstuff.PigsNStuff;
+import net.chuck.pigsnstuff.block.ModBlocks;
 import net.chuck.pigsnstuff.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.SimpleFabricLootTableProvider;
+import net.minecraft.block.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.loot.LootPool;
@@ -21,7 +23,7 @@ import net.minecraft.util.Identifier;
 import java.util.function.BiConsumer;
 
 public class ModChestLootTableGenerator extends SimpleFabricLootTableProvider {
-    //  
+    //
     public static final Identifier DIRITIA_HOUSE = new Identifier(PigsNStuff.MOD_ID, "chests/diritia_house");
     // /setblock ~ ~ ~ minecraft:chest{LootTable:"pigsnstuff:chests/diritia_dungeon"}
     public static final Identifier DIRITIA_DUNGEON = new Identifier(PigsNStuff.MOD_ID, "chests/diritia_dungeon");
@@ -31,6 +33,11 @@ public class ModChestLootTableGenerator extends SimpleFabricLootTableProvider {
     public static final Identifier DIRITIA_ARMOURY = new Identifier(PigsNStuff.MOD_ID, "chests/diritia_armoury");
     public static final Identifier GUNPOWDER = new Identifier(PigsNStuff.MOD_ID, "chests/gunpowder");
     public static final Identifier SUGAR_CANE = new Identifier(PigsNStuff.MOD_ID, "chests/sugar_cane");
+    // /setblock ~ ~ ~ minecraft:chest{LootTable:"pigsnstuff:chests/chuck_house_resources"}
+    public static final Identifier CHUCK_HOUSE_RESOURCES = new Identifier(PigsNStuff.MOD_ID,
+            "chests/chuck_house_resources");
+    public static final Identifier CHUCK_HOUSE_BLOCKS = new Identifier(PigsNStuff.MOD_ID,
+            "chests/chuck_house_blocks");
     public ModChestLootTableGenerator(FabricDataOutput output) {
         super(output, LootContextTypes.CHEST);
     }
@@ -187,6 +194,65 @@ public class ModChestLootTableGenerator extends SimpleFabricLootTableProvider {
         exporter.accept(SUGAR_CANE, LootTable.builder()
                 .pool(LootPool.builder().rolls(UniformLootNumberProvider.create(1.0f, 8.0f))
                     .with(ItemEntry.builder(Items.SUGAR_CANE).weight(100))
-                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 32.0f)))));
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 32.0f)))
+                ));
+        exporter.accept(CHUCK_HOUSE_RESOURCES, LootTable.builder()
+                .pool(LootPool.builder().rolls(UniformLootNumberProvider.create(2.0f, 6.0f))
+                    .with(ItemEntry.builder(Items.RAW_IRON).weight(10))
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(4.0f, 8.0f)))
+                    .with(ItemEntry.builder(Items.RAW_COPPER).weight(12))
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(6.0f, 12.0f)))
+                    .with(ItemEntry.builder(ModItems.RAW_TIN).weight(8))
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(4.0f, 8.0f)))
+                    .with(ItemEntry.builder(Items.RAW_GOLD).weight(6))
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(3.0f, 6.0f)))
+                    .with(ItemEntry.builder(Items.LAPIS_LAZULI).weight(6))
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(8.0f, 16.0f)))
+                    .with(ItemEntry.builder(ModItems.BRONZE_DUST).weight(6))
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(2.0f, 4.0f))))
+                .pool(LootPool.builder().rolls(UniformLootNumberProvider.create(2.0f, 6.0f))
+                    .with(ItemEntry.builder(Items.IRON_INGOT).weight(10))
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(4.0f, 8.0f)))
+                    .with(ItemEntry.builder(Items.COPPER_INGOT).weight(12))
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(6.0f, 12.0f)))
+                    .with(ItemEntry.builder(ModItems.TIN_INGOT).weight(8))
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(4.0f, 8.0f)))
+                    .with(ItemEntry.builder(Items.REDSTONE).weight(16))
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(8.0f, 16.0f)))
+                    .with(ItemEntry.builder(Items.DIAMOND).weight(4))
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(2.0f, 4.0f)))
+                    .with(ItemEntry.builder(Items.GOLD_INGOT).weight(6))
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(3.0f, 6.0f)))
+                    .with(ItemEntry.builder(ModItems.BRONZE_INGOT).weight(6))
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(4.0f, 8.0f)))));
+        exporter.accept(CHUCK_HOUSE_BLOCKS, LootTable.builder()
+                .pool(LootPool.builder().rolls(UniformLootNumberProvider.create(4.0f, 16.0f))
+                    .with(ItemEntry.builder(Blocks.COBBLESTONE).weight(10))
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(8.0f, 16.0f)))
+                    .with(ItemEntry.builder(Blocks.STONE).weight(10))
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(6.0f, 12.0f)))
+                    .with(ItemEntry.builder(Blocks.SMOOTH_STONE).weight(10))
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(4.0f, 8.0f)))
+                    .with(ItemEntry.builder(Blocks.OAK_LOG).weight(10))
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(4.0f, 8.0f)))
+                    .with(ItemEntry.builder(Blocks.SPRUCE_LOG).weight(10))
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(4.0f, 8.0f)))
+                    .with(ItemEntry.builder(Blocks.JUNGLE_LOG).weight(10))
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(4.0f, 8.0f)))
+                    .with(ItemEntry.builder(ModBlocks.EUCALYPTUS_LOG).weight(10))
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(2.0f, 4.0f)))
+                    .with(ItemEntry.builder(Blocks.BRICKS).weight(10))
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(8.0f, 16.0f)))
+                    .with(ItemEntry.builder(Blocks.COBBLED_DEEPSLATE).weight(10))
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(8.0f, 16.0f)))
+                    .with(ItemEntry.builder(Blocks.ANDESITE).weight(10))
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(8.0f, 16.0f)))
+                    .with(ItemEntry.builder(Blocks.CALCITE).weight(10))
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(8.0f, 16.0f)))
+                    .with(ItemEntry.builder(Blocks.DIRT).weight(20))
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(12.0f, 24.0f)))
+                    .with(ItemEntry.builder(Blocks.SAND).weight(10))
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(12.0f, 24.0f)))
+                ));
     }
 }
