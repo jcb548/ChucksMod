@@ -202,6 +202,8 @@
 
   "itemgroup.pigsnstuff": "Pigs N Stuff",
 
+
+
   "advancements.pigsnstuff.overworld.root.title": "Story",
   "advancements.pigsnstuff.overworld.root.desc": "Welcome to pigsnstuff. Check your advancements tab to see what to do next",
 
@@ -284,7 +286,7 @@
   "advancements.pigsnstuff.overworld.diamond_armor.desc": "Craft a set of diamond armor (helmet, chestplate, leggings, boots)",
 
   "advancements.pigsnstuff.overworld.redstone.title": "Redstone",
-  "advancements.pigsnstuff.overworld.redstone.desc": "Obtain redstone from a chest or by mining redstone ore",
+  "advancements.pigsnstuff.overworld.redstone.desc": "Obtain redstone from a chest or by mining redstone ore, which can be used to craft many machines or extend the duration of potions",
 
   "advancements.pigsnstuff.overworld.piston.title": "Craft a Piston",
   "advancements.pigsnstuff.overworld.piston.desc": "Craft a piston which can push blocks",
@@ -342,6 +344,56 @@
 
   "advancements.pigsnstuff.overworld.trade.title": "Trade",
   "advancements.pigsnstuff.overworld.trade.desc": "Trade with a villager",
+
+  "advancements.pigsnstuff.overworld.spider.title": "Kill a Spider",
+  "advancements.pigsnstuff.overworld.spider.desc": "Kill a Spider",
+
+  "advancements.pigsnstuff.overworld.string.title": "String",
+  "advancements.pigsnstuff.overworld.string.desc": "Collect string from killing a spider",
+
+  "advancements.pigsnstuff.overworld.sticks.title": "Sticks",
+  "advancements.pigsnstuff.overworld.sticks.desc": "Craft sticks from wooden planks or bamboo",
+
+  "advancements.pigsnstuff.overworld.bow.title": "Bow",
+  "advancements.pigsnstuff.overworld.bow.desc": "Craft a bow, which can shoot arrows at mobs from a distance",
+
+  "advancements.pigsnstuff.overworld.shears.title": "Shears",
+  "advancements.pigsnstuff.overworld.shears.desc": "Craft Shears, which can be used to chear wool from sheep, or collect some blocks",
+
+  "advancements.pigsnstuff.overworld.wool.title": "Wool",
+  "advancements.pigsnstuff.overworld.wool.desc": "Shear a sheep",
+
+  "advancements.pigsnstuff.overworld.bed.title": "Bed",
+  "advancements.pigsnstuff.overworld.bed.desc": "Craft a bed, which can be used to sleep through the night, and set your respawn point",
+
+  "advancements.pigsnstuff.overworld.sapling.title": "Sapling",
+  "advancements.pigsnstuff.overworld.sapling.desc": "Collect a sapling from leaves decaying from a chopped down tree",
+
+  "advancements.pigsnstuff.overworld.replant_sapling.title": "Replant Sapling",
+  "advancements.pigsnstuff.overworld.replant_sapling.desc": "Replant a sapling so another tree grows",
+
+  "advancements.pigsnstuff.overworld.zombie.title": "Kill a Zombie",
+  "advancements.pigsnstuff.overworld.zombie.desc": "Kill a Zombie for rotten flesh, and occasionally carrot, potato or iron",
+
+  "advancements.pigsnstuff.overworld.skeleton.title": "Kill a Skeleton",
+  "advancements.pigsnstuff.overworld.skeleton.desc": "Kill a Skeleton for bones and arrows, and occasionally a bow",
+
+  "advancements.pigsnstuff.overworld.bone.title": "Bone",
+  "advancements.pigsnstuff.overworld.bone.desc": "Collect from a skeleton",
+
+  "advancements.pigsnstuff.overworld.bone_meal.title": "Bone meal",
+  "advancements.pigsnstuff.overworld.bone_meal.desc": "Craft bone meal, which can be used to speed up growing of crops or saplings, or to craft into white dye",
+
+  "advancements.pigsnstuff.overworld.arrow.title": "Arrow",
+  "advancements.pigsnstuff.overworld.arrow.desc": "Obtain an arrow from either a skeleton, or crafting from flint, stick and feather",
+
+  "advancements.pigsnstuff.overworld.creeper.title": "Kill a Creeper",
+  "advancements.pigsnstuff.overworld.creeper.desc": "Kill a Creeper for gunpowder",
+
+  "advancements.pigsnstuff.overworld.gunpowder.title": "Gunpowder",
+  "advancements.pigsnstuff.overworld.gunpowder.desc": "Collect from a creeper",
+
+
 
   "advancements.pigsnstuff.nether.root.title": "Enter Nether",
   "advancements.pigsnstuff.nether.root.desc": "Welcome to the nether, a fiery dimension where every 1 block travelled is equal to 8 blocks in the overworld",

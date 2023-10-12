@@ -4,6 +4,7 @@ import net.chuck.pigsnstuff.PigsNStuff;
 import net.chuck.pigsnstuff.block.ModBlocks;
 import net.chuck.pigsnstuff.item.ModItemTags;
 import net.chuck.pigsnstuff.item.ModItems;
+import net.chuck.pigsnstuff.world.gen.ModStructureKeys;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricAdvancementProvider;
 import net.minecraft.advancement.Advancement;
@@ -17,6 +18,8 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.loot.condition.BlockStatePropertyLootCondition;
+import net.minecraft.loot.condition.LootCondition;
 import net.minecraft.predicate.BlockPredicate;
 import net.minecraft.predicate.entity.EntityPredicate;
 import net.minecraft.predicate.entity.LocationPredicate;
@@ -61,6 +64,7 @@ public class ModAdvancementsProvider extends FabricAdvancementProvider {
                 .criterion("crafting_table", InventoryChangedCriterion.Conditions.items(Items.CRAFTING_TABLE))
                 .parent(root)
                 .build(consumer,PigsNStuff.MOD_ID + "/overworld/crafting_table");
+
         Advancement woodPickaxe = Advancement.Builder.create()
                 .display(Items.WOODEN_PICKAXE,
                         Text.translatable("advancements." + PigsNStuff.MOD_ID + ".overworld.wooden_pickaxe.title"),
@@ -479,6 +483,172 @@ public class ModAdvancementsProvider extends FabricAdvancementProvider {
                 .criterion("trade", VillagerTradeCriterion.Conditions.any())
                 .parent(village)
                 .build(consumer, PigsNStuff.MOD_ID + "/overworld/trade");
+
+        Advancement modern_tower = Advancement.Builder.create().display(Blocks.WHITE_CONCRETE,
+                        Text.translatable("advancements." + PigsNStuff.MOD_ID + ".overworld.modern_tower.title"),
+                        Text.translatable("advancements." + PigsNStuff.MOD_ID + ".overworld.modern_tower.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("modern_tower",
+                        TickCriterion.Conditions.createLocation(LocationPredicate.feature(ModStructureKeys.MODERN_TOWER)))
+                .parent(root)
+                .build(consumer, PigsNStuff.MOD_ID + "/overworld/modern_tower");
+
+        Advancement spider = Advancement.Builder.create().display(Blocks.COBWEB,
+                        Text.translatable("advancements." + PigsNStuff.MOD_ID + ".overworld.spider.title"),
+                        Text.translatable("advancements." + PigsNStuff.MOD_ID + ".overworld.spider.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("killed_spider",
+                        OnKilledCriterion.Conditions.createPlayerKilledEntity(EntityPredicate.Builder.create().type(EntityType.SPIDER)))
+                .parent(stoneTools)
+                .build(consumer, PigsNStuff.MOD_ID + "/overworld/spider");
+
+        Advancement string = Advancement.Builder.create()
+                .display(Items.FLINT_AND_STEEL,
+                        Text.translatable("advancements." + PigsNStuff.MOD_ID + ".overworld.string.title"),
+                        Text.translatable("advancements." + PigsNStuff.MOD_ID + ".overworld.string.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("get_string", InventoryChangedCriterion.Conditions.items(Items.FLINT_AND_STEEL))
+                .parent(spider)
+                .build(consumer,PigsNStuff.MOD_ID + "/overworld/string");
+
+        Advancement sticks = Advancement.Builder.create()
+                .display(Items.STICK,
+                        Text.translatable("advancements." + PigsNStuff.MOD_ID + ".overworld.sticks.title"),
+                        Text.translatable("advancements." + PigsNStuff.MOD_ID + ".overworld.sticks.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("sticks", InventoryChangedCriterion.Conditions.items(Items.STICK))
+                .parent(root)
+                .build(consumer,PigsNStuff.MOD_ID + "/overworld/sticks");
+
+        Advancement bow = Advancement.Builder.create()
+                .display(Items.BOW,
+                        Text.translatable("advancements." + PigsNStuff.MOD_ID + ".overworld.bow.title"),
+                        Text.translatable("advancements." + PigsNStuff.MOD_ID + ".overworld.bow.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("bow", InventoryChangedCriterion.Conditions.items(Items.STICK))
+                .parent(string)
+                .build(consumer,PigsNStuff.MOD_ID + "/overworld/bow");
+
+        Advancement shears = Advancement.Builder.create()
+                .display(Items.SHEARS,
+                        Text.translatable("advancements." + PigsNStuff.MOD_ID + ".overworld.shears.title"),
+                        Text.translatable("advancements." + PigsNStuff.MOD_ID + ".overworld.shears.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("shears", InventoryChangedCriterion.Conditions.items(Items.SHEARS))
+                .parent(iron)
+                .build(consumer,PigsNStuff.MOD_ID + "/overworld/shears");
+
+        Advancement wool = Advancement.Builder.create()
+                .display(Blocks.WHITE_WOOL,
+                        Text.translatable("advancements." + PigsNStuff.MOD_ID + ".overworld.wool.title"),
+                        Text.translatable("advancements." + PigsNStuff.MOD_ID + ".overworld.wool.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("wool", InventoryChangedCriterion.Conditions.items(
+                        ItemPredicate.Builder.create().tag(ItemTags.WOOL).build()))
+                .parent(shears)
+                .build(consumer,PigsNStuff.MOD_ID + "/overworld/wool");
+
+        Advancement bed = Advancement.Builder.create()
+                .display(Items.RED_BED,
+                        Text.translatable("advancements." + PigsNStuff.MOD_ID + ".overworld.bed.title"),
+                        Text.translatable("advancements." + PigsNStuff.MOD_ID + ".overworld.bed.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("bed", InventoryChangedCriterion.Conditions.items(
+                        ItemPredicate.Builder.create().tag(ItemTags.BEDS).build()))
+                .parent(wool)
+                .build(consumer,PigsNStuff.MOD_ID + "/overworld/bed");
+
+        Advancement sapling = Advancement.Builder.create()
+                .display(Items.OAK_SAPLING,
+                        Text.translatable("advancements." + PigsNStuff.MOD_ID + ".overworld.sapling.title"),
+                        Text.translatable("advancements." + PigsNStuff.MOD_ID + ".overworld.sapling.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("sapling", InventoryChangedCriterion.Conditions.items(
+                        ItemPredicate.Builder.create().tag(ItemTags.SAPLINGS).build()))
+                .parent(root)
+                .build(consumer,PigsNStuff.MOD_ID + "/overworld/sapling");
+
+        Advancement replantSapling = Advancement.Builder.create()
+                .display(Items.SPRUCE_SAPLING,
+                        Text.translatable("advancements." + PigsNStuff.MOD_ID + ".overworld.replant_sapling.title"),
+                        Text.translatable("advancements." + PigsNStuff.MOD_ID + ".overworld.replant_sapling.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criteriaMerger(CriterionMerger.OR)
+                .criterion("replant_oak", ItemCriterion.Conditions.createPlacedBlock(Blocks.OAK_SAPLING))
+                .criterion("replant_birch", ItemCriterion.Conditions.createPlacedBlock(Blocks.BIRCH_SAPLING))
+                .criterion("replant_spruce", ItemCriterion.Conditions.createPlacedBlock(Blocks.SPRUCE_SAPLING))
+                .criterion("replant_jungle", ItemCriterion.Conditions.createPlacedBlock(Blocks.JUNGLE_SAPLING))
+                .criterion("replant_dark_oak", ItemCriterion.Conditions.createPlacedBlock(Blocks.DARK_OAK_SAPLING))
+                .criterion("replant_acacia", ItemCriterion.Conditions.createPlacedBlock(Blocks.ACACIA_SAPLING))
+                .criterion("replant_cherry", ItemCriterion.Conditions.createPlacedBlock(Blocks.CHERRY_SAPLING))
+                .criterion("replant_mangrove", ItemCriterion.Conditions.createPlacedBlock(Blocks.MANGROVE_PROPAGULE))
+                .criterion("replant_eucalyptus", ItemCriterion.Conditions.createPlacedBlock(ModBlocks.EUCALYPTUS_SAPLING))
+                .criterion("replant_diritia", ItemCriterion.Conditions.createPlacedBlock(ModBlocks.DIRITIA_SAPLING))
+                .parent(sapling)
+                .build(consumer,PigsNStuff.MOD_ID + "/overworld/replant_sapling");
+
+        Advancement zombie = Advancement.Builder.create().display(Blocks.ZOMBIE_HEAD,
+                        Text.translatable("advancements." + PigsNStuff.MOD_ID + ".overworld.zombie.title"),
+                        Text.translatable("advancements." + PigsNStuff.MOD_ID + ".overworld.zombie.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("killed_zombie",
+                        OnKilledCriterion.Conditions.createPlayerKilledEntity(EntityPredicate.Builder.create().type(EntityType.ZOMBIE)))
+                .parent(stoneTools)
+                .build(consumer, PigsNStuff.MOD_ID + "/overworld/zombie");
+
+        Advancement skeleton = Advancement.Builder.create().display(Blocks.SKELETON_SKULL,
+                        Text.translatable("advancements." + PigsNStuff.MOD_ID + ".overworld.skeleton.title"),
+                        Text.translatable("advancements." + PigsNStuff.MOD_ID + ".overworld.skeleton.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("killed_skeleton",
+                        OnKilledCriterion.Conditions.createPlayerKilledEntity(EntityPredicate.Builder.create().type(EntityType.SKELETON)))
+                .parent(stoneTools)
+                .build(consumer, PigsNStuff.MOD_ID + "/overworld/skeleton");
+
+        Advancement bone = Advancement.Builder.create()
+                .display(Items.BONE,
+                        Text.translatable("advancements." + PigsNStuff.MOD_ID + ".overworld.bone.title"),
+                        Text.translatable("advancements." + PigsNStuff.MOD_ID + ".overworld.bone.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("bone", InventoryChangedCriterion.Conditions.items(Items.BONE))
+                .parent(skeleton)
+                .build(consumer,PigsNStuff.MOD_ID + "/overworld/bone");
+
+        Advancement boneMeal = Advancement.Builder.create()
+                .display(Items.BONE_MEAL,
+                        Text.translatable("advancements." + PigsNStuff.MOD_ID + ".overworld.bone_meal.title"),
+                        Text.translatable("advancements." + PigsNStuff.MOD_ID + ".overworld.bone_meal.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("bone_meal", InventoryChangedCriterion.Conditions.items(Items.BONE_MEAL))
+                .parent(bone)
+                .build(consumer,PigsNStuff.MOD_ID + "/overworld/bone_meal");
+
+        Advancement arrow = Advancement.Builder.create()
+                .display(Items.BONE,
+                        Text.translatable("advancements." + PigsNStuff.MOD_ID + ".overworld.arrow.title"),
+                        Text.translatable("advancements." + PigsNStuff.MOD_ID + ".overworld.arrow.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("bone", InventoryChangedCriterion.Conditions.items(Items.BONE))
+                .parent(skeleton)
+                .build(consumer,PigsNStuff.MOD_ID + "/overworld/bone");
+
+        Advancement creeper = Advancement.Builder.create().display(Blocks.CREEPER_HEAD,
+                        Text.translatable("advancements." + PigsNStuff.MOD_ID + ".overworld.creeper.title"),
+                        Text.translatable("advancements." + PigsNStuff.MOD_ID + ".overworld.creeper.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("killed_creeper",
+                        OnKilledCriterion.Conditions.createPlayerKilledEntity(EntityPredicate.Builder.create().type(EntityType.CREEPER)))
+                .parent(stoneTools)
+                .build(consumer, PigsNStuff.MOD_ID + "/overworld/creeper");
+
+        Advancement gunpowder = Advancement.Builder.create()
+                .display(Items.GUNPOWDER,
+                        Text.translatable("advancements." + PigsNStuff.MOD_ID + ".overworld.gunpowder.title"),
+                        Text.translatable("advancements." + PigsNStuff.MOD_ID + ".overworld.gunpowder.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("gunpowder", InventoryChangedCriterion.Conditions.items(Items.GUNPOWDER))
+                .parent(creeper)
+                .build(consumer,PigsNStuff.MOD_ID + "/overworld/gunpowder");
     }
     private void netherAdvancements(Consumer<Advancement> consumer) {
         Advancement root = Advancement.Builder.create()
