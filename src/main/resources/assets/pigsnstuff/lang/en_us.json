@@ -49,21 +49,21 @@
   "block.pigsnstuff.tin_ore": "Tin Ore",
   "block.pigsnstuff.deepslate_tin_ore": "Deepslate Tin Ore",
 
-  "item.pigsnstuff:bronze_dust": "Bronze Dust",
-  "item.pigsnstuff:bronze_ingot": "Bronze Ingot",
-  "item.pigsnstuff:bronze_gear": "Bronze Gear",
-  "item.pigsnstuff:bronze_sword": "Bronze Sword",
-  "item.pigsnstuff:bronze_pickaxe": "Bronze Pickaxe",
-  "item.pigsnstuff:bronze_axe": "Bronze Axe",
-  "item.pigsnstuff:bronze_shovel": "Bronze Shovel",
-  "item.pigsnstuff:bronze_hoe": "Bronze Hoe",
+  "item.pigsnstuff.bronze_dust": "Bronze Dust",
+  "item.pigsnstuff.bronze_ingot": "Bronze Ingot",
+  "item.pigsnstuff.bronze_gear": "Bronze Gear",
+  "item.pigsnstuff.bronze_sword": "Bronze Sword",
+  "item.pigsnstuff.bronze_pickaxe": "Bronze Pickaxe",
+  "item.pigsnstuff.bronze_axe": "Bronze Axe",
+  "item.pigsnstuff.bronze_shovel": "Bronze Shovel",
+  "item.pigsnstuff.bronze_hoe": "Bronze Hoe",
   "item.pigsnstuff.bronze_helmet": "Bronze Helmet",
   "item.pigsnstuff.bronze_chestplate": "Bronze Chestplate",
   "item.pigsnstuff.bronze_leggings": "Bronze Leggings",
   "item.pigsnstuff.bronze_boots": "Bronze Boots",
-  "block.pigsnstuff:bronze_block": "Block of Bronze",
-  "block.pigsnstuff:bronze_dust_block": "Block of Bronze Dust",
-  "block.pigsnstuff:bronze_bars": "Bronze Bars",
+  "block.pigsnstuff.bronze_block": "Block of Bronze",
+  "block.pigsnstuff.bronze_dust_block": "Block of Bronze Dust",
+  "block.pigsnstuff.bronze_bars": "Bronze Bars",
 
   "item.pigsnstuff.raw_fabium": "Raw Fabium",
   "item.pigsnstuff.fabium_ingot": "Fabium Ingot",
@@ -213,7 +213,7 @@
   "advancements.pigsnstuff.overworld.wooden_pickaxe.title": "Wooden Pickaxe",
   "advancements.pigsnstuff.overworld.wooden_pickaxe.desc": "Craft a Wooden Pickaxe",
 
-  "advancements.pigsnstuff.overworld.cobble.title": "Obtain Cobblestone",
+  "advancements.pigsnstuff.overworld.cobble.title": "Cobblestone",
   "advancements.pigsnstuff.overworld.cobble.desc": "Mine stone with your pickaxe to obtain Cobblestone",
 
   "advancements.pigsnstuff.overworld.stone_tools.title": "Stone Tools",
@@ -234,40 +234,40 @@
   "advancements.pigsnstuff.overworld.seeds.title": "Seeds",
   "advancements.pigsnstuff.overworld.seeds.desc": "Break tall grass for Wheat or Beetroot seeds",
 
-  "advancements.pigsnstuff.overworld.farmland.title": "Create Farmland",
+  "advancements.pigsnstuff.overworld.farmland.title": "Farmland",
   "advancements.pigsnstuff.overworld.farmland.desc": "Use a hoe on dirt or grass within 4 blocks of water to create saturated farmland",
 
-  "advancements.pigsnstuff.overworld.plant_seeds.title": "Plant Wheat",
+  "advancements.pigsnstuff.overworld.plant_seeds.title": "Wheat",
   "advancements.pigsnstuff.overworld.plant_seeds.desc": "Plant Wheat seeds on farmland",
 
   "advancements.pigsnstuff.overworld.wheat.title": "Harvest Wheat",
   "advancements.pigsnstuff.overworld.wheat.desc": "Harvest fully grown wheat crops",
 
-  "advancements.pigsnstuff.overworld.bread.title": "Craft Bread",
+  "advancements.pigsnstuff.overworld.bread.title": "Bread",
   "advancements.pigsnstuff.overworld.bread.desc": "Craft Bread to use as a source of food",
 
   "advancements.pigsnstuff.overworld.plant_beetroot.title": "Plant Beetroot",
   "advancements.pigsnstuff.overworld.plant_beetroot.desc": "Plant Beetroot seeds on farmland",
 
-  "advancements.pigsnstuff.overworld.beetroot.title": "Harvest Beetroot",
+  "advancements.pigsnstuff.overworld.beetroot.title": "Beetroot",
   "advancements.pigsnstuff.overworld.beetroot.desc": "Harvest fully grown beetroot crops",
 
   "advancements.pigsnstuff.overworld.plant_tomato.title": "Plant Tomato",
   "advancements.pigsnstuff.overworld.plant_tomato.desc": "Plant Tomato seeds on farmland",
 
-  "advancements.pigsnstuff.overworld.tomato.title": "Harvest Tomato",
+  "advancements.pigsnstuff.overworld.tomato.title": "Tomato",
   "advancements.pigsnstuff.overworld.tomato.desc": "Harvest fully grown tomato crops",
 
   "advancements.pigsnstuff.overworld.plant_lettuce.title": "Plant Lettuce",
   "advancements.pigsnstuff.overworld.plant_lettuce.desc": "Plant Lettuce seeds on farmland",
 
-  "advancements.pigsnstuff.overworld.lettuce.title": "Harvest Lettuce",
+  "advancements.pigsnstuff.overworld.lettuce.title": "Lettuce",
   "advancements.pigsnstuff.overworld.lettuce.desc": "Harvest fully grown lettuce crops",
 
-  "advancements.pigsnstuff.overworld.raw_iron.title": "Collect Raw Iron",
+  "advancements.pigsnstuff.overworld.raw_iron.title": "Raw Iron",
   "advancements.pigsnstuff.overworld.raw_iron.desc": "Mine and collect some Raw Iron",
 
-  "advancements.pigsnstuff.overworld.iron.title": "Smelt Iron",
+  "advancements.pigsnstuff.overworld.iron.title": "Iron",
   "advancements.pigsnstuff.overworld.iron.desc": "Smelt Raw Iron into Iron Ingots",
 
   "advancements.pigsnstuff.overworld.iron_tools.title": "Iron Tools",
@@ -276,7 +276,7 @@
   "advancements.pigsnstuff.overworld.iron_armor.title": "Iron Armor",
   "advancements.pigsnstuff.overworld.iron_armor.desc": "Craft a set of iron armor (helmet, chestplate, leggings, boots)",
   
-  "advancements.pigsnstuff.overworld.diamonds.title": "Obtain Diamonds",
+  "advancements.pigsnstuff.overworld.diamonds.title": "Diamonds",
   "advancements.pigsnstuff.overworld.diamonds.desc": "Obtain diamonds from a chest or by mining diamond ore",
 
   "advancements.pigsnstuff.overworld.diamond_tools.title": "Diamond Tools",
@@ -356,6 +356,9 @@
 
   "advancements.pigsnstuff.overworld.bow.title": "Bow",
   "advancements.pigsnstuff.overworld.bow.desc": "Craft a bow, which can shoot arrows at mobs from a distance",
+
+  "advancements.pigsnstuff.overworld.fishing_rod.title": "Bow",
+  "advancements.pigsnstuff.overworld.fishing_rod.desc": "Craft a Fishing Rod, which can be used in water to fish for fish and treasure",
 
   "advancements.pigsnstuff.overworld.shears.title": "Shears",
   "advancements.pigsnstuff.overworld.shears.desc": "Craft Shears, which can be used to chear wool from sheep, or collect some blocks",

@@ -1,7 +1,9 @@
 package net.chuck.pigsnstuff.block.custom;
 
+import net.chuck.pigsnstuff.PigsNStuff;
 import net.minecraft.block.Block;
 import net.minecraft.registry.RegistryKeys;
+import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.Identifier;
 /*
@@ -13,7 +15,10 @@ import net.minecraft.util.Identifier;
  *  Details can be found in the license file in the root folder of this project
  */
 public class ModBlockTags {
+    public static final TagKey<Block> EUCALYPTUS_LOGS = ModBlockTags.of("eucalyptus_logs");
+    public static final TagKey<Block> DIRITIA_LOGS = ModBlockTags.of("diritia_logs");
+
     private static TagKey<Block> of(String id) {
-        return TagKey.of(RegistryKeys.BLOCK, new Identifier(id));
+        return TagKey.of(RegistryKeys.BLOCK, new Identifier(PigsNStuff.MOD_ID, id));
     }
 }

@@ -1,6 +1,7 @@
 package net.chuck.pigsnstuff.data;
 
 import net.chuck.pigsnstuff.block.ModBlocks;
+import net.chuck.pigsnstuff.block.custom.ModBlockTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.block.Blocks;
@@ -213,11 +214,17 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.RAW_DIRITONIUM_BLOCK)
                 .add(Blocks.ANCIENT_DEBRIS);
 
-        getOrCreateTagBuilder(BlockTags.LOGS)
+        getOrCreateTagBuilder(BlockTags.LOGS_THAT_BURN)
+                .addTag(ModBlockTags.EUCALYPTUS_LOGS)
+                .addTag(ModBlockTags.DIRITIA_LOGS);
+
+        getOrCreateTagBuilder(ModBlockTags.EUCALYPTUS_LOGS)
                 .add(ModBlocks.EUCALYPTUS_LOG)
                 .add(ModBlocks.EUCALYPTUS_WOOD)
                 .add(ModBlocks.STRIPPED_EUCALYPTUS_LOG)
-                .add(ModBlocks.STRIPPED_EUCALYPTUS_WOOD)
+                .add(ModBlocks.STRIPPED_EUCALYPTUS_WOOD);
+
+        getOrCreateTagBuilder(ModBlockTags.DIRITIA_LOGS)
                 .add(ModBlocks.DIRITIA_LOG)
                 .add(ModBlocks.DIRITIA_WOOD)
                 .add(ModBlocks.STRIPPED_DIRITIA_LOG)

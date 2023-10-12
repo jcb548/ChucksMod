@@ -21,7 +21,7 @@ import net.minecraft.util.Identifier;
 import java.util.function.BiConsumer;
 
 public class ModChestLootTableGenerator extends SimpleFabricLootTableProvider {
-    // /setblock ~ ~ ~ minecraft:chest{LootTable:"pigsnstuff:chests/diritia_house"}
+    //  
     public static final Identifier DIRITIA_HOUSE = new Identifier(PigsNStuff.MOD_ID, "chests/diritia_house");
     // /setblock ~ ~ ~ minecraft:chest{LootTable:"pigsnstuff:chests/diritia_dungeon"}
     public static final Identifier DIRITIA_DUNGEON = new Identifier(PigsNStuff.MOD_ID, "chests/diritia_dungeon");

@@ -514,6 +514,13 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
         createStairsRecipe(ModBlocks.EUCALYPTUS_STAIRS, Ingredient.ofItems(ModBlocks.EUCALYPTUS_PLANKS))
                 .criterion(hasItem(ModBlocks.EUCALYPTUS_PLANKS), conditionsFromItem(ModBlocks.EUCALYPTUS_PLANKS))
                 .offerTo(exporter);
+        offerSmelting(exporter,
+                List.of(ModBlocks.EUCALYPTUS_LOG),
+                RecipeCategory.MISC,
+                Items.CHARCOAL,
+                2f,
+                100,
+                "charcoal");
 
         offerShapelessRecipe(exporter, ModBlocks.DIRITIA_PLANKS, ModBlocks.DIRITIA_LOG,
                 "diritia_planks", 4);

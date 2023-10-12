@@ -503,11 +503,11 @@ public class ModAdvancementsProvider extends FabricAdvancementProvider {
                 .build(consumer, PigsNStuff.MOD_ID + "/overworld/spider");
 
         Advancement string = Advancement.Builder.create()
-                .display(Items.FLINT_AND_STEEL,
+                .display(Items.STRING,
                         Text.translatable("advancements." + PigsNStuff.MOD_ID + ".overworld.string.title"),
                         Text.translatable("advancements." + PigsNStuff.MOD_ID + ".overworld.string.desc"),
                         null, AdvancementFrame.TASK, true, true, false)
-                .criterion("get_string", InventoryChangedCriterion.Conditions.items(Items.FLINT_AND_STEEL))
+                .criterion("get_string", InventoryChangedCriterion.Conditions.items(Items.STRING))
                 .parent(spider)
                 .build(consumer,PigsNStuff.MOD_ID + "/overworld/string");
 
@@ -525,9 +525,18 @@ public class ModAdvancementsProvider extends FabricAdvancementProvider {
                         Text.translatable("advancements." + PigsNStuff.MOD_ID + ".overworld.bow.title"),
                         Text.translatable("advancements." + PigsNStuff.MOD_ID + ".overworld.bow.desc"),
                         null, AdvancementFrame.TASK, true, true, false)
-                .criterion("bow", InventoryChangedCriterion.Conditions.items(Items.STICK))
+                .criterion("bow", InventoryChangedCriterion.Conditions.items(Items.BOW))
                 .parent(string)
                 .build(consumer,PigsNStuff.MOD_ID + "/overworld/bow");
+
+        Advancement fishingRod = Advancement.Builder.create()
+                .display(Items.FISHING_ROD,
+                        Text.translatable("advancements." + PigsNStuff.MOD_ID + ".overworld.fishing_rod.title"),
+                        Text.translatable("advancements." + PigsNStuff.MOD_ID + ".overworld.fishing_rod.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("bow", InventoryChangedCriterion.Conditions.items(Items.FISHING_ROD))
+                .parent(string)
+                .build(consumer,PigsNStuff.MOD_ID + "/overworld/fishing_rod");
 
         Advancement shears = Advancement.Builder.create()
                 .display(Items.SHEARS,
@@ -684,6 +693,7 @@ public class ModAdvancementsProvider extends FabricAdvancementProvider {
                 .criterion("quartz", InventoryChangedCriterion.Conditions.items(Items.QUARTZ))
                 .parent(root)
                 .build(consumer, PigsNStuff.MOD_ID + "/nether/quartz");
+
         Advancement enterFortress = Advancement.Builder.create().display(Blocks.NETHER_BRICKS,
                         Text.translatable("advancements." + PigsNStuff.MOD_ID + ".nether.enter_fortress.title"),
                         Text.translatable("advancements." + PigsNStuff.MOD_ID + ".nether.enter_fortress.desc"),
