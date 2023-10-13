@@ -1,0 +1,37 @@
+{
+  "parent": "minecraft:pigsnstuff/overworld/farmland",
+  "criteria": {
+    "plant_beetroot": {
+      "conditions": {
+        "location": [
+          {
+            "block": "minecraft:beetroots",
+            "condition": "minecraft:block_state_property"
+          }
+        ]
+      },
+      "trigger": "minecraft:placed_block"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.pigsnstuff.overworld.plant_beetroot.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "minecraft:beetroot_seeds"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.pigsnstuff.overworld.plant_beetroot.title"
+    }
+  },
+  "requirements": [
+    [
+      "plant_beetroot"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

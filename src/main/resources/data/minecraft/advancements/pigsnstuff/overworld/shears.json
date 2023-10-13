@@ -1,0 +1,39 @@
+{
+  "parent": "minecraft:pigsnstuff/overworld/iron",
+  "criteria": {
+    "shears": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:shears"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.pigsnstuff.overworld.shears.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "minecraft:shears",
+      "nbt": "{Damage:0}"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.pigsnstuff.overworld.shears.title"
+    }
+  },
+  "requirements": [
+    [
+      "shears"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

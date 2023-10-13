@@ -1,0 +1,45 @@
+{
+  "parent": "minecraft:pigsnstuff/overworld/enchant_item",
+  "criteria": {
+    "bane_of_arthropods": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "minecraft:swords",
+            "enchantments": [
+              {
+                "enchantment": "minecraft:bane_of_arthropods",
+                "levels": {
+                  "min": 3,
+                  "max": 5
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.pigsnstuff.overworld.bane_of_arthropods.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "minecraft:spider_eye"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.pigsnstuff.overworld.bane_of_arthropods.title"
+    }
+  },
+  "requirements": [
+    [
+      "bane_of_arthropods"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

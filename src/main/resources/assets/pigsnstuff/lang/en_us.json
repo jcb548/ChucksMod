@@ -396,6 +396,69 @@
   "advancements.pigsnstuff.overworld.gunpowder.title": "Gunpowder",
   "advancements.pigsnstuff.overworld.gunpowder.desc": "Collect from a creeper",
 
+  "advancements.pigsnstuff.overworld.sharpness.title": "Sharpness",
+  "advancements.pigsnstuff.overworld.sharpness.desc": "Enchant a Sword with at least Sharpness 3 (Max 5)",
+
+  "advancements.pigsnstuff.overworld.unbreaking.title": "Unbreaking",
+  "advancements.pigsnstuff.overworld.unbreaking.desc": "Enchant an Item with Unbreaking 3 (Max level)",
+
+  "advancements.pigsnstuff.overworld.efficiency.title": "Efficiency",
+  "advancements.pigsnstuff.overworld.efficiency.desc": "Enchant a Tool with at least Efficiency 3 (Max 5)",
+
+  "advancements.pigsnstuff.overworld.silk.title": "Silky Smooth",
+  "advancements.pigsnstuff.overworld.silk.desc": "Enchant a Tool with silk touch, to pickup any block broken as is (except special rare blocks)",
+
+  "advancements.pigsnstuff.overworld.fortune.title": "Fortunate Opportunity",
+  "advancements.pigsnstuff.overworld.fortune.desc": "Enchant a Tool with Fortune 3 (Max level), to increase non block drops from blocks",
+
+  "advancements.pigsnstuff.overworld.looting.title": "Looting",
+  "advancements.pigsnstuff.overworld.looting.desc": "Enchant a Sword with Looting 3 (Max level), to increase drops from mobs",
+
+  "advancements.pigsnstuff.overworld.knockback.title": "Go Away",
+  "advancements.pigsnstuff.overworld.knockback.desc": "Enchant a Sword with Knockback (Max 2), to knock mobs further back upon hit",
+
+  "advancements.pigsnstuff.overworld.fire_aspect.title": "Fiery Sword",
+  "advancements.pigsnstuff.overworld.fire_aspect.desc": "Enchant a Sword with Fire Aspect (Max 2), to set mobs on fire when hit (animals on fire drop cooked meat instead of raw meat)",
+
+  "advancements.pigsnstuff.overworld.sweeping.title": "Sweeping Efficiency",
+  "advancements.pigsnstuff.overworld.sweeping.desc": "Enchant a Sword with Sweeping Edge 3 (Max level), to increase damage dealt in the sweep area of sword attack",
+
+  "advancements.pigsnstuff.overworld.smite.title": "Smite",
+  "advancements.pigsnstuff.overworld.smite.desc": "Enchant a Sword with at least Smite 3 (Max 5), to increase damage dealt against undead mobs",
+
+  "advancements.pigsnstuff.overworld.mending.title": "Self-Repairing",
+  "advancements.pigsnstuff.overworld.mending.desc": "Add mending to an item using a mending enchanted book",
+
+  "advancements.pigsnstuff.overworld.bane_of_arthropods.title": "Spider Slayer",
+  "advancements.pigsnstuff.overworld.bane_of_arthropods.desc": "Enchant a Sword with at least Bane of Athropods 3 (Max 5), to increase damage dealt against arthropod mobs",
+
+  "advancements.pigsnstuff.overworld.anvil.title": "Anvil",
+  "advancements.pigsnstuff.overworld.anvil.desc": "Craft an anvil from 3 iron blocks and 4 iron ingots, to allow you to repair enchanted items, and add enchantments from books to items",
+
+  "advancements.pigsnstuff.overworld.protection.title": "Protection",
+  "advancements.pigsnstuff.overworld.protection.desc": "Enchant an Armor item with at least Protection 3 (Max 4) to reduce damage taken",
+
+  "advancements.pigsnstuff.overworld.blast_protection.title": "Explosive Protection",
+  "advancements.pigsnstuff.overworld.blast_protection.desc": "Enchant an Armor item with at least Blast Protection 3 (Max 4) to reduce damage taken from explosions",
+
+  "advancements.pigsnstuff.overworld.fire_protection.title": "Fire Protection",
+  "advancements.pigsnstuff.overworld.fire_protection.desc": "Enchant an Armor item with at least Fire Protection 3 (Max 4) to reduce damage taken from hot sources",
+
+  "advancements.pigsnstuff.overworld.feather_falling.title": "Feather Falling",
+  "advancements.pigsnstuff.overworld.feather_falling.desc": "Enchant Boots with at least Feather Falling 3 (Max 4) to reduce damage taken from falling",
+
+  "advancements.pigsnstuff.overworld.respiration.title": "Larger Lungs",
+  "advancements.pigsnstuff.overworld.respiration.desc": "Enchant a Helmet with Respiration 3 (Max level) to increase time before drowning underwater",
+
+  "advancements.pigsnstuff.overworld.aqua_affinity.title": "Aqua Affinity",
+  "advancements.pigsnstuff.overworld.aqua_affinity.desc": "Enchant a Helmet with Aqua Affinity to allow breaking blocks at normal speed underwater",
+
+  "advancements.pigsnstuff.overworld.depth_strider.title": "Depth Strider",
+  "advancements.pigsnstuff.overworld.depth_strider.desc": "Enchant Boots with Depth Strider 3 (Max level) to swim faster in water",
+
+  "advancements.pigsnstuff.overworld.thorns.title": "Prickly",
+  "advancements.pigsnstuff.overworld.thorns.desc": "Enchant an Armor item with at least Thorns 2 (Max 3) reflect damage whenever you take damage, at a cost of durability",
+
 
 
   "advancements.pigsnstuff.nether.root.title": "Enter Nether",

@@ -1,0 +1,38 @@
+{
+  "parent": "minecraft:pigsnstuff/overworld/bone",
+  "criteria": {
+    "bone_meal": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:bone_meal"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.pigsnstuff.overworld.bone_meal.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "minecraft:bone_meal"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.pigsnstuff.overworld.bone_meal.title"
+    }
+  },
+  "requirements": [
+    [
+      "bone_meal"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

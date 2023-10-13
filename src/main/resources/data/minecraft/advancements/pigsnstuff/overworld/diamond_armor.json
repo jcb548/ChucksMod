@@ -1,0 +1,54 @@
+{
+  "parent": "minecraft:pigsnstuff/overworld/diamonds",
+  "criteria": {
+    "get_diamond_armor": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:diamond_helmet"
+            ]
+          },
+          {
+            "items": [
+              "minecraft:diamond_chestplate"
+            ]
+          },
+          {
+            "items": [
+              "minecraft:diamond_leggings"
+            ]
+          },
+          {
+            "items": [
+              "minecraft:diamond_boots"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.pigsnstuff.overworld.diamond_armor.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "minecraft:diamond_chestplate",
+      "nbt": "{Damage:0}"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.pigsnstuff.overworld.diamond_armor.title"
+    }
+  },
+  "requirements": [
+    [
+      "get_diamond_armor"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

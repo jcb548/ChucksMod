@@ -1,0 +1,41 @@
+{
+  "parent": "minecraft:pigsnstuff/overworld/enchant_item",
+  "criteria": {
+    "silk": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "c:enchantables",
+            "enchantments": [
+              {
+                "enchantment": "minecraft:silk_touch"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.pigsnstuff.overworld.silk.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "minecraft:glass"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.pigsnstuff.overworld.silk.title"
+    }
+  },
+  "requirements": [
+    [
+      "silk"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

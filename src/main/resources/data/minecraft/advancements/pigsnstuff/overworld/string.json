@@ -1,0 +1,38 @@
+{
+  "parent": "minecraft:pigsnstuff/overworld/spider",
+  "criteria": {
+    "get_string": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:string"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.pigsnstuff.overworld.string.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "minecraft:string"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.pigsnstuff.overworld.string.title"
+    }
+  },
+  "requirements": [
+    [
+      "get_string"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

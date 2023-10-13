@@ -1,0 +1,36 @@
+{
+  "parent": "minecraft:pigsnstuff/overworld/root",
+  "criteria": {
+    "sapling": {
+      "conditions": {
+        "items": [
+          {
+            "tag": "minecraft:saplings"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.pigsnstuff.overworld.sapling.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "minecraft:oak_sapling"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.pigsnstuff.overworld.sapling.title"
+    }
+  },
+  "requirements": [
+    [
+      "sapling"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

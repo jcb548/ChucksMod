@@ -658,6 +658,15 @@ public class ModAdvancementsProvider extends FabricAdvancementProvider {
                 .criterion("gunpowder", InventoryChangedCriterion.Conditions.items(Items.GUNPOWDER))
                 .parent(creeper)
                 .build(consumer,PigsNStuff.MOD_ID + "/overworld/gunpowder");
+
+        Advancement anvil = Advancement.Builder.create()
+                .display(Items.ANVIL,
+                        Text.translatable("advancements." + PigsNStuff.MOD_ID + ".overworld.anvil.title"),
+                        Text.translatable("advancements." + PigsNStuff.MOD_ID + ".overworld.anvil.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("anvil", InventoryChangedCriterion.Conditions.items(Items.ANVIL))
+                .parent(enchantmentTable)
+                .build(consumer,PigsNStuff.MOD_ID + "/overworld/anvil");
     }
     private void netherAdvancements(Consumer<Advancement> consumer) {
         Advancement root = Advancement.Builder.create()

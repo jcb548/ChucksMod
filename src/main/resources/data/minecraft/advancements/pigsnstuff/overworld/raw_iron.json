@@ -1,0 +1,38 @@
+{
+  "parent": "minecraft:pigsnstuff/overworld/stone_tools",
+  "criteria": {
+    "get_raw_iron": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:raw_iron"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.pigsnstuff.overworld.raw_iron.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "minecraft:raw_iron"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.pigsnstuff.overworld.raw_iron.title"
+    }
+  },
+  "requirements": [
+    [
+      "get_raw_iron"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

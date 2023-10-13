@@ -1,0 +1,37 @@
+{
+  "parent": "minecraft:pigsnstuff/overworld/farmland",
+  "criteria": {
+    "plant_lettuce": {
+      "conditions": {
+        "location": [
+          {
+            "block": "pigsnstuff:lettuce_crop",
+            "condition": "minecraft:block_state_property"
+          }
+        ]
+      },
+      "trigger": "minecraft:placed_block"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.pigsnstuff.overworld.plant_lettuce.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "pigsnstuff:lettuce_seeds"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.pigsnstuff.overworld.plant_lettuce.title"
+    }
+  },
+  "requirements": [
+    [
+      "plant_lettuce"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

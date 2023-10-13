@@ -169,5 +169,56 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.OBSIDIAN_DUST)
                 .add(ModItems.PRISMARINE_DUST)
                 .add(ModItems.PRISMARINE_IRON_DUST);
+
+        getOrCreateTagBuilder(ModItemTags.HELMETS)
+                .add(Items.TURTLE_HELMET)
+                .add(Items.DIAMOND_HELMET)
+                .add(Items.IRON_HELMET)
+                .add(Items.LEATHER_HELMET)
+                .add(Items.GOLDEN_HELMET)
+                .add(Items.NETHERITE_HELMET)
+                .add(Items.CHAINMAIL_HELMET)
+                .add(ModItems.PRISMARINE_HELMET)
+                .add(ModItems.BRONZE_HELMET)
+                .add(ModItems.FABIUM_HELMET)
+                .add(ModItems.DIRITONIUM_HELMET);
+        getOrCreateTagBuilder(ModItemTags.CHESTPLATES)
+                .add(Items.DIAMOND_CHESTPLATE)
+                .add(Items.IRON_CHESTPLATE)
+                .add(Items.LEATHER_CHESTPLATE)
+                .add(Items.GOLDEN_CHESTPLATE)
+                .add(Items.NETHERITE_CHESTPLATE)
+                .add(Items.CHAINMAIL_CHESTPLATE)
+                .add(ModItems.PRISMARINE_CHESTPLATE)
+                .add(ModItems.BRONZE_CHESTPLATE)
+                .add(ModItems.FABIUM_CHESTPLATE)
+                .add(ModItems.DIRITONIUM_CHESTPLATE);
+        getOrCreateTagBuilder(ModItemTags.LEGGINGS)
+                .add(Items.DIAMOND_LEGGINGS)
+                .add(Items.IRON_LEGGINGS)
+                .add(Items.LEATHER_LEGGINGS)
+                .add(Items.GOLDEN_LEGGINGS)
+                .add(Items.NETHERITE_LEGGINGS)
+                .add(Items.CHAINMAIL_LEGGINGS)
+                .add(ModItems.PRISMARINE_LEGGINGS)
+                .add(ModItems.BRONZE_LEGGINGS)
+                .add(ModItems.FABIUM_LEGGINGS)
+                .add(ModItems.DIRITONIUM_LEGGINGS);
+        getOrCreateTagBuilder(ModItemTags.BOOTS)
+                .add(Items.DIAMOND_BOOTS)
+                .add(Items.IRON_BOOTS)
+                .add(Items.LEATHER_BOOTS)
+                .add(Items.GOLDEN_BOOTS)
+                .add(Items.NETHERITE_BOOTS)
+                .add(Items.CHAINMAIL_BOOTS)
+                .add(ModItems.PRISMARINE_BOOTS)
+                .add(ModItems.BRONZE_BOOTS)
+                .add(ModItems.FABIUM_BOOTS)
+                .add(ModItems.DIRITONIUM_BOOTS);
+        /*getOrCreateTagBuilder(ModItemTags.ENCHANTABLES)
+                .add(Items.SHEARS)
+                .add(Items.FLINT_AND_STEEL);*/
+        getOrCreateTagBuilder(ModItemTags.ELYTRAS)
+                .add(Items.ELYTRA);
     }
 }

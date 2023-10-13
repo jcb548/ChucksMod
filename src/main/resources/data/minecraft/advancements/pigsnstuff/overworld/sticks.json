@@ -1,0 +1,38 @@
+{
+  "parent": "minecraft:pigsnstuff/overworld/root",
+  "criteria": {
+    "sticks": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:stick"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.pigsnstuff.overworld.sticks.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "minecraft:stick"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.pigsnstuff.overworld.sticks.title"
+    }
+  },
+  "requirements": [
+    [
+      "sticks"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

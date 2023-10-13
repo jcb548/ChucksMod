@@ -1,0 +1,42 @@
+{
+  "parent": "minecraft:pigsnstuff/overworld/enchant_item",
+  "criteria": {
+    "fortune": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "minecraft:swords",
+            "enchantments": [
+              {
+                "enchantment": "minecraft:sweeping_edge",
+                "levels": 3
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.pigsnstuff.overworld.sweeping.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "pigsnstuff:bronze_sword"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.pigsnstuff.overworld.sweeping.title"
+    }
+  },
+  "requirements": [
+    [
+      "sweeping"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

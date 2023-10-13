@@ -1,0 +1,41 @@
+{
+  "parent": "minecraft:pigsnstuff/overworld/enchant_item",
+  "criteria": {
+    "knockback": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "minecraft:swords",
+            "enchantments": [
+              {
+                "enchantment": "minecraft:knockback"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.pigsnstuff.overworld.knockback.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "minecraft:iron_sword"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.pigsnstuff.overworld.knockback.title"
+    }
+  },
+  "requirements": [
+    [
+      "knockback"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

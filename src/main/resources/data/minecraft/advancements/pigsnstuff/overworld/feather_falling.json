@@ -1,0 +1,45 @@
+{
+  "parent": "minecraft:pigsnstuff/overworld/enchant_item",
+  "criteria": {
+    "feather_falling": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "c:boots",
+            "enchantments": [
+              {
+                "enchantment": "minecraft:feather_falling",
+                "levels": {
+                  "min": 3,
+                  "max": 4
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.pigsnstuff.overworld.feather_falling.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "minecraft:feather"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.pigsnstuff.overworld.feather_falling.title"
+    }
+  },
+  "requirements": [
+    [
+      "feather_falling"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

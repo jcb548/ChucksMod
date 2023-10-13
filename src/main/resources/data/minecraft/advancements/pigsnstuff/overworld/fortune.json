@@ -1,0 +1,42 @@
+{
+  "parent": "minecraft:pigsnstuff/overworld/enchant_item",
+  "criteria": {
+    "fortune": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "minecraft:tools",
+            "enchantments": [
+              {
+                "enchantment": "minecraft:fortune",
+                "levels": 3
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.pigsnstuff.overworld.fortune.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "minecraft:diamond"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.pigsnstuff.overworld.fortune.title"
+    }
+  },
+  "requirements": [
+    [
+      "fortune"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -1,0 +1,38 @@
+{
+  "parent": "minecraft:pigsnstuff/overworld/cobble",
+  "criteria": {
+    "get_furnace": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:furnace"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.pigsnstuff.overworld.furnace.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "minecraft:furnace"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.pigsnstuff.overworld.furnace.title"
+    }
+  },
+  "requirements": [
+    [
+      "get_furnace"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

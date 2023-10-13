@@ -1,0 +1,45 @@
+{
+  "parent": "minecraft:pigsnstuff/overworld/enchant_item",
+  "criteria": {
+    "thorns": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "minecraft:trimmable_armor",
+            "enchantments": [
+              {
+                "enchantment": "minecraft:thorns",
+                "levels": {
+                  "min": 3,
+                  "max": 4
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.pigsnstuff.overworld.thorns.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "minecraft:cactus"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.pigsnstuff.overworld.thorns.title"
+    }
+  },
+  "requirements": [
+    [
+      "thorns"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

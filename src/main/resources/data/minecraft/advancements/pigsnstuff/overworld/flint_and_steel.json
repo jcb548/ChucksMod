@@ -1,0 +1,39 @@
+{
+  "parent": "minecraft:pigsnstuff/overworld/iron",
+  "criteria": {
+    "get_flint_and_steel": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:flint_and_steel"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.pigsnstuff.overworld.flint_and_steel.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "minecraft:flint_and_steel",
+      "nbt": "{Damage:0}"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.pigsnstuff.overworld.flint_and_steel.title"
+    }
+  },
+  "requirements": [
+    [
+      "get_flint_and_steel"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

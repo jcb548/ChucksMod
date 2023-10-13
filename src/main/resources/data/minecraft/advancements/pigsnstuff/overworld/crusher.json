@@ -1,0 +1,38 @@
+{
+  "parent": "minecraft:pigsnstuff/overworld/iron_gear",
+  "criteria": {
+    "get_piston": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "pigsnstuff:crusher"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.pigsnstuff.overworld.crusher.desc"
+    },
+    "frame": "goal",
+    "hidden": false,
+    "icon": {
+      "item": "pigsnstuff:crusher"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.pigsnstuff.overworld.crusher.title"
+    }
+  },
+  "requirements": [
+    [
+      "get_piston"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

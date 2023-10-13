@@ -18,4 +18,16 @@ public class ModItemTags {
             new Identifier("c", "bronze_ingots"));
     public static final TagKey<Item> DUSTS = TagKey.of(RegistryKeys.ITEM,
             new Identifier("c", "dusts"));
+    public static final TagKey<Item> HELMETS = TagKey.of(RegistryKeys.ITEM,
+            new Identifier("c", "helmets"));
+    public static final TagKey<Item> CHESTPLATES = TagKey.of(RegistryKeys.ITEM,
+            new Identifier("c", "chestplates"));
+    public static final TagKey<Item> LEGGINGS = TagKey.of(RegistryKeys.ITEM,
+            new Identifier("c", "leggings"));
+    public static final TagKey<Item> BOOTS = TagKey.of(RegistryKeys.ITEM,
+            new Identifier("c", "boots"));
+    public static final TagKey<Item> ENCHANTABLES = TagKey.of(RegistryKeys.ITEM,
+            new Identifier("c", "enchantables"));
+    public static final TagKey<Item> ELYTRAS = TagKey.of(RegistryKeys.ITEM,
+            new Identifier("c", "elytras"));
 }

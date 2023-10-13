@@ -1,0 +1,38 @@
+{
+  "parent": "minecraft:pigsnstuff/overworld/plant_lettuce",
+  "criteria": {
+    "get_lettuce": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "pigsnstuff:lettuce"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.pigsnstuff.overworld.lettuce.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "pigsnstuff:lettuce"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.pigsnstuff.overworld.lettuce.title"
+    }
+  },
+  "requirements": [
+    [
+      "get_lettuce"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

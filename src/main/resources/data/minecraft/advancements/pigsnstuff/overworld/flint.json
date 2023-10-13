@@ -1,0 +1,38 @@
+{
+  "parent": "minecraft:pigsnstuff/overworld/gravel",
+  "criteria": {
+    "get_flint": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:flint"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.pigsnstuff.overworld.flint.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "minecraft:flint"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.pigsnstuff.overworld.flint.title"
+    }
+  },
+  "requirements": [
+    [
+      "get_flint"
+    ]
+  ],
+  "sends_telemetry_event": true
+}
