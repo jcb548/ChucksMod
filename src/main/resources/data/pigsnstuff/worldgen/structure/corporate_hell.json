@@ -3,6 +3,7 @@
   "start_pool": "pigsnstuff:corporate_hell/start_pool",
   "size": 2,
   "max_distance_from_center": 80,
+  "terrain_adaptation": "beard_thin",
   "biomes": "#pigsnstuff:has_structure/corporate_hell",
   "step": "surface_structures",
   "start_height": {
