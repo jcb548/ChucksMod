@@ -667,6 +667,24 @@ public class ModAdvancementsProvider extends FabricAdvancementProvider {
                 .criterion("anvil", InventoryChangedCriterion.Conditions.items(Items.ANVIL))
                 .parent(enchantmentTable)
                 .build(consumer,PigsNStuff.MOD_ID + "/overworld/anvil");
+
+        Advancement bucket = Advancement.Builder.create()
+                .display(Items.WATER_BUCKET,
+                        Text.translatable("advancements." + PigsNStuff.MOD_ID + ".overworld.bucket.title"),
+                        Text.translatable("advancements." + PigsNStuff.MOD_ID + ".overworld.bucket.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("bucket", InventoryChangedCriterion.Conditions.items(Items.BUCKET))
+                .parent(iron)
+                .build(consumer,PigsNStuff.MOD_ID + "/overworld/bucket");
+
+        Advancement waterBucket = Advancement.Builder.create()
+                .display(Items.WATER_BUCKET,
+                        Text.translatable("advancements." + PigsNStuff.MOD_ID + ".overworld.water_bucket.title"),
+                        Text.translatable("advancements." + PigsNStuff.MOD_ID + ".overworld.water_bucket.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("water_bucket", InventoryChangedCriterion.Conditions.items(Items.WATER_BUCKET))
+                .parent(bucket)
+                .build(consumer,PigsNStuff.MOD_ID + "/overworld/water_bucket");
     }
     private void netherAdvancements(Consumer<Advancement> consumer) {
         Advancement root = Advancement.Builder.create()

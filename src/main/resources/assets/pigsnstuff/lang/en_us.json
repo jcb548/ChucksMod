@@ -459,6 +459,12 @@
   "advancements.pigsnstuff.overworld.thorns.title": "Prickly",
   "advancements.pigsnstuff.overworld.thorns.desc": "Enchant an Armor item with at least Thorns 2 (Max 3) reflect damage whenever you take damage, at a cost of durability",
 
+  "advancements.pigsnstuff.overworld.bucket.title": "Bucket",
+  "advancements.pigsnstuff.overworld.bucket.desc": "Craft or obtain a Bucket from a chest to allow picking up of liquids",
+
+  "advancements.pigsnstuff.overworld.water_bucket.title": "Bucket of Water",
+  "advancements.pigsnstuff.overworld.water_bucket.desc": "Pickup a block of water with a Bucket",
+
 
 
   "advancements.pigsnstuff.nether.root.title": "Enter Nether",

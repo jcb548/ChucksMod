@@ -11,8 +11,8 @@
               {
                 "enchantment": "minecraft:thorns",
                 "levels": {
-                  "min": 3,
-                  "max": 4
+                  "min": 2,
+                  "max": 3
                 }
               }
             ]
