@@ -1,5 +1,6 @@
-package net.chuck.pigsnstuff.item.custom;
+package net.chuck.pigsnstuff.item.custom.wither;
 
+import net.chuck.pigsnstuff.item.custom.ModPickaxeItem;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -12,7 +13,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class ModWitherPickaxeItem extends ModPickaxeItem{
+public class ModWitherPickaxeItem extends ModPickaxeItem {
     public ModWitherPickaxeItem(ToolMaterial toolMaterial, int attackDamage, float attackSpeed, Settings settings) {
         super(toolMaterial, attackDamage, attackSpeed, settings);
     }

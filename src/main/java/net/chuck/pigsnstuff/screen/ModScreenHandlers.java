@@ -23,6 +23,8 @@ public class ModScreenHandlers {
             new ExtendedScreenHandlerType<>(PoweredCrusherScreenHandler::new);
     public static ScreenHandlerType<GeneratorScreenHandler> GENERATOR_SCREEN_HANDLER =
             new ExtendedScreenHandlerType<>(GeneratorScreenHandler::new);
+    public static ScreenHandlerType<BagScreenHandler> BAG_SCREEN_HANDLER =
+            new ExtendedScreenHandlerType<>(BagScreenHandler::new);
 
     public static void registerAllScreenHandlers() {
         Registry.register(Registries.SCREEN_HANDLER, new Identifier(PigsNStuff.MOD_ID, "crusher"),

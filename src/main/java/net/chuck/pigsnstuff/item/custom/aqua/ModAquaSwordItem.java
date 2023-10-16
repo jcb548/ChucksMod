@@ -1,5 +1,6 @@
-package net.chuck.pigsnstuff.item.custom;
+package net.chuck.pigsnstuff.item.custom.aqua;
 
+import net.chuck.pigsnstuff.item.custom.ModSwordItem;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.EntityGroup;
 import net.minecraft.entity.LivingEntity;
@@ -11,10 +12,11 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class ModAquaShovelItem extends ModShovelItem{
-    public ModAquaShovelItem(ToolMaterial toolMaterial, int attackDamage, float attackSpeed, Settings settings) {
+public class ModAquaSwordItem extends ModSwordItem {
+    public ModAquaSwordItem(ToolMaterial toolMaterial, int attackDamage, float attackSpeed, Settings settings) {
         super(toolMaterial, attackDamage, attackSpeed, settings);
     }
+
     @Override
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         if(target.getGroup() == EntityGroup.AQUATIC) {

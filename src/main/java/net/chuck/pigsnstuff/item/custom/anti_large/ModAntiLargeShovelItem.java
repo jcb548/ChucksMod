@@ -1,10 +1,9 @@
-package net.chuck.pigsnstuff.item.custom;
+package net.chuck.pigsnstuff.item.custom.anti_large;
 
+import net.chuck.pigsnstuff.item.custom.ModShovelItem;
 import net.minecraft.client.item.TooltipContext;
-import net.minecraft.entity.EntityGroup;
+import net.minecraft.entity.EntityPose;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.effect.StatusEffectInstance;
-import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.text.Text;
@@ -13,21 +12,24 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class ModWitherSwordItem extends ModSwordItem{
-    public ModWitherSwordItem(ToolMaterial toolMaterial, int attackDamage, float attackSpeed, Settings settings) {
+public class ModAntiLargeShovelItem extends ModShovelItem {
+    public ModAntiLargeShovelItem(ToolMaterial toolMaterial, int attackDamage, float attackSpeed, Settings settings) {
         super(toolMaterial, attackDamage, attackSpeed, settings);
     }
 
     @Override
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-        target.addStatusEffect(new StatusEffectInstance(StatusEffects.WITHER, 100, 2), attacker);
-        //attacker.sendMessage(Text.of(Float.toString(this.getMaterial().getAttackDamage())));
+        //attacker.sendMessage(Text.of(target.getDimensions(EntityPose.STANDING).toString()));
+        if(target.getDimensions(EntityPose.STANDING).width > 1.2f) {
+            target.damage(target.getRecentDamageSource(),
+                    1.5f*(this.getAttackDamage()+1));
+        }
         return super.postHit(stack, target, attacker);
     }
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        tooltip.add(Text.translatable("tooltip.pigsnstuff.aqua_item.tooltip"));
+        tooltip.add(Text.translatable("tooltip.pigsnstuff.anti_large_item.tooltip"));
         super.appendTooltip(stack, world, tooltip, context);
     }
 }

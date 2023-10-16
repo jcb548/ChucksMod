@@ -1,5 +1,6 @@
-package net.chuck.pigsnstuff.item.custom;
+package net.chuck.pigsnstuff.item.custom.wither;
 
+import net.chuck.pigsnstuff.item.custom.ModSwordItem;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -12,8 +13,8 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class ModWitherShovelItem extends ModShovelItem{
-    public ModWitherShovelItem(ToolMaterial toolMaterial, int attackDamage, float attackSpeed, Settings settings) {
+public class ModWitherSwordItem extends ModSwordItem {
+    public ModWitherSwordItem(ToolMaterial toolMaterial, int attackDamage, float attackSpeed, Settings settings) {
         super(toolMaterial, attackDamage, attackSpeed, settings);
     }
 

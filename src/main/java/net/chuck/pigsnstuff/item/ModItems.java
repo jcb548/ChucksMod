@@ -4,10 +4,12 @@ import net.chuck.pigsnstuff.PigsNStuff;
 import net.chuck.pigsnstuff.block.ModBlocks;
 import net.chuck.pigsnstuff.entity.ModEntities;
 import net.chuck.pigsnstuff.item.custom.*;
+import net.chuck.pigsnstuff.item.custom.anti_large.*;
+import net.chuck.pigsnstuff.item.custom.aqua.*;
+import net.chuck.pigsnstuff.item.custom.ModSwordItem;
+import net.chuck.pigsnstuff.item.custom.wither.*;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
-import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
-import net.minecraft.block.Blocks;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -177,6 +179,12 @@ public class ModItems {
             new Item(new FabricItemSettings()));
     public static final Item DIRITIA_CRYSTAL_SHARD = registerItem("diritia_crystal_shard",
             new Item(new FabricItemSettings()));
+
+    public static final Item PORTABLE_ENDERCHEST = registerItem("portable_enderchest",
+            new PortableEnderChestItem(new FabricItemSettings()));
+    public static final Item EMPTY_BAG = registerItem("empty_bag", new EmptyBagItem(new FabricItemSettings()));
+
+    public static final Item BAG = registerItem("bag", new BagItem(new FabricItemSettings()));
 
     private static void addItemsToIngredientGroup(FabricItemGroupEntries entries){
         entries.add(RAW_TIN);

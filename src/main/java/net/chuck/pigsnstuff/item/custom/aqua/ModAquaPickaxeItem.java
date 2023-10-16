@@ -1,5 +1,6 @@
-package net.chuck.pigsnstuff.item.custom;
+package net.chuck.pigsnstuff.item.custom.aqua;
 
+import net.chuck.pigsnstuff.item.custom.ModPickaxeItem;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.EntityGroup;
 import net.minecraft.entity.LivingEntity;
@@ -11,8 +12,8 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class ModAquaSwordItem extends ModSwordItem{
-    public ModAquaSwordItem(ToolMaterial toolMaterial, int attackDamage, float attackSpeed, Settings settings) {
+public class ModAquaPickaxeItem extends ModPickaxeItem {
+    public ModAquaPickaxeItem(ToolMaterial toolMaterial, int attackDamage, float attackSpeed, Settings settings) {
         super(toolMaterial, attackDamage, attackSpeed, settings);
     }
 

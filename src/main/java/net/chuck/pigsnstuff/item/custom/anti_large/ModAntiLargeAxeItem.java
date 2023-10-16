@@ -1,7 +1,9 @@
-package net.chuck.pigsnstuff.item.custom;
+package net.chuck.pigsnstuff.item.custom.anti_large;
 
+import net.chuck.pigsnstuff.item.custom.ModAxeItem;
 import net.minecraft.client.item.TooltipContext;
-import net.minecraft.entity.*;
+import net.minecraft.entity.EntityPose;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.text.Text;
@@ -9,9 +11,8 @@ import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
-
-public class ModAntiLargeSwordItem extends ModSwordItem{
-    public ModAntiLargeSwordItem(ToolMaterial toolMaterial, int attackDamage, float attackSpeed, Settings settings) {
+public class ModAntiLargeAxeItem extends ModAxeItem {
+    public ModAntiLargeAxeItem(ToolMaterial toolMaterial, int attackDamage, float attackSpeed, Settings settings) {
         super(toolMaterial, attackDamage, attackSpeed, settings);
     }
 

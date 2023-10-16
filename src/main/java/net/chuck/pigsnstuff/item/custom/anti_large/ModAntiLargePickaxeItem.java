@@ -1,5 +1,6 @@
-package net.chuck.pigsnstuff.item.custom;
+package net.chuck.pigsnstuff.item.custom.anti_large;
 
+import net.chuck.pigsnstuff.item.custom.ModPickaxeItem;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.EntityPose;
 import net.minecraft.entity.LivingEntity;
@@ -11,8 +12,8 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class ModAntiLargeHoeItem extends ModHoeItem{
-    public ModAntiLargeHoeItem(ToolMaterial toolMaterial, int attackDamage, float attackSpeed, Settings settings) {
+public class ModAntiLargePickaxeItem extends ModPickaxeItem {
+    public ModAntiLargePickaxeItem(ToolMaterial toolMaterial, int attackDamage, float attackSpeed, Settings settings) {
         super(toolMaterial, attackDamage, attackSpeed, settings);
     }
 

@@ -5,10 +5,7 @@ import net.chuck.pigsnstuff.client.ArmorHudOverlay;
 import net.chuck.pigsnstuff.entity.ModEntities;
 import net.chuck.pigsnstuff.entity.client.*;
 import net.chuck.pigsnstuff.networking.ModMessages;
-import net.chuck.pigsnstuff.screen.CrusherScreen;
-import net.chuck.pigsnstuff.screen.GeneratorScreen;
-import net.chuck.pigsnstuff.screen.ModScreenHandlers;
-import net.chuck.pigsnstuff.screen.PoweredCrusherScreen;
+import net.chuck.pigsnstuff.screen.*;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
@@ -103,6 +100,7 @@ public class PigsNStuffClient implements ClientModInitializer {
         HandledScreens.register(ModScreenHandlers.CRUSHER_SCREEN_HANDLER, CrusherScreen::new);
         HandledScreens.register(ModScreenHandlers.POWERED_CRUSHER_SCREEN_HANDLER, PoweredCrusherScreen::new);
         HandledScreens.register(ModScreenHandlers.GENERATOR_SCREEN_HANDLER, GeneratorScreen::new);
+        HandledScreens.register(ModScreenHandlers.BAG_SCREEN_HANDLER, BagScreen::new);
 
         HudRenderCallback.EVENT.register(new ArmorHudOverlay());
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.WYATT, WyattModel::getTexturedModelData);
