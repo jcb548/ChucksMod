@@ -16,8 +16,10 @@ import net.minecraft.screen.GenericContainerScreenHandler;
 import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.SimpleNamedScreenHandlerFactory;
+import net.minecraft.screen.slot.Slot;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
+import net.minecraft.util.ClickType;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.collection.DefaultedList;
@@ -33,29 +35,12 @@ public class BagItem extends Item{
 
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
-        ItemStack itemStack = user.getStackInHand(hand);
+        ItemStack itemStack = user.getMainHandStack();
         if (world.isClient) {
             return TypedActionResult.success(itemStack);
         }
-        if(!itemStack.hasNbt()){
-            NbtCompound nbt_temp = new NbtCompound();
-            Inventories.writeNbt(nbt_temp, DefaultedList.ofSize(INV_SIZE, ItemStack.EMPTY));
-            itemStack.setSubNbt(ITEMS_KEY, nbt_temp);
-        }
-        NbtCompound nbt = itemStack.getNbt();
-
-        DefaultedList<ItemStack> nbtInventory = DefaultedList.ofSize(BagItem.INV_SIZE, ItemStack.EMPTY);
-        if (nbt.contains(ITEMS_KEY, NbtElement.LIST_TYPE)) {
-            Inventories.readNbt(nbt, nbtInventory);
-        }
-        Inventory inventory = ItemInventory.of(nbtInventory);
         NamedScreenHandlerFactory screenHandlerFactory = new BagScreenHandlerFactory(itemStack);
         user.openHandledScreen(screenHandlerFactory);
         return TypedActionResult.consume(itemStack);
-    }
-
-    public static ItemStack createBag(PlayerEntity user, Hand hand){
-        ItemStack new_bag = new ItemStack(ModItems.BAG);
-        return new_bag;
     }
 }

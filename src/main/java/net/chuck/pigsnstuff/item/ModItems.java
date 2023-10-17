@@ -182,7 +182,6 @@ public class ModItems {
 
     public static final Item PORTABLE_ENDERCHEST = registerItem("portable_enderchest",
             new PortableEnderChestItem(new FabricItemSettings()));
-    public static final Item EMPTY_BAG = registerItem("empty_bag", new EmptyBagItem(new FabricItemSettings()));
 
     public static final Item BAG = registerItem("bag", new BagItem(new FabricItemSettings()));
 

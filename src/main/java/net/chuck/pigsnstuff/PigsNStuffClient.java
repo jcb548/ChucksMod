@@ -26,6 +26,7 @@ import net.minecraft.client.render.entity.model.EntityModelLayer;
  *  Details can be found in the license file in the root folder of this project
  */
 public class PigsNStuffClient implements ClientModInitializer {
+    public boolean bagClickable = true;
     @Override
     public void onInitializeClient() {
         ModMessages.registerS2CPackets();

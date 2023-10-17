@@ -9,12 +9,20 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
 public class BagScreen extends HandledScreen<BagScreenHandler> {
+    private int closeDelay = 5;
     private static final Identifier TEXTURE = new Identifier(PigsNStuff.MOD_ID,
             "textures/gui/bag_gui.png");
     public BagScreen(BagScreenHandler handler, PlayerInventory inventory, Text title) {
         super(handler, inventory, title);
+        this.playerInventoryTitleY = 40;
     }
 
+    @Override
+    public void render(DrawContext context, int mouseX, int mouseY, float delta) {
+        renderBackground(context);
+        super.render(context, mouseX, mouseY, delta);
+        drawMouseoverTooltip(context, mouseX, mouseY);
+    }
     @Override
     protected void drawBackground(DrawContext context, float delta, int mouseX, int mouseY) {
         RenderSystem.setShaderColor(1.0f, 1.0f, 1.0f, 1.0f);

@@ -251,7 +251,6 @@ public class ModModelProvider extends FabricModelProvider {
 
         itemModelGenerator.register(ModItems.OBSIDIAN_DUST, Models.GENERATED);
         itemModelGenerator.register(ModItems.PORTABLE_ENDERCHEST, Models.GENERATED);
-        itemModelGenerator.register(ModItems.EMPTY_BAG, Models.GENERATED);
         itemModelGenerator.register(ModItems.BAG, Models.GENERATED);
     }
 }

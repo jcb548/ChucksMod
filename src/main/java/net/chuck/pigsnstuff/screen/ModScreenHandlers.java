@@ -33,5 +33,7 @@ public class ModScreenHandlers {
                 POWERED_CRUSHER_SCREEN_HANDLER);
         Registry.register(Registries.SCREEN_HANDLER, new Identifier(PigsNStuff.MOD_ID, "generator"),
                 GENERATOR_SCREEN_HANDLER);
+        Registry.register(Registries.SCREEN_HANDLER, new Identifier(PigsNStuff.MOD_ID, "bag"),
+                BAG_SCREEN_HANDLER);
     }
 }

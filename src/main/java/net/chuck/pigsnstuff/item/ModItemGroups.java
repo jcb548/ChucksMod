@@ -222,7 +222,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.FRANK_ALTAR);
 
                         entries.add(ModItems.PORTABLE_ENDERCHEST);
-                        entries.add(ModItems.EMPTY_BAG);
+                        entries.add(ModItems.BAG);
                     }).build());
     public static void registerItemGroups() {
         PigsNStuff.LOGGER.info("Registering Item Groups for " + PigsNStuff.MOD_ID);
