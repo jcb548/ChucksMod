@@ -200,6 +200,9 @@
   "block.pigsnstuff.sandstone_brick_wall": "Sandstone Brick Wall",
   "block.pigsnstuff.cracked_sandstone_bricks": "Cracked Sandstone Bricks",
 
+  "item.pigsnstuff.portable_enderchest": "Portable Enderchest",
+  "item.pigsnstuff.bag": "Bag",
+
   "itemgroup.pigsnstuff": "Pigs N Stuff",
 
   "title.pigsnstuff.bag": "Bag",

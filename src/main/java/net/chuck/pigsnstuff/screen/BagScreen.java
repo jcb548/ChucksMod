@@ -9,7 +9,6 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
 public class BagScreen extends HandledScreen<BagScreenHandler> {
-    private int closeDelay = 5;
     private static final Identifier TEXTURE = new Identifier(PigsNStuff.MOD_ID,
             "textures/gui/bag_gui.png");
     public BagScreen(BagScreenHandler handler, PlayerInventory inventory, Text title) {

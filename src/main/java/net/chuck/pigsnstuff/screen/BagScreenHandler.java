@@ -2,6 +2,7 @@ package net.chuck.pigsnstuff.screen;
 
 import net.chuck.pigsnstuff.item.ModItems;
 import net.chuck.pigsnstuff.item.custom.BagItem;
+import net.chuck.pigsnstuff.util.ModBagSlot;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;
@@ -15,7 +16,6 @@ import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.slot.Slot;
 
 public class BagScreenHandler extends ScreenHandler implements InventoryChangedListener {
-    public static final String ITEMS_KEY = "Items";
     protected final SimpleInventory inventory;
     protected final ItemStack bagItemStack;
     public BagScreenHandler(int syncId, PlayerInventory playerInventory, PacketByteBuf buf) {
@@ -36,6 +36,7 @@ public class BagScreenHandler extends ScreenHandler implements InventoryChangedL
         inventory.onOpen(playerInventory.player);
         addPlayerInventory(playerInventory);
         addPlayerHotbar(playerInventory);
+        disableBagSlot();
         addBagInventory();
         inventory.addListener(this);
     }
@@ -88,5 +89,13 @@ public class BagScreenHandler extends ScreenHandler implements InventoryChangedL
         NbtCompound newNbt = new NbtCompound();
         Inventories.writeNbt(newNbt, inventory.stacks, false);
         bagItemStack.setNbt(newNbt);
+    }
+
+    public void disableBagSlot(){
+        for(int i=0; i<slots.size();i++){
+            if(slots.get(i).getStack().equals(bagItemStack)){
+                slots.set(i, new ModBagSlot(slots.get(i)));
+            }
+        }
     }
 }
