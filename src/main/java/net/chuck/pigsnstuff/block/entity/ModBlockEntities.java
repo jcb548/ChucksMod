@@ -26,18 +26,18 @@ public class ModBlockEntities {
         CRUSHER = Registry.register(Registries.BLOCK_ENTITY_TYPE,
                 new Identifier(PigsNStuff.MOD_ID, "crusher"),
                 FabricBlockEntityTypeBuilder.create(CrusherBlockEntity::new,
-                        ModBlocks.CRUSHER).build(null));
+                        ModBlocks.CRUSHER).build());
         POWERED_CRUSHER = Registry.register(Registries.BLOCK_ENTITY_TYPE,
                 new Identifier(PigsNStuff.MOD_ID, "powered_crusher"),
                 FabricBlockEntityTypeBuilder.create(PoweredCrusherBlockEntity::new,
-                        ModBlocks.POWERED_CRUSHER).build(null));
+                        ModBlocks.POWERED_CRUSHER).build());
         // Cables can now connect to block entity
         EnergyStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.energyStorage,
                 POWERED_CRUSHER);
         GENERATOR = Registry.register(Registries.BLOCK_ENTITY_TYPE,
                 new Identifier(PigsNStuff.MOD_ID, "generator"),
                 FabricBlockEntityTypeBuilder.create(GeneratorBlockEntity::new,
-                        ModBlocks.GENERATOR).build(null));
+                        ModBlocks.GENERATOR).build());
         // Cables can now connect to block entity
         EnergyStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.energyStorage,
                 POWERED_CRUSHER);

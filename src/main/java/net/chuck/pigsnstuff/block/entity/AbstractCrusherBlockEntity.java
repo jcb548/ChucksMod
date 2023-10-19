@@ -10,6 +10,7 @@ import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketByteBuf;
+import net.minecraft.recipe.RecipeEntry;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -43,40 +44,43 @@ public abstract class AbstractCrusherBlockEntity extends BlockEntity implements 
         buf.writeBlockPos(this.pos);
     }
 
-    protected static void craftItem(AbstractCrusherBlockEntity entity) {
-        SimpleInventory inventory = new SimpleInventory(entity.size());
-        for(int i = 0; i< entity.size(); i++){
-            inventory.setStack(INPUT_SLOT, entity.getStack(INPUT_SLOT));
-        }
-        Optional<CrusherRecipe> recipe = entity.getWorld().getRecipeManager()
-                .getFirstMatch(CrusherRecipe.Type.INSTANCE, inventory, entity.getWorld());
-
-        if(hasRecipe(entity)) {
-            entity.removeStack(INPUT_SLOT,1);
-            entity.setStack(OUTPUT_SLOT, new ItemStack(recipe.get().getOutputNoReg().getItem(),
-                    entity.getStack(OUTPUT_SLOT).getCount() + 1));
-            entity.resetProgress();
-        }
+    protected void craftItem() {
+        Optional<RecipeEntry<CrusherRecipe>> recipe = getCurrentRecipe();
+        this.removeStack(INPUT_SLOT,1);
+        this.setStack(OUTPUT_SLOT, new ItemStack(recipe.get().value().getResult(null).getItem(),
+                getStack(OUTPUT_SLOT).getCount() + recipe.get().value().getResult(null).getCount()));
     }
 
-    protected static boolean hasRecipe(AbstractCrusherBlockEntity entity) {
-        SimpleInventory inventory = new SimpleInventory(entity.size());
-        for(int i = 0; i< entity.size(); i++){
-            inventory.setStack(i, entity.getStack(i));
+    protected boolean hasRecipe() {
+        Optional<RecipeEntry<CrusherRecipe>> recipe = getCurrentRecipe();
+        return recipe.isPresent() && canInsertAmountIntoOutputSlot(recipe.get().value().getResult(null))
+        && canInsertItemIntoOutputSlot(recipe.get().value().getResult(null).getItem());
+    }
+
+    private Optional<RecipeEntry<CrusherRecipe>> getCurrentRecipe() {
+        SimpleInventory inventory = new SimpleInventory(this.size());
+        for(int i=0; i< this.size(); i++){
+            inventory.setStack(i, this.getStack(i));
         }
-        Optional<CrusherRecipe> match = entity.getWorld().getRecipeManager()
-                .getFirstMatch(CrusherRecipe.Type.INSTANCE, inventory, entity.getWorld());
-
-        return match.isPresent() && canInsertAmountIntoOutputSlot(inventory) &&
-                canInsertItemIntoOutputSlot(inventory, match.get().getOutputNoReg().getItem());
+        return getWorld().getRecipeManager().getFirstMatch(CrusherRecipe.Type.INSTANCE, inventory, getWorld());
     }
 
-    private static boolean canInsertItemIntoOutputSlot(SimpleInventory inventory, Item output) {
-        return inventory.getStack(OUTPUT_SLOT).getItem() == output || inventory.getStack(OUTPUT_SLOT).isEmpty();
+    private boolean canInsertItemIntoOutputSlot(Item output) {
+        return this.getStack(OUTPUT_SLOT).getItem() == output || this.getStack(OUTPUT_SLOT).isEmpty();
     }
 
-    private static boolean canInsertAmountIntoOutputSlot(SimpleInventory inventory) {
-        return inventory.getStack(OUTPUT_SLOT).getMaxCount() > inventory.getStack(OUTPUT_SLOT).getCount();
+    private boolean canInsertAmountIntoOutputSlot(ItemStack result) {
+        return this.getStack(OUTPUT_SLOT).getMaxCount() > this.getStack(OUTPUT_SLOT).getCount();
+    }
+    protected boolean hasCraftingFinished(){
+        return progress >= maxProgress;
+    }
+    protected void increaseCraftProgress(){
+        progress++;
+    }
+    private boolean isOutputSlotEmptyOrReceivable(){
+        return this.getStack(OUTPUT_SLOT).isEmpty() ||
+                this.getStack(OUTPUT_SLOT).getCount() < this.getStack(OUTPUT_SLOT).getMaxCount();
     }
     @Override
     public boolean canInsert(int slot, ItemStack stack, @Nullable Direction side) {

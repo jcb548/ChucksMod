@@ -120,39 +120,41 @@ public class CrusherBlockEntity extends AbstractCrusherBlockEntity {
         return this.burnTime > 0;
     }
 
-    public static void tick(World world, BlockPos blockPos, BlockState blockState,
-                            CrusherBlockEntity entity) {
-        boolean burning_start_of_tick = entity.isBurning();
+    public void tick(World world, BlockPos blockPos, BlockState blockState) {
+        boolean burning_start_of_tick = isBurning();
         if (world.isClient()){
             return;
         }
-        if (entity.isBurning()){
-            --entity.burnTime;
+        if (isBurning()){
+            this.burnFuel();
         }
-        if(hasRecipe(entity) && !entity.isBurning()){
-            burnFuel(entity);
+        if(this.hasRecipe() && !this.isBurning()){
+            this.burnNewFuel();
         }
-        if(hasRecipe(entity) && entity.isBurning()){
-            entity.progress++;
+        if(this.hasRecipe() && this.isBurning()){
+            this.increaseCraftProgress();
             markDirty(world, blockPos, blockState);
-            if(entity.progress >= entity.maxProgress){
-                craftItem(entity);
+            if(this.hasCraftingFinished()){
+                this.craftItem();
             }
         } else {
-            entity.resetProgress();
+            this.resetProgress();
             markDirty(world, blockPos, blockState);
         }
-        if (burning_start_of_tick != entity.isBurning()){
-            blockState = (BlockState)blockState.with(AbstractFurnaceBlock.LIT, entity.isBurning());
+        if (burning_start_of_tick != isBurning()){
+            blockState = (BlockState)blockState.with(AbstractFurnaceBlock.LIT, isBurning());
             world.setBlockState(blockPos, blockState, Block.NOTIFY_ALL);
             markDirty(world, blockPos, blockState);
         }
     }
-    private static void burnFuel(CrusherBlockEntity entity){
-        if (entity.getFuelTime(entity.inventory.get(FUEL_SLOT)) > 0){
-            entity.fuelTime = entity.getFuelTime(entity.inventory.get(FUEL_SLOT));
-            entity.burnTime = entity.getFuelTime(entity.inventory.get(FUEL_SLOT));
-            entity.removeStack(FUEL_SLOT, 1);
+    private void burnFuel(){
+        --this.burnTime;
+    }
+    private void burnNewFuel(){
+        if (getFuelTime(inventory.get(FUEL_SLOT)) > 0){
+            fuelTime = getFuelTime(inventory.get(FUEL_SLOT));
+            burnTime = getFuelTime(inventory.get(FUEL_SLOT));
+            removeStack(FUEL_SLOT, 1);
         }
     }
 

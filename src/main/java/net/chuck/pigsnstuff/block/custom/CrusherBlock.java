@@ -55,7 +55,8 @@ public class CrusherBlock extends AbstractCrusherBlock {
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return checkType(type, ModBlockEntities.CRUSHER, CrusherBlockEntity::tick);
+        return validateTicker(type, ModBlockEntities.CRUSHER,
+                ((world1, pos, state1, blockEntity) -> blockEntity.tick(world1, pos, state1)));
     }
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos,

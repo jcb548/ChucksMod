@@ -121,20 +121,19 @@ public class PoweredCrusherBlockEntity extends AbstractCrusherBlockEntity {
         progress = nbt.getInt("powered_crusher.progress");
         energyStorage.amount= nbt.getLong("powered_crusher.energy");
     }
-    public static void tick(World world, BlockPos blockPos, BlockState blockState,
-                            PoweredCrusherBlockEntity entity) {
+    public void tick(World world, BlockPos blockPos, BlockState blockState) {
         if (world.isClient()){
             return;
         }
-        if(hasRecipe(entity) && hasEnoughEnergy(entity)){
-            entity.progress++;
-            extractEnergy(entity);
+        if(this.hasRecipe() && this.hasEnoughEnergy()){
+            this.increaseCraftProgress();
+            this.extractEnergy();
             markDirty(world, blockPos, blockState);
-            if(entity.progress >= entity.maxProgress){
-                craftItem(entity);
+            if(this.hasCraftingFinished()){
+                this.craftItem();
             }
         } else {
-            entity.resetProgress();
+            this.resetProgress();
             markDirty(world, blockPos, blockState);
         }
     }
@@ -142,14 +141,14 @@ public class PoweredCrusherBlockEntity extends AbstractCrusherBlockEntity {
         this.energyStorage.amount = energyLevel;
     }
 
-    private static void extractEnergy(PoweredCrusherBlockEntity entity) {
+    private void extractEnergy() {
         try(Transaction transaction = Transaction.openOuter()){
-            entity.energyStorage.extract(32, transaction);
+            this.energyStorage.extract(32, transaction);
             transaction.commit();
         }
     }
 
-    private static boolean hasEnoughEnergy(PoweredCrusherBlockEntity entity) {
-        return entity.energyStorage.amount >= 32;
+    private boolean hasEnoughEnergy() {
+        return this.energyStorage.amount >= 32;
     }
 }

@@ -113,7 +113,7 @@ public class GeneratorBlockEntity extends BlockEntity implements ExtendedScreenH
 
     @Override
     public Text getDisplayName() {
-        return Text.literal("Generator");
+        return Text.translatable("block.pigsnstuff.generator");
     }
     @Nullable
     @Override
