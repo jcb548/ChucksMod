@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "chucksmod:block/diritia_plant_light"
+  }
+}

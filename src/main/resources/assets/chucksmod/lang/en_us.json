@@ -1,0 +1,488 @@
+{
+  "item.chucksmod.hamburger": "Hamburger",
+  "item.chucksmod.tomato": "Tomato",
+  "item.chucksmod.tomato_seeds": "Tomato Seeds",
+  "item.chucksmod.lettuce": "Lettuce",
+  "item.chucksmod.lettuce_seeds": "Lettuce Seeds",
+  "item.chucksmod.pineapple": "Pineapple",
+  "item.chucksmod.pineapple_seeds": "Pineapple Seeds",
+
+  "item.chucksmod.iron_dust": "Iron Dust",
+  "item.chucksmod.iron_gear": "Iron Gear",
+  "block.chucksmod.iron_dust_block": "Block of Iron Dust",
+  "item.chucksmod.copper_dust": "Copper Dust",
+  "item.chucksmod.copper_gear": "Copper Gear",
+  "block.chucksmod.copper_dust_block": "Block of Copper Dust",
+  "block.chucksmod.copper_bars": "Copper Bars",
+  "item.chucksmod.gold_dust": "Gold Dust",
+  "item.chucksmod.gold_gear": "Gold Gear",
+  "block.chucksmod.gold_dust_block": "Block of Gold Dust",
+  "block.chucksmod.gold_bars": "Gold Bars",
+  "item.chucksmod.obsidian_dust": "Obsidian Dust",
+  "block.chucksmod.obsidian_sand": "Obsidian Sand",
+
+  "item.chucksmod.prismarine_dust": "Prismarine Dust",
+  "block.chucksmod.prismarine_dust_block": "Block ofPrismarine Dust",
+  "item.chucksmod.prismarine_iron_dust": "Prismarine Iron Dust",
+  "block.chucksmod.prismarine_iron_dust_block": "Block of Prismarine Iron Dust",
+  "block.chucksmod.prismarine_bars": "Prismarine Bars",
+  "item.chucksmod.prismarine_ingot": "Prismarine Ingot",
+  "item.chucksmod.prismarine_gear": "Prismarine Gear",
+  "item.chucksmod.prismarine_sword": "Prismarine Sword",
+  "item.chucksmod.prismarine_pickaxe": "Prismarine Pickaxe",
+  "item.chucksmod.prismarine_axe": "Prismarine Axe",
+  "item.chucksmod.prismarine_shovel": "Prismarine Shovel",
+  "item.chucksmod.prismarine_hoe": "Prismarine Hoe",
+  "item.chucksmod.prismarine_helmet": "Prismarine Helmet",
+  "item.chucksmod.prismarine_chestplate": "Prismarine Chestplate",
+  "item.chucksmod.prismarine_leggings": "Prismarine Leggings",
+  "item.chucksmod.prismarine_boots": "Prismarine Boots",
+  "tooltip.chucksmod.aqua_item.tooltip": "Deals double damage to Aquatic Mobs",
+
+  "item.chucksmod.raw_tin": "Raw Tin",
+  "item.chucksmod.tin_ingot": "Tin Ingot",
+  "item.chucksmod.tin_dust": "Tin Dust",
+  "item.chucksmod.tin_gear": "Tin Gear",
+  "block.chucksmod.tin_block": "Block of Tin",
+  "block.chucksmod.tin_dust_block": "Block of Tin Dust",
+  "block.chucksmod.tin_bars": "Tin Bars",
+  "block.chucksmod.tin_ore": "Tin Ore",
+  "block.chucksmod.deepslate_tin_ore": "Deepslate Tin Ore",
+
+  "item.chucksmod.bronze_dust": "Bronze Dust",
+  "item.chucksmod.bronze_ingot": "Bronze Ingot",
+  "item.chucksmod.bronze_gear": "Bronze Gear",
+  "item.chucksmod.bronze_sword": "Bronze Sword",
+  "item.chucksmod.bronze_pickaxe": "Bronze Pickaxe",
+  "item.chucksmod.bronze_axe": "Bronze Axe",
+  "item.chucksmod.bronze_shovel": "Bronze Shovel",
+  "item.chucksmod.bronze_hoe": "Bronze Hoe",
+  "item.chucksmod.bronze_helmet": "Bronze Helmet",
+  "item.chucksmod.bronze_chestplate": "Bronze Chestplate",
+  "item.chucksmod.bronze_leggings": "Bronze Leggings",
+  "item.chucksmod.bronze_boots": "Bronze Boots",
+  "block.chucksmod.bronze_block": "Block of Bronze",
+  "block.chucksmod.bronze_dust_block": "Block of Bronze Dust",
+  "block.chucksmod.bronze_bars": "Bronze Bars",
+
+  "item.chucksmod.raw_fabium": "Raw Fabium",
+  "item.chucksmod.fabium_ingot": "Fabium Ingot",
+  "item.chucksmod.fabium_gear": "Fabium Gear",
+  "block.chucksmod.fabium_block": "Block of Fabium",
+  "block.chucksmod.raw_fabium_block": "Block of Raw Fabium",
+  "block.chucksmod.nether_fabium_ore": "Nether Fabium Ore",
+  "block.chucksmod.endstone_fabium_ore": "Endstone Fabium Ore",
+  "block.chucksmod.deepslate_fabium_ore": "Deepslate Fabium Ore",
+  "item.chucksmod.fabium_sword": "Fabium Sword",
+  "item.chucksmod.fabium_pickaxe": "Fabium Pickaxe",
+  "item.chucksmod.fabium_axe": "Fabium Axe",
+  "item.chucksmod.fabium_shovel": "Fabium Shovel",
+  "item.chucksmod.fabium_hoe": "Fabium Hoe",
+  "item.chucksmod.fabium_helmet": "Fabium Helmet",
+  "item.chucksmod.fabium_chestplate": "Fabium Chestplate",
+  "item.chucksmod.fabium_leggings": "Fabium Leggings",
+  "item.chucksmod.fabium_boots": "Fabium Boots",
+  "block.chucksmod.fabium_bars": "Fabium Bars",
+  "tooltip.chucksmod.anti_large_item.tooltip": "Deals 1.5x damage to wide (> 1.2 blocks) mobs",
+
+  "item.chucksmod.raw_diritonium": "Raw Diritonium",
+  "item.chucksmod.diritonium_ingot": "Diritonium Ingot",
+  "item.chucksmod.diritonium_gear": "Diritonium Gear",
+  "block.chucksmod.diritonium_block": "Block of Diritonium",
+  "block.chucksmod.raw_diritonium_block": "Block of Raw Diritonium",
+  "block.chucksmod.endstone_diritonium_ore": "Endstone Diritonium Ore",
+  "block.chucksmod.deepslate_diritonium_ore": "Deepslate Diritonium Ore",
+  "block.chucksmod.diritonium_bars": "Diritonium Bars",
+  "item.chucksmod.diritonium_sword": "Diritonium Sword",
+  "item.chucksmod.diritonium_pickaxe": "Diritonium Pickaxe",
+  "item.chucksmod.diritonium_axe": "Diritonium Axe",
+  "item.chucksmod.diritonium_shovel": "Diritonium Shovel",
+  "item.chucksmod.diritonium_hoe": "Diritonium Hoe",
+  "item.chucksmod.diritonium_helmet": "Diritonium Helmet",
+  "item.chucksmod.diritonium_chestplate": "Diritonium Chestplate",
+  "item.chucksmod.diritonium_leggings": "Diritonium Leggings",
+  "item.chucksmod.diritonium_boots": "Diritonium Boots",
+  "item.chucksmod.wyatt_spawn_egg": "Wyatt Spawn Egg",
+  "item.chucksmod.frank_spawn_egg": "Frank Spawn Egg",
+  "block.chucksmod.diritia_plant": "Diritia Plant",
+  "block.chucksmod.diritia_plant_light": "Diritia Light Plant",
+  "item.chucksmod.diritia_crystal": "Diritia Crystal",
+  "item.chucksmod.diritia_crystal_shard": "Diritia Crystal Shard",
+  "block.chucksmod.frank_altar": "Frank's Altar",
+  "entity.chucksmod.wyatt": "Wyatt",
+  "entity.chucksmod.frank": "Frank",
+
+  "item.chucksmod.wither_bone": "Wither Skeleton Bone",
+  "item.chucksmod.wither_sword": "Withering Sword",
+  "item.chucksmod.wither_pickaxe": "Withering Pickaxe",
+  "item.chucksmod.wither_axe": "Withering Axe",
+  "item.chucksmod.wither_shovel": "Withering Shovel",
+  "item.chucksmod.wither_hoe": "Withering Hoe",
+  "tooltip.chucksmod.wither_item.tooltip": "Applies wither effect on hit",
+
+  "block.chucksmod.eucalyptus_log": "Eucalyptus Log",
+  "block.chucksmod.eucalyptus_wood": "Eucalyptus Wood",
+  "block.chucksmod.stripped_eucalyptus_log": "Stripped Eucalyptus Log",
+  "block.chucksmod.stripped_eucalyptus_wood": "Stripped Eucalyptus Wood",
+  "block.chucksmod.eucalyptus_planks": "Eucalyptus Planks",
+  "block.chucksmod.eucalyptus_leaves": "Eucalyptus Leaves",
+  "block.chucksmod.eucalyptus_sapling": "Eucalyptus Sapling",
+  "block.chucksmod.eucalyptus_stairs": "Eucalyptus Stairs",
+  "block.chucksmod.eucalyptus_slab": "Eucalyptus Slab",
+  "block.chucksmod.eucalyptus_fence": "Eucalyptus Fence",
+  "block.chucksmod.eucalyptus_fence_gate": "Eucalyptus Fence Gate",
+  "block.chucksmod.eucalyptus_button": "Eucalyptus Button",
+  "block.chucksmod.eucalyptus_pressure_plate": "Eucalyptus Pressure Plate",
+  "block.chucksmod.eucalyptus_door": "Eucalyptus Door",
+  "block.chucksmod.eucalyptus_trapdoor": "Eucalyptus Trapdoor",
+
+  "block.chucksmod.crusher": "Crusher",
+  "block.chucksmod.powered_crusher": "Powered Crusher",
+
+  "block.chucksmod.slated_dirt": "Slated Dirt",
+  "block.chucksmod.slated_grass": "Slated Grass",
+
+  "block.chucksmod.diritia_log": "Diritia Log",
+  "block.chucksmod.diritia_wood": "Diritia Wood",
+  "block.chucksmod.stripped_diritia_log": "Stripped Diritia Log",
+  "block.chucksmod.stripped_diritia_wood": "Stripped Diritia Wood",
+  "block.chucksmod.diritia_planks": "Diritia Planks",
+  "block.chucksmod.diritia_leaves": "Diritia Leaves",
+  "block.chucksmod.diritia_sapling": "Diritia Sapling",
+  "block.chucksmod.diritia_stairs": "Diritia Stairs",
+  "block.chucksmod.diritia_slab": "Diritia Slab",
+  "block.chucksmod.diritia_fence": "Diritia Fence",
+  "block.chucksmod.diritia_fence_gate": "Diritia Fence Gate",
+  "block.chucksmod.diritia_button": "Diritia Button",
+  "block.chucksmod.diritia_pressure_plate": "Diritia Pressure Plate",
+  "block.chucksmod.diritia_door": "Diritia Door",
+  "block.chucksmod.diritia_trapdoor": "Diritia Trapdoor",
+
+  "block.chucksmod.hardened_glass": "Hardened Glass",
+  "block.chucksmod.hardened_glass_pane": "Hardened Glass Pane",
+  "block.chucksmod.hardened_tinted_glass": "Hardened Tinted Glass",
+  "block.chucksmod.hardened_black_stained_glass": "Hardened Black Stained Glass",
+  "block.chucksmod.hardened_black_stained_glass_pane": "Hardened Black Stained Glass Pane",
+  "block.chucksmod.hardened_blue_stained_glass": "Hardened Blue Stained Glass",
+  "block.chucksmod.hardened_blue_stained_glass_pane": "Hardened Blue Stained Glass Pane",
+  "block.chucksmod.hardened_brown_stained_glass": "Hardened Brown Stained Glass",
+  "block.chucksmod.hardened_brown_stained_glass_pane": "Hardened Brown Stained Glass Pane",
+  "block.chucksmod.hardened_cyan_stained_glass": "Hardened Cyan Stained Glass",
+  "block.chucksmod.hardened_cyan_stained_glass_pane": "Hardened cyan Stained Glass Pane",
+  "block.chucksmod.hardened_gray_stained_glass": "Hardened Gray Stained Glass",
+  "block.chucksmod.hardened_gray_stained_glass_pane": "Hardened Gray Stained Glass Pane",
+  "block.chucksmod.hardened_green_stained_glass": "Hardened Green Stained Glass",
+  "block.chucksmod.hardened_green_stained_glass_pane": "Hardened Green Stained Glass Pane",
+  "block.chucksmod.hardened_light_blue_stained_glass": "Hardened Light Blue Stained Glass",
+  "block.chucksmod.hardened_light_blue_stained_glass_pane": "Hardened Light Blue Stained Glass Pane",
+  "block.chucksmod.hardened_light_gray_stained_glass": "Hardened Light Gray Stained Glass",
+  "block.chucksmod.hardened_light_gray_stained_glass_pane": "Hardened Light Gray Stained Glass Pane",
+  "block.chucksmod.hardened_lime_stained_glass": "Hardened Lime Stained Glass",
+  "block.chucksmod.hardened_lime_stained_glass_pane": "Hardened Lime Stained Glass Pane",
+  "block.chucksmod.hardened_magenta_stained_glass": "Hardened Magenta Stained Glass",
+  "block.chucksmod.hardened_magenta_stained_glass_pane": "Hardened Magenta Stained Glass Pane",
+  "block.chucksmod.hardened_orange_stained_glass": "Hardened Orange Stained Glass",
+  "block.chucksmod.hardened_orange_stained_glass_pane": "Hardened Orange Stained Glass Pane",
+  "block.chucksmod.hardened_pink_stained_glass": "Hardened Pink Stained Glass",
+  "block.chucksmod.hardened_pink_stained_glass_pane": "Hardened Pink Stained Glass Pane",
+  "block.chucksmod.hardened_purple_stained_glass": "Hardened Purple Stained Glass",
+  "block.chucksmod.hardened_purple_stained_glass_pane": "Hardened Purple Stained Glass Pane",
+  "block.chucksmod.hardened_red_stained_glass": "Hardened Red Stained Glass",
+  "block.chucksmod.hardened_red_stained_glass_pane": "Hardened Red Stained Glass Pane",
+  "block.chucksmod.hardened_white_stained_glass": "Hardened White Stained Glass",
+  "block.chucksmod.hardened_white_stained_glass_pane": "Hardened White Stained Glass Pane",
+  "block.chucksmod.hardened_yellow_stained_glass": "Hardened Yellow Stained Glass",
+  "block.chucksmod.hardened_yellow_stained_glass_pane": "Hardened Yellow Stained Glass Pane",
+
+  "block.chucksmod.sandstone_bricks": "Sandstone Bricks",
+  "block.chucksmod.sandstone_brick_stairs": "Sandstone Brick Stairs",
+  "block.chucksmod.sandstone_brick_slab": "Sandstone Brick Slab",
+  "block.chucksmod.sandstone_brick_wall": "Sandstone Brick Wall",
+  "block.chucksmod.cracked_sandstone_bricks": "Cracked Sandstone Bricks",
+
+  "item.chucksmod.portable_enderchest": "Portable Enderchest",
+  "item.chucksmod.bag": "Bag",
+
+  "itemgroup.chucksmod": "Pigs N Stuff",
+
+  "title.chucksmod.bag": "Bag",
+
+
+  "advancements.chucksmod.overworld.root.title": "Story",
+  "advancements.chucksmod.overworld.root.desc": "Welcome to chucksmod. Check your advancements tab to see what to do next",
+
+  "advancements.chucksmod.overworld.crafting_table.title": "Crafting Table",
+  "advancements.chucksmod.overworld.crafting_table.desc": "Craft a Crafting Table, to allow for crafting more complex items",
+
+  "advancements.chucksmod.overworld.wooden_pickaxe.title": "Wooden Pickaxe",
+  "advancements.chucksmod.overworld.wooden_pickaxe.desc": "Craft a Wooden Pickaxe",
+
+  "advancements.chucksmod.overworld.cobble.title": "Cobblestone",
+  "advancements.chucksmod.overworld.cobble.desc": "Mine stone with your pickaxe to obtain Cobblestone",
+
+  "advancements.chucksmod.overworld.stone_tools.title": "Stone Tools",
+  "advancements.chucksmod.overworld.stone_tools.desc": "Craft a set of stone tools (sword, pickaxe, axe, shovel, hoe)",
+
+  "advancements.chucksmod.overworld.furnace.title": "Furnace",
+  "advancements.chucksmod.overworld.furnace.desc": "Craft a furnace",
+
+  "advancements.chucksmod.overworld.coal.title": "Coal",
+  "advancements.chucksmod.overworld.coal.desc": "Mine coal to use in a furnace",
+
+  "advancements.chucksmod.overworld.meat.title": "Meat",
+  "advancements.chucksmod.overworld.meat.desc": "Kill an animal for meat",
+
+  "advancements.chucksmod.overworld.cooked_meat.title": "Sustenance",
+  "advancements.chucksmod.overworld.cooked_meat.desc": "Cook raw meat from an animal for a good food source",
+
+  "advancements.chucksmod.overworld.seeds.title": "Seeds",
+  "advancements.chucksmod.overworld.seeds.desc": "Break tall grass for Wheat or Beetroot seeds",
+
+  "advancements.chucksmod.overworld.farmland.title": "Farmland",
+  "advancements.chucksmod.overworld.farmland.desc": "Use a hoe on dirt or grass within 4 blocks of water to create saturated farmland",
+
+  "advancements.chucksmod.overworld.plant_seeds.title": "Wheat",
+  "advancements.chucksmod.overworld.plant_seeds.desc": "Plant Wheat seeds on farmland",
+
+  "advancements.chucksmod.overworld.wheat.title": "Harvest Wheat",
+  "advancements.chucksmod.overworld.wheat.desc": "Harvest fully grown wheat crops",
+
+  "advancements.chucksmod.overworld.bread.title": "Bread",
+  "advancements.chucksmod.overworld.bread.desc": "Craft Bread to use as a source of food",
+
+  "advancements.chucksmod.overworld.plant_beetroot.title": "Plant Beetroot",
+  "advancements.chucksmod.overworld.plant_beetroot.desc": "Plant Beetroot seeds on farmland",
+
+  "advancements.chucksmod.overworld.beetroot.title": "Beetroot",
+  "advancements.chucksmod.overworld.beetroot.desc": "Harvest fully grown beetroot crops",
+
+  "advancements.chucksmod.overworld.plant_tomato.title": "Plant Tomato",
+  "advancements.chucksmod.overworld.plant_tomato.desc": "Plant Tomato seeds on farmland",
+
+  "advancements.chucksmod.overworld.tomato.title": "Tomato",
+  "advancements.chucksmod.overworld.tomato.desc": "Harvest fully grown tomato crops",
+
+  "advancements.chucksmod.overworld.plant_lettuce.title": "Plant Lettuce",
+  "advancements.chucksmod.overworld.plant_lettuce.desc": "Plant Lettuce seeds on farmland",
+
+  "advancements.chucksmod.overworld.lettuce.title": "Lettuce",
+  "advancements.chucksmod.overworld.lettuce.desc": "Harvest fully grown lettuce crops",
+
+  "advancements.chucksmod.overworld.raw_iron.title": "Raw Iron",
+  "advancements.chucksmod.overworld.raw_iron.desc": "Mine and collect some Raw Iron",
+
+  "advancements.chucksmod.overworld.iron.title": "Iron",
+  "advancements.chucksmod.overworld.iron.desc": "Smelt Raw Iron into Iron Ingots",
+
+  "advancements.chucksmod.overworld.iron_tools.title": "Iron Tools",
+  "advancements.chucksmod.overworld.iron_tools.desc": "Craft a set of iron tools (sword, pickaxe, axe, shovel, hoe)",
+
+  "advancements.chucksmod.overworld.iron_armor.title": "Iron Armor",
+  "advancements.chucksmod.overworld.iron_armor.desc": "Craft a set of iron armor (helmet, chestplate, leggings, boots)",
+  
+  "advancements.chucksmod.overworld.diamonds.title": "Diamonds",
+  "advancements.chucksmod.overworld.diamonds.desc": "Obtain diamonds from a chest or by mining diamond ore",
+
+  "advancements.chucksmod.overworld.diamond_tools.title": "Diamond Tools",
+  "advancements.chucksmod.overworld.diamond_tools.desc": "Craft a set of diamond tools (sword, pickaxe, axe, shovel, hoe)",
+
+  "advancements.chucksmod.overworld.diamond_armor.title": "Diamond Armor",
+  "advancements.chucksmod.overworld.diamond_armor.desc": "Craft a set of diamond armor (helmet, chestplate, leggings, boots)",
+
+  "advancements.chucksmod.overworld.redstone.title": "Redstone",
+  "advancements.chucksmod.overworld.redstone.desc": "Obtain redstone from a chest or by mining redstone ore, which can be used to craft many machines or extend the duration of potions",
+
+  "advancements.chucksmod.overworld.piston.title": "Craft a Piston",
+  "advancements.chucksmod.overworld.piston.desc": "Craft a piston which can push blocks",
+
+  "advancements.chucksmod.overworld.iron_gear.title": "Craft an Iron Gear",
+  "advancements.chucksmod.overworld.iron_gear.desc": "Craft an Iron Gear from 4 iron",
+
+  "advancements.chucksmod.overworld.crusher.title": "Craft a Crusher",
+  "advancements.chucksmod.overworld.crusher.desc": "Craft a crusher, which can crush resources into dust",
+
+  "advancements.chucksmod.overworld.dust.title": "Crush material into dust",
+  "advancements.chucksmod.overworld.dust.desc": "Crush a material into dust",
+
+  "advancements.chucksmod.overworld.obsidian.title": "Obsidian",
+  "advancements.chucksmod.overworld.obsidian.desc": "Mine Obsidian, which is created when water touches lava",
+
+  "advancements.chucksmod.overworld.gravel.title": "Gravel",
+  "advancements.chucksmod.overworld.gravel.desc": "Mine Gravel",
+
+  "advancements.chucksmod.overworld.flint.title": "Flint",
+  "advancements.chucksmod.overworld.flint.desc": "Break gravel until a piece of flint drops",
+
+  "advancements.chucksmod.overworld.sugar_cane.title": "Sugar Cane",
+  "advancements.chucksmod.overworld.sugar_cane.desc": "Obtain sugar cane, which is found near bodies of water",
+
+  "advancements.chucksmod.overworld.paper.title": "Paper",
+  "advancements.chucksmod.overworld.paper.desc": "Craft paper from sugar cane",
+
+  "advancements.chucksmod.overworld.leather.title": "Leather",
+  "advancements.chucksmod.overworld.leather.desc": "Kill a cow or horse to obtain leather",
+
+  "advancements.chucksmod.overworld.book.title": "Book",
+  "advancements.chucksmod.overworld.book.desc": "Craft a book from paper and leather",
+
+  "advancements.chucksmod.overworld.enchanting_table.title": "Enchanting Table",
+  "advancements.chucksmod.overworld.enchanting_table.desc": "Craft an enchanting table from obsidian, diamonds and a book",
+
+  "advancements.chucksmod.overworld.lapis.title": "Lapis Lazuli",
+  "advancements.chucksmod.overworld.lapis.desc": "Mine lapis lazuli ore to obtain lapis lazuli, which can be used for enchanting or crafting blue dye",
+
+  "advancements.chucksmod.overworld.flint_and_steel.title": "Flint and Steel",
+  "advancements.chucksmod.overworld.flint_and_steel.desc": "Craft a flint and steel, which can be used to light fires, or a nether portal",
+
+  "advancements.chucksmod.overworld.nether_portal.title": "Light Nether Portal",
+  "advancements.chucksmod.overworld.nether_portal.desc": "Place obsidian in a closed vertical rectangle, with a center at least 2 blocks wide and 3 blocks tall, and use flint and steel on inside",
+
+  "advancements.chucksmod.overworld.enchant_item.title": "Enchant an Item",
+  "advancements.chucksmod.overworld.enchant_item.desc": "Enchant an item in your enchanting table, It is recommended to place at least 15 bookshelves 1 unobstructed block away for max level (30) enchantments",
+
+  "advancements.chucksmod.overworld.bookshelf.title": "Bookshelf",
+  "advancements.chucksmod.overworld.bookshelf.desc": "Craft a bookshelf from 3 books and 6 planks",
+
+  "advancements.chucksmod.overworld.village.title": "Village",
+  "advancements.chucksmod.overworld.village.desc": "Enter a Village (Can be found in plains, savanna, snowy plains, taiga and deserts)",
+
+  "advancements.chucksmod.overworld.trade.title": "Trade",
+  "advancements.chucksmod.overworld.trade.desc": "Trade with a villager",
+
+  "advancements.chucksmod.overworld.spider.title": "Kill a Spider",
+  "advancements.chucksmod.overworld.spider.desc": "Kill a Spider",
+
+  "advancements.chucksmod.overworld.string.title": "String",
+  "advancements.chucksmod.overworld.string.desc": "Collect string from killing a spider",
+
+  "advancements.chucksmod.overworld.sticks.title": "Sticks",
+  "advancements.chucksmod.overworld.sticks.desc": "Craft sticks from wooden planks or bamboo",
+
+  "advancements.chucksmod.overworld.bow.title": "Bow",
+  "advancements.chucksmod.overworld.bow.desc": "Craft a bow, which can shoot arrows at mobs from a distance",
+
+  "advancements.chucksmod.overworld.fishing_rod.title": "Bow",
+  "advancements.chucksmod.overworld.fishing_rod.desc": "Craft a Fishing Rod, which can be used in water to fish for fish and treasure",
+
+  "advancements.chucksmod.overworld.shears.title": "Shears",
+  "advancements.chucksmod.overworld.shears.desc": "Craft Shears, which can be used to chear wool from sheep, or collect some blocks",
+
+  "advancements.chucksmod.overworld.wool.title": "Wool",
+  "advancements.chucksmod.overworld.wool.desc": "Shear a sheep",
+
+  "advancements.chucksmod.overworld.bed.title": "Bed",
+  "advancements.chucksmod.overworld.bed.desc": "Craft a bed, which can be used to sleep through the night, and set your respawn point",
+
+  "advancements.chucksmod.overworld.sapling.title": "Sapling",
+  "advancements.chucksmod.overworld.sapling.desc": "Collect a sapling from leaves decaying from a chopped down tree",
+
+  "advancements.chucksmod.overworld.replant_sapling.title": "Replant Sapling",
+  "advancements.chucksmod.overworld.replant_sapling.desc": "Replant a sapling so another tree grows",
+
+  "advancements.chucksmod.overworld.zombie.title": "Kill a Zombie",
+  "advancements.chucksmod.overworld.zombie.desc": "Kill a Zombie for rotten flesh, and occasionally carrot, potato or iron",
+
+  "advancements.chucksmod.overworld.skeleton.title": "Kill a Skeleton",
+  "advancements.chucksmod.overworld.skeleton.desc": "Kill a Skeleton for bones and arrows, and occasionally a bow",
+
+  "advancements.chucksmod.overworld.bone.title": "Bone",
+  "advancements.chucksmod.overworld.bone.desc": "Collect from a skeleton",
+
+  "advancements.chucksmod.overworld.bone_meal.title": "Bone meal",
+  "advancements.chucksmod.overworld.bone_meal.desc": "Craft bone meal, which can be used to speed up growing of crops or saplings, or to craft into white dye",
+
+  "advancements.chucksmod.overworld.arrow.title": "Arrow",
+  "advancements.chucksmod.overworld.arrow.desc": "Obtain an arrow from either a skeleton, or crafting from flint, stick and feather",
+
+  "advancements.chucksmod.overworld.creeper.title": "Kill a Creeper",
+  "advancements.chucksmod.overworld.creeper.desc": "Kill a Creeper for gunpowder",
+
+  "advancements.chucksmod.overworld.gunpowder.title": "Gunpowder",
+  "advancements.chucksmod.overworld.gunpowder.desc": "Collect from a creeper",
+
+  "advancements.chucksmod.overworld.sharpness.title": "Sharpness",
+  "advancements.chucksmod.overworld.sharpness.desc": "Enchant a Sword with at least Sharpness 3 (Max 5)",
+
+  "advancements.chucksmod.overworld.unbreaking.title": "Unbreaking",
+  "advancements.chucksmod.overworld.unbreaking.desc": "Enchant an Item with Unbreaking 3 (Max level)",
+
+  "advancements.chucksmod.overworld.efficiency.title": "Efficiency",
+  "advancements.chucksmod.overworld.efficiency.desc": "Enchant a Tool with at least Efficiency 3 (Max 5)",
+
+  "advancements.chucksmod.overworld.silk.title": "Silky Smooth",
+  "advancements.chucksmod.overworld.silk.desc": "Enchant a Tool with silk touch, to pickup any block broken as is (except special rare blocks)",
+
+  "advancements.chucksmod.overworld.fortune.title": "Fortunate Opportunity",
+  "advancements.chucksmod.overworld.fortune.desc": "Enchant a Tool with Fortune 3 (Max level), to increase non block drops from blocks",
+
+  "advancements.chucksmod.overworld.looting.title": "Looting",
+  "advancements.chucksmod.overworld.looting.desc": "Enchant a Sword with Looting 3 (Max level), to increase drops from mobs",
+
+  "advancements.chucksmod.overworld.knockback.title": "Go Away",
+  "advancements.chucksmod.overworld.knockback.desc": "Enchant a Sword with Knockback (Max 2), to knock mobs further back upon hit",
+
+  "advancements.chucksmod.overworld.fire_aspect.title": "Fiery Sword",
+  "advancements.chucksmod.overworld.fire_aspect.desc": "Enchant a Sword with Fire Aspect (Max 2), to set mobs on fire when hit (animals on fire drop cooked meat instead of raw meat)",
+
+  "advancements.chucksmod.overworld.sweeping.title": "Sweeping Efficiency",
+  "advancements.chucksmod.overworld.sweeping.desc": "Enchant a Sword with Sweeping Edge 3 (Max level), to increase damage dealt in the sweep area of sword attack",
+
+  "advancements.chucksmod.overworld.smite.title": "Smite",
+  "advancements.chucksmod.overworld.smite.desc": "Enchant a Sword with at least Smite 3 (Max 5), to increase damage dealt against undead mobs",
+
+  "advancements.chucksmod.overworld.mending.title": "Self-Repairing",
+  "advancements.chucksmod.overworld.mending.desc": "Add mending to an item using a mending enchanted book",
+
+  "advancements.chucksmod.overworld.bane_of_arthropods.title": "Spider Slayer",
+  "advancements.chucksmod.overworld.bane_of_arthropods.desc": "Enchant a Sword with at least Bane of Athropods 3 (Max 5), to increase damage dealt against arthropod mobs",
+
+  "advancements.chucksmod.overworld.anvil.title": "Anvil",
+  "advancements.chucksmod.overworld.anvil.desc": "Craft an anvil from 3 iron blocks and 4 iron ingots, to allow you to repair enchanted items, and add enchantments from books to items",
+
+  "advancements.chucksmod.overworld.protection.title": "Protection",
+  "advancements.chucksmod.overworld.protection.desc": "Enchant an Armor item with at least Protection 3 (Max 4) to reduce damage taken",
+
+  "advancements.chucksmod.overworld.blast_protection.title": "Explosive Protection",
+  "advancements.chucksmod.overworld.blast_protection.desc": "Enchant an Armor item with at least Blast Protection 3 (Max 4) to reduce damage taken from explosions",
+
+  "advancements.chucksmod.overworld.fire_protection.title": "Fire Protection",
+  "advancements.chucksmod.overworld.fire_protection.desc": "Enchant an Armor item with at least Fire Protection 3 (Max 4) to reduce damage taken from hot sources",
+
+  "advancements.chucksmod.overworld.feather_falling.title": "Feather Falling",
+  "advancements.chucksmod.overworld.feather_falling.desc": "Enchant Boots with at least Feather Falling 3 (Max 4) to reduce damage taken from falling",
+
+  "advancements.chucksmod.overworld.respiration.title": "Larger Lungs",
+  "advancements.chucksmod.overworld.respiration.desc": "Enchant a Helmet with Respiration 3 (Max level) to increase time before drowning underwater",
+
+  "advancements.chucksmod.overworld.aqua_affinity.title": "Aqua Affinity",
+  "advancements.chucksmod.overworld.aqua_affinity.desc": "Enchant a Helmet with Aqua Affinity to allow breaking blocks at normal speed underwater",
+
+  "advancements.chucksmod.overworld.depth_strider.title": "Depth Strider",
+  "advancements.chucksmod.overworld.depth_strider.desc": "Enchant Boots with Depth Strider 3 (Max level) to swim faster in water",
+
+  "advancements.chucksmod.overworld.thorns.title": "Prickly",
+  "advancements.chucksmod.overworld.thorns.desc": "Enchant an Armor item with at least Thorns 2 (Max 3) reflect damage whenever you take damage, at a cost of durability",
+
+  "advancements.chucksmod.overworld.bucket.title": "Bucket",
+  "advancements.chucksmod.overworld.bucket.desc": "Craft or obtain a Bucket from a chest to allow picking up of liquids",
+
+  "advancements.chucksmod.overworld.water_bucket.title": "Bucket of Water",
+  "advancements.chucksmod.overworld.water_bucket.desc": "Pickup a block of water with a Bucket",
+
+
+
+  "advancements.chucksmod.nether.root.title": "Enter Nether",
+  "advancements.chucksmod.nether.root.desc": "Welcome to the nether, a fiery dimension where every 1 block travelled is equal to 8 blocks in the overworld",
+
+  "advancements.chucksmod.nether.raw_fabium.title": "Raw Fabium",
+  "advancements.chucksmod.nether.raw_fabium.desc": "Find and mine Fabium ore to obtain raw fabium",
+
+  "advancements.chucksmod.nether.ancient_debris.title": "Ancient Debris",
+  "advancements.chucksmod.nether.ancient_debris.desc": "Find and mine ancient debris to unlock netherite tier items",
+
+  "advancements.chucksmod.nether.quartz.title": "Nether Quartz",
+  "advancements.chucksmod.nether.quartz.desc": "Mine Quartz ore to obtain quartz, a great source of experience",
+
+  "advancements.chucksmod.nether.quartz.title": "Nether Fortress",
+  "advancements.chucksmod.nether.quartz.desc": "Enter a Nether Fortress, where mobs such as Blazes and Wither Skeletons can be found"
+}

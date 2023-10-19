@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "chucksmod:block/sandstone_brick_slab"
+    },
+    "type=double": {
+      "model": "chucksmod:block/sandstone_bricks"
+    },
+    "type=top": {
+      "model": "chucksmod:block/sandstone_brick_slab_top"
+    }
+  }
+}

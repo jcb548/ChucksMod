@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/leaves",
-  "textures": {
-    "all": "pigsnstuff:block/diritia_leaves"
-  }
-}

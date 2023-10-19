@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/cube_all",
-  "textures": {
-    "all": "pigsnstuff:block/cracked_sandstone_bricks"
-  }
-}

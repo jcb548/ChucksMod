@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/stairs",
-  "textures": {
-    "bottom": "pigsnstuff:block/sandstone_bricks",
-    "side": "pigsnstuff:block/sandstone_bricks",
-    "top": "pigsnstuff:block/sandstone_bricks"
-  }
-}

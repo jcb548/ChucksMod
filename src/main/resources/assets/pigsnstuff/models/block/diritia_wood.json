@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/cube_column",
-  "textures": {
-    "end": "pigsnstuff:block/diritia_log",
-    "side": "pigsnstuff:block/diritia_log"
-  }
-}

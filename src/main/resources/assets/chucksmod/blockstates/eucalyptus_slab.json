@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "chucksmod:block/eucalyptus_slab"
+    },
+    "type=double": {
+      "model": "chucksmod:block/eucalyptus_planks"
+    },
+    "type=top": {
+      "model": "chucksmod:block/eucalyptus_slab_top"
+    }
+  }
+}

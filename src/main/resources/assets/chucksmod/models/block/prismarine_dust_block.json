@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "chucksmod:block/prismarine_dust_block"
+  }
+}

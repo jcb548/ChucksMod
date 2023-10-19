@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/cube_all",
-  "textures": {
-    "all": "pigsnstuff:block/hardened_white_stained_glass"
-  }
-}

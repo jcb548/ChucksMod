@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "chucksmod:block/eucalyptus_wood",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "chucksmod:block/eucalyptus_wood"
+    },
+    "axis=z": {
+      "model": "chucksmod:block/eucalyptus_wood",
+      "x": 90
+    }
+  }
+}

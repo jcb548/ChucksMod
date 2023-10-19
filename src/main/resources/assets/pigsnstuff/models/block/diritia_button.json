@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/button",
-  "textures": {
-    "texture": "pigsnstuff:block/diritia_planks"
-  }
-}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "chucksmod:block/raw_fabium_block"
+  }
+}

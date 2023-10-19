@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "chucksmod:block/eucalyptus_planks",
+    "side": "chucksmod:block/eucalyptus_planks",
+    "top": "chucksmod:block/eucalyptus_planks"
+  }
+}

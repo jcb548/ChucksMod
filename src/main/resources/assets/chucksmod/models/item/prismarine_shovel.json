@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "chucksmod:item/prismarine_shovel"
+  }
+}

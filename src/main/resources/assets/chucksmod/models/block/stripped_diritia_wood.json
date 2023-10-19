@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "chucksmod:block/stripped_diritia_log",
+    "side": "chucksmod:block/stripped_diritia_log"
+  }
+}

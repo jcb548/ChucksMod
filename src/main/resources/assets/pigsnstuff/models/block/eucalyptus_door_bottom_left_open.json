@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/door_bottom_left_open",
-  "textures": {
-    "bottom": "pigsnstuff:block/eucalyptus_door_bottom",
-    "top": "pigsnstuff:block/eucalyptus_door_top"
-  }
-}

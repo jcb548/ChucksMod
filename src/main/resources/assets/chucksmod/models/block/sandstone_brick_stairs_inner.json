@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "chucksmod:block/sandstone_bricks",
+    "side": "chucksmod:block/sandstone_bricks",
+    "top": "chucksmod:block/sandstone_bricks"
+  }
+}
