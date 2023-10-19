@@ -39,7 +39,7 @@ loom {
 			runDir "build/datagen"
 		}
 	}
-	accessWidenerPath = file("src/main/resources/pigsnstuff.accesswidener")
+	accessWidenerPath = file("src/main/resources/chucksmod.accesswidener")
 }
 
 // Add the generated resources to the main source set

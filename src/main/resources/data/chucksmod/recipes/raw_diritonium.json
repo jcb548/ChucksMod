@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "chucksmod:raw_diritonium_block"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "chucksmod:raw_diritonium"
+  }
+}

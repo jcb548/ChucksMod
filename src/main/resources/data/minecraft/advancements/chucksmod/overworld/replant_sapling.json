@@ -1,0 +1,145 @@
+{
+  "parent": "minecraft:chucksmod/overworld/sapling",
+  "criteria": {
+    "replant_acacia": {
+      "conditions": {
+        "location": [
+          {
+            "block": "minecraft:acacia_sapling",
+            "condition": "minecraft:block_state_property"
+          }
+        ]
+      },
+      "trigger": "minecraft:placed_block"
+    },
+    "replant_birch": {
+      "conditions": {
+        "location": [
+          {
+            "block": "minecraft:birch_sapling",
+            "condition": "minecraft:block_state_property"
+          }
+        ]
+      },
+      "trigger": "minecraft:placed_block"
+    },
+    "replant_cherry": {
+      "conditions": {
+        "location": [
+          {
+            "block": "minecraft:cherry_sapling",
+            "condition": "minecraft:block_state_property"
+          }
+        ]
+      },
+      "trigger": "minecraft:placed_block"
+    },
+    "replant_dark_oak": {
+      "conditions": {
+        "location": [
+          {
+            "block": "minecraft:dark_oak_sapling",
+            "condition": "minecraft:block_state_property"
+          }
+        ]
+      },
+      "trigger": "minecraft:placed_block"
+    },
+    "replant_diritia": {
+      "conditions": {
+        "location": [
+          {
+            "block": "chucksmod:diritia_sapling",
+            "condition": "minecraft:block_state_property"
+          }
+        ]
+      },
+      "trigger": "minecraft:placed_block"
+    },
+    "replant_eucalyptus": {
+      "conditions": {
+        "location": [
+          {
+            "block": "chucksmod:eucalyptus_sapling",
+            "condition": "minecraft:block_state_property"
+          }
+        ]
+      },
+      "trigger": "minecraft:placed_block"
+    },
+    "replant_jungle": {
+      "conditions": {
+        "location": [
+          {
+            "block": "minecraft:jungle_sapling",
+            "condition": "minecraft:block_state_property"
+          }
+        ]
+      },
+      "trigger": "minecraft:placed_block"
+    },
+    "replant_mangrove": {
+      "conditions": {
+        "location": [
+          {
+            "block": "minecraft:mangrove_propagule",
+            "condition": "minecraft:block_state_property"
+          }
+        ]
+      },
+      "trigger": "minecraft:placed_block"
+    },
+    "replant_oak": {
+      "conditions": {
+        "location": [
+          {
+            "block": "minecraft:oak_sapling",
+            "condition": "minecraft:block_state_property"
+          }
+        ]
+      },
+      "trigger": "minecraft:placed_block"
+    },
+    "replant_spruce": {
+      "conditions": {
+        "location": [
+          {
+            "block": "minecraft:spruce_sapling",
+            "condition": "minecraft:block_state_property"
+          }
+        ]
+      },
+      "trigger": "minecraft:placed_block"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.chucksmod.overworld.replant_sapling.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "minecraft:spruce_sapling"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.chucksmod.overworld.replant_sapling.title"
+    }
+  },
+  "requirements": [
+    [
+      "replant_oak",
+      "replant_birch",
+      "replant_spruce",
+      "replant_jungle",
+      "replant_dark_oak",
+      "replant_acacia",
+      "replant_cherry",
+      "replant_mangrove",
+      "replant_eucalyptus",
+      "replant_diritia"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

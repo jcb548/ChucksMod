@@ -1,0 +1,36 @@
+{
+  "parent": "minecraft:chucksmod/overworld/furnace",
+  "criteria": {
+    "get_coal": {
+      "conditions": {
+        "items": [
+          {
+            "tag": "minecraft:coals"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.chucksmod.overworld.coal.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "minecraft:coal"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.chucksmod.overworld.coal.title"
+    }
+  },
+  "requirements": [
+    [
+      "get_coal"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

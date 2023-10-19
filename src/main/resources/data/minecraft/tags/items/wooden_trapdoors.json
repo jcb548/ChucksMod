@@ -1,7 +1,7 @@
 {
   "replace": false,
   "values": [
-    "pigsnstuff:eucalyptus_trapdoor",
-    "pigsnstuff:diritia_trapdoor"
+    "chucksmod:eucalyptus_trapdoor",
+    "chucksmod:diritia_trapdoor"
   ]
 }

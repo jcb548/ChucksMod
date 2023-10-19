@@ -1,0 +1,38 @@
+{
+  "parent": "minecraft:chucksmod/overworld/raw_iron",
+  "criteria": {
+    "get_iron": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:iron_ingot"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.chucksmod.overworld.iron.desc"
+    },
+    "frame": "goal",
+    "hidden": false,
+    "icon": {
+      "item": "minecraft:iron_ingot"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.chucksmod.overworld.iron.title"
+    }
+  },
+  "requirements": [
+    [
+      "get_iron"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

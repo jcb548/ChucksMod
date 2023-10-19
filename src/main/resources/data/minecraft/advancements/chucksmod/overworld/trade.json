@@ -1,0 +1,30 @@
+{
+  "parent": "minecraft:chucksmod/overworld/village",
+  "criteria": {
+    "trade": {
+      "conditions": {},
+      "trigger": "minecraft:villager_trade"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.chucksmod.overworld.trade.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "minecraft:emerald"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.chucksmod.overworld.trade.title"
+    }
+  },
+  "requirements": [
+    [
+      "trade"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

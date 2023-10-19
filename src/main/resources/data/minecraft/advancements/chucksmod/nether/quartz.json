@@ -1,0 +1,38 @@
+{
+  "parent": "minecraft:chucksmod/nether/root",
+  "criteria": {
+    "quartz": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:quartz"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.chucksmod.nether.quartz.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "minecraft:quartz"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.chucksmod.nether.quartz.title"
+    }
+  },
+  "requirements": [
+    [
+      "quartz"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

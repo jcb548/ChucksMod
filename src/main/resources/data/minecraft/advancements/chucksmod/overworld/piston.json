@@ -1,0 +1,38 @@
+{
+  "parent": "minecraft:chucksmod/overworld/redstone",
+  "criteria": {
+    "get_piston": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:piston"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.chucksmod.overworld.piston.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "minecraft:piston"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.chucksmod.overworld.piston.title"
+    }
+  },
+  "requirements": [
+    [
+      "get_piston"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

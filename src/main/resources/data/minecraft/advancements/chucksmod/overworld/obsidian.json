@@ -1,0 +1,38 @@
+{
+  "parent": "minecraft:chucksmod/overworld/diamond_tools",
+  "criteria": {
+    "get_obsidian": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:obsidian"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.chucksmod.overworld.obsidian.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "minecraft:obsidian"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.chucksmod.overworld.obsidian.title"
+    }
+  },
+  "requirements": [
+    [
+      "get_obsidian"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

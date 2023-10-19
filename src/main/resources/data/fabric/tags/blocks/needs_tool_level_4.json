@@ -1,10 +1,10 @@
 {
   "replace": false,
   "values": [
-    "pigsnstuff:endstone_diritonium_ore",
-    "pigsnstuff:deepslate_diritonium_ore",
-    "pigsnstuff:diritonium_block",
-    "pigsnstuff:raw_diritonium_block",
-    "pigsnstuff:diritonium_block"
+    "chucksmod:endstone_diritonium_ore",
+    "chucksmod:deepslate_diritonium_ore",
+    "chucksmod:diritonium_block",
+    "chucksmod:raw_diritonium_block",
+    "chucksmod:diritonium_block"
   ]
 }

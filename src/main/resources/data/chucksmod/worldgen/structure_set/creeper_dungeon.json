@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "chucksmod:creeper_dungeon",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "salt": 12192543,
+    "spacing": 10,
+    "separation": 5,
+    "type": "minecraft:random_spread"
+  }
+}

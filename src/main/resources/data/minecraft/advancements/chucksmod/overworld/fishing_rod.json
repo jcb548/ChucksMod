@@ -1,0 +1,39 @@
+{
+  "parent": "minecraft:chucksmod/overworld/string",
+  "criteria": {
+    "bow": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:fishing_rod"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.chucksmod.overworld.fishing_rod.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "minecraft:fishing_rod",
+      "nbt": "{Damage:0}"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.chucksmod.overworld.fishing_rod.title"
+    }
+  },
+  "requirements": [
+    [
+      "bow"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

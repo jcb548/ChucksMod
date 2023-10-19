@@ -1,0 +1,38 @@
+{
+  "parent": "minecraft:chucksmod/overworld/iron_gear",
+  "criteria": {
+    "get_piston": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "chucksmod:crusher"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.chucksmod.overworld.crusher.desc"
+    },
+    "frame": "goal",
+    "hidden": false,
+    "icon": {
+      "item": "chucksmod:crusher"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.chucksmod.overworld.crusher.title"
+    }
+  },
+  "requirements": [
+    [
+      "get_piston"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

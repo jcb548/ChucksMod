@@ -1,0 +1,86 @@
+{
+  "temperature": 0.5,
+  "downfall": 0.4,
+  "has_precipitation": true,
+  "effects": {
+    "sky_color": 7412991,
+    "fog_color": 13875711,
+    "water_color": 4159204,
+    "water_fog_color": 329011,
+    "grass_color": 12124640,
+    "foliage_color": 12124640,
+    "grass_color_modifier": "none"
+  },
+  "spawners": {
+    "monster": [{
+      "type": "chucksmod:wyatt",
+      "weight": 100,
+      "minCount": 2,
+      "maxCount": 4
+      },
+      {
+        "type": "minecraft:zombified_piglin",
+        "weight": 100,
+        "minCount": 2,
+        "maxCount": 4
+      }
+    ],
+    "creature": [
+      {
+        "type": "minecraft:pig",
+        "weight": 12,
+        "minCount": 4,
+        "maxCount": 4
+      }
+    ]
+  },
+  "spawn_costs": {},
+  "carvers": {
+    "air": [
+      "minecraft:cave",
+      "minecraft:cave_extra_underground"
+    ]
+  },
+  "features":
+  [
+    [],
+    [],
+    [],
+    [
+      "minecraft:monster_room",
+      "minecraft:monster_room_deep"
+    ],
+    [],
+    [],
+    [
+      "chucksmod:diritia_coal_ore_placed",
+      "chucksmod:diritia_iron_ore_placed",
+      "chucksmod:diritia_gold_ore_placed",
+      "chucksmod:diritia_diamond_ore_placed",
+      "chucksmod:diritia_redstone_ore_placed",
+      "chucksmod:diritia_lapis_ore_placed",
+      "chucksmod:diritia_copper_ore_placed",
+      "chucksmod:diritia_fabium_ore_placed",
+      "chucksmod:diritia_diritonium_ore_placed",
+      "chucksmod:diritia_calcite_vein_placed",
+      "chucksmod:diritia_slated_vein_placed",
+      "chucksmod:diritia_blackstone_vein_placed",
+      "chucksmod:diritia_endstone_vein_placed"
+    ],
+    [],
+    [],
+    [
+      "minecraft:glow_lichen",
+      "minecraft:mushroom_island_vegetation",
+      "minecraft:brown_mushroom_taiga",
+      "minecraft:red_mushroom_taiga",
+      "chucksmod:diritia_tree_placed",
+      "chucksmod:diritia_cherry_tree_placed",
+
+      "chucksmod:diritia_plants_placed"
+    ],
+    [
+      "minecraft:freeze_top_layer"
+    ]
+  ]
+}

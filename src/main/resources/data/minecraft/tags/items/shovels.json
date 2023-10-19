@@ -1,10 +1,10 @@
 {
   "replace": false,
   "values": [
-    "pigsnstuff:bronze_shovel",
-    "pigsnstuff:fabium_shovel",
-    "pigsnstuff:wither_shovel",
-    "pigsnstuff:prismarine_shovel",
-    "pigsnstuff:diritonium_shovel"
+    "chucksmod:bronze_shovel",
+    "chucksmod:fabium_shovel",
+    "chucksmod:wither_shovel",
+    "chucksmod:prismarine_shovel",
+    "chucksmod:diritonium_shovel"
   ]
 }

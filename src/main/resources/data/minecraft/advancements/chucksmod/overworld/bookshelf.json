@@ -1,0 +1,38 @@
+{
+  "parent": "minecraft:chucksmod/overworld/book",
+  "criteria": {
+    "enchant_item": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:bookshelf"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.chucksmod.overworld.bookshelf.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "minecraft:bookshelf"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.chucksmod.overworld.bookshelf.title"
+    }
+  },
+  "requirements": [
+    [
+      "enchant_item"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -1,11 +1,11 @@
 {
   "replace": false,
   "values": [
-    "pigsnstuff:crusher",
-    "pigsnstuff:powered_crusher",
-    "pigsnstuff:generator",
-    "pigsnstuff:slated_dirt",
-    "pigsnstuff:slated_grass",
-    "pigsnstuff:gold_bars"
+    "chucksmod:crusher",
+    "chucksmod:powered_crusher",
+    "chucksmod:generator",
+    "chucksmod:slated_dirt",
+    "chucksmod:slated_grass",
+    "chucksmod:gold_bars"
   ]
 }

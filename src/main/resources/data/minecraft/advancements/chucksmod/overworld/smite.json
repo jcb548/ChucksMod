@@ -1,0 +1,45 @@
+{
+  "parent": "minecraft:chucksmod/overworld/enchant_item",
+  "criteria": {
+    "smite": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "minecraft:swords",
+            "enchantments": [
+              {
+                "enchantment": "minecraft:smite",
+                "levels": {
+                  "min": 3,
+                  "max": 5
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.chucksmod.overworld.smite.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "minecraft:zombie_head"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.chucksmod.overworld.smite.title"
+    }
+  },
+  "requirements": [
+    [
+      "smite"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -1,0 +1,37 @@
+{
+  "parent": "minecraft:chucksmod/overworld/farmland",
+  "criteria": {
+    "plant_lettuce": {
+      "conditions": {
+        "location": [
+          {
+            "block": "chucksmod:lettuce_crop",
+            "condition": "minecraft:block_state_property"
+          }
+        ]
+      },
+      "trigger": "minecraft:placed_block"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.chucksmod.overworld.plant_lettuce.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "chucksmod:lettuce_seeds"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.chucksmod.overworld.plant_lettuce.title"
+    }
+  },
+  "requirements": [
+    [
+      "plant_lettuce"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "F": {
+      "item": "chucksmod:fabium_ingot"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "F",
+    "S",
+    "S"
+  ],
+  "result": {
+    "item": "chucksmod:fabium_shovel"
+  },
+  "show_notification": true
+}

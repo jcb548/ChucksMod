@@ -1,0 +1,41 @@
+{
+  "parent": "minecraft:chucksmod/overworld/anvil",
+  "criteria": {
+    "mending": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "c:enchantables",
+            "enchantments": [
+              {
+                "enchantment": "minecraft:mending"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.chucksmod.overworld.mending.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "minecraft:emerald"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.chucksmod.overworld.mending.title"
+    }
+  },
+  "requirements": [
+    [
+      "mending"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

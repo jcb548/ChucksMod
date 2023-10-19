@@ -1,0 +1,42 @@
+{
+  "parent": "minecraft:chucksmod/overworld/enchant_item",
+  "criteria": {
+    "depth_strider": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "c:helmets",
+            "enchantments": [
+              {
+                "enchantment": "minecraft:depth_strider",
+                "levels": 3
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.chucksmod.overworld.depth_strider.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "minecraft:iron_boots"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.chucksmod.overworld.depth_strider.title"
+    }
+  },
+  "requirements": [
+    [
+      "depth_strider"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

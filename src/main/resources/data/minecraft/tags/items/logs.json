@@ -1,13 +1,13 @@
 {
   "replace": false,
   "values": [
-    "pigsnstuff:eucalyptus_log",
-    "pigsnstuff:eucalyptus_wood",
-    "pigsnstuff:stripped_eucalyptus_log",
-    "pigsnstuff:stripped_eucalyptus_wood",
-    "pigsnstuff:diritia_log",
-    "pigsnstuff:diritia_wood",
-    "pigsnstuff:stripped_diritia_log",
-    "pigsnstuff:stripped_diritia_wood"
+    "chucksmod:eucalyptus_log",
+    "chucksmod:eucalyptus_wood",
+    "chucksmod:stripped_eucalyptus_log",
+    "chucksmod:stripped_eucalyptus_wood",
+    "chucksmod:diritia_log",
+    "chucksmod:diritia_wood",
+    "chucksmod:stripped_diritia_log",
+    "chucksmod:stripped_diritia_wood"
   ]
 }

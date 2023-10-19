@@ -1,21 +1,21 @@
 {
   "replace": false,
   "values": [
-    "pigsnstuff:bronze_helmet",
-    "pigsnstuff:bronze_chestplate",
-    "pigsnstuff:bronze_leggings",
-    "pigsnstuff:bronze_boots",
-    "pigsnstuff:prismarine_helmet",
-    "pigsnstuff:prismarine_chestplate",
-    "pigsnstuff:prismarine_leggings",
-    "pigsnstuff:prismarine_boots",
-    "pigsnstuff:fabium_helmet",
-    "pigsnstuff:fabium_chestplate",
-    "pigsnstuff:fabium_leggings",
-    "pigsnstuff:fabium_boots",
-    "pigsnstuff:diritonium_helmet",
-    "pigsnstuff:diritonium_chestplate",
-    "pigsnstuff:diritonium_leggings",
-    "pigsnstuff:diritonium_boots"
+    "chucksmod:bronze_helmet",
+    "chucksmod:bronze_chestplate",
+    "chucksmod:bronze_leggings",
+    "chucksmod:bronze_boots",
+    "chucksmod:prismarine_helmet",
+    "chucksmod:prismarine_chestplate",
+    "chucksmod:prismarine_leggings",
+    "chucksmod:prismarine_boots",
+    "chucksmod:fabium_helmet",
+    "chucksmod:fabium_chestplate",
+    "chucksmod:fabium_leggings",
+    "chucksmod:fabium_boots",
+    "chucksmod:diritonium_helmet",
+    "chucksmod:diritonium_chestplate",
+    "chucksmod:diritonium_leggings",
+    "chucksmod:diritonium_boots"
   ]
 }

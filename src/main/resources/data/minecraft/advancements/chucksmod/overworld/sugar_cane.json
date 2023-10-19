@@ -1,0 +1,38 @@
+{
+  "parent": "minecraft:chucksmod/overworld/root",
+  "criteria": {
+    "get_sugar_cane": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:sugar_cane"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.chucksmod.overworld.sugar_cane.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "minecraft:sugar_cane"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.chucksmod.overworld.sugar_cane.title"
+    }
+  },
+  "requirements": [
+    [
+      "get_sugar_cane"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

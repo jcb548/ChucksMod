@@ -1,0 +1,38 @@
+{
+  "parent": "minecraft:chucksmod/overworld/spider",
+  "criteria": {
+    "get_string": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:string"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.chucksmod.overworld.string.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "minecraft:string"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.chucksmod.overworld.string.title"
+    }
+  },
+  "requirements": [
+    [
+      "get_string"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

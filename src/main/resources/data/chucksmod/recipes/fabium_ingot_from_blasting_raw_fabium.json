@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 1.0,
+  "group": "fabium_ingot",
+  "ingredient": {
+    "item": "chucksmod:raw_fabium"
+  },
+  "result": "chucksmod:fabium_ingot"
+}

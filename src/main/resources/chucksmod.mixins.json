@@ -1,0 +1,13 @@
+{
+	"required": true,
+	"package": "net.chuck.chucksmod.mixin",
+	"compatibilityLevel": "JAVA_17",
+	"mixins": [
+		"ModArmorFunction",
+		"ModGenericArmorModification",
+		"ModRemoveOldArmorDisplay"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}

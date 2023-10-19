@@ -1,0 +1,59 @@
+{
+  "parent": "minecraft:chucksmod/overworld/cobble",
+  "criteria": {
+    "get_stone_tools": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:stone_sword"
+            ]
+          },
+          {
+            "items": [
+              "minecraft:stone_pickaxe"
+            ]
+          },
+          {
+            "items": [
+              "minecraft:stone_axe"
+            ]
+          },
+          {
+            "items": [
+              "minecraft:stone_shovel"
+            ]
+          },
+          {
+            "items": [
+              "minecraft:stone_hoe"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.chucksmod.overworld.stone_tools.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "minecraft:stone_axe",
+      "nbt": "{Damage:0}"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.chucksmod.overworld.stone_tools.title"
+    }
+  },
+  "requirements": [
+    [
+      "get_stone_tools"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "P": {
+      "item": "chucksmod:prismarine_ingot"
+    }
+  },
+  "pattern": [
+    "P P",
+    "P P"
+  ],
+  "result": {
+    "item": "chucksmod:prismarine_boots"
+  },
+  "show_notification": true
+}

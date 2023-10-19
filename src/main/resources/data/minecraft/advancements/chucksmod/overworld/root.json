@@ -1,0 +1,36 @@
+{
+  "criteria": {
+    "got_logs": {
+      "conditions": {
+        "items": [
+          {
+            "tag": "minecraft:logs"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "background": "chucksmod:textures/block/eucalyptus_planks.png",
+    "description": {
+      "translate": "advancements.chucksmod.overworld.root.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "minecraft:oak_log"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.chucksmod.overworld.root.title"
+    }
+  },
+  "requirements": [
+    [
+      "got_logs"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 2.0,
+  "group": "prismarine_ingot",
+  "ingredient": {
+    "item": "chucksmod:prismarine_iron_dust"
+  },
+  "result": "chucksmod:prismarine_ingot"
+}

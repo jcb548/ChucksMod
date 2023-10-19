@@ -1,8 +1,8 @@
 {
 	"schemaVersion": 1,
-	"id": "pigsnstuff",
+	"id": "chucksmod",
 	"version": "${version}",
-	"name": "Pigs N Stuff",
+	"name": "ChucksMod",
 	"description": "Mod full of random features inspired by me and my friends. ",
 	"authors": [
 		"jcb548"
@@ -12,21 +12,21 @@
 		"sources": "https://github.com/FabricMC/fabric-example-mod"
 	},
 	"license": "MIT",
-	"icon": "assets/pigsnstuff/icon.png",
+	"icon": "assets/chucksmod/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"net.chuck.pigsnstuff.PigsNStuff"
+          "net.chuck.chucksmod.ChucksMod"
 		],
 		"client": [
-			"net.chuck.pigsnstuff.PigsNStuffClient"
+			"net.chuck.chucksmod.ChucksModClient"
 		],
 		"fabric-datagen": [
-			"net.chuck.pigsnstuff.PigsNStuffDataGenerator"
+			"net.chuck.chucksmod.ChuckModDataGenerator"
 		]
 	},
 	"mixins": [
-		"pigsnstuff.mixins.json"
+		"chucksmod.mixins.json"
 	],
 	"depends": {
 		"fabricloader": ">=0.14.22",
@@ -37,5 +37,5 @@
 	"suggests": {
 		"another-mod": "*"
 	},
-	"accessWidener": "pigsnstuff.accesswidener"
+	"accessWidener": "chucksmod.accessWidener"
 }

@@ -1,10 +1,10 @@
 {
   "replace": false,
   "values": [
-    "pigsnstuff:bronze_hoe",
-    "pigsnstuff:fabium_hoe",
-    "pigsnstuff:wither_hoe",
-    "pigsnstuff:prismarine_hoe",
-    "pigsnstuff:diritonium_hoe"
+    "chucksmod:bronze_hoe",
+    "chucksmod:fabium_hoe",
+    "chucksmod:wither_hoe",
+    "chucksmod:prismarine_hoe",
+    "chucksmod:diritonium_hoe"
   ]
 }

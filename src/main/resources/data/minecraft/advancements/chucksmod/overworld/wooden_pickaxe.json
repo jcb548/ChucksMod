@@ -1,0 +1,39 @@
+{
+  "parent": "minecraft:chucksmod/overworld/crafting_table",
+  "criteria": {
+    "get_wooden_pick": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:wooden_pickaxe"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.chucksmod.overworld.wooden_pickaxe.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "minecraft:wooden_pickaxe",
+      "nbt": "{Damage:0}"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.chucksmod.overworld.wooden_pickaxe.title"
+    }
+  },
+  "requirements": [
+    [
+      "get_wooden_pick"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -1,0 +1,38 @@
+{
+  "parent": "minecraft:chucksmod/overworld/wheat",
+  "criteria": {
+    "get_bread": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:bread"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.chucksmod.overworld.bread.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "minecraft:bread"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.chucksmod.overworld.bread.title"
+    }
+  },
+  "requirements": [
+    [
+      "get_bread"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

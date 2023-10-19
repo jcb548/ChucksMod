@@ -1,0 +1,38 @@
+{
+  "parent": "minecraft:chucksmod/overworld/plant_wheat",
+  "criteria": {
+    "get_wheat": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:wheat"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.chucksmod.overworld.wheat.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "minecraft:wheat"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.chucksmod.overworld.wheat.title"
+    }
+  },
+  "requirements": [
+    [
+      "get_wheat"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

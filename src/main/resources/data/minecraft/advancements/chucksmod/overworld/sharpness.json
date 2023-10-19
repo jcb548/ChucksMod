@@ -1,0 +1,45 @@
+{
+  "parent": "minecraft:chucksmod/overworld/enchant_item",
+  "criteria": {
+    "sharpness": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "minecraft:swords",
+            "enchantments": [
+              {
+                "enchantment": "minecraft:sharpness",
+                "levels": {
+                  "min": 3,
+                  "max": 5
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.chucksmod.overworld.sharpness.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "minecraft:diamond_sword"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.chucksmod.overworld.sharpness.title"
+    }
+  },
+  "requirements": [
+    [
+      "sharpness"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

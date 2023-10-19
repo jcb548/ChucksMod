@@ -1,0 +1,11 @@
+{
+  "type": "chucksmod:crusher_recipe",
+  "ingredients": [
+    {
+      "item": "chucksmod:raw_tin"
+    }
+  ],
+  "output": {
+    "item": "chucksmod:tin_dust"
+  }
+}

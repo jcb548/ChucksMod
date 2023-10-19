@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "chucksmod:corporate_hell",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "salt": 1642136879,
+    "spacing": 20,
+    "separation": 6,
+    "type": "minecraft:random_spread"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "chucksmod:ancient_diritia_tree",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "salt": 1642136098,
+    "spacing": 20,
+    "separation": 6,
+    "type": "minecraft:random_spread"
+  }
+}

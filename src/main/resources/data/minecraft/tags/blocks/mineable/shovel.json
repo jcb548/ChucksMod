@@ -1,15 +1,15 @@
 {
   "replace": false,
   "values": [
-    "pigsnstuff:iron_dust_block",
-    "pigsnstuff:copper_dust_block",
-    "pigsnstuff:gold_dust_block",
-    "pigsnstuff:prismarine_dust_block",
-    "pigsnstuff:prismarine_iron_dust_block",
-    "pigsnstuff:tin_dust_block",
-    "pigsnstuff:bronze_dust_block",
-    "pigsnstuff:obsidian_sand",
-    "pigsnstuff:slated_grass",
-    "pigsnstuff:slated_dirt"
+    "chucksmod:iron_dust_block",
+    "chucksmod:copper_dust_block",
+    "chucksmod:gold_dust_block",
+    "chucksmod:prismarine_dust_block",
+    "chucksmod:prismarine_iron_dust_block",
+    "chucksmod:tin_dust_block",
+    "chucksmod:bronze_dust_block",
+    "chucksmod:obsidian_sand",
+    "chucksmod:slated_grass",
+    "chucksmod:slated_dirt"
   ]
 }

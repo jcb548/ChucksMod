@@ -1,0 +1,38 @@
+{
+  "parent": "minecraft:chucksmod/overworld/plant_tomato",
+  "criteria": {
+    "get_tomato": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "chucksmod:tomato"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.chucksmod.overworld.tomato.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "chucksmod:tomato"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.chucksmod.overworld.tomato.title"
+    }
+  },
+  "requirements": [
+    [
+      "get_tomato"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

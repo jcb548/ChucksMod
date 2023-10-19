@@ -1,0 +1,42 @@
+{
+  "parent": "minecraft:chucksmod/overworld/root",
+  "criteria": {
+    "modern_tower": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "chucksmod:modern_tower"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.chucksmod.overworld.modern_tower.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "minecraft:white_concrete"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.chucksmod.overworld.modern_tower.title"
+    }
+  },
+  "requirements": [
+    [
+      "modern_tower"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

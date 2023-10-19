@@ -1,10 +1,10 @@
 {
   "replace": false,
   "values": [
-    "pigsnstuff:bronze_axe",
-    "pigsnstuff:fabium_axe",
-    "pigsnstuff:wither_axe",
-    "pigsnstuff:prismarine_axe",
-    "pigsnstuff:diritonium_axe"
+    "chucksmod:bronze_axe",
+    "chucksmod:fabium_axe",
+    "chucksmod:wither_axe",
+    "chucksmod:prismarine_axe",
+    "chucksmod:diritonium_axe"
   ]
 }

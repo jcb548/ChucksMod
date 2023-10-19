@@ -1,11 +1,11 @@
 {
   "replace": false,
   "values": [
-    "pigsnstuff:tin_block",
-    "pigsnstuff:tin_ore",
-    "pigsnstuff:deepslate_tin_ore",
-    "pigsnstuff:tin_bars",
-    "pigsnstuff:bronze_block",
-    "pigsnstuff:bronze_bars"
+    "chucksmod:tin_block",
+    "chucksmod:tin_ore",
+    "chucksmod:deepslate_tin_ore",
+    "chucksmod:tin_bars",
+    "chucksmod:bronze_block",
+    "chucksmod:bronze_bars"
   ]
 }

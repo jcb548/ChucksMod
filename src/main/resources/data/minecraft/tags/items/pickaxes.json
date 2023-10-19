@@ -1,10 +1,10 @@
 {
   "replace": false,
   "values": [
-    "pigsnstuff:bronze_pickaxe",
-    "pigsnstuff:fabium_pickaxe",
-    "pigsnstuff:wither_pickaxe",
-    "pigsnstuff:prismarine_pickaxe",
-    "pigsnstuff:diritonium_pickaxe"
+    "chucksmod:bronze_pickaxe",
+    "chucksmod:fabium_pickaxe",
+    "chucksmod:wither_pickaxe",
+    "chucksmod:prismarine_pickaxe",
+    "chucksmod:diritonium_pickaxe"
   ]
 }

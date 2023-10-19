@@ -1,0 +1,38 @@
+{
+  "parent": "minecraft:chucksmod/overworld/plant_lettuce",
+  "criteria": {
+    "get_lettuce": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "chucksmod:lettuce"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.chucksmod.overworld.lettuce.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "chucksmod:lettuce"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.chucksmod.overworld.lettuce.title"
+    }
+  },
+  "requirements": [
+    [
+      "get_lettuce"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

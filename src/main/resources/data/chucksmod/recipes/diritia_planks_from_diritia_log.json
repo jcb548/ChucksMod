@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "diritia_planks",
+  "ingredients": [
+    {
+      "item": "chucksmod:diritia_log"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "item": "chucksmod:diritia_planks"
+  }
+}
