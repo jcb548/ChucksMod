@@ -1,6 +1,10 @@
 package net.chuck.chucksmod.screen;
 
 import net.chuck.chucksmod.ChucksMod;
+import net.chuck.chucksmod.screen.bag.LeatherBagScreenHandler;
+import net.chuck.chucksmod.screen.bag.WoolBagScreenHandler;
+import net.chuck.chucksmod.screen.crusher.CrusherScreenHandler;
+import net.chuck.chucksmod.screen.crusher.PoweredCrusherScreenHandler;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -22,8 +26,10 @@ public class ModScreenHandlers {
             new ExtendedScreenHandlerType<>(PoweredCrusherScreenHandler::new);
     public static ScreenHandlerType<GeneratorScreenHandler> GENERATOR_SCREEN_HANDLER =
             new ExtendedScreenHandlerType<>(GeneratorScreenHandler::new);
-    public static ScreenHandlerType<BagScreenHandler> BAG_SCREEN_HANDLER =
-            new ExtendedScreenHandlerType<>(BagScreenHandler::new);
+    public static ScreenHandlerType<LeatherBagScreenHandler> LEATHER_BAG_SCREEN_HANDLER =
+            new ExtendedScreenHandlerType<>(LeatherBagScreenHandler::new);
+    public static ScreenHandlerType<WoolBagScreenHandler> WOOL_BAG_SCREEN_HANDLER =
+            new ExtendedScreenHandlerType<>(WoolBagScreenHandler::new);
 
     public static void registerAllScreenHandlers() {
         Registry.register(Registries.SCREEN_HANDLER, new Identifier(ChucksMod.MOD_ID, "crusher"),
@@ -33,6 +39,8 @@ public class ModScreenHandlers {
         Registry.register(Registries.SCREEN_HANDLER, new Identifier(ChucksMod.MOD_ID, "generator"),
                 GENERATOR_SCREEN_HANDLER);
         Registry.register(Registries.SCREEN_HANDLER, new Identifier(ChucksMod.MOD_ID, "bag"),
-                BAG_SCREEN_HANDLER);
+                LEATHER_BAG_SCREEN_HANDLER);
+        Registry.register(Registries.SCREEN_HANDLER, new Identifier(ChucksMod.MOD_ID, "wool_bag"),
+                WOOL_BAG_SCREEN_HANDLER);
     }
 }

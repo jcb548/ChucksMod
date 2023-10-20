@@ -1,6 +1,6 @@
-package net.chuck.chucksmod.screen;
+package net.chuck.chucksmod.screen.bag;
 
-import net.chuck.chucksmod.item.custom.BagItem;;
+import net.chuck.chucksmod.item.custom.bag.LeatherBagItem;
 import net.chuck.chucksmod.util.ModDisableBagSlot;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
@@ -10,24 +10,22 @@ import net.minecraft.inventory.InventoryChangedListener;
 import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
-import net.minecraft.network.PacketByteBuf;
 import net.minecraft.screen.ScreenHandler;
-import net.minecraft.screen.slot.ShulkerBoxSlot;
+import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.screen.slot.Slot;
 
-public class BagScreenHandler extends ScreenHandler implements InventoryChangedListener {
-    protected final SimpleInventory inventory;
-    protected final ItemStack bagItemStack;
-    public BagScreenHandler(int syncId, PlayerInventory playerInventory, PacketByteBuf buf) {
-        this(syncId, playerInventory, buf.readItemStack());
-    }
+;
 
-    public BagScreenHandler(int syncId, PlayerInventory playerInventory, ItemStack itemStack){
-        super(ModScreenHandlers.BAG_SCREEN_HANDLER, syncId);
-        inventory = new SimpleInventory(BagItem.INV_SIZE);
+public abstract class AbstractBagScreenHandler extends ScreenHandler implements InventoryChangedListener {
+    protected SimpleInventory inventory;
+    protected ItemStack bagItemStack;
+    public AbstractBagScreenHandler(ScreenHandlerType<?> type, int syncId){
+        super(type, syncId);
+    }
+    protected void init(PlayerInventory playerInventory, ItemStack itemStack){
         bagItemStack = itemStack;
-        if(itemStack.getNbt() != null) {
-            Inventories.readNbt(itemStack.getNbt(), inventory.stacks);
+        if(bagItemStack.getNbt() != null) {
+            Inventories.readNbt(bagItemStack.getNbt(), inventory.stacks);
         } else {
             NbtCompound newNbt = new NbtCompound();
             Inventories.writeNbt(newNbt, inventory.stacks, false);
@@ -47,9 +45,9 @@ public class BagScreenHandler extends ScreenHandler implements InventoryChangedL
         if (slot2 != null && slot2.hasStack()) {
             ItemStack itemStack2 = slot2.getStack();
             itemStack = itemStack2.copy();
-            if (slot < BagItem.INV_SIZE ?
-                    !this.insertItem(itemStack2, BagItem.INV_SIZE, this.slots.size(), true)
-                    : !this.insertItem(itemStack2, 0, BagItem.INV_SIZE, false)) {
+            if (slot < LeatherBagItem.INV_SIZE ?
+                    !this.insertItem(itemStack2, LeatherBagItem.INV_SIZE, this.slots.size(), true)
+                    : !this.insertItem(itemStack2, 0, LeatherBagItem.INV_SIZE, false)) {
                 return ItemStack.EMPTY;
             }
             if (itemStack2.isEmpty()) {
@@ -68,21 +66,17 @@ public class BagScreenHandler extends ScreenHandler implements InventoryChangedL
     public void addPlayerInventory(PlayerInventory playerInventory) {
         for(int i=0;i<3;++i) {
             for(int j=0;j<9;++j) {
-                this.addSlot(new Slot(playerInventory, j + i*9 + 9, 8 + j*18, 51 + i*18));
+                this.addSlot(new Slot(playerInventory, j + i*9 + 9, 8 + j*18, 49 + i*18));
             }
         }
     }
     public void addPlayerHotbar(PlayerInventory playerInventory){
         for(int i=0;i<9;++i) {
-            this.addSlot(new Slot(playerInventory, i, 8 + i*18, 109));
+            this.addSlot(new Slot(playerInventory, i, 8 + i*18, 107));
         }
     }
 
-    private void addBagInventory(){
-        for(int i=0; i<BagItem.INV_SIZE;++i){
-            this.addSlot(new ShulkerBoxSlot(inventory, i, 8+ i*18, 20));
-        }
-    }
+    protected abstract void addBagInventory();
 
     @Override
     public void onInventoryChanged(Inventory sender) {

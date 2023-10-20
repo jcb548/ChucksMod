@@ -1,4 +1,4 @@
-package net.chuck.chucksmod.screen;
+package net.chuck.chucksmod.screen.crusher;
 
 import net.chuck.chucksmod.block.entity.AbstractCrusherBlockEntity;
 import net.minecraft.block.entity.BlockEntity;

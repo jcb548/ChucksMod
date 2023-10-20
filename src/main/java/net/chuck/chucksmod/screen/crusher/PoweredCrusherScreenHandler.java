@@ -1,7 +1,9 @@
-package net.chuck.chucksmod.screen;
+package net.chuck.chucksmod.screen.crusher;
 
 import net.chuck.chucksmod.block.entity.AbstractCrusherBlockEntity;
 import net.chuck.chucksmod.block.entity.PoweredCrusherBlockEntity;
+import net.chuck.chucksmod.screen.ModScreenHandlers;
+import net.chuck.chucksmod.screen.crusher.AbstractCrusherScreenHandler;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.network.PacketByteBuf;

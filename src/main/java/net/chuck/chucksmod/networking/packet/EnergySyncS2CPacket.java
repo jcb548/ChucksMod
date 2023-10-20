@@ -3,7 +3,7 @@ package net.chuck.chucksmod.networking.packet;
 import net.chuck.chucksmod.block.entity.GeneratorBlockEntity;
 import net.chuck.chucksmod.block.entity.PoweredCrusherBlockEntity;
 import net.chuck.chucksmod.screen.GeneratorScreenHandler;
-import net.chuck.chucksmod.screen.PoweredCrusherScreenHandler;
+import net.chuck.chucksmod.screen.crusher.PoweredCrusherScreenHandler;
 import net.fabricmc.fabric.api.networking.v1.PacketSender;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayNetworkHandler;

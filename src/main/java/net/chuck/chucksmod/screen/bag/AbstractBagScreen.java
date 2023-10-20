@@ -1,4 +1,4 @@
-package net.chuck.chucksmod.screen;
+package net.chuck.chucksmod.screen.bag;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.chuck.chucksmod.ChucksMod;
@@ -8,12 +8,10 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
-public class BagScreen extends HandledScreen<BagScreenHandler> {
-    private static final Identifier TEXTURE = new Identifier(ChucksMod.MOD_ID,
-            "textures/gui/bag_gui.png");
-    public BagScreen(BagScreenHandler handler, PlayerInventory inventory, Text title) {
+public abstract class AbstractBagScreen<T extends AbstractBagScreenHandler> extends HandledScreen<T> {
+    public AbstractBagScreen(T handler, PlayerInventory inventory, Text title, int titleY) {
         super(handler, inventory, title);
-        this.playerInventoryTitleY = 40;
+        this.playerInventoryTitleY = titleY;
     }
 
     @Override
@@ -27,6 +25,8 @@ public class BagScreen extends HandledScreen<BagScreenHandler> {
         RenderSystem.setShaderColor(1.0f, 1.0f, 1.0f, 1.0f);
         int x = (width - backgroundWidth) /2;
         int y = (height - backgroundHeight)/2;
-        context.drawTexture(TEXTURE, x, y, 0, 0, backgroundWidth, backgroundHeight);
+        context.drawTexture(getTexture(), x, y, 0, 0, backgroundWidth, backgroundHeight);
     }
+
+    protected abstract Identifier getTexture();
 }

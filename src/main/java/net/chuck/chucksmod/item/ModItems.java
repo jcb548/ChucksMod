@@ -7,6 +7,8 @@ import net.chuck.chucksmod.item.custom.*;
 import net.chuck.chucksmod.item.custom.anti_large.*;
 import net.chuck.chucksmod.item.custom.aqua.*;
 import net.chuck.chucksmod.item.custom.ModSwordItem;
+import net.chuck.chucksmod.item.custom.bag.LeatherBagItem;
+import net.chuck.chucksmod.item.custom.bag.WoolBagItem;
 import net.chuck.chucksmod.item.custom.wither.*;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
@@ -183,7 +185,8 @@ public class ModItems {
     public static final Item PORTABLE_ENDERCHEST = registerItem("portable_enderchest",
             new PortableEnderChestItem(new FabricItemSettings()));
 
-    public static final Item BAG = registerItem("bag", new BagItem(new FabricItemSettings()));
+    public static final Item WOOL_BAG = registerItem("wool_bag", new WoolBagItem(new FabricItemSettings()));
+    public static final Item LEATHER_BAG = registerItem("leather_bag", new LeatherBagItem(new FabricItemSettings()));
 
     private static void addItemsToIngredientGroup(FabricItemGroupEntries entries){
         entries.add(RAW_TIN);

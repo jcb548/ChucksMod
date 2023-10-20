@@ -1,4 +1,4 @@
-package net.chuck.chucksmod.screen;
+package net.chuck.chucksmod.screen.crusher;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.chuck.chucksmod.ChucksMod;

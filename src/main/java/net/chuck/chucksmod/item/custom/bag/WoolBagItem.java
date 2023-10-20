@@ -1,20 +1,18 @@
-package net.chuck.chucksmod.item.custom;
+package net.chuck.chucksmod.item.custom.bag;
 
-import net.chuck.chucksmod.screen.BagScreenHandlerFactory;
+import net.chuck.chucksmod.screen.bag.WoolBagScreenHandlerFactory;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 
-public class BagItem extends Item{
-    public static final int INV_SIZE = 9;
-    public BagItem(Settings settings) {
-        super(settings.maxCount(1));
+public class WoolBagItem extends AbstractBagItem{
+    public static final int INV_SIZE = 3;
+    public WoolBagItem(Settings settings) {
+        super(settings);
     }
-    public static final String ITEMS_KEY = "Items";
 
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
@@ -22,13 +20,8 @@ public class BagItem extends Item{
         if (world.isClient) {
             return TypedActionResult.success(itemStack);
         }
-        NamedScreenHandlerFactory screenHandlerFactory = new BagScreenHandlerFactory(itemStack);
+        NamedScreenHandlerFactory screenHandlerFactory = new WoolBagScreenHandlerFactory(itemStack);
         user.openHandledScreen(screenHandlerFactory);
         return TypedActionResult.consume(itemStack);
-    }
-
-    @Override
-    public boolean canBeNested() {
-        return false;
     }
 }

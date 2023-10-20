@@ -6,6 +6,10 @@ import net.chuck.chucksmod.entity.ModEntities;
 import net.chuck.chucksmod.entity.client.*;
 import net.chuck.chucksmod.networking.ModMessages;
 import net.chuck.chucksmod.screen.*;
+import net.chuck.chucksmod.screen.bag.WoolBagScreen;
+import net.chuck.chucksmod.screen.bag.LeatherBagScreen;
+import net.chuck.chucksmod.screen.crusher.CrusherScreen;
+import net.chuck.chucksmod.screen.crusher.PoweredCrusherScreen;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
@@ -25,7 +29,6 @@ import net.minecraft.client.render.RenderLayer;
  *  Details can be found in the license file in the root folder of this project
  */
 public class ChucksModClient implements ClientModInitializer {
-    public boolean bagClickable = true;
     @Override
     public void onInitializeClient() {
         ModMessages.registerS2CPackets();
@@ -100,7 +103,8 @@ public class ChucksModClient implements ClientModInitializer {
         HandledScreens.register(ModScreenHandlers.CRUSHER_SCREEN_HANDLER, CrusherScreen::new);
         HandledScreens.register(ModScreenHandlers.POWERED_CRUSHER_SCREEN_HANDLER, PoweredCrusherScreen::new);
         HandledScreens.register(ModScreenHandlers.GENERATOR_SCREEN_HANDLER, GeneratorScreen::new);
-        HandledScreens.register(ModScreenHandlers.BAG_SCREEN_HANDLER, BagScreen::new);
+        HandledScreens.register(ModScreenHandlers.WOOL_BAG_SCREEN_HANDLER, WoolBagScreen::new);
+        HandledScreens.register(ModScreenHandlers.LEATHER_BAG_SCREEN_HANDLER, LeatherBagScreen::new);
 
         HudRenderCallback.EVENT.register(new ArmorHudOverlay());
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.WYATT, WyattModel::getTexturedModelData);

@@ -1,7 +1,7 @@
 package net.chuck.chucksmod.block.entity;
 
 import net.chuck.chucksmod.block.custom.CrusherBlock;
-import net.chuck.chucksmod.screen.CrusherScreenHandler;
+import net.chuck.chucksmod.screen.crusher.CrusherScreenHandler;
 import net.minecraft.block.AbstractFurnaceBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;

@@ -201,11 +201,12 @@
   "block.chucksmod.cracked_sandstone_bricks": "Cracked Sandstone Bricks",
 
   "item.chucksmod.portable_enderchest": "Portable Enderchest",
-  "item.chucksmod.bag": "Bag",
+  "item.chucksmod.wool_bag": "Wool Bag",
+  "tooltip.chucksmod.wool_bag.tooltip": "Can store 5 items, and can be opened by right-clicking",
+  "item.chucksmod.leather_bag": "Leather Bag",
+  "tooltip.chucksmod.leather_bag.tooltip": "Can store 3 items, and can be opened by right-clicking",
 
-  "itemgroup.chucksmod": "Pigs N Stuff",
-
-  "title.chucksmod.bag": "Bag",
+  "itemgroup.chucksmod": "Chucks Mod",
 
 
   "advancements.chucksmod.overworld.root.title": "Story",

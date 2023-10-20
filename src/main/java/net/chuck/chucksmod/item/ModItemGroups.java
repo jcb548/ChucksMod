@@ -222,7 +222,8 @@ public class ModItemGroups {
                         entries.add(ModBlocks.FRANK_ALTAR);
 
                         entries.add(ModItems.PORTABLE_ENDERCHEST);
-                        entries.add(ModItems.BAG);
+                        entries.add(ModItems.WOOL_BAG);
+                        entries.add(ModItems.LEATHER_BAG);
                     }).build());
     public static void registerItemGroups() {
         ChucksMod.LOGGER.info("Registering Item Groups for " + ChucksMod.MOD_ID);

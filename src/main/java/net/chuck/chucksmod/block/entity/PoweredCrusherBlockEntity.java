@@ -1,7 +1,7 @@
 package net.chuck.chucksmod.block.entity;
 
 import net.chuck.chucksmod.networking.ModMessages;
-import net.chuck.chucksmod.screen.PoweredCrusherScreenHandler;
+import net.chuck.chucksmod.screen.crusher.PoweredCrusherScreenHandler;
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
 import net.fabricmc.fabric.api.networking.v1.PlayerLookup;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;

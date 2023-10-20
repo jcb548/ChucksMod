@@ -1,4 +1,4 @@
-package net.chuck.chucksmod.screen;
+package net.chuck.chucksmod.screen.crusher;
 
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
