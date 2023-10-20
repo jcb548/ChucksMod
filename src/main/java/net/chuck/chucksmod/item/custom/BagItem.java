@@ -26,4 +26,9 @@ public class BagItem extends Item{
         user.openHandledScreen(screenHandlerFactory);
         return TypedActionResult.consume(itemStack);
     }
+
+    @Override
+    public boolean canBeNested() {
+        return false;
+    }
 }

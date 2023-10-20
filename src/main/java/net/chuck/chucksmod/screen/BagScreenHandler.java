@@ -1,7 +1,7 @@
 package net.chuck.chucksmod.screen;
 
-import net.chuck.chucksmod.item.custom.BagItem;
-import net.chuck.chucksmod.util.ModBagSlot;
+import net.chuck.chucksmod.item.custom.BagItem;;
+import net.chuck.chucksmod.util.ModDisableBagSlot;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;
@@ -12,6 +12,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.screen.ScreenHandler;
+import net.minecraft.screen.slot.ShulkerBoxSlot;
 import net.minecraft.screen.slot.Slot;
 
 public class BagScreenHandler extends ScreenHandler implements InventoryChangedListener {
@@ -79,7 +80,7 @@ public class BagScreenHandler extends ScreenHandler implements InventoryChangedL
 
     private void addBagInventory(){
         for(int i=0; i<BagItem.INV_SIZE;++i){
-            this.addSlot(new Slot(inventory, i, 8+ i*18, 20));
+            this.addSlot(new ShulkerBoxSlot(inventory, i, 8+ i*18, 20));
         }
     }
 
@@ -93,7 +94,7 @@ public class BagScreenHandler extends ScreenHandler implements InventoryChangedL
     public void disableBagSlot(){
         for(int i=0; i<slots.size();i++){
             if(slots.get(i).getStack().equals(bagItemStack)){
-                slots.set(i, new ModBagSlot(slots.get(i)));
+                slots.set(i, new ModDisableBagSlot(slots.get(i)));
             }
         }
     }
