@@ -135,6 +135,7 @@ public class CrusherBlockEntity extends AbstractCrusherBlockEntity {
             markDirty(world, blockPos, blockState);
             if(this.hasCraftingFinished()){
                 this.craftItem();
+                this.resetProgress();
             }
         } else {
             this.resetProgress();

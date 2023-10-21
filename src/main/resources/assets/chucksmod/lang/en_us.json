@@ -201,10 +201,13 @@
   "block.chucksmod.cracked_sandstone_bricks": "Cracked Sandstone Bricks",
 
   "item.chucksmod.portable_enderchest": "Portable Enderchest",
+  "item.chucksmod.string_strap": "String Strap",
+  "item.chucksmod.leather_strap": "Leather Strap",
   "item.chucksmod.wool_bag": "Wool Bag",
-  "tooltip.chucksmod.wool_bag.tooltip": "Can store 5 items, and can be opened by right-clicking",
+  "tooltip.chucksmod.3x1bag.tooltip": "Can store 3 items, opened by right-clicking",
   "item.chucksmod.leather_bag": "Leather Bag",
-  "tooltip.chucksmod.leather_bag.tooltip": "Can store 3 items, and can be opened by right-clicking",
+  "tooltip.chucksmod.5x1bag.tooltip": "Can store 5 items, opened by right-clicking",
+  "gui.chucksmod.bag": "Bag",
 
   "itemgroup.chucksmod": "Chucks Mod",
 

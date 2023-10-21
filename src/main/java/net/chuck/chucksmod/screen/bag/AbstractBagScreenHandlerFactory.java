@@ -16,6 +16,10 @@ public abstract class AbstractBagScreenHandlerFactory implements ExtendedScreenH
         this.itemStack = itemStack;
     }
     @Override
+    public Text getDisplayName() {
+        return  Text.translatable("gui.chucksmod.bag");
+    }
+    @Override
     public void writeScreenOpeningData(ServerPlayerEntity player, PacketByteBuf buf) {
         buf.writeItemStack(itemStack);
     }

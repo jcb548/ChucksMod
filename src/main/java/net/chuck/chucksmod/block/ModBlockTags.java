@@ -1,4 +1,4 @@
-package net.chuck.chucksmod.block.custom;
+package net.chuck.chucksmod.block;
 
 import net.chuck.chucksmod.ChucksMod;
 import net.minecraft.block.Block;
@@ -16,6 +16,7 @@ import net.minecraft.util.Identifier;
 public class ModBlockTags {
     public static final TagKey<Block> EUCALYPTUS_LOGS = ModBlockTags.of("eucalyptus_logs");
     public static final TagKey<Block> DIRITIA_LOGS = ModBlockTags.of("diritia_logs");
+    public static final TagKey<Block> HARDENED_GLASS = ModBlockTags.of("hardened_glass");
 
     private static TagKey<Block> of(String id) {
         return TagKey.of(RegistryKeys.BLOCK, new Identifier(ChucksMod.MOD_ID, id));

@@ -1,7 +1,8 @@
 package net.chuck.chucksmod.data;
 
 import net.chuck.chucksmod.block.ModBlocks;
-import net.chuck.chucksmod.block.custom.ModBlockTags;
+import net.chuck.chucksmod.block.ModBlockTags;
+import net.chuck.chucksmod.item.ModItemTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.block.Blocks;
@@ -235,5 +236,24 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
         getOrCreateTagBuilder(BlockTags.WALLS)
                 .add(ModBlocks.SANDSTONE_BRICK_WALL);
+
+        getOrCreateTagBuilder(ModBlockTags.HARDENED_GLASS)
+                .add(ModBlocks.HARDENED_GLASS)
+                .add(ModBlocks.HARDENED_BLACK_GLASS)
+                .add(ModBlocks.HARDENED_BLUE_GLASS)
+                .add(ModBlocks.HARDENED_BROWN_GLASS)
+                .add(ModBlocks.HARDENED_CYAN_GLASS)
+                .add(ModBlocks.HARDENED_GRAY_GLASS)
+                .add(ModBlocks.HARDENED_GREEN_GLASS)
+                .add(ModBlocks.HARDENED_LIGHT_BLUE_GLASS)
+                .add(ModBlocks.HARDENED_LIGHT_GRAY_GLASS)
+                .add(ModBlocks.HARDENED_LIME_GLASS)
+                .add(ModBlocks.HARDENED_MAGENTA_GLASS)
+                .add(ModBlocks.HARDENED_ORANGE_GLASS)
+                .add(ModBlocks.HARDENED_PINK_GLASS)
+                .add(ModBlocks.HARDENED_PURPLE_GLASS)
+                .add(ModBlocks.HARDENED_RED_GLASS)
+                .add(ModBlocks.HARDENED_WHITE_GLASS)
+                .add(ModBlocks.HARDENED_YELLOW_GLASS);
     }
 }

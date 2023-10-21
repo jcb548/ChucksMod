@@ -1,6 +1,7 @@
 package net.chuck.chucksmod.data;
 
 import net.chuck.chucksmod.block.ModBlocks;
+import net.chuck.chucksmod.item.ModItemTags;
 import net.chuck.chucksmod.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
@@ -564,7 +565,10 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .criterion(FabricRecipeProvider.hasItem(Items.DIAMOND),
                         FabricRecipeProvider.conditionsFromItem(Items.DIAMOND))
                 .offerTo(exporter);
-
+        generateHardenedGlassRecipes(exporter);
+        generateBagRecipes(exporter);
+    }
+    private void generateHardenedGlassRecipes(RecipeExporter exporter){
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.OBSIDIAN_SAND, 2)
                 .pattern(" D ")
                 .pattern("DSD")
@@ -581,7 +585,7 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .pattern("GGG")
                 .pattern("GDG")
                 .pattern("GGG")
-                .input('G', ModBlocks.HARDENED_GLASS)
+                .input('G', ModItemTags.HARDENED_GLASS)
                 .input('D', Items.BLACK_DYE)
                 .criterion(FabricRecipeProvider.hasItem(ModBlocks.HARDENED_GLASS),
                         FabricRecipeProvider.conditionsFromItem(ModBlocks.HARDENED_GLASS))
@@ -592,7 +596,7 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .pattern("GGG")
                 .pattern("GDG")
                 .pattern("GGG")
-                .input('G', ModBlocks.HARDENED_GLASS)
+                .input('G', ModItemTags.HARDENED_GLASS)
                 .input('D', Items.BLUE_DYE)
                 .criterion(FabricRecipeProvider.hasItem(ModBlocks.HARDENED_GLASS),
                         FabricRecipeProvider.conditionsFromItem(ModBlocks.HARDENED_GLASS))
@@ -603,7 +607,7 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .pattern("GGG")
                 .pattern("GDG")
                 .pattern("GGG")
-                .input('G', ModBlocks.HARDENED_GLASS)
+                .input('G', ModItemTags.HARDENED_GLASS)
                 .input('D', Items.BROWN_DYE)
                 .criterion(FabricRecipeProvider.hasItem(ModBlocks.HARDENED_GLASS),
                         FabricRecipeProvider.conditionsFromItem(ModBlocks.HARDENED_GLASS))
@@ -614,7 +618,7 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .pattern("GGG")
                 .pattern("GDG")
                 .pattern("GGG")
-                .input('G', ModBlocks.HARDENED_GLASS)
+                .input('G', ModItemTags.HARDENED_GLASS)
                 .input('D', Items.CYAN_DYE)
                 .criterion(FabricRecipeProvider.hasItem(ModBlocks.HARDENED_GLASS),
                         FabricRecipeProvider.conditionsFromItem(ModBlocks.HARDENED_GLASS))
@@ -625,7 +629,7 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .pattern("GGG")
                 .pattern("GDG")
                 .pattern("GGG")
-                .input('G', ModBlocks.HARDENED_GLASS)
+                .input('G', ModItemTags.HARDENED_GLASS)
                 .input('D', Items.GRAY_DYE)
                 .criterion(FabricRecipeProvider.hasItem(ModBlocks.HARDENED_GLASS),
                         FabricRecipeProvider.conditionsFromItem(ModBlocks.HARDENED_GLASS))
@@ -636,7 +640,7 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .pattern("GGG")
                 .pattern("GDG")
                 .pattern("GGG")
-                .input('G', ModBlocks.HARDENED_GLASS)
+                .input('G', ModItemTags.HARDENED_GLASS)
                 .input('D', Items.GREEN_DYE)
                 .criterion(FabricRecipeProvider.hasItem(ModBlocks.HARDENED_GLASS),
                         FabricRecipeProvider.conditionsFromItem(ModBlocks.HARDENED_GLASS))
@@ -647,7 +651,7 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .pattern("GGG")
                 .pattern("GDG")
                 .pattern("GGG")
-                .input('G', ModBlocks.HARDENED_GLASS)
+                .input('G', ModItemTags.HARDENED_GLASS)
                 .input('D', Items.LIGHT_BLUE_DYE)
                 .criterion(FabricRecipeProvider.hasItem(ModBlocks.HARDENED_GLASS),
                         FabricRecipeProvider.conditionsFromItem(ModBlocks.HARDENED_GLASS))
@@ -658,7 +662,7 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .pattern("GGG")
                 .pattern("GDG")
                 .pattern("GGG")
-                .input('G', ModBlocks.HARDENED_GLASS)
+                .input('G', ModItemTags.HARDENED_GLASS)
                 .input('D', Items.LIGHT_GRAY_DYE)
                 .criterion(FabricRecipeProvider.hasItem(ModBlocks.HARDENED_GLASS),
                         FabricRecipeProvider.conditionsFromItem(ModBlocks.HARDENED_GLASS))
@@ -669,7 +673,7 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .pattern("GGG")
                 .pattern("GDG")
                 .pattern("GGG")
-                .input('G', ModBlocks.HARDENED_GLASS)
+                .input('G', ModItemTags.HARDENED_GLASS)
                 .input('D', Items.LIME_DYE)
                 .criterion(FabricRecipeProvider.hasItem(ModBlocks.HARDENED_GLASS),
                         FabricRecipeProvider.conditionsFromItem(ModBlocks.HARDENED_GLASS))
@@ -680,7 +684,7 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .pattern("GGG")
                 .pattern("GDG")
                 .pattern("GGG")
-                .input('G', ModBlocks.HARDENED_GLASS)
+                .input('G', ModItemTags.HARDENED_GLASS)
                 .input('D', Items.MAGENTA_DYE)
                 .criterion(FabricRecipeProvider.hasItem(ModBlocks.HARDENED_GLASS),
                         FabricRecipeProvider.conditionsFromItem(ModBlocks.HARDENED_GLASS))
@@ -691,7 +695,7 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .pattern("GGG")
                 .pattern("GDG")
                 .pattern("GGG")
-                .input('G', ModBlocks.HARDENED_GLASS)
+                .input('G', ModItemTags.HARDENED_GLASS)
                 .input('D', Items.ORANGE_DYE)
                 .criterion(FabricRecipeProvider.hasItem(ModBlocks.HARDENED_GLASS),
                         FabricRecipeProvider.conditionsFromItem(ModBlocks.HARDENED_GLASS))
@@ -702,7 +706,7 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .pattern("GGG")
                 .pattern("GDG")
                 .pattern("GGG")
-                .input('G', ModBlocks.HARDENED_GLASS)
+                .input('G', ModItemTags.HARDENED_GLASS)
                 .input('D', Items.PINK_DYE)
                 .criterion(FabricRecipeProvider.hasItem(ModBlocks.HARDENED_GLASS),
                         FabricRecipeProvider.conditionsFromItem(ModBlocks.HARDENED_GLASS))
@@ -713,7 +717,7 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .pattern("GGG")
                 .pattern("GDG")
                 .pattern("GGG")
-                .input('G', ModBlocks.HARDENED_GLASS)
+                .input('G', ModItemTags.HARDENED_GLASS)
                 .input('D', Items.PURPLE_DYE)
                 .criterion(FabricRecipeProvider.hasItem(ModBlocks.HARDENED_GLASS),
                         FabricRecipeProvider.conditionsFromItem(ModBlocks.HARDENED_GLASS))
@@ -724,7 +728,7 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .pattern("GGG")
                 .pattern("GDG")
                 .pattern("GGG")
-                .input('G', ModBlocks.HARDENED_GLASS)
+                .input('G', ModItemTags.HARDENED_GLASS)
                 .input('D', Items.RED_DYE)
                 .criterion(FabricRecipeProvider.hasItem(ModBlocks.HARDENED_GLASS),
                         FabricRecipeProvider.conditionsFromItem(ModBlocks.HARDENED_GLASS))
@@ -735,7 +739,7 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .pattern("GGG")
                 .pattern("GDG")
                 .pattern("GGG")
-                .input('G', ModBlocks.HARDENED_GLASS)
+                .input('G', ModItemTags.HARDENED_GLASS)
                 .input('D', Items.WHITE_DYE)
                 .criterion(FabricRecipeProvider.hasItem(ModBlocks.HARDENED_GLASS),
                         FabricRecipeProvider.conditionsFromItem(ModBlocks.HARDENED_GLASS))
@@ -746,7 +750,7 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .pattern("GGG")
                 .pattern("GDG")
                 .pattern("GGG")
-                .input('G', ModBlocks.HARDENED_GLASS)
+                .input('G', ModItemTags.HARDENED_GLASS)
                 .input('D', Items.YELLOW_DYE)
                 .criterion(FabricRecipeProvider.hasItem(ModBlocks.HARDENED_GLASS),
                         FabricRecipeProvider.conditionsFromItem(ModBlocks.HARDENED_GLASS))
@@ -770,5 +774,43 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
         offerStainedGlassPaneRecipe(exporter, ModBlocks.HARDENED_RED_GLASS_PANE, ModBlocks.HARDENED_RED_GLASS);
         offerStainedGlassPaneRecipe(exporter, ModBlocks.HARDENED_WHITE_GLASS_PANE, ModBlocks.HARDENED_WHITE_GLASS);
         offerStainedGlassPaneRecipe(exporter, ModBlocks.HARDENED_YELLOW_GLASS_PANE, ModBlocks.HARDENED_YELLOW_GLASS);
+    }
+
+    private void generateBagRecipes(RecipeExporter exporter){
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.STRING_STRAP, 1)
+                .pattern("SSS")
+                .pattern("S S")
+                .input('S', Items.STRING)
+                .criterion(FabricRecipeProvider.hasItem(Items.STRING),
+                        FabricRecipeProvider.conditionsFromItem(Items.STRING))
+                .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.LEATHER_STRAP, 1)
+                .pattern("SLS")
+                .pattern("L L")
+                .input('S', Items.STRING)
+                .input('L', Items.LEATHER)
+                .criterion(FabricRecipeProvider.hasItem(Items.STRING),
+                        FabricRecipeProvider.conditionsFromItem(Items.STRING))
+                .criterion(FabricRecipeProvider.hasItem(Items.LEATHER),
+                        FabricRecipeProvider.conditionsFromItem(Items.LEATHER))
+                .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.WOOL_BAG, 1)
+                .pattern("S S")
+                .pattern("WWW")
+                .pattern("WWW")
+                .input('S', ModItems.STRING_STRAP)
+                .input('W', ItemTags.WOOL)
+                .criterion(FabricRecipeProvider.hasItem(ModItems.STRING_STRAP),
+                        FabricRecipeProvider.conditionsFromItem(ModItems.STRING_STRAP))
+                .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.LEATHER_BAG, 1)
+                .pattern("S S")
+                .pattern("LLL")
+                .pattern("LLL")
+                .input('S', ModItems.LEATHER_STRAP)
+                .input('L', Items.LEATHER)
+                .criterion(FabricRecipeProvider.hasItem(ModItems.LEATHER_STRAP),
+                        FabricRecipeProvider.conditionsFromItem(ModItems.LEATHER_STRAP))
+                .offerTo(exporter);
     }
 }

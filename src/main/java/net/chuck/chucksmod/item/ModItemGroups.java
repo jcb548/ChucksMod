@@ -222,6 +222,8 @@ public class ModItemGroups {
                         entries.add(ModBlocks.FRANK_ALTAR);
 
                         entries.add(ModItems.PORTABLE_ENDERCHEST);
+                        entries.add(ModItems.STRING_STRAP);
+                        entries.add(ModItems.LEATHER_STRAP);
                         entries.add(ModItems.WOOL_BAG);
                         entries.add(ModItems.LEATHER_BAG);
                     }).build());

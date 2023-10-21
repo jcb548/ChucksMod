@@ -7,8 +7,8 @@ import net.chuck.chucksmod.item.custom.*;
 import net.chuck.chucksmod.item.custom.anti_large.*;
 import net.chuck.chucksmod.item.custom.aqua.*;
 import net.chuck.chucksmod.item.custom.ModSwordItem;
-import net.chuck.chucksmod.item.custom.bag.LeatherBagItem;
-import net.chuck.chucksmod.item.custom.bag.WoolBagItem;
+import net.chuck.chucksmod.item.custom.bag.BagItem5x1;
+import net.chuck.chucksmod.item.custom.bag.BagItem3x1;
 import net.chuck.chucksmod.item.custom.wither.*;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
@@ -185,8 +185,12 @@ public class ModItems {
     public static final Item PORTABLE_ENDERCHEST = registerItem("portable_enderchest",
             new PortableEnderChestItem(new FabricItemSettings()));
 
-    public static final Item WOOL_BAG = registerItem("wool_bag", new WoolBagItem(new FabricItemSettings()));
-    public static final Item LEATHER_BAG = registerItem("leather_bag", new LeatherBagItem(new FabricItemSettings()));
+    public static final Item STRING_STRAP = registerItem("string_strap", new Item(new FabricItemSettings()));
+    public static final Item LEATHER_STRAP = registerItem("leather_strap", new Item(new FabricItemSettings()));
+
+    public static final Item WOOL_BAG = registerItem("wool_bag", new BagItem3x1(new FabricItemSettings()));
+    public static final Item LEATHER_BAG = registerItem("leather_bag",
+            new BagItem5x1(new FabricItemSettings()));
 
     private static void addItemsToIngredientGroup(FabricItemGroupEntries entries){
         entries.add(RAW_TIN);

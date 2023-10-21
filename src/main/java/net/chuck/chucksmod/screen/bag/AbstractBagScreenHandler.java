@@ -1,6 +1,6 @@
 package net.chuck.chucksmod.screen.bag;
 
-import net.chuck.chucksmod.item.custom.bag.LeatherBagItem;
+import net.chuck.chucksmod.item.custom.bag.BagItem5x1;
 import net.chuck.chucksmod.util.ModDisableBagSlot;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
@@ -45,9 +45,9 @@ public abstract class AbstractBagScreenHandler extends ScreenHandler implements 
         if (slot2 != null && slot2.hasStack()) {
             ItemStack itemStack2 = slot2.getStack();
             itemStack = itemStack2.copy();
-            if (slot < LeatherBagItem.INV_SIZE ?
-                    !this.insertItem(itemStack2, LeatherBagItem.INV_SIZE, this.slots.size(), true)
-                    : !this.insertItem(itemStack2, 0, LeatherBagItem.INV_SIZE, false)) {
+            if (slot < BagItem5x1.INV_SIZE ?
+                    !this.insertItem(itemStack2, BagItem5x1.INV_SIZE, this.slots.size(), true)
+                    : !this.insertItem(itemStack2, 0, BagItem5x1.INV_SIZE, false)) {
                 return ItemStack.EMPTY;
             }
             if (itemStack2.isEmpty()) {

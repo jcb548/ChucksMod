@@ -220,5 +220,28 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(Items.FLINT_AND_STEEL);*/
         getOrCreateTagBuilder(ModItemTags.ELYTRAS)
                 .add(Items.ELYTRA);
+
+        getOrCreateTagBuilder(ModItemTags.BAGS)
+                .add(ModItems.WOOL_BAG)
+                .add(ModItems.LEATHER_BAG);
+        
+        getOrCreateTagBuilder(ModItemTags.HARDENED_GLASS)
+                .add(ModBlocks.HARDENED_GLASS.asItem())
+                .add(ModBlocks.HARDENED_BLACK_GLASS.asItem())
+                .add(ModBlocks.HARDENED_BLUE_GLASS.asItem())
+                .add(ModBlocks.HARDENED_BROWN_GLASS.asItem())
+                .add(ModBlocks.HARDENED_CYAN_GLASS.asItem())
+                .add(ModBlocks.HARDENED_GRAY_GLASS.asItem())
+                .add(ModBlocks.HARDENED_GREEN_GLASS.asItem())
+                .add(ModBlocks.HARDENED_LIGHT_BLUE_GLASS.asItem())
+                .add(ModBlocks.HARDENED_LIGHT_GRAY_GLASS.asItem())
+                .add(ModBlocks.HARDENED_LIME_GLASS.asItem())
+                .add(ModBlocks.HARDENED_MAGENTA_GLASS.asItem())
+                .add(ModBlocks.HARDENED_ORANGE_GLASS.asItem())
+                .add(ModBlocks.HARDENED_PINK_GLASS.asItem())
+                .add(ModBlocks.HARDENED_PURPLE_GLASS.asItem())
+                .add(ModBlocks.HARDENED_RED_GLASS.asItem())
+                .add(ModBlocks.HARDENED_WHITE_GLASS.asItem())
+                .add(ModBlocks.HARDENED_YELLOW_GLASS.asItem());
     }
 }

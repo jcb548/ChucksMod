@@ -1,5 +1,6 @@
 package net.chuck.chucksmod.item;
 
+import net.chuck.chucksmod.ChucksMod;
 import net.minecraft.item.Item;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.tag.TagKey;
@@ -30,4 +31,8 @@ public class ModItemTags {
             new Identifier("c", "enchantables"));
     public static final TagKey<Item> ELYTRAS = TagKey.of(RegistryKeys.ITEM,
             new Identifier("c", "elytras"));
+    public static final TagKey<Item> BAGS = TagKey.of(RegistryKeys.ITEM,
+            new Identifier(ChucksMod.MOD_ID, "bags"));
+    public static final TagKey<Item> HARDENED_GLASS = TagKey.of(RegistryKeys.ITEM,
+            new Identifier(ChucksMod.MOD_ID, "hardened_glass"));
 }

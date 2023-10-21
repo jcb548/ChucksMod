@@ -7,19 +7,14 @@ import net.minecraft.screen.ScreenHandler;
 import net.minecraft.text.Text;
 import org.jetbrains.annotations.Nullable;
 
-public class LeatherBagScreenHandlerFactory extends AbstractBagScreenHandlerFactory{
-    public LeatherBagScreenHandlerFactory(ItemStack itemStack) {
+public class BagScreenHandlerFactory5x1 extends AbstractBagScreenHandlerFactory{
+    public BagScreenHandlerFactory5x1(ItemStack itemStack) {
         super(itemStack);
-    }
-
-    @Override
-    public Text getDisplayName() {
-        return  Text.translatable("item.chucksmod.leather_bag");
     }
 
     @Nullable
     @Override
     public ScreenHandler createMenu(int syncId, PlayerInventory playerInventory, PlayerEntity player) {
-        return new LeatherBagScreenHandler(syncId, playerInventory, itemStack);
+        return new BagScreenHandler5x1(syncId, playerInventory, itemStack);
     }
 }
