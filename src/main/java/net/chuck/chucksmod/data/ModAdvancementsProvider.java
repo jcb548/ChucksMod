@@ -680,6 +680,24 @@ public class ModAdvancementsProvider extends FabricAdvancementProvider {
                 .criterion("water_bucket", InventoryChangedCriterion.Conditions.items(Items.WATER_BUCKET))
                 .parent(bucket)
                 .build(consumer, ChucksMod.MOD_ID + "/overworld/water_bucket");
+
+        AdvancementEntry woolBag = Advancement.Builder.create()
+            .display(ModItems.WOOL_BAG,
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.wool_bag.title"),
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.wool_bag.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("wool_bag", InventoryChangedCriterion.Conditions.items(ModItems.WOOL_BAG))
+                .parent(wool)
+                .build(consumer, ChucksMod.MOD_ID + "/overworld/wool_bag");
+
+        AdvancementEntry leatherBag = Advancement.Builder.create()
+            .display(ModItems.LEATHER_BAG,
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.leather_bag.title"),
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.leather_bag.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("leather_bag", InventoryChangedCriterion.Conditions.items(ModItems.LEATHER_BAG))
+                .parent(leather)
+                .build(consumer, ChucksMod.MOD_ID + "/overworld/leather_bag");
     }
     private void netherAdvancements(Consumer<AdvancementEntry> consumer) {
         AdvancementEntry root = Advancement.Builder.create()

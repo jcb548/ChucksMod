@@ -206,6 +206,9 @@
   "item.chucksmod.wool_bag": "Wool Bag",
   "item.chucksmod.leather_bag": "Leather Bag",
   "item.chucksmod.copper_bag": "Copper Bag",
+  "item.chucksmod.bronze_bag": "Bronze Bag",
+  "item.chucksmod.fabium_bag": "Fabium Bag",
+  "item.chucksmod.netherite_bag": "Netherite Bag",
   "tooltip.chucksmod.3x1bag.tooltip": "Can store 3 items, opened by right-clicking",
   "tooltip.chucksmod.5x1bag.tooltip": "Can store 5 items, opened by right-clicking",
   "tooltip.chucksmod.7x1bag.tooltip": "Can store 7 items, opened by right-clicking",
@@ -473,6 +476,12 @@
 
   "advancements.chucksmod.overworld.bucket.title": "Bucket",
   "advancements.chucksmod.overworld.bucket.desc": "Craft or obtain a Bucket from a chest to allow picking up of liquids",
+
+  "advancements.chucksmod.overworld.water_bucket.title": "Bucket of Water",
+  "advancements.chucksmod.overworld.water_bucket.desc": "Pickup a block of water with a Bucket",
+
+  "advancements.chucksmod.overworld.wool_bag.title": "Bucket of Water",
+  "advancements.chucksmod.overworld.wool_bag.desc": "Pickup a block of water with a Bucket",
 
   "advancements.chucksmod.overworld.water_bucket.title": "Bucket of Water",
   "advancements.chucksmod.overworld.water_bucket.desc": "Pickup a block of water with a Bucket",
