@@ -7,8 +7,7 @@ import net.chuck.chucksmod.item.custom.*;
 import net.chuck.chucksmod.item.custom.anti_large.*;
 import net.chuck.chucksmod.item.custom.aqua.*;
 import net.chuck.chucksmod.item.custom.ModSwordItem;
-import net.chuck.chucksmod.item.custom.bag.BagItem5x1;
-import net.chuck.chucksmod.item.custom.bag.BagItem3x1;
+import net.chuck.chucksmod.item.custom.bag.*;
 import net.chuck.chucksmod.item.custom.wither.*;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
@@ -191,6 +190,16 @@ public class ModItems {
     public static final Item WOOL_BAG = registerItem("wool_bag", new BagItem3x1(new FabricItemSettings()));
     public static final Item LEATHER_BAG = registerItem("leather_bag",
             new BagItem5x1(new FabricItemSettings()));
+    public static final Item COPPER_BAG = registerItem("copper_bag",
+            new BagItem7x1(new FabricItemSettings()));
+    public static final Item IRON_BAG = registerItem("iron_bag",
+            new BagItem9x1(new FabricItemSettings()));
+    public static final Item BRONZE_BAG = registerItem("bronze_bag",
+            new BagItem9x1(new FabricItemSettings()));
+    public static final Item FABIUM_BAG = registerItem("fabium_bag",
+            new BagItem7x2(new FabricItemSettings()));
+    public static final Item NETHERITE_BAG = registerItem("netherite_bag",
+            new BagItem7x2(new FabricItemSettings()));
 
     private static void addItemsToIngredientGroup(FabricItemGroupEntries entries){
         entries.add(RAW_TIN);

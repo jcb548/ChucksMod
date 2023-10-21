@@ -9,6 +9,7 @@ import net.minecraft.block.Blocks;
 import net.minecraft.data.server.recipe.RecipeExporter;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
 import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
+import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.book.RecipeCategory;
@@ -803,14 +804,25 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .criterion(FabricRecipeProvider.hasItem(ModItems.STRING_STRAP),
                         FabricRecipeProvider.conditionsFromItem(ModItems.STRING_STRAP))
                 .offerTo(exporter);
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.LEATHER_BAG, 1)
+        offerBagRecipe(exporter, Items.LEATHER, ModItems.LEATHER_BAG);
+        offerBagRecipe(exporter, Items.COPPER_INGOT, ModItems.COPPER_BAG);
+        offerBagRecipe(exporter, Items.IRON_INGOT, ModItems.IRON_BAG);
+        offerBagRecipe(exporter, ModItems.BRONZE_INGOT, ModItems.BRONZE_BAG);
+        offerBagRecipe(exporter, ModItems.FABIUM_INGOT, ModItems.FABIUM_BAG);
+        offerBagRecipe(exporter, Items.NETHERITE_INGOT, ModItems.NETHERITE_BAG);
+    }
+
+    public static void offerBagRecipe(RecipeExporter exporter, Item material, Item output){
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, output, 1)
                 .pattern("S S")
-                .pattern("LLL")
-                .pattern("LLL")
+                .pattern("MMM")
+                .pattern("MMM")
                 .input('S', ModItems.LEATHER_STRAP)
-                .input('L', Items.LEATHER)
+                .input('M', material)
                 .criterion(FabricRecipeProvider.hasItem(ModItems.LEATHER_STRAP),
                         FabricRecipeProvider.conditionsFromItem(ModItems.LEATHER_STRAP))
+                .criterion(FabricRecipeProvider.hasItem(material),
+                        FabricRecipeProvider.conditionsFromItem(material))
                 .offerTo(exporter);
     }
 }

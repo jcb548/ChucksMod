@@ -255,5 +255,10 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.LEATHER_STRAP, Models.GENERATED);
         itemModelGenerator.register(ModItems.WOOL_BAG, Models.GENERATED);
         itemModelGenerator.register(ModItems.LEATHER_BAG, Models.GENERATED);
+        itemModelGenerator.register(ModItems.COPPER_BAG, Models.GENERATED);
+        itemModelGenerator.register(ModItems.IRON_BAG, Models.GENERATED);
+        itemModelGenerator.register(ModItems.BRONZE_BAG, Models.GENERATED);
+        itemModelGenerator.register(ModItems.NETHERITE_BAG, Models.GENERATED);
+        itemModelGenerator.register(ModItems.FABIUM_BAG, Models.GENERATED);
     }
 }

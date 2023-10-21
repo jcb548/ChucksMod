@@ -8,6 +8,9 @@ import net.chuck.chucksmod.networking.ModMessages;
 import net.chuck.chucksmod.screen.*;
 import net.chuck.chucksmod.screen.bag.BagScreen3x1;
 import net.chuck.chucksmod.screen.bag.BagScreen5x1;
+import net.chuck.chucksmod.screen.bag.BagScreen7x1;
+import net.chuck.chucksmod.screen.bag.BagScreen9x1;
+import net.chuck.chucksmod.screen.bag.BagScreen7x2;
 import net.chuck.chucksmod.screen.crusher.CrusherScreen;
 import net.chuck.chucksmod.screen.crusher.PoweredCrusherScreen;
 import net.fabricmc.api.ClientModInitializer;
@@ -33,23 +36,49 @@ public class ChucksModClient implements ClientModInitializer {
     public void onInitializeClient() {
         ModMessages.registerS2CPackets();
 
+        registerTintedBlocks();
+        registerCutoutBlocks();
+        registerTranslucentBlocks();
+        registerHandledScreens();
+
+        HudRenderCallback.EVENT.register(new ArmorHudOverlay());
+        registerEntityRenderers();
+
+    }
+    private void registerEntityRenderers(){
+        EntityModelLayerRegistry.registerModelLayer(ModModelLayers.WYATT, WyattModel::getTexturedModelData);
+        EntityRendererRegistry.register(ModEntities.WYATT, WyattRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(ModModelLayers.FRANK, FrankModel::getTexturedModelData);
+        EntityRendererRegistry.register(ModEntities.FRANK_BOSS, FrankRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(ModModelLayers.FRANK_FIREBALL, FrankFireballModel::getTexturedModelData);
+        EntityRendererRegistry.register(ModEntities.FRANK_FIREBALL, FrankFireballRenderer::new);
+    }
+
+    private void registerTintedBlocks(){
+        ColorProviderRegistry.BLOCK.register((state, view, pos, tintIndex) -> BiomeColors.getGrassColor(view, pos),
+                ModBlocks.SLATED_GRASS);
+
+        ColorProviderRegistry.BLOCK.register((state, view, pos, tintIndex) -> BiomeColors.getGrassColor(view, pos),
+                ModBlocks.DIRITIA_PLANT);
+        ColorProviderRegistry.BLOCK.register((state, view, pos, tintIndex) -> 0xFE8738,
+                ModBlocks.DIRITIA_LIGHT_PLANT);
+
+        ColorProviderRegistry.BLOCK.register((state, view, pos, tintIndex) -> BiomeColors.getGrassColor(view, pos),
+                ModBlocks.DIRITIA_LEAVES);
+    }
+    private void registerCutoutBlocks(){
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.EUCALYPTUS_SAPLING, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.EUCALYPTUS_LEAVES, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.EUCALYPTUS_DOOR, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.EUCALYPTUS_TRAPDOOR, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.SLATED_GRASS, RenderLayer.getCutout());
-        ColorProviderRegistry.BLOCK.register((state, view, pos, tintIndex) -> BiomeColors.getGrassColor(view, pos),
-                ModBlocks.SLATED_GRASS);
+
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.DIRITIA_PLANT, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.DIRITIA_LIGHT_PLANT, RenderLayer.getCutout());
-        ColorProviderRegistry.BLOCK.register((state, view, pos, tintIndex) -> BiomeColors.getGrassColor(view, pos),
-                ModBlocks.DIRITIA_PLANT);
-        ColorProviderRegistry.BLOCK.register((state, view, pos, tintIndex) -> 0xFE8738,
-                ModBlocks.DIRITIA_LIGHT_PLANT);
+
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.DIRITIA_SAPLING, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.DIRITIA_LEAVES, RenderLayer.getCutout());
-        ColorProviderRegistry.BLOCK.register((state, view, pos, tintIndex) -> BiomeColors.getGrassColor(view, pos),
-                ModBlocks.DIRITIA_LEAVES);
+
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.DIRITIA_DOOR, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.DIRITIA_TRAPDOOR, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.COPPER_BARS, RenderLayer.getCutout());
@@ -60,6 +89,12 @@ public class ChucksModClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.DIRITONIUM_BARS, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.FABIUM_BARS, RenderLayer.getCutout());
 
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.TOMATO_CROP, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.LETTUCE_CROP, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.PINEAPPLE_CROP, RenderLayer.getCutout());
+    }
+
+    private void registerTranslucentBlocks(){
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.HARDENED_GLASS, RenderLayer.getTranslucent());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.HARDENED_GLASS_PANE, RenderLayer.getTranslucent());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.HARDENED_TINTED_GLASS, RenderLayer.getTranslucent());
@@ -95,23 +130,15 @@ public class ChucksModClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.HARDENED_WHITE_GLASS_PANE, RenderLayer.getTranslucent());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.HARDENED_YELLOW_GLASS, RenderLayer.getTranslucent());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.HARDENED_YELLOW_GLASS_PANE, RenderLayer.getTranslucent());
-
-        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.TOMATO_CROP, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.LETTUCE_CROP, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.PINEAPPLE_CROP, RenderLayer.getCutout());
-
+    }
+    private void registerHandledScreens(){
         HandledScreens.register(ModScreenHandlers.CRUSHER_SCREEN_HANDLER, CrusherScreen::new);
         HandledScreens.register(ModScreenHandlers.POWERED_CRUSHER_SCREEN_HANDLER, PoweredCrusherScreen::new);
         HandledScreens.register(ModScreenHandlers.GENERATOR_SCREEN_HANDLER, GeneratorScreen::new);
-        HandledScreens.register(ModScreenHandlers.WOOL_BAG_SCREEN_HANDLER, BagScreen3x1::new);
-        HandledScreens.register(ModScreenHandlers.LEATHER_BAG_SCREEN_HANDLER, BagScreen5x1::new);
-
-        HudRenderCallback.EVENT.register(new ArmorHudOverlay());
-        EntityModelLayerRegistry.registerModelLayer(ModModelLayers.WYATT, WyattModel::getTexturedModelData);
-        EntityRendererRegistry.register(ModEntities.WYATT, WyattRenderer::new);
-        EntityModelLayerRegistry.registerModelLayer(ModModelLayers.FRANK, FrankModel::getTexturedModelData);
-        EntityRendererRegistry.register(ModEntities.FRANK_BOSS, FrankRenderer::new);
-        EntityModelLayerRegistry.registerModelLayer(ModModelLayers.FRANK_FIREBALL, FrankFireballModel::getTexturedModelData);
-        EntityRendererRegistry.register(ModEntities.FRANK_FIREBALL, FrankFireballRenderer::new);
+        HandledScreens.register(ModScreenHandlers.BAG_3X1_SCREEN_HANDLER, BagScreen3x1::new);
+        HandledScreens.register(ModScreenHandlers.BAG_5X1_SCREEN_HANDLER, BagScreen5x1::new);
+        HandledScreens.register(ModScreenHandlers.BAG_7X1_SCREEN_HANDLER, BagScreen7x1::new);
+        HandledScreens.register(ModScreenHandlers.BAG_9X1_SCREEN_HANDLER, BagScreen9x1::new);
+        HandledScreens.register(ModScreenHandlers.BAG_7X2_SCREEN_HANDLER, BagScreen7x2::new);
     }
 }

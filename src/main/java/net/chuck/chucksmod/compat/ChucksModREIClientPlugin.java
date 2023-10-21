@@ -9,7 +9,6 @@ import me.shedaniel.rei.api.common.util.EntryStacks;
 import net.chuck.chucksmod.block.ModBlocks;
 import net.chuck.chucksmod.recipe.CrusherRecipe;
 import net.chuck.chucksmod.screen.crusher.CrusherScreen;
-import net.minecraft.registry.Registry;
 
 public class ChucksModREIClientPlugin implements REIClientPlugin {
     @Override

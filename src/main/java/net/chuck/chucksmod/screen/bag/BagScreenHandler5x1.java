@@ -13,7 +13,7 @@ public class BagScreenHandler5x1 extends AbstractBagScreenHandler{
         this(syncId, playerInventory, buf.readItemStack());
     }
     public BagScreenHandler5x1(int syncId, PlayerInventory playerInventory, ItemStack itemStack) {
-        super(ModScreenHandlers.LEATHER_BAG_SCREEN_HANDLER, syncId);
+        super(ModScreenHandlers.BAG_5X1_SCREEN_HANDLER, syncId);
         inventory = new SimpleInventory(BagItem5x1.INV_SIZE);
         init(playerInventory, itemStack);
     }

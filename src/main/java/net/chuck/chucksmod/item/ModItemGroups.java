@@ -226,6 +226,7 @@ public class ModItemGroups {
                         entries.add(ModItems.LEATHER_STRAP);
                         entries.add(ModItems.WOOL_BAG);
                         entries.add(ModItems.LEATHER_BAG);
+                        entries.add(ModItems.COPPER_BAG);
                     }).build());
     public static void registerItemGroups() {
         ChucksMod.LOGGER.info("Registering Item Groups for " + ChucksMod.MOD_ID);
