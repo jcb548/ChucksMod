@@ -1,5 +1,9 @@
 package net.chuck.chucksmod.block;
 
+import com.terraformersmc.terraform.sign.block.TerraformHangingSignBlock;
+import com.terraformersmc.terraform.sign.block.TerraformSignBlock;
+import com.terraformersmc.terraform.sign.block.TerraformWallHangingSignBlock;
+import com.terraformersmc.terraform.sign.block.TerraformWallSignBlock;
 import net.chuck.chucksmod.ChucksMod;
 import net.chuck.chucksmod.block.custom.*;
 import net.chuck.chucksmod.world.tree.DiritiaSaplingGenerator;
@@ -7,12 +11,17 @@ import net.chuck.chucksmod.world.tree.EucalyptusSaplingGenerator;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
+import net.minecraft.data.family.BlockFamilies;
+import net.minecraft.data.family.BlockFamily;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.DyeColor;
 import net.minecraft.util.Identifier;
+
+import java.security.PublicKey;
+
 /*
  *  Code inspired by or copied from
  *  Kaupenjoe
@@ -60,7 +69,7 @@ public class ModBlocks {
 
     // Eucalyptus
     public static final Block EUCALYPTUS_LOG = registerBlock("eucalyptus_log",
-            new PillarBlock(FabricBlockSettings.copy(Blocks.OAK_LOG).strength(4.0f)));
+            new PillarBlock(FabricBlockSettings.copy(Blocks.OAK_LOG)));
     public static final Block EUCALYPTUS_WOOD = registerBlock("eucalyptus_wood",
             new PillarBlock(FabricBlockSettings.copy(Blocks.OAK_WOOD)));
     public static final Block STRIPPED_EUCALYPTUS_LOG = registerBlock("stripped_eucalyptus_log",
@@ -91,12 +100,41 @@ public class ModBlocks {
             new DoorBlock(FabricBlockSettings.copy(Blocks.OAK_DOOR), BlockSetType.OAK));
     public static final Block EUCALYPTUS_TRAPDOOR = registerBlock("eucalyptus_trapdoor",
             new TrapdoorBlock(FabricBlockSettings.copy(Blocks.OAK_TRAPDOOR), BlockSetType.OAK));
+    public static final Identifier EUCALYPTUS_SIGN_TEXTURE =
+            new Identifier(ChucksMod.MOD_ID, "entity/signs/eucalyptus");
+    public static final Identifier EUCALYPTUS_HANGING_SIGN_TEXTURE =
+            new Identifier(ChucksMod.MOD_ID, "entity/signs/hanging/eucalyptus");
+    public static final Identifier EUCALYPTUS_HANGING_GUI_SIGN_TEXTURE =
+            new Identifier(ChucksMod.MOD_ID, "textures/gui/hanging_signs/eucalyptus");
+    public static final Block STANDING_EUCALYPTUS_SIGN =
+            Registry.register(Registries.BLOCK, new Identifier(ChucksMod.MOD_ID, "eucalyptus_standing_sign"),
+                    new TerraformSignBlock(EUCALYPTUS_SIGN_TEXTURE, FabricBlockSettings.copyOf(Blocks.OAK_SIGN)));
+    public static final Block WALL_EUCALYPTUS_SIGN =
+            Registry.register(Registries.BLOCK, new Identifier(ChucksMod.MOD_ID, "eucalyptus_wall_sign"),
+                    new TerraformWallSignBlock(EUCALYPTUS_SIGN_TEXTURE,
+                            FabricBlockSettings.copyOf(Blocks.OAK_WALL_SIGN)));
+    public static final Block HANGING_EUCALYPTUS_SIGN =
+            Registry.register(Registries.BLOCK, new Identifier(ChucksMod.MOD_ID, "eucalyptus_hanging_sign"),
+                    new TerraformHangingSignBlock(EUCALYPTUS_HANGING_SIGN_TEXTURE, EUCALYPTUS_HANGING_GUI_SIGN_TEXTURE,
+                            FabricBlockSettings.copyOf(Blocks.OAK_HANGING_SIGN)));
+    public static final Block WALL_HANGING_EUCALYPTUS_SIGN =
+            Registry.register(Registries.BLOCK, new Identifier(ChucksMod.MOD_ID, "eucalyptus_wall_standing_sign"),
+                    new TerraformWallHangingSignBlock(EUCALYPTUS_HANGING_SIGN_TEXTURE,
+                            EUCALYPTUS_HANGING_GUI_SIGN_TEXTURE,
+                            FabricBlockSettings.copyOf(Blocks.OAK_WALL_HANGING_SIGN)));
+
+    public static final BlockFamily EUCALYPTUS_FAMILY = BlockFamilies.register(ModBlocks.EUCALYPTUS_PLANKS)
+            .sign(ModBlocks.STANDING_EUCALYPTUS_SIGN, ModBlocks.WALL_EUCALYPTUS_SIGN)
+            .group("wooden").unlockCriterionName("has_planks").build();
+
     public static final Block CRUSHER = registerBlock("crusher",
             new CrusherBlock(FabricBlockSettings.copy(Blocks.SMOOTH_STONE)));
     public static final Block POWERED_CRUSHER = registerBlock("powered_crusher",
             new PoweredCrusherBlock(FabricBlockSettings.copy(Blocks.SMOOTH_STONE)));
     public static final Block GENERATOR = registerBlock("generator",
             new GeneratorBlock(FabricBlockSettings.copy(Blocks.SMOOTH_STONE)));
+    public static final Block WIRE = registerBlock("wire",
+            new WireBlock(FabricBlockSettings.copy(Blocks.SMOOTH_STONE)));
     // Fabium
     public static final Block FABIUM_BLOCK = registerBlock("fabium_block",
             new Block(FabricBlockSettings.copy(Blocks.GOLD_BLOCK)));
@@ -129,39 +167,65 @@ public class ModBlocks {
             new PlantBlock(FabricBlockSettings.copy(Blocks.GRASS).luminance(state -> 15)));
     // Eucalyptus
     public static final Block DIRITIA_LOG = registerBlock("diritia_log",
-            new PillarBlock(FabricBlockSettings.copy(Blocks.OAK_LOG).strength(4.0f)));
+            new PillarBlock(FabricBlockSettings.copy(Blocks.OAK_LOG).strength(3.0f)));
     public static final Block DIRITIA_WOOD = registerBlock("diritia_wood",
-            new PillarBlock(FabricBlockSettings.copy(Blocks.OAK_WOOD)));
+            new PillarBlock(FabricBlockSettings.copy(Blocks.OAK_WOOD).strength(3.0f)));
     public static final Block STRIPPED_DIRITIA_LOG = registerBlock("stripped_diritia_log",
-            new PillarBlock(FabricBlockSettings.copy(Blocks.STRIPPED_OAK_LOG)));
+            new PillarBlock(FabricBlockSettings.copy(Blocks.STRIPPED_OAK_LOG).strength(3.0f)));
     public static final Block STRIPPED_DIRITIA_WOOD = registerBlock("stripped_diritia_wood",
-            new PillarBlock(FabricBlockSettings.copy(Blocks.STRIPPED_OAK_WOOD)));
+            new PillarBlock(FabricBlockSettings.copy(Blocks.STRIPPED_OAK_WOOD).strength(3.0f)));
     public static final Block DIRITIA_PLANKS = registerBlock("diritia_planks",
-            new Block(FabricBlockSettings.copy(Blocks.OAK_PLANKS)));
+            new Block(FabricBlockSettings.copy(Blocks.OAK_PLANKS).strength(3.0f)));
     public static final Block DIRITIA_LEAVES = registerBlock("diritia_leaves",
             new LeavesBlock(FabricBlockSettings.copy(Blocks.OAK_LEAVES)));
     public static final Block DIRITIA_SAPLING = registerBlock("diritia_sapling",
             new SaplingBlock(new DiritiaSaplingGenerator(),FabricBlockSettings.copy(Blocks.OAK_SAPLING)));
     public static final Block DIRITIA_STAIRS = registerBlock("diritia_stairs",
             new StairsBlock(ModBlocks.DIRITIA_PLANKS.getDefaultState(),
-                    FabricBlockSettings.copy(Blocks.OAK_STAIRS)));
+                    FabricBlockSettings.copy(Blocks.OAK_STAIRS).strength(3.0f)));
     public static final Block DIRITIA_SLAB = registerBlock("diritia_slab",
-            new SlabBlock(FabricBlockSettings.copy(Blocks.OAK_SLAB)));
+            new SlabBlock(FabricBlockSettings.copy(Blocks.OAK_SLAB).strength(3.0f)));
     public static final Block DIRITIA_BUTTON = registerBlock("diritia_button",
-            new ButtonBlock(FabricBlockSettings.copy(Blocks.OAK_BUTTON), BlockSetType.OAK, 10, true));
+            new ButtonBlock(FabricBlockSettings.copy(Blocks.OAK_BUTTON).strength(2.0f), BlockSetType.OAK, 10, true));
     public static final Block DIRITIA_PRESSURE_PLATE = registerBlock("diritia_pressure_plate",
             new PressurePlateBlock(PressurePlateBlock.ActivationRule.EVERYTHING,
-                    FabricBlockSettings.copy(Blocks.OAK_PRESSURE_PLATE), BlockSetType.OAK));
+                    FabricBlockSettings.copy(Blocks.OAK_PRESSURE_PLATE).strength(2.0f), BlockSetType.OAK));
     public static final Block DIRITIA_FENCE = registerBlock("diritia_fence",
-            new FenceBlock(FabricBlockSettings.copy(Blocks.OAK_FENCE)));
+            new FenceBlock(FabricBlockSettings.copy(Blocks.OAK_FENCE).strength(3.0f)));
     public static final Block DIRITIA_FENCE_GATE = registerBlock("diritia_fence_gate",
-            new FenceGateBlock(FabricBlockSettings.copy(Blocks.OAK_FENCE_GATE), WoodType.OAK));
+            new FenceGateBlock(FabricBlockSettings.copy(Blocks.OAK_FENCE_GATE).strength(3.0f), WoodType.OAK));
     public static final Block DIRITIA_DOOR = registerBlock("diritia_door",
-            new DoorBlock(FabricBlockSettings.copy(Blocks.OAK_DOOR), BlockSetType.OAK));
+            new DoorBlock(FabricBlockSettings.copy(Blocks.OAK_DOOR).strength(3.0f), BlockSetType.OAK));
     public static final Block DIRITIA_TRAPDOOR = registerBlock("diritia_trapdoor",
-            new TrapdoorBlock(FabricBlockSettings.copy(Blocks.OAK_TRAPDOOR), BlockSetType.OAK));
+            new TrapdoorBlock(FabricBlockSettings.copy(Blocks.OAK_TRAPDOOR).strength(3.0f), BlockSetType.OAK));
+    public static final Identifier DIRITIA_SIGN_TEXTURE =
+            new Identifier(ChucksMod.MOD_ID, "entity/signs/diritia");
+    public static final Identifier DIRITIA_HANGING_SIGN_TEXTURE =
+            new Identifier(ChucksMod.MOD_ID, "entity/signs/hanging/diritia");
+    public static final Identifier DIRITIA_HANGING_GUI_SIGN_TEXTURE =
+            new Identifier(ChucksMod.MOD_ID, "textures/gui/hanging_signs/diritia");
+    public static final Block STANDING_DIRITIA_SIGN =
+            Registry.register(Registries.BLOCK, new Identifier(ChucksMod.MOD_ID, "diritia_standing_sign"),
+                    new TerraformSignBlock(DIRITIA_SIGN_TEXTURE, FabricBlockSettings.copyOf(Blocks.OAK_SIGN).strength(2.0f)));
+    public static final Block WALL_DIRITIA_SIGN =
+            Registry.register(Registries.BLOCK, new Identifier(ChucksMod.MOD_ID, "diritia_wall_sign"),
+                    new TerraformWallSignBlock(DIRITIA_SIGN_TEXTURE,
+                            FabricBlockSettings.copyOf(Blocks.OAK_WALL_SIGN).strength(2.0f)));
+    public static final Block HANGING_DIRITIA_SIGN =
+            Registry.register(Registries.BLOCK, new Identifier(ChucksMod.MOD_ID, "diritia_hanging_sign"),
+                    new TerraformHangingSignBlock(DIRITIA_HANGING_SIGN_TEXTURE, DIRITIA_HANGING_GUI_SIGN_TEXTURE,
+                            FabricBlockSettings.copyOf(Blocks.OAK_HANGING_SIGN).strength(2.0f)));
+    public static final Block WALL_HANGING_DIRITIA_SIGN =
+            Registry.register(Registries.BLOCK, new Identifier(ChucksMod.MOD_ID, "diritia_wall_standing_sign"),
+                    new TerraformWallHangingSignBlock(DIRITIA_HANGING_SIGN_TEXTURE,
+                            DIRITIA_HANGING_GUI_SIGN_TEXTURE,
+                            FabricBlockSettings.copyOf(Blocks.OAK_WALL_HANGING_SIGN).strength(2.0f)));
+    public static final BlockFamily DIRITIA_FAMILY = BlockFamilies.register(ModBlocks.DIRITIA_PLANKS)
+            .sign(ModBlocks.STANDING_DIRITIA_SIGN, ModBlocks.WALL_DIRITIA_SIGN)
+            .group("wooden").unlockCriterionName("has_planks").build();
     public static final Block FRANK_ALTAR = registerBlock("frank_altar",
             new AltarBlock(FabricBlockSettings.copy(Blocks.BEDROCK)));
+    
     // New base materials
     public static final Block SLATED_DIRT = registerBlock("slated_dirt",
             new Block(FabricBlockSettings.copy(Blocks.DIRT).strength(1.0f).requiresTool()));

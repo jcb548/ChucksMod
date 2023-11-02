@@ -33,7 +33,7 @@ import team.reborn.energy.api.base.SimpleEnergyStorage;
  *  Details can be found in the license file in the root folder of this project
  */
 public class PoweredCrusherBlockEntity extends AbstractCrusherBlockEntity {
-    public static final int MAX_INSERT = 32;
+    public static final int MAX_INSERT = 128;
     public static final int MAX_EXTRACT = MAX_INSERT;
     public static final int DELEGATE_SIZE = 2;
     public static final int INV_SIZE = 2;
@@ -88,7 +88,7 @@ public class PoweredCrusherBlockEntity extends AbstractCrusherBlockEntity {
 
     @Override
     public Text getDisplayName() {
-        return Text.literal("Powered Crusher");
+        return Text.translatable("block.chucksmod.powered_crusher");
     }
     @Nullable
     @Override

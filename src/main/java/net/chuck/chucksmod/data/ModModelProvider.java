@@ -120,6 +120,7 @@ public class ModModelProvider extends FabricModelProvider {
         eucalyptus_pool.pressurePlate(ModBlocks.EUCALYPTUS_PRESSURE_PLATE);
         blockStateModelGenerator.registerDoor(ModBlocks.EUCALYPTUS_DOOR);
         blockStateModelGenerator.registerTrapdoor(ModBlocks.EUCALYPTUS_TRAPDOOR);
+        eucalyptus_pool.family(ModBlocks.EUCALYPTUS_FAMILY);
 
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SLATED_DIRT);
         blockStateModelGenerator.registerTintableCross(ModBlocks.DIRITIA_PLANT,
@@ -148,6 +149,7 @@ public class ModModelProvider extends FabricModelProvider {
         diritia_pool.pressurePlate(ModBlocks.DIRITIA_PRESSURE_PLATE);
         blockStateModelGenerator.registerDoor(ModBlocks.DIRITIA_DOOR);
         blockStateModelGenerator.registerTrapdoor(ModBlocks.DIRITIA_TRAPDOOR);
+        diritia_pool.family(ModBlocks.DIRITIA_FAMILY);
 
         blockStateModelGenerator.registerCooker(ModBlocks.CRUSHER, TexturedModel.ORIENTABLE);
         blockStateModelGenerator.registerCooker(ModBlocks.POWERED_CRUSHER, TexturedModel.ORIENTABLE);
@@ -260,5 +262,8 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.BRONZE_BAG, Models.GENERATED);
         itemModelGenerator.register(ModItems.NETHERITE_BAG, Models.GENERATED);
         itemModelGenerator.register(ModItems.FABIUM_BAG, Models.GENERATED);
+
+        itemModelGenerator.register(ModItems.HANGING_EUCALYPTUS_SIGN, Models.GENERATED);
+        itemModelGenerator.register(ModItems.HANGING_DIRITIA_SIGN, Models.GENERATED);
     }
 }

@@ -62,7 +62,8 @@ public class GeneratorBlock extends BlockWithEntity implements BlockEntityProvid
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return validateTicker(type, ModBlockEntities.GENERATOR, GeneratorBlockEntity::tick);
+        return validateTicker(type, ModBlockEntities.GENERATOR,
+                ((world1, pos, state1, blockEntity) -> blockEntity.tick(world1, pos, state1)));
     }
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos,

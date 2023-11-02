@@ -200,6 +200,18 @@ public class ModItems {
             new BagItem7x2(new FabricItemSettings()));
     public static final Item NETHERITE_BAG = registerItem("netherite_bag",
             new BagItem7x2(new FabricItemSettings()));
+    public static final Item EUCALYPTUS_SIGN = registerItem("eucalyptus_sign",
+            new SignItem(new FabricItemSettings().maxCount(16),
+                    ModBlocks.STANDING_EUCALYPTUS_SIGN, ModBlocks.WALL_EUCALYPTUS_SIGN));
+    public static final Item HANGING_EUCALYPTUS_SIGN = registerItem("eucalyptus_hanging_sign",
+            new HangingSignItem(ModBlocks.HANGING_EUCALYPTUS_SIGN, ModBlocks.WALL_HANGING_EUCALYPTUS_SIGN,
+                    new FabricItemSettings().maxCount(16)));
+    public static final Item DIRITIA_SIGN = registerItem("diritia_sign",
+            new SignItem(new FabricItemSettings().maxCount(16),
+                    ModBlocks.STANDING_DIRITIA_SIGN, ModBlocks.WALL_DIRITIA_SIGN));
+    public static final Item HANGING_DIRITIA_SIGN = registerItem("diritia_hanging_sign",
+            new HangingSignItem(ModBlocks.HANGING_DIRITIA_SIGN, ModBlocks.WALL_HANGING_DIRITIA_SIGN,
+                    new FabricItemSettings().maxCount(16)));
 
     private static void addItemsToIngredientGroup(FabricItemGroupEntries entries){
         entries.add(RAW_TIN);

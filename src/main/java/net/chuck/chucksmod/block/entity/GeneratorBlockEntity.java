@@ -6,7 +6,11 @@ import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
 import net.fabricmc.fabric.api.networking.v1.PlayerLookup;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
+import net.fabricmc.fabric.api.transfer.v1.context.ContainerItemContext;
+import net.fabricmc.fabric.api.transfer.v1.item.InventoryStorage;
+import net.fabricmc.fabric.api.transfer.v1.storage.base.SingleSlotStorage;
 import net.fabricmc.fabric.api.transfer.v1.transaction.Transaction;
+import net.fabricmc.fabric.api.transfer.v1.transaction.TransactionContext;
 import net.minecraft.block.AbstractFurnaceBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -29,6 +33,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
+import team.reborn.energy.api.EnergyStorage;
+import team.reborn.energy.api.EnergyStorageUtil;
 import team.reborn.energy.api.base.SimpleEnergyStorage;
 
 import java.util.Map;
@@ -99,9 +105,9 @@ public class GeneratorBlockEntity extends BlockEntity implements ExtendedScreenH
         Item item = fuel.getItem();
         return FUELS.getOrDefault(item, 0);
     }
-    private static void generateEnergy(GeneratorBlockEntity entity, long amount) {
+    private void generateEnergy(long amount) {
         try(Transaction transaction = Transaction.openOuter()){
-            entity.energyStorage.insert(amount, transaction);
+            this.energyStorage.insert(amount, transaction);
             transaction.commit();
         }
     }
@@ -144,30 +150,29 @@ public class GeneratorBlockEntity extends BlockEntity implements ExtendedScreenH
         return this.burnTime > 0;
     }
 
-    public static void tick(World world, BlockPos blockPos, BlockState blockState,
-                            GeneratorBlockEntity entity) {
-        boolean burning_start_of_tick = entity.isBurning();
+    public void tick(World world, BlockPos blockPos, BlockState blockState) {
+        boolean burning_start_of_tick = this.isBurning();
         if (world.isClient()){
             return;
         }
-        if (!entity.isBurning() && entity.energyStorage.amount < ENERGY_STORAGE){
-            burnFuel(entity);
+        if (!this.isBurning() && this.energyStorage.amount < ENERGY_STORAGE){
+            this.burnFuel();
         }
-        if (entity.isBurning()){
-            --entity.burnTime;
-            generateEnergy(entity, GENERATION);
+        if (this.isBurning()){
+            --this.burnTime;
+            this.generateEnergy(GENERATION);
         }
-        if (burning_start_of_tick != entity.isBurning()){
-            blockState = (BlockState)blockState.with(AbstractFurnaceBlock.LIT, entity.isBurning());
+        if (burning_start_of_tick != this.isBurning()){
+            blockState = (BlockState)blockState.with(AbstractFurnaceBlock.LIT, this.isBurning());
             world.setBlockState(blockPos, blockState, Block.NOTIFY_ALL);
             markDirty(world, blockPos, blockState);
         }
     }
-    private static void burnFuel(GeneratorBlockEntity entity){
-        if (entity.getFuelTime(entity.inventory.get(FUEL_SLOT)) > 0){
-            entity.fuelTime = entity.getFuelTime(entity.inventory.get(FUEL_SLOT));
-            entity.burnTime = entity.getFuelTime(entity.inventory.get(FUEL_SLOT));
-            entity.removeStack(FUEL_SLOT, 1);
+    private void burnFuel(){
+        if (this.getFuelTime(this.inventory.get(FUEL_SLOT)) > 0){
+            this.fuelTime = this.getFuelTime(this.inventory.get(FUEL_SLOT));
+            this.burnTime = this.getFuelTime(this.inventory.get(FUEL_SLOT));
+            this.removeStack(FUEL_SLOT, 1);
         }
     }
 
@@ -210,5 +215,8 @@ public class GeneratorBlockEntity extends BlockEntity implements ExtendedScreenH
     }
     public void setEnergyLevel(long energyLevel){
         this.energyStorage.amount = energyLevel;
+    }
+    public EnergyStorage getEnergyStorage() {
+        return this.energyStorage;
     }
 }

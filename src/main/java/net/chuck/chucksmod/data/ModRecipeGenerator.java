@@ -96,6 +96,18 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
         createStairsRecipe(ModBlocks.DIRITIA_STAIRS, Ingredient.ofItems(ModBlocks.DIRITIA_PLANKS))
                 .criterion(hasItem(ModBlocks.DIRITIA_PLANKS), conditionsFromItem(ModBlocks.DIRITIA_PLANKS))
                 .offerTo(exporter);
+        createSignRecipe(ModItems.DIRITIA_SIGN, Ingredient.ofItems(ModBlocks.DIRITIA_PLANKS))
+                .criterion(hasItem(ModBlocks.DIRITIA_PLANKS), conditionsFromItem(ModBlocks.DIRITIA_PLANKS))
+                .offerTo(exporter);
+        offerHangingSignRecipe(exporter, ModItems.HANGING_DIRITIA_SIGN, ModBlocks.DIRITIA_PLANKS);
+        offerSmelting(exporter,
+                List.of(ModBlocks.DIRITIA_LOG, ModBlocks.STRIPPED_DIRITIA_LOG,
+                        ModBlocks.DIRITIA_WOOD, ModBlocks.STRIPPED_DIRITIA_WOOD),
+                RecipeCategory.MISC,
+                Items.CHARCOAL,
+                2f,
+                100,
+                "charcoal");
     }
 
     private void generateEucalyptusRecipes(RecipeExporter exporter) {
@@ -126,8 +138,13 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
         createStairsRecipe(ModBlocks.EUCALYPTUS_STAIRS, Ingredient.ofItems(ModBlocks.EUCALYPTUS_PLANKS))
                 .criterion(hasItem(ModBlocks.EUCALYPTUS_PLANKS), conditionsFromItem(ModBlocks.EUCALYPTUS_PLANKS))
                 .offerTo(exporter);
+        createSignRecipe(ModItems.EUCALYPTUS_SIGN, Ingredient.ofItems(ModBlocks.EUCALYPTUS_PLANKS))
+                .criterion(hasItem(ModBlocks.EUCALYPTUS_PLANKS), conditionsFromItem(ModBlocks.EUCALYPTUS_PLANKS))
+                .offerTo(exporter);
+        offerHangingSignRecipe(exporter, ModItems.HANGING_EUCALYPTUS_SIGN, ModBlocks.EUCALYPTUS_PLANKS);
         offerSmelting(exporter,
-                List.of(ModBlocks.EUCALYPTUS_LOG),
+                List.of(ModBlocks.EUCALYPTUS_LOG, ModBlocks.STRIPPED_EUCALYPTUS_LOG,
+                        ModBlocks.EUCALYPTUS_WOOD, ModBlocks.STRIPPED_EUCALYPTUS_WOOD),
                 RecipeCategory.MISC,
                 Items.CHARCOAL,
                 2f,

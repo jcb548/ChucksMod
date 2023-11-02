@@ -3,6 +3,7 @@ package net.chuck.chucksmod.block.entity;
 import net.chuck.chucksmod.ChucksMod;
 import net.chuck.chucksmod.block.ModBlocks;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
+import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -20,6 +21,7 @@ public class ModBlockEntities {
     public static BlockEntityType<CrusherBlockEntity> CRUSHER;
     public static BlockEntityType<PoweredCrusherBlockEntity> POWERED_CRUSHER;
     public static BlockEntityType<GeneratorBlockEntity> GENERATOR;
+    public static BlockEntityType<WireBlockEntity> WIRE;
     public static void registerBlockEntities() {
         CRUSHER = Registry.register(Registries.BLOCK_ENTITY_TYPE,
                 new Identifier(ChucksMod.MOD_ID, "crusher"),
@@ -38,6 +40,10 @@ public class ModBlockEntities {
                         ModBlocks.GENERATOR).build());
         // Cables can now connect to block entity
         EnergyStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.energyStorage,
-                POWERED_CRUSHER);
+                GENERATOR);
+        WIRE = Registry.register(Registries.BLOCK_ENTITY_TYPE,
+                new Identifier(ChucksMod.MOD_ID, "wire"),
+                FabricBlockEntityTypeBuilder.create(WireBlockEntity::new,
+                        ModBlocks.WIRE).build());
     }
 }

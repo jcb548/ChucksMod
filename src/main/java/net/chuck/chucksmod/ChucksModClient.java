@@ -1,5 +1,6 @@
 package net.chuck.chucksmod;
 
+import com.terraformersmc.terraform.sign.SpriteIdentifierRegistry;
 import net.chuck.chucksmod.block.ModBlocks;
 import net.chuck.chucksmod.client.ArmorHudOverlay;
 import net.chuck.chucksmod.entity.ModEntities;
@@ -22,6 +23,8 @@ import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.minecraft.client.color.world.BiomeColors;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.render.RenderLayer;
+import net.minecraft.client.render.TexturedRenderLayers;
+import net.minecraft.client.util.SpriteIdentifier;
 
 /*
  *  Code inspired by or copied from
@@ -44,6 +47,17 @@ public class ChucksModClient implements ClientModInitializer {
         HudRenderCallback.EVENT.register(new ArmorHudOverlay());
         registerEntityRenderers();
 
+        SpriteIdentifierRegistry.INSTANCE.addIdentifier(new SpriteIdentifier(TexturedRenderLayers.SIGNS_ATLAS_TEXTURE,
+                ModBlocks.EUCALYPTUS_SIGN_TEXTURE));
+
+        SpriteIdentifierRegistry.INSTANCE.addIdentifier(new SpriteIdentifier(TexturedRenderLayers.SIGNS_ATLAS_TEXTURE,
+                ModBlocks.EUCALYPTUS_HANGING_SIGN_TEXTURE));
+
+        SpriteIdentifierRegistry.INSTANCE.addIdentifier(new SpriteIdentifier(TexturedRenderLayers.SIGNS_ATLAS_TEXTURE,
+                ModBlocks.DIRITIA_SIGN_TEXTURE));
+
+        SpriteIdentifierRegistry.INSTANCE.addIdentifier(new SpriteIdentifier(TexturedRenderLayers.SIGNS_ATLAS_TEXTURE,
+                ModBlocks.DIRITIA_HANGING_SIGN_TEXTURE));
     }
     private void registerEntityRenderers(){
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.WYATT, WyattModel::getTexturedModelData);
