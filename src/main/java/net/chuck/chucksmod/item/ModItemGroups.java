@@ -194,6 +194,8 @@ public class ModItemGroups {
                         entries.add(ModBlocks.EUCALYPTUS_TRAPDOOR);
                         entries.add(ModItems.EUCALYPTUS_SIGN);
                         entries.add(ModItems.HANGING_EUCALYPTUS_SIGN);
+                        entries.add(ModItems.EUCALYPTUS_BOAT);
+                        entries.add(ModItems.EUCALYPTUS_CHEST_BOAT);
 
                         entries.add(ModBlocks.CRUSHER);
                         entries.add(ModBlocks.POWERED_CRUSHER);
@@ -223,6 +225,9 @@ public class ModItemGroups {
                         entries.add(ModBlocks.DIRITIA_TRAPDOOR);
                         entries.add(ModItems.DIRITIA_SIGN);
                         entries.add(ModItems.HANGING_DIRITIA_SIGN);
+                        entries.add(ModItems.DIRITIA_BOAT);
+                        entries.add(ModItems.DIRITIA_CHEST_BOAT);
+
                         entries.add(ModBlocks.FRANK_ALTAR);
 
                         entries.add(ModItems.PORTABLE_ENDERCHEST);

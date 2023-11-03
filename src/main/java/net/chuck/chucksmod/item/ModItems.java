@@ -1,7 +1,9 @@
 package net.chuck.chucksmod.item;
 
+import com.terraformersmc.terraform.boat.api.item.TerraformBoatItemHelper;
 import net.chuck.chucksmod.ChucksMod;
 import net.chuck.chucksmod.block.ModBlocks;
+import net.chuck.chucksmod.entity.ModBoats;
 import net.chuck.chucksmod.entity.ModEntities;
 import net.chuck.chucksmod.item.custom.*;
 import net.chuck.chucksmod.item.custom.anti_large.*;
@@ -206,12 +208,24 @@ public class ModItems {
     public static final Item HANGING_EUCALYPTUS_SIGN = registerItem("eucalyptus_hanging_sign",
             new HangingSignItem(ModBlocks.HANGING_EUCALYPTUS_SIGN, ModBlocks.WALL_HANGING_EUCALYPTUS_SIGN,
                     new FabricItemSettings().maxCount(16)));
+    public static final Item EUCALYPTUS_BOAT =
+            TerraformBoatItemHelper.registerBoatItem(ModBoats.EUCALYPTUS_BOAT_ID,
+            ModBoats.EUCALYPTUS_BOAT_KEY, false);
+    public static final Item EUCALYPTUS_CHEST_BOAT =
+            TerraformBoatItemHelper.registerBoatItem(ModBoats.EUCALYPTUS_CHEST_BOAT_ID,
+                    ModBoats.EUCALYPTUS_BOAT_KEY, true);
     public static final Item DIRITIA_SIGN = registerItem("diritia_sign",
             new SignItem(new FabricItemSettings().maxCount(16),
                     ModBlocks.STANDING_DIRITIA_SIGN, ModBlocks.WALL_DIRITIA_SIGN));
     public static final Item HANGING_DIRITIA_SIGN = registerItem("diritia_hanging_sign",
             new HangingSignItem(ModBlocks.HANGING_DIRITIA_SIGN, ModBlocks.WALL_HANGING_DIRITIA_SIGN,
                     new FabricItemSettings().maxCount(16)));
+    public static final Item DIRITIA_BOAT =
+            TerraformBoatItemHelper.registerBoatItem(ModBoats.DIRITIA_BOAT_ID,
+                    ModBoats.DIRITIA_BOAT_KEY, false);
+    public static final Item DIRITIA_CHEST_BOAT =
+            TerraformBoatItemHelper.registerBoatItem(ModBoats.DIRITIA_CHEST_BOAT_ID,
+                    ModBoats.DIRITIA_BOAT_KEY, true);
 
     private static void addItemsToIngredientGroup(FabricItemGroupEntries entries){
         entries.add(RAW_TIN);

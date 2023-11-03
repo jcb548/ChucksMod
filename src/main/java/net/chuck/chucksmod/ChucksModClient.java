@@ -1,8 +1,11 @@
 package net.chuck.chucksmod;
 
+import com.terraformersmc.terraform.boat.api.client.TerraformBoatClientHelper;
 import com.terraformersmc.terraform.sign.SpriteIdentifierRegistry;
+import dev.architectury.platform.Mod;
 import net.chuck.chucksmod.block.ModBlocks;
 import net.chuck.chucksmod.client.ArmorHudOverlay;
+import net.chuck.chucksmod.entity.ModBoats;
 import net.chuck.chucksmod.entity.ModEntities;
 import net.chuck.chucksmod.entity.client.*;
 import net.chuck.chucksmod.networking.ModMessages;
@@ -47,6 +50,13 @@ public class ChucksModClient implements ClientModInitializer {
         HudRenderCallback.EVENT.register(new ArmorHudOverlay());
         registerEntityRenderers();
 
+        registerSignRenderers();
+
+        TerraformBoatClientHelper.registerModelLayers(ModBoats.EUCALYPTUS_BOAT_ID, false);
+        TerraformBoatClientHelper.registerModelLayers(ModBoats.DIRITIA_BOAT_ID, false);
+    }
+
+    private void registerSignRenderers(){
         SpriteIdentifierRegistry.INSTANCE.addIdentifier(new SpriteIdentifier(TexturedRenderLayers.SIGNS_ATLAS_TEXTURE,
                 ModBlocks.EUCALYPTUS_SIGN_TEXTURE));
 

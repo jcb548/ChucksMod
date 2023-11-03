@@ -2,6 +2,7 @@ package net.chuck.chucksmod;
 
 import net.chuck.chucksmod.block.ModBlocks;
 import net.chuck.chucksmod.block.entity.ModBlockEntities;
+import net.chuck.chucksmod.entity.ModBoats;
 import net.chuck.chucksmod.entity.ModEntities;
 import net.chuck.chucksmod.entity.custom.FrankBoss;
 import net.chuck.chucksmod.entity.custom.WyattEntity;
@@ -49,6 +50,7 @@ public class ChucksMod implements ModInitializer {
 		ModScreenHandlers.registerAllScreenHandlers();
 
 		ModRecipes.registerRecipes();
+		ModBoats.registerBoats();
 
 		//Custom portals
 		CustomPortalBuilder.beginPortal().frameBlock(Blocks.GOLD_BLOCK)

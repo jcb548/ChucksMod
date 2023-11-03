@@ -1,6 +1,7 @@
 package net.chuck.chucksmod.data;
 
 import net.chuck.chucksmod.block.ModBlocks;
+import net.chuck.chucksmod.entity.ModBoats;
 import net.chuck.chucksmod.item.ModItemTags;
 import net.chuck.chucksmod.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
@@ -108,6 +109,8 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 2f,
                 100,
                 "charcoal");
+        offerBoatRecipe(exporter, ModItems.DIRITIA_BOAT, ModBlocks.DIRITIA_PLANKS);
+        offerChestBoatRecipe(exporter, ModItems.DIRITIA_CHEST_BOAT, ModItems.DIRITIA_BOAT);
     }
 
     private void generateEucalyptusRecipes(RecipeExporter exporter) {
@@ -150,6 +153,8 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 2f,
                 100,
                 "charcoal");
+        offerBoatRecipe(exporter, ModItems.EUCALYPTUS_BOAT, ModBlocks.EUCALYPTUS_PLANKS);
+        offerChestBoatRecipe(exporter, ModItems.EUCALYPTUS_CHEST_BOAT, ModItems.EUCALYPTUS_BOAT);
     }
 
     private void generateDiritonoumRecipes(RecipeExporter exporter) {

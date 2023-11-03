@@ -264,6 +264,11 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.FABIUM_BAG, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.HANGING_EUCALYPTUS_SIGN, Models.GENERATED);
+        itemModelGenerator.register(ModItems.EUCALYPTUS_BOAT, Models.GENERATED);
+        itemModelGenerator.register(ModItems.EUCALYPTUS_CHEST_BOAT, Models.GENERATED);
+
         itemModelGenerator.register(ModItems.HANGING_DIRITIA_SIGN, Models.GENERATED);
+        itemModelGenerator.register(ModItems.DIRITIA_BOAT, Models.GENERATED);
+        itemModelGenerator.register(ModItems.DIRITIA_CHEST_BOAT, Models.GENERATED);
     }
 }

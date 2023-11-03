@@ -137,6 +137,8 @@
   "block.chucksmod.eucalyptus_trapdoor": "Eucalyptus Trapdoor",
   "block.chucksmod.eucalyptus_standing_sign": "Eucalyptus Sign",
   "block.chucksmod.eucalyptus_hanging_sign": "Eucalyptus Hanging Sign",
+  "item.chucksmod.eucalyptus_boat": "Eucalyptus Boat",
+  "item.chucksmod.eucalyptus_chest_boat": "Eucalyptus Boat with Chest",
 
   "block.chucksmod.crusher": "Crusher",
   "block.chucksmod.powered_crusher": "Powered Crusher",
@@ -163,6 +165,8 @@
   "block.chucksmod.diritia_trapdoor": "Diritia Trapdoor",
   "block.chucksmod.diritia_standing_sign": "Diritia Sign",
   "block.chucksmod.diritia_hanging_sign": "Diritia Hanging Sign",
+  "item.chucksmod.diritia_boat": "Diritia Boat",
+  "item.chucksmod.diritia_chest_boat": "Diritia Boat with Chest",
 
   "block.chucksmod.hardened_glass": "Hardened Glass",
   "block.chucksmod.hardened_glass_pane": "Hardened Glass Pane",
