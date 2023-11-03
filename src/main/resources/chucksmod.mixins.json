@@ -5,9 +5,14 @@
 	"mixins": [
 		"ModArmorFunction",
 		"ModGenericArmorModification",
+		"ModRemoveAnvilLevelCapScreenHandler",
+		"ModRemoveAnvilLevelCapScreen",
 		"ModRemoveOldArmorDisplay"
 	],
 	"injectors": {
 		"defaultRequire": 1
-	}
+	},
+	"client": [
+		"ModRemoveAnvilLevelCapScreen"
+	]
 }
