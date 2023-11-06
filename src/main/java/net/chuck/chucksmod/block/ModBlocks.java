@@ -6,6 +6,10 @@ import com.terraformersmc.terraform.sign.block.TerraformWallHangingSignBlock;
 import com.terraformersmc.terraform.sign.block.TerraformWallSignBlock;
 import net.chuck.chucksmod.ChucksMod;
 import net.chuck.chucksmod.block.custom.*;
+import net.chuck.chucksmod.block.custom.wire.CopperWireBlock;
+import net.chuck.chucksmod.block.custom.wire.TinWireBlock;
+import net.chuck.chucksmod.block.custom.wire.WireBlock;
+import net.chuck.chucksmod.block.entity.ModBlockEntities;
 import net.chuck.chucksmod.world.tree.DiritiaSaplingGenerator;
 import net.chuck.chucksmod.world.tree.EucalyptusSaplingGenerator;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
@@ -19,8 +23,6 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.DyeColor;
 import net.minecraft.util.Identifier;
-
-import java.security.PublicKey;
 
 /*
  *  Code inspired by or copied from
@@ -133,8 +135,10 @@ public class ModBlocks {
             new PoweredCrusherBlock(FabricBlockSettings.copy(Blocks.SMOOTH_STONE)));
     public static final Block GENERATOR = registerBlock("generator",
             new GeneratorBlock(FabricBlockSettings.copy(Blocks.SMOOTH_STONE)));
-    public static final Block WIRE = registerBlock("wire",
-            new WireBlock(FabricBlockSettings.copy(Blocks.SMOOTH_STONE)));
+    public static final Block COPPER_WIRE = registerBlock("copper_wire",
+            new CopperWireBlock(FabricBlockSettings.copy(Blocks.COPPER_BLOCK), ModBlockEntities.COPPER_WIRE_TRANSFER_RATE));
+    public static final Block TIN_WIRE = registerBlock("tin_wire",
+            new TinWireBlock(FabricBlockSettings.copy(ModBlocks.TIN_BLOCK), ModBlockEntities.TIN_WIRE_TRANSFER_RATE));
     // Fabium
     public static final Block FABIUM_BLOCK = registerBlock("fabium_block",
             new Block(FabricBlockSettings.copy(Blocks.GOLD_BLOCK)));

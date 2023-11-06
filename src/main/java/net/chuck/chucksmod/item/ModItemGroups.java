@@ -39,17 +39,20 @@ public class ModItemGroups {
 
                         entries.add(ModItems.IRON_DUST);
                         entries.add(ModItems.COPPER_DUST);
+                        entries.add(ModBlocks.COPPER_DUST_BLOCK);
+                        entries.add(ModBlocks.COPPER_BARS);
+                        entries.add(ModBlocks.COPPER_WIRE);
+                        entries.add(ModItems.COPPER_GEAR);
                         entries.add(ModItems.GOLD_DUST);
                         entries.add(ModItems.OBSIDIAN_DUST);
                         entries.add(ModItems.IRON_GEAR);
-                        entries.add(ModItems.COPPER_GEAR);
+
                         entries.add(ModItems.GOLD_GEAR);
                         entries.add(ModBlocks.IRON_DUST_BLOCK);
-                        entries.add(ModBlocks.COPPER_DUST_BLOCK);
-                        entries.add(ModBlocks.COPPER_BARS);
                         entries.add(ModBlocks.GOLD_DUST_BLOCK);
                         entries.add(ModBlocks.GOLD_BARS);
                         entries.add(ModBlocks.OBSIDIAN_SAND);
+
 
                         entries.add(ModBlocks.HARDENED_GLASS);
                         entries.add(ModBlocks.HARDENED_TINTED_GLASS);
@@ -109,6 +112,7 @@ public class ModItemGroups {
                         entries.add(ModItems.TIN_DUST);
                         entries.add(ModItems.TIN_INGOT);
                         entries.add(ModItems.TIN_GEAR);
+                        entries.add(ModBlocks.TIN_WIRE);
                         entries.add(ModBlocks.TIN_BLOCK);
                         entries.add(ModBlocks.TIN_ORE);
                         entries.add(ModBlocks.DEEPSLATE_TIN_ORE);

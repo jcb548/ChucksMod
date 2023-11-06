@@ -36,6 +36,7 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
     @Override
     public void generate(RecipeExporter exporter) {
         generateVanillaDustSmeltingAndBlockRecipes(exporter);
+        generateCopperRecipes(exporter);
         generateTinRecipes(exporter);
         generateBronzeRecipes(exporter);
         generatePrismarineRecipes(exporter);
@@ -306,21 +307,6 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .criterion(hasItem(Items.IRON_INGOT),
                         conditionsFromItem(Items.IRON_INGOT))
                 .offerTo(exporter);
-        offerSmelting(exporter, List.of(ModItems.COPPER_DUST), RecipeCategory.MISC, Items.COPPER_INGOT,
-                0.7f, 200, "copper_ingot");
-        offerBlasting(exporter, List.of(ModItems.COPPER_DUST), RecipeCategory.MISC, Items.COPPER_INGOT,
-                0.7f, 100, "copper_ingot");
-        offerReversibleCompactingRecipes(exporter, RecipeCategory.DECORATIONS, ModItems.COPPER_DUST,
-                RecipeCategory.DECORATIONS, ModBlocks.COPPER_DUST_BLOCK);
-        ShapedRecipeJsonBuilder.create(RecipeCategory.REDSTONE, ModItems.COPPER_GEAR)
-                .pattern(" # ")
-                .pattern("# #")
-                .pattern(" # ")
-                .input('#', Items.COPPER_INGOT)
-                .criterion(hasItem(Items.COPPER_INGOT),
-                        conditionsFromItem(Items.COPPER_INGOT))
-                .offerTo(exporter);
-        offerStainedGlassPaneRecipe(exporter, ModBlocks.COPPER_BARS, Items.COPPER_INGOT);
         offerSmelting(exporter, List.of(ModItems.GOLD_DUST), RecipeCategory.MISC, Items.GOLD_INGOT,
                 0.7f, 200, "gold_ingot");
         offerBlasting(exporter, List.of(ModItems.GOLD_DUST), RecipeCategory.MISC, Items.GOLD_INGOT,
@@ -336,6 +322,17 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                         conditionsFromItem(Items.GOLD_INGOT))
                 .offerTo(exporter);
         offerStainedGlassPaneRecipe(exporter, ModBlocks.GOLD_BARS, Items.GOLD_INGOT);
+    }
+    private void generateCopperRecipes(RecipeExporter exporter){
+        offerSmelting(exporter, List.of(ModItems.COPPER_DUST), RecipeCategory.MISC, Items.COPPER_INGOT,
+                0.7f, 200, "copper_ingot");
+        offerBlasting(exporter, List.of(ModItems.COPPER_DUST), RecipeCategory.MISC, Items.COPPER_INGOT,
+                0.7f, 100, "copper_ingot");
+        offerReversibleCompactingRecipes(exporter, RecipeCategory.DECORATIONS, ModItems.COPPER_DUST,
+                RecipeCategory.DECORATIONS, ModBlocks.COPPER_DUST_BLOCK);
+        offerGearRecipe(exporter, Items.COPPER_INGOT, ModItems.COPPER_GEAR);
+        offerStainedGlassPaneRecipe(exporter, ModBlocks.COPPER_BARS, Items.COPPER_INGOT);
+        offerWireRecipe(exporter, Items.COPPER_INGOT, ModBlocks.COPPER_WIRE.asItem());
     }
 
     private void generateTinRecipes(RecipeExporter exporter) {
@@ -353,6 +350,7 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 RecipeCategory.DECORATIONS, ModBlocks.TIN_DUST_BLOCK);
         offerGearRecipe(exporter, ModItemTags.TIN_INGOTS, ModItems.TIN_GEAR);
         offerStainedGlassPaneRecipe(exporter, ModBlocks.TIN_BARS, ModItems.TIN_INGOT);
+        offerWireRecipe(exporter, ModItemTags.TIN_INGOTS, ModBlocks.TIN_WIRE.asItem());
     }
 
     private void generateHardenedGlassRecipes(RecipeExporter exporter){
@@ -598,6 +596,20 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .pattern(" # ")
                 .pattern("# #")
                 .pattern(" # ")
+                .input('#', material)
+                .criterion(hasItem(material), conditionsFromItem(material))
+                .offerTo(exporter);
+    }
+    public static void offerWireRecipe(RecipeExporter exporter, TagKey<Item> material, Item output){
+        ShapedRecipeJsonBuilder.create(RecipeCategory.REDSTONE, output, 6)
+                .pattern("##")
+                .input('#', material)
+                .criterion(hasTag(material), conditionsFromTag(material))
+                .offerTo(exporter);
+    }
+    public static void offerWireRecipe(RecipeExporter exporter, Item material, Item output){
+        ShapedRecipeJsonBuilder.create(RecipeCategory.REDSTONE, output, 6)
+                .pattern("##")
                 .input('#', material)
                 .criterion(hasItem(material), conditionsFromItem(material))
                 .offerTo(exporter);

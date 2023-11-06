@@ -1,5 +1,6 @@
-package net.chuck.chucksmod.block.entity;
+package net.chuck.chucksmod.block.entity.wire;
 
+import net.chuck.chucksmod.block.entity.OfferedEnergyStorage;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.fabricmc.fabric.api.transfer.v1.transaction.Transaction;
 import net.minecraft.server.world.ServerWorld;
@@ -61,9 +62,9 @@ public class WireTickManager {
                 networkAmount = networkCapacity;
             }
             // Pull energy from storages.
-            networkAmount += dispatchTransfer(EnergyStorage::extract, networkCapacity - networkAmount);
+            networkAmount += dispatchTransfer(EnergyStorage::extract, networkCapacity - networkAmount, start.TRANSFER_RATE);
             // Push energy into storages
-            networkAmount -= dispatchTransfer(EnergyStorage::insert, networkAmount);
+            networkAmount -= dispatchTransfer(EnergyStorage::insert, networkAmount, start.TRANSFER_RATE);
             // split energy evenly across wires
             int wireCount = wires.size();
             for(WireBlockEntity wire : wires){
@@ -105,7 +106,7 @@ public class WireTickManager {
         // Ignore cables in non-ticking chunks
         return wire.getWorld() instanceof ServerWorld serverWorld && serverWorld.isChunkLoaded(wire.getPos());
     }
-    private static long dispatchTransfer(TransferOperation operation, long maxAmount){
+    private static long dispatchTransfer(TransferOperation operation, long maxAmount, long transferRate){
         List<SortableStorage> sortedTargets = new ArrayList<>();
         for (var storage : targetStorages){
             sortedTargets.add(new SortableStorage(operation, storage));
@@ -122,7 +123,7 @@ public class WireTickManager {
                 int remainingTargets = sortedTargets.size()-i;
                 long remainingAmount = maxAmount - transferredAmount;
                 // Limit max amount to the cable transfer rate.
-                long targetMaxAmount = Math.min(remainingAmount/remainingTargets, WireBlockEntity.TRANSFER_RATE);
+                long targetMaxAmount = Math.min(remainingAmount/remainingTargets, transferRate);
                 long localTransferred = operation.transfer(target.storage.storage(), targetMaxAmount, transaction);
                 if(localTransferred > 0){
                     transferredAmount += localTransferred;

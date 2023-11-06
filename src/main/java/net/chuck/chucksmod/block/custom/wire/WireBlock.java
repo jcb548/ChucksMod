@@ -1,14 +1,12 @@
-package net.chuck.chucksmod.block.custom;
+package net.chuck.chucksmod.block.custom.wire;
 
 import net.chuck.chucksmod.block.entity.ModBlockEntities;
-import net.chuck.chucksmod.block.entity.WireBlockEntity;
+import net.chuck.chucksmod.block.entity.wire.WireBlockEntity;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.text.Text;
@@ -19,7 +17,6 @@ import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
-import net.minecraft.world.BlockRenderView;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
@@ -51,7 +48,8 @@ import java.util.Map;
  * SOFTWARE.
  */
 
-public class WireBlock extends BlockWithEntity {
+public abstract class WireBlock extends BlockWithEntity {
+    public final long TRANSFER_RATE;
     public static final BooleanProperty EAST = BooleanProperty.of("east");
     public static final BooleanProperty WEST = BooleanProperty.of("west");
     public static final BooleanProperty NORTH = BooleanProperty.of("north");
@@ -66,7 +64,7 @@ public class WireBlock extends BlockWithEntity {
         map.put(Direction.UP, UP);
         map.put(Direction.DOWN, DOWN);
     });
-    public WireBlock(Settings settings) {
+    public WireBlock(Settings settings, long transferRate) {
         super(settings);
         setDefaultState(this.getStateManager().getDefaultState()
                 .with(EAST, false)
@@ -76,19 +74,16 @@ public class WireBlock extends BlockWithEntity {
                 .with(UP, false)
                 .with(DOWN, false)
         );
+        TRANSFER_RATE = transferRate;
     }
 
     @Nullable
     @Override
-    public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
-        return new WireBlockEntity(pos, state);
-    }
+    public abstract BlockEntity createBlockEntity(BlockPos pos, BlockState state);
 
     @Nullable
     @Override
-    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return validateTicker(type, ModBlockEntities.WIRE, (world1, pos, state1, blockEntity) -> blockEntity.tick(world1, pos, state1));
-    }
+    public abstract <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type);
     @Override
     public BlockRenderType getRenderType(BlockState state) {
         return BlockRenderType.MODEL;

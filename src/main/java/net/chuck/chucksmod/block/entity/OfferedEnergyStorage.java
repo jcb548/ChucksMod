@@ -1,5 +1,6 @@
 package net.chuck.chucksmod.block.entity;
 
+import net.chuck.chucksmod.block.entity.wire.WireBlockEntity;
 import net.minecraft.util.math.Direction;
 import team.reborn.energy.api.EnergyStorage;
 
@@ -31,7 +32,7 @@ import team.reborn.energy.api.EnergyStorage;
  */
 public
 record OfferedEnergyStorage(WireBlockEntity sourceCable, Direction direction, EnergyStorage storage) {
-    void afterTransfer() {
+    public void afterTransfer() {
         // Block insertions from this side.
         sourceCable.blockedSides |= 1 << direction.ordinal();
     }

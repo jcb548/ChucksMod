@@ -1,11 +1,12 @@
-package net.chuck.chucksmod.block.entity;
+package net.chuck.chucksmod.block.entity.wire;
 
-import net.chuck.chucksmod.block.custom.WireBlock;
+import net.chuck.chucksmod.block.custom.wire.WireBlock;
+import net.chuck.chucksmod.block.entity.ModBlockEntities;
+import net.chuck.chucksmod.block.entity.OfferedEnergyStorage;
 import net.fabricmc.fabric.api.lookup.v1.block.BlockApiCache;
-import net.fabricmc.fabric.api.rendering.data.v1.RenderAttachmentBlockEntity;
-import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
 import net.minecraft.server.world.ServerWorld;
@@ -43,38 +44,23 @@ import java.util.List;
  * SOFTWARE.
  */
 
-public class WireBlockEntity extends BlockEntity {
-    public final SimpleEnergyStorage energyStorage = new SimpleEnergyStorage(4*TRANSFER_RATE,
-            TRANSFER_RATE, TRANSFER_RATE) {
-
-    };
+public abstract class WireBlockEntity extends BlockEntity {
+    public final SimpleEnergyStorage energyStorage;
     public long lastTick = 0;
     public int blockedSides = 0;
     public boolean ioBlocked = false;
     // null means that it needs to be re-queried
     public List<WireTarget> targets = null;
-    public static final long TRANSFER_RATE = 128;
+    public final long TRANSFER_RATE;
     /**
      * Adjacent caches, used to quickly query adjacent cable block entities.
      */
     @SuppressWarnings("unchecked")
     private final BlockApiCache<EnergyStorage, Direction>[] adjacentCaches = new BlockApiCache[6];
-    public WireBlockEntity(BlockPos pos, BlockState state) {
-        super(ModBlockEntities.WIRE, pos, state);
-    }
-    private boolean allowTransfer(Direction side){
-        return !ioBlocked && (blockedSides & (1 << side.ordinal())) == 0;
-    }
-
-    public EnergyStorage getEnergyStorage(){
-        return energyStorage;
-    }
-    public long getEnergy() {
-        return energyStorage.amount;
-    }
-
-    public void setEnergy(long energy) {
-        energyStorage.amount = energy;
+    public WireBlockEntity(BlockEntityType type, BlockPos pos, BlockState state, long transferRate) {
+        super(type, pos, state);
+        TRANSFER_RATE = transferRate;
+        energyStorage = new SimpleEnergyStorage(4*transferRate, transferRate, transferRate);
     }
 
     private BlockApiCache<EnergyStorage, Direction> getAdjacentCache(Direction direction) {
@@ -99,8 +85,10 @@ public class WireBlockEntity extends BlockEntity {
             for (Direction direction: Direction.values()){
                 boolean foundSomething = false;
                 BlockApiCache<EnergyStorage, Direction> adjCache = getAdjacentCache(direction);
-                if(adjCache.getBlockEntity() instanceof WireBlockEntity adjWire){
-                    foundSomething = true;
+                if(adjCache.getBlockEntity() instanceof WireBlockEntity adjWire) {
+                    if (adjWire.TRANSFER_RATE == this.TRANSFER_RATE){
+                        foundSomething = true;
+                    }
                 } else if(adjCache.find(direction.getOpposite()) != null){
                     foundSomething = true;
                     targets.add(new WireTarget(direction, adjCache));

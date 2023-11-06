@@ -1,4 +1,4 @@
-package net.chuck.chucksmod.block.custom;
+package net.chuck.chucksmod.block.custom.wire;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.util.math.Direction;

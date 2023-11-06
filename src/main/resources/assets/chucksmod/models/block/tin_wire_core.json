@@ -1,0 +1,7 @@
+{
+  "credit": "TechReborn",
+  "parent": "chucksmod:block/template/thin_wire_core_template",
+  "textures": {
+    "cable": "chucksmod:block/tin_wire"
+  }
+}
