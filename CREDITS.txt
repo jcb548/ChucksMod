@@ -7,3 +7,6 @@ https://github.com/Tutorials-By-Kaupenjoe/Fabric-Tutorial-1.19/blob/25-energy/LI
 EnergyInfoArea & InfoArea (FORGE) from BluSunrize:
 https://github.com/BluSunrize/ImmersiveEngineering Under Blu's License of Common Sense:
 https://github.com/BluSunrize/ImmersiveEngineering/blob/1.18.2/LICENSE
+
+Wire Code Used from TechReborn
+https://github.com/TechReborn/TechReborn/blob/1.20/LICENSE.md
