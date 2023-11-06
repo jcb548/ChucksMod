@@ -45,5 +45,7 @@ public class ModBlockEntities {
                 new Identifier(ChucksMod.MOD_ID, "wire"),
                 FabricBlockEntityTypeBuilder.create(WireBlockEntity::new,
                         ModBlocks.WIRE).build());
+        EnergyStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.energyStorage,
+                WIRE);
     }
 }

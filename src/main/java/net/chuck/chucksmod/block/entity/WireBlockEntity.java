@@ -12,6 +12,7 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 import team.reborn.energy.api.EnergyStorage;
+import team.reborn.energy.api.base.SimpleEnergyStorage;
 import team.reborn.energy.api.base.SimpleSidedEnergyContainer;
 
 import java.util.ArrayList;
@@ -42,23 +43,9 @@ import java.util.List;
  */
 
 public class WireBlockEntity extends BlockEntity {
-    public final SimpleSidedEnergyContainer energyContainer = new SimpleSidedEnergyContainer() {
-        @Override
-        public long getCapacity() {
-            return TRANSFER_RATE*4;
-        }
+    public final SimpleEnergyStorage energyStorage = new SimpleEnergyStorage(4*TRANSFER_RATE,
+            TRANSFER_RATE, TRANSFER_RATE) {
 
-        @Override
-        public long getMaxInsert(@Nullable Direction side) {
-            if(allowTransfer(side)) return TRANSFER_RATE;
-            else return 0;
-        }
-
-        @Override
-        public long getMaxExtract(@Nullable Direction side) {
-            if(allowTransfer(side)) return TRANSFER_RATE;
-            else return 0;
-        }
     };
     public long lastTick = 0;
     public int blockedSides = 0;
@@ -78,15 +65,15 @@ public class WireBlockEntity extends BlockEntity {
         return !ioBlocked && (blockedSides & (1 << side.ordinal())) == 0;
     }
 
-    public EnergyStorage getSideEnergyStorage(@Nullable Direction side){
-        return energyContainer.getSideStorage(side);
+    public EnergyStorage getEnergyStorage(){
+        return energyStorage;
     }
     public long getEnergy() {
-        return energyContainer.amount;
+        return energyStorage.amount;
     }
 
     public void setEnergy(long energy) {
-        energyContainer.amount = energy;
+        energyStorage.amount = energy;
     }
 
     private BlockApiCache<EnergyStorage, Direction> getAdjacentCache(Direction direction) {
@@ -151,14 +138,14 @@ public class WireBlockEntity extends BlockEntity {
     public void readNbt(NbtCompound nbt) {
         super.readNbt(nbt);
         if (nbt.contains("energy")){
-            energyContainer.amount = nbt.getLong("energy");
+            energyStorage.amount = nbt.getLong("energy");
         }
     }
 
     @Override
     protected void writeNbt(NbtCompound nbt) {
         super.writeNbt(nbt);
-        nbt.putLong("energy", energyContainer.amount);
+        nbt.putLong("energy", energyStorage.amount);
     }
 
     public void neighbourUpdate(){

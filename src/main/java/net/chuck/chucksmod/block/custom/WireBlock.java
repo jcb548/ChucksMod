@@ -107,7 +107,7 @@ public class WireBlock extends BlockWithEntity {
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if (!world.isClient && world.getBlockEntity(pos) instanceof WireBlockEntity wire){
-            player.sendMessage(Text.literal(Long.toString(wire.energyContainer.amount)));
+            player.sendMessage(Text.literal(Long.toString(wire.energyStorage.amount)));
         }
         return ActionResult.SUCCESS;
     }

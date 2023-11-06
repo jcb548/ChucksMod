@@ -49,8 +49,8 @@ public class WireTickManager {
             long networkCapacity = 0;
             long networkAmount = 0;
             for(WireBlockEntity wire : wires){
-                networkCapacity += wire.energyContainer.getCapacity();
-                networkAmount += wire.getEnergy();
+                networkCapacity += wire.energyStorage.getCapacity();
+                networkAmount += wire.energyStorage.amount;
                 // update cable connections
                 wire.appendTargets(targetStorages);
                 // Block any I/O while we access the network amount directly to keep wires and network in sync, to
@@ -63,12 +63,12 @@ public class WireTickManager {
             // Pull energy from storages.
             networkAmount += dispatchTransfer(EnergyStorage::extract, networkCapacity - networkAmount);
             // Push energy into storages
-            networkAmount += dispatchTransfer(EnergyStorage::insert, networkAmount);
-            // split energy evenly across wires\
+            networkAmount -= dispatchTransfer(EnergyStorage::insert, networkAmount);
+            // split energy evenly across wires
             int wireCount = wires.size();
             for(WireBlockEntity wire : wires){
-                wire.energyContainer.amount = networkAmount/wireCount;
-                networkAmount -= wire.energyContainer.amount;
+                wire.energyStorage.amount = networkAmount/wireCount;
+                networkAmount -= wire.energyStorage.amount;
                 wireCount--;
                 wire.markDirty();
                 wire.ioBlocked = false;

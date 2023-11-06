@@ -52,7 +52,11 @@ public class PoweredCrusherBlockEntity extends AbstractCrusherBlockEntity {
                     ServerPlayNetworking.send(player, ModMessages.ENERGY_SYNC, data);
                 }
             }
+        }
 
+        @Override
+        public boolean supportsExtraction() {
+            return false;
         }
     };
     protected final PropertyDelegate propertyDelegate;

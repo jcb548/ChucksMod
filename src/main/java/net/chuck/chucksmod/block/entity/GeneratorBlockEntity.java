@@ -6,11 +6,7 @@ import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
 import net.fabricmc.fabric.api.networking.v1.PlayerLookup;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
-import net.fabricmc.fabric.api.transfer.v1.context.ContainerItemContext;
-import net.fabricmc.fabric.api.transfer.v1.item.InventoryStorage;
-import net.fabricmc.fabric.api.transfer.v1.storage.base.SingleSlotStorage;
 import net.fabricmc.fabric.api.transfer.v1.transaction.Transaction;
-import net.fabricmc.fabric.api.transfer.v1.transaction.TransactionContext;
 import net.minecraft.block.AbstractFurnaceBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -52,9 +48,9 @@ public class GeneratorBlockEntity extends BlockEntity implements ExtendedScreenH
     private int fuelTime = 0;
     public static final int MAX_INSERT = 32;
     public static final int MAX_EXTRACT = MAX_INSERT;
-    public static final int GENERATION = MAX_INSERT;
+    public static final int GENERATION = 10;
     public static final Map<Item, Integer> FUELS = AbstractFurnaceBlockEntity.createFuelTimeMap();
-    public static final int ENERGY_STORAGE = 30000;
+    public static final int ENERGY_STORAGE = 10000;
     public final SimpleEnergyStorage energyStorage = new SimpleEnergyStorage(ENERGY_STORAGE, MAX_INSERT, MAX_EXTRACT){
         @Override
         protected void onFinalCommit() {
@@ -69,6 +65,10 @@ public class GeneratorBlockEntity extends BlockEntity implements ExtendedScreenH
                 }
             }
 
+        }
+        @Override
+        public boolean supportsInsertion() {
+            return false;
         }
     };
     public GeneratorBlockEntity(BlockPos pos, BlockState state) {
@@ -95,15 +95,12 @@ public class GeneratorBlockEntity extends BlockEntity implements ExtendedScreenH
             }
         };
     }
-    public static boolean canUseAsFuel(ItemStack stack) {
-        return FUELS.containsKey(stack.getItem());
-    }
     protected int getFuelTime(ItemStack fuel) {
         if (fuel.isEmpty()) {
             return 0;
         }
         Item item = fuel.getItem();
-        return FUELS.getOrDefault(item, 0);
+        return FUELS.getOrDefault(item, 0)/4;
     }
     private void generateEnergy(long amount) {
         try(Transaction transaction = Transaction.openOuter()){
@@ -166,6 +163,11 @@ public class GeneratorBlockEntity extends BlockEntity implements ExtendedScreenH
             blockState = (BlockState)blockState.with(AbstractFurnaceBlock.LIT, this.isBurning());
             world.setBlockState(blockPos, blockState, Block.NOTIFY_ALL);
             markDirty(world, blockPos, blockState);
+        }
+        for (Direction side : Direction.values()){
+            BlockEntity entity = world.getBlockEntity(getPos().offset(side));
+            EnergyStorageUtil.move(this.energyStorage, EnergyStorage.SIDED.find(world, pos.offset(side),
+                    side.getOpposite()), Long.MAX_VALUE, null);
         }
     }
     private void burnFuel(){
