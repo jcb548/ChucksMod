@@ -27,7 +27,7 @@ public enum ModToolMaterials implements ToolMaterial
             () -> Ingredient.ofItems(ModItems.PRISMARINE_INGOT)),
     TIN(MiningLevels.STONE, 144, 5.0f, 1.5f, 15,
             () -> Ingredient.ofItems(ModItems.TIN_INGOT)),
-    BRONZE(MiningLevels.IRON, 500, 7.0f, 2f, 19,
+    BRONZE(MiningLevels.IRON, 400, 7.0f, 2.5f, 19,
     () -> Ingredient.ofItems(ModItems.BRONZE_INGOT)),
     WITHER(MiningLevels.IRON, 1024, 3.0f, 4.0f,20,
             () -> Ingredient.ofItems((ModItems.WITHER_BONE))),

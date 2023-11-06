@@ -11,10 +11,10 @@ import net.minecraft.sound.SoundEvents;
 import java.util.function.Supplier;
 
 public enum ModArmorMaterials implements ArmorMaterial {
-    BRONZE("bronze", 16, new int [] {2, 7, 5, 2}, 14,
+    BRONZE("bronze", 20, new int [] {2, 7, 6, 2}, 14,
             SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0f, 0.0f,
             () -> Ingredient.ofItems(ModItems.BRONZE_INGOT)),
-    PRISMARINE("prismarine", 16, new int [] {2, 7, 5, 2}, 17,
+    PRISMARINE("prismarine", 20, new int [] {2, 7, 6, 2}, 17,
             SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0f, 0.0f,
             () -> Ingredient.ofItems(ModItems.PRISMARINE_INGOT)),
     FABIUM("fabium", 36, new int [] {4, 9, 8, 4}, 19,

@@ -96,15 +96,15 @@ public class ModItems {
     public static final Item BRONZE_INGOT = registerItem("bronze_ingot", new Item(new FabricItemSettings()));
     public static final Item BRONZE_GEAR = registerItem("bronze_gear", new Item(new FabricItemSettings()));
     public static final Item BRONZE_SWORD = registerItem("bronze_sword",
-            new ModSwordItem(ModToolMaterials.BRONZE, 3, -1.6f, new FabricItemSettings()));
+            new ModSwordItem(ModToolMaterials.BRONZE, 3, -2.6f, new FabricItemSettings()));
     public static final Item BRONZE_PICKAXE = registerItem("bronze_pickaxe",
-            new ModPickaxeItem(ModToolMaterials.BRONZE, 1, -2.2f, new FabricItemSettings()));
+            new ModPickaxeItem(ModToolMaterials.BRONZE, 1, -3.2f, new FabricItemSettings()));
     public static final Item BRONZE_AXE = registerItem("bronze_axe",
-            new ModAxeItem(ModToolMaterials.BRONZE, 6, -3.0f, new FabricItemSettings()));
+            new ModAxeItem(ModToolMaterials.BRONZE, 6, -4.0f, new FabricItemSettings()));
     public static final Item BRONZE_SHOVEL = registerItem("bronze_shovel",
-            new ModShovelItem(ModToolMaterials.BRONZE, 1, -1.8f, new FabricItemSettings()));
+            new ModShovelItem(ModToolMaterials.BRONZE, 1, -2.8f, new FabricItemSettings()));
     public static final Item BRONZE_HOE = registerItem("bronze_hoe",
-            new ModHoeItem(ModToolMaterials.BRONZE, -2, -0.4f, new FabricItemSettings()));
+            new ModHoeItem(ModToolMaterials.BRONZE, -2, -1.4f, new FabricItemSettings()));
     public static final Item BRONZE_HELMET = registerItem("bronze_helmet",
             new ArmorItem(ModArmorMaterials.BRONZE, ArmorItem.Type.HELMET, new FabricItemSettings()));
     public static final Item BRONZE_CHESTPLATE = registerItem("bronze_chestplate",
