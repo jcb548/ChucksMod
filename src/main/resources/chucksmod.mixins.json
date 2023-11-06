@@ -1,18 +1,19 @@
 {
-	"required": true,
-	"package": "net.chuck.chucksmod.mixin",
-	"compatibilityLevel": "JAVA_17",
-	"mixins": [
-		"ModArmorFunction",
-		"ModGenericArmorModification",
-		"ModRemoveAnvilLevelCapScreenHandler",
-		"ModRemoveAnvilLevelCapScreen",
-		"ModRemoveOldArmorDisplay"
-	],
-	"injectors": {
-		"defaultRequire": 1
-	},
-	"client": [
-		"ModRemoveAnvilLevelCapScreen"
+  "required": true,
+  "package": "net.chuck.chucksmod.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "ModArmorFunction",
+    "ModGenericArmorModification",
+    "ModPlayerMixin",
+    "ModRemoveAnvilLevelCapScreen",
+    "ModRemoveAnvilLevelCapScreenHandler",
+    "ModRemoveOldArmorDisplay"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "client": [
+    "ModRemoveAnvilLevelCapScreen"
 	]
 }

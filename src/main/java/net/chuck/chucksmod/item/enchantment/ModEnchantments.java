@@ -8,7 +8,9 @@ import net.minecraft.util.Identifier;
 
 public class ModEnchantments {
     public static Enchantment WITHERING = new WitheringEnchantment();
+    public static Enchantment ALACRITY = new AlacrityEnchantment();
     public static void registerEnchantments(){
         Registry.register(Registries.ENCHANTMENT, new Identifier(ChucksMod.MOD_ID, "withering"), WITHERING);
+        Registry.register(Registries.ENCHANTMENT, new Identifier(ChucksMod.MOD_ID, "alacrity"), ALACRITY);
     }
 }
