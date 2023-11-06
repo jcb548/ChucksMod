@@ -37,6 +37,7 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
     public void generate(RecipeExporter exporter) {
         generateVanillaDustSmeltingAndBlockRecipes(exporter);
         generateCopperRecipes(exporter);
+        generateGoldRecipes(exporter);
         generateTinRecipes(exporter);
         generateBronzeRecipes(exporter);
         generatePrismarineRecipes(exporter);
@@ -313,14 +314,6 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 0.7f, 100, "gold_ingot");
         offerReversibleCompactingRecipes(exporter, RecipeCategory.DECORATIONS, ModItems.GOLD_DUST,
                 RecipeCategory.DECORATIONS, ModBlocks.GOLD_DUST_BLOCK);
-        ShapedRecipeJsonBuilder.create(RecipeCategory.REDSTONE, ModItems.GOLD_GEAR)
-                .pattern(" # ")
-                .pattern("# #")
-                .pattern(" # ")
-                .input('#', Items.GOLD_INGOT)
-                .criterion(hasItem(Items.GOLD_INGOT),
-                        conditionsFromItem(Items.GOLD_INGOT))
-                .offerTo(exporter);
         offerStainedGlassPaneRecipe(exporter, ModBlocks.GOLD_BARS, Items.GOLD_INGOT);
     }
     private void generateCopperRecipes(RecipeExporter exporter){
@@ -333,6 +326,11 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
         offerGearRecipe(exporter, Items.COPPER_INGOT, ModItems.COPPER_GEAR);
         offerStainedGlassPaneRecipe(exporter, ModBlocks.COPPER_BARS, Items.COPPER_INGOT);
         offerWireRecipe(exporter, Items.COPPER_INGOT, ModBlocks.COPPER_WIRE.asItem());
+    }
+
+    private void generateGoldRecipes(RecipeExporter exporter){
+        offerGearRecipe(exporter, Items.GOLD_INGOT, ModItems.GOLD_GEAR);
+        offerWireRecipe(exporter, Items.GOLD_INGOT, ModBlocks.GOLD_WIRE.asItem());
     }
 
     private void generateTinRecipes(RecipeExporter exporter) {

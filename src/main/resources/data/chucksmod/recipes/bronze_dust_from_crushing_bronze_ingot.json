@@ -1,0 +1,11 @@
+{
+  "type": "chucksmod:crusher_recipe",
+  "ingredients": [
+    {
+      "item": "minecraft:bronze_ingot"
+    }
+  ],
+  "output": {
+    "item": "chucksmod:bronze_dust"
+  }
+}

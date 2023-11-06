@@ -38,21 +38,23 @@ public class ModItemGroups {
                         entries.add(ModBlocks.CRACKED_SANDSTONE_BRICKS);
 
                         entries.add(ModItems.IRON_DUST);
+                        entries.add(ModBlocks.IRON_DUST_BLOCK);
+                        entries.add(ModItems.IRON_GEAR);
+
                         entries.add(ModItems.COPPER_DUST);
                         entries.add(ModBlocks.COPPER_DUST_BLOCK);
                         entries.add(ModBlocks.COPPER_BARS);
                         entries.add(ModBlocks.COPPER_WIRE);
                         entries.add(ModItems.COPPER_GEAR);
-                        entries.add(ModItems.GOLD_DUST);
-                        entries.add(ModItems.OBSIDIAN_DUST);
-                        entries.add(ModItems.IRON_GEAR);
 
-                        entries.add(ModItems.GOLD_GEAR);
-                        entries.add(ModBlocks.IRON_DUST_BLOCK);
+                        entries.add(ModItems.GOLD_DUST);
                         entries.add(ModBlocks.GOLD_DUST_BLOCK);
                         entries.add(ModBlocks.GOLD_BARS);
-                        entries.add(ModBlocks.OBSIDIAN_SAND);
+                        entries.add(ModItems.GOLD_GEAR);
+                        entries.add(ModBlocks.GOLD_WIRE);
 
+                        entries.add(ModItems.OBSIDIAN_DUST);
+                        entries.add(ModBlocks.OBSIDIAN_SAND);
 
                         entries.add(ModBlocks.HARDENED_GLASS);
                         entries.add(ModBlocks.HARDENED_TINTED_GLASS);

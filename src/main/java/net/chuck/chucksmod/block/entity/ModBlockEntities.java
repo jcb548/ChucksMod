@@ -2,7 +2,9 @@ package net.chuck.chucksmod.block.entity;
 
 import net.chuck.chucksmod.ChucksMod;
 import net.chuck.chucksmod.block.ModBlocks;
+import net.chuck.chucksmod.block.custom.wire.GoldWireBlock;
 import net.chuck.chucksmod.block.entity.wire.CopperWireBlockEntity;
+import net.chuck.chucksmod.block.entity.wire.GoldWireBlockEntity;
 import net.chuck.chucksmod.block.entity.wire.TinWireBlockEntity;
 import net.chuck.chucksmod.block.entity.wire.WireBlockEntity;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
@@ -27,6 +29,8 @@ public class ModBlockEntities {
     public static long TIN_WIRE_TRANSFER_RATE = 32;
     public static BlockEntityType<CopperWireBlockEntity> COPPER_WIRE;
     public static long COPPER_WIRE_TRANSFER_RATE = 128;
+    public static BlockEntityType<GoldWireBlockEntity> GOLD_WIRE;
+    public static long GOLD_WIRE_TRANSFER_RATE = 512;
     public static void registerBlockEntities() {
         CRUSHER = Registry.register(Registries.BLOCK_ENTITY_TYPE,
                 new Identifier(ChucksMod.MOD_ID, "crusher"),
@@ -58,5 +62,11 @@ public class ModBlockEntities {
                                 COPPER_WIRE_TRANSFER_RATE), ModBlocks.COPPER_WIRE).build());
         EnergyStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.energyStorage,
                 COPPER_WIRE);
+        GOLD_WIRE = Registry.register(Registries.BLOCK_ENTITY_TYPE,
+                new Identifier(ChucksMod.MOD_ID, "gold_wire"),
+                FabricBlockEntityTypeBuilder.create((pos, state) -> new GoldWireBlockEntity(pos, state,
+                                GOLD_WIRE_TRANSFER_RATE), ModBlocks.GOLD_WIRE).build());
+        EnergyStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.energyStorage,
+                GOLD_WIRE);
     }
 }

@@ -7,6 +7,7 @@ import com.terraformersmc.terraform.sign.block.TerraformWallSignBlock;
 import net.chuck.chucksmod.ChucksMod;
 import net.chuck.chucksmod.block.custom.*;
 import net.chuck.chucksmod.block.custom.wire.CopperWireBlock;
+import net.chuck.chucksmod.block.custom.wire.GoldWireBlock;
 import net.chuck.chucksmod.block.custom.wire.TinWireBlock;
 import net.chuck.chucksmod.block.custom.wire.WireBlock;
 import net.chuck.chucksmod.block.entity.ModBlockEntities;
@@ -41,10 +42,14 @@ public class ModBlocks {
             new FallingBlock(FabricBlockSettings.copy(Blocks.SAND).resistance(1200.0f).requiresTool()));
     public static final Block COPPER_BARS = registerBlock("copper_bars",
             new PaneBlock(FabricBlockSettings.copy(Blocks.IRON_BARS).strength(3.0f, 6.0f)));
+    public static final Block COPPER_WIRE = registerBlock("copper_wire",
+            new CopperWireBlock(FabricBlockSettings.copy(Blocks.COPPER_BLOCK), ModBlockEntities.COPPER_WIRE_TRANSFER_RATE));
     public static final Block GOLD_DUST_BLOCK = registerBlock("gold_dust_block",
             new FallingBlock(FabricBlockSettings.copy(Blocks.SAND)));
     public static final Block GOLD_BARS = registerBlock("gold_bars",
             new PaneBlock(FabricBlockSettings.copy(Blocks.IRON_BARS).strength(3.0f, 6.0f)));
+    public static final Block GOLD_WIRE = registerBlock("gold_wire",
+            new GoldWireBlock(FabricBlockSettings.copy(Blocks.GOLD_BLOCK), ModBlockEntities.GOLD_WIRE_TRANSFER_RATE));
     public static final Block PRISMARINE_DUST_BLOCK = registerBlock("prismarine_dust_block",
             new FallingBlock(FabricBlockSettings.copy(Blocks.SAND)));
     public static final Block PRISMARINE_IRON_DUST_BLOCK = registerBlock("prismarine_iron_dust_block",
@@ -135,8 +140,7 @@ public class ModBlocks {
             new PoweredCrusherBlock(FabricBlockSettings.copy(Blocks.SMOOTH_STONE)));
     public static final Block GENERATOR = registerBlock("generator",
             new GeneratorBlock(FabricBlockSettings.copy(Blocks.SMOOTH_STONE)));
-    public static final Block COPPER_WIRE = registerBlock("copper_wire",
-            new CopperWireBlock(FabricBlockSettings.copy(Blocks.COPPER_BLOCK), ModBlockEntities.COPPER_WIRE_TRANSFER_RATE));
+
     public static final Block TIN_WIRE = registerBlock("tin_wire",
             new TinWireBlock(FabricBlockSettings.copy(ModBlocks.TIN_BLOCK), ModBlockEntities.TIN_WIRE_TRANSFER_RATE));
     // Fabium

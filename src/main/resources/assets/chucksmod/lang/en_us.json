@@ -20,6 +20,8 @@
   "item.chucksmod.gold_gear": "Gold Gear",
   "block.chucksmod.gold_dust_block": "Block of Gold Dust",
   "block.chucksmod.gold_bars": "Gold Bars",
+  "block.chucksmod.gold_wire": "Gold Wire",
+  "tooltip.chucksmod.gold_wire.tooltip": "Transfer rate: 512 E/t",
   "item.chucksmod.obsidian_dust": "Obsidian Dust",
   "block.chucksmod.obsidian_sand": "Obsidian Sand",
 
@@ -229,6 +231,8 @@
   "tooltip.chucksmod.9x1bag.tooltip": "Can store 9 items, opened by right-clicking",
   "tooltip.chucksmod.7x2bag.tooltip": "Can store 14 items, opened by right-clicking",
   "gui.chucksmod.bag": "Bag",
+
+  "enchantment.chucksmod.withering": "Withering",
 
   "itemgroup.chucksmod": "Chucks Mod",
 
@@ -499,6 +503,15 @@
 
   "advancements.chucksmod.overworld.leather_bag.title": "Leather Bag",
   "advancements.chucksmod.overworld.leather_bag.desc": "Craft a small bag to store items out of string and leather",
+
+  "advancements.chucksmod.overworld.raw_copper.title": "Raw Copper",
+  "advancements.chucksmod.overworld.raw_copper.desc": "Mine and collect some Raw Copper",
+
+  "advancements.chucksmod.overworld.copper.title": "Copper",
+  "advancements.chucksmod.overworld.copper.desc": "Mine and collect some Raw Copper",
+
+  "advancements.chucksmod.overworld.copper_wire.title": "Copper Wire",
+  "advancements.chucksmod.overworld.copper_wire.desc": "Craft Copper Wires from copper ingots, to start transferring power",
 
 
 

@@ -1,7 +1,7 @@
 package net.chuck.chucksmod.block.custom.wire;
 
 import net.chuck.chucksmod.block.entity.ModBlockEntities;
-import net.chuck.chucksmod.block.entity.wire.CopperWireBlockEntity;
+import net.chuck.chucksmod.block.entity.wire.GoldWireBlockEntity;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
@@ -17,24 +17,24 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class CopperWireBlock extends WireBlock{
-    public CopperWireBlock(Settings settings, long transferRate) {
+public class GoldWireBlock extends WireBlock{
+    public GoldWireBlock(Settings settings, long transferRate) {
         super(settings, transferRate);
     }
 
     @Override
     public @Nullable BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
-        return new CopperWireBlockEntity(pos, state, TRANSFER_RATE);
+        return new GoldWireBlockEntity(pos, state, TRANSFER_RATE);
     }
 
     @Override
     public @Nullable <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return validateTicker(type, ModBlockEntities.COPPER_WIRE, (world1, pos, state1, blockEntity) -> blockEntity.tick(world1, pos, state1));
+        return validateTicker(type, ModBlockEntities.GOLD_WIRE, (world1, pos, state1, blockEntity) -> blockEntity.tick(world1, pos, state1));
     }
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable BlockView world, List<Text> tooltip, TooltipContext options) {
-        tooltip.add(Text.translatable("tooltip.chucksmod.copper_wire.tooltip").formatted(Formatting.GOLD));
+        tooltip.add(Text.translatable("tooltip.chucksmod.gold_wire.tooltip").formatted(Formatting.GOLD));
         super.appendTooltip(stack, world, tooltip, options);
     }
 }

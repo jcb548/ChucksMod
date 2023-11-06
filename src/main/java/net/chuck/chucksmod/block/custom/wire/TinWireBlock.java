@@ -2,7 +2,6 @@ package net.chuck.chucksmod.block.custom.wire;
 
 import net.chuck.chucksmod.block.entity.ModBlockEntities;
 import net.chuck.chucksmod.block.entity.wire.TinWireBlockEntity;
-import net.chuck.chucksmod.block.entity.wire.WireBlockEntity;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;

@@ -707,6 +707,24 @@ public class ModAdvancementsProvider extends FabricAdvancementProvider {
                 .criterion("raw_copper", InventoryChangedCriterion.Conditions.items(Items.RAW_COPPER))
                 .parent(stoneTools)
                 .build(consumer, ChucksMod.MOD_ID + "/overworld/raw_copper");
+
+        AdvancementEntry copper = Advancement.Builder.create()
+            .display(Items.COPPER_INGOT ,
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.copper.title"),
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.copper.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("copper", InventoryChangedCriterion.Conditions.items(Items.COPPER_INGOT))
+                .parent(rawCopper)
+                .build(consumer, ChucksMod.MOD_ID + "/overworld/copper");
+
+        AdvancementEntry copperWire = Advancement.Builder.create()
+            .display(ModBlocks.COPPER_WIRE ,
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.copper_wire.title"),
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.copper_wire.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("copper", InventoryChangedCriterion.Conditions.items(ModBlocks.COPPER_WIRE))
+                .parent(copper)
+                .build(consumer, ChucksMod.MOD_ID + "/overworld/copper_wire");
     }
     private void netherAdvancements(Consumer<AdvancementEntry> consumer) {
         AdvancementEntry root = Advancement.Builder.create()
