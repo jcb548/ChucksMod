@@ -163,7 +163,6 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.CRACKED_SANDSTONE_BRICKS);
 
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.FRANK_ALTAR);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.WIRE);
 
         blockStateModelGenerator.registerParentedItemModel(ModItems.WYATT_SPAWN_EGG,
                 ModelIds.getMinecraftNamespacedItem("template_spawn_egg"));

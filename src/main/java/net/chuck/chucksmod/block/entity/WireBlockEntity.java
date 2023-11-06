@@ -2,6 +2,8 @@ package net.chuck.chucksmod.block.entity;
 
 import net.chuck.chucksmod.block.custom.WireBlock;
 import net.fabricmc.fabric.api.lookup.v1.block.BlockApiCache;
+import net.fabricmc.fabric.api.rendering.data.v1.RenderAttachmentBlockEntity;
+import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.nbt.NbtCompound;
@@ -13,7 +15,6 @@ import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 import team.reborn.energy.api.EnergyStorage;
 import team.reborn.energy.api.base.SimpleEnergyStorage;
-import team.reborn.energy.api.base.SimpleSidedEnergyContainer;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -158,6 +159,7 @@ public class WireBlockEntity extends BlockEntity {
         }
         WireTickManager.handleWireTick(this);
     }
+
     private record WireTarget(Direction directionTo, BlockApiCache<EnergyStorage, Direction> cache){
         @Nullable
         EnergyStorage find(){
