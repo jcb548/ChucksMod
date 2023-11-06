@@ -14,6 +14,8 @@
   "item.chucksmod.copper_gear": "Copper Gear",
   "block.chucksmod.copper_dust_block": "Block of Copper Dust",
   "block.chucksmod.copper_bars": "Copper Bars",
+  "block.chucksmod.copper_wire": "Copper Wire",
+  "tooltip.chucksmod.copper_wire.tooltip": "Transfer rate: 128 E/t",
   "item.chucksmod.gold_dust": "Gold Dust",
   "item.chucksmod.gold_gear": "Gold Gear",
   "block.chucksmod.gold_dust_block": "Block of Gold Dust",
@@ -46,6 +48,8 @@
   "block.chucksmod.tin_block": "Block of Tin",
   "block.chucksmod.tin_dust_block": "Block of Tin Dust",
   "block.chucksmod.tin_bars": "Tin Bars",
+  "block.chucksmod.tin_wire": "Tin Wire",
+  "tooltip.chucksmod.tin_wire.tooltip": "Transfer Rate: 32E/t",
   "block.chucksmod.tin_ore": "Tin Ore",
   "block.chucksmod.deepslate_tin_ore": "Deepslate Tin Ore",
 

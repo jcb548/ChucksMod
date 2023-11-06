@@ -698,6 +698,15 @@ public class ModAdvancementsProvider extends FabricAdvancementProvider {
                 .criterion("leather_bag", InventoryChangedCriterion.Conditions.items(ModItems.LEATHER_BAG))
                 .parent(leather)
                 .build(consumer, ChucksMod.MOD_ID + "/overworld/leather_bag");
+
+        AdvancementEntry rawCopper = Advancement.Builder.create()
+            .display(Items.RAW_COPPER,
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.raw_copper.title"),
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.raw_copper.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("raw_copper", InventoryChangedCriterion.Conditions.items(Items.RAW_COPPER))
+                .parent(stoneTools)
+                .build(consumer, ChucksMod.MOD_ID + "/overworld/raw_copper");
     }
     private void netherAdvancements(Consumer<AdvancementEntry> consumer) {
         AdvancementEntry root = Advancement.Builder.create()
