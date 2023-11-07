@@ -83,7 +83,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         getOrCreateTagBuilder(BlockTags.NEEDS_IRON_TOOL)
                 .add(ModBlocks.CRUSHER)
                 .add(ModBlocks.POWERED_CRUSHER)
-                .add(ModBlocks.GENERATOR)
+                .add(ModBlocks.IRON_HEAT_GENERATOR)
                 .add(ModBlocks.SLATED_DIRT)
                 .add(ModBlocks.SLATED_GRASS)
                 .add(ModBlocks.GOLD_BARS);
@@ -162,7 +162,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 
                 .add(ModBlocks.CRUSHER)
                 .add(ModBlocks.POWERED_CRUSHER)
-                .add(ModBlocks.GENERATOR);
+                .add(ModBlocks.IRON_HEAT_GENERATOR);
 
         getOrCreateTagBuilder(BlockTags.SHOVEL_MINEABLE)
                 .add(ModBlocks.IRON_DUST_BLOCK)

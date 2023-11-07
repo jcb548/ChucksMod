@@ -72,7 +72,7 @@ public class GeneratorBlockEntity extends BlockEntity implements ExtendedScreenH
         }
     };
     public GeneratorBlockEntity(BlockPos pos, BlockState state) {
-        super(ModBlockEntities.GENERATOR, pos, state);
+        super(ModBlockEntities.IRON_HEAT_GENERATOR, pos, state);
         this.propertyDelegate = new PropertyDelegate() {
             @Override
             public int get(int index) {

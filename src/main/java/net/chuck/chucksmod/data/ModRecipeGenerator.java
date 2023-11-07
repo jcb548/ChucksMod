@@ -15,6 +15,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.book.RecipeCategory;
+import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.registry.tag.TagKey;
 
@@ -65,6 +66,32 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .offerTo(exporter);
         generateHardenedGlassRecipes(exporter);
         generateBagRecipes(exporter);
+        generateIronMachineRecipes(exporter);
+    }
+
+    private void generateIronMachineRecipes(RecipeExporter exporter) {
+        offerPowerAcceptorRecipe(exporter, ModBlocks.COPPER_WIRE.asItem(), ModItems.COPPER_POWER_ACCEPTOR);
+        offerMachineBaseRecipe(exporter, Items.IRON_INGOT, ModItems.IRON_GEAR, ModBlocks.IRON_MACHINE_BASE.asItem());
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.IRON_HEAT_GENERATOR)
+                .pattern(" P ")
+                .pattern("WMW")
+                .pattern("IFI")
+                .input('P', ModItems.COPPER_POWER_ACCEPTOR)
+                .input('W', ModBlocks.COPPER_WIRE)
+                .input('M', ModBlocks.IRON_MACHINE_BASE)
+                .input('I', Items.IRON_INGOT)
+                .input('F', Blocks.FURNACE)
+                .criterion(hasItem(ModItems.COPPER_POWER_ACCEPTOR),
+                        conditionsFromItem(ModItems.COPPER_POWER_ACCEPTOR))
+                .criterion(hasItem(ModBlocks.COPPER_WIRE),
+                        conditionsFromItem(ModBlocks.COPPER_WIRE))
+                .criterion(hasItem(ModBlocks.IRON_MACHINE_BASE),
+                        conditionsFromItem(ModBlocks.IRON_MACHINE_BASE))
+                .criterion(hasItem(Items.IRON_INGOT),
+                        conditionsFromItem(Items.IRON_INGOT))
+                .criterion(hasItem(Blocks.FURNACE),
+                        conditionsFromItem(Blocks.FURNACE))
+                .offerTo(exporter);
     }
 
     public static String hasTag(TagKey<Item> material){
@@ -691,6 +718,30 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .input('M', material)
                 .criterion(hasItem(ModItems.LEATHER_STRAP), conditionsFromItem(ModItems.LEATHER_STRAP))
                 .criterion(hasTag(material), conditionsFromTag(material))
+                .offerTo(exporter);
+    }
+    public static void offerPowerAcceptorRecipe(RecipeExporter exporter, Item wire, Item output){
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, output, 1)
+                .pattern("WRW")
+                .pattern("R R")
+                .pattern("WRW")
+                .input('R', Items.REDSTONE)
+                .input('W', wire)
+                .criterion(hasItem(wire), conditionsFromItem(wire))
+                .criterion(hasItem(Items.REDSTONE), conditionsFromItem(Items.REDSTONE))
+                .offerTo(exporter);
+    }
+    public static void offerMachineBaseRecipe(RecipeExporter exporter, Item material, Item gear, Item output){
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, output, 1)
+                .pattern("MRM")
+                .pattern("RGR")
+                .pattern("MRM")
+                .input('R', Items.REDSTONE)
+                .input('M', material)
+                .input('G', gear)
+                .criterion(hasItem(material), conditionsFromItem(material))
+                .criterion(hasItem(Items.REDSTONE), conditionsFromItem(Items.REDSTONE))
+                .criterion(hasItem(gear), conditionsFromItem(gear))
                 .offerTo(exporter);
     }
 }

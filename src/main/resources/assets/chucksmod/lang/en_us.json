@@ -13,6 +13,7 @@
   "block.chucksmod.iron_dust_block": "Block of Iron Dust",
   "item.chucksmod.copper_dust": "Copper Dust",
   "item.chucksmod.copper_gear": "Copper Gear",
+  "item.chucksmod.copper_power_acceptor": "Copper Power Acceptor",
   "block.chucksmod.copper_dust_block": "Block of Copper Dust",
   "block.chucksmod.copper_bars": "Copper Bars",
   "block.chucksmod.copper_wire": "Copper Wire",
@@ -150,7 +151,7 @@
   "block.chucksmod.crusher": "Crusher",
   "block.chucksmod.powered_crusher": "Powered Crusher",
 
-  "block.chucksmod.generator": "Generator",
+  "block.chucksmod.iron_heat_generator": "Iron Fuel Generator",
 
   "block.chucksmod.slated_dirt": "Slated Dirt",
   "block.chucksmod.slated_grass": "Slated Grass",

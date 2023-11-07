@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/orientable",
-  "textures": {
-    "front": "chucksmod:block/generator_front",
-    "side": "chucksmod:block/generator_side",
-    "top": "chucksmod:block/generator_top"
-  }
-}

@@ -6,12 +6,12 @@ import net.minecraft.entity.EquipmentSlot;
 
 public class AlacrityEnchantment extends Enchantment {
     protected AlacrityEnchantment() {
-        super(Rarity.UNCOMMON, EnchantmentTarget.DIGGER, new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+        super(Rarity.UNCOMMON, EnchantmentTarget.WEAPON, new EquipmentSlot[]{EquipmentSlot.MAINHAND});
     }
 
     @Override
     public int getMinPower(int level) {
-        return 1 + (level - 1) * 11;
+        return 1 + (level + 1) * 11;
     }
 
     @Override

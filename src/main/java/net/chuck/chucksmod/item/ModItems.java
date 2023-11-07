@@ -113,6 +113,9 @@ public class ModItems {
             new ArmorItem(ModArmorMaterials.BRONZE, ArmorItem.Type.LEGGINGS, new FabricItemSettings()));
     public static final Item BRONZE_BOOTS = registerItem("bronze_boots",
             new ArmorItem(ModArmorMaterials.BRONZE, ArmorItem.Type.BOOTS, new FabricItemSettings()));
+    // Machine stuff
+    public static final Item COPPER_POWER_ACCEPTOR = registerItem("copper_power_acceptor",
+            new Item(new FabricItemSettings()));
     // Wither items
     public static final Item WITHER_BONE = registerItem("wither_bone", new Item(new FabricItemSettings()));
     public static final Item WITHER_SWORD = registerItem("wither_sword",

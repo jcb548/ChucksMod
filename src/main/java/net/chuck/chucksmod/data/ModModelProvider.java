@@ -153,7 +153,7 @@ public class ModModelProvider extends FabricModelProvider {
 
         blockStateModelGenerator.registerCooker(ModBlocks.CRUSHER, TexturedModel.ORIENTABLE);
         blockStateModelGenerator.registerCooker(ModBlocks.POWERED_CRUSHER, TexturedModel.ORIENTABLE);
-        blockStateModelGenerator.registerCooker(ModBlocks.GENERATOR, TexturedModel.ORIENTABLE);
+        blockStateModelGenerator.registerCooker(ModBlocks.IRON_HEAT_GENERATOR, TexturedModel.ORIENTABLE);
 
         BlockStateModelGenerator.BlockTexturePool sandstone_bricks_pool =
                 blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.SANDSTONE_BRICKS);
@@ -177,6 +177,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.GOLD_DUST, Models.GENERATED);
         itemModelGenerator.register(ModItems.IRON_GEAR, Models.GENERATED);
         itemModelGenerator.register(ModItems.COPPER_GEAR, Models.GENERATED);
+        itemModelGenerator.register(ModItems.COPPER_POWER_ACCEPTOR, Models.GENERATED);
         itemModelGenerator.register(ModItems.GOLD_GEAR, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.TIN_DUST, Models.GENERATED);

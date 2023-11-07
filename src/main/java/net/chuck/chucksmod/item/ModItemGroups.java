@@ -47,6 +47,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.COPPER_BARS);
                         entries.add(ModBlocks.COPPER_WIRE);
                         entries.add(ModItems.COPPER_GEAR);
+                        entries.add(ModItems.COPPER_POWER_ACCEPTOR);
 
                         entries.add(ModItems.GOLD_DUST);
                         entries.add(ModBlocks.GOLD_DUST_BLOCK);
@@ -206,7 +207,7 @@ public class ModItemGroups {
 
                         entries.add(ModBlocks.CRUSHER);
                         entries.add(ModBlocks.POWERED_CRUSHER);
-                        entries.add(ModBlocks.GENERATOR);
+                        entries.add(ModBlocks.IRON_HEAT_GENERATOR);
 
                         entries.add(ModBlocks.SLATED_DIRT);
                         entries.add(ModBlocks.SLATED_GRASS);

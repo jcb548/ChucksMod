@@ -140,7 +140,7 @@ public class ModBlocks {
             new CrusherBlock(FabricBlockSettings.copy(Blocks.SMOOTH_STONE)));
     public static final Block POWERED_CRUSHER = registerBlock("powered_crusher",
             new PoweredCrusherBlock(FabricBlockSettings.copy(Blocks.SMOOTH_STONE)));
-    public static final Block GENERATOR = registerBlock("generator",
+    public static final Block IRON_HEAT_GENERATOR = registerBlock("iron_heat_generator",
             new GeneratorBlock(FabricBlockSettings.copy(Blocks.SMOOTH_STONE)));
 
     public static final Block TIN_WIRE = registerBlock("tin_wire",
