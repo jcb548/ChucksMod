@@ -36,6 +36,8 @@ import net.minecraft.util.Identifier;
 public class ModBlocks {
     public static final Block IRON_DUST_BLOCK = registerBlock("iron_dust_block",
             new FallingBlock(FabricBlockSettings.copy(Blocks.SAND)));
+    public static final Block IRON_MACHINE_BASE = registerBlock("iron_machine_base",
+            new Block(FabricBlockSettings.copy(Blocks.IRON_BLOCK).nonOpaque()));
     public static final Block COPPER_DUST_BLOCK = registerBlock("copper_dust_block",
             new FallingBlock(FabricBlockSettings.copy(Blocks.SAND)));
     public static final Block OBSIDIAN_SAND = registerBlock("obsidian_sand",

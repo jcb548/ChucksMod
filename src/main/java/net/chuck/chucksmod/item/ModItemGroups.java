@@ -40,6 +40,7 @@ public class ModItemGroups {
                         entries.add(ModItems.IRON_DUST);
                         entries.add(ModBlocks.IRON_DUST_BLOCK);
                         entries.add(ModItems.IRON_GEAR);
+                        entries.add(ModBlocks.IRON_MACHINE_BASE);
 
                         entries.add(ModItems.COPPER_DUST);
                         entries.add(ModBlocks.COPPER_DUST_BLOCK);
