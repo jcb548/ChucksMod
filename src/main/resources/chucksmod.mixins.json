@@ -5,6 +5,7 @@
   "mixins": [
     "ModArmorFunction",
     "ModGenericArmorModification",
+    "ModItemStackAlacrityMixin",
     "ModPlayerMixin",
     "ModRemoveAnvilLevelCapScreen",
     "ModRemoveAnvilLevelCapScreenHandler",

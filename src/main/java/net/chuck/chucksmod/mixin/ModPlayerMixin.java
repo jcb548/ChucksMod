@@ -1,5 +1,6 @@
 package net.chuck.chucksmod.mixin;
 
+import net.chuck.chucksmod.item.enchantment.AlacrityEnchantment;
 import net.chuck.chucksmod.item.enchantment.ModEnchantments;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.attribute.EntityAttributes;
@@ -16,7 +17,9 @@ public class ModPlayerMixin {
         final int level = EnchantmentHelper.getLevel(ModEnchantments.ALACRITY,
                 ((PlayerEntity) (Object) this).getMainHandStack());
         if(level > 0) {
-            cir.setReturnValue((float)(1.0 /(((PlayerEntity) (Object) this).getAttributeValue(EntityAttributes.GENERIC_ATTACK_SPEED) + 0.7*level) * 20.0));
+            cir.setReturnValue((float)(1.0 /(((PlayerEntity) (Object) this)
+                    .getAttributeValue(EntityAttributes.GENERIC_ATTACK_SPEED) +
+                    AlacrityEnchantment.ATTACK_SPEED_BONUS*level) * 20.0));
         }
     }
 }
