@@ -1,15 +1,13 @@
 package net.chuck.chucksmod.item.enchantment;
 
 import net.minecraft.enchantment.Enchantment;
-import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.EquipmentSlot;
-import net.minecraft.item.ItemStack;
 
 public class AlacrityEnchantment extends Enchantment {
-    public static final double ATTACK_SPEED_BONUS = 0.7;
+    public static final double ATTACK_SPEED_BONUS = 0.4;
     protected AlacrityEnchantment() {
-        super(Rarity.UNCOMMON, EnchantmentTarget.WEAPON, new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+        super(Rarity.UNCOMMON, EnchantmentTarget.BREAKABLE, new EquipmentSlot[]{EquipmentSlot.MAINHAND});
     }
 
     @Override

@@ -18,8 +18,8 @@ public class ModPlayerMixin {
                 ((PlayerEntity) (Object) this).getMainHandStack());
         if(level > 0) {
             cir.setReturnValue((float)(1.0 /(((PlayerEntity) (Object) this)
-                    .getAttributeValue(EntityAttributes.GENERIC_ATTACK_SPEED) +
-                    AlacrityEnchantment.ATTACK_SPEED_BONUS*level) * 20.0));
+                    .getAttributeValue(EntityAttributes.GENERIC_ATTACK_SPEED)*
+                    (1+AlacrityEnchantment.ATTACK_SPEED_BONUS*level)) * 20.0));
         }
     }
 }
