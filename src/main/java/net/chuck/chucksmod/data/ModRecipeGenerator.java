@@ -92,6 +92,29 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .criterion(hasItem(Blocks.FURNACE),
                         conditionsFromItem(Blocks.FURNACE))
                 .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.IRON_POWERED_CRUSHER)
+                .pattern("DPD")
+                .pattern("WMW")
+                .pattern("GFG")
+                .input('P', ModItems.COPPER_POWER_ACCEPTOR)
+                .input('W', ModBlocks.COPPER_WIRE)
+                .input('M', ModBlocks.IRON_MACHINE_BASE)
+                .input('D', Items.DIAMOND)
+                .input('F', Blocks.PISTON)
+                .input('G', ModItems.IRON_GEAR)
+                .criterion(hasItem(ModItems.COPPER_POWER_ACCEPTOR),
+                        conditionsFromItem(ModItems.COPPER_POWER_ACCEPTOR))
+                .criterion(hasItem(ModBlocks.COPPER_WIRE),
+                        conditionsFromItem(ModBlocks.COPPER_WIRE))
+                .criterion(hasItem(ModBlocks.IRON_MACHINE_BASE),
+                        conditionsFromItem(ModBlocks.IRON_MACHINE_BASE))
+                .criterion(hasItem(Items.DIAMOND),
+                        conditionsFromItem(Items.DIAMOND))
+                .criterion(hasItem(Blocks.FURNACE),
+                        conditionsFromItem(Blocks.FURNACE))
+                .criterion(hasItem(ModItems.IRON_GEAR),
+                        conditionsFromItem(ModItems.IRON_GEAR))
+                .offerTo(exporter);
     }
 
     public static String hasTag(TagKey<Item> material){

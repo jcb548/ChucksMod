@@ -58,7 +58,7 @@ public class PoweredCrusherBlock extends AbstractCrusherBlock {
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return validateTicker(type, ModBlockEntities.POWERED_CRUSHER,
+        return validateTicker(type, ModBlockEntities.IRON_POWERED_CRUSHER,
                 ((world1, pos, state1, blockEntity) -> blockEntity.tick(world1, pos, state1)));
     }
 }

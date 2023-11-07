@@ -152,7 +152,7 @@ public class ModModelProvider extends FabricModelProvider {
         diritia_pool.family(ModBlocks.DIRITIA_FAMILY);
 
         blockStateModelGenerator.registerCooker(ModBlocks.CRUSHER, TexturedModel.ORIENTABLE);
-        blockStateModelGenerator.registerCooker(ModBlocks.POWERED_CRUSHER, TexturedModel.ORIENTABLE);
+        blockStateModelGenerator.registerCooker(ModBlocks.IRON_POWERED_CRUSHER, TexturedModel.ORIENTABLE);
         blockStateModelGenerator.registerCooker(ModBlocks.IRON_HEAT_GENERATOR, TexturedModel.ORIENTABLE);
 
         BlockStateModelGenerator.BlockTexturePool sandstone_bricks_pool =

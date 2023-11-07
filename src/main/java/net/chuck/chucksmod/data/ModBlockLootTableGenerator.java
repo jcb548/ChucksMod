@@ -135,7 +135,7 @@ public class ModBlockLootTableGenerator extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.DIRITIA_LIGHT_PLANT);
 
         addDrop(ModBlocks.CRUSHER);
-        addDrop(ModBlocks.POWERED_CRUSHER);
+        addDrop(ModBlocks.IRON_POWERED_CRUSHER);
 
         BlockStatePropertyLootCondition.Builder tomatoCropBuilder = BlockStatePropertyLootCondition.builder
                         (ModBlocks.TOMATO_CROP).properties(StatePredicate.Builder.create()

@@ -6,6 +6,8 @@ import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
 import net.fabricmc.fabric.api.networking.v1.PlayerLookup;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.fabricmc.fabric.api.transfer.v1.transaction.Transaction;
+import net.minecraft.block.AbstractFurnaceBlock;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
@@ -61,7 +63,7 @@ public class PoweredCrusherBlockEntity extends AbstractCrusherBlockEntity {
     };
     protected final PropertyDelegate propertyDelegate;
     public PoweredCrusherBlockEntity(BlockPos pos, BlockState state) {
-        super(ModBlockEntities.POWERED_CRUSHER, pos, state);
+        super(ModBlockEntities.IRON_POWERED_CRUSHER, pos, state);
         this.propertyDelegate = new PropertyDelegate() {
             @Override
             public int get(int index) {
@@ -92,7 +94,7 @@ public class PoweredCrusherBlockEntity extends AbstractCrusherBlockEntity {
 
     @Override
     public Text getDisplayName() {
-        return Text.translatable("block.chucksmod.powered_crusher");
+        return Text.translatable("block.chucksmod.iron_powered_crusher");
     }
     @Nullable
     @Override
@@ -132,6 +134,8 @@ public class PoweredCrusherBlockEntity extends AbstractCrusherBlockEntity {
             this.resetProgress();
             markDirty(world, blockPos, blockState);
         }
+        blockState = (BlockState)blockState.with(AbstractFurnaceBlock.LIT, isCrafting());
+        world.setBlockState(blockPos, blockState, Block.NOTIFY_ALL);
     }
     public void setEnergyLevel(long energyLevel){
         this.energyStorage.amount = energyLevel;
@@ -146,5 +150,8 @@ public class PoweredCrusherBlockEntity extends AbstractCrusherBlockEntity {
 
     private boolean hasEnoughEnergy() {
         return this.energyStorage.amount >= 32;
+    }
+    private boolean isCrafting(){
+        return progress > 0;
     }
 }

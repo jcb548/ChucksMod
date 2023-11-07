@@ -206,7 +206,7 @@ public class ModItemGroups {
                         entries.add(ModItems.EUCALYPTUS_CHEST_BOAT);
 
                         entries.add(ModBlocks.CRUSHER);
-                        entries.add(ModBlocks.POWERED_CRUSHER);
+                        entries.add(ModBlocks.IRON_POWERED_CRUSHER);
                         entries.add(ModBlocks.IRON_HEAT_GENERATOR);
 
                         entries.add(ModBlocks.SLATED_DIRT);

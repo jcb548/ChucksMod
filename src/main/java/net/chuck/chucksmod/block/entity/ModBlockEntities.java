@@ -23,7 +23,7 @@ import team.reborn.energy.api.EnergyStorage;
  */
 public class ModBlockEntities {
     public static BlockEntityType<CrusherBlockEntity> CRUSHER;
-    public static BlockEntityType<PoweredCrusherBlockEntity> POWERED_CRUSHER;
+    public static BlockEntityType<PoweredCrusherBlockEntity> IRON_POWERED_CRUSHER;
     public static BlockEntityType<GeneratorBlockEntity> IRON_HEAT_GENERATOR;
     public static BlockEntityType<TinWireBlockEntity> TIN_WIRE;
     public static long TIN_WIRE_TRANSFER_RATE = 32;
@@ -36,13 +36,13 @@ public class ModBlockEntities {
                 new Identifier(ChucksMod.MOD_ID, "crusher"),
                 FabricBlockEntityTypeBuilder.create(CrusherBlockEntity::new,
                         ModBlocks.CRUSHER).build());
-        POWERED_CRUSHER = Registry.register(Registries.BLOCK_ENTITY_TYPE,
+        IRON_POWERED_CRUSHER = Registry.register(Registries.BLOCK_ENTITY_TYPE,
                 new Identifier(ChucksMod.MOD_ID, "powered_crusher"),
                 FabricBlockEntityTypeBuilder.create(PoweredCrusherBlockEntity::new,
-                        ModBlocks.POWERED_CRUSHER).build());
+                        ModBlocks.IRON_POWERED_CRUSHER).build());
         // Cables can now connect to block entity
         EnergyStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.energyStorage,
-                POWERED_CRUSHER);
+                IRON_POWERED_CRUSHER);
         IRON_HEAT_GENERATOR = Registry.register(Registries.BLOCK_ENTITY_TYPE,
                 new Identifier(ChucksMod.MOD_ID, "generator"),
                 FabricBlockEntityTypeBuilder.create(GeneratorBlockEntity::new,

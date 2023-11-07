@@ -148,8 +148,8 @@
   "item.chucksmod.eucalyptus_boat": "Eucalyptus Boat",
   "item.chucksmod.eucalyptus_chest_boat": "Eucalyptus Boat with Chest",
 
-  "block.chucksmod.crusher": "Crusher",
-  "block.chucksmod.powered_crusher": "Powered Crusher",
+  "block.chucksmod.crusher": "Stone Crusher",
+  "block.chucksmod.iron_powered_crusher": "Iron Powered Crusher",
 
   "block.chucksmod.iron_heat_generator": "Iron Fuel Generator",
 

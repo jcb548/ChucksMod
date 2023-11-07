@@ -48,7 +48,7 @@ public class GeneratorBlockEntity extends BlockEntity implements ExtendedScreenH
     private int fuelTime = 0;
     public static final int MAX_INSERT = 32;
     public static final int MAX_EXTRACT = MAX_INSERT;
-    public static final int GENERATION = 10;
+    public static final int GENERATION = MAX_EXTRACT;
     public static final Map<Item, Integer> FUELS = AbstractFurnaceBlockEntity.createFuelTimeMap();
     public static final int ENERGY_STORAGE = 10000;
     public final SimpleEnergyStorage energyStorage = new SimpleEnergyStorage(ENERGY_STORAGE, MAX_INSERT, MAX_EXTRACT){
@@ -115,7 +115,7 @@ public class GeneratorBlockEntity extends BlockEntity implements ExtendedScreenH
 
     @Override
     public Text getDisplayName() {
-        return Text.translatable("block.chucksmod.generator");
+        return Text.translatable("block.chucksmod.iron_heat_generator");
     }
     @Nullable
     @Override
