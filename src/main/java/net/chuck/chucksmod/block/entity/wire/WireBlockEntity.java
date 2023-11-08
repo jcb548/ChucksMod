@@ -51,18 +51,17 @@ public abstract class WireBlockEntity extends BlockEntity {
     public boolean ioBlocked = false;
     // null means that it needs to be re-queried
     public List<WireTarget> targets = null;
-    public final long TRANSFER_RATE;
     /**
      * Adjacent caches, used to quickly query adjacent cable block entities.
      */
     @SuppressWarnings("unchecked")
     private final BlockApiCache<EnergyStorage, Direction>[] adjacentCaches = new BlockApiCache[6];
-    public WireBlockEntity(BlockEntityType type, BlockPos pos, BlockState state, long transferRate) {
+    public WireBlockEntity(BlockEntityType type, BlockPos pos, BlockState state) {
         super(type, pos, state);
-        TRANSFER_RATE = transferRate;
-        energyStorage = new SimpleEnergyStorage(4*transferRate, transferRate, transferRate);
+        energyStorage = new SimpleEnergyStorage(4*getTransferRate(), getTransferRate(), getTransferRate());
     }
 
+    public abstract long getTransferRate();
     private BlockApiCache<EnergyStorage, Direction> getAdjacentCache(Direction direction) {
         if (adjacentCaches[direction.getId()] == null) {
             adjacentCaches[direction.getId()] = BlockApiCache.create(EnergyStorage.SIDED, (ServerWorld) world, pos.offset(direction));
@@ -86,7 +85,7 @@ public abstract class WireBlockEntity extends BlockEntity {
                 boolean foundSomething = false;
                 BlockApiCache<EnergyStorage, Direction> adjCache = getAdjacentCache(direction);
                 if(adjCache.getBlockEntity() instanceof WireBlockEntity adjWire) {
-                    if (adjWire.TRANSFER_RATE == this.TRANSFER_RATE){
+                    if (adjWire.getTransferRate() == this.getTransferRate()){
                         foundSomething = true;
                     }
                 } else if(adjCache.find(direction.getOpposite()) != null){

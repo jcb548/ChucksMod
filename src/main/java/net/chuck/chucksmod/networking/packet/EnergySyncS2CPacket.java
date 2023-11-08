@@ -1,7 +1,7 @@
 package net.chuck.chucksmod.networking.packet;
 
 import net.chuck.chucksmod.block.entity.generator.IronHeatGeneratorBlockEntity;
-import net.chuck.chucksmod.block.entity.crusher.PoweredCrusherBlockEntity;
+import net.chuck.chucksmod.block.entity.crusher.IronPoweredCrusherBlockEntity;
 import net.chuck.chucksmod.screen.generator.GeneratorScreenHandler;
 import net.chuck.chucksmod.screen.crusher.PoweredCrusherScreenHandler;
 import net.fabricmc.fabric.api.networking.v1.PacketSender;
@@ -23,7 +23,7 @@ public class EnergySyncS2CPacket {
         long energy = buf.readLong();
         BlockPos position = buf.readBlockPos();
 
-        if(client.world.getBlockEntity(position) instanceof PoweredCrusherBlockEntity blockEntity) {
+        if(client.world.getBlockEntity(position) instanceof IronPoweredCrusherBlockEntity blockEntity) {
             blockEntity.setEnergyLevel(energy);
 
             if(client.player.currentScreenHandler instanceof PoweredCrusherScreenHandler screenHandler &&

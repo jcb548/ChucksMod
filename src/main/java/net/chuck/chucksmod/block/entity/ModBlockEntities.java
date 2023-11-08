@@ -3,7 +3,7 @@ package net.chuck.chucksmod.block.entity;
 import net.chuck.chucksmod.ChucksMod;
 import net.chuck.chucksmod.block.ModBlocks;
 import net.chuck.chucksmod.block.entity.crusher.CrusherBlockEntity;
-import net.chuck.chucksmod.block.entity.crusher.PoweredCrusherBlockEntity;
+import net.chuck.chucksmod.block.entity.crusher.IronPoweredCrusherBlockEntity;
 import net.chuck.chucksmod.block.entity.generator.IronHeatGeneratorBlockEntity;
 import net.chuck.chucksmod.block.entity.wire.CopperWireBlockEntity;
 import net.chuck.chucksmod.block.entity.wire.GoldWireBlockEntity;
@@ -24,7 +24,7 @@ import team.reborn.energy.api.EnergyStorage;
  */
 public class ModBlockEntities {
     public static BlockEntityType<CrusherBlockEntity> CRUSHER;
-    public static BlockEntityType<PoweredCrusherBlockEntity> IRON_POWERED_CRUSHER;
+    public static BlockEntityType<IronPoweredCrusherBlockEntity> IRON_POWERED_CRUSHER;
     public static BlockEntityType<IronHeatGeneratorBlockEntity> IRON_HEAT_GENERATOR;
     public static BlockEntityType<TinWireBlockEntity> TIN_WIRE;
     public static long TIN_WIRE_TRANSFER_RATE = 32;
@@ -39,7 +39,7 @@ public class ModBlockEntities {
                         ModBlocks.CRUSHER).build());
         IRON_POWERED_CRUSHER = Registry.register(Registries.BLOCK_ENTITY_TYPE,
                 new Identifier(ChucksMod.MOD_ID, "powered_crusher"),
-                FabricBlockEntityTypeBuilder.create(PoweredCrusherBlockEntity::new,
+                FabricBlockEntityTypeBuilder.create(IronPoweredCrusherBlockEntity::new,
                         ModBlocks.IRON_POWERED_CRUSHER).build());
         // Cables can now connect to block entity
         EnergyStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.energyStorage,
@@ -53,20 +53,17 @@ public class ModBlockEntities {
                 IRON_HEAT_GENERATOR);
         TIN_WIRE = Registry.register(Registries.BLOCK_ENTITY_TYPE,
                 new Identifier(ChucksMod.MOD_ID, "tin_wire"),
-                FabricBlockEntityTypeBuilder.create((pos, state) -> new TinWireBlockEntity(pos, state,
-                                TIN_WIRE_TRANSFER_RATE), ModBlocks.TIN_WIRE).build());
+                FabricBlockEntityTypeBuilder.create(TinWireBlockEntity::new, ModBlocks.TIN_WIRE).build());
         EnergyStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.energyStorage,
                 TIN_WIRE);
         COPPER_WIRE = Registry.register(Registries.BLOCK_ENTITY_TYPE,
                 new Identifier(ChucksMod.MOD_ID, "copper_wire"),
-                FabricBlockEntityTypeBuilder.create((pos, state) -> new CopperWireBlockEntity(pos, state,
-                                COPPER_WIRE_TRANSFER_RATE), ModBlocks.COPPER_WIRE).build());
+                FabricBlockEntityTypeBuilder.create(CopperWireBlockEntity::new, ModBlocks.COPPER_WIRE).build());
         EnergyStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.energyStorage,
                 COPPER_WIRE);
         GOLD_WIRE = Registry.register(Registries.BLOCK_ENTITY_TYPE,
                 new Identifier(ChucksMod.MOD_ID, "gold_wire"),
-                FabricBlockEntityTypeBuilder.create((pos, state) -> new GoldWireBlockEntity(pos, state,
-                                GOLD_WIRE_TRANSFER_RATE), ModBlocks.GOLD_WIRE).build());
+                FabricBlockEntityTypeBuilder.create(GoldWireBlockEntity::new, ModBlocks.GOLD_WIRE).build());
         EnergyStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.energyStorage,
                 GOLD_WIRE);
     }

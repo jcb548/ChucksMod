@@ -62,9 +62,9 @@ public class WireTickManager {
                 networkAmount = networkCapacity;
             }
             // Pull energy from storages.
-            networkAmount += dispatchTransfer(EnergyStorage::extract, networkCapacity - networkAmount, start.TRANSFER_RATE);
+            networkAmount += dispatchTransfer(EnergyStorage::extract, networkCapacity - networkAmount, start.getTransferRate());
             // Push energy into storages
-            networkAmount -= dispatchTransfer(EnergyStorage::insert, networkAmount, start.TRANSFER_RATE);
+            networkAmount -= dispatchTransfer(EnergyStorage::insert, networkAmount, start.getTransferRate());
             // split energy evenly across wires
             int wireCount = wires.size();
             for(WireBlockEntity wire : wires){
@@ -123,7 +123,7 @@ public class WireTickManager {
                 int remainingTargets = sortedTargets.size()-i;
                 long remainingAmount = maxAmount - transferredAmount;
                 // Limit max amount to the cable transfer rate.
-                long targetMaxAmount = Math.min(remainingAmount/remainingTargets, transferRate);
+                long targetMaxAmount = Math.min((remainingAmount/remainingTargets), transferRate);
                 long localTransferred = operation.transfer(target.storage.storage(), targetMaxAmount, transaction);
                 if(localTransferred > 0){
                     transferredAmount += localTransferred;

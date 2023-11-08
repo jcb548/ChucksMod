@@ -24,7 +24,7 @@ public class TinWireBlock extends WireBlock{
 
     @Override
     public @Nullable BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
-        return new TinWireBlockEntity(pos, state, TRANSFER_RATE);
+        return new TinWireBlockEntity(pos, state);
     }
 
     @Override

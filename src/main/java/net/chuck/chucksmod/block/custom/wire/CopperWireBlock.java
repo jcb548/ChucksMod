@@ -24,7 +24,7 @@ public class CopperWireBlock extends WireBlock{
 
     @Override
     public @Nullable BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
-        return new CopperWireBlockEntity(pos, state, TRANSFER_RATE);
+        return new CopperWireBlockEntity(pos, state);
     }
 
     @Override

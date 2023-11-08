@@ -30,6 +30,9 @@ public class ModBlockTags {
     public static final TagKey<Block> FABIUM_ORES = ModBlockTags.of("fabium_ores");
     public static final TagKey<Block> DIRITONIUM_ORES = ModBlockTags.of("diritonium_ores");
     public static final TagKey<Block> DUST_BLOCKS = ModBlockTags.of("dust_blocks");
+    public static final TagKey<Block> CRUSHERS = ModBlockTags.of("crushers");
+    public static final TagKey<Block> GENERATORS = ModBlockTags.of("generators");
+    public static final TagKey<Block> MACHINE_BASES = ModBlockTags.of("machine_bases");
 
     private static TagKey<Block> of(String id) {
         return TagKey.of(RegistryKeys.BLOCK, new Identifier(ChucksMod.MOD_ID, id));

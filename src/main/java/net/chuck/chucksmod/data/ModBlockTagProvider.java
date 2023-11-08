@@ -265,5 +265,17 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         getOrCreateTagBuilder(ModBlockTags.DIRITONIUM_ORES)
                 .add(ModBlocks.END_STONE_DIRITONIUM_ORE)
                 .add(ModBlocks.DEEPSLATE_DIRITONIUM_ORE);
+
+        getOrCreateTagBuilder(ModBlockTags.CRUSHERS)
+                .add(ModBlocks.CRUSHER)
+                .add(ModBlocks.IRON_POWERED_CRUSHER);
+
+        getOrCreateTagBuilder(ModBlockTags.GENERATORS)
+                .add(ModBlocks.IRON_HEAT_GENERATOR);
+
+        getOrCreateTagBuilder(ModBlockTags.MACHINE_BASES)
+                .add(ModBlocks.IRON_MACHINE_BASE)
+                .add(ModBlocks.TITANIUM_MACHINE_BASE);
+
     }
 }

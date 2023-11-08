@@ -28,28 +28,20 @@ public abstract class AbstractGeneratorBlockEntity extends BlockEntity implement
         ImplementedInventory {
     public static final int BURN_TIME_IDX = 0;
     public static final int FUEL_TIME_IDX = 1;
-    public static final int STORAGE_SIZE_IDX = 2;
-    public static final int GENERATION_SPEED_IDX = 3;
-    public static final int DELEGATE_SIZE = 4;
+    public static final int DELEGATE_SIZE = 2;
     protected PropertyDelegate propertyDelegate;
     public SimpleEnergyStorage energyStorage;
     protected int burnTime = 0;
     protected int fuelTime = 0;
-    public int energyStorageSize;
-    public int generationSpeed;
     public AbstractGeneratorBlockEntity(BlockEntityType type, BlockPos pos, BlockState state,
                                         int generationSpeed, int energyStorageSize) {
         super(type, pos, state);
-        this.generationSpeed = generationSpeed;
-        this.energyStorageSize = energyStorageSize;
         this.propertyDelegate = new PropertyDelegate() {
             @Override
             public int get(int index) {
                 switch (index){
                     case BURN_TIME_IDX: return AbstractGeneratorBlockEntity.this.burnTime;
                     case FUEL_TIME_IDX: return AbstractGeneratorBlockEntity.this.fuelTime;
-                    case STORAGE_SIZE_IDX: return AbstractGeneratorBlockEntity.this.energyStorageSize;
-                    case GENERATION_SPEED_IDX: return AbstractGeneratorBlockEntity.this.generationSpeed;
                     default: return BURN_TIME_IDX;
                 }
             }
@@ -58,8 +50,6 @@ public abstract class AbstractGeneratorBlockEntity extends BlockEntity implement
                 switch (index) {
                     case BURN_TIME_IDX: AbstractGeneratorBlockEntity.this.burnTime = value; break;
                     case FUEL_TIME_IDX: AbstractGeneratorBlockEntity.this.fuelTime = value; break;
-                    case STORAGE_SIZE_IDX: AbstractGeneratorBlockEntity.this.energyStorageSize = value; break;
-                    case GENERATION_SPEED_IDX: AbstractGeneratorBlockEntity.this.generationSpeed = value; break;
                 }
             }
             @Override
@@ -80,7 +70,6 @@ public abstract class AbstractGeneratorBlockEntity extends BlockEntity implement
                         ServerPlayNetworking.send(player, ModMessages.ENERGY_SYNC, data);
                     }
                 }
-
             }
             @Override
             public boolean supportsInsertion() {
@@ -93,10 +82,13 @@ public abstract class AbstractGeneratorBlockEntity extends BlockEntity implement
     public void writeScreenOpeningData(ServerPlayerEntity player, PacketByteBuf buf) {
         buf.writeBlockPos(this.pos);
     }
+    public abstract int getGeneration();
+    public abstract int getMaxExtract();
+    public abstract int getEnergyStorageCapacity();
 
     protected void generateEnergy() {
         try(Transaction transaction = Transaction.openOuter()){
-            this.energyStorage.insert(generationSpeed, transaction);
+            this.energyStorage.insert(this.getGeneration(), transaction);
             transaction.commit();
         }
     }
@@ -109,12 +101,12 @@ public abstract class AbstractGeneratorBlockEntity extends BlockEntity implement
         if (world.isClient()){
             return;
         }
-        if (!this.isGenerating() && this.energyStorage.amount < this.energyStorageSize){
-            this.useFuel();
-        }
         if (this.isGenerating()){
             --this.burnTime;
             this.generateEnergy();
+        }
+        if (!this.isGenerating() && this.energyStorage.amount < this.getEnergyStorageCapacity()){
+            this.useFuel();
         }
         if (burning_start_of_tick != this.isGenerating()){
             blockState = (BlockState)blockState.with(AbstractFurnaceBlock.LIT, this.isGenerating());
@@ -124,7 +116,7 @@ public abstract class AbstractGeneratorBlockEntity extends BlockEntity implement
         for (Direction side : Direction.values()){
             BlockEntity entity = world.getBlockEntity(getPos().offset(side));
             EnergyStorageUtil.move(this.energyStorage, EnergyStorage.SIDED.find(world, pos.offset(side),
-                    side.getOpposite()), generationSpeed, null);
+                    side.getOpposite()), getMaxExtract(), null);
         }
     }
     @Override

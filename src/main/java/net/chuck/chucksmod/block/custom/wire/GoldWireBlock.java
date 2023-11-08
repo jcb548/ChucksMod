@@ -24,7 +24,7 @@ public class GoldWireBlock extends WireBlock{
 
     @Override
     public @Nullable BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
-        return new GoldWireBlockEntity(pos, state, TRANSFER_RATE);
+        return new GoldWireBlockEntity(pos, state);
     }
 
     @Override

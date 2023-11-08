@@ -1,7 +1,7 @@
 package net.chuck.chucksmod.block.custom.crusher;
 
 import net.chuck.chucksmod.block.entity.ModBlockEntities;
-import net.chuck.chucksmod.block.entity.crusher.PoweredCrusherBlockEntity;
+import net.chuck.chucksmod.block.entity.crusher.IronPoweredCrusherBlockEntity;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
@@ -30,8 +30,8 @@ public class PoweredCrusherBlock extends AbstractCrusherBlock {
     public void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
         if (state.getBlock() != newState.getBlock()) {
             BlockEntity blockEntity = world.getBlockEntity(pos);
-            if (blockEntity instanceof PoweredCrusherBlockEntity) {
-                ItemScatterer.spawn(world, pos, (PoweredCrusherBlockEntity)blockEntity);
+            if (blockEntity instanceof IronPoweredCrusherBlockEntity) {
+                ItemScatterer.spawn(world, pos, (IronPoweredCrusherBlockEntity)blockEntity);
                 world.updateComparators(pos, this);
             }
             super.onStateReplaced(state, world, pos, newState, moved);
@@ -41,7 +41,7 @@ public class PoweredCrusherBlock extends AbstractCrusherBlock {
     public ActionResult onUse(BlockState state, World world, BlockPos pos,
                               PlayerEntity player, Hand hand, BlockHitResult hit) {
         if (!world.isClient) {
-            NamedScreenHandlerFactory screenHandlerFactory = ((PoweredCrusherBlockEntity) world.getBlockEntity(pos));
+            NamedScreenHandlerFactory screenHandlerFactory = ((IronPoweredCrusherBlockEntity) world.getBlockEntity(pos));
             if(screenHandlerFactory != null){
                 player.openHandledScreen(screenHandlerFactory);
             }
@@ -52,7 +52,7 @@ public class PoweredCrusherBlock extends AbstractCrusherBlock {
     @Nullable
     @Override
     public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
-        return new PoweredCrusherBlockEntity(pos, state);
+        return new IronPoweredCrusherBlockEntity(pos, state);
     }
 
     @Nullable

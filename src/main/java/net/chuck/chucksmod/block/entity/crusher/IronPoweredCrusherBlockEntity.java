@@ -1,6 +1,7 @@
 package net.chuck.chucksmod.block.entity.crusher;
 
 import net.chuck.chucksmod.block.entity.ModBlockEntities;
+import net.chuck.chucksmod.block.entity.tiers.IronTier;
 import net.chuck.chucksmod.networking.ModMessages;
 import net.chuck.chucksmod.screen.crusher.PoweredCrusherScreenHandler;
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
@@ -35,12 +36,9 @@ import team.reborn.energy.api.base.SimpleEnergyStorage;
  *  This code is licensed under MIT License
  *  Details can be found in the license file in the root folder of this project
  */
-public class PoweredCrusherBlockEntity extends AbstractCrusherBlockEntity {
-    public static final int MAX_INSERT = 128;
-    public static final int MAX_EXTRACT = MAX_INSERT;
+public class IronPoweredCrusherBlockEntity extends AbstractCrusherBlockEntity implements IronTier {
     public static final int DELEGATE_SIZE = 2;
     public static final int INV_SIZE = 2;
-    public static final int ENERGY_STORAGE = 30000;
     private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(INV_SIZE, ItemStack.EMPTY);
     public final SimpleEnergyStorage energyStorage = new SimpleEnergyStorage(ENERGY_STORAGE, MAX_INSERT, MAX_EXTRACT){
         @Override
@@ -56,21 +54,16 @@ public class PoweredCrusherBlockEntity extends AbstractCrusherBlockEntity {
                 }
             }
         }
-
-        @Override
-        public boolean supportsExtraction() {
-            return false;
-        }
     };
     protected final PropertyDelegate propertyDelegate;
-    public PoweredCrusherBlockEntity(BlockPos pos, BlockState state) {
+    public IronPoweredCrusherBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.IRON_POWERED_CRUSHER, pos, state);
         this.propertyDelegate = new PropertyDelegate() {
             @Override
             public int get(int index) {
                 switch (index){
-                    case PROGRESS_IDX: return PoweredCrusherBlockEntity.this.progress;
-                    case MAX_PROGRESS_IDX: return PoweredCrusherBlockEntity.this.maxProgress;
+                    case PROGRESS_IDX: return IronPoweredCrusherBlockEntity.this.progress;
+                    case MAX_PROGRESS_IDX: return IronPoweredCrusherBlockEntity.this.maxProgress;
                     default: return PROGRESS_IDX;
                 }
             }
@@ -78,8 +71,8 @@ public class PoweredCrusherBlockEntity extends AbstractCrusherBlockEntity {
             @Override
             public void set(int index, int value) {
                 switch (index) {
-                    case PROGRESS_IDX: PoweredCrusherBlockEntity.this.progress = value; break;
-                    case MAX_PROGRESS_IDX: PoweredCrusherBlockEntity.this.maxProgress = value; break;
+                    case PROGRESS_IDX: IronPoweredCrusherBlockEntity.this.progress = value; break;
+                    case MAX_PROGRESS_IDX: IronPoweredCrusherBlockEntity.this.maxProgress = value; break;
                 }
             }
             @Override
@@ -144,7 +137,7 @@ public class PoweredCrusherBlockEntity extends AbstractCrusherBlockEntity {
 
     private void extractEnergy() {
         try(Transaction transaction = Transaction.openOuter()){
-            this.energyStorage.extract(32, transaction);
+            this.energyStorage.extract(USAGE, transaction);
             transaction.commit();
         }
     }

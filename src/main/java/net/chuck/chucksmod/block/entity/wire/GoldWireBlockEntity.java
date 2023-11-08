@@ -5,7 +5,12 @@ import net.minecraft.block.BlockState;
 import net.minecraft.util.math.BlockPos;
 
 public class GoldWireBlockEntity extends WireBlockEntity{
-    public GoldWireBlockEntity(BlockPos pos, BlockState state, long transferRate) {
-        super(ModBlockEntities.GOLD_WIRE, pos, state, transferRate);
+    public GoldWireBlockEntity(BlockPos pos, BlockState state) {
+        super(ModBlockEntities.GOLD_WIRE, pos, state);
+    }
+
+    @Override
+    public long getTransferRate() {
+        return 512;
     }
 }
