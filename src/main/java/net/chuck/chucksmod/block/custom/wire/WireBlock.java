@@ -49,7 +49,6 @@ import java.util.Map;
  */
 
 public abstract class WireBlock extends BlockWithEntity {
-    public final long TRANSFER_RATE;
     public static final BooleanProperty EAST = BooleanProperty.of("east");
     public static final BooleanProperty WEST = BooleanProperty.of("west");
     public static final BooleanProperty NORTH = BooleanProperty.of("north");
@@ -64,7 +63,7 @@ public abstract class WireBlock extends BlockWithEntity {
         map.put(Direction.UP, UP);
         map.put(Direction.DOWN, DOWN);
     });
-    public WireBlock(Settings settings, long transferRate) {
+    public WireBlock(Settings settings) {
         super(settings);
         setDefaultState(this.getStateManager().getDefaultState()
                 .with(EAST, false)
@@ -74,7 +73,6 @@ public abstract class WireBlock extends BlockWithEntity {
                 .with(UP, false)
                 .with(DOWN, false)
         );
-        TRANSFER_RATE = transferRate;
     }
 
     @Nullable

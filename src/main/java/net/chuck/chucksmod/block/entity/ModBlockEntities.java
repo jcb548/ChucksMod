@@ -5,6 +5,7 @@ import net.chuck.chucksmod.block.ModBlocks;
 import net.chuck.chucksmod.block.entity.crusher.CrusherBlockEntity;
 import net.chuck.chucksmod.block.entity.crusher.IronPoweredCrusherBlockEntity;
 import net.chuck.chucksmod.block.entity.generator.IronHeatGeneratorBlockEntity;
+import net.chuck.chucksmod.block.entity.generator.TitaniumHeatGeneratorBlockEntity;
 import net.chuck.chucksmod.block.entity.wire.CopperWireBlockEntity;
 import net.chuck.chucksmod.block.entity.wire.GoldWireBlockEntity;
 import net.chuck.chucksmod.block.entity.wire.TinWireBlockEntity;
@@ -27,11 +28,9 @@ public class ModBlockEntities {
     public static BlockEntityType<IronPoweredCrusherBlockEntity> IRON_POWERED_CRUSHER;
     public static BlockEntityType<IronHeatGeneratorBlockEntity> IRON_HEAT_GENERATOR;
     public static BlockEntityType<TinWireBlockEntity> TIN_WIRE;
-    public static long TIN_WIRE_TRANSFER_RATE = 32;
     public static BlockEntityType<CopperWireBlockEntity> COPPER_WIRE;
-    public static long COPPER_WIRE_TRANSFER_RATE = 128;
     public static BlockEntityType<GoldWireBlockEntity> GOLD_WIRE;
-    public static long GOLD_WIRE_TRANSFER_RATE = 512;
+    public static BlockEntityType<TitaniumHeatGeneratorBlockEntity> TITANIUM_HEAT_GENERATOR;
     public static void registerBlockEntities() {
         CRUSHER = Registry.register(Registries.BLOCK_ENTITY_TYPE,
                 new Identifier(ChucksMod.MOD_ID, "crusher"),
@@ -45,10 +44,9 @@ public class ModBlockEntities {
         EnergyStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.energyStorage,
                 IRON_POWERED_CRUSHER);
         IRON_HEAT_GENERATOR = Registry.register(Registries.BLOCK_ENTITY_TYPE,
-                new Identifier(ChucksMod.MOD_ID, "generator"),
+                new Identifier(ChucksMod.MOD_ID, "iron_heat_generator"),
                 FabricBlockEntityTypeBuilder.create(IronHeatGeneratorBlockEntity::new,
                         ModBlocks.IRON_HEAT_GENERATOR).build());
-        // Cables can now connect to block entity
         EnergyStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.energyStorage,
                 IRON_HEAT_GENERATOR);
         TIN_WIRE = Registry.register(Registries.BLOCK_ENTITY_TYPE,
@@ -66,5 +64,11 @@ public class ModBlockEntities {
                 FabricBlockEntityTypeBuilder.create(GoldWireBlockEntity::new, ModBlocks.GOLD_WIRE).build());
         EnergyStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.energyStorage,
                 GOLD_WIRE);
+        TITANIUM_HEAT_GENERATOR = Registry.register(Registries.BLOCK_ENTITY_TYPE,
+                new Identifier(ChucksMod.MOD_ID, "titanium_heat_generator"),
+                FabricBlockEntityTypeBuilder.create(TitaniumHeatGeneratorBlockEntity::new,
+                        ModBlocks.TITANIUM_HEAT_GENERATOR).build());
+        EnergyStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.energyStorage,
+                TITANIUM_HEAT_GENERATOR);
     }
 }

@@ -18,8 +18,8 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 public class GoldWireBlock extends WireBlock{
-    public GoldWireBlock(Settings settings, long transferRate) {
-        super(settings, transferRate);
+    public GoldWireBlock(Settings settings) {
+        super(settings);
     }
 
     @Override

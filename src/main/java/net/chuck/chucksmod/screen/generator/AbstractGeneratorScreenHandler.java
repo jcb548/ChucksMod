@@ -1,6 +1,6 @@
 package net.chuck.chucksmod.screen.generator;
 
-import net.chuck.chucksmod.block.entity.generator.AbstractGeneratorBlockEntity;
+import net.chuck.chucksmod.block.entity.generator.AbstractHeatGeneratorBlockEntity;
 import net.chuck.chucksmod.block.entity.generator.IronHeatGeneratorBlockEntity;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -16,14 +16,14 @@ public abstract class AbstractGeneratorScreenHandler extends ScreenHandler {
     protected final Inventory inventory;
     protected final PropertyDelegate propertyDelegate;
     protected AbstractGeneratorScreenHandler(int syncId, PlayerInventory playerInventory, BlockEntity entity,
-                                             PropertyDelegate delegate, ScreenHandlerType<?> type) {
+                                             PropertyDelegate delegate, ScreenHandlerType type) {
         super(type, syncId);
-        checkSize(((Inventory) entity), IronHeatGeneratorBlockEntity.INV_SIZE);
+        checkSize(((Inventory) entity), AbstractHeatGeneratorBlockEntity.INV_SIZE);
         this.inventory = (Inventory) entity;
         inventory.onOpen(playerInventory.player);
         this.propertyDelegate = delegate;
 
-        this.addSlot(new Slot(inventory, IronHeatGeneratorBlockEntity.FUEL_SLOT, 80, 39));
+        this.addSlot(new Slot(inventory, AbstractHeatGeneratorBlockEntity.FUEL_SLOT, 80, 39));
 
         addPlayerInventory(playerInventory);
         addPlayerHotbar(playerInventory);

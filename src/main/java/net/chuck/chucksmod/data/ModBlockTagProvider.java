@@ -271,7 +271,8 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.IRON_POWERED_CRUSHER);
 
         getOrCreateTagBuilder(ModBlockTags.GENERATORS)
-                .add(ModBlocks.IRON_HEAT_GENERATOR);
+                .add(ModBlocks.IRON_HEAT_GENERATOR)
+                .add(ModBlocks.TITANIUM_HEAT_GENERATOR);
 
         getOrCreateTagBuilder(ModBlockTags.MACHINE_BASES)
                 .add(ModBlocks.IRON_MACHINE_BASE)

@@ -18,8 +18,8 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 public class CopperWireBlock extends WireBlock{
-    public CopperWireBlock(Settings settings, long transferRate) {
-        super(settings, transferRate);
+    public CopperWireBlock(Settings settings) {
+        super(settings);
     }
 
     @Override

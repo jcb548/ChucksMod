@@ -9,6 +9,7 @@ import net.chuck.chucksmod.block.custom.*;
 import net.chuck.chucksmod.block.custom.crusher.CrusherBlock;
 import net.chuck.chucksmod.block.custom.crusher.PoweredCrusherBlock;
 import net.chuck.chucksmod.block.custom.generator.IronHeatGeneratorBlock;
+import net.chuck.chucksmod.block.custom.generator.TitaniumHeatGeneratorBlock;
 import net.chuck.chucksmod.block.custom.wire.CopperWireBlock;
 import net.chuck.chucksmod.block.custom.wire.GoldWireBlock;
 import net.chuck.chucksmod.block.custom.wire.TinWireBlock;
@@ -47,13 +48,13 @@ public class ModBlocks {
     public static final Block COPPER_BARS = registerBlock("copper_bars",
             new PaneBlock(FabricBlockSettings.copy(Blocks.IRON_BARS).strength(3.0f, 6.0f)));
     public static final Block COPPER_WIRE = registerBlock("copper_wire",
-            new CopperWireBlock(FabricBlockSettings.copy(Blocks.COPPER_BLOCK), ModBlockEntities.COPPER_WIRE_TRANSFER_RATE));
+            new CopperWireBlock(FabricBlockSettings.copy(Blocks.COPPER_BLOCK)));
     public static final Block GOLD_DUST_BLOCK = registerBlock("gold_dust_block",
             new FallingBlock(FabricBlockSettings.copy(Blocks.SAND)));
     public static final Block GOLD_BARS = registerBlock("gold_bars",
             new PaneBlock(FabricBlockSettings.copy(Blocks.IRON_BARS).strength(3.0f, 6.0f)));
     public static final Block GOLD_WIRE = registerBlock("gold_wire",
-            new GoldWireBlock(FabricBlockSettings.copy(Blocks.GOLD_BLOCK), ModBlockEntities.GOLD_WIRE_TRANSFER_RATE));
+            new GoldWireBlock(FabricBlockSettings.copy(Blocks.GOLD_BLOCK)));
     public static final Block PRISMARINE_DUST_BLOCK = registerBlock("prismarine_dust_block",
             new FallingBlock(FabricBlockSettings.copy(Blocks.SAND)));
     public static final Block PRISMARINE_IRON_DUST_BLOCK = registerBlock("prismarine_iron_dust_block",
@@ -148,7 +149,7 @@ public class ModBlocks {
             new IronHeatGeneratorBlock(FabricBlockSettings.copy(Blocks.SMOOTH_STONE)));
 
     public static final Block TIN_WIRE = registerBlock("tin_wire",
-            new TinWireBlock(FabricBlockSettings.copy(ModBlocks.TIN_BLOCK), ModBlockEntities.TIN_WIRE_TRANSFER_RATE));
+            new TinWireBlock(FabricBlockSettings.copy(ModBlocks.TIN_BLOCK)));
     //Titanium
     public static final Block TITANIUM_BLOCK = registerBlock("titanium_block",
             new Block(FabricBlockSettings.copy(Blocks.IRON_BLOCK).strength(6.0f, 7.0f)));
@@ -160,7 +161,6 @@ public class ModBlocks {
             new Block(FabricBlockSettings.copy(Blocks.IRON_ORE)));
     public static final Block DEEPSLATE_TITANIUM_ORE = registerBlock("deepslate_titanium_ore",
             new Block(FabricBlockSettings.copy(Blocks.DEEPSLATE_IRON_ORE)));
-
     public static final Block NETHER_TITANIUM_ORE = registerBlock("nether_titanium_ore",
             new Block(FabricBlockSettings.copy(Blocks.NETHERRACK).strength(3.0f, 3.0f)));
     public static final Block END_STONE_TITANIUM_ORE = registerBlock("endstone_titanium_ore",
@@ -168,7 +168,10 @@ public class ModBlocks {
     public static final Block TITANIUM_BARS = registerBlock("titanium_bars",
             new PaneBlock(FabricBlockSettings.copy(Blocks.IRON_BARS).strength(3.0f, 6.0f)));
     public static final Block TITANIUM_MACHINE_BASE = registerBlock("titanium_machine_base",
-            new Block(FabricBlockSettings.copy(ModBlocks.TITANIUM_BLOCK).nonOpaque().strength(6.0f, 7.0f)));
+            new Block(FabricBlockSettings.copy(ModBlocks.TITANIUM_BLOCK).nonOpaque()
+                    .strength(6.0f, 7.0f)));
+    public static final Block TITANIUM_HEAT_GENERATOR = registerBlock("titanium_heat_generator",
+            new TitaniumHeatGeneratorBlock(FabricBlockSettings.copy(ModBlocks.TITANIUM_BLOCK)));
     // Fabium
     public static final Block FABIUM_BLOCK = registerBlock("fabium_block",
             new Block(FabricBlockSettings.copy(Blocks.GOLD_BLOCK)));

@@ -8,7 +8,9 @@ import net.chuck.chucksmod.screen.bag.BagScreenHandler9x1;
 import net.chuck.chucksmod.screen.bag.BagScreenHandler7x2;
 import net.chuck.chucksmod.screen.crusher.CrusherScreenHandler;
 import net.chuck.chucksmod.screen.crusher.PoweredCrusherScreenHandler;
-import net.chuck.chucksmod.screen.generator.GeneratorScreenHandler;
+import net.chuck.chucksmod.screen.generator.IronHeatGeneratorScreenHandler;
+import net.chuck.chucksmod.screen.generator.TitaniumHeatGeneratorScreen;
+import net.chuck.chucksmod.screen.generator.TitaniumHeatGeneratorScreenHandler;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -32,8 +34,10 @@ public class ModScreenHandlers {
             new ExtendedScreenHandlerType<>(CrusherScreenHandler::new);
     public static ScreenHandlerType<PoweredCrusherScreenHandler> POWERED_CRUSHER_SCREEN_HANDLER =
             new ExtendedScreenHandlerType<>(PoweredCrusherScreenHandler::new);
-    public static ScreenHandlerType<GeneratorScreenHandler> GENERATOR_SCREEN_HANDLER =
-            new ExtendedScreenHandlerType<>(GeneratorScreenHandler::new);
+    public static ScreenHandlerType<IronHeatGeneratorScreenHandler> IRON_HEAT_GENERATOR_SCREEN_HANDLER =
+            new ExtendedScreenHandlerType<>(IronHeatGeneratorScreenHandler::new);
+    public static ScreenHandlerType<TitaniumHeatGeneratorScreenHandler> TITANIUM_HEAT_GENERATOR_SCREEN_HANDLER =
+            new ExtendedScreenHandlerType<>(TitaniumHeatGeneratorScreenHandler::new);
     public static ScreenHandlerType<BagScreenHandler3x1> BAG_3X1_SCREEN_HANDLER =
             new ExtendedScreenHandlerType<>(BagScreenHandler3x1::new);
     public static ScreenHandlerType<BagScreenHandler5x1> BAG_5X1_SCREEN_HANDLER =
@@ -51,8 +55,10 @@ public class ModScreenHandlers {
                 CRUSHER_SCREEN_HANDLER);
         Registry.register(Registries.SCREEN_HANDLER, new Identifier(ChucksMod.MOD_ID, "powered_crusher"),
                 POWERED_CRUSHER_SCREEN_HANDLER);
-        Registry.register(Registries.SCREEN_HANDLER, new Identifier(ChucksMod.MOD_ID, "generator"),
-                GENERATOR_SCREEN_HANDLER);
+        Registry.register(Registries.SCREEN_HANDLER, new Identifier(ChucksMod.MOD_ID, "iron_heat_generator"),
+                IRON_HEAT_GENERATOR_SCREEN_HANDLER);
+        Registry.register(Registries.SCREEN_HANDLER, new Identifier(ChucksMod.MOD_ID, "titanium_heat_generator"),
+                TITANIUM_HEAT_GENERATOR_SCREEN_HANDLER);
         Registry.register(Registries.SCREEN_HANDLER, new Identifier(ChucksMod.MOD_ID, "bag_3x1"),
                 BAG_3X1_SCREEN_HANDLER);
         Registry.register(Registries.SCREEN_HANDLER, new Identifier(ChucksMod.MOD_ID, "bag_5x1"),

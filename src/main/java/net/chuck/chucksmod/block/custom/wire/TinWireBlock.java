@@ -18,8 +18,8 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 public class TinWireBlock extends WireBlock{
-    public TinWireBlock(Settings settings, long transferRate) {
-        super(settings, transferRate);
+    public TinWireBlock(Settings settings) {
+        super(settings);
     }
 
     @Override

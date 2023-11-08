@@ -16,7 +16,8 @@ import net.chuck.chucksmod.screen.bag.BagScreen9x1;
 import net.chuck.chucksmod.screen.bag.BagScreen7x2;
 import net.chuck.chucksmod.screen.crusher.CrusherScreen;
 import net.chuck.chucksmod.screen.crusher.PoweredCrusherScreen;
-import net.chuck.chucksmod.screen.generator.GeneratorScreen;
+import net.chuck.chucksmod.screen.generator.IronHeatGeneratorScreen;
+import net.chuck.chucksmod.screen.generator.TitaniumHeatGeneratorScreen;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
@@ -156,7 +157,9 @@ public class ChucksModClient implements ClientModInitializer {
     private void registerHandledScreens(){
         HandledScreens.register(ModScreenHandlers.CRUSHER_SCREEN_HANDLER, CrusherScreen::new);
         HandledScreens.register(ModScreenHandlers.POWERED_CRUSHER_SCREEN_HANDLER, PoweredCrusherScreen::new);
-        HandledScreens.register(ModScreenHandlers.GENERATOR_SCREEN_HANDLER, GeneratorScreen::new);
+        HandledScreens.register(ModScreenHandlers.IRON_HEAT_GENERATOR_SCREEN_HANDLER, IronHeatGeneratorScreen::new);
+        HandledScreens.register(ModScreenHandlers.TITANIUM_HEAT_GENERATOR_SCREEN_HANDLER,
+                TitaniumHeatGeneratorScreen::new);
         HandledScreens.register(ModScreenHandlers.BAG_3X1_SCREEN_HANDLER, BagScreen3x1::new);
         HandledScreens.register(ModScreenHandlers.BAG_5X1_SCREEN_HANDLER, BagScreen5x1::new);
         HandledScreens.register(ModScreenHandlers.BAG_7X1_SCREEN_HANDLER, BagScreen7x1::new);
