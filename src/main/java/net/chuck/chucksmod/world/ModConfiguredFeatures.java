@@ -85,8 +85,6 @@ public class ModConfiguredFeatures {
             registerKey("diritia_copper_ore");
     public static final RegistryKey<ConfiguredFeature<?, ?>> DIRITIA_CALCITE_VEIN_KEY =
             registerKey("diritia_calcite_vein");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> DIRITIA_SLATED_VEIN_KEY =
-            registerKey("diritia_slated_vein");
     public static final RegistryKey<ConfiguredFeature<?, ?>> DIRITIA_BLACKSTONE_VEIN_KEY =
             registerKey("diritia_blackstone_vein");
     public static final RegistryKey<ConfiguredFeature<?, ?>> DIRITIA_ENDSTONE_VEIN_KEY =
@@ -200,9 +198,6 @@ public class ModConfiguredFeatures {
         List<OreFeatureConfig.Target> diritiaCalcite =
                 List.of(OreFeatureConfig.createTarget(deepslateReplaceables,
                         Blocks.CALCITE.getDefaultState()));
-        List<OreFeatureConfig.Target> diritiaSlatedVein =
-                List.of(OreFeatureConfig.createTarget(deepslateReplaceables,
-                        ModBlocks.SLATED_DIRT.getDefaultState()));
         List<OreFeatureConfig.Target> diritiaBlackstoneVein =
                 List.of(OreFeatureConfig.createTarget(deepslateReplaceables,
                         Blocks.BLACKSTONE.getDefaultState()));
@@ -263,7 +258,6 @@ public class ModConfiguredFeatures {
         register(context, DIRITIA_LAPIS_ORE_KEY, Feature.ORE, new OreFeatureConfig(diritiaLapisOre, 6));
         register(context, DIRITIA_COPPER_ORE_KEY, Feature.ORE, new OreFeatureConfig(diritiaCopperOre, 16));
         register(context, DIRITIA_CALCITE_VEIN_KEY, Feature.ORE, new OreFeatureConfig(diritiaCalcite, 64));
-        register(context, DIRITIA_SLATED_VEIN_KEY, Feature.ORE, new OreFeatureConfig(diritiaSlatedVein, 64));
         register(context, DIRITIA_BLACKSTONE_VEIN_KEY, Feature.ORE, new OreFeatureConfig(diritiaBlackstoneVein, 64));
         register(context, DIRITIA_ENDSTONE_VEIN_KEY, Feature.ORE, new OreFeatureConfig(diritiaEndstoneVein, 64));
     }

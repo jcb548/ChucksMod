@@ -76,14 +76,25 @@ public class ModBlockLootTableGenerator extends FabricBlockLootTableProvider {
 
         addDrop(ModBlocks.TIN_DUST_BLOCK);
         addDrop(ModBlocks.TIN_BLOCK);
+        addDrop(ModBlocks.RAW_TIN_BLOCK);
         addDrop(ModBlocks.TIN_BARS);
         addDrop(ModBlocks.TIN_ORE, oreDrops(ModBlocks.TIN_ORE, ModItems.RAW_TIN));
         addDrop(ModBlocks.DEEPSLATE_TIN_ORE, oreDrops(ModBlocks.DEEPSLATE_TIN_ORE, ModItems.RAW_TIN));
+        addDrop(ModBlocks.TIN_WIRE);
 
         addDrop(ModBlocks.BRONZE_BLOCK);
         addDrop(ModBlocks.BRONZE_DUST_BLOCK);
         addDrop(ModBlocks.BRONZE_BARS);
 
+        addDrop(ModBlocks.TITANIUM_DUST_BLOCK);
+        addDrop(ModBlocks.TITANIUM_BLOCK);
+        addDrop(ModBlocks.RAW_TITANIUM_BLOCK);
+        addDrop(ModBlocks.TITANIUM_BARS);
+        addDrop(ModBlocks.TITANIUM_ORE, oreDrops(ModBlocks.TITANIUM_ORE, ModItems.RAW_TITANIUM));
+        addDrop(ModBlocks.DEEPSLATE_TITANIUM_ORE, oreDrops(ModBlocks.DEEPSLATE_TITANIUM_ORE, ModItems.RAW_TITANIUM));
+        addDrop(ModBlocks.NETHER_TITANIUM_ORE, oreDrops(ModBlocks.NETHER_TITANIUM_ORE, ModItems.RAW_TITANIUM));
+        addDrop(ModBlocks.END_STONE_TITANIUM_ORE, oreDrops(ModBlocks.END_STONE_TITANIUM_ORE, ModItems.RAW_TITANIUM));
+        
         addDrop(ModBlocks.RAW_FABIUM_BLOCK);
         addDrop(ModBlocks.FABIUM_BLOCK);
         addDrop(ModBlocks.NETHER_FABIUM_ORE, oreDrops(ModBlocks.NETHER_FABIUM_ORE, ModItems.RAW_FABIUM));
@@ -113,9 +124,6 @@ public class ModBlockLootTableGenerator extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.EUCALYPTUS_STAIRS);
         addDrop(ModBlocks.EUCALYPTUS_SLAB, slabDrops(ModBlocks.EUCALYPTUS_SLAB));
 
-        addDrop(ModBlocks.SLATED_DIRT);
-        addDrop(ModBlocks.SLATED_GRASS);
-
         addDrop(ModBlocks.DIRITIA_SAPLING);
         addDrop(ModBlocks.DIRITIA_LOG);
         addDrop(ModBlocks.DIRITIA_WOOD);
@@ -134,8 +142,13 @@ public class ModBlockLootTableGenerator extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.DIRITIA_PLANT, grassDrops(ModBlocks.DIRITIA_PLANT));
         addDrop(ModBlocks.DIRITIA_LIGHT_PLANT);
 
+        addDrop(ModBlocks.IRON_MACHINE_BASE);;
         addDrop(ModBlocks.CRUSHER);
         addDrop(ModBlocks.IRON_POWERED_CRUSHER);
+        addDrop(ModBlocks.IRON_HEAT_GENERATOR);
+
+        addDrop(ModBlocks.COPPER_WIRE);
+        addDrop(ModBlocks.GOLD_WIRE);
 
         BlockStatePropertyLootCondition.Builder tomatoCropBuilder = BlockStatePropertyLootCondition.builder
                         (ModBlocks.TOMATO_CROP).properties(StatePredicate.Builder.create()

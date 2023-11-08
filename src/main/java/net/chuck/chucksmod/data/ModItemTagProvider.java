@@ -1,5 +1,6 @@
 package net.chuck.chucksmod.data;
 
+import dev.architectury.platform.Mod;
 import net.chuck.chucksmod.block.ModBlocks;
 import net.chuck.chucksmod.item.ModItemTags;
 import net.chuck.chucksmod.item.ModItems;
@@ -30,6 +31,10 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.BRONZE_CHESTPLATE)
                 .add(ModItems.BRONZE_LEGGINGS)
                 .add(ModItems.BRONZE_BOOTS)
+                .add(ModItems.TITANIUM_HELMET)
+                .add(ModItems.TITANIUM_CHESTPLATE)
+                .add(ModItems.TITANIUM_LEGGINGS)
+                .add(ModItems.TITANIUM_BOOTS)
                 .add(ModItems.PRISMARINE_HELMET)
                 .add(ModItems.PRISMARINE_CHESTPLATE)
                 .add(ModItems.PRISMARINE_LEGGINGS)
@@ -75,35 +80,40 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.FABIUM_SWORD)
                 .add(ModItems.WITHER_SWORD)
                 .add(ModItems.PRISMARINE_SWORD)
-                .add(ModItems.DIRITONIUM_SWORD);
+                .add(ModItems.DIRITONIUM_SWORD)
+                .add(ModItems.TITANIUM_SWORD);
 
         getOrCreateTagBuilder(ItemTags.PICKAXES)
                 .add(ModItems.BRONZE_PICKAXE)
                 .add(ModItems.FABIUM_PICKAXE)
                 .add(ModItems.WITHER_PICKAXE)
                 .add(ModItems.PRISMARINE_PICKAXE)
-                .add(ModItems.DIRITONIUM_PICKAXE);
+                .add(ModItems.DIRITONIUM_PICKAXE)
+                .add(ModItems.TITANIUM_PICKAXE);
 
         getOrCreateTagBuilder(ItemTags.AXES)
                 .add(ModItems.BRONZE_AXE)
                 .add(ModItems.FABIUM_AXE)
                 .add(ModItems.WITHER_AXE)
                 .add(ModItems.PRISMARINE_AXE)
-                .add(ModItems.DIRITONIUM_AXE);
+                .add(ModItems.DIRITONIUM_AXE)
+                .add(ModItems.TITANIUM_AXE);
 
         getOrCreateTagBuilder(ItemTags.SHOVELS)
                 .add(ModItems.BRONZE_SHOVEL)
                 .add(ModItems.FABIUM_SHOVEL)
                 .add(ModItems.WITHER_SHOVEL)
                 .add(ModItems.PRISMARINE_SHOVEL)
-                .add(ModItems.DIRITONIUM_SHOVEL);
+                .add(ModItems.DIRITONIUM_SHOVEL)
+                .add(ModItems.TITANIUM_SHOVEL);
 
         getOrCreateTagBuilder(ItemTags.HOES)
                 .add(ModItems.BRONZE_HOE)
                 .add(ModItems.FABIUM_HOE)
                 .add(ModItems.WITHER_HOE)
                 .add(ModItems.PRISMARINE_HOE)
-                .add(ModItems.DIRITONIUM_HOE);
+                .add(ModItems.DIRITONIUM_HOE)
+                .add(ModItems.TITANIUM_HOE);
 
         getOrCreateTagBuilder(ModItemTags.TIN_INGOTS)
                 .add(ModItems.TIN_INGOT);
@@ -168,6 +178,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.GOLD_DUST)
                 .add(ModItems.OBSIDIAN_DUST)
                 .add(ModItems.PRISMARINE_DUST)
+                .add(ModItems.TITANIUM_DUST)
                 .add(ModItems.PRISMARINE_IRON_DUST);
 
         getOrCreateTagBuilder(ModItemTags.HELMETS)
@@ -181,7 +192,8 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.PRISMARINE_HELMET)
                 .add(ModItems.BRONZE_HELMET)
                 .add(ModItems.FABIUM_HELMET)
-                .add(ModItems.DIRITONIUM_HELMET);
+                .add(ModItems.DIRITONIUM_HELMET)
+                .add(ModItems.TITANIUM_HELMET);
         getOrCreateTagBuilder(ModItemTags.CHESTPLATES)
                 .add(Items.DIAMOND_CHESTPLATE)
                 .add(Items.IRON_CHESTPLATE)
@@ -192,7 +204,8 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.PRISMARINE_CHESTPLATE)
                 .add(ModItems.BRONZE_CHESTPLATE)
                 .add(ModItems.FABIUM_CHESTPLATE)
-                .add(ModItems.DIRITONIUM_CHESTPLATE);
+                .add(ModItems.DIRITONIUM_CHESTPLATE)
+                .add(ModItems.TITANIUM_CHESTPLATE);
         getOrCreateTagBuilder(ModItemTags.LEGGINGS)
                 .add(Items.DIAMOND_LEGGINGS)
                 .add(Items.IRON_LEGGINGS)
@@ -203,7 +216,8 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.PRISMARINE_LEGGINGS)
                 .add(ModItems.BRONZE_LEGGINGS)
                 .add(ModItems.FABIUM_LEGGINGS)
-                .add(ModItems.DIRITONIUM_LEGGINGS);
+                .add(ModItems.DIRITONIUM_LEGGINGS)
+                .add(ModItems.TITANIUM_LEGGINGS);
         getOrCreateTagBuilder(ModItemTags.BOOTS)
                 .add(Items.DIAMOND_BOOTS)
                 .add(Items.IRON_BOOTS)
@@ -214,7 +228,8 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.PRISMARINE_BOOTS)
                 .add(ModItems.BRONZE_BOOTS)
                 .add(ModItems.FABIUM_BOOTS)
-                .add(ModItems.DIRITONIUM_BOOTS);
+                .add(ModItems.DIRITONIUM_BOOTS)
+                .add(ModItems.TITANIUM_BOOTS);
         /*getOrCreateTagBuilder(ModItemTags.ENCHANTABLES)
                 .add(Items.SHEARS)
                 .add(Items.FLINT_AND_STEEL);*/
@@ -223,7 +238,12 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
         getOrCreateTagBuilder(ModItemTags.BAGS)
                 .add(ModItems.WOOL_BAG)
-                .add(ModItems.LEATHER_BAG);
+                .add(ModItems.LEATHER_BAG)
+                .add(ModItems.BRONZE_BAG)
+                .add(ModItems.COPPER_BAG)
+                .add(ModItems.FABIUM_BAG)
+                .add(ModItems.IRON_BAG)
+                .add(ModItems.NETHERITE_BAG);
         
         getOrCreateTagBuilder(ModItemTags.HARDENED_GLASS)
                 .add(ModBlocks.HARDENED_GLASS.asItem())

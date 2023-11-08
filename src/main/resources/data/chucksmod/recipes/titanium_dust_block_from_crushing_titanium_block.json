@@ -1,0 +1,11 @@
+{
+  "type": "chucksmod:crusher_recipe",
+  "ingredients": [
+    {
+      "item": "minecraft:titanium_block"
+    }
+  ],
+  "output": {
+    "item": "chucksmod:titanium_dust_block"
+  }
+}

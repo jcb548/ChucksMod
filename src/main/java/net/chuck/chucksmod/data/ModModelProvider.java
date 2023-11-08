@@ -77,6 +77,7 @@ public class ModModelProvider extends FabricModelProvider {
         
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.TIN_DUST_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.TIN_BLOCK);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RAW_TIN_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.TIN_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_TIN_ORE);
         blockStateModelGenerator.registerItemModel(ModBlocks.TIN_BARS);
@@ -84,6 +85,14 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.BRONZE_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.BRONZE_DUST_BLOCK);
         blockStateModelGenerator.registerItemModel(ModBlocks.BRONZE_BARS);
+
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.TITANIUM_BLOCK);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RAW_TITANIUM_BLOCK);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.TITANIUM_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.NETHER_TITANIUM_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.END_STONE_TITANIUM_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_TITANIUM_ORE);
+        blockStateModelGenerator.registerItemModel(ModBlocks.TITANIUM_BARS);
 
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.FABIUM_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RAW_FABIUM_BLOCK);
@@ -122,7 +131,6 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerTrapdoor(ModBlocks.EUCALYPTUS_TRAPDOOR);
         eucalyptus_pool.family(ModBlocks.EUCALYPTUS_FAMILY);
 
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SLATED_DIRT);
         blockStateModelGenerator.registerTintableCross(ModBlocks.DIRITIA_PLANT,
                 BlockStateModelGenerator.TintType.TINTED);
         blockStateModelGenerator.registerTintableCross(ModBlocks.DIRITIA_LIGHT_PLANT,
@@ -197,6 +205,20 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.registerArmor((ArmorItem) ModItems.BRONZE_CHESTPLATE);
         itemModelGenerator.registerArmor((ArmorItem) ModItems.BRONZE_LEGGINGS);
         itemModelGenerator.registerArmor((ArmorItem) ModItems.BRONZE_BOOTS);
+
+        itemModelGenerator.register(ModItems.RAW_TITANIUM, Models.GENERATED);
+        itemModelGenerator.register(ModItems.TITANIUM_INGOT, Models.GENERATED);
+        itemModelGenerator.register(ModItems.TITANIUM_DUST, Models.GENERATED);
+        itemModelGenerator.register(ModItems.TITANIUM_GEAR, Models.GENERATED);
+        itemModelGenerator.register(ModItems.TITANIUM_SWORD, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.TITANIUM_PICKAXE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.TITANIUM_AXE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.TITANIUM_SHOVEL, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.TITANIUM_HOE, Models.HANDHELD);
+        itemModelGenerator.registerArmor((ArmorItem) ModItems.TITANIUM_HELMET);
+        itemModelGenerator.registerArmor((ArmorItem) ModItems.TITANIUM_CHESTPLATE);
+        itemModelGenerator.registerArmor((ArmorItem) ModItems.TITANIUM_LEGGINGS);
+        itemModelGenerator.registerArmor((ArmorItem) ModItems.TITANIUM_BOOTS);
 
         itemModelGenerator.register(ModItems.RAW_FABIUM, Models.GENERATED);
         itemModelGenerator.register(ModItems.FABIUM_INGOT, Models.GENERATED);

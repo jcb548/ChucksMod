@@ -48,8 +48,6 @@ public class ModItems {
             new Item(new FabricItemSettings()));
     public static final Item GOLD_DUST = registerItem("gold_dust",
             new Item(new FabricItemSettings()));
-    public static final Item OBSIDIAN_DUST = registerItem("obsidian_dust",
-            new Item(new FabricItemSettings()));
 
     //Vanilla gears
     public static final Item IRON_GEAR = registerItem("iron_gear",
@@ -116,6 +114,34 @@ public class ModItems {
     // Machine stuff
     public static final Item COPPER_POWER_ACCEPTOR = registerItem("copper_power_acceptor",
             new Item(new FabricItemSettings()));
+    // Obsidian
+    public static final Item OBSIDIAN_DUST = registerItem("obsidian_dust",
+            new Item(new FabricItemSettings()));
+    // Titanium
+    public static final Item RAW_TITANIUM = registerItem("raw_titanium", new Item(new FabricItemSettings()));
+    public static final Item TITANIUM_DUST = registerItem("titanium_dust", new Item(new FabricItemSettings()));
+    public static final Item TITANIUM_INGOT = registerItem("titanium_ingot", new Item(new FabricItemSettings()));
+    public static final Item TITANIUM_GEAR = registerItem("titanium_gear", new Item(new FabricItemSettings()));
+    public static final Item TITANIUM_SWORD = registerItem("titanium_sword",
+            new ModSwordItem(ModToolMaterials.TITANIUM, 3, -2.2f, new FabricItemSettings()));
+    public static final Item TITANIUM_PICKAXE = registerItem("titanium_pickaxe",
+            new ModPickaxeItem(ModToolMaterials.TITANIUM, 1, -2.8f, new FabricItemSettings()));
+    public static final Item TITANIUM_AXE = registerItem("titanium_axe",
+            new ModAxeItem(ModToolMaterials.TITANIUM, 6, -3.6f, new FabricItemSettings()));
+    public static final Item TITANIUM_SHOVEL = registerItem("titanium_shovel",
+            new ModShovelItem(ModToolMaterials.TITANIUM, 1, -2.4f, new FabricItemSettings()));
+    public static final Item TITANIUM_HOE = registerItem("titanium_hoe",
+            new ModHoeItem(ModToolMaterials.TITANIUM, -2, -1.0f, new FabricItemSettings()));
+    public static final Item TITANIUM_HELMET = registerItem("titanium_helmet",
+            new ArmorItem(ModArmorMaterials.TITANIUM, ArmorItem.Type.HELMET, new FabricItemSettings()));
+    public static final Item TITANIUM_CHESTPLATE = registerItem("titanium_chestplate",
+            new ArmorItem(ModArmorMaterials.TITANIUM, ArmorItem.Type.CHESTPLATE, new FabricItemSettings()));
+    public static final Item TITANIUM_LEGGINGS = registerItem("titanium_leggings",
+            new ArmorItem(ModArmorMaterials.TITANIUM, ArmorItem.Type.LEGGINGS, new FabricItemSettings()));
+    public static final Item TITANIUM_BOOTS = registerItem("titanium_boots",
+            new ArmorItem(ModArmorMaterials.TITANIUM, ArmorItem.Type.BOOTS, new FabricItemSettings()));
+
+
     // Wither items
     public static final Item WITHER_BONE = registerItem("wither_bone", new Item(new FabricItemSettings()));
     public static final Item WITHER_SWORD = registerItem("wither_sword",

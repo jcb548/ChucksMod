@@ -62,6 +62,8 @@ public class ModBlocks {
             new PaneBlock(FabricBlockSettings.copy(Blocks.IRON_BARS)));
     public static final Block TIN_BLOCK = registerBlock("tin_block",
             new Block(FabricBlockSettings.copy(Blocks.GOLD_BLOCK)));
+    public static final Block RAW_TIN_BLOCK = registerBlock("raw_tin_block",
+            new Block(FabricBlockSettings.copy(ModBlocks.TIN_BLOCK)));
     public static final Block TIN_DUST_BLOCK = registerBlock("tin_dust_block",
             new FallingBlock(FabricBlockSettings.copy(Blocks.SAND)));
     public static final Block TIN_ORE = registerBlock("tin_ore",
@@ -147,6 +149,26 @@ public class ModBlocks {
 
     public static final Block TIN_WIRE = registerBlock("tin_wire",
             new TinWireBlock(FabricBlockSettings.copy(ModBlocks.TIN_BLOCK), ModBlockEntities.TIN_WIRE_TRANSFER_RATE));
+    //Titanium
+    public static final Block TITANIUM_BLOCK = registerBlock("titanium_block",
+            new Block(FabricBlockSettings.copy(Blocks.IRON_BLOCK).strength(6.0f, 7.0f)));
+    public static final Block RAW_TITANIUM_BLOCK = registerBlock("raw_titanium_block",
+            new Block(FabricBlockSettings.copy(ModBlocks.TITANIUM_BLOCK)));
+    public static final Block TITANIUM_DUST_BLOCK = registerBlock("titanium_dust_block",
+            new FallingBlock(FabricBlockSettings.copy(Blocks.SAND)));
+    public static final Block TITANIUM_ORE = registerBlock("titanium_ore",
+            new Block(FabricBlockSettings.copy(Blocks.IRON_ORE)));
+    public static final Block DEEPSLATE_TITANIUM_ORE = registerBlock("deepslate_titanium_ore",
+            new Block(FabricBlockSettings.copy(Blocks.DEEPSLATE_IRON_ORE)));
+
+    public static final Block NETHER_TITANIUM_ORE = registerBlock("nether_titanium_ore",
+            new Block(FabricBlockSettings.copy(Blocks.NETHERRACK).strength(3.0f, 3.0f)));
+    public static final Block END_STONE_TITANIUM_ORE = registerBlock("endstone_titanium_ore",
+            new Block(FabricBlockSettings.copy(Blocks.IRON_ORE)));
+    public static final Block TITANIUM_BARS = registerBlock("titanium_bars",
+            new PaneBlock(FabricBlockSettings.copy(Blocks.IRON_BARS).strength(3.0f, 6.0f)));
+    public static final Block TITANIUM_MACHINE_BASE = registerBlock("titanium_machine_base",
+            new Block(FabricBlockSettings.copy(ModBlocks.TITANIUM_BLOCK).nonOpaque()));
     // Fabium
     public static final Block FABIUM_BLOCK = registerBlock("fabium_block",
             new Block(FabricBlockSettings.copy(Blocks.GOLD_BLOCK)));
@@ -238,11 +260,7 @@ public class ModBlocks {
     public static final Block FRANK_ALTAR = registerBlock("frank_altar",
             new AltarBlock(FabricBlockSettings.copy(Blocks.BEDROCK)));
     
-    // New base materials
-    public static final Block SLATED_DIRT = registerBlock("slated_dirt",
-            new Block(FabricBlockSettings.copy(Blocks.DIRT).strength(1.0f).requiresTool()));
-    public static final Block SLATED_GRASS = registerBlock("slated_grass",
-            new SlatedGrassBlock(FabricBlockSettings.copy(Blocks.GRASS_BLOCK).strength(1.2f).requiresTool()));
+    // Hardened Glass
     public static final Block HARDENED_GLASS = registerBlock("hardened_glass",
             new GlassBlock(FabricBlockSettings.copy(Blocks.SMOOTH_STONE).requiresTool().resistance(1200.0f)
                     .solidBlock(Blocks::never).suffocates(Blocks::never).blockVision(Blocks::never).nonOpaque()));

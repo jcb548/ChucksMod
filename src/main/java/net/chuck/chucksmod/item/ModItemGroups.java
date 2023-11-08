@@ -118,6 +118,7 @@ public class ModItemGroups {
                         entries.add(ModItems.TIN_GEAR);
                         entries.add(ModBlocks.TIN_WIRE);
                         entries.add(ModBlocks.TIN_BLOCK);
+                        entries.add(ModBlocks.RAW_TIN_BLOCK);
                         entries.add(ModBlocks.TIN_ORE);
                         entries.add(ModBlocks.DEEPSLATE_TIN_ORE);
                         entries.add(ModBlocks.TIN_DUST_BLOCK);
@@ -138,6 +139,27 @@ public class ModItemGroups {
                         entries.add(ModItems.BRONZE_CHESTPLATE);
                         entries.add(ModItems.BRONZE_LEGGINGS);
                         entries.add(ModItems.BRONZE_BOOTS);
+
+                        entries.add(ModItems.RAW_TITANIUM);
+                        entries.add(ModItems.TITANIUM_INGOT);
+                        entries.add(ModItems.TITANIUM_GEAR);
+                        entries.add(ModBlocks.RAW_TITANIUM_BLOCK);
+                        entries.add(ModBlocks.TITANIUM_BLOCK);
+                        entries.add(ModBlocks.TITANIUM_BARS);
+                        entries.add(ModBlocks.TITANIUM_ORE);
+                        entries.add(ModBlocks.DEEPSLATE_TITANIUM_ORE);
+                        entries.add(ModBlocks.NETHER_TITANIUM_ORE);
+                        entries.add(ModBlocks.END_STONE_TITANIUM_ORE);
+                        entries.add(ModBlocks.TITANIUM_MACHINE_BASE);
+                        entries.add(ModItems.TITANIUM_SWORD);
+                        entries.add(ModItems.TITANIUM_PICKAXE);
+                        entries.add(ModItems.TITANIUM_AXE);
+                        entries.add(ModItems.TITANIUM_SHOVEL);
+                        entries.add(ModItems.TITANIUM_HOE);
+                        entries.add(ModItems.TITANIUM_HELMET);
+                        entries.add(ModItems.TITANIUM_CHESTPLATE);
+                        entries.add(ModItems.TITANIUM_LEGGINGS);
+                        entries.add(ModItems.TITANIUM_BOOTS);
 
                         entries.add(ModItems.RAW_FABIUM);
                         entries.add(ModItems.FABIUM_INGOT);
@@ -208,9 +230,6 @@ public class ModItemGroups {
                         entries.add(ModBlocks.CRUSHER);
                         entries.add(ModBlocks.IRON_POWERED_CRUSHER);
                         entries.add(ModBlocks.IRON_HEAT_GENERATOR);
-
-                        entries.add(ModBlocks.SLATED_DIRT);
-                        entries.add(ModBlocks.SLATED_GRASS);
                         entries.add(ModBlocks.DIRITIA_PLANT);
                         entries.add(ModBlocks.DIRITIA_LIGHT_PLANT);
                         entries.add(ModItems.WYATT_SPAWN_EGG);

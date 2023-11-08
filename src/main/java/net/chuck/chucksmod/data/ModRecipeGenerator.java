@@ -67,6 +67,7 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
         generateHardenedGlassRecipes(exporter);
         generateBagRecipes(exporter);
         generateIronMachineRecipes(exporter);
+        generateTitaniumRecipes(exporter);
     }
 
     private void generateIronMachineRecipes(RecipeExporter exporter) {
@@ -307,6 +308,11 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 ModItems.BRONZE_DUST,
                 RecipeCategory.DECORATIONS,
                 ModBlocks.BRONZE_DUST_BLOCK);
+        offerReversibleCompactingRecipes(exporter,
+                RecipeCategory.DECORATIONS,
+                ModItems.BRONZE_INGOT,
+                RecipeCategory.DECORATIONS,
+                ModBlocks.BRONZE_BLOCK);
         ShapelessRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.BRONZE_DUST, 4)
                 .input(ModItems.COPPER_DUST, 3)
                 .input(ModItems.TIN_DUST)
@@ -340,6 +346,51 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
         offerLeggingsRecipe(exporter, ModItemTags.BRONZE_INGOTS, ModItems.BRONZE_LEGGINGS);
         offerBootsRecipe(exporter, ModItemTags.BRONZE_INGOTS, ModItems.BRONZE_BOOTS);
         offerStainedGlassPaneRecipe(exporter, ModBlocks.BRONZE_BARS, ModItems.BRONZE_INGOT);
+    } 
+    private void generateTitaniumRecipes(RecipeExporter exporter) {
+        // Titanium
+        offerReversibleCompactingRecipes(exporter,
+                RecipeCategory.DECORATIONS,
+                ModItems.TITANIUM_DUST,
+                RecipeCategory.DECORATIONS,
+                ModBlocks.TITANIUM_DUST_BLOCK);
+        offerReversibleCompactingRecipes(exporter,
+                RecipeCategory.DECORATIONS,
+                ModItems.TITANIUM_INGOT,
+                RecipeCategory.DECORATIONS,
+                ModBlocks.TITANIUM_BLOCK);
+        offerReversibleCompactingRecipes(exporter,
+                RecipeCategory.DECORATIONS,
+                ModItems.RAW_TITANIUM,
+                RecipeCategory.DECORATIONS,
+                ModBlocks.RAW_TITANIUM_BLOCK);
+        offerSmelting(exporter,
+                List.of(ModItems.TITANIUM_DUST),
+                RecipeCategory.TOOLS,
+                ModItems.TITANIUM_INGOT,
+                1f,
+                200,
+                "titanium_ingot");
+        offerBlasting(exporter,
+                List.of(ModItems.TITANIUM_DUST),
+                RecipeCategory.TOOLS,
+                ModItems.TITANIUM_INGOT,
+                1f,
+                100,
+                "titanium_ingot");
+        offerGearRecipe(exporter, ModItems.TITANIUM_INGOT, ModItems.TITANIUM_GEAR);
+        offerSwordRecipe(exporter, ModItems.TITANIUM_INGOT, ModItems.TITANIUM_SWORD);
+        offerPickaxeRecipe(exporter, ModItems.TITANIUM_INGOT, ModItems.TITANIUM_PICKAXE);
+        offerAxeRecipe(exporter, ModItems.TITANIUM_INGOT, ModItems.TITANIUM_AXE);
+        offerShovelRecipe(exporter, ModItems.TITANIUM_INGOT, ModItems.TITANIUM_SHOVEL);
+        offerHoeRecipe(exporter, ModItems.TITANIUM_INGOT, ModItems.TITANIUM_HOE);
+        offerHelmetRecipe(exporter, ModItems.TITANIUM_INGOT, ModItems.TITANIUM_HELMET);
+        offerChestplateRecipe(exporter, ModItems.TITANIUM_INGOT, ModItems.TITANIUM_CHESTPLATE);
+        offerLeggingsRecipe(exporter, ModItems.TITANIUM_INGOT, ModItems.TITANIUM_LEGGINGS);
+        offerBootsRecipe(exporter, ModItems.TITANIUM_INGOT, ModItems.TITANIUM_BOOTS);
+        offerStainedGlassPaneRecipe(exporter, ModBlocks.TITANIUM_BARS, ModItems.TITANIUM_INGOT);
+        offerMachineBaseRecipe(exporter, ModItems.TITANIUM_INGOT, ModItems.TITANIUM_GEAR,
+                ModBlocks.TITANIUM_MACHINE_BASE.asItem());
     }
 
     private void generateVanillaDustSmeltingAndBlockRecipes(RecipeExporter exporter) {

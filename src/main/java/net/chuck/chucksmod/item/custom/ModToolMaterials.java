@@ -34,7 +34,9 @@ public enum ModToolMaterials implements ToolMaterial
     FABIUM(MiningLevels.NETHERITE, 1267, 8.0f, 4.0f, 12,
             () -> Ingredient.ofItems(ModItems.FABIUM_INGOT)),
     DIRITONIUM(5, 2431, 9.0f, 5.0f, 22,
-            () -> Ingredient.ofItems(ModItems.DIRITONIUM_INGOT));
+            () -> Ingredient.ofItems(ModItems.DIRITONIUM_INGOT)),
+    TITANIUM(MiningLevels.DIAMOND, 1669, 8.5f, 3.0f, 11,
+            () -> Ingredient.ofItems(ModItems.TITANIUM_INGOT));
     private final int miningLevel;
     private final int itemDurability;
     private final float miningSpeed;

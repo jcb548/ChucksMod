@@ -22,7 +22,10 @@ public enum ModArmorMaterials implements ArmorMaterial {
             () -> Ingredient.ofItems(ModItems.FABIUM_INGOT)),
     DIRITONIUM("diritonium", 42, new int [] {5, 10, 9, 5}, 21,
             SoundEvents.ITEM_ARMOR_EQUIP_IRON, 3f, 0.2f,
-            () -> Ingredient.ofItems(ModItems.DIRITONIUM_INGOT));
+            () -> Ingredient.ofItems(ModItems.DIRITONIUM_INGOT)),
+    TITANIUM("titanium", 34, new int [] {3, 8, 7, 3}, 11,
+            SoundEvents.ITEM_ARMOR_EQUIP_IRON, 2f, 0.0f,
+            () -> Ingredient.ofItems(ModItems.TITANIUM_INGOT));
 
     private final String name;
     private final int durabilityMultiplier;

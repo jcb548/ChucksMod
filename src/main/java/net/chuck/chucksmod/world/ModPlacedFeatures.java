@@ -72,8 +72,6 @@ public class ModPlacedFeatures {
             registerKey("diritia_ancient_debris_placed");
     public static final RegistryKey<PlacedFeature> DIRITIA_CALCITE_VEIN_PLACED_KEY =
             registerKey("diritia_calcite_vein_placed");
-    public static final RegistryKey<PlacedFeature> DIRITIA_SLATED_VEIN_PLACED_KEY =
-            registerKey("diritia_slated_vein_placed");
     public static final RegistryKey<PlacedFeature> DIRITIA_BLACKSTONE_VEIN_PLACED_KEY =
             registerKey("diritia_blackstone_vein_placed");
     public static final RegistryKey<PlacedFeature> DIRITIA_ENDSTONE_VEIN_PLACED_KEY =
@@ -170,9 +168,6 @@ public class ModPlacedFeatures {
                 HeightRangePlacementModifier.uniform(YOffset.fixed( 0), YOffset.fixed(128))));
         register(context, DIRITIA_CALCITE_VEIN_PLACED_KEY, configuredFeatureRegistryEntryLookup
                 .getOrThrow(ModConfiguredFeatures.DIRITIA_CALCITE_VEIN_KEY), ModOrePlacement.modifiersWithCount(4,
-                HeightRangePlacementModifier.uniform(YOffset.fixed(0), YOffset.fixed(256))));
-        register(context, DIRITIA_SLATED_VEIN_PLACED_KEY, configuredFeatureRegistryEntryLookup
-                .getOrThrow(ModConfiguredFeatures.DIRITIA_SLATED_VEIN_KEY), ModOrePlacement.modifiersWithCount(4,
                 HeightRangePlacementModifier.uniform(YOffset.fixed(0), YOffset.fixed(256))));
         register(context, DIRITIA_BLACKSTONE_VEIN_PLACED_KEY, configuredFeatureRegistryEntryLookup
                 .getOrThrow(ModConfiguredFeatures.DIRITIA_BLACKSTONE_VEIN_KEY), ModOrePlacement.modifiersWithCount(4,

@@ -1,5 +1,6 @@
 package net.chuck.chucksmod.data;
 
+import dev.architectury.platform.Mod;
 import net.chuck.chucksmod.block.ModBlocks;
 import net.chuck.chucksmod.block.ModBlockTags;
 import net.chuck.chucksmod.item.ModItemTags;
@@ -30,8 +31,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
     protected void configure(RegistryWrapper.WrapperLookup arg) {
         getOrCreateTagBuilder(TagKey.of(RegistryKeys.BLOCK,
                 new Identifier("fabric", "needs_tool_level_4")))
-                .add(ModBlocks.END_STONE_DIRITONIUM_ORE)
-                .add(ModBlocks.DEEPSLATE_DIRITONIUM_ORE)
+                .addTag(ModBlockTags.DIRITONIUM_ORES)
                 .add(ModBlocks.DIRITONIUM_BLOCK)
                 .add(ModBlocks.RAW_DIRITONIUM_BLOCK)
                 .add(ModBlocks.DIRITONIUM_BLOCK);
@@ -39,132 +39,82 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         getOrCreateTagBuilder(BlockTags.NEEDS_DIAMOND_TOOL)
                 .add(ModBlocks.FABIUM_BLOCK)
                 .add(ModBlocks.RAW_FABIUM_BLOCK)
-                .add(ModBlocks.NETHER_FABIUM_ORE)
-                .add(ModBlocks.END_STONE_FABIUM_ORE)
-                .add(ModBlocks.DEEPSLATE_FABIUM_ORE)
+                .addTag(ModBlockTags.FABIUM_ORES)
                 .add(ModBlocks.DIRITONIUM_BARS)
 
-                .add(ModBlocks.HARDENED_GLASS)
-                .add(ModBlocks.HARDENED_GLASS_PANE)
-                .add(ModBlocks.HARDENED_TINTED_GLASS)
-                .add(ModBlocks.HARDENED_BLACK_GLASS)
-                .add(ModBlocks.HARDENED_BLACK_GLASS_PANE)
-                .add(ModBlocks.HARDENED_BLUE_GLASS)
-                .add(ModBlocks.HARDENED_BLUE_GLASS_PANE)
-                .add(ModBlocks.HARDENED_BROWN_GLASS)
-                .add(ModBlocks.HARDENED_BROWN_GLASS_PANE)
-                .add(ModBlocks.HARDENED_CYAN_GLASS)
-                .add(ModBlocks.HARDENED_CYAN_GLASS_PANE)
-                .add(ModBlocks.HARDENED_GRAY_GLASS)
-                .add(ModBlocks.HARDENED_GRAY_GLASS_PANE)
-                .add(ModBlocks.HARDENED_GREEN_GLASS)
-                .add(ModBlocks.HARDENED_GREEN_GLASS_PANE)
-                .add(ModBlocks.HARDENED_LIGHT_BLUE_GLASS)
-                .add(ModBlocks.HARDENED_LIGHT_BLUE_GLASS_PANE)
-                .add(ModBlocks.HARDENED_LIGHT_GRAY_GLASS)
-                .add(ModBlocks.HARDENED_LIGHT_GRAY_GLASS_PANE)
-                .add(ModBlocks.HARDENED_LIME_GLASS)
-                .add(ModBlocks.HARDENED_LIME_GLASS_PANE)
-                .add(ModBlocks.HARDENED_MAGENTA_GLASS)
-                .add(ModBlocks.HARDENED_MAGENTA_GLASS_PANE)
-                .add(ModBlocks.HARDENED_ORANGE_GLASS)
-                .add(ModBlocks.HARDENED_ORANGE_GLASS_PANE)
-                .add(ModBlocks.HARDENED_PINK_GLASS)
-                .add(ModBlocks.HARDENED_PINK_GLASS_PANE)
-                .add(ModBlocks.HARDENED_PURPLE_GLASS)
-                .add(ModBlocks.HARDENED_PURPLE_GLASS_PANE)
-                .add(ModBlocks.HARDENED_RED_GLASS)
-                .add(ModBlocks.HARDENED_RED_GLASS_PANE)
-                .add(ModBlocks.HARDENED_WHITE_GLASS)
-                .add(ModBlocks.HARDENED_WHITE_GLASS_PANE)
-                .add(ModBlocks.HARDENED_YELLOW_GLASS)
-                .add(ModBlocks.HARDENED_YELLOW_GLASS_PANE);
+                .addTag(ModBlockTags.HARDENED_GLASS)
+                .addTag(ModBlockTags.HARDENED_GLASS_PANES)
+                .add(ModBlocks.HARDENED_TINTED_GLASS);
 
         getOrCreateTagBuilder(BlockTags.NEEDS_IRON_TOOL)
-                .add(ModBlocks.CRUSHER)
                 .add(ModBlocks.IRON_POWERED_CRUSHER)
                 .add(ModBlocks.IRON_HEAT_GENERATOR)
-                .add(ModBlocks.SLATED_DIRT)
-                .add(ModBlocks.SLATED_GRASS)
-                .add(ModBlocks.GOLD_BARS);
+                .add(ModBlocks.GOLD_BARS)
+
+                .add(ModBlocks.TITANIUM_BLOCK)
+                .add(ModBlocks.RAW_TITANIUM_BLOCK)
+                .add(ModBlocks.TITANIUM_ORE)
+                .add(ModBlocks.DEEPSLATE_TITANIUM_ORE)
+                .add(ModBlocks.NETHER_TITANIUM_ORE)
+                .add(ModBlocks.END_STONE_TITANIUM_ORE)
+                .add(ModBlocks.TITANIUM_BARS)
+                .add(ModBlocks.TITANIUM_MACHINE_BASE);
 
         getOrCreateTagBuilder(BlockTags.NEEDS_STONE_TOOL)
                 .add(ModBlocks.TIN_BLOCK)
                 .add(ModBlocks.TIN_ORE)
                 .add(ModBlocks.DEEPSLATE_TIN_ORE)
                 .add(ModBlocks.TIN_BARS)
-                .add(ModBlocks.BRONZE_BLOCK)
-                .add(ModBlocks.BRONZE_BARS);
+                .addTag(ModBlockTags.BRONZE_BLOCKS)
+                .add(ModBlocks.BRONZE_BARS)
+                .add(ModBlocks.IRON_MACHINE_BASE)
+                .add(ModBlocks.CRUSHER)
+                .add(ModBlocks.IRON_HEAT_GENERATOR)
+                .add(ModBlocks.IRON_POWERED_CRUSHER)
+                .add(ModBlocks.IRON_MACHINE_BASE);
 
         getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
+                .addTag(ModBlockTags.BARS)
+                .addTag(ModBlockTags.WIRES)
+                .addTag(ModBlockTags.TIN_ORES)
+                .addTag(ModBlockTags.TIN_BLOCKS)
+                .addTag(ModBlockTags.RAW_TIN_BLOCKS)
+                .addTag(ModBlockTags.TITANIUM_ORES)
+                .addTag(ModBlockTags.TITANIUM_BLOCKS)
+                .addTag(ModBlockTags.RAW_TITANIUM_BLOCKS)
+                .add(ModBlocks.IRON_MACHINE_BASE)
+                .add(ModBlocks.CRUSHER)
+                .add(ModBlocks.IRON_HEAT_GENERATOR)
+                .add(ModBlocks.IRON_POWERED_CRUSHER)
+
                 .add(ModBlocks.SANDSTONE_BRICKS)
                 .add(ModBlocks.SANDSTONE_BRICK_STAIRS)
                 .add(ModBlocks.SANDSTONE_BRICK_SLAB)
                 .add(ModBlocks.SANDSTONE_BRICK_WALL)
                 .add(ModBlocks.CRACKED_SANDSTONE_BRICKS)
 
-                .add(ModBlocks.NETHER_FABIUM_ORE)
-                .add(ModBlocks.END_STONE_FABIUM_ORE)
-                .add(ModBlocks.DEEPSLATE_FABIUM_ORE)
+                .add(ModBlocks.TITANIUM_MACHINE_BASE)
+
+                .addTag(ModBlockTags.FABIUM_ORES)
                 .add(ModBlocks.RAW_FABIUM_BLOCK)
                 .add(ModBlocks.FABIUM_BLOCK)
-                .add(ModBlocks.FABIUM_BARS)
 
-                .add(ModBlocks.TIN_BLOCK)
-                .add(ModBlocks.TIN_ORE)
-                .add(ModBlocks.DEEPSLATE_TIN_ORE)
-                .add(ModBlocks.TIN_BARS)
-
-                .add(ModBlocks.BRONZE_BLOCK)
-                .add(ModBlocks.BRONZE_BARS)
+                .addTag(ModBlockTags.BRONZE_BLOCKS)
 
                 .add(ModBlocks.DIRITONIUM_BLOCK)
                 .add(ModBlocks.RAW_DIRITONIUM_BLOCK)
-                .add(ModBlocks.END_STONE_DIRITONIUM_ORE)
-                .add(ModBlocks.DEEPSLATE_DIRITONIUM_ORE)
-                .add(ModBlocks.DIRITONIUM_BARS)
+                .addTag(ModBlockTags.DIRITONIUM_ORES)
 
-                .add(ModBlocks.HARDENED_GLASS)
-                .add(ModBlocks.HARDENED_GLASS_PANE)
+                .addTag(ModBlockTags.HARDENED_GLASS)
                 .add(ModBlocks.HARDENED_TINTED_GLASS)
-                .add(ModBlocks.HARDENED_BLACK_GLASS)
-                .add(ModBlocks.HARDENED_BLACK_GLASS_PANE)
-                .add(ModBlocks.HARDENED_BLUE_GLASS)
-                .add(ModBlocks.HARDENED_BLUE_GLASS_PANE)
-                .add(ModBlocks.HARDENED_BROWN_GLASS)
-                .add(ModBlocks.HARDENED_BROWN_GLASS_PANE)
-                .add(ModBlocks.HARDENED_CYAN_GLASS)
-                .add(ModBlocks.HARDENED_CYAN_GLASS_PANE)
-                .add(ModBlocks.HARDENED_GRAY_GLASS)
-                .add(ModBlocks.HARDENED_GRAY_GLASS_PANE)
-                .add(ModBlocks.HARDENED_GREEN_GLASS)
-                .add(ModBlocks.HARDENED_GREEN_GLASS_PANE)
-                .add(ModBlocks.HARDENED_LIGHT_BLUE_GLASS)
-                .add(ModBlocks.HARDENED_LIGHT_BLUE_GLASS_PANE)
-                .add(ModBlocks.HARDENED_LIGHT_GRAY_GLASS)
-                .add(ModBlocks.HARDENED_LIGHT_GRAY_GLASS_PANE)
-                .add(ModBlocks.HARDENED_LIME_GLASS)
-                .add(ModBlocks.HARDENED_LIME_GLASS_PANE)
-                .add(ModBlocks.HARDENED_MAGENTA_GLASS)
-                .add(ModBlocks.HARDENED_MAGENTA_GLASS_PANE)
-                .add(ModBlocks.HARDENED_ORANGE_GLASS)
-                .add(ModBlocks.HARDENED_ORANGE_GLASS_PANE)
-                .add(ModBlocks.HARDENED_PINK_GLASS)
-                .add(ModBlocks.HARDENED_PINK_GLASS_PANE)
-                .add(ModBlocks.HARDENED_PURPLE_GLASS)
-                .add(ModBlocks.HARDENED_PURPLE_GLASS_PANE)
-                .add(ModBlocks.HARDENED_RED_GLASS)
-                .add(ModBlocks.HARDENED_RED_GLASS_PANE)
-                .add(ModBlocks.HARDENED_WHITE_GLASS)
-                .add(ModBlocks.HARDENED_WHITE_GLASS_PANE)
-                .add(ModBlocks.HARDENED_YELLOW_GLASS)
-                .add(ModBlocks.HARDENED_YELLOW_GLASS_PANE)
-                
-                .add(ModBlocks.CRUSHER)
-                .add(ModBlocks.IRON_POWERED_CRUSHER)
-                .add(ModBlocks.IRON_HEAT_GENERATOR);
+                .addTag(ModBlockTags.HARDENED_GLASS_PANES);
+
 
         getOrCreateTagBuilder(BlockTags.SHOVEL_MINEABLE)
+                .addTag(ModBlockTags.DUST_BLOCKS)
+                .add(ModBlocks.OBSIDIAN_SAND);
+
+        getOrCreateTagBuilder(ModBlockTags.DUST_BLOCKS)
                 .add(ModBlocks.IRON_DUST_BLOCK)
                 .add(ModBlocks.COPPER_DUST_BLOCK)
                 .add(ModBlocks.GOLD_DUST_BLOCK)
@@ -172,9 +122,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.PRISMARINE_IRON_DUST_BLOCK)
                 .add(ModBlocks.TIN_DUST_BLOCK)
                 .add(ModBlocks.BRONZE_DUST_BLOCK)
-                .add(ModBlocks.OBSIDIAN_SAND)
-                .add(ModBlocks.SLATED_GRASS)
-                .add(ModBlocks.SLATED_DIRT);
+                .add(ModBlocks.TITANIUM_DUST_BLOCK);
 
         getOrCreateTagBuilder(BlockTags.PLANKS)
                 .add(ModBlocks.EUCALYPTUS_PLANKS)
@@ -204,10 +152,6 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.EUCALYPTUS_FENCE_GATE)
                 .add(ModBlocks.DIRITIA_FENCE_GATE);
 
-        getOrCreateTagBuilder(BlockTags.DIRT)
-                .add(ModBlocks.SLATED_DIRT)
-                .add(ModBlocks.SLATED_GRASS);
-
         getOrCreateTagBuilder(BlockTags.DRAGON_IMMUNE)
                 .add(ModBlocks.DIRITONIUM_BLOCK)
                 .add(ModBlocks.END_STONE_DIRITONIUM_ORE)
@@ -231,9 +175,6 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.STRIPPED_DIRITIA_LOG)
                 .add(ModBlocks.STRIPPED_DIRITIA_WOOD);
 
-        getOrCreateTagBuilder(BlockTags.ANIMALS_SPAWNABLE_ON)
-                .add(ModBlocks.SLATED_GRASS);
-
         getOrCreateTagBuilder(BlockTags.WALLS)
                 .add(ModBlocks.SANDSTONE_BRICK_WALL);
 
@@ -255,5 +196,74 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.HARDENED_RED_GLASS)
                 .add(ModBlocks.HARDENED_WHITE_GLASS)
                 .add(ModBlocks.HARDENED_YELLOW_GLASS);
+
+        getOrCreateTagBuilder(ModBlockTags.HARDENED_GLASS_PANES)
+                .add(ModBlocks.HARDENED_GLASS_PANE)
+                .add(ModBlocks.HARDENED_BLACK_GLASS_PANE)
+                .add(ModBlocks.HARDENED_BLUE_GLASS_PANE)
+                .add(ModBlocks.HARDENED_BROWN_GLASS_PANE)
+                .add(ModBlocks.HARDENED_CYAN_GLASS_PANE)
+                .add(ModBlocks.HARDENED_GRAY_GLASS_PANE)
+                .add(ModBlocks.HARDENED_GREEN_GLASS_PANE)
+                .add(ModBlocks.HARDENED_LIGHT_BLUE_GLASS_PANE)
+                .add(ModBlocks.HARDENED_LIGHT_GRAY_GLASS_PANE)
+                .add(ModBlocks.HARDENED_LIME_GLASS_PANE)
+                .add(ModBlocks.HARDENED_MAGENTA_GLASS_PANE)
+                .add(ModBlocks.HARDENED_ORANGE_GLASS_PANE)
+                .add(ModBlocks.HARDENED_PINK_GLASS_PANE)
+                .add(ModBlocks.HARDENED_PURPLE_GLASS_PANE)
+                .add(ModBlocks.HARDENED_RED_GLASS_PANE)
+                .add(ModBlocks.HARDENED_WHITE_GLASS_PANE)
+                .add(ModBlocks.HARDENED_YELLOW_GLASS_PANE);
+
+        getOrCreateTagBuilder(ModBlockTags.TIN_ORES)
+                .add(ModBlocks.TIN_ORE)
+                .add(ModBlocks.DEEPSLATE_TIN_ORE);
+
+        getOrCreateTagBuilder(ModBlockTags.TIN_BLOCKS)
+                .add(ModBlocks.TIN_BLOCK);
+
+        getOrCreateTagBuilder(ModBlockTags.RAW_TIN_BLOCKS)
+                .add(ModBlocks.RAW_TIN_BLOCK);
+
+        getOrCreateTagBuilder(ModBlockTags.BRONZE_BLOCKS)
+                .add(ModBlocks.BRONZE_BLOCK);
+        
+        getOrCreateTagBuilder(ModBlockTags.TITANIUM_ORES)
+                .add(ModBlocks.TITANIUM_ORE)
+                .add(ModBlocks.DEEPSLATE_TITANIUM_ORE)
+                .add(ModBlocks.NETHER_TITANIUM_ORE)
+                .add(ModBlocks.END_STONE_TITANIUM_ORE);
+
+        getOrCreateTagBuilder(ModBlockTags.TITANIUM_BLOCKS)
+                .add(ModBlocks.TITANIUM_BLOCK);
+
+        getOrCreateTagBuilder(ModBlockTags.RAW_TITANIUM_BLOCKS)
+                .add(ModBlocks.RAW_TITANIUM_BLOCK);
+
+        getOrCreateTagBuilder(ModBlockTags.WIRES)
+                .add(ModBlocks.TIN_WIRE)
+                .add(ModBlocks.COPPER_WIRE)
+                .add(ModBlocks.GOLD_WIRE);
+
+        getOrCreateTagBuilder(ModBlockTags.BARS)
+                .add(Blocks.IRON_BARS)
+                .add(ModBlocks.TITANIUM_BARS)
+                .add(ModBlocks.BRONZE_BARS)
+                .add(ModBlocks.COPPER_BARS)
+                .add(ModBlocks.GOLD_BARS)
+                .add(ModBlocks.TIN_BARS)
+                .add(ModBlocks.FABIUM_BARS)
+                .add(ModBlocks.DIRITONIUM_BARS)
+                .add(ModBlocks.PRISMARINE_BARS);
+
+        getOrCreateTagBuilder(ModBlockTags.FABIUM_ORES)
+                .add(ModBlocks.NETHER_FABIUM_ORE)
+                .add(ModBlocks.END_STONE_FABIUM_ORE)
+                .add(ModBlocks.DEEPSLATE_FABIUM_ORE);
+
+        getOrCreateTagBuilder(ModBlockTags.DIRITONIUM_ORES)
+                .add(ModBlocks.END_STONE_DIRITONIUM_ORE)
+                .add(ModBlocks.DEEPSLATE_DIRITONIUM_ORE);
     }
 }
