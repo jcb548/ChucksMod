@@ -1,6 +1,7 @@
-package net.chuck.chucksmod.block.entity;
+package net.chuck.chucksmod.block.entity.crusher;
 
-import net.chuck.chucksmod.block.custom.CrusherBlock;
+import net.chuck.chucksmod.block.custom.crusher.CrusherBlock;
+import net.chuck.chucksmod.block.entity.ImplementedInventory;
 import net.chuck.chucksmod.recipe.CrusherRecipe;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
 import net.minecraft.block.BlockState;
@@ -35,6 +36,7 @@ public abstract class AbstractCrusherBlockEntity extends BlockEntity implements 
     protected int maxProgress = 50;
     public AbstractCrusherBlockEntity(BlockEntityType entity, BlockPos pos, BlockState state) {
         super(entity, pos, state);
+
     }
 
     protected void resetProgress() {

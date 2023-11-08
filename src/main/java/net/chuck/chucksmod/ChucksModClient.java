@@ -2,7 +2,6 @@ package net.chuck.chucksmod;
 
 import com.terraformersmc.terraform.boat.api.client.TerraformBoatClientHelper;
 import com.terraformersmc.terraform.sign.SpriteIdentifierRegistry;
-import dev.architectury.platform.Mod;
 import net.chuck.chucksmod.block.ModBlocks;
 import net.chuck.chucksmod.client.ArmorHudOverlay;
 import net.chuck.chucksmod.entity.ModBoats;
@@ -17,6 +16,7 @@ import net.chuck.chucksmod.screen.bag.BagScreen9x1;
 import net.chuck.chucksmod.screen.bag.BagScreen7x2;
 import net.chuck.chucksmod.screen.crusher.CrusherScreen;
 import net.chuck.chucksmod.screen.crusher.PoweredCrusherScreen;
+import net.chuck.chucksmod.screen.generator.GeneratorScreen;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;

@@ -6,10 +6,12 @@ import com.terraformersmc.terraform.sign.block.TerraformWallHangingSignBlock;
 import com.terraformersmc.terraform.sign.block.TerraformWallSignBlock;
 import net.chuck.chucksmod.ChucksMod;
 import net.chuck.chucksmod.block.custom.*;
+import net.chuck.chucksmod.block.custom.crusher.CrusherBlock;
+import net.chuck.chucksmod.block.custom.crusher.PoweredCrusherBlock;
+import net.chuck.chucksmod.block.custom.generator.IronHeatGeneratorBlock;
 import net.chuck.chucksmod.block.custom.wire.CopperWireBlock;
 import net.chuck.chucksmod.block.custom.wire.GoldWireBlock;
 import net.chuck.chucksmod.block.custom.wire.TinWireBlock;
-import net.chuck.chucksmod.block.custom.wire.WireBlock;
 import net.chuck.chucksmod.block.entity.ModBlockEntities;
 import net.chuck.chucksmod.world.tree.DiritiaSaplingGenerator;
 import net.chuck.chucksmod.world.tree.EucalyptusSaplingGenerator;
@@ -141,7 +143,7 @@ public class ModBlocks {
     public static final Block IRON_POWERED_CRUSHER = registerBlock("iron_powered_crusher",
             new PoweredCrusherBlock(FabricBlockSettings.copy(Blocks.SMOOTH_STONE)));
     public static final Block IRON_HEAT_GENERATOR = registerBlock("iron_heat_generator",
-            new GeneratorBlock(FabricBlockSettings.copy(Blocks.SMOOTH_STONE)));
+            new IronHeatGeneratorBlock(FabricBlockSettings.copy(Blocks.SMOOTH_STONE)));
 
     public static final Block TIN_WIRE = registerBlock("tin_wire",
             new TinWireBlock(FabricBlockSettings.copy(ModBlocks.TIN_BLOCK), ModBlockEntities.TIN_WIRE_TRANSFER_RATE));

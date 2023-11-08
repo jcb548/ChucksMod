@@ -1,6 +1,6 @@
 package net.chuck.chucksmod.screen.crusher;
 
-import net.chuck.chucksmod.block.entity.CrusherBlockEntity;
+import net.chuck.chucksmod.block.entity.crusher.CrusherBlockEntity;
 import net.chuck.chucksmod.screen.ModScreenHandlers;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerInventory;

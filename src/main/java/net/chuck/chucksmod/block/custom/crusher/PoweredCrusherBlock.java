@@ -1,7 +1,7 @@
-package net.chuck.chucksmod.block.custom;
+package net.chuck.chucksmod.block.custom.crusher;
 
 import net.chuck.chucksmod.block.entity.ModBlockEntities;
-import net.chuck.chucksmod.block.entity.PoweredCrusherBlockEntity;
+import net.chuck.chucksmod.block.entity.crusher.PoweredCrusherBlockEntity;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;

@@ -1,4 +1,4 @@
-package net.chuck.chucksmod.block.custom;
+package net.chuck.chucksmod.block.custom.crusher;
 
 import net.minecraft.block.*;
 import net.minecraft.item.ItemPlacementContext;
@@ -23,14 +23,15 @@ public abstract class AbstractCrusherBlock extends BlockWithEntity implements Bl
     public static final BooleanProperty LIT = Properties.LIT;
     public AbstractCrusherBlock(Settings settings) {
         super(settings);
-        this.setDefaultState((BlockState)((BlockState)((BlockState)this.stateManager
-                .getDefaultState()).with(FACING, Direction.NORTH)).with(LIT, false));
+        this.setDefaultState(((this.stateManager.getDefaultState())
+                .with(FACING, Direction.NORTH))
+                .with(LIT, false));
     }
 
     @Nullable
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
-        return (BlockState) this.getDefaultState().with(FACING, ctx.getHorizontalPlayerFacing().getOpposite());
+        return this.getDefaultState().with(FACING, ctx.getHorizontalPlayerFacing().getOpposite());
     }
 
     @Override
@@ -47,8 +48,6 @@ public abstract class AbstractCrusherBlock extends BlockWithEntity implements Bl
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
         builder.add(FACING, LIT);
     }
-
-    // block entity stuff
     @Override
     public BlockRenderType getRenderType(BlockState state) {
         return BlockRenderType.MODEL;

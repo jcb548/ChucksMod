@@ -1,6 +1,7 @@
-package net.chuck.chucksmod.block.entity;
+package net.chuck.chucksmod.block.entity.crusher;
 
-import net.chuck.chucksmod.block.custom.CrusherBlock;
+import net.chuck.chucksmod.block.custom.crusher.CrusherBlock;
+import net.chuck.chucksmod.block.entity.ModBlockEntities;
 import net.chuck.chucksmod.screen.crusher.CrusherScreenHandler;
 import net.minecraft.block.AbstractFurnaceBlock;
 import net.minecraft.block.Block;

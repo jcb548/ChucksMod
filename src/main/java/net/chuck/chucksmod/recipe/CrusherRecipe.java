@@ -3,7 +3,7 @@ package net.chuck.chucksmod.recipe;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.DataResult;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import net.chuck.chucksmod.block.entity.AbstractCrusherBlockEntity;
+import net.chuck.chucksmod.block.entity.crusher.AbstractCrusherBlockEntity;
 import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketByteBuf;

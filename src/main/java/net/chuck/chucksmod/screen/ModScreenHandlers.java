@@ -8,6 +8,7 @@ import net.chuck.chucksmod.screen.bag.BagScreenHandler9x1;
 import net.chuck.chucksmod.screen.bag.BagScreenHandler7x2;
 import net.chuck.chucksmod.screen.crusher.CrusherScreenHandler;
 import net.chuck.chucksmod.screen.crusher.PoweredCrusherScreenHandler;
+import net.chuck.chucksmod.screen.generator.GeneratorScreenHandler;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;

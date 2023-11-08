@@ -2,11 +2,12 @@ package net.chuck.chucksmod.block.entity;
 
 import net.chuck.chucksmod.ChucksMod;
 import net.chuck.chucksmod.block.ModBlocks;
-import net.chuck.chucksmod.block.custom.wire.GoldWireBlock;
+import net.chuck.chucksmod.block.entity.crusher.CrusherBlockEntity;
+import net.chuck.chucksmod.block.entity.crusher.PoweredCrusherBlockEntity;
+import net.chuck.chucksmod.block.entity.generator.IronHeatGeneratorBlockEntity;
 import net.chuck.chucksmod.block.entity.wire.CopperWireBlockEntity;
 import net.chuck.chucksmod.block.entity.wire.GoldWireBlockEntity;
 import net.chuck.chucksmod.block.entity.wire.TinWireBlockEntity;
-import net.chuck.chucksmod.block.entity.wire.WireBlockEntity;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.registry.Registries;
@@ -24,7 +25,7 @@ import team.reborn.energy.api.EnergyStorage;
 public class ModBlockEntities {
     public static BlockEntityType<CrusherBlockEntity> CRUSHER;
     public static BlockEntityType<PoweredCrusherBlockEntity> IRON_POWERED_CRUSHER;
-    public static BlockEntityType<GeneratorBlockEntity> IRON_HEAT_GENERATOR;
+    public static BlockEntityType<IronHeatGeneratorBlockEntity> IRON_HEAT_GENERATOR;
     public static BlockEntityType<TinWireBlockEntity> TIN_WIRE;
     public static long TIN_WIRE_TRANSFER_RATE = 32;
     public static BlockEntityType<CopperWireBlockEntity> COPPER_WIRE;
@@ -45,7 +46,7 @@ public class ModBlockEntities {
                 IRON_POWERED_CRUSHER);
         IRON_HEAT_GENERATOR = Registry.register(Registries.BLOCK_ENTITY_TYPE,
                 new Identifier(ChucksMod.MOD_ID, "generator"),
-                FabricBlockEntityTypeBuilder.create(GeneratorBlockEntity::new,
+                FabricBlockEntityTypeBuilder.create(IronHeatGeneratorBlockEntity::new,
                         ModBlocks.IRON_HEAT_GENERATOR).build());
         // Cables can now connect to block entity
         EnergyStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.energyStorage,
