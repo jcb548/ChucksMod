@@ -39,7 +39,7 @@ public class ModBlocks {
     public static final Block IRON_DUST_BLOCK = registerBlock("iron_dust_block",
             new FallingBlock(FabricBlockSettings.copy(Blocks.SAND)));
     public static final Block IRON_MACHINE_BASE = registerBlock("iron_machine_base",
-            new Block(FabricBlockSettings.copy(Blocks.IRON_BLOCK).nonOpaque()));
+            new Block(FabricBlockSettings.copy(Blocks.IRON_BLOCK).nonOpaque().strength(5.0f, 6.0f)));
     public static final Block COPPER_DUST_BLOCK = registerBlock("copper_dust_block",
             new FallingBlock(FabricBlockSettings.copy(Blocks.SAND)));
     public static final Block OBSIDIAN_SAND = registerBlock("obsidian_sand",
@@ -168,7 +168,7 @@ public class ModBlocks {
     public static final Block TITANIUM_BARS = registerBlock("titanium_bars",
             new PaneBlock(FabricBlockSettings.copy(Blocks.IRON_BARS).strength(3.0f, 6.0f)));
     public static final Block TITANIUM_MACHINE_BASE = registerBlock("titanium_machine_base",
-            new Block(FabricBlockSettings.copy(ModBlocks.TITANIUM_BLOCK).nonOpaque()));
+            new Block(FabricBlockSettings.copy(ModBlocks.TITANIUM_BLOCK).nonOpaque().strength(6.0f, 7.0f)));
     // Fabium
     public static final Block FABIUM_BLOCK = registerBlock("fabium_block",
             new Block(FabricBlockSettings.copy(Blocks.GOLD_BLOCK)));

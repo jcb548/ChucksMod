@@ -2,7 +2,7 @@
   "type": "chucksmod:crusher_recipe",
   "ingredients": [
     {
-      "item": "minecraft:titanium_block"
+      "item": "chucksmod:titanium_block"
     }
   ],
   "output": {

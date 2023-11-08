@@ -2,7 +2,7 @@
   "type": "chucksmod:crusher_recipe",
   "ingredients": [
     {
-      "item": "minecraft:titanium_ingot"
+      "item": "chucksmod:titanium_ingot"
     }
   ],
   "output": {
