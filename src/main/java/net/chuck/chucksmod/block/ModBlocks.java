@@ -7,13 +7,13 @@ import com.terraformersmc.terraform.sign.block.TerraformWallSignBlock;
 import net.chuck.chucksmod.ChucksMod;
 import net.chuck.chucksmod.block.custom.*;
 import net.chuck.chucksmod.block.custom.crusher.CrusherBlock;
-import net.chuck.chucksmod.block.custom.crusher.PoweredCrusherBlock;
+import net.chuck.chucksmod.block.custom.crusher.IronPoweredCrusherBlock;
+import net.chuck.chucksmod.block.custom.furnace.IronPoweredFurnaceBlock;
 import net.chuck.chucksmod.block.custom.generator.IronHeatGeneratorBlock;
 import net.chuck.chucksmod.block.custom.generator.TitaniumHeatGeneratorBlock;
 import net.chuck.chucksmod.block.custom.wire.CopperWireBlock;
 import net.chuck.chucksmod.block.custom.wire.GoldWireBlock;
 import net.chuck.chucksmod.block.custom.wire.TinWireBlock;
-import net.chuck.chucksmod.block.entity.ModBlockEntities;
 import net.chuck.chucksmod.world.tree.DiritiaSaplingGenerator;
 import net.chuck.chucksmod.world.tree.EucalyptusSaplingGenerator;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
@@ -144,9 +144,11 @@ public class ModBlocks {
     public static final Block CRUSHER = registerBlock("crusher",
             new CrusherBlock(FabricBlockSettings.copy(Blocks.SMOOTH_STONE)));
     public static final Block IRON_POWERED_CRUSHER = registerBlock("iron_powered_crusher",
-            new PoweredCrusherBlock(FabricBlockSettings.copy(Blocks.SMOOTH_STONE)));
+            new IronPoweredCrusherBlock(FabricBlockSettings.copy(Blocks.IRON_BLOCK)));
     public static final Block IRON_HEAT_GENERATOR = registerBlock("iron_heat_generator",
-            new IronHeatGeneratorBlock(FabricBlockSettings.copy(Blocks.SMOOTH_STONE)));
+            new IronHeatGeneratorBlock(FabricBlockSettings.copy(Blocks.IRON_BLOCK)));
+    public static final Block IRON_POWERED_FURNACE = registerBlock("iron_powered_furnace",
+            new IronPoweredFurnaceBlock(FabricBlockSettings.copy(Blocks.IRON_BLOCK)));
 
     public static final Block TIN_WIRE = registerBlock("tin_wire",
             new TinWireBlock(FabricBlockSettings.copy(ModBlocks.TIN_BLOCK)));

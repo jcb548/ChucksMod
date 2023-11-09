@@ -1,9 +1,13 @@
 package net.chuck.chucksmod.networking.packet;
 
+import net.chuck.chucksmod.block.entity.furnace.IronPoweredFurnaceBlockEntity;
 import net.chuck.chucksmod.block.entity.generator.IronHeatGeneratorBlockEntity;
 import net.chuck.chucksmod.block.entity.crusher.IronPoweredCrusherBlockEntity;
+import net.chuck.chucksmod.block.entity.generator.TitaniumHeatGeneratorBlockEntity;
+import net.chuck.chucksmod.screen.furnace.IronPoweredFurnaceScreenHandler;
 import net.chuck.chucksmod.screen.generator.IronHeatGeneratorScreenHandler;
-import net.chuck.chucksmod.screen.crusher.PoweredCrusherScreenHandler;
+import net.chuck.chucksmod.screen.crusher.IronPoweredCrusherScreenHandler;
+import net.chuck.chucksmod.screen.generator.TitaniumHeatGeneratorScreenHandler;
 import net.fabricmc.fabric.api.networking.v1.PacketSender;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayNetworkHandler;
@@ -26,7 +30,15 @@ public class EnergySyncS2CPacket {
         if(client.world.getBlockEntity(position) instanceof IronPoweredCrusherBlockEntity blockEntity) {
             blockEntity.setEnergyLevel(energy);
 
-            if(client.player.currentScreenHandler instanceof PoweredCrusherScreenHandler screenHandler &&
+            if(client.player.currentScreenHandler instanceof IronPoweredCrusherScreenHandler screenHandler &&
+                    screenHandler.blockEntity.getPos().equals(position)) {
+                blockEntity.setEnergyLevel(energy);
+            }
+        }
+        if(client.world.getBlockEntity(position) instanceof IronPoweredFurnaceBlockEntity blockEntity) {
+            blockEntity.setEnergyLevel(energy);
+
+            if(client.player.currentScreenHandler instanceof IronPoweredFurnaceScreenHandler screenHandler &&
                     screenHandler.blockEntity.getPos().equals(position)) {
                 blockEntity.setEnergyLevel(energy);
             }
@@ -35,6 +47,14 @@ public class EnergySyncS2CPacket {
             blockEntity.setEnergyLevel(energy);
 
             if(client.player.currentScreenHandler instanceof IronHeatGeneratorScreenHandler screenHandler &&
+                    screenHandler.blockEntity.getPos().equals(position)) {
+                blockEntity.setEnergyLevel(energy);
+            }
+        }
+        if(client.world.getBlockEntity(position) instanceof TitaniumHeatGeneratorBlockEntity blockEntity) {
+            blockEntity.setEnergyLevel(energy);
+
+            if(client.player.currentScreenHandler instanceof TitaniumHeatGeneratorScreenHandler screenHandler &&
                     screenHandler.blockEntity.getPos().equals(position)) {
                 blockEntity.setEnergyLevel(energy);
             }

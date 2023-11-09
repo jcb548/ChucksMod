@@ -21,22 +21,11 @@ import org.jetbrains.annotations.Nullable;
  *  This code is licensed under MIT License
  *  Details can be found in the license file in the root folder of this project
  */
-public class PoweredCrusherBlock extends AbstractCrusherBlock {
-    public PoweredCrusherBlock(Settings settings) {
+public class IronPoweredCrusherBlock extends AbstractPoweredCrusherBlock {
+    public IronPoweredCrusherBlock(Settings settings) {
         super(settings);
     }
 
-    @Override
-    public void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
-        if (state.getBlock() != newState.getBlock()) {
-            BlockEntity blockEntity = world.getBlockEntity(pos);
-            if (blockEntity instanceof IronPoweredCrusherBlockEntity) {
-                ItemScatterer.spawn(world, pos, (IronPoweredCrusherBlockEntity)blockEntity);
-                world.updateComparators(pos, this);
-            }
-            super.onStateReplaced(state, world, pos, newState, moved);
-        }
-    }
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos,
                               PlayerEntity player, Hand hand, BlockHitResult hit) {

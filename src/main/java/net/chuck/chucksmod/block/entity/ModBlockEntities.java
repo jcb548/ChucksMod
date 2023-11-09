@@ -4,6 +4,7 @@ import net.chuck.chucksmod.ChucksMod;
 import net.chuck.chucksmod.block.ModBlocks;
 import net.chuck.chucksmod.block.entity.crusher.CrusherBlockEntity;
 import net.chuck.chucksmod.block.entity.crusher.IronPoweredCrusherBlockEntity;
+import net.chuck.chucksmod.block.entity.furnace.IronPoweredFurnaceBlockEntity;
 import net.chuck.chucksmod.block.entity.generator.IronHeatGeneratorBlockEntity;
 import net.chuck.chucksmod.block.entity.generator.TitaniumHeatGeneratorBlockEntity;
 import net.chuck.chucksmod.block.entity.wire.CopperWireBlockEntity;
@@ -26,6 +27,7 @@ import team.reborn.energy.api.EnergyStorage;
 public class ModBlockEntities {
     public static BlockEntityType<CrusherBlockEntity> CRUSHER;
     public static BlockEntityType<IronPoweredCrusherBlockEntity> IRON_POWERED_CRUSHER;
+    public static BlockEntityType<IronPoweredFurnaceBlockEntity> IRON_POWERED_FURNACE;
     public static BlockEntityType<IronHeatGeneratorBlockEntity> IRON_HEAT_GENERATOR;
     public static BlockEntityType<TinWireBlockEntity> TIN_WIRE;
     public static BlockEntityType<CopperWireBlockEntity> COPPER_WIRE;
@@ -43,6 +45,12 @@ public class ModBlockEntities {
         // Cables can now connect to block entity
         EnergyStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.energyStorage,
                 IRON_POWERED_CRUSHER);
+        IRON_POWERED_FURNACE = Registry.register(Registries.BLOCK_ENTITY_TYPE,
+                new Identifier(ChucksMod.MOD_ID, "iron_powered_furnace"),
+                FabricBlockEntityTypeBuilder.create(IronPoweredFurnaceBlockEntity::new,
+                        ModBlocks.IRON_POWERED_FURNACE).build());
+        EnergyStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.energyStorage,
+                IRON_POWERED_FURNACE);
         IRON_HEAT_GENERATOR = Registry.register(Registries.BLOCK_ENTITY_TYPE,
                 new Identifier(ChucksMod.MOD_ID, "iron_heat_generator"),
                 FabricBlockEntityTypeBuilder.create(IronHeatGeneratorBlockEntity::new,

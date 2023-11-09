@@ -21,7 +21,8 @@ public abstract class AbstractHeatGeneratorBlockEntity extends AbstractGenerator
     public static final int INV_SIZE = 1;
     protected final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(INV_SIZE, ItemStack.EMPTY);
     public static final Map<Item, Integer> FUELS = AbstractFurnaceBlockEntity.createFuelTimeMap();
-    public AbstractHeatGeneratorBlockEntity(BlockEntityType type, BlockPos pos, BlockState state, int generationSpeed, int energyStorageSize) {
+    public AbstractHeatGeneratorBlockEntity(BlockEntityType type, BlockPos pos, BlockState state,
+                                            int generationSpeed, int energyStorageSize) {
         super(type, pos, state, generationSpeed, energyStorageSize);
     }
     protected abstract int getFuelTime(ItemStack fuel);

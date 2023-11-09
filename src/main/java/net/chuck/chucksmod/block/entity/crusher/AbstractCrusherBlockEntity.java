@@ -33,7 +33,7 @@ public abstract class AbstractCrusherBlockEntity extends BlockEntity implements 
     public static final int PROGRESS_IDX = 0;
     public static final int MAX_PROGRESS_IDX = 1;
     protected int progress = 0;
-    protected int maxProgress = 50;
+    protected int maxProgress = 200;
     public AbstractCrusherBlockEntity(BlockEntityType entity, BlockPos pos, BlockState state) {
         super(entity, pos, state);
 

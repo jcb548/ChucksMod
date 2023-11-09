@@ -3,7 +3,7 @@ package net.chuck.chucksmod.block.entity.crusher;
 import net.chuck.chucksmod.block.entity.ModBlockEntities;
 import net.chuck.chucksmod.block.entity.tiers.IronTier;
 import net.chuck.chucksmod.networking.ModMessages;
-import net.chuck.chucksmod.screen.crusher.PoweredCrusherScreenHandler;
+import net.chuck.chucksmod.screen.crusher.IronPoweredCrusherScreenHandler;
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
 import net.fabricmc.fabric.api.networking.v1.PlayerLookup;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
@@ -36,54 +36,9 @@ import team.reborn.energy.api.base.SimpleEnergyStorage;
  *  This code is licensed under MIT License
  *  Details can be found in the license file in the root folder of this project
  */
-public class IronPoweredCrusherBlockEntity extends AbstractCrusherBlockEntity implements IronTier {
-    public static final int DELEGATE_SIZE = 2;
-    public static final int INV_SIZE = 2;
-    private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(INV_SIZE, ItemStack.EMPTY);
-    public final SimpleEnergyStorage energyStorage = new SimpleEnergyStorage(ENERGY_STORAGE, MAX_INSERT, MAX_EXTRACT){
-        @Override
-        protected void onFinalCommit() {
-            markDirty();
-            if(!world.isClient()){
-                PacketByteBuf data = PacketByteBufs.create();
-                data.writeLong(amount);
-                data.writeBlockPos(getPos());
-
-                for(ServerPlayerEntity player : PlayerLookup.tracking((ServerWorld) world, getPos())){
-                    ServerPlayNetworking.send(player, ModMessages.ENERGY_SYNC, data);
-                }
-            }
-        }
-    };
-    protected final PropertyDelegate propertyDelegate;
+public class IronPoweredCrusherBlockEntity extends AbstractPoweredCrusherBlockEntity implements IronTier {
     public IronPoweredCrusherBlockEntity(BlockPos pos, BlockState state) {
-        super(ModBlockEntities.IRON_POWERED_CRUSHER, pos, state);
-        this.propertyDelegate = new PropertyDelegate() {
-            @Override
-            public int get(int index) {
-                switch (index){
-                    case PROGRESS_IDX: return IronPoweredCrusherBlockEntity.this.progress;
-                    case MAX_PROGRESS_IDX: return IronPoweredCrusherBlockEntity.this.maxProgress;
-                    default: return PROGRESS_IDX;
-                }
-            }
-
-            @Override
-            public void set(int index, int value) {
-                switch (index) {
-                    case PROGRESS_IDX: IronPoweredCrusherBlockEntity.this.progress = value; break;
-                    case MAX_PROGRESS_IDX: IronPoweredCrusherBlockEntity.this.maxProgress = value; break;
-                }
-            }
-            @Override
-            public int size() {
-                return DELEGATE_SIZE;
-            }
-        };
-    }
-    @Override
-    public DefaultedList<ItemStack> getItems() {
-        return this.inventory;
+        super(ModBlockEntities.IRON_POWERED_CRUSHER, pos, state, ENERGY_STORAGE, SPEED, MAX_INSERT_EXTRACT);
     }
 
     @Override
@@ -94,58 +49,11 @@ public class IronPoweredCrusherBlockEntity extends AbstractCrusherBlockEntity im
     @Override
     public ScreenHandler createMenu(int syncId, PlayerInventory playerInventory, PlayerEntity player) {
         this.markDirty();
-        return new PoweredCrusherScreenHandler(syncId, playerInventory, this, propertyDelegate);
-    }
-    // For saving nbt on world close
-    @Override
-    protected void writeNbt(NbtCompound nbt) {
-        Inventories.writeNbt(nbt, inventory);
-        super.writeNbt(nbt);
-        nbt.putInt("powered_crusher.progress", progress);
-        nbt.putLong("powered_crusher.energy", energyStorage.amount);
+        return new IronPoweredCrusherScreenHandler(syncId, playerInventory, this, propertyDelegate);
     }
 
     @Override
-    public void readNbt(NbtCompound nbt) {
-        Inventories.readNbt(nbt, inventory);
-        super.readNbt(nbt);
-        progress = nbt.getInt("powered_crusher.progress");
-        energyStorage.amount= nbt.getLong("powered_crusher.energy");
-    }
-    public void tick(World world, BlockPos blockPos, BlockState blockState) {
-        if (world.isClient()){
-            return;
-        }
-        if(this.hasRecipe() && this.hasEnoughEnergy()){
-            this.increaseCraftProgress();
-            this.extractEnergy();
-            markDirty(world, blockPos, blockState);
-            if(this.hasCraftingFinished()){
-                this.craftItem();
-                this.resetProgress();
-            }
-        } else {
-            this.resetProgress();
-            markDirty(world, blockPos, blockState);
-        }
-        blockState = (BlockState)blockState.with(AbstractFurnaceBlock.LIT, isCrafting());
-        world.setBlockState(blockPos, blockState, Block.NOTIFY_ALL);
-    }
-    public void setEnergyLevel(long energyLevel){
-        this.energyStorage.amount = energyLevel;
-    }
-
-    private void extractEnergy() {
-        try(Transaction transaction = Transaction.openOuter()){
-            this.energyStorage.extract(USAGE, transaction);
-            transaction.commit();
-        }
-    }
-
-    private boolean hasEnoughEnergy() {
-        return this.energyStorage.amount >= 32;
-    }
-    private boolean isCrafting(){
-        return progress > 0;
+    protected int getEnergyUsage() {
+        return USAGE;
     }
 }
