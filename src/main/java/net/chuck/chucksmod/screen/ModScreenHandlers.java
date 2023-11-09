@@ -8,6 +8,7 @@ import net.chuck.chucksmod.screen.bag.BagScreenHandler9x1;
 import net.chuck.chucksmod.screen.bag.BagScreenHandler7x2;
 import net.chuck.chucksmod.screen.crusher.CrusherScreenHandler;
 import net.chuck.chucksmod.screen.crusher.IronPoweredCrusherScreenHandler;
+import net.chuck.chucksmod.screen.energy_storage.IronEnergyStorageScreenHandler;
 import net.chuck.chucksmod.screen.furnace.IronPoweredFurnaceScreenHandler;
 import net.chuck.chucksmod.screen.generator.IronHeatGeneratorScreenHandler;
 import net.chuck.chucksmod.screen.generator.TitaniumHeatGeneratorScreenHandler;
@@ -38,6 +39,8 @@ public class ModScreenHandlers {
             new ExtendedScreenHandlerType<>(IronPoweredFurnaceScreenHandler::new);
     public static ScreenHandlerType<IronHeatGeneratorScreenHandler> IRON_HEAT_GENERATOR_SCREEN_HANDLER =
             new ExtendedScreenHandlerType<>(IronHeatGeneratorScreenHandler::new);
+    public static ScreenHandlerType<IronEnergyStorageScreenHandler> IRON_ENERGY_STORAGE_SCREEN_HANDLER =
+            new ExtendedScreenHandlerType<>(IronEnergyStorageScreenHandler::new);
     public static ScreenHandlerType<TitaniumHeatGeneratorScreenHandler> TITANIUM_HEAT_GENERATOR_SCREEN_HANDLER =
             new ExtendedScreenHandlerType<>(TitaniumHeatGeneratorScreenHandler::new);
     public static ScreenHandlerType<BagScreenHandler3x1> BAG_3X1_SCREEN_HANDLER =

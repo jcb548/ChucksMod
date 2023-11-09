@@ -38,7 +38,7 @@ import team.reborn.energy.api.base.SimpleEnergyStorage;
  */
 public class IronPoweredCrusherBlockEntity extends AbstractPoweredCrusherBlockEntity implements IronTier {
     public IronPoweredCrusherBlockEntity(BlockPos pos, BlockState state) {
-        super(ModBlockEntities.IRON_POWERED_CRUSHER, pos, state, ENERGY_STORAGE, SPEED, MAX_INSERT_EXTRACT);
+        super(ModBlockEntities.IRON_POWERED_CRUSHER, pos, state, MACHINE_ENERGY_STORAGE, SPEED, MAX_INSERT_EXTRACT);
     }
 
     @Override

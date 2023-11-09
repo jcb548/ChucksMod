@@ -41,6 +41,10 @@ public class ModItemGroups {
                         entries.add(ModBlocks.IRON_DUST_BLOCK);
                         entries.add(ModItems.IRON_GEAR);
                         entries.add(ModBlocks.IRON_MACHINE_BASE);
+                        entries.add(ModBlocks.IRON_ENERGY_STORAGE);
+                        entries.add(ModBlocks.IRON_POWERED_CRUSHER);
+                        entries.add(ModBlocks.IRON_POWERED_FURNACE);
+                        entries.add(ModBlocks.IRON_HEAT_GENERATOR);
 
                         entries.add(ModItems.COPPER_DUST);
                         entries.add(ModBlocks.COPPER_DUST_BLOCK);
@@ -228,8 +232,6 @@ public class ModItemGroups {
                         entries.add(ModItems.EUCALYPTUS_CHEST_BOAT);
 
                         entries.add(ModBlocks.CRUSHER);
-                        entries.add(ModBlocks.IRON_POWERED_CRUSHER);
-                        entries.add(ModBlocks.IRON_HEAT_GENERATOR);
                         entries.add(ModBlocks.DIRITIA_PLANT);
                         entries.add(ModBlocks.DIRITIA_LIGHT_PLANT);
                         entries.add(ModItems.WYATT_SPAWN_EGG);

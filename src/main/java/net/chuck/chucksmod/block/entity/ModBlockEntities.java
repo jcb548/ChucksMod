@@ -4,6 +4,7 @@ import net.chuck.chucksmod.ChucksMod;
 import net.chuck.chucksmod.block.ModBlocks;
 import net.chuck.chucksmod.block.entity.crusher.CrusherBlockEntity;
 import net.chuck.chucksmod.block.entity.crusher.IronPoweredCrusherBlockEntity;
+import net.chuck.chucksmod.block.entity.energy_storage.IronEnergyStorageBlockEntity;
 import net.chuck.chucksmod.block.entity.furnace.IronPoweredFurnaceBlockEntity;
 import net.chuck.chucksmod.block.entity.generator.IronHeatGeneratorBlockEntity;
 import net.chuck.chucksmod.block.entity.generator.TitaniumHeatGeneratorBlockEntity;
@@ -29,6 +30,7 @@ public class ModBlockEntities {
     public static BlockEntityType<IronPoweredCrusherBlockEntity> IRON_POWERED_CRUSHER;
     public static BlockEntityType<IronPoweredFurnaceBlockEntity> IRON_POWERED_FURNACE;
     public static BlockEntityType<IronHeatGeneratorBlockEntity> IRON_HEAT_GENERATOR;
+    public static BlockEntityType<IronEnergyStorageBlockEntity> IRON_ENERGY_STORAGE;
     public static BlockEntityType<TinWireBlockEntity> TIN_WIRE;
     public static BlockEntityType<CopperWireBlockEntity> COPPER_WIRE;
     public static BlockEntityType<GoldWireBlockEntity> GOLD_WIRE;
@@ -57,6 +59,12 @@ public class ModBlockEntities {
                         ModBlocks.IRON_HEAT_GENERATOR).build());
         EnergyStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.energyStorage,
                 IRON_HEAT_GENERATOR);
+        IRON_ENERGY_STORAGE = Registry.register(Registries.BLOCK_ENTITY_TYPE,
+                new Identifier(ChucksMod.MOD_ID, "iron_energy_storage"),
+                FabricBlockEntityTypeBuilder.create(IronEnergyStorageBlockEntity::new,
+                        ModBlocks.IRON_ENERGY_STORAGE).build());
+        EnergyStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.energyStorage.getSideStorage(direction),
+                IRON_ENERGY_STORAGE);
         TIN_WIRE = Registry.register(Registries.BLOCK_ENTITY_TYPE,
                 new Identifier(ChucksMod.MOD_ID, "tin_wire"),
                 FabricBlockEntityTypeBuilder.create(TinWireBlockEntity::new, ModBlocks.TIN_WIRE).build());

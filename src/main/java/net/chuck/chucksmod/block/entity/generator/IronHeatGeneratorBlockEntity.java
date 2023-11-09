@@ -14,14 +14,7 @@ import org.jetbrains.annotations.Nullable;
 
 public class IronHeatGeneratorBlockEntity extends AbstractHeatGeneratorBlockEntity implements IronTier {
     public IronHeatGeneratorBlockEntity(BlockPos pos, BlockState state) {
-        super(ModBlockEntities.IRON_HEAT_GENERATOR, pos, state, GENERATION, ENERGY_STORAGE);
-    }
-    protected int getFuelTime(ItemStack fuel) {
-        if (fuel.isEmpty()) {
-            return 0;
-        }
-        Item item = fuel.getItem();
-        return (FUELS.getOrDefault(item, 0)/25);
+        super(ModBlockEntities.IRON_HEAT_GENERATOR, pos, state, GENERATION, MACHINE_ENERGY_STORAGE);
     }
 
     @Override
@@ -46,6 +39,6 @@ public class IronHeatGeneratorBlockEntity extends AbstractHeatGeneratorBlockEnti
 
     @Override
     public int getEnergyStorageCapacity() {
-        return ENERGY_STORAGE;
+        return MACHINE_ENERGY_STORAGE;
     }
 }

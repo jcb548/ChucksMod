@@ -25,7 +25,13 @@ public abstract class AbstractHeatGeneratorBlockEntity extends AbstractGenerator
                                             int generationSpeed, int energyStorageSize) {
         super(type, pos, state, generationSpeed, energyStorageSize);
     }
-    protected abstract int getFuelTime(ItemStack fuel);
+    protected int getFuelTime(ItemStack fuel) {
+        if (fuel.isEmpty()) {
+            return 0;
+        }
+        Item item = fuel.getItem();
+        return (FUELS.getOrDefault(item, 0)/10);
+    }
     @Override
     public DefaultedList<ItemStack> getItems() {
         return this.inventory;

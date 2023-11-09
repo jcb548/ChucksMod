@@ -1,9 +1,11 @@
 package net.chuck.chucksmod.networking.packet;
 
+import net.chuck.chucksmod.block.entity.energy_storage.IronEnergyStorageBlockEntity;
 import net.chuck.chucksmod.block.entity.furnace.IronPoweredFurnaceBlockEntity;
 import net.chuck.chucksmod.block.entity.generator.IronHeatGeneratorBlockEntity;
 import net.chuck.chucksmod.block.entity.crusher.IronPoweredCrusherBlockEntity;
 import net.chuck.chucksmod.block.entity.generator.TitaniumHeatGeneratorBlockEntity;
+import net.chuck.chucksmod.screen.energy_storage.IronEnergyStorageScreenHandler;
 import net.chuck.chucksmod.screen.furnace.IronPoweredFurnaceScreenHandler;
 import net.chuck.chucksmod.screen.generator.IronHeatGeneratorScreenHandler;
 import net.chuck.chucksmod.screen.crusher.IronPoweredCrusherScreenHandler;
@@ -47,6 +49,14 @@ public class EnergySyncS2CPacket {
             blockEntity.setEnergyLevel(energy);
 
             if(client.player.currentScreenHandler instanceof IronHeatGeneratorScreenHandler screenHandler &&
+                    screenHandler.blockEntity.getPos().equals(position)) {
+                blockEntity.setEnergyLevel(energy);
+            }
+        }
+        if(client.world.getBlockEntity(position) instanceof IronEnergyStorageBlockEntity blockEntity) {
+            blockEntity.setEnergyLevel(energy);
+
+            if(client.player.currentScreenHandler instanceof IronEnergyStorageScreenHandler screenHandler &&
                     screenHandler.blockEntity.getPos().equals(position)) {
                 blockEntity.setEnergyLevel(energy);
             }

@@ -5,6 +5,6 @@ public interface TitaniumTier {
     int USAGE = 128;
     int GENERATION = MAX_INSERT_EXTRACT;
     int GEN_MAX_EXTRACT = GENERATION;
-    int ENERGY_STORAGE = 40000;
+    int MACHINE_ENERGY_STORAGE = 40000;
     int SPEED = 150;
 }

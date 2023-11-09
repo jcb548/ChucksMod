@@ -21,8 +21,8 @@ public abstract class AbstractPoweredFurnaceBlock extends BlockWithEntity implem
     public static final BooleanProperty LIT = Properties.LIT;
     protected AbstractPoweredFurnaceBlock(Settings settings) {
         super(settings);
-        this.setDefaultState(((this.stateManager.getDefaultState())
-                .with(FACING, Direction.NORTH))
+        this.setDefaultState(this.stateManager.getDefaultState()
+                .with(FACING, Direction.NORTH)
                 .with(LIT, false));
     }
     @Nullable
