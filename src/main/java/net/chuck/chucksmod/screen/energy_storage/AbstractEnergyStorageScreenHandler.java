@@ -1,19 +1,26 @@
 package net.chuck.chucksmod.screen.energy_storage;
 
-import net.chuck.chucksmod.block.entity.furnace.AbstractPoweredFurnaceBlockEntity;
+import net.chuck.chucksmod.block.entity.energy_storage.AbstractEnergyStorageBlockEntity;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.screen.slot.Slot;
-import org.jetbrains.annotations.Nullable;
 
 public abstract class AbstractEnergyStorageScreenHandler extends ScreenHandler {
-    protected AbstractEnergyStorageScreenHandler(int syncId, PlayerInventory playerInventory, BlockEntity blockEntity,
+    protected final Inventory inventory;
+    protected AbstractEnergyStorageScreenHandler(int syncId, PlayerInventory playerInventory, BlockEntity entity,
                                                  ScreenHandlerType type) {
         super(type, syncId);
+        checkSize(((Inventory) entity), AbstractEnergyStorageBlockEntity.INV_SIZE);
+        this.inventory = (Inventory) entity;
+        inventory.onOpen(playerInventory.player);
+
+        this.addSlot(new Slot(inventory, AbstractEnergyStorageBlockEntity.INPUT_SLOT, 20, 35));
+
         addPlayerInventory(playerInventory);
         addPlayerHotbar(playerInventory);
     }
@@ -24,6 +31,14 @@ public abstract class AbstractEnergyStorageScreenHandler extends ScreenHandler {
         if (slot != null && slot.hasStack()){
             ItemStack originalStack = slot.getStack();
             newStack = originalStack.copy();
+            if(invSlot < this.inventory.size()) {
+                if(!this.insertItem(originalStack, this.inventory.size(), this.slots.size(), true)){
+                    return ItemStack.EMPTY;
+                }
+            } else if (!this.insertItem(originalStack, AbstractEnergyStorageBlockEntity.INPUT_SLOT,
+                    this.inventory.size(), false)){
+                return ItemStack.EMPTY;
+            }
             if(originalStack.isEmpty()){
                 slot.setStack(ItemStack.EMPTY);
             } else {
@@ -34,7 +49,7 @@ public abstract class AbstractEnergyStorageScreenHandler extends ScreenHandler {
     }
     @Override
     public boolean canUse(PlayerEntity player) {
-        return true;
+        return this.inventory.canPlayerUse(player);
     }
     public void addPlayerInventory(PlayerInventory inventory) {
         for(int i=0;i<3;++i) {

@@ -19,6 +19,7 @@ public abstract class AbstractEnergyStorageScreen<T extends AbstractEnergyStorag
     public AbstractEnergyStorageScreen(T handler, PlayerInventory inventory, Text title) {
         super(handler, inventory, title);
     }
+
     @Override
     protected void init() {
         super.init();

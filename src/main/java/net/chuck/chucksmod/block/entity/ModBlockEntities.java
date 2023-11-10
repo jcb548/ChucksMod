@@ -63,7 +63,7 @@ public class ModBlockEntities {
                 new Identifier(ChucksMod.MOD_ID, "iron_energy_storage"),
                 FabricBlockEntityTypeBuilder.create(IronEnergyStorageBlockEntity::new,
                         ModBlocks.IRON_ENERGY_STORAGE).build());
-        EnergyStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.energyStorage.getSideStorage(direction),
+        EnergyStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.energyStorage,
                 IRON_ENERGY_STORAGE);
         TIN_WIRE = Registry.register(Registries.BLOCK_ENTITY_TYPE,
                 new Identifier(ChucksMod.MOD_ID, "tin_wire"),

@@ -13,18 +13,7 @@ import org.jetbrains.annotations.Nullable;
 
 public class IronEnergyStorageBlockEntity extends AbstractEnergyStorageBlockEntity implements IronTier {
     public IronEnergyStorageBlockEntity(BlockPos pos, BlockState state) {
-        super(ModBlockEntities.IRON_ENERGY_STORAGE, pos, state);
-        this.setEnergyLevel(5678);
-    }
-
-    @Override
-    public long getMaxInsertExtract() {
-        return MAX_INSERT_EXTRACT;
-    }
-
-    @Override
-    public long getEnergyCapacity() {
-        return ENERGY_STORAGE;
+        super(ModBlockEntities.IRON_ENERGY_STORAGE, pos, state, ENERGY_STORAGE, ENERGY_STORAGE_INSERT_EXTRACT);
     }
 
     @Override

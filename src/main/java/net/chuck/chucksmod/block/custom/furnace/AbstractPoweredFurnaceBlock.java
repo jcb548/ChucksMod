@@ -1,6 +1,6 @@
 package net.chuck.chucksmod.block.custom.furnace;
 
-import net.chuck.chucksmod.block.entity.crusher.AbstractPoweredCrusherBlockEntity;
+import net.chuck.chucksmod.block.entity.furnace.AbstractPoweredFurnaceBlockEntity;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.item.ItemPlacementContext;
@@ -53,8 +53,8 @@ public abstract class AbstractPoweredFurnaceBlock extends BlockWithEntity implem
     public void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
         if (state.getBlock() != newState.getBlock()) {
             BlockEntity blockEntity = world.getBlockEntity(pos);
-            if (blockEntity instanceof AbstractPoweredCrusherBlockEntity) {
-                ItemScatterer.spawn(world, pos, (AbstractPoweredCrusherBlockEntity)blockEntity);
+            if (blockEntity instanceof AbstractPoweredFurnaceBlockEntity) {
+                ItemScatterer.spawn(world, pos, (AbstractPoweredFurnaceBlockEntity)blockEntity);
                 world.updateComparators(pos, this);
             }
             super.onStateReplaced(state, world, pos, newState, moved);

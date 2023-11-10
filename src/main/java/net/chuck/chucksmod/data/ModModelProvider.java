@@ -164,6 +164,7 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerCooker(ModBlocks.CRUSHER, TexturedModel.ORIENTABLE);
         blockStateModelGenerator.registerCooker(ModBlocks.IRON_POWERED_CRUSHER, TexturedModel.ORIENTABLE);
         blockStateModelGenerator.registerCooker(ModBlocks.IRON_POWERED_FURNACE, TexturedModel.ORIENTABLE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.IRON_ENERGY_STORAGE);
         blockStateModelGenerator.registerCooker(ModBlocks.IRON_HEAT_GENERATOR, TexturedModel.ORIENTABLE);
 
         BlockStateModelGenerator.BlockTexturePool sandstone_bricks_pool =

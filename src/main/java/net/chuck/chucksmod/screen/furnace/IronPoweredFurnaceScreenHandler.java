@@ -1,6 +1,5 @@
 package net.chuck.chucksmod.screen.furnace;
 
-import net.chuck.chucksmod.block.entity.crusher.IronPoweredCrusherBlockEntity;
 import net.chuck.chucksmod.block.entity.furnace.IronPoweredFurnaceBlockEntity;
 import net.chuck.chucksmod.screen.ModScreenHandlers;
 import net.minecraft.block.entity.BlockEntity;
@@ -13,7 +12,7 @@ public class IronPoweredFurnaceScreenHandler extends AbstractPoweredFurnaceScree
     public final IronPoweredFurnaceBlockEntity blockEntity;
     public IronPoweredFurnaceScreenHandler(int syncId, PlayerInventory inventory, PacketByteBuf buf){
         this(syncId, inventory, inventory.player.getWorld().getBlockEntity(buf.readBlockPos()),
-                new ArrayPropertyDelegate(IronPoweredCrusherBlockEntity.DELEGATE_SIZE));
+                new ArrayPropertyDelegate(IronPoweredFurnaceBlockEntity.DELEGATE_SIZE));
     }
     public IronPoweredFurnaceScreenHandler(int syncId, PlayerInventory playerInventory,
                                               BlockEntity entity, PropertyDelegate delegate) {

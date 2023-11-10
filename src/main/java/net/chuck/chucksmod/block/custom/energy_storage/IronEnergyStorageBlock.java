@@ -2,7 +2,6 @@ package net.chuck.chucksmod.block.custom.energy_storage;
 
 import net.chuck.chucksmod.block.entity.ModBlockEntities;
 import net.chuck.chucksmod.block.entity.energy_storage.IronEnergyStorageBlockEntity;
-import net.chuck.chucksmod.block.entity.furnace.IronPoweredFurnaceBlockEntity;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
@@ -16,16 +15,16 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-public class IronEnergyStorageBlock extends AbstractEnergyStorageBlock{
+public class IronEnergyStorageBlock extends AbstractEnergyStorageBlock {
     public IronEnergyStorageBlock(Settings settings) {
         super(settings);
     }
-
     @Nullable
     @Override
     public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
         return new IronEnergyStorageBlockEntity(pos, state);
     }
+
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
