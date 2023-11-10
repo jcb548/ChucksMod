@@ -15,6 +15,7 @@ import java.util.Optional;
 public abstract class AbstractEnergyStorageScreen<T extends AbstractEnergyStorageScreenHandler> extends HandledScreen<T> {
     private static final Identifier TEXTURE = new Identifier(ChucksMod.MOD_ID,
             "textures/gui/energy_storage_gui.png");
+    protected EnergyIOButton up;
     protected EnergyInfoArea energyInfoArea;
     public AbstractEnergyStorageScreen(T handler, PlayerInventory inventory, Text title) {
         super(handler, inventory, title);
