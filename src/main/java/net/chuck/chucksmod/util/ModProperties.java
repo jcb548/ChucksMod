@@ -1,10 +1,10 @@
 package net.chuck.chucksmod.util;
 
 public class ModProperties {
-    public static final DirectionalPowerIOProperty UP = DirectionalPowerIOProperty.of("up");
-    public static final DirectionalPowerIOProperty DOWN = DirectionalPowerIOProperty.of("down");
-    public static final DirectionalPowerIOProperty NORTH = DirectionalPowerIOProperty.of("north");
-    public static final DirectionalPowerIOProperty SOUTH = DirectionalPowerIOProperty.of("south");
-    public static final DirectionalPowerIOProperty EAST = DirectionalPowerIOProperty.of("east");
-    public static final DirectionalPowerIOProperty WEST = DirectionalPowerIOProperty.of("west");
+    public static final DirectionEnergyIOProperty UP = DirectionEnergyIOProperty.of("up");
+    public static final DirectionEnergyIOProperty DOWN = DirectionEnergyIOProperty.of("down");
+    public static final DirectionEnergyIOProperty NORTH = DirectionEnergyIOProperty.of("north");
+    public static final DirectionEnergyIOProperty SOUTH = DirectionEnergyIOProperty.of("south");
+    public static final DirectionEnergyIOProperty EAST = DirectionEnergyIOProperty.of("east");
+    public static final DirectionEnergyIOProperty WEST = DirectionEnergyIOProperty.of("west");
 }

@@ -64,7 +64,7 @@ public class ModScreenHandlers {
                 IRON_POWERED_FURNACE_SCREEN_HANDLER);
         Registry.register(Registries.SCREEN_HANDLER, new Identifier(ChucksMod.MOD_ID, "iron_heat_generator"),
                 IRON_HEAT_GENERATOR_SCREEN_HANDLER);
-        Registry.register(Registries.SCREEN_HANDLER, new Identifier(ChucksMod.MOD_ID, "iron_energy_storage"),
+        Registry.register(Registries.SCREEN_HANDLER, new Identifier(ChucksMod.MOD_ID, "iron_energy_storage.json.json"),
                 IRON_ENERGY_STORAGE_SCREEN_HANDLER);
 
         Registry.register(Registries.SCREEN_HANDLER, new Identifier(ChucksMod.MOD_ID, "titanium_heat_generator"),

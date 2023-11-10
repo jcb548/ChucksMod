@@ -1,6 +1,7 @@
 package net.chuck.chucksmod.block.custom.energy_storage;
 
 import net.chuck.chucksmod.block.entity.energy_storage.AbstractEnergyStorageBlockEntity;
+import net.chuck.chucksmod.util.DirectionEnergyIOProperty;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.item.ItemPlacementContext;
@@ -17,10 +18,23 @@ import org.jetbrains.annotations.Nullable;
 
 public abstract class AbstractEnergyStorageBlock extends BlockWithEntity implements BlockEntityProvider{
     public static final DirectionProperty FACING = Properties.HORIZONTAL_FACING;
+    public static final DirectionEnergyIOProperty UP = DirectionEnergyIOProperty.of("up");
+    public static final DirectionEnergyIOProperty DOWN = DirectionEnergyIOProperty.of("down");
+    public static final DirectionEnergyIOProperty NORTH = DirectionEnergyIOProperty.of("north");
+    public static final DirectionEnergyIOProperty SOUTH = DirectionEnergyIOProperty.of("south");
+    public static final DirectionEnergyIOProperty EAST = DirectionEnergyIOProperty.of("east");
+    public static final DirectionEnergyIOProperty WEST = DirectionEnergyIOProperty.of("west");
     protected AbstractEnergyStorageBlock(Settings settings) {
         super(settings);
         this.setDefaultState(this.stateManager.getDefaultState()
-                .with(FACING, Direction.NORTH));
+                .with(FACING, Direction.NORTH)
+                .with(UP, DirectionEnergyIOProperty.DISABLED)
+                .with(DOWN, DirectionEnergyIOProperty.DISABLED)
+                .with(NORTH, DirectionEnergyIOProperty.DISABLED)
+                .with(SOUTH, DirectionEnergyIOProperty.DISABLED)
+                .with(EAST, DirectionEnergyIOProperty.INSERT)
+                .with(WEST, DirectionEnergyIOProperty.EXTRACT)
+        );
     }
     @Nullable
     @Override
@@ -40,7 +54,7 @@ public abstract class AbstractEnergyStorageBlock extends BlockWithEntity impleme
 
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(FACING);
+        builder.add(FACING, UP, DOWN, NORTH, SOUTH, EAST, WEST);
     }
     @Override
     public BlockRenderType getRenderType(BlockState state) {

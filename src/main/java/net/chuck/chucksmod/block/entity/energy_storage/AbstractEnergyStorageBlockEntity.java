@@ -2,44 +2,56 @@ package net.chuck.chucksmod.block.entity.energy_storage;
 
 import net.chuck.chucksmod.block.entity.ImplementedInventory;
 import net.chuck.chucksmod.networking.ModMessages;
+import net.chuck.chucksmod.util.DirectionEnergyIOProperty;
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
 import net.fabricmc.fabric.api.networking.v1.PlayerLookup;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
-import net.fabricmc.fabric.api.transfer.v1.transaction.Transaction;
-import net.minecraft.block.AbstractFurnaceBlock;
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.inventory.Inventories;
-import net.minecraft.inventory.Inventory;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.PacketByteBuf;
-import net.minecraft.recipe.RecipeEntry;
-import net.minecraft.recipe.RecipeManager;
-import net.minecraft.recipe.RecipeType;
-import net.minecraft.recipe.SmeltingRecipe;
-import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
-import team.reborn.energy.api.base.SimpleEnergyStorage;
+import team.reborn.energy.api.base.SimpleSidedEnergyContainer;
 
 public abstract class AbstractEnergyStorageBlockEntity extends BlockEntity implements ExtendedScreenHandlerFactory,
         ImplementedInventory {
     public static final int INPUT_SLOT = 0;
     public static final int INV_SIZE = 1;
     protected final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(INV_SIZE, ItemStack.EMPTY);
-    public final SimpleEnergyStorage energyStorage;
+    public final SimpleSidedEnergyContainer energyStorage;
     public AbstractEnergyStorageBlockEntity(BlockEntityType entity, BlockPos pos, BlockState state,
                                             int energyStorageSize, int maxInsertExtract) {
         super(entity, pos, state);
-        energyStorage = new SimpleEnergyStorage(energyStorageSize, maxInsertExtract, maxInsertExtract){
+        energyStorage = new SimpleSidedEnergyContainer() {
+            @Override
+            public long getCapacity() {
+                return energyStorageSize;
+            }
+
+            @Override
+            public long getMaxInsert(Direction side) {
+                if (allowInsert(side)){
+                    return maxInsertExtract;
+                }
+                return 0;
+            }
+
+            @Override
+            public long getMaxExtract(Direction side) {
+                if(allowExtract(side)) {
+                    return maxInsertExtract;
+                }
+                return 0;
+            }
             @Override
             protected void onFinalCommit() {
                 markDirty();
@@ -85,4 +97,20 @@ public abstract class AbstractEnergyStorageBlockEntity extends BlockEntity imple
     public void writeScreenOpeningData(ServerPlayerEntity player, PacketByteBuf buf) {
         buf.writeBlockPos(this.pos);
     }
+
+    private boolean allowInsert(Direction side){
+        if(this.getCachedState().get(DirectionEnergyIOProperty.of(side.getName()))
+                .equals(DirectionEnergyIOProperty.INSERT)){
+            return true;
+        }
+        return false;
+    }
+    private boolean allowExtract(Direction side){
+        if(this.getCachedState().get(DirectionEnergyIOProperty.of(side.getName()))
+                .equals(DirectionEnergyIOProperty.EXTRACT)){
+            return true;
+        }
+        return false;
+    }
+
 }
