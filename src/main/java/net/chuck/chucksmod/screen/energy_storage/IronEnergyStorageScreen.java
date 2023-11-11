@@ -2,9 +2,12 @@ package net.chuck.chucksmod.screen.energy_storage;
 
 import net.chuck.chucksmod.ChucksMod;
 import net.chuck.chucksmod.screen.renderer.EnergyInfoArea;
+import net.minecraft.client.gui.DrawContext;
+import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.BlockPos;
 
 public class IronEnergyStorageScreen extends AbstractEnergyStorageScreen<IronEnergyStorageScreenHandler> {
     private static final Identifier DISABLED = new Identifier(ChucksMod.MOD_ID,
@@ -15,8 +18,6 @@ public class IronEnergyStorageScreen extends AbstractEnergyStorageScreen<IronEne
             "textures/block/iron_energy_storage_out.png");
     public IronEnergyStorageScreen(IronEnergyStorageScreenHandler handler, PlayerInventory inventory, Text title) {
         super(handler, inventory, title);
-        up = new EnergyIOButton(this, 79, 17, Text.literal("Up")
-                ,DISABLED, INSERT, EXTRACT);
     }
 
     @Override

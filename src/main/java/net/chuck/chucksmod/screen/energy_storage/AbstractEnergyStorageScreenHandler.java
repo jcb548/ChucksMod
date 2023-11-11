@@ -2,6 +2,7 @@ package net.chuck.chucksmod.screen.energy_storage;
 
 import net.chuck.chucksmod.block.entity.energy_storage.AbstractEnergyStorageBlockEntity;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventory;
@@ -64,4 +65,6 @@ public abstract class AbstractEnergyStorageScreenHandler extends ScreenHandler {
             this.addSlot(new Slot(inventory, i, 8 + i*18, 142));
         }
     }
+
+    public abstract void onButtonPress(byte id);
 }

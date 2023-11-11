@@ -9,6 +9,7 @@ import net.chuck.chucksmod.entity.custom.WyattEntity;
 import net.chuck.chucksmod.item.ModItemGroups;
 import net.chuck.chucksmod.item.ModItems;
 import net.chuck.chucksmod.item.enchantment.ModEnchantments;
+import net.chuck.chucksmod.networking.ModMessages;
 import net.chuck.chucksmod.recipe.ModRecipes;
 import net.chuck.chucksmod.screen.ModScreenHandlers;
 import net.chuck.chucksmod.util.ModCustomTrades;
@@ -66,5 +67,6 @@ public class ChucksMod implements ModInitializer {
 		//ServerTickEvents.START_SERVER_TICK.register(new PlayerTickHandler());
 		FabricDefaultAttributeRegistry.register(ModEntities.WYATT, WyattEntity.setAttributes());
 		FabricDefaultAttributeRegistry.register(ModEntities.FRANK_BOSS, FrankBoss.setAttributes());
+		ModMessages.registerC2SPackets();
 	}
 }

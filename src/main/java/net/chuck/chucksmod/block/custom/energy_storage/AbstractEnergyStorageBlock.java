@@ -18,12 +18,12 @@ import org.jetbrains.annotations.Nullable;
 
 public abstract class AbstractEnergyStorageBlock extends BlockWithEntity implements BlockEntityProvider{
     public static final DirectionProperty FACING = Properties.HORIZONTAL_FACING;
-    public static final DirectionEnergyIOProperty UP = DirectionEnergyIOProperty.of("up");
-    public static final DirectionEnergyIOProperty DOWN = DirectionEnergyIOProperty.of("down");
-    public static final DirectionEnergyIOProperty NORTH = DirectionEnergyIOProperty.of("north");
-    public static final DirectionEnergyIOProperty SOUTH = DirectionEnergyIOProperty.of("south");
-    public static final DirectionEnergyIOProperty EAST = DirectionEnergyIOProperty.of("east");
-    public static final DirectionEnergyIOProperty WEST = DirectionEnergyIOProperty.of("west");
+    public static final DirectionEnergyIOProperty UP = DirectionEnergyIOProperty.UP;
+    public static final DirectionEnergyIOProperty DOWN = DirectionEnergyIOProperty.DOWN;
+    public static final DirectionEnergyIOProperty NORTH = DirectionEnergyIOProperty.NORTH;
+    public static final DirectionEnergyIOProperty SOUTH = DirectionEnergyIOProperty.SOUTH;
+    public static final DirectionEnergyIOProperty EAST = DirectionEnergyIOProperty.EAST;
+    public static final DirectionEnergyIOProperty WEST = DirectionEnergyIOProperty.WEST;
     protected AbstractEnergyStorageBlock(Settings settings) {
         super(settings);
         this.setDefaultState(this.stateManager.getDefaultState()
