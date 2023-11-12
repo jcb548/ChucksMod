@@ -39,7 +39,16 @@ public abstract class AbstractEnergyStorageBlock extends BlockWithEntity impleme
     @Nullable
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
-        return this.getDefaultState().with(FACING, ctx.getHorizontalPlayerFacing().getOpposite());
+        Direction blockFacing = ctx.getHorizontalPlayerFacing().getOpposite();
+        return this.getDefaultState().with(FACING, blockFacing)
+                .with(DirectionEnergyIOProperty.getProperty(blockFacing),
+                        DirectionEnergyIOProperty.DISABLED)
+                .with(DirectionEnergyIOProperty.getProperty(blockFacing.getOpposite()),
+                        DirectionEnergyIOProperty.DISABLED)
+                .with(DirectionEnergyIOProperty.getProperty(blockFacing.rotateYClockwise()),
+                        DirectionEnergyIOProperty.INSERT)
+                .with(DirectionEnergyIOProperty.getProperty(blockFacing.rotateYCounterclockwise()),
+                        DirectionEnergyIOProperty.EXTRACT);
     }
 
     @Override

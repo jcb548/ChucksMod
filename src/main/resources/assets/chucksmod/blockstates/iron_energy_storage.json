@@ -173,6 +173,132 @@
       "when": {
         "down": "extract"
       }
+    },
+    {
+      "apply": {
+        "model": "chucksmod:block/iron_energy_storage_front"
+      },
+      "when": {
+        "north": "disabled",
+        "facing": "north"
+      }
+    },
+    {
+      "apply": {
+        "model": "chucksmod:block/iron_energy_storage_front",
+        "uvlock": true,
+        "y": 90
+      },
+      "when": {
+        "east": "disabled",
+        "facing": "east"
+      }
+    },
+    {
+      "apply": {
+        "model": "chucksmod:block/iron_energy_storage_front",
+        "uvlock": true,
+        "y": 180
+      },
+      "when": {
+        "south": "disabled",
+        "facing": "south"
+      }
+    },
+    {
+      "apply": {
+        "model": "chucksmod:block/iron_energy_storage_front",
+        "uvlock": true,
+        "y": 270
+      },
+      "when": {
+        "west": "disabled",
+        "facing": "west"
+      }
+    },
+    {
+      "apply": {
+        "model": "chucksmod:block/iron_energy_storage_front_in"
+      },
+      "when": {
+        "north": "insert",
+        "facing": "north"
+      }
+    },
+    {
+      "apply": {
+        "model": "chucksmod:block/iron_energy_storage_front_in",
+        "uvlock": false,
+        "y": 90
+      },
+      "when": {
+        "east": "insert",
+        "facing": "east"
+      }
+    },
+    {
+      "apply": {
+        "model": "chucksmod:block/iron_energy_storage_front_in",
+        "uvlock": false,
+        "y": 180
+      },
+      "when": {
+        "south": "insert",
+        "facing": "south"
+      }
+    },
+    {
+      "apply": {
+        "model": "chucksmod:block/iron_energy_storage_front_in",
+        "uvlock": false,
+        "y": 270
+      },
+      "when": {
+        "west": "insert",
+        "facing": "west"
+      }
+    },
+    {
+      "apply": {
+        "model": "chucksmod:block/iron_energy_storage_front_out"
+      },
+      "when": {
+        "north": "extract",
+        "facing": "north"
+      }
+    },
+    {
+      "apply": {
+        "model": "chucksmod:block/iron_energy_storage_front_out",
+        "uvlock": false,
+        "y": 90
+      },
+      "when": {
+        "east": "extract",
+        "facing": "east"
+      }
+    },
+    {
+      "apply": {
+        "model": "chucksmod:block/iron_energy_storage_front_out",
+        "uvlock": false,
+        "y": 180
+      },
+      "when": {
+        "south": "extract",
+        "facing": "south"
+      }
+    },
+    {
+      "apply": {
+        "model": "chucksmod:block/iron_energy_storage_front_out",
+        "uvlock": false,
+        "y": 270
+      },
+      "when": {
+        "west": "extract",
+        "facing": "west"
+      }
     }
   ]
 }

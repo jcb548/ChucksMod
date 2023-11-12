@@ -67,4 +67,6 @@ public abstract class AbstractEnergyStorageScreenHandler extends ScreenHandler {
     }
 
     public abstract void onButtonPress(byte id);
+    public abstract String getSideState(byte id);
+    public abstract byte directionToGUISide(byte id);
 }

@@ -11,6 +11,7 @@ import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.Direction;
 
 import java.util.Optional;
 
@@ -19,13 +20,19 @@ public abstract class AbstractEnergyStorageScreen<T extends AbstractEnergyStorag
             "textures/gui/energy_storage_gui.png");
     private ButtonWidget up;
     private ButtonWidget down;
-    private ButtonWidget north;
-    private ButtonWidget south;
-    private ButtonWidget east;
-    private ButtonWidget west;
+    private ButtonWidget front;
+    private ButtonWidget back;
+    private ButtonWidget left;
+    private ButtonWidget right;
     protected EnergyInfoArea energyInfoArea;
     public static final int BUTTON_WIDTH = 16;
     public static final int BUTTON_HEIGHT = BUTTON_WIDTH;
+    private final int ROW_1_Y = 17;
+    private final int COLUMN_1_X = 62;
+    private final int ROW_2_Y = 35;
+    private final int COLUMN_2_X = 80;
+    private final int ROW_3_Y = 53;
+    private final int COLUMN_3_X = 98;
     public AbstractEnergyStorageScreen(T handler, PlayerInventory inventory, Text title) {
         super(handler, inventory, title);
     }
@@ -37,34 +44,34 @@ public abstract class AbstractEnergyStorageScreen<T extends AbstractEnergyStorag
         assignEnergyInfoArea();
         up = ButtonWidget.builder(Text.literal("U"), button -> {
             handler.onButtonPress(DirectionEnergyIOProperty.UP_KEY);
-        }).dimensions(getX() + 80, getY() + 17,
+        }).dimensions(getX() + COLUMN_2_X, getY() + ROW_1_Y,
                 BUTTON_WIDTH, BUTTON_HEIGHT).build();
         down = ButtonWidget.builder(Text.literal("D"), button -> {
             handler.onButtonPress(DirectionEnergyIOProperty.DOWN_KEY);
-        }).dimensions(getX() + 80, getY() + 53,
+        }).dimensions(getX() + COLUMN_2_X, getY() + ROW_3_Y,
                 BUTTON_WIDTH, BUTTON_HEIGHT).build();
-        north = ButtonWidget.builder(Text.literal("N"), button -> {
-            handler.onButtonPress(DirectionEnergyIOProperty.NORTH_KEY);
-        }).dimensions(getX() + 80, getY() + 35,
+        front = ButtonWidget.builder(Text.literal("N"), button -> {
+            handler.onButtonPress(handler.directionToGUISide(DirectionEnergyIOProperty.NORTH_KEY));
+        }).dimensions(getX() + COLUMN_2_X, getY() + ROW_2_Y,
                 BUTTON_WIDTH, BUTTON_HEIGHT).build();
-        south = ButtonWidget.builder(Text.literal("S"), button -> {
-            handler.onButtonPress(DirectionEnergyIOProperty.SOUTH_KEY);
-        }).dimensions(getX() + 98, getY() + 53,
+        back = ButtonWidget.builder(Text.literal("S"), button -> {
+            handler.onButtonPress(handler.directionToGUISide(DirectionEnergyIOProperty.SOUTH_KEY));
+        }).dimensions(getX() + COLUMN_3_X, getY() + ROW_3_Y,
                 BUTTON_WIDTH, BUTTON_HEIGHT).build();
-        east = ButtonWidget.builder(Text.literal("E"), button -> {
-            handler.onButtonPress(DirectionEnergyIOProperty.EAST_KEY);
-        }).dimensions(getX() + 62, getY() + 35,
+        left = ButtonWidget.builder(Text.literal("E"), button -> {
+            handler.onButtonPress(handler.directionToGUISide(DirectionEnergyIOProperty.EAST_KEY));
+        }).dimensions(getX() + COLUMN_1_X, getY() + ROW_2_Y,
                 BUTTON_WIDTH, BUTTON_HEIGHT).build();
-        west = ButtonWidget.builder(Text.literal("W"), button -> {
-            handler.onButtonPress(DirectionEnergyIOProperty.WEST_KEY);
-        }).dimensions(getX() + 98, getY() + 35,
+        right = ButtonWidget.builder(Text.literal("W"), button -> {
+            handler.onButtonPress(handler.directionToGUISide(DirectionEnergyIOProperty.WEST_KEY));
+        }).dimensions(getX() + COLUMN_3_X, getY() + ROW_2_Y,
                 BUTTON_WIDTH, BUTTON_HEIGHT).build();
-        this.addDrawableChild(up);
-        this.addDrawableChild(down);
-        this.addDrawableChild(north);
-        this.addDrawableChild(south);
-        this.addDrawableChild(east);
-        this.addDrawableChild(west);
+        this.addSelectableChild(up);
+        this.addSelectableChild(down);
+        this.addSelectableChild(front);
+        this.addSelectableChild(back);
+        this.addSelectableChild(left);
+        this.addSelectableChild(right);
     }
     protected abstract void assignEnergyInfoArea();
     @Override
@@ -78,6 +85,7 @@ public abstract class AbstractEnergyStorageScreen<T extends AbstractEnergyStorag
         RenderSystem.setShaderColor(1.0f, 1.0f, 1.0f, 1.0f);
         context.drawTexture(TEXTURE, getX(), getY(), 0, 0, backgroundWidth, backgroundHeight);
         energyInfoArea.draw(context);
+        drawSideTextures(context, x, y);
     }
     @Override
     public void render(DrawContext context, int mouseX, int mouseY, float delta) {
@@ -102,5 +110,33 @@ public abstract class AbstractEnergyStorageScreen<T extends AbstractEnergyStorag
 
     protected int getY(){
         return (height - backgroundHeight) /2;
+    }
+    private int getIOOffset(byte id){
+        if(handler.getSideState(id).equals(DirectionEnergyIOProperty.INSERT)){
+            return BUTTON_HEIGHT;
+        }
+        if(handler.getSideState(id).equals(DirectionEnergyIOProperty.EXTRACT)){
+            return 2*BUTTON_HEIGHT;
+        }
+        return 0;
+    }
+    private void drawSideTextures(DrawContext context, int x, int y){
+        context.drawTexture(TEXTURE, x+COLUMN_2_X, y+ROW_1_Y,176, getIOOffset(DirectionEnergyIOProperty.UP_KEY),
+                BUTTON_WIDTH, BUTTON_HEIGHT);
+        context.drawTexture(TEXTURE, x+COLUMN_2_X,y+ROW_3_Y,  176, getIOOffset(DirectionEnergyIOProperty.DOWN_KEY),
+                BUTTON_WIDTH, BUTTON_HEIGHT);
+        context.drawTexture(TEXTURE, x+COLUMN_2_X,y+ROW_2_Y,  176,
+                getIOOffset(handler.directionToGUISide(DirectionEnergyIOProperty.NORTH_KEY)),
+                BUTTON_WIDTH, BUTTON_HEIGHT);
+        context.drawTexture(TEXTURE, x+COLUMN_3_X, y+ROW_3_Y, 176,
+                getIOOffset(handler.directionToGUISide(DirectionEnergyIOProperty.SOUTH_KEY)),
+                BUTTON_WIDTH, BUTTON_HEIGHT);
+        context.drawTexture(TEXTURE, x+COLUMN_1_X,y+ROW_2_Y,  176,
+                getIOOffset(handler.directionToGUISide(DirectionEnergyIOProperty.EAST_KEY)),
+                BUTTON_WIDTH, BUTTON_HEIGHT);
+        context.drawTexture(TEXTURE, x+COLUMN_3_X,y+ROW_2_Y,  176,
+                getIOOffset(handler.directionToGUISide(DirectionEnergyIOProperty.WEST_KEY)),
+                BUTTON_WIDTH, BUTTON_HEIGHT);
+
     }
 }

@@ -2,6 +2,7 @@ package net.chuck.chucksmod.util;
 
 import com.google.common.collect.ImmutableSet;
 import net.minecraft.state.property.Property;
+import net.minecraft.util.math.Direction;
 
 import java.util.Collection;
 import java.util.Optional;
@@ -73,6 +74,29 @@ public class DirectionEnergyIOProperty extends Property<String> {
             case 4: return DirectionEnergyIOProperty.EAST;
             case 5: return DirectionEnergyIOProperty.WEST;
             default: return DirectionEnergyIOProperty.UP;
+        }
+    }
+
+    public static DirectionEnergyIOProperty getProperty(Direction direction){
+        switch (direction){
+            case UP -> {
+                return UP;
+            }
+            case DOWN -> {
+                return DOWN;
+            }
+            case SOUTH -> {
+                return SOUTH;
+            }
+            case EAST -> {
+                return EAST;
+            }
+            case WEST -> {
+                return WEST;
+            }
+            default -> {
+                return NORTH;
+            }
         }
     }
 }

@@ -10,12 +10,6 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 
 public class IronEnergyStorageScreen extends AbstractEnergyStorageScreen<IronEnergyStorageScreenHandler> {
-    private static final Identifier DISABLED = new Identifier(ChucksMod.MOD_ID,
-            "textures/block/iron_energy_storage.png");
-    private static final Identifier INSERT = new Identifier(ChucksMod.MOD_ID,
-            "textures/block/iron_energy_storage_in.png");
-    private static final Identifier EXTRACT = new Identifier(ChucksMod.MOD_ID,
-            "textures/block/iron_energy_storage_out.png");
     public IronEnergyStorageScreen(IronEnergyStorageScreenHandler handler, PlayerInventory inventory, Text title) {
         super(handler, inventory, title);
     }
