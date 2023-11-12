@@ -201,6 +201,9 @@ public class ModItems {
             new ArmorItem(ModArmorMaterials.DIRITONIUM, ArmorItem.Type.LEGGINGS, new FabricItemSettings()));
     public static final Item DIRITONIUM_BOOTS = registerItem("diritonium_boots",
             new ArmorItem(ModArmorMaterials.DIRITONIUM, ArmorItem.Type.BOOTS, new FabricItemSettings()));
+    public static final Item SOUL_BLAZE_SPAWN_EGG = registerItem("soul_blaze_spawn_egg",
+            new SpawnEggItem(ModEntities.SOUL_BLAZE_BOSS, 0xD8CCF6, 0x00007B,
+                    new FabricItemSettings()));
     public static final Item WYATT_SPAWN_EGG = registerItem("wyatt_spawn_egg",
             new SpawnEggItem(ModEntities.WYATT, 0xA175B6, 0x54002C,
                     new FabricItemSettings()));

@@ -5,6 +5,7 @@ import net.chuck.chucksmod.block.entity.ModBlockEntities;
 import net.chuck.chucksmod.entity.ModBoats;
 import net.chuck.chucksmod.entity.ModEntities;
 import net.chuck.chucksmod.entity.custom.FrankBoss;
+import net.chuck.chucksmod.entity.custom.SoulBlazeBoss;
 import net.chuck.chucksmod.entity.custom.WyattEntity;
 import net.chuck.chucksmod.item.ModItemGroups;
 import net.chuck.chucksmod.item.ModItems;
@@ -67,6 +68,7 @@ public class ChucksMod implements ModInitializer {
 		//ServerTickEvents.START_SERVER_TICK.register(new PlayerTickHandler());
 		FabricDefaultAttributeRegistry.register(ModEntities.WYATT, WyattEntity.setAttributes());
 		FabricDefaultAttributeRegistry.register(ModEntities.FRANK_BOSS, FrankBoss.setAttributes());
+		FabricDefaultAttributeRegistry.register(ModEntities.SOUL_BLAZE_BOSS, SoulBlazeBoss.createSoulBlazeAttributes());
 		ModMessages.registerC2SPackets();
 	}
 }

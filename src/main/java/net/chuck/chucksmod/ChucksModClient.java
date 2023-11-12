@@ -79,6 +79,8 @@ public class ChucksModClient implements ClientModInitializer {
         EntityRendererRegistry.register(ModEntities.FRANK_BOSS, FrankRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.FRANK_FIREBALL, FrankFireballModel::getTexturedModelData);
         EntityRendererRegistry.register(ModEntities.FRANK_FIREBALL, FrankFireballRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(ModModelLayers.SOUL_BLAZE, SoulBlazeModel::getTexturedModelData);
+        EntityRendererRegistry.register(ModEntities.SOUL_BLAZE_BOSS, SoulBlazeRenderer::new);
     }
 
     private void registerTintedBlocks(){

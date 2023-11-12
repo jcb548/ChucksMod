@@ -183,6 +183,7 @@ public class ModItemGroups {
                         entries.add(ModItems.FABIUM_CHESTPLATE);
                         entries.add(ModItems.FABIUM_LEGGINGS);
                         entries.add(ModItems.FABIUM_BOOTS);
+                        entries.add(ModItems.SOUL_BLAZE_SPAWN_EGG);
 
                         entries.add(ModItems.RAW_DIRITONIUM);
                         entries.add(ModItems.DIRITONIUM_INGOT);

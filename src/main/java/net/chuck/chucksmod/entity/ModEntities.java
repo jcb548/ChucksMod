@@ -3,6 +3,7 @@ package net.chuck.chucksmod.entity;
 import net.chuck.chucksmod.ChucksMod;
 import net.chuck.chucksmod.entity.custom.FrankBoss;
 import net.chuck.chucksmod.entity.custom.FrankFireballEntity;
+import net.chuck.chucksmod.entity.custom.SoulBlazeBoss;
 import net.chuck.chucksmod.entity.custom.WyattEntity;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
 import net.minecraft.entity.EntityDimensions;
@@ -27,4 +28,8 @@ public class ModEntities {
                     .dimensions(EntityDimensions.fixed(0.25f, 0.25f))
                     .trackRangeBlocks(4).trackedUpdateRate(10)
                     .build());
+    public static final EntityType<SoulBlazeBoss> SOUL_BLAZE_BOSS = Registry.register(
+            Registries.ENTITY_TYPE, new Identifier(ChucksMod.MOD_ID, "soul_blaze"),
+            FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, SoulBlazeBoss::new)
+                    .dimensions(EntityDimensions.fixed(1.2f, 2.5f)).fireImmune().build());
 }
