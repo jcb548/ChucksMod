@@ -9,7 +9,7 @@ import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
 
 public class SoulBlazeRenderer extends MobEntityRenderer<SoulBlazeBoss, SoulBlazeModel<SoulBlazeBoss>> {
-    private static final Identifier TEXTURE = new Identifier(ChucksMod.MOD_ID, "textures/entity/soul_blaze.png");
+    public static final Identifier TEXTURE = new Identifier(ChucksMod.MOD_ID, "textures/entity/soul_blaze.png");
     public SoulBlazeRenderer(EntityRendererFactory.Context context) {
         super(context, new SoulBlazeModel<>(context.getPart(ModModelLayers.SOUL_BLAZE)), 0.8f);
     }

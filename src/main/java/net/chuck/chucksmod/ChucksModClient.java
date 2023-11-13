@@ -81,10 +81,12 @@ public class ChucksModClient implements ClientModInitializer {
         EntityRendererRegistry.register(ModEntities.FRANK_FIREBALL, FrankFireballRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.SOUL_BLAZE, SoulBlazeModel::getTexturedModelData);
         EntityRendererRegistry.register(ModEntities.SOUL_BLAZE_BOSS, SoulBlazeRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer((ModModelLayers.SOUL_BLAZE_ROD), SoulBlazeRodModel::getTexturedModelData);
+        EntityRendererRegistry.register(ModEntities.SOUL_BLAZE_ROD, SoulBlazeRodRenderer::new);
+
     }
 
     private void registerTintedBlocks(){
-
         ColorProviderRegistry.BLOCK.register((state, view, pos, tintIndex) -> BiomeColors.getGrassColor(view, pos),
                 ModBlocks.DIRITIA_PLANT);
         ColorProviderRegistry.BLOCK.register((state, view, pos, tintIndex) -> 0xFE8738,

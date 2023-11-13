@@ -3,8 +3,12 @@ package net.chuck.chucksmod.entity.ai;
 import net.chuck.chucksmod.entity.custom.SoulBlazeBoss;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.goal.MeleeAttackGoal;
+import net.minecraft.entity.attribute.EntityAttributes;
+import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.damage.DamageSources;
 import net.minecraft.entity.mob.PathAwareEntity;
 import net.minecraft.util.Hand;
+import net.minecraft.util.math.Vec3d;
 
 public class SoulBlazeMeleeAttackGoal extends MeleeAttackGoal {
     private final SoulBlazeBoss entity;
@@ -53,6 +57,14 @@ public class SoulBlazeMeleeAttackGoal extends MeleeAttackGoal {
         this.resetAttackCooldown();
         this.mob.swingHand(Hand.MAIN_HAND);
         this.mob.tryAttack(enemy);
+        this.entity.attackCounter++;
+        if(entity.attackCounter >= SoulBlazeBoss.SPECIAL_ATTACK_FREQ){
+            enemy.damage(entity.getDamageSources().mobAttack(entity),
+                    (float)entity.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE)/2);
+            Vec3d vec = new Vec3d(enemy.getX()-entity.getX(),enemy.getY()-entity.getY(),enemy.getZ()-entity.getZ());
+            vec.normalize();
+            enemy.takeKnockback(10, vec.x, vec.z);
+        }
     }
 
     @Override

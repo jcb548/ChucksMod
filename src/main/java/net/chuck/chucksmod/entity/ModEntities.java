@@ -1,10 +1,7 @@
 package net.chuck.chucksmod.entity;
 
 import net.chuck.chucksmod.ChucksMod;
-import net.chuck.chucksmod.entity.custom.FrankBoss;
-import net.chuck.chucksmod.entity.custom.FrankFireballEntity;
-import net.chuck.chucksmod.entity.custom.SoulBlazeBoss;
-import net.chuck.chucksmod.entity.custom.WyattEntity;
+import net.chuck.chucksmod.entity.custom.*;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;
@@ -32,4 +29,10 @@ public class ModEntities {
             Registries.ENTITY_TYPE, new Identifier(ChucksMod.MOD_ID, "soul_blaze"),
             FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, SoulBlazeBoss::new)
                     .dimensions(EntityDimensions.fixed(1.2f, 2.5f)).fireImmune().build());
+    public static final EntityType<SoulBlazeRodEntity> SOUL_BLAZE_ROD = Registry.register(
+            Registries.ENTITY_TYPE, new Identifier(ChucksMod.MOD_ID, "soul_blaze_rod"),
+            FabricEntityTypeBuilder.<SoulBlazeRodEntity>create(SpawnGroup.MISC, SoulBlazeRodEntity::new)
+                    .dimensions(EntityDimensions.fixed(0.5f, 0.5f))
+                    .trackRangeBlocks(4).trackedUpdateRate(10)
+                    .build());
 }
