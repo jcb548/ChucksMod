@@ -1,8 +1,10 @@
 package net.chuck.chucksmod.entity.custom;
 
+import net.chuck.chucksmod.entity.ai.DashAtTargetGoal;
 import net.chuck.chucksmod.entity.ai.SoulBlazeMeleeAttackGoal;
 import net.minecraft.entity.AnimationState;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.ai.RangedAttackMob;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
@@ -28,10 +30,12 @@ public class SoulBlazeBoss extends HostileEntity {
             DataTracker.registerData(SoulBlazeBoss.class, TrackedDataHandlerRegistry.BOOLEAN);
     public final AnimationState idleAnimationState = new AnimationState();
     private int idleAnimationTimeout = 0;
-    public final AnimationState attackAnimationState = new AnimationState();
+    public final AnimationState leftAttackAnimationState = new AnimationState();
+    public final AnimationState rightAttackAnimationState = new AnimationState();
     public int attackAnimationTimeout = 0;
     public static final int ATTACK_ANIMATION_LENGTH = 10;
     public static final int ATTACK_WINDUP = 5;
+    private boolean left_attack = false;
     private final ServerBossBar bossBar = (ServerBossBar)new ServerBossBar(this.getDisplayName(), BossBar.Color.BLUE,
             BossBar.Style.PROGRESS).setDarkenSky(false);
     public SoulBlazeBoss(EntityType<? extends HostileEntity> entityType, World world) {
@@ -50,10 +54,11 @@ public class SoulBlazeBoss extends HostileEntity {
     @Override
     protected void initGoals() {
         this.goalSelector.add(0, new SwimGoal(this));
-        this.goalSelector.add(1, new SoulBlazeMeleeAttackGoal(this, 1d, true));
-        this.goalSelector.add(2, new WanderAroundFarGoal(this, 1));
-        this.goalSelector.add(3, new LookAtEntityGoal(this, PlayerEntity.class, 16));
-        this.goalSelector.add(4, new LookAroundGoal(this));
+        this.goalSelector.add(1, new DashAtTargetGoal(this, 3, 0.6f, 3));
+        this.goalSelector.add(2, new SoulBlazeMeleeAttackGoal(this, 1.5d, true));
+        this.goalSelector.add(3, new FlyGoal(this, 1));
+        this.goalSelector.add(4, new LookAtEntityGoal(this, PlayerEntity.class, 16));
+        this.goalSelector.add(5, new LookAroundGoal(this));
 
         this.targetSelector.add(1, new RevengeGoal(this));
         this.targetSelector.add(2, new ActiveTargetGoal<>(this, AnimalEntity.class, false));
@@ -95,13 +100,22 @@ public class SoulBlazeBoss extends HostileEntity {
             --this.idleAnimationTimeout;
         }
         if(this.isAttacking() && attackAnimationTimeout<=0){
+            left_attack = !left_attack;
             attackAnimationTimeout = ATTACK_ANIMATION_LENGTH;
-            attackAnimationState.start(age);
+            if(left_attack) {
+                leftAttackAnimationState.start(age);
+            } else {
+                rightAttackAnimationState.start(age);
+            }
         } else {
             --this.attackAnimationTimeout;
         }
         if(!this.isAttacking()){
-            attackAnimationState.stop();
+            if(left_attack){
+                leftAttackAnimationState.stop();
+            } else {
+                rightAttackAnimationState.stop();
+            }
         }
     }
 
@@ -137,5 +151,13 @@ public class SoulBlazeBoss extends HostileEntity {
     public void onStoppedTrackingBy(ServerPlayerEntity player) {
         super.onStoppedTrackingBy(player);
         this.bossBar.removePlayer(player);
+    }
+
+    @Override
+    public void tickMovement() {
+        if (!this.isOnGround() && this.getVelocity().y < 0.0) {
+            this.setVelocity(this.getVelocity().multiply(1.0, 0.7, 1.0));
+        }
+        super.tickMovement();
     }
 }
