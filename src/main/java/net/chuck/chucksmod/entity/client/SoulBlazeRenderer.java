@@ -10,12 +10,17 @@ import net.minecraft.util.Identifier;
 
 public class SoulBlazeRenderer extends MobEntityRenderer<SoulBlazeBoss, SoulBlazeModel<SoulBlazeBoss>> {
     public static final Identifier TEXTURE = new Identifier(ChucksMod.MOD_ID, "textures/entity/soul_blaze.png");
+    public static final Identifier INVUL_TEXTURE =
+            new Identifier(ChucksMod.MOD_ID, "textures/entity/soul_blaze_invul.png");
     public SoulBlazeRenderer(EntityRendererFactory.Context context) {
         super(context, new SoulBlazeModel<>(context.getPart(ModModelLayers.SOUL_BLAZE)), 0.8f);
     }
 
     @Override
     public Identifier getTexture(SoulBlazeBoss entity) {
+        if(entity.getInvulTimer() >= 0 && !(entity.getInvulTimer() % 20 < 10)){
+            return INVUL_TEXTURE;
+        }
         return TEXTURE;
     }
 

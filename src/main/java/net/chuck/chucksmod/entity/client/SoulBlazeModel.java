@@ -64,6 +64,7 @@ public class SoulBlazeModel<T extends SoulBlazeBoss> extends SinglePartEntityMod
 		this.updateAnimation(entity.idleAnimationState, SoulBlazeAnimations.SOUL_BLAZE_IDLE, ageInTicks, 1);
 		this.updateAnimation(entity.leftAttackAnimationState, SoulBlazeAnimations.SOUL_BLAZE_LEFT_MELEE_ATTACK, ageInTicks, 1f);
 		this.updateAnimation(entity.rightAttackAnimationState, SoulBlazeAnimations.SOUL_BLAZE_RIGHT_MELEE_ATTACK, ageInTicks, 1f);
+		this.updateAnimation(entity.shootAnimationState, SoulBlazeAnimations.SOUL_BLAZE_RANGED_ATTACK, ageInTicks, 1f);
 	}
 	private void setHeadAngles(float headYaw, float headPitch){
 		headYaw = MathHelper.clamp(headYaw, -30.0f, 30.0f);

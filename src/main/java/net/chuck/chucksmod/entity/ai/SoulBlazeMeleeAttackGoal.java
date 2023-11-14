@@ -4,9 +4,11 @@ import net.chuck.chucksmod.entity.custom.SoulBlazeBoss;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.entity.attribute.EntityAttributes;
-import net.minecraft.entity.damage.DamageSource;
-import net.minecraft.entity.damage.DamageSources;
+import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.mob.PathAwareEntity;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.Vec3d;
 
@@ -44,8 +46,8 @@ public class SoulBlazeMeleeAttackGoal extends MeleeAttackGoal {
     private boolean isEnemyWithinAttackDistance(LivingEntity enemy){
         return this.entity.distanceTo(enemy) <= 3f;
     }
-    protected void resetAttackCooldown(){
-        this.ticksUntilNextAttack = this.getTickCount(SoulBlazeBoss.ATTACK_ANIMATION_LENGTH);
+    protected void resetCooldown(){
+        this.ticksUntilNextAttack = this.getTickCount(SoulBlazeBoss.ANIMATION_LENGTH);
     }
     protected boolean isTimeToAttack(){
         return this.ticksUntilNextAttack <= 0;
@@ -53,33 +55,37 @@ public class SoulBlazeMeleeAttackGoal extends MeleeAttackGoal {
     protected boolean isTimeToStartAttackAnimation(){
         return this.ticksUntilNextAttack <= attackDelay;
     }
-    protected void performAttack(LivingEntity enemy){
-        this.resetAttackCooldown();
+    protected void performAttack(){
+        this.resetCooldown();
         this.mob.swingHand(Hand.MAIN_HAND);
-        this.mob.tryAttack(enemy);
+        this.mob.tryAttack(entity.enemy);
         this.entity.attackCounter++;
         if(entity.attackCounter >= SoulBlazeBoss.SPECIAL_ATTACK_FREQ){
-            enemy.damage(entity.getDamageSources().mobAttack(entity),
+            entity.enemy.damage(entity.getDamageSources().mobAttack(entity),
                     (float)entity.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE)/2);
-            Vec3d vec = new Vec3d(enemy.getX()-entity.getX(),enemy.getY()-entity.getY(),enemy.getZ()-entity.getZ());
+            Vec3d vec = new Vec3d(entity.getX()-entity.enemy.getX(),0,entity.getZ()-entity.enemy.getZ());
             vec.normalize();
-            enemy.takeKnockback(10, vec.x, vec.z);
+            entity.enemy.takeKnockback(3, vec.x, vec.z);
+            entity.enemy.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 40));
+            entity.ticksUntilShoot = SoulBlazeBoss.ATTACK_WINDUP + SoulBlazeBoss.SHOOT_WINDUP;
+            entity.attackCounter = 0;
         }
     }
 
     @Override
     protected void attack(LivingEntity target) {
-        if(isEnemyWithinAttackDistance(target)){
+        entity.enemy = target;
+        if (isEnemyWithinAttackDistance(target)) {
             shouldCountTillNextAttack = true;
-            if(isTimeToStartAttackAnimation()){
+            if (isTimeToStartAttackAnimation()) {
                 entity.setAttacking(true);
             }
-            if(isTimeToAttack()){
+            if (isTimeToAttack()) {
                 this.mob.getLookControl().lookAt(target.getX(), target.getY(), target.getZ());
-                performAttack(target);
+                performAttack();
             }
         } else {
-            resetAttackCooldown();
+            resetCooldown();
             shouldCountTillNextAttack = false;
             entity.setAttacking(false);
             entity.attackAnimationTimeout = 0;

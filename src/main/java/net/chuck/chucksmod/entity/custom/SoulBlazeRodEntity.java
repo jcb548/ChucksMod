@@ -12,20 +12,23 @@ import net.minecraft.text.Text;
 
 public class SoulBlazeRodEntity extends ExplosiveProjectileEntity {
     private final float DAMAGE = 10.0f;
+    private final byte POWER = 1;
     public SoulBlazeRodEntity(EntityType<? extends ExplosiveProjectileEntity> entityType, World world) {
         super(entityType, world);
     }
-    public SoulBlazeRodEntity(EntityType<? extends ExplosiveProjectileEntity> type, double x, double y, double z,
-                               double directionX, double directionY, double directionZ, World world) {
+    public SoulBlazeRodEntity(EntityType<? extends ExplosiveProjectileEntity> type, LivingEntity owner,
+            double x, double y, double z, double directionX, double directionY, double directionZ, World world) {
         this(type, world);
         this.refreshPositionAndAngles(x, y, z, this.getYaw(), this.getPitch());
         this.refreshPosition();
         double d = Math.sqrt(directionX * directionX + directionY * directionY + directionZ * directionZ);
         if (d != 0.0) {
-            this.powerX = directionX / d * 1;
-            this.powerY = directionY / d * 1;
-            this.powerZ = directionZ / d * 1;
+            this.powerX = directionX / d * POWER;
+            this.powerY = directionY / d * POWER;
+            this.powerZ = directionZ / d * POWER;
         }
+        this.setPitch(owner.getPitch());
+        this.setYaw(owner.getYaw());
     }
 
     @Override
@@ -33,7 +36,7 @@ public class SoulBlazeRodEntity extends ExplosiveProjectileEntity {
         super.onCollision(hitResult);
         if (!this.getWorld().isClient){
             this.getWorld().createExplosion(this, this.getX(), this.getY(), this.getZ(),
-                    2.0f, true, World.ExplosionSourceType.MOB);
+                    2.0f, false, World.ExplosionSourceType.MOB);
             this.discard();
         }
     }
@@ -41,8 +44,8 @@ public class SoulBlazeRodEntity extends ExplosiveProjectileEntity {
     protected void onEntityHit(EntityHitResult entityHitResult) {
         super.onEntityHit(entityHitResult);
         if (!this.getWorld().isClient){
-            this.getWorld().createExplosion((Entity) this, this.getX(), this.getY(), this.getZ(),
-                    2.0f, true, World.ExplosionSourceType.MOB);
+            this.getWorld().createExplosion(this, this.getX(), this.getY(), this.getZ(),
+                    2.0f, false, World.ExplosionSourceType.MOB);
             this.discard();
         }
         Entity entity = entityHitResult.getEntity();
@@ -53,10 +56,17 @@ public class SoulBlazeRodEntity extends ExplosiveProjectileEntity {
             entity.damage(this.getDamageSources().magic(), 6.0f);
         }
         if(entity instanceof LivingEntity livingEntity) {
-            ((LivingEntity) entity).takeKnockback(5, -this.getVelocity().x, -this.getVelocity().z);
-            if (livingEntity instanceof PlayerEntity playerEntity) {
-                playerEntity.sendMessage(Text.literal(this.getVelocity().toString()));
-            }
+            livingEntity.takeKnockback(4, -this.getVelocity().x, -this.getVelocity().z);
         }
+    }
+
+    @Override
+    public boolean isOnFire() {
+        return false;
+    }
+
+    @Override
+    protected boolean isBurning() {
+        return isOnFire();
     }
 }
