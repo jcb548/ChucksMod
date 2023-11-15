@@ -1,6 +1,7 @@
 package net.chuck.chucksmod.entity.ai;
 
 import net.chuck.chucksmod.entity.custom.SoulBlazeBoss;
+import net.chuck.chucksmod.entity.custom.SoulBlazeRodEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.entity.attribute.EntityAttributes;
@@ -8,7 +9,6 @@ import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.mob.PathAwareEntity;
 import net.minecraft.util.Hand;
-import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 
 public class SoulBlazeAttackGoal extends MeleeAttackGoal {
@@ -19,7 +19,6 @@ public class SoulBlazeAttackGoal extends MeleeAttackGoal {
     private int updateCountdownTicks = -1;
     private int seenTargetTicks;
     private final int intervalTicks;
-    private final float maxShootRange;
     private final float squaredMaxShootRange;
     private final double mobSpeed;
 
@@ -29,7 +28,6 @@ public class SoulBlazeAttackGoal extends MeleeAttackGoal {
         soulBlaze = (SoulBlazeBoss) mob;
         this.mobSpeed = speed;
         this.intervalTicks = intervalTicks;
-        this.maxShootRange = maxShootRange;
         this.squaredMaxShootRange = maxShootRange * maxShootRange;
     }
     @Override
@@ -70,9 +68,9 @@ public class SoulBlazeAttackGoal extends MeleeAttackGoal {
     }
 
     public void aboveHalfHealthTick() {
-        double d = this.soulBlaze.squaredDistanceTo(this.soulBlaze.enemy.getX(), this.soulBlaze.enemy.getY(), this.soulBlaze.enemy.getZ());
-        boolean bl = this.mob.getVisibilityCache().canSee(this.soulBlaze.enemy);
-        this.seenTargetTicks = bl ? ++this.seenTargetTicks : 0;
+        double d = this.soulBlaze.squaredDistanceTo(this.soulBlaze.enemy);
+        boolean canSeeEnemy = this.mob.getVisibilityCache().canSee(this.soulBlaze.enemy);
+        this.seenTargetTicks = canSeeEnemy ? ++this.seenTargetTicks : 0;
         if (d > (double)this.squaredMaxShootRange || this.seenTargetTicks < 5) {
             this.mob.getNavigation().startMovingTo(this.soulBlaze.enemy, mobSpeed);
         } else {
@@ -80,17 +78,17 @@ public class SoulBlazeAttackGoal extends MeleeAttackGoal {
         }
         this.mob.getLookControl().lookAt(this.soulBlaze.enemy, 30.0f, 30.0f);
         if (--this.updateCountdownTicks == 0) {
-            if (!bl) {
+            if (!canSeeEnemy) {
                 return;
             }
-            this.soulBlaze.shootAt(this.soulBlaze.enemy, 0);
+            this.soulBlaze.shootAt(this.soulBlaze.enemy, SoulBlazeRodEntity.DEFAULT_POWER);
             this.updateCountdownTicks = this.intervalTicks;
         } else if (this.updateCountdownTicks < 0) {
-            this.updateCountdownTicks = MathHelper.floor(MathHelper.lerp(Math.sqrt(d) / (double)this.maxShootRange, (double)this.intervalTicks, (double)this.intervalTicks));
+            this.updateCountdownTicks = this.intervalTicks;
         }
     }
     private boolean isEnemyWithinAttackDistance(LivingEntity enemy){
-        return this.soulBlaze.distanceTo(enemy) <= 5f;
+        return this.soulBlaze.distanceTo(enemy) <= 6f;
     }
     protected void resetCooldown(){
         this.ticksUntilNextAttack = this.getTickCount(SoulBlazeBoss.ANIMATION_LENGTH);

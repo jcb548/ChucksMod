@@ -13,7 +13,8 @@ import net.minecraft.text.Text;
 
 public class SoulBlazeRodEntity extends ExplosiveProjectileEntity {
     private final float DAMAGE = 10.0f;
-    public static final double DEFAULT_POWER = 0.4;
+    public static final float DEFAULT_POWER = 0.4f;
+    private float power;
     public SoulBlazeRodEntity(EntityType<? extends ExplosiveProjectileEntity> entityType, World world) {
         super(entityType, world);
     }
@@ -30,6 +31,7 @@ public class SoulBlazeRodEntity extends ExplosiveProjectileEntity {
         }
         this.setPitch(owner.getPitch());
         this.setYaw(owner.getYaw());
+        this.power = (float)power;
     }
 
     @Override
@@ -37,7 +39,7 @@ public class SoulBlazeRodEntity extends ExplosiveProjectileEntity {
         super.onCollision(hitResult);
         if (!this.getWorld().isClient){
             this.getWorld().createExplosion(this, this.getX(), this.getY(), this.getZ(),
-                    2.0f, false, World.ExplosionSourceType.MOB);
+                    power+1f, false, World.ExplosionSourceType.MOB);
             this.discard();
         }
     }
@@ -47,7 +49,7 @@ public class SoulBlazeRodEntity extends ExplosiveProjectileEntity {
         if(!entityHitResult.getEntity().equals(this.getOwner())) {
             if (!this.getWorld().isClient) {
                 this.getWorld().createExplosion(this, this.getX(), this.getY(), this.getZ(),
-                        2.0f, false, World.ExplosionSourceType.MOB);
+                        power+1.6f, false, World.ExplosionSourceType.MOB);
                 this.discard();
             }
             Entity entity = entityHitResult.getEntity();

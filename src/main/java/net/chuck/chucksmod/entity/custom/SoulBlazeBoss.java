@@ -245,7 +245,7 @@ public class SoulBlazeBoss extends HostileEntity implements RangedAttackMob{
                 shootAnimationTicksRemaining = ANIMATION_LENGTH;
             }
             if (ticksUntilShoot == 0) {
-                if (enemy != null) shootAt(enemy, 0);
+                if (enemy != null) shootAt(enemy, 1);
             }
         }
         if (shootAnimationTicksRemaining > 0){
@@ -288,7 +288,7 @@ public class SoulBlazeBoss extends HostileEntity implements RangedAttackMob{
 
     @Override
     public void shootAt(LivingEntity target, float pullProgress) {
-        this.shootRodAt(target, SoulBlazeRodEntity.DEFAULT_POWER);
+        this.shootRodAt(target, pullProgress);
     }
     private void shootRodAt(LivingEntity target, double power) {
         this.shootRodAt(target.getX(), target.getY() +
