@@ -1,7 +1,7 @@
 package net.chuck.chucksmod.entity.custom;
 
 import net.chuck.chucksmod.entity.ModEntities;
-import net.chuck.chucksmod.entity.ai.SoulBlazeMeleeAttackGoal;
+import net.chuck.chucksmod.entity.ai.SoulBlazeAttackGoal;
 import net.chuck.chucksmod.entity.ai.SoulBlazeMoveControl;
 import net.chuck.chucksmod.util.ModEntityStatuses;
 import net.minecraft.entity.*;
@@ -81,20 +81,20 @@ public class SoulBlazeBoss extends HostileEntity implements RangedAttackMob{
 
     public static DefaultAttributeContainer.Builder createSoulBlazeAttributes(){
         return MobEntity.createMobAttributes()
-                .add(EntityAttributes.GENERIC_MAX_HEALTH, 200)
+                .add(EntityAttributes.GENERIC_MAX_HEALTH, 30)
                 .add(EntityAttributes.GENERIC_ARMOR, 5)
-                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.5f)
+                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.3f)
                 .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 9)
                 .add(EntityAttributes.GENERIC_ATTACK_SPEED, 5)
-                .add(EntityAttributes.GENERIC_FLYING_SPEED, 5f)
+                .add(EntityAttributes.GENERIC_FLYING_SPEED, 0.3f)
                 .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 96)
                 .add(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE, 0.5)
                 .add(EntityAttributes.GENERIC_ATTACK_KNOCKBACK, 2);
     }
-
     @Override
     protected EntityNavigation createNavigation(World world) {
         BirdNavigation birdNavigation = new BirdNavigation(this, world);
+        birdNavigation.setCanPathThroughDoors(false);
         birdNavigation.setCanSwim(true);
         birdNavigation.setCanEnterOpenDoors(true);
         return birdNavigation;
@@ -103,10 +103,10 @@ public class SoulBlazeBoss extends HostileEntity implements RangedAttackMob{
     @Override
     protected void initGoals() {
         this.goalSelector.add(0, new SwimGoal(this));
-        this.goalSelector.add(1, new SoulBlazeMeleeAttackGoal(this, 3d, true));
-        //this.goalSelector.add(1, new ProjectileAttackGoal(this, 1.0, 30, 64f));
-        this.goalSelector.add(2, new FlyGoal(this, 10));
-        this.goalSelector.add(3, new LookAtEntityGoal(this, PlayerEntity.class, 64f));
+        this.goalSelector.add(1, new SoulBlazeAttackGoal(this, 1.0, 30, 32f, false));
+        //this.goalSelector.add(1, new ProjectileAttackGoal(this, 1.0, 30, 32f));
+        this.goalSelector.add(1, new FlyGoal(this, 1));
+        this.goalSelector.add(3, new LookAtEntityGoal(this, PlayerEntity.class, 32f));
         this.goalSelector.add(4, new LookAroundGoal(this));
 
         this.targetSelector.add(1, new ActiveTargetGoal<>(this, PlayerEntity.class, false));
@@ -114,14 +114,6 @@ public class SoulBlazeBoss extends HostileEntity implements RangedAttackMob{
         this.targetSelector.add(3, new ActiveTargetGoal<>(this, AnimalEntity.class, false));
     }
 
-    protected void halfHealthGoals() {
-        this.clearGoals(goal -> true);
-        this.goalSelector.add(0, new SwimGoal(this));
-        this.goalSelector.add(2, new SoulBlazeMeleeAttackGoal(this, 1.5d, true));
-        this.goalSelector.add(3, new FlyGoal(this, 3));
-        this.goalSelector.add(4, new LookAtEntityGoal(this, PlayerEntity.class, 16));
-        this.goalSelector.add(5, new LookAroundGoal(this));
-    }
 
     @Nullable
     @Override
@@ -151,6 +143,7 @@ public class SoulBlazeBoss extends HostileEntity implements RangedAttackMob{
             setupAnimationStates();
         }
     }
+
     private void setupAnimationStates(){
         if (this.idleAnimationTimeout <= 0) {
             this.idleAnimationTimeout = this.random.nextInt(40) + 80;
@@ -272,14 +265,6 @@ public class SoulBlazeBoss extends HostileEntity implements RangedAttackMob{
         super.onStoppedTrackingBy(player);
         this.bossBar.removePlayer(player);
     }
-
-    @Override
-    public void tickMovement() {
-        if (!this.isOnGround() && this.getVelocity().y < 0.0) {
-            this.setVelocity(this.getVelocity().multiply(1.0, 0.7, 1.0));
-        }
-        super.tickMovement();
-    }
     @Override
     public void writeCustomDataToNbt(NbtCompound nbt) {
         super.writeCustomDataToNbt(nbt);
@@ -303,14 +288,14 @@ public class SoulBlazeBoss extends HostileEntity implements RangedAttackMob{
 
     @Override
     public void shootAt(LivingEntity target, float pullProgress) {
-        this.shootRodAt(target);
+        this.shootRodAt(target, SoulBlazeRodEntity.DEFAULT_POWER);
     }
-    private void shootRodAt(LivingEntity target) {
+    private void shootRodAt(LivingEntity target, double power) {
         this.shootRodAt(target.getX(), target.getY() +
-                (double)target.getStandingEyeHeight() * 0.5, target.getZ());
+                (double)target.getStandingEyeHeight() * 0.5, target.getZ(), power);
     }
 
-    private void shootRodAt(double targetX, double targetY, double targetZ) {
+    private void shootRodAt(double targetX, double targetY, double targetZ, double power) {
         if (!this.isSilent()) {
             this.getWorld().syncWorldEvent(null, WorldEvents.BLAZE_SHOOTS, this.getBlockPos(), 0);
         }
@@ -319,9 +304,17 @@ public class SoulBlazeBoss extends HostileEntity implements RangedAttackMob{
         double yDir = targetY - (this.getY()+2.0f);
         double zDir = targetZ - this.getZ();
         SoulBlazeRodEntity soulBlazeRodEntity = new SoulBlazeRodEntity(ModEntities.SOUL_BLAZE_ROD,
-                this, this.getX(), this.getY()+2.0f, this.getZ(), xDir, yDir, zDir, this.getWorld());
+                this, this.getX(), this.getY()+2.0f, this.getZ(), xDir, yDir, zDir, this.getWorld(), power);
         soulBlazeRodEntity.setOwner(this);
         soulBlazeRodEntity.setPos(this.getX(), this.getY()+2.0f, this.getZ());
         this.getWorld().spawnEntity(soulBlazeRodEntity);
+    }
+
+    @Override
+    public boolean damage(DamageSource source, float amount) {
+        if(source.getSource() instanceof SoulBlazeRodEntity){
+            return false;
+        }
+        return super.damage(source, amount);
     }
 }

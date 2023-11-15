@@ -8,7 +8,6 @@ import net.minecraft.util.math.Vec3d;
 
 public class SoulBlazeMoveControl extends MoveControl {
     private final SoulBlazeBoss soulBlaze;
-    private int collisionCheckCooldown;
 
     public SoulBlazeMoveControl(SoulBlazeBoss entity) {
         super(entity);
@@ -20,24 +19,19 @@ public class SoulBlazeMoveControl extends MoveControl {
         if (this.state != MoveControl.State.MOVE_TO) {
             return;
         }
-        if (this.collisionCheckCooldown-- <= 0) {
-            this.collisionCheckCooldown += this.soulBlaze.getRandom().nextInt(5) + 2;
-            Vec3d vec3d = new Vec3d(this.targetX - this.soulBlaze.getX(), this.targetY - this.soulBlaze.getY(), this.targetZ - this.soulBlaze.getZ());
-            double d = vec3d.length();
-            if (this.willCollide(vec3d = vec3d.normalize(), MathHelper.ceil(d))) {
-                this.soulBlaze.setVelocity(this.soulBlaze.getVelocity().add(vec3d.multiply(0.35)));
-            } else {
-                this.state = MoveControl.State.WAIT;
-            }
-        }
+        lowHealthMovement();
+        float newYaw = (float)(MathHelper.atan2(soulBlaze.getVelocity().z, soulBlaze.getVelocity().x) * 57.2957763671875) - 90.0f;
+        this.soulBlaze.setYaw(this.wrapDegrees(this.soulBlaze.getYaw(), newYaw, 90.0f));
+        this.soulBlaze.getLookControl().lookAt(this.soulBlaze.getVelocity());
+        this.soulBlaze.setHeadYaw(this.wrapDegrees(this.soulBlaze.getYaw(), newYaw, 90.0f));
     }
-    private boolean willCollide(Vec3d direction, int steps) {
-        Box box = this.soulBlaze.getBoundingBox();
-        for (int i = 1; i < steps; ++i) {
-            box = box.offset(direction);
-            if (this.soulBlaze.getWorld().isSpaceEmpty(this.soulBlaze, box)) continue;
-            return false;
+
+    private void lowHealthMovement(){
+        Vec3d vec3d = new Vec3d(this.targetX - this.soulBlaze.getX(), this.targetY - this.soulBlaze.getY(), this.targetZ - this.soulBlaze.getZ());
+        if(this.targetY > this.soulBlaze.getY() - 2){
+            vec3d = new Vec3d(vec3d.x, 2, vec3d.z);
         }
-        return true;
+        double velMul = 0.1;
+        this.soulBlaze.setVelocity(this.soulBlaze.getVelocity().add(vec3d.multiply(velMul)));
     }
 }
