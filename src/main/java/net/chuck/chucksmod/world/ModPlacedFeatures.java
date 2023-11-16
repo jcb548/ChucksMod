@@ -25,6 +25,7 @@ public class ModPlacedFeatures {
     public static final RegistryKey<PlacedFeature> EUCALYPTUS_PLACED_KEY = registerKey("eucalyptus_placed");
     // Overworld Ores
     public static final RegistryKey<PlacedFeature> TIN_ORE_PLACED_KEY = registerKey("tin_ore_placed");
+    public static final RegistryKey<PlacedFeature> TITANIUM_ORE_PLACED_KEY = registerKey("titanium_ore_placed");
     public static final RegistryKey<PlacedFeature> NEW_COPPER_ORE_PLACED_KEY = registerKey("new_copper_ore_placed");
     public static final RegistryKey<PlacedFeature> NEW_IRON_ORE_PLACED_KEY = registerKey("new_iron_ore_placed");
     public static final RegistryKey<PlacedFeature> NEW_GOLD_ORE_PLACED_KEY = registerKey("new_gold_ore_placed");
@@ -88,15 +89,14 @@ public class ModPlacedFeatures {
                         .getOrThrow(ModConfiguredFeatures.DIRITIA_TREE_KEY),
                 VegetationPlacedFeatures.treeModifiersWithWouldSurvive(PlacedFeatures
                         .createCountExtraModifier(1, 0.1f, 2), ModBlocks.DIRITIA_SAPLING));
-        /*register(context, DIRITIA_CHERRY_TREE_PLACED_KEY, configuredFeatureRegistryEntryLookup
-                        .getOrThrow(ModConfiguredFeatures.DIRITIA_CHERRY_TREE_KEY),
-                VegetationPlacedFeatures.treeModifiersWithWouldSurvive(PlacedFeatures
-                        .createCountExtraModifier(1, 0.1f, 1), Blocks.CHERRY_SAPLING));*/
 
         //Register New Overworld Ores
         register(context, TIN_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup
                         .getOrThrow(ModConfiguredFeatures.TIN_ORE_KEY), ModOrePlacement.modifiersWithCount(48,
                         HeightRangePlacementModifier.uniform(YOffset.fixed( -16), YOffset.fixed(128))));
+        register(context, TITANIUM_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup
+                        .getOrThrow(ModConfiguredFeatures.TITANIUM_ORE_KEY), ModOrePlacement.modifiersWithCount(28,
+                        HeightRangePlacementModifier.uniform(YOffset.fixed( -64), YOffset.fixed(16))));
         register(context, NEW_COPPER_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup
                         .getOrThrow(ModConfiguredFeatures.NEW_COPPER_ORE_KEY), ModOrePlacement.modifiersWithCount(32,
                         HeightRangePlacementModifier.uniform(YOffset.fixed( -16), YOffset.fixed(128))));

@@ -35,10 +35,14 @@ public class ModItemTags {
             new Identifier(ChucksMod.MOD_ID, "bags"));
     public static final TagKey<Item> HARDENED_GLASS = TagKey.of(RegistryKeys.ITEM,
             new Identifier(ChucksMod.MOD_ID, "hardened_glass"));
+    public static final TagKey<Item> GEARS = TagKey.of(RegistryKeys.ITEM,
+            new Identifier(ChucksMod.MOD_ID, "gears"));
     public static final TagKey<Item> RAW_TITANIUM = TagKey.of(RegistryKeys.ITEM,
             new Identifier("c", "raw_titanium_ores"));
     public static final TagKey<Item> TITANIUM_INGOTS = TagKey.of(RegistryKeys.ITEM,
             new Identifier("c", "titanium_ingots"));
     public static final TagKey<Item> TITANIUM_DUSTS = TagKey.of(RegistryKeys.ITEM,
             new Identifier("c", "titanium_dusts"));
+    public static final TagKey<Item> CRUSHERS = TagKey.of(RegistryKeys.ITEM,
+            new Identifier(ChucksMod.MOD_ID, "crushers"));
 }

@@ -263,5 +263,20 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModBlocks.HARDENED_RED_GLASS.asItem())
                 .add(ModBlocks.HARDENED_WHITE_GLASS.asItem())
                 .add(ModBlocks.HARDENED_YELLOW_GLASS.asItem());
+
+        getOrCreateTagBuilder(ModItemTags.GEARS)
+                .add(ModItems.BRONZE_GEAR)
+                .add(ModItems.GOLD_GEAR)
+                .add(ModItems.COPPER_GEAR)
+                .add(ModItems.IRON_GEAR)
+                .add(ModItems.TIN_GEAR)
+                .add(ModItems.TITANIUM_GEAR)
+                .add(ModItems.FABIUM_GEAR)
+                .add(ModItems.DIRITONIUM_GEAR)
+                .add(ModItems.PRISMARINE_GEAR);
+
+        getOrCreateTagBuilder(ModItemTags.CRUSHERS)
+                .add(ModBlocks.CRUSHER.asItem())
+                .add(ModBlocks.IRON_POWERED_CRUSHER.asItem());
     }
 }

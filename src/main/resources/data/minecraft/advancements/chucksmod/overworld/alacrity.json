@@ -1,15 +1,15 @@
 {
   "parent": "minecraft:chucksmod/overworld/enchant_item",
   "criteria": {
-    "silk": {
+    "alacrity": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "tag": "c:enchantables",
+            "tag": "minecraft:swords",
             "enchantments": [
               {
-                "enchantment": "minecraft:silk_touch"
+                "enchantment": "chucksmod:alacrity"
               }
             ]
           }
@@ -20,21 +20,21 @@
   "display": {
     "announce_to_chat": true,
     "description": {
-      "translate": "advancements.chucksmod.overworld.silk.desc"
+      "translate": "advancements.chucksmod.overworld.alacrity.desc"
     },
     "frame": "task",
     "hidden": false,
     "icon": {
-      "item": "minecraft:glass"
+      "item": "chucksmod:titanium_sword"
     },
     "show_toast": true,
     "title": {
-      "translate": "advancements.chucksmod.overworld.silk.title"
+      "translate": "advancements.chucksmod.overworld.alacrity.title"
     }
   },
   "requirements": [
     [
-      "silk"
+      "alacrity"
     ]
   ],
   "sends_telemetry_event": true

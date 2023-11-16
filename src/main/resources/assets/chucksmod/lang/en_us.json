@@ -370,7 +370,7 @@
   "advancements.chucksmod.overworld.piston.desc": "Craft a piston which can push blocks",
 
   "advancements.chucksmod.overworld.iron_gear.title": "Craft an Iron Gear",
-  "advancements.chucksmod.overworld.iron_gear.desc": "Craft an Iron Gear from 4 iron",
+  "advancements.chucksmod.overworld.iron_gear.desc": "Craft an Iron Gear from 4 iron, can be used to make machines to do complex tasks",
 
   "advancements.chucksmod.overworld.crusher.title": "Craft a Crusher",
   "advancements.chucksmod.overworld.crusher.desc": "Craft a crusher, which can crush resources into dust",
@@ -492,6 +492,9 @@
   "advancements.chucksmod.overworld.looting.title": "Looting",
   "advancements.chucksmod.overworld.looting.desc": "Enchant a Sword with Looting 3 (Max level), to increase drops from mobs",
 
+  "advancements.chucksmod.overworld.alacrity.title": "Alacrity",
+  "advancements.chucksmod.overworld.alacrity.desc": "Enchant a Sword with at least Alacrity 1 (Max 5, more easily obtainable through further play), to increase attack speed of weapon",
+
   "advancements.chucksmod.overworld.knockback.title": "Go Away",
   "advancements.chucksmod.overworld.knockback.desc": "Enchant a Sword with Knockback (Max 2), to knock mobs further back upon hit",
 
@@ -553,10 +556,36 @@
   "advancements.chucksmod.overworld.raw_copper.desc": "Mine and collect some Raw Copper",
 
   "advancements.chucksmod.overworld.copper.title": "Copper",
-  "advancements.chucksmod.overworld.copper.desc": "Mine and collect some Raw Copper",
+  "advancements.chucksmod.overworld.copper.desc": "Smelt Raw Copper into Copper Ingots",
 
   "advancements.chucksmod.overworld.copper_wire.title": "Copper Wire",
   "advancements.chucksmod.overworld.copper_wire.desc": "Craft Copper Wires from copper ingots, to start transferring power",
+
+  "advancements.chucksmod.overworld.raw_titanium.title": "Raw Titanium",
+  "advancements.chucksmod.overworld.raw_titanium.desc": "Mine and collect some Raw Titanium",
+
+  "advancements.chucksmod.overworld.titanium.title": "Titanium",
+  "advancements.chucksmod.overworld.titanium.desc": "Smelt Raw Titanium into Titanium Ingots",
+
+  "advancements.chucksmod.overworld.titanium_tools.title": "Titanium Tools",
+  "advancements.chucksmod.overworld.titanium_tools.desc": "Craft a set of titanium tools (as strong as diamond) (sword, pickaxe, axe, shovel, hoe)",
+
+  "advancements.chucksmod.overworld.titanium_armor.title": "Titanium Armor",
+  "advancements.chucksmod.overworld.titanium_armor.desc": "Craft a set of titanium armor (as strong as diamond) (helmet, chestplate, leggings, boots)",
+  
+  
+
+  "advancements.chucksmod.machines.root.title": "Gearing Up",
+  "advancements.chucksmod.machines.root.desc": "Use your gears to create many different machines to do different tasks",
+
+  "advancements.chucksmod.machines.iron_machine_base.title": "Iron Tier",
+  "advancements.chucksmod.machines.iron_machine_base.desc": "Iron Tier Machines take roughly 10 seconds to complete their tasks, and use a low amount of power",
+
+  "advancements.chucksmod.machines.iron_crusher.title": "Iron Crusher",
+  "advancements.chucksmod.machines.iron_crusher.desc": "Craft an Iron Powered Crusher to crush materials using energy",
+
+  "advancements.chucksmod.machines.iron_furnace.title": "Iron Furnace",
+  "advancements.chucksmod.machines.iron_furnace.desc": "Craft an Iron Powered Furnace to smelt materials using energy",
 
 
 

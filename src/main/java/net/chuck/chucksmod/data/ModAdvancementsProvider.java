@@ -1,5 +1,6 @@
 package net.chuck.chucksmod.data;
 
+import dev.architectury.platform.Mod;
 import net.chuck.chucksmod.ChucksMod;
 import net.chuck.chucksmod.block.ModBlocks;
 import net.chuck.chucksmod.item.ModItemTags;
@@ -36,6 +37,7 @@ public class ModAdvancementsProvider extends FabricAdvancementProvider {
     @Override
     public void generateAdvancement(Consumer<AdvancementEntry> consumer) {
         overworldAdvancements(consumer);
+        machineAdvancements(consumer);
         netherAdvancements(consumer);
     }
     private void overworldAdvancements(Consumer<AdvancementEntry> consumer){
@@ -309,7 +311,7 @@ public class ModAdvancementsProvider extends FabricAdvancementProvider {
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.iron_gear.desc"),
                         null, AdvancementFrame.TASK, true, true, false)
                 .criterion("get_iron_gear", InventoryChangedCriterion.Conditions.items(ModItems.IRON_GEAR))
-                .parent(piston)
+                .parent(iron)
                 .build(consumer, ChucksMod.MOD_ID + "/overworld/iron_gear");
 
         AdvancementEntry crusher = Advancement.Builder.create()
@@ -317,7 +319,8 @@ public class ModAdvancementsProvider extends FabricAdvancementProvider {
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.crusher.title"),
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.crusher.desc"),
                         null, AdvancementFrame.GOAL, true, true, false)
-                .criterion("get_piston", InventoryChangedCriterion.Conditions.items(ModBlocks.CRUSHER))
+                .criterion("get_piston", InventoryChangedCriterion.Conditions.items(ItemPredicate.Builder.create()
+                        .tag(ModItemTags.CRUSHERS).build()))
                 .parent(ironGear)
                 .build(consumer, ChucksMod.MOD_ID + "/overworld/crusher");
 
@@ -722,9 +725,87 @@ public class ModAdvancementsProvider extends FabricAdvancementProvider {
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.copper_wire.title"),
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.copper_wire.desc"),
                         null, AdvancementFrame.TASK, true, true, false)
-                .criterion("copper", InventoryChangedCriterion.Conditions.items(ModBlocks.COPPER_WIRE))
+                .criterion("get_copper_wire", InventoryChangedCriterion.Conditions.items(ModBlocks.COPPER_WIRE))
                 .parent(copper)
                 .build(consumer, ChucksMod.MOD_ID + "/overworld/copper_wire");
+
+        AdvancementEntry rawTitanium = Advancement.Builder.create()
+            .display(ModItems.RAW_TITANIUM,
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.raw_titanium.title"),
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.raw_titanium.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("get_raw_titanium", InventoryChangedCriterion.Conditions.items(ModItems.RAW_TITANIUM))
+                .parent(ironTools)
+                .build(consumer, ChucksMod.MOD_ID + "/overworld/raw_titanium");
+
+        AdvancementEntry titanium = Advancement.Builder.create()
+            .display(ModItems.TITANIUM_INGOT,
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.titanium.title"),
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.titanium.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("get_titanium", InventoryChangedCriterion.Conditions.items(ModItems.TITANIUM_INGOT))
+                .parent(rawTitanium)
+                .build(consumer, ChucksMod.MOD_ID + "/overworld/titanium");
+
+        AdvancementEntry titaniumTools = Advancement.Builder.create()
+                .display(ModItems.TITANIUM_AXE,
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.titanium_tools.title"),
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.titanium_tools.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("get_titanium_tools", InventoryChangedCriterion.Conditions.items(ModItems.TITANIUM_SWORD,
+                        ModItems.TITANIUM_PICKAXE, ModItems.TITANIUM_AXE, ModItems.TITANIUM_SHOVEL, ModItems.TITANIUM_HOE))
+                .parent(titanium)
+                .build(consumer, ChucksMod.MOD_ID + "/overworld/titanium_tools");
+
+        AdvancementEntry titaniumArmor = Advancement.Builder.create()
+                .display(ModItems.TITANIUM_HELMET,
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.titanium_armor.title"),
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.titanium_armor.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("get_titanium_armor", InventoryChangedCriterion.Conditions.items(ModItems.TITANIUM_HELMET,
+                        ModItems.TITANIUM_CHESTPLATE, ModItems.TITANIUM_LEGGINGS, ModItems.TITANIUM_BOOTS))
+                .parent(titanium)
+                .build(consumer, ChucksMod.MOD_ID + "/overworld/titanium_armor");
+
+    }
+    private void machineAdvancements(Consumer<AdvancementEntry> consumer){
+        AdvancementEntry root = Advancement.Builder.create()
+                .display(ModItems.BRONZE_GEAR, // The display icon
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".machines.root.title"),
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".machines.root.desc"), // The description
+                        new Identifier(ChucksMod.MOD_ID, "textures/block/iron_powered_crusher_top.png"), // Background image used
+                        AdvancementFrame.TASK, true, true, false
+                )
+                .criterion("got_gear", InventoryChangedCriterion.Conditions.items(ItemPredicate.Builder.create()
+                        .tag(ModItemTags.GEARS).build()))
+                .build(consumer, ChucksMod.MOD_ID + "/machines/root");
+
+        AdvancementEntry ironMachineBase = Advancement.Builder.create()
+                .display(ModBlocks.IRON_MACHINE_BASE,
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".machines.iron_machine_base.title"),
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".machines.iron_machine_base.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("get_iron_machine_base", InventoryChangedCriterion.Conditions.items(ModBlocks.IRON_MACHINE_BASE))
+                .parent(root)
+                .build(consumer, ChucksMod.MOD_ID + "/machines/iron_machine_base");
+
+        AdvancementEntry ironCrusher = Advancement.Builder.create()
+                .display(ModBlocks.IRON_POWERED_CRUSHER,
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".machines.iron_crusher.title"),
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".machines.iron_crusher.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("get_iron_crusher", InventoryChangedCriterion.Conditions.items(ModBlocks.IRON_POWERED_CRUSHER))
+                .parent(ironMachineBase)
+                .build(consumer, ChucksMod.MOD_ID + "/machines/iron_crusher");
+
+        AdvancementEntry ironFurnace = Advancement.Builder.create()
+                .display(ModBlocks.IRON_POWERED_FURNACE,
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".machines.iron_furnace.title"),
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".machines.iron_furnace.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("get_iron_furnace", InventoryChangedCriterion.Conditions.items(ModBlocks.IRON_POWERED_FURNACE))
+                .parent(ironMachineBase)
+                .build(consumer, ChucksMod.MOD_ID + "/machines/iron_furnace");
     }
     private void netherAdvancements(Consumer<AdvancementEntry> consumer) {
         AdvancementEntry root = Advancement.Builder.create()
