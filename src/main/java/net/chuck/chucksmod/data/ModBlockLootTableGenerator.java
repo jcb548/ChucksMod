@@ -96,6 +96,15 @@ public class ModBlockLootTableGenerator extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.END_STONE_TITANIUM_ORE, oreDrops(ModBlocks.END_STONE_TITANIUM_ORE, ModItems.RAW_TITANIUM));
         addDrop(ModBlocks.TITANIUM_MACHINE_BASE);
         addDrop(ModBlocks.TITANIUM_HEAT_GENERATOR);
+
+        addDrop(ModBlocks.SOUL_STONE);
+        addDrop(ModBlocks.SOUL_STONE_STAIRS);
+        addDrop(ModBlocks.SOUL_STONE_SLAB, slabDrops(ModBlocks.SOUL_STONE_SLAB));
+        addDrop(ModBlocks.SOUL_STONE_BRICKS);
+        addDrop(ModBlocks.SOUL_STONE_BRICK_STAIRS);
+        addDrop(ModBlocks.SOUL_STONE_BRICK_SLAB, slabDrops(ModBlocks.SOUL_STONE_BRICK_SLAB));
+        addDrop(ModBlocks.SOUL_STONE_BRICKS);
+        addDrop(ModBlocks.CRACKED_SOUL_STONE_BRICKS);
         
         addDrop(ModBlocks.RAW_FABIUM_BLOCK);
         addDrop(ModBlocks.FABIUM_BLOCK);

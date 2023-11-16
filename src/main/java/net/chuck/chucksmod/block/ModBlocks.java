@@ -6,6 +6,8 @@ import com.terraformersmc.terraform.sign.block.TerraformWallHangingSignBlock;
 import com.terraformersmc.terraform.sign.block.TerraformWallSignBlock;
 import net.chuck.chucksmod.ChucksMod;
 import net.chuck.chucksmod.block.custom.*;
+import net.chuck.chucksmod.block.custom.altar.FrankAltarBlock;
+import net.chuck.chucksmod.block.custom.altar.SoulBlazeAltarBlock;
 import net.chuck.chucksmod.block.custom.crusher.CrusherBlock;
 import net.chuck.chucksmod.block.custom.crusher.IronPoweredCrusherBlock;
 import net.chuck.chucksmod.block.custom.energy_storage.IronEnergyStorageBlock;
@@ -177,6 +179,30 @@ public class ModBlocks {
                     .strength(6.0f, 7.0f)));
     public static final Block TITANIUM_HEAT_GENERATOR = registerBlock("titanium_heat_generator",
             new TitaniumHeatGeneratorBlock(FabricBlockSettings.copy(ModBlocks.TITANIUM_BLOCK)));
+    // Soul Blocks
+    public static final Block SOUL_GRAVEL = registerBlock("soul_gravel",
+            new FallingBlock(FabricBlockSettings.copy(Blocks.SAND)));
+    public static final Block SOUL_STONE = registerBlock("soul_stone",
+            new Block(FabricBlockSettings.copy(Blocks.STONE)));
+    public static final Block SOUL_STONE_STAIRS = registerBlock("soul_stone_stairs",
+            new StairsBlock(ModBlocks.SOUL_STONE.getDefaultState(),
+                    FabricBlockSettings.copy(Blocks.STONE_STAIRS)));
+    public static final Block SOUL_STONE_SLAB = registerBlock("soul_stone_slab",
+            new SlabBlock(FabricBlockSettings.copy(Blocks.STONE_SLAB)));
+    public static final Block SOUL_STONE_BRICKS = registerBlock("soul_stone_bricks",
+            new Block(FabricBlockSettings.copy(Blocks.STONE)));
+    public static final Block SOUL_STONE_BRICK_STAIRS = registerBlock("soul_stone_brick_stairs",
+            new StairsBlock(ModBlocks.SOUL_STONE_BRICKS.getDefaultState(),
+                    FabricBlockSettings.copy(Blocks.STONE_BRICK_STAIRS)));
+    public static final Block SOUL_STONE_BRICK_SLAB = registerBlock("soul_stone_brick_slab",
+            new SlabBlock(FabricBlockSettings.copy(Blocks.STONE_BRICK_SLAB)));
+    public static final Block SOUL_STONE_BRICK_WALL = registerBlock("soul_stone_brick_wall",
+            new WallBlock(FabricBlockSettings.copy(Blocks.STONE_BRICK_WALL)));
+    public static final Block CRACKED_SOUL_STONE_BRICKS = registerBlock("cracked_soul_stone_bricks",
+            new Block(FabricBlockSettings.copy(Blocks.STONE)));
+    public static final Block SOUL_BLAZE_ALTAR = registerBlock("soul_blaze_altar",
+            new SoulBlazeAltarBlock(FabricBlockSettings.copy(Blocks.BEDROCK)));
+
     // Fabium
     public static final Block FABIUM_BLOCK = registerBlock("fabium_block",
             new Block(FabricBlockSettings.copy(Blocks.GOLD_BLOCK)));
@@ -266,7 +292,7 @@ public class ModBlocks {
             .sign(ModBlocks.STANDING_DIRITIA_SIGN, ModBlocks.WALL_DIRITIA_SIGN)
             .group("wooden").unlockCriterionName("has_planks").build();
     public static final Block FRANK_ALTAR = registerBlock("frank_altar",
-            new AltarBlock(FabricBlockSettings.copy(Blocks.BEDROCK)));
+            new FrankAltarBlock(FabricBlockSettings.copy(Blocks.BEDROCK)));
     
     // Hardened Glass
     public static final Block HARDENED_GLASS = registerBlock("hardened_glass",
@@ -408,14 +434,14 @@ public class ModBlocks {
                     .requiresTool().resistance(1200.0f).solidBlock(Blocks::never).suffocates(Blocks::never)
                     .blockVision(Blocks::never).nonOpaque()));
     public static final Block SANDSTONE_BRICKS = registerBlock("sandstone_bricks",
-            new Block(FabricBlockSettings.copy(Blocks.SANDSTONE)));
+            new Block(FabricBlockSettings.copy(Blocks.SMOOTH_SANDSTONE)));
     public static final Block SANDSTONE_BRICK_STAIRS = registerBlock("sandstone_brick_stairs",
             new StairsBlock(ModBlocks.SANDSTONE_BRICKS.getDefaultState(),
-                    FabricBlockSettings.copy(Blocks.SANDSTONE_STAIRS)));
+                    FabricBlockSettings.copy(Blocks.SMOOTH_SANDSTONE_STAIRS)));
     public static final Block SANDSTONE_BRICK_SLAB = registerBlock("sandstone_brick_slab",
-            new SlabBlock(FabricBlockSettings.copy(Blocks.SANDSTONE_SLAB)));
+            new SlabBlock(FabricBlockSettings.copy(Blocks.SMOOTH_SANDSTONE_SLAB)));
     public static final Block SANDSTONE_BRICK_WALL = registerBlock("sandstone_brick_wall",
-            new WallBlock(FabricBlockSettings.copy(Blocks.SANDSTONE_WALL)));
+            new WallBlock(FabricBlockSettings.copy(Blocks.SMOOTH_SANDSTONE)));
     public static final Block CRACKED_SANDSTONE_BRICKS = registerBlock("cracked_sandstone_bricks",
             new Block(FabricBlockSettings.copy(Blocks.SANDSTONE)));
 

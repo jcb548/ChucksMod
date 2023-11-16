@@ -42,6 +42,8 @@ public class ModItems {
     public static final Item PINEAPPLE_SEEDS = registerItem("pineapple_seeds",
             new AliasedBlockItem(ModBlocks.PINEAPPLE_CROP, new FabricItemSettings()));
     // Crushed Vanilla Resources
+    public static final Item STONE_DUST = registerItem("stone_dust",
+            new Item(new FabricItemSettings()));
     public static final Item IRON_DUST = registerItem("iron_dust",
             new Item(new FabricItemSettings()));
     public static final Item COPPER_DUST = registerItem("copper_dust",
@@ -154,6 +156,10 @@ public class ModItems {
             new ModWitherShovelItem(ModToolMaterials.WITHER, 1, -3.8f, new FabricItemSettings()));
     public static final Item WITHER_HOE = registerItem("wither_hoe",
             new ModWitherHoeItem(ModToolMaterials.WITHER, -2, -0.6f, new FabricItemSettings()));
+    public static final Item SOUL_DUST = registerItem("soul_dust", new Item(new FabricItemSettings()));
+    public static final Item BLAZE_STAR = registerItem("blaze_star", new Item(new FabricItemSettings()));
+    public static final Item SOUL_BLAZE_ROD = registerItem("soul_blaze_rod", new Item(new FabricItemSettings()));
+
     //Fabium
     public static final Item RAW_FABIUM = registerItem("raw_fabium", new Item(new FabricItemSettings()));
     public static final Item FABIUM_INGOT = registerItem("fabium_ingot", new Item(new FabricItemSettings()));

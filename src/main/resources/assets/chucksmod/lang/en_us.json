@@ -7,6 +7,7 @@
   "item.chucksmod.pineapple": "Pineapple",
   "item.chucksmod.pineapple_seeds": "Pineapple Seeds",
 
+  "item.chucksmod.stone_dust": "Stone Dust",
   "item.chucksmod.iron_dust": "Iron Dust",
   "block.chucksmod.iron_machine_base": "Iron Machine Base",
   "item.chucksmod.iron_gear": "Iron Gear",
@@ -87,14 +88,27 @@
   "item.chucksmod.fabium_shovel": "Fabium Shovel",
   "item.chucksmod.fabium_hoe": "Fabium Hoe",
 
+
+  "item.chucksmod.soul_dust": "Soul Dust",
+  "block.chucksmod.soul_gravel": "Soul Gravel",
+  "block.chucksmod.soul_stone": "Soul Stone",
+  "block.chucksmod.soul_stone_stairs": "Soul Stone Stairs",
+  "block.chucksmod.soul_stone_slab": "Soul Stone Slab",
+  "block.chucksmod.soul_stone_bricks": "Soul Stone Bricks",
+  "block.chucksmod.soul_stone_brick_stairs": "Soul Stone Brick Stairs",
+  "block.chucksmod.soul_stone_brick_slab": "Soul Stone Brick Slab",
+  "block.chucksmod.soul_stone_brick_wall": "Soul Stone Brick Wall",
+  "block.chucksmod.cracked_soul_stone_bricks": "Cracked Soul Stone Bricks",
+  "block.chucksmod.soul_blaze_altar": "Soul Blaze Altar",
+  "item.chucksmod.blaze_star": "Blazing Star",
+  "item.chucksmod.soul_blaze_spawn_egg": "Soul Blaze Spawn Egg",
+  "entity.chucksmod.soul_blaze": "Soul Blaze",
+
   "item.chucksmod.fabium_helmet": "Fabium Helmet",
   "item.chucksmod.fabium_chestplate": "Fabium Chestplate",
   "item.chucksmod.fabium_leggings": "Fabium Leggings",
   "item.chucksmod.fabium_boots": "Fabium Boots",
   "block.chucksmod.fabium_bars": "Fabium Bars",
-
-  "item.chucksmod.soul_blaze_spawn_egg": "Soul Blaze Spawn Egg",
-  "entity.chucksmod.soul_blaze": "Soul Blaze",
 
   "item.chucksmod.raw_titanium": "Raw Titanium",
   "item.chucksmod.titanium_dust": "Titanium Dust",

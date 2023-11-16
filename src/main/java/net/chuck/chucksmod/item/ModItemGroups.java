@@ -37,6 +37,8 @@ public class ModItemGroups {
                         entries.add(ModBlocks.SANDSTONE_BRICK_WALL);
                         entries.add(ModBlocks.CRACKED_SANDSTONE_BRICKS);
 
+                        entries.add(ModItems.STONE_DUST);
+
                         entries.add(ModItems.IRON_DUST);
                         entries.add(ModBlocks.IRON_DUST_BLOCK);
                         entries.add(ModItems.IRON_GEAR);
@@ -164,6 +166,19 @@ public class ModItemGroups {
                         entries.add(ModItems.TITANIUM_CHESTPLATE);
                         entries.add(ModItems.TITANIUM_LEGGINGS);
                         entries.add(ModItems.TITANIUM_BOOTS);
+
+                        entries.add(ModItems.SOUL_DUST);
+                        entries.add(ModBlocks.SOUL_GRAVEL);
+                        entries.add(ModBlocks.SOUL_STONE);
+                        entries.add(ModBlocks.SOUL_STONE_STAIRS);
+                        entries.add(ModBlocks.SOUL_STONE_SLAB);
+                        entries.add(ModBlocks.SOUL_STONE_BRICKS);
+                        entries.add(ModBlocks.SOUL_STONE_BRICK_STAIRS);
+                        entries.add(ModBlocks.SOUL_STONE_BRICK_SLAB);
+                        entries.add(ModBlocks.SOUL_STONE_BRICK_WALL);
+                        entries.add(ModItems.BLAZE_STAR);
+                        entries.add(ModBlocks.SOUL_BLAZE_ALTAR);
+                        entries.add(ModItems.SOUL_BLAZE_ROD);
 
                         entries.add(ModItems.RAW_FABIUM);
                         entries.add(ModItems.FABIUM_INGOT);

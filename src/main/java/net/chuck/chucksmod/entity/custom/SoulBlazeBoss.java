@@ -3,6 +3,7 @@ package net.chuck.chucksmod.entity.custom;
 import net.chuck.chucksmod.entity.ModEntities;
 import net.chuck.chucksmod.entity.ai.SoulBlazeAttackGoal;
 import net.chuck.chucksmod.entity.ai.SoulBlazeMoveControl;
+import net.chuck.chucksmod.item.ModItems;
 import net.chuck.chucksmod.util.ModEntityStatuses;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.RangedAttackMob;
@@ -21,6 +22,7 @@ import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -28,6 +30,7 @@ import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
+import net.minecraft.world.Difficulty;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldEvents;
 import org.jetbrains.annotations.Nullable;
@@ -81,7 +84,7 @@ public class SoulBlazeBoss extends HostileEntity implements RangedAttackMob{
 
     public static DefaultAttributeContainer.Builder createSoulBlazeAttributes(){
         return MobEntity.createMobAttributes()
-                .add(EntityAttributes.GENERIC_MAX_HEALTH, 30)
+                .add(EntityAttributes.GENERIC_MAX_HEALTH, 200)
                 .add(EntityAttributes.GENERIC_ARMOR, 5)
                 .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.3f)
                 .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 9)
@@ -237,6 +240,16 @@ public class SoulBlazeBoss extends HostileEntity implements RangedAttackMob{
         super.mobTick();
         this.bossBar.setPercent(this.getHealth() / this.getMaxHealth());
     }
+
+    @Override
+    public void checkDespawn() {
+        if (this.getWorld().getDifficulty() == Difficulty.PEACEFUL && this.isDisallowedInPeaceful()) {
+            this.discard();
+            return;
+        }
+        this.despawnCounter = 0;
+    }
+
     private void handleShootAfterAttackCombo(){
         if (ticksUntilShoot > 0) {
             ticksUntilShoot--;

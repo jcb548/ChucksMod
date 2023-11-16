@@ -96,6 +96,19 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerItemModel(ModBlocks.TITANIUM_BARS);
         blockStateModelGenerator.registerCooker(ModBlocks.TITANIUM_HEAT_GENERATOR, TexturedModel.ORIENTABLE);
 
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SOUL_GRAVEL);
+        BlockStateModelGenerator.BlockTexturePool soul_stone_pool =
+                blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.SOUL_STONE);
+        soul_stone_pool.stairs(ModBlocks.SOUL_STONE_STAIRS);
+        soul_stone_pool.slab(ModBlocks.SOUL_STONE_SLAB);
+        BlockStateModelGenerator.BlockTexturePool soul_stone_bricks_pool =
+                blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.SOUL_STONE_BRICKS);
+        soul_stone_bricks_pool.stairs(ModBlocks.SOUL_STONE_BRICK_STAIRS);
+        soul_stone_bricks_pool.slab(ModBlocks.SOUL_STONE_BRICK_SLAB);
+        soul_stone_bricks_pool.wall(ModBlocks.SOUL_STONE_BRICK_WALL);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.CRACKED_SOUL_STONE_BRICKS);
+        blockStateModelGenerator.registerSimpleState(ModBlocks.SOUL_BLAZE_ALTAR);
+
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.FABIUM_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RAW_FABIUM_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.NETHER_FABIUM_ORE);
@@ -185,6 +198,7 @@ public class ModModelProvider extends FabricModelProvider {
 
     @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
+        itemModelGenerator.register(ModItems.STONE_DUST, Models.GENERATED);
         itemModelGenerator.register(ModItems.IRON_DUST, Models.GENERATED);
         itemModelGenerator.register(ModItems.COPPER_DUST, Models.GENERATED);
         itemModelGenerator.register(ModItems.GOLD_DUST, Models.GENERATED);
@@ -224,6 +238,10 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.registerArmor((ArmorItem) ModItems.TITANIUM_CHESTPLATE);
         itemModelGenerator.registerArmor((ArmorItem) ModItems.TITANIUM_LEGGINGS);
         itemModelGenerator.registerArmor((ArmorItem) ModItems.TITANIUM_BOOTS);
+
+        itemModelGenerator.register(ModItems.SOUL_DUST, Models.GENERATED);
+        itemModelGenerator.register(ModItems.BLAZE_STAR, Models.GENERATED);
+        itemModelGenerator.register(ModItems.SOUL_BLAZE_ROD, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.RAW_FABIUM, Models.GENERATED);
         itemModelGenerator.register(ModItems.FABIUM_INGOT, Models.GENERATED);

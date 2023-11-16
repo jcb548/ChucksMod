@@ -94,6 +94,15 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.CRACKED_SANDSTONE_BRICKS)
 
                 .add(ModBlocks.TITANIUM_MACHINE_BASE)
+                
+                .add(ModBlocks.SOUL_STONE)
+                .add(ModBlocks.SOUL_STONE_STAIRS)
+                .add(ModBlocks.SOUL_STONE_SLAB)
+                .add(ModBlocks.SOUL_STONE_BRICKS)
+                .add(ModBlocks.SOUL_STONE_BRICK_STAIRS)
+                .add(ModBlocks.SOUL_STONE_BRICK_SLAB)
+                .add(ModBlocks.SOUL_STONE_BRICK_WALL)
+                .add(ModBlocks.CRACKED_SOUL_STONE_BRICKS)
 
                 .addTag(ModBlockTags.FABIUM_ORES)
                 .add(ModBlocks.RAW_FABIUM_BLOCK)
@@ -122,7 +131,8 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.PRISMARINE_IRON_DUST_BLOCK)
                 .add(ModBlocks.TIN_DUST_BLOCK)
                 .add(ModBlocks.BRONZE_DUST_BLOCK)
-                .add(ModBlocks.TITANIUM_DUST_BLOCK);
+                .add(ModBlocks.TITANIUM_DUST_BLOCK)
+                .add(ModBlocks.SOUL_GRAVEL);
 
         getOrCreateTagBuilder(BlockTags.PLANKS)
                 .add(ModBlocks.EUCALYPTUS_PLANKS)
@@ -278,5 +288,14 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.IRON_MACHINE_BASE)
                 .add(ModBlocks.TITANIUM_MACHINE_BASE);
 
+        getOrCreateTagBuilder(BlockTags.SOUL_FIRE_BASE_BLOCKS)
+                .add(ModBlocks.SOUL_GRAVEL)
+                .add(ModBlocks.SOUL_STONE)
+                .add(ModBlocks.SOUL_STONE_SLAB)
+                .add(ModBlocks.SOUL_STONE_STAIRS)
+                .add(ModBlocks.SOUL_STONE_BRICKS)
+                .add(ModBlocks.SOUL_STONE_BRICK_SLAB)
+                .add(ModBlocks.SOUL_STONE_BRICK_STAIRS)
+                .add(ModBlocks.SOUL_STONE_BRICK_WALL);
     }
 }

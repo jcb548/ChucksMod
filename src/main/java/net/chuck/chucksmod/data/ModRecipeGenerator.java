@@ -9,6 +9,7 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.data.server.recipe.RecipeExporter;
+import net.minecraft.data.server.recipe.RecipeProvider;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
 import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
 import net.minecraft.item.Item;
@@ -42,10 +43,12 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
         generateTinRecipes(exporter);
         generateBronzeRecipes(exporter);
         generatePrismarineRecipes(exporter);
+        generateSoulRecipes(exporter);
         generateFabiumRecipes(exporter);
         generateDiritonoumRecipes(exporter);
         generateEucalyptusRecipes(exporter);
         generateDiritiaWoodRecipes(exporter);
+        generateSandstoneRecipes(exporter);
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.CRUSHER)
                 .pattern("CPC")
@@ -68,6 +71,87 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
         generateBagRecipes(exporter);
         generateIronMachineRecipes(exporter);
         generateTitaniumRecipes(exporter);
+    }
+    private void generateSandstoneRecipes(RecipeExporter exporter){
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.SANDSTONE_BRICKS,
+                Blocks.SMOOTH_SANDSTONE);
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.SANDSTONE_BRICK_STAIRS,
+                Blocks.SMOOTH_SANDSTONE);
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.SANDSTONE_BRICK_SLAB,
+                Blocks.SMOOTH_SANDSTONE, 2);
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.SANDSTONE_BRICK_WALL,
+                Blocks.SMOOTH_SANDSTONE);
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.SANDSTONE_BRICK_STAIRS,
+                ModBlocks.SANDSTONE_BRICKS);
+        RecipeProvider.createStairsRecipe(ModBlocks.SANDSTONE_BRICK_STAIRS,
+                        Ingredient.ofItems(ModBlocks.SANDSTONE_BRICKS))
+                .criterion(hasItem(ModBlocks.SANDSTONE_BRICKS),
+                        conditionsFromItem(ModBlocks.SANDSTONE_BRICKS))
+                .offerTo(exporter);
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.SANDSTONE_BRICK_SLAB,
+                ModBlocks.SANDSTONE_BRICKS, 2);
+        offerSlabRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.SANDSTONE_BRICK_SLAB,
+                ModBlocks.SANDSTONE_BRICKS);
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.SANDSTONE_BRICK_WALL,
+                ModBlocks.SANDSTONE_BRICKS);
+        offerWallRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.SANDSTONE_BRICK_WALL,
+                ModBlocks.SANDSTONE_BRICKS);
+        offerPolishedStoneRecipe(exporter, RecipeCategory.BREWING, ModBlocks.SANDSTONE_BRICKS, Blocks.SMOOTH_SANDSTONE);
+    }
+    
+    private void generateSoulRecipes(RecipeExporter exporter){
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.SOUL_GRAVEL)
+                .pattern("#S#")
+                .pattern("S#S")
+                .pattern("#S#")
+                .input('#', ModItems.STONE_DUST)
+                .input('S', ModItems.SOUL_DUST)
+                .criterion(hasItem(ModItems.STONE_DUST),
+                        conditionsFromItem(ModItems.STONE_DUST))
+                .criterion(hasItem(ModItems.SOUL_DUST),
+                        conditionsFromItem(ModItems.SOUL_DUST))
+                .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModItems.BLAZE_STAR)
+                .pattern("RRR")
+                .pattern("RLR")
+                .pattern("RRR")
+                .input('R', Items.BLAZE_ROD)
+                .input('L', Blocks.SOUL_LANTERN)
+                .criterion(hasItem(Items.BLAZE_ROD),
+                        conditionsFromItem(Items.BLAZE_ROD))
+                .criterion(hasItem(Blocks.SOUL_LANTERN),
+                        conditionsFromItem(Blocks.SOUL_LANTERN))
+                .offerTo(exporter);
+        offerSmelting(exporter, List.of(ModBlocks.SOUL_GRAVEL),
+                RecipeCategory.BUILDING_BLOCKS,
+                ModBlocks.SOUL_STONE,
+                2f,
+                100,
+                "soul_stone");
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.SOUL_STONE_BRICKS,
+                ModBlocks.SOUL_STONE);
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.SOUL_STONE_BRICK_STAIRS,
+                ModBlocks.SOUL_STONE);
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.SOUL_STONE_BRICK_SLAB,
+                ModBlocks.SOUL_STONE, 2);
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.SOUL_STONE_BRICK_WALL,
+                ModBlocks.SOUL_STONE);
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.SOUL_STONE_BRICK_STAIRS,
+                ModBlocks.SOUL_STONE_BRICKS);
+        RecipeProvider.createStairsRecipe(ModBlocks.SOUL_STONE_BRICK_STAIRS,
+                        Ingredient.ofItems(ModBlocks.SOUL_STONE_BRICKS))
+                .criterion(hasItem(ModBlocks.SOUL_STONE_BRICKS),
+                        conditionsFromItem(ModBlocks.SOUL_STONE_BRICKS))
+                .offerTo(exporter);
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.SOUL_STONE_BRICK_SLAB,
+                ModBlocks.SOUL_STONE_BRICKS, 2);
+        offerSlabRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.SOUL_STONE_BRICK_SLAB,
+                ModBlocks.SOUL_STONE_BRICKS);
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.SOUL_STONE_BRICK_WALL,
+                ModBlocks.SOUL_STONE_BRICKS);
+        offerWallRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.SOUL_STONE_BRICK_WALL,
+                ModBlocks.SOUL_STONE_BRICKS);
+        offerPolishedStoneRecipe(exporter, RecipeCategory.BREWING, ModBlocks.SOUL_STONE_BRICKS, ModBlocks.SOUL_STONE);
     }
 
     private void generateIronMachineRecipes(RecipeExporter exporter) {
