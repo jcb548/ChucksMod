@@ -14,6 +14,7 @@ public class ModStructureKeys {
     public static final RegistryKey<Structure> DIRITIA_DUNGEON = ModStructureKeys.registerKey("diritia_dungeon");
     public static final RegistryKey<Structure> DIRITIA_HOUSE = ModStructureKeys.registerKey("diritia_house");
     public static final RegistryKey<Structure> CREEPER_DUNGEON = ModStructureKeys.registerKey("creeper_dungeon");
+    public static final RegistryKey<Structure> SOUL_BLAZE_ALTAR = ModStructureKeys.registerKey("soul_blaze_altar");
 
     public static RegistryKey<Structure> registerKey(String id){
         return RegistryKey.of(RegistryKeys.STRUCTURE, new Identifier(ChucksMod.MOD_ID, id));

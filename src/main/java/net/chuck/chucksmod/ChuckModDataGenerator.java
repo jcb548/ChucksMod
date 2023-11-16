@@ -27,6 +27,7 @@ public class ChuckModDataGenerator implements DataGeneratorEntrypoint {
 		pack.addProvider(ModBlockTagProvider::new);
 		pack.addProvider(ModItemTagProvider::new);
 		pack.addProvider(ModChestLootTableGenerator::new);
+		pack.addProvider(ModEntityLootTableGenerator::new);
 		pack.addProvider(ModAdvancementsProvider::new);
 	}
 

@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:jigsaw",
+  "start_pool": "chucksmod:soul_blaze_altar/start_pool",
+  "size": 2,
+  "max_distance_from_center": 80,
+  "terrain_adaptation": "beard_thin",
+  "biomes": "#chucksmod:has_structure/soul_blaze_altar",
+  "step": "surface_structures",
+  "start_height": {
+    "type": "minecraft:uniform",
+    "min_inclusive": {
+      "absolute": 32
+    },
+    "max_inclusive": {
+      "absolute": 96
+    }
+  },
+  "use_expansion_hack": false,
+  "spawn_overrides": {}
+}
