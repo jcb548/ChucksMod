@@ -2,7 +2,6 @@ package net.chuck.chucksmod.block.entity.furnace;
 
 import net.chuck.chucksmod.block.entity.ModBlockEntities;
 import net.chuck.chucksmod.block.entity.tiers.IronTier;
-import net.chuck.chucksmod.screen.crusher.IronPoweredCrusherScreenHandler;
 import net.chuck.chucksmod.screen.furnace.IronPoweredFurnaceScreenHandler;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
@@ -14,7 +13,7 @@ import org.jetbrains.annotations.Nullable;
 
 public class IronPoweredFurnaceBlockEntity extends AbstractPoweredFurnaceBlockEntity implements IronTier {
     public IronPoweredFurnaceBlockEntity(BlockPos pos, BlockState state) {
-        super(ModBlockEntities.IRON_POWERED_FURNACE, pos, state, MACHINE_ENERGY_STORAGE, SPEED, MAX_INSERT_EXTRACT);
+        super(ModBlockEntities.IRON_POWERED_FURNACE, pos, state,MACHINE_ENERGY_STORAGE, SPEED, MAX_INSERT_EXTRACT);
     }
 
     @Override
@@ -24,7 +23,7 @@ public class IronPoweredFurnaceBlockEntity extends AbstractPoweredFurnaceBlockEn
 
     @Override
     protected int getEnergyUsage() {
-        return USAGE;
+        return LOW_USAGE;
     }
 
     @Nullable

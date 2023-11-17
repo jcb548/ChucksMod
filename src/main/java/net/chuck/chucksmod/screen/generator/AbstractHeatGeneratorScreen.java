@@ -2,12 +2,13 @@ package net.chuck.chucksmod.screen.generator;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.chuck.chucksmod.ChucksMod;
+import net.chuck.chucksmod.screen.AbstractEnergyUsingScreen;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
-public abstract class AbstractHeatGeneratorScreen <T extends AbstractGeneratorScreenHandler> extends AbstractGeneratorScreen<T> {
+public abstract class AbstractHeatGeneratorScreen <T extends AbstractGeneratorScreenHandler> extends AbstractEnergyUsingScreen<T> {
     protected static final Identifier TEXTURE = new Identifier(ChucksMod.MOD_ID,
             "textures/gui/generator_gui.png");
     public AbstractHeatGeneratorScreen(T handler, PlayerInventory inventory, Text title) {

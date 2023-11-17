@@ -1,7 +1,7 @@
 package net.chuck.chucksmod.block.custom.furnace;
 
+import net.chuck.chucksmod.block.custom.AbstractEnergyCookerBlock;
 import net.chuck.chucksmod.block.entity.ModBlockEntities;
-import net.chuck.chucksmod.block.entity.crusher.CrusherBlockEntity;
 import net.chuck.chucksmod.block.entity.furnace.IronPoweredFurnaceBlockEntity;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
@@ -16,7 +16,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-public class IronPoweredFurnaceBlock extends AbstractPoweredFurnaceBlock{
+public class IronPoweredFurnaceBlock extends AbstractEnergyCookerBlock {
     public IronPoweredFurnaceBlock(Settings settings) {
         super(settings);
     }
@@ -33,6 +33,7 @@ public class IronPoweredFurnaceBlock extends AbstractPoweredFurnaceBlock{
                 ((world1, pos, state1, blockEntity) -> blockEntity.tick(world1, pos, state1)));
     }
     @Override
+    @SuppressWarnings("deprecation")
     public ActionResult onUse(BlockState state, World world, BlockPos pos,
                               PlayerEntity player, Hand hand, BlockHitResult hit) {
         if (!world.isClient) {

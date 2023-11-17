@@ -2,33 +2,21 @@ package net.chuck.chucksmod.screen.generator;
 
 import net.chuck.chucksmod.block.entity.generator.AbstractHeatGeneratorBlockEntity;
 import net.chuck.chucksmod.block.entity.generator.IronHeatGeneratorBlockEntity;
+import net.chuck.chucksmod.screen.AbstractEnergyUsingScreenHandler;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.screen.PropertyDelegate;
-import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.screen.slot.Slot;
 
-public abstract class AbstractGeneratorScreenHandler extends ScreenHandler {
-    protected final Inventory inventory;
-    protected final PropertyDelegate propertyDelegate;
+public abstract class AbstractGeneratorScreenHandler extends AbstractEnergyUsingScreenHandler {
+    protected static final int INV_SIZE = 1;
     protected AbstractGeneratorScreenHandler(int syncId, PlayerInventory playerInventory, BlockEntity entity,
                                              PropertyDelegate delegate, ScreenHandlerType type) {
-        super(type, syncId);
-        checkSize(((Inventory) entity), AbstractHeatGeneratorBlockEntity.INV_SIZE);
-        this.inventory = (Inventory) entity;
-        inventory.onOpen(playerInventory.player);
-        this.propertyDelegate = delegate;
-
+        super(syncId, playerInventory, entity, delegate, type, INV_SIZE);
         this.addSlot(new Slot(inventory, AbstractHeatGeneratorBlockEntity.FUEL_SLOT, 80, 39));
-
-        addPlayerInventory(playerInventory);
-        addPlayerHotbar(playerInventory);
-
-        addProperties(delegate);
 
     }
 
@@ -53,24 +41,6 @@ public abstract class AbstractGeneratorScreenHandler extends ScreenHandler {
             }
         }
         return newStack;
-    }
-
-    @Override
-    public boolean canUse(PlayerEntity player) {
-        return this.inventory.canPlayerUse(player);
-    }
-    public void addPlayerInventory(PlayerInventory inventory) {
-        for(int i=0;i<3;++i) {
-            for(int j=0;j<9;++j) {
-                this.addSlot(new Slot(inventory, j + i*9 + 9, 8 + j*18, 84 + i*18));
-            }
-        }
-    }
-
-    public void addPlayerHotbar(PlayerInventory inventory){
-        for(int i=0;i<9;++i) {
-            this.addSlot(new Slot(inventory, i, 8 + i*18, 142));
-        }
     }
     public boolean isBurning() {
         return propertyDelegate.get(IronHeatGeneratorBlockEntity.BURN_TIME_IDX) > 0;

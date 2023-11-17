@@ -4,11 +4,8 @@ import net.chuck.chucksmod.block.custom.generator.IronHeatGeneratorBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.AbstractFurnaceBlockEntity;
 import net.minecraft.block.entity.BlockEntityType;
-import net.minecraft.inventory.Inventories;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NbtCompound;
-import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import org.jetbrains.annotations.Nullable;
@@ -19,11 +16,10 @@ public abstract class AbstractHeatGeneratorBlockEntity extends AbstractGenerator
     public static final int FUEL_SLOT = 0;
 
     public static final int INV_SIZE = 1;
-    protected final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(INV_SIZE, ItemStack.EMPTY);
     public static final Map<Item, Integer> FUELS = AbstractFurnaceBlockEntity.createFuelTimeMap();
     public AbstractHeatGeneratorBlockEntity(BlockEntityType type, BlockPos pos, BlockState state,
                                             int generationSpeed, int energyStorageSize) {
-        super(type, pos, state, generationSpeed, energyStorageSize);
+        super(type, pos, state, INV_SIZE, generationSpeed, energyStorageSize);
     }
     protected int getFuelTime(ItemStack fuel) {
         if (fuel.isEmpty()) {
@@ -31,23 +27,6 @@ public abstract class AbstractHeatGeneratorBlockEntity extends AbstractGenerator
         }
         Item item = fuel.getItem();
         return (FUELS.getOrDefault(item, 0)/10);
-    }
-    @Override
-    public DefaultedList<ItemStack> getItems() {
-        return this.inventory;
-    }
-    // For saving nbt on world close
-    @Override
-    protected void writeNbt(NbtCompound nbt) {
-        Inventories.writeNbt(nbt, inventory);
-        super.writeNbt(nbt);
-    }
-
-    @Override
-    public void readNbt(NbtCompound nbt) {
-        Inventories.readNbt(nbt, inventory);
-        super.readNbt(nbt);
-
     }
 
     @Override

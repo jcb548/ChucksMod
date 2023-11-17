@@ -2,31 +2,14 @@ package net.chuck.chucksmod.block.entity.crusher;
 
 import net.chuck.chucksmod.block.entity.ModBlockEntities;
 import net.chuck.chucksmod.block.entity.tiers.IronTier;
-import net.chuck.chucksmod.networking.ModMessages;
 import net.chuck.chucksmod.screen.crusher.IronPoweredCrusherScreenHandler;
-import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
-import net.fabricmc.fabric.api.networking.v1.PlayerLookup;
-import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
-import net.fabricmc.fabric.api.transfer.v1.transaction.Transaction;
-import net.minecraft.block.AbstractFurnaceBlock;
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.inventory.Inventories;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NbtCompound;
-import net.minecraft.network.PacketByteBuf;
-import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
-import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.Text;
-import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
-import team.reborn.energy.api.base.SimpleEnergyStorage;
 
 /*
  *  Code inspired by or copied from
@@ -54,6 +37,6 @@ public class IronPoweredCrusherBlockEntity extends AbstractPoweredCrusherBlockEn
 
     @Override
     protected int getEnergyUsage() {
-        return USAGE;
+        return HIGH_USAGE;
     }
 }

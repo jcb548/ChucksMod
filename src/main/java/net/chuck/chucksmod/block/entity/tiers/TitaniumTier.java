@@ -2,7 +2,8 @@ package net.chuck.chucksmod.block.entity.tiers;
 
 public interface TitaniumTier {
     int MAX_INSERT_EXTRACT = 256;
-    int USAGE = 128;
+    int LOW_USAGE = 64;
+    int HIGH_USAGE = 128;
     int GENERATION = MAX_INSERT_EXTRACT;
     int GEN_MAX_EXTRACT = GENERATION;
     int MACHINE_ENERGY_STORAGE = 40000;
