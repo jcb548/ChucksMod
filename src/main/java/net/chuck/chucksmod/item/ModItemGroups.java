@@ -42,6 +42,7 @@ public class ModItemGroups {
                         entries.add(ModItems.IRON_DUST);
                         entries.add(ModBlocks.IRON_DUST_BLOCK);
                         entries.add(ModItems.IRON_GEAR);
+                        entries.add(ModItems.IRON_ENERGY_CORE);
                         entries.add(ModBlocks.IRON_MACHINE_BASE);
                         entries.add(ModBlocks.IRON_ENERGY_STORAGE);
                         entries.add(ModBlocks.IRON_POWERED_CRUSHER);
@@ -53,13 +54,16 @@ public class ModItemGroups {
                         entries.add(ModBlocks.COPPER_BARS);
                         entries.add(ModBlocks.COPPER_WIRE);
                         entries.add(ModItems.COPPER_GEAR);
-                        entries.add(ModItems.COPPER_POWER_ACCEPTOR);
+                        entries.add(ModItems.COPPER_POWER_CIRCUIT);
+                        entries.add(ModItems.COPPER_COIL);
 
                         entries.add(ModItems.GOLD_DUST);
                         entries.add(ModBlocks.GOLD_DUST_BLOCK);
                         entries.add(ModBlocks.GOLD_BARS);
                         entries.add(ModItems.GOLD_GEAR);
                         entries.add(ModBlocks.GOLD_WIRE);
+                        entries.add(ModItems.GOLD_POWER_CIRCUIT);
+                        entries.add(ModItems.GOLD_COIL);
 
                         entries.add(ModItems.OBSIDIAN_DUST);
                         entries.add(ModBlocks.OBSIDIAN_SAND);
@@ -148,7 +152,6 @@ public class ModItemGroups {
 
                         entries.add(ModItems.RAW_TITANIUM);
                         entries.add(ModItems.TITANIUM_INGOT);
-                        entries.add(ModItems.TITANIUM_GEAR);
                         entries.add(ModBlocks.RAW_TITANIUM_BLOCK);
                         entries.add(ModBlocks.TITANIUM_BLOCK);
                         entries.add(ModBlocks.TITANIUM_BARS);
@@ -156,7 +159,6 @@ public class ModItemGroups {
                         entries.add(ModBlocks.DEEPSLATE_TITANIUM_ORE);
                         entries.add(ModBlocks.NETHER_TITANIUM_ORE);
                         entries.add(ModBlocks.END_STONE_TITANIUM_ORE);
-                        entries.add(ModBlocks.TITANIUM_MACHINE_BASE);
                         entries.add(ModItems.TITANIUM_SWORD);
                         entries.add(ModItems.TITANIUM_PICKAXE);
                         entries.add(ModItems.TITANIUM_AXE);
@@ -166,6 +168,15 @@ public class ModItemGroups {
                         entries.add(ModItems.TITANIUM_CHESTPLATE);
                         entries.add(ModItems.TITANIUM_LEGGINGS);
                         entries.add(ModItems.TITANIUM_BOOTS);
+                        entries.add(ModItems.TITANIUM_DUST);
+                        entries.add(ModBlocks.TITANIUM_DUST_BLOCK);
+                        entries.add(ModItems.TITANIUM_GEAR);
+                        entries.add(ModItems.TITANIUM_ENERGY_CORE);
+                        entries.add(ModBlocks.TITANIUM_MACHINE_BASE);
+                        entries.add(ModBlocks.TITANIUM_ENERGY_STORAGE);
+                        entries.add(ModBlocks.TITANIUM_POWERED_CRUSHER);
+                        entries.add(ModBlocks.TITANIUM_POWERED_FURNACE);
+                        entries.add(ModBlocks.TITANIUM_HEAT_GENERATOR);
 
                         entries.add(ModItems.SOUL_DUST);
                         entries.add(ModBlocks.SOUL_GRAVEL);

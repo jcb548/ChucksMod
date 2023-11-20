@@ -8,8 +8,10 @@ import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.screen.slot.Slot;
+import net.minecraft.world.World;
 
 public abstract class AbstractEnergyUsingScreenHandler extends ScreenHandler {
+    protected final World world;
     protected final Inventory inventory;
     protected final PropertyDelegate propertyDelegate;
     protected AbstractEnergyUsingScreenHandler(int syncId, PlayerInventory playerInventory, BlockEntity entity,
@@ -22,6 +24,7 @@ public abstract class AbstractEnergyUsingScreenHandler extends ScreenHandler {
         addPlayerHotbar(playerInventory);
         addPlayerInventory(playerInventory);
         addProperties(delegate);
+        world = playerInventory.player.getWorld();
     }
     @Override
     public boolean canUse(PlayerEntity player) {

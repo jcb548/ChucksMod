@@ -9,8 +9,14 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.screen.slot.Slot;
+import net.minecraft.screen.slot.SlotActionType;
+import net.minecraft.text.Text;
 
 public abstract class AbstractEnergyCookerScreenHandler extends AbstractEnergyUsingScreenHandler{
+    private final static int PLAYER_INVENTORY_START_IDX = 0;
+    private final static int PLAYER_INVENTORY_END_IDX = 35;
+    protected final static int INPUT_SCREEN_SLOT_IDX = 36;
+    protected final static int OUTPUT_SCREEN_SLOT_IDX = 37;
     protected AbstractEnergyCookerScreenHandler(int syncId, PlayerInventory playerInventory, BlockEntity entity,
                                                 PropertyDelegate delegate, ScreenHandlerType type) {
         super(syncId, playerInventory, entity, delegate, type, AbstractEnergyCookerBlockEntity.INV_SIZE);
@@ -20,27 +26,56 @@ public abstract class AbstractEnergyCookerScreenHandler extends AbstractEnergyUs
     @Override
     public ItemStack quickMove(PlayerEntity player, int invSlot) {
         ItemStack newStack = ItemStack.EMPTY;
-        Slot slot = this.slots.get(invSlot);
-        if (slot != null && slot.hasStack()){
-            ItemStack originalStack = slot.getStack();
-            newStack = originalStack.copy();
-            if(invSlot < this.inventory.size()) {
-                if(!this.insertItem(originalStack, this.inventory.size(), this.slots.size(), true)){
+        Slot originalSlot = this.slots.get(invSlot);
+        if(originalSlot != null && originalSlot.hasStack()){
+            ItemStack oldStack = originalSlot.getStack();
+            if(invSlot == OUTPUT_SCREEN_SLOT_IDX){
+                if(!this.insertItem(oldStack, PLAYER_INVENTORY_START_IDX, PLAYER_INVENTORY_END_IDX+1, false)){
                     return ItemStack.EMPTY;
                 }
-            } else if (!this.insertItem(originalStack, AbstractPoweredFurnaceBlockEntity.INPUT_SLOT,
-                    this.inventory.size(), false)){
-                return ItemStack.EMPTY;
-            }
-            if(originalStack.isEmpty()){
-                slot.setStack(ItemStack.EMPTY);
+                originalSlot.onQuickTransfer(oldStack, newStack);
+            } else if(invSlot == INPUT_SCREEN_SLOT_IDX){
+                if(!this.insertItem(oldStack, PLAYER_INVENTORY_START_IDX, PLAYER_INVENTORY_END_IDX+1, true)){
+                    return newStack;
+                }
             } else {
-                slot.markDirty();
+                if(oldStack.isEmpty()){
+                    originalSlot.setStack(ItemStack.EMPTY);
+                } else if(isRecipeItem(oldStack)){
+                    if(!this.insertItem(oldStack, INPUT_SCREEN_SLOT_IDX, INPUT_SCREEN_SLOT_IDX+1, true)){
+                        return ItemStack.EMPTY;
+                    }
+                    originalSlot.markDirty();
+                } else {
+                    if(invSlot < 9) {
+                        if (!this.insertItem(oldStack, 9, PLAYER_INVENTORY_END_IDX, false)) {
+                            return ItemStack.EMPTY;
+                        }
+                    } else {
+                        if (!this.insertItem(oldStack, PLAYER_INVENTORY_START_IDX, 9, false)) {
+                            return ItemStack.EMPTY;
+                        }
+                    }
+                    originalSlot.setStack(ItemStack.EMPTY);
+                }
+                if(oldStack.getCount() == newStack.getCount()){
+                    return ItemStack.EMPTY;
+                }
+                originalSlot.markDirty();
             }
         }
         return newStack;
     }
+    protected abstract boolean isRecipeItem(ItemStack item);
     public boolean isCrafting() {
         return propertyDelegate.get(AbstractPoweredFurnaceBlockEntity.PROGRESS_IDX) > 0;
+    }
+
+    @Override
+    public void onSlotClick(int slotIndex, int button, SlotActionType actionType, PlayerEntity player) {
+        super.onSlotClick(slotIndex, button, actionType, player);
+        if(player.getWorld().isClient) {
+            player.sendMessage(Text.literal(Integer.toString(slotIndex)));
+        }
     }
 }

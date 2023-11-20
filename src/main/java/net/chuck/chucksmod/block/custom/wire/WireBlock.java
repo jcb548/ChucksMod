@@ -95,8 +95,10 @@ public abstract class WireBlock extends BlockWithEntity {
     @Override
     @SuppressWarnings("deprecation")
     public void neighborUpdate(BlockState state, World world, BlockPos pos, Block sourceBlock, BlockPos sourcePos, boolean notify) {
-        if(world.getBlockEntity(pos) instanceof WireBlockEntity wire){
-            wire.neighbourUpdate();
+        if(!world.isClient) {
+            if (world.getBlockEntity(pos) instanceof WireBlockEntity wire) {
+                wire.neighbourUpdate();
+            }
         }
         super.neighborUpdate(state, world, pos, sourceBlock, sourcePos, notify);
     }

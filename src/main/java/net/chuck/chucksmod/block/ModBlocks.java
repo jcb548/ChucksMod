@@ -10,8 +10,11 @@ import net.chuck.chucksmod.block.custom.altar.FrankAltarBlock;
 import net.chuck.chucksmod.block.custom.altar.SoulBlazeAltarBlock;
 import net.chuck.chucksmod.block.custom.crusher.CrusherBlock;
 import net.chuck.chucksmod.block.custom.crusher.IronPoweredCrusherBlock;
+import net.chuck.chucksmod.block.custom.crusher.TitaniumPoweredCrusherBlock;
 import net.chuck.chucksmod.block.custom.energy_storage.IronEnergyStorageBlock;
+import net.chuck.chucksmod.block.custom.energy_storage.TitaniumEnergyStorageBlock;
 import net.chuck.chucksmod.block.custom.furnace.IronPoweredFurnaceBlock;
+import net.chuck.chucksmod.block.custom.furnace.TitaniumPoweredFurnaceBlock;
 import net.chuck.chucksmod.block.custom.generator.IronHeatGeneratorBlock;
 import net.chuck.chucksmod.block.custom.generator.TitaniumHeatGeneratorBlock;
 import net.chuck.chucksmod.block.custom.wire.CopperWireBlock;
@@ -146,10 +149,10 @@ public class ModBlocks {
 
     public static final Block CRUSHER = registerBlock("crusher",
             new CrusherBlock(FabricBlockSettings.copy(Blocks.SMOOTH_STONE)));
-    public static final Block IRON_POWERED_CRUSHER = registerBlock("iron_powered_crusher",
-            new IronPoweredCrusherBlock(FabricBlockSettings.copy(Blocks.IRON_BLOCK)));
     public static final Block IRON_HEAT_GENERATOR = registerBlock("iron_heat_generator",
             new IronHeatGeneratorBlock(FabricBlockSettings.copy(Blocks.IRON_BLOCK)));
+    public static final Block IRON_POWERED_CRUSHER = registerBlock("iron_powered_crusher",
+            new IronPoweredCrusherBlock(FabricBlockSettings.copy(Blocks.IRON_BLOCK)));
     public static final Block IRON_POWERED_FURNACE = registerBlock("iron_powered_furnace",
             new IronPoweredFurnaceBlock(FabricBlockSettings.copy(Blocks.IRON_BLOCK)));
     public static final Block IRON_ENERGY_STORAGE = registerBlock("iron_energy_storage",
@@ -177,6 +180,12 @@ public class ModBlocks {
     public static final Block TITANIUM_MACHINE_BASE = registerBlock("titanium_machine_base",
             new Block(FabricBlockSettings.copy(ModBlocks.TITANIUM_BLOCK).nonOpaque()
                     .strength(6.0f, 7.0f)));
+    public static final Block TITANIUM_ENERGY_STORAGE = registerBlock("titanium_energy_storage",
+            new TitaniumEnergyStorageBlock(FabricBlockSettings.copy(ModBlocks.TITANIUM_BLOCK)));
+    public static final Block TITANIUM_POWERED_CRUSHER = registerBlock("titanium_powered_crusher",
+            new TitaniumPoweredCrusherBlock(FabricBlockSettings.copy(ModBlocks.TITANIUM_BLOCK)));
+    public static final Block TITANIUM_POWERED_FURNACE = registerBlock("titanium_powered_furnace",
+            new TitaniumPoweredFurnaceBlock(FabricBlockSettings.copy(ModBlocks.TITANIUM_BLOCK)));
     public static final Block TITANIUM_HEAT_GENERATOR = registerBlock("titanium_heat_generator",
             new TitaniumHeatGeneratorBlock(FabricBlockSettings.copy(ModBlocks.TITANIUM_BLOCK)));
     // Soul Blocks

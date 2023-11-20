@@ -59,6 +59,8 @@ public class ModItems {
     public static final Item GOLD_GEAR = registerItem("gold_gear",
             new Item(new FabricItemSettings()));
     //Prismarine
+    public static final Item IRON_ENERGY_CORE = registerItem("iron_energy_core",
+            new Item(new FabricItemSettings()));
     public static final Item PRISMARINE_DUST = registerItem("prismarine_dust",
             new Item(new FabricItemSettings()));
     public static final Item PRISMARINE_IRON_DUST = registerItem("prismarine_iron_dust",
@@ -114,7 +116,13 @@ public class ModItems {
     public static final Item BRONZE_BOOTS = registerItem("bronze_boots",
             new ArmorItem(ModArmorMaterials.BRONZE, ArmorItem.Type.BOOTS, new FabricItemSettings()));
     // Machine stuff
-    public static final Item COPPER_POWER_ACCEPTOR = registerItem("copper_power_acceptor",
+    public static final Item COPPER_POWER_CIRCUIT = registerItem("copper_power_circuit",
+            new Item(new FabricItemSettings()));
+    public static final Item COPPER_COIL = registerItem("copper_coil",
+            new Item(new FabricItemSettings()));
+    public static final Item GOLD_POWER_CIRCUIT = registerItem("gold_power_circuit",
+            new Item(new FabricItemSettings()));
+    public static final Item GOLD_COIL = registerItem("gold_coil",
             new Item(new FabricItemSettings()));
     // Obsidian
     public static final Item OBSIDIAN_DUST = registerItem("obsidian_dust",
@@ -124,6 +132,8 @@ public class ModItems {
     public static final Item TITANIUM_DUST = registerItem("titanium_dust", new Item(new FabricItemSettings()));
     public static final Item TITANIUM_INGOT = registerItem("titanium_ingot", new Item(new FabricItemSettings()));
     public static final Item TITANIUM_GEAR = registerItem("titanium_gear", new Item(new FabricItemSettings()));
+    public static final Item TITANIUM_ENERGY_CORE = registerItem("titanium_energy_core",
+            new Item(new FabricItemSettings()));
     public static final Item TITANIUM_SWORD = registerItem("titanium_sword",
             new ModSwordItem(ModToolMaterials.TITANIUM, 3, -2.2f, new FabricItemSettings()));
     public static final Item TITANIUM_PICKAXE = registerItem("titanium_pickaxe",

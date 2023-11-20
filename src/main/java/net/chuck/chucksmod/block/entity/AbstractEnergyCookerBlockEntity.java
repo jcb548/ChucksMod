@@ -107,63 +107,20 @@ public abstract class AbstractEnergyCookerBlockEntity extends AbstractEnergyUsin
     }
     @Override
     public boolean canInsert(int slot, ItemStack stack, @Nullable Direction side) {
-        Direction localDir = this.getWorld().getBlockState(this.pos).get(AbstractEnergyUsingBlock.FACING);
-
-        if(side == Direction.DOWN){
+        if(side == this.getWorld().getBlockState(this.pos).get(AbstractEnergyUsingBlock.FACING)){
             return false;
-        }
-        // From top insert into 1
-        if(side == Direction.UP){
+        } else {
             return slot == INPUT_SLOT;
         }
-        // right insert into 1
-        // From left insert into 0
-        return switch (localDir) {
-            default ->
-                    side.getOpposite() == Direction.NORTH && slot == INPUT_SLOT || //&& stack.getItem() == ModBlockTags.CRUSHABLE
-                            side.getOpposite() == Direction.EAST && slot == INPUT_SLOT||
-                            side.getOpposite() == Direction.WEST && slot == INPUT_SLOT;
-            case EAST ->
-                    side.rotateYClockwise() == Direction.NORTH && slot == INPUT_SLOT ||
-                            side.rotateYClockwise() == Direction.EAST && slot == INPUT_SLOT ||
-                            side.rotateYClockwise() == Direction.WEST && slot == INPUT_SLOT;
-            case SOUTH ->
-                    side  == Direction.NORTH && slot == INPUT_SLOT ||
-                            side == Direction.EAST && slot == INPUT_SLOT ||
-                            side == Direction.WEST && slot == INPUT_SLOT;
-            case WEST ->
-                    side.rotateYCounterclockwise() == Direction.NORTH && slot == INPUT_SLOT ||
-                            side.rotateYCounterclockwise() == Direction.EAST && slot == INPUT_SLOT ||
-                            side.rotateYCounterclockwise() == Direction.WEST && slot == INPUT_SLOT;
-        };
     }
 
     @Override
     public boolean canExtract(int slot, ItemStack stack, Direction side) {
-        Direction localDir = this.getWorld().getBlockState(this.pos).get(AbstractEnergyUsingBlock.FACING);
-        if(side == Direction.UP){
+        if(side == this.getWorld().getBlockState(this.pos).get(AbstractEnergyUsingBlock.FACING)){
             return false;
         }
-
-        // From Down extract from 2
-        if(side == Direction.DOWN){
+        else {
             return slot == OUTPUT_SLOT;
         }
-        // From bottom extract from 2
-        // From right extract from 2
-        return switch (localDir) {
-            default ->
-                    side.getOpposite() == Direction.NORTH && slot == OUTPUT_SLOT || //&& stack.getItem() == ModBlockTags.CRUSHABLE
-                            side.getOpposite() == Direction.EAST && slot == OUTPUT_SLOT;
-            case EAST ->
-                    side.rotateYClockwise() == Direction.NORTH && slot == OUTPUT_SLOT ||
-                            side.rotateYClockwise() == Direction.EAST && slot == OUTPUT_SLOT;
-            case SOUTH ->
-                    side  == Direction.NORTH && slot == OUTPUT_SLOT ||
-                            side == Direction.EAST && slot == OUTPUT_SLOT;
-            case WEST ->
-                    side.rotateYCounterclockwise() == Direction.NORTH && slot == OUTPUT_SLOT ||
-                            side.rotateYCounterclockwise() == Direction.EAST && slot == OUTPUT_SLOT;
-        };
     }
 }

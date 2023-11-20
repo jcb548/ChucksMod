@@ -4,6 +4,9 @@ import net.chuck.chucksmod.block.entity.AbstractEnergyCookerBlockEntity;
 import net.chuck.chucksmod.screen.AbstractEnergyCookerScreenHandler;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.inventory.SimpleInventory;
+import net.minecraft.item.ItemStack;
+import net.minecraft.recipe.RecipeType;
 import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandlerType;
 
@@ -18,5 +21,10 @@ public abstract class AbstractPoweredFurnaceScreenHandler extends AbstractEnergy
         int progressArrowSize = 24;
 
         return maxProgress != 0 && progress != 0 ? progress * progressArrowSize / maxProgress : 0;
+    }
+
+    @Override
+    protected boolean isRecipeItem(ItemStack item) {
+        return this.world.getRecipeManager().getFirstMatch(RecipeType.SMELTING, new SimpleInventory(item), this.world).isPresent();
     }
 }
