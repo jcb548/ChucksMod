@@ -11,11 +11,10 @@ import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.math.Direction;
 
 import java.util.Optional;
 
-public abstract class AbstractEnergyStorageScreen<T extends AbstractEnergyStorageScreenHandler> extends HandledScreen<T> {
+public class EnergyStorageScreen extends HandledScreen<EnergyStorageScreenHandler> {
     private static final Identifier TEXTURE = new Identifier(ChucksMod.MOD_ID,
             "textures/gui/energy_storage_gui.png");
     private ButtonWidget up;
@@ -33,7 +32,7 @@ public abstract class AbstractEnergyStorageScreen<T extends AbstractEnergyStorag
     private final int COLUMN_2_X = 80;
     private final int ROW_3_Y = 53;
     private final int COLUMN_3_X = 98;
-    public AbstractEnergyStorageScreen(T handler, PlayerInventory inventory, Text title) {
+    public EnergyStorageScreen(EnergyStorageScreenHandler handler, PlayerInventory inventory, Text title) {
         super(handler, inventory, title);
     }
 
@@ -73,7 +72,10 @@ public abstract class AbstractEnergyStorageScreen<T extends AbstractEnergyStorag
         this.addSelectableChild(left);
         this.addSelectableChild(right);
     }
-    protected abstract void assignEnergyInfoArea();
+    protected void assignEnergyInfoArea() {
+        energyInfoArea = new EnergyInfoArea(((width - backgroundWidth)/2) + 156,
+                ((height - backgroundHeight) / 2) + 13, handler.blockEntity.energyStorage.getSideStorage(null));
+    }
     @Override
     protected void drawForeground(DrawContext context, int mouseX, int mouseY) {
         super.drawForeground(context, mouseX, mouseY);
@@ -137,6 +139,5 @@ public abstract class AbstractEnergyStorageScreen<T extends AbstractEnergyStorag
         context.drawTexture(TEXTURE, x+COLUMN_3_X,y+ROW_2_Y,  176,
                 getIOOffset(handler.directionToGUISide(DirectionEnergyIOProperty.WEST_KEY)),
                 BUTTON_WIDTH, BUTTON_HEIGHT);
-
     }
 }

@@ -15,14 +15,10 @@ import net.chuck.chucksmod.screen.bag.BagScreen7x1;
 import net.chuck.chucksmod.screen.bag.BagScreen9x1;
 import net.chuck.chucksmod.screen.bag.BagScreen7x2;
 import net.chuck.chucksmod.screen.crusher.CrusherScreen;
-import net.chuck.chucksmod.screen.crusher.IronPoweredCrusherScreen;
-import net.chuck.chucksmod.screen.furnace.IronPoweredFurnaceScreen;
-import net.chuck.chucksmod.screen.crusher.TitaniumPoweredCrusherScreen;
-import net.chuck.chucksmod.screen.furnace.TitaniumPoweredFurnaceScreen;
-import net.chuck.chucksmod.screen.generator.IronHeatGeneratorScreen;
-import net.chuck.chucksmod.screen.generator.TitaniumHeatGeneratorScreen;
-import net.chuck.chucksmod.screen.energy_storage.IronEnergyStorageScreen;
-import net.chuck.chucksmod.screen.energy_storage.TitaniumEnergyStorageScreen;
+import net.chuck.chucksmod.screen.crusher.PoweredCrusherScreen;
+import net.chuck.chucksmod.screen.furnace.PoweredFurnaceScreen;
+import net.chuck.chucksmod.screen.generator.HeatGeneratorScreen;
+import net.chuck.chucksmod.screen.energy_storage.EnergyStorageScreen;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
@@ -165,18 +161,10 @@ public class ChucksModClient implements ClientModInitializer {
     }
     private void registerHandledScreens(){
         HandledScreens.register(ModScreenHandlers.CRUSHER_SCREEN_HANDLER, CrusherScreen::new);
-        HandledScreens.register(ModScreenHandlers.POWERED_CRUSHER_SCREEN_HANDLER, IronPoweredCrusherScreen::new);
-        HandledScreens.register(ModScreenHandlers.IRON_POWERED_FURNACE_SCREEN_HANDLER, IronPoweredFurnaceScreen::new);
-        HandledScreens.register(ModScreenHandlers.IRON_HEAT_GENERATOR_SCREEN_HANDLER, IronHeatGeneratorScreen::new);
-        HandledScreens.register(ModScreenHandlers.IRON_ENERGY_STORAGE_SCREEN_HANDLER, IronEnergyStorageScreen::new);
-        HandledScreens.register(ModScreenHandlers.TITANIUM_ENERGY_STORAGE_SCREEN_HANDLER, 
-                TitaniumEnergyStorageScreen::new);
-        HandledScreens.register(ModScreenHandlers.TITANIUM_POWERED_CRUSHER_SCREEN_HANDLER, 
-                TitaniumPoweredCrusherScreen::new);
-        HandledScreens.register(ModScreenHandlers.TITANIUM_POWERED_FURNACE_SCREEN_HANDLER, 
-                TitaniumPoweredFurnaceScreen::new);
-        HandledScreens.register(ModScreenHandlers.TITANIUM_HEAT_GENERATOR_SCREEN_HANDLER,
-                TitaniumHeatGeneratorScreen::new);
+        HandledScreens.register(ModScreenHandlers.POWERED_CRUSHER_SCREEN_HANDLER, PoweredCrusherScreen::new);
+        HandledScreens.register(ModScreenHandlers.POWERED_FURNACE_SCREEN_HANDLER, PoweredFurnaceScreen::new);
+        HandledScreens.register(ModScreenHandlers.GENERATOR_SCREEN_HANDLER, HeatGeneratorScreen::new);
+        HandledScreens.register(ModScreenHandlers.ENERGY_STORAGE_SCREEN_HANDLER, EnergyStorageScreen::new);
         HandledScreens.register(ModScreenHandlers.BAG_3X1_SCREEN_HANDLER, BagScreen3x1::new);
         HandledScreens.register(ModScreenHandlers.BAG_5X1_SCREEN_HANDLER, BagScreen5x1::new);
         HandledScreens.register(ModScreenHandlers.BAG_7X1_SCREEN_HANDLER, BagScreen7x1::new);

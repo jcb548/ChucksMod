@@ -61,6 +61,7 @@ public abstract class AbstractEnergyUsingBlockEntity extends BlockEntity impleme
     protected abstract int getEnergyUsage();
     public void writeScreenOpeningData(ServerPlayerEntity player, PacketByteBuf buf) {
         buf.writeBlockPos(this.pos);
+        buf.writeLong(this.energyStorage.amount);
     }
     @Override
     protected void writeNbt(NbtCompound nbt) {

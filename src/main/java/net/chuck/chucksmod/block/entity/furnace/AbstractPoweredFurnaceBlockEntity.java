@@ -1,12 +1,17 @@
 package net.chuck.chucksmod.block.entity.furnace;
 
 import net.chuck.chucksmod.block.entity.AbstractEnergyCookerBlockEntity;
+import net.chuck.chucksmod.screen.furnace.PoweredFurnaceScreenHandler;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntityType;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.recipe.*;
+import net.minecraft.screen.ScreenHandler;
 import net.minecraft.util.math.BlockPos;
+import org.jetbrains.annotations.Nullable;
 
 public abstract class AbstractPoweredFurnaceBlockEntity extends AbstractEnergyCookerBlockEntity {
     private final RecipeManager.MatchGetter<Inventory, SmeltingRecipe> matchGetter;
@@ -32,5 +37,12 @@ public abstract class AbstractPoweredFurnaceBlockEntity extends AbstractEnergyCo
 
     private RecipeEntry<SmeltingRecipe> getCurrentRecipe() {
         return this.matchGetter.getFirstMatch(this, world).orElse(null);
+    }
+    @Nullable
+    @Override
+    public ScreenHandler createMenu(int syncId, PlayerInventory playerInventory, PlayerEntity player) {
+        this.markDirty();
+        return new PoweredFurnaceScreenHandler(syncId, playerInventory, this, propertyDelegate,
+                this.energyStorage.amount);
     }
 }

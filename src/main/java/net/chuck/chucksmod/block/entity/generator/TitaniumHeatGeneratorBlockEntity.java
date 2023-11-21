@@ -1,13 +1,9 @@
 package net.chuck.chucksmod.block.entity.generator;
 import net.chuck.chucksmod.block.entity.ModBlockEntities;
 import net.chuck.chucksmod.block.entity.tiers.TitaniumTier;
-import net.chuck.chucksmod.screen.generator.IronHeatGeneratorScreenHandler;
-import net.chuck.chucksmod.screen.generator.TitaniumHeatGeneratorScreenHandler;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
@@ -20,12 +16,6 @@ public class TitaniumHeatGeneratorBlockEntity extends AbstractHeatGeneratorBlock
     @Override
     public Text getDisplayName() {
         return Text.translatable("block.chucksmod.titanium_heat_generator");
-    }
-    @Nullable
-    @Override
-    public ScreenHandler createMenu(int syncId, PlayerInventory playerInventory, PlayerEntity player) {
-        this.markDirty();
-        return new TitaniumHeatGeneratorScreenHandler(syncId, playerInventory, this, propertyDelegate);
     }
 
     @Override

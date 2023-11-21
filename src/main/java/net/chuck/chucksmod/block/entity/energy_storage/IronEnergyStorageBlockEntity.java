@@ -2,7 +2,7 @@ package net.chuck.chucksmod.block.entity.energy_storage;
 
 import net.chuck.chucksmod.block.entity.ModBlockEntities;
 import net.chuck.chucksmod.block.entity.tiers.IronTier;
-import net.chuck.chucksmod.screen.energy_storage.IronEnergyStorageScreenHandler;
+import net.chuck.chucksmod.screen.energy_storage.EnergyStorageScreenHandler;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
@@ -19,12 +19,5 @@ public class IronEnergyStorageBlockEntity extends AbstractEnergyStorageBlockEnti
     @Override
     public Text getDisplayName() {
         return Text.translatable("block.chucksmod.iron_energy_storage");
-    }
-
-    @Nullable
-    @Override
-    public ScreenHandler createMenu(int syncId, PlayerInventory playerInventory, PlayerEntity player) {
-        this.markDirty();
-        return new IronEnergyStorageScreenHandler(syncId, playerInventory, this);
     }
 }

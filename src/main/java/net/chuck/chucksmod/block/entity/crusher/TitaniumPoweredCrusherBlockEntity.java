@@ -2,7 +2,6 @@ package net.chuck.chucksmod.block.entity.crusher;
 
 import net.chuck.chucksmod.block.entity.ModBlockEntities;
 import net.chuck.chucksmod.block.entity.tiers.TitaniumTier;
-import net.chuck.chucksmod.screen.crusher.TitaniumPoweredCrusherScreenHandler;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
@@ -27,12 +26,6 @@ public class TitaniumPoweredCrusherBlockEntity extends AbstractPoweredCrusherBlo
     @Override
     public Text getDisplayName() {
         return Text.translatable("block.chucksmod.titanium_powered_crusher");
-    }
-    @Nullable
-    @Override
-    public ScreenHandler createMenu(int syncId, PlayerInventory playerInventory, PlayerEntity player) {
-        this.markDirty();
-        return new TitaniumPoweredCrusherScreenHandler(syncId, playerInventory, this, propertyDelegate);
     }
 
     @Override

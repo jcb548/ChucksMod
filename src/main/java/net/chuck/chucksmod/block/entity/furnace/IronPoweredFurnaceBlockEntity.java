@@ -2,7 +2,6 @@ package net.chuck.chucksmod.block.entity.furnace;
 
 import net.chuck.chucksmod.block.entity.ModBlockEntities;
 import net.chuck.chucksmod.block.entity.tiers.IronTier;
-import net.chuck.chucksmod.screen.furnace.IronPoweredFurnaceScreenHandler;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
@@ -24,12 +23,5 @@ public class IronPoweredFurnaceBlockEntity extends AbstractPoweredFurnaceBlockEn
     @Override
     protected int getEnergyUsage() {
         return LOW_USAGE;
-    }
-
-    @Nullable
-    @Override
-    public ScreenHandler createMenu(int syncId, PlayerInventory playerInventory, PlayerEntity player) {
-        this.markDirty();
-        return new IronPoweredFurnaceScreenHandler(syncId, playerInventory, this, propertyDelegate);
     }
 }

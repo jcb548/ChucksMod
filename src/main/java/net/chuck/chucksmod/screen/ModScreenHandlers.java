@@ -7,14 +7,10 @@ import net.chuck.chucksmod.screen.bag.BagScreenHandler7x1;
 import net.chuck.chucksmod.screen.bag.BagScreenHandler9x1;
 import net.chuck.chucksmod.screen.bag.BagScreenHandler7x2;
 import net.chuck.chucksmod.screen.crusher.CrusherScreenHandler;
-import net.chuck.chucksmod.screen.crusher.IronPoweredCrusherScreenHandler;
-import net.chuck.chucksmod.screen.crusher.TitaniumPoweredCrusherScreenHandler;
-import net.chuck.chucksmod.screen.energy_storage.IronEnergyStorageScreenHandler;
-import net.chuck.chucksmod.screen.energy_storage.TitaniumEnergyStorageScreenHandler;
-import net.chuck.chucksmod.screen.furnace.IronPoweredFurnaceScreenHandler;
-import net.chuck.chucksmod.screen.furnace.TitaniumPoweredFurnaceScreenHandler;
-import net.chuck.chucksmod.screen.generator.IronHeatGeneratorScreenHandler;
-import net.chuck.chucksmod.screen.generator.TitaniumHeatGeneratorScreenHandler;
+import net.chuck.chucksmod.screen.crusher.PoweredCrusherScreenHandler;
+import net.chuck.chucksmod.screen.furnace.PoweredFurnaceScreenHandler;
+import net.chuck.chucksmod.screen.energy_storage.EnergyStorageScreenHandler;
+import net.chuck.chucksmod.screen.generator.GeneratorScreenHandler;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -36,23 +32,14 @@ public class ModScreenHandlers {
     public static final int HOTBAR_BELOW_TITLE = 69;
     public static ScreenHandlerType<CrusherScreenHandler> CRUSHER_SCREEN_HANDLER =
             new ExtendedScreenHandlerType<>(CrusherScreenHandler::new);
-    public static ScreenHandlerType<IronPoweredCrusherScreenHandler> POWERED_CRUSHER_SCREEN_HANDLER =
-            new ExtendedScreenHandlerType<>(IronPoweredCrusherScreenHandler::new);
-    public static ScreenHandlerType<IronPoweredFurnaceScreenHandler> IRON_POWERED_FURNACE_SCREEN_HANDLER =
-            new ExtendedScreenHandlerType<>(IronPoweredFurnaceScreenHandler::new);
-    public static ScreenHandlerType<IronHeatGeneratorScreenHandler> IRON_HEAT_GENERATOR_SCREEN_HANDLER =
-            new ExtendedScreenHandlerType<>(IronHeatGeneratorScreenHandler::new);
-    public static ScreenHandlerType<IronEnergyStorageScreenHandler> IRON_ENERGY_STORAGE_SCREEN_HANDLER =
-            new ExtendedScreenHandlerType<>(IronEnergyStorageScreenHandler::new);
-    
-    public static ScreenHandlerType<TitaniumEnergyStorageScreenHandler> TITANIUM_ENERGY_STORAGE_SCREEN_HANDLER =
-            new ExtendedScreenHandlerType<>(TitaniumEnergyStorageScreenHandler::new);
-    public static ScreenHandlerType<TitaniumPoweredCrusherScreenHandler> TITANIUM_POWERED_CRUSHER_SCREEN_HANDLER =
-            new ExtendedScreenHandlerType<>(TitaniumPoweredCrusherScreenHandler::new);
-    public static ScreenHandlerType<TitaniumPoweredFurnaceScreenHandler> TITANIUM_POWERED_FURNACE_SCREEN_HANDLER =
-            new ExtendedScreenHandlerType<>(TitaniumPoweredFurnaceScreenHandler::new);
-    public static ScreenHandlerType<TitaniumHeatGeneratorScreenHandler> TITANIUM_HEAT_GENERATOR_SCREEN_HANDLER =
-            new ExtendedScreenHandlerType<>(TitaniumHeatGeneratorScreenHandler::new);
+    public static ScreenHandlerType<PoweredCrusherScreenHandler> POWERED_CRUSHER_SCREEN_HANDLER =
+            new ExtendedScreenHandlerType<>(PoweredCrusherScreenHandler::new);
+    public static ScreenHandlerType<PoweredFurnaceScreenHandler> POWERED_FURNACE_SCREEN_HANDLER =
+            new ExtendedScreenHandlerType<>(PoweredFurnaceScreenHandler::new);
+    public static ScreenHandlerType<GeneratorScreenHandler> GENERATOR_SCREEN_HANDLER =
+            new ExtendedScreenHandlerType<>(GeneratorScreenHandler::new);
+    public static ScreenHandlerType<EnergyStorageScreenHandler> ENERGY_STORAGE_SCREEN_HANDLER =
+            new ExtendedScreenHandlerType<>(EnergyStorageScreenHandler::new);
     public static ScreenHandlerType<BagScreenHandler3x1> BAG_3X1_SCREEN_HANDLER =
             new ExtendedScreenHandlerType<>(BagScreenHandler3x1::new);
     public static ScreenHandlerType<BagScreenHandler5x1> BAG_5X1_SCREEN_HANDLER =
@@ -70,21 +57,12 @@ public class ModScreenHandlers {
                 CRUSHER_SCREEN_HANDLER);
         Registry.register(Registries.SCREEN_HANDLER, new Identifier(ChucksMod.MOD_ID, "powered_crusher"),
                 POWERED_CRUSHER_SCREEN_HANDLER);
-        Registry.register(Registries.SCREEN_HANDLER, new Identifier(ChucksMod.MOD_ID, "iron_powered_furnace"),
-                IRON_POWERED_FURNACE_SCREEN_HANDLER);
-        Registry.register(Registries.SCREEN_HANDLER, new Identifier(ChucksMod.MOD_ID, "iron_heat_generator"),
-                IRON_HEAT_GENERATOR_SCREEN_HANDLER);
-        Registry.register(Registries.SCREEN_HANDLER, new Identifier(ChucksMod.MOD_ID, "iron_energy_storage.json.json"),
-                IRON_ENERGY_STORAGE_SCREEN_HANDLER);
-        
-        Registry.register(Registries.SCREEN_HANDLER, new Identifier(ChucksMod.MOD_ID, "titanium_energy_storage.json.json"),
-                TITANIUM_ENERGY_STORAGE_SCREEN_HANDLER);
-        Registry.register(Registries.SCREEN_HANDLER, new Identifier(ChucksMod.MOD_ID, "titanium_powered_crusher"),
-                TITANIUM_POWERED_CRUSHER_SCREEN_HANDLER);
-        Registry.register(Registries.SCREEN_HANDLER, new Identifier(ChucksMod.MOD_ID, "titanium_powered_furnace"),
-                TITANIUM_POWERED_FURNACE_SCREEN_HANDLER);
-        Registry.register(Registries.SCREEN_HANDLER, new Identifier(ChucksMod.MOD_ID, "titanium_heat_generator"),
-                TITANIUM_HEAT_GENERATOR_SCREEN_HANDLER);
+        Registry.register(Registries.SCREEN_HANDLER, new Identifier(ChucksMod.MOD_ID, "powered_furnace"),
+                POWERED_FURNACE_SCREEN_HANDLER);
+        Registry.register(Registries.SCREEN_HANDLER, new Identifier(ChucksMod.MOD_ID, "generator"),
+                GENERATOR_SCREEN_HANDLER);
+        Registry.register(Registries.SCREEN_HANDLER, new Identifier(ChucksMod.MOD_ID, "energy_storage"),
+                ENERGY_STORAGE_SCREEN_HANDLER);
 
         Registry.register(Registries.SCREEN_HANDLER, new Identifier(ChucksMod.MOD_ID, "bag_3x1"),
                 BAG_3X1_SCREEN_HANDLER);

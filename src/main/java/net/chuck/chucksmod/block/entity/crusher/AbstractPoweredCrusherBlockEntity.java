@@ -2,12 +2,17 @@ package net.chuck.chucksmod.block.entity.crusher;
 
 import net.chuck.chucksmod.block.entity.AbstractEnergyCookerBlockEntity;
 import net.chuck.chucksmod.recipe.CrusherRecipe;
+import net.chuck.chucksmod.screen.crusher.PoweredCrusherScreenHandler;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntityType;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.recipe.RecipeEntry;
+import net.minecraft.screen.ScreenHandler;
 import net.minecraft.util.math.BlockPos;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.Optional;
 
@@ -38,5 +43,13 @@ public abstract class AbstractPoweredCrusherBlockEntity extends AbstractEnergyCo
             inventory.setStack(i, this.getStack(i));
         }
         return getWorld().getRecipeManager().getFirstMatch(CrusherRecipe.Type.INSTANCE, inventory, getWorld());
+    }
+
+    @Nullable
+    @Override
+    public ScreenHandler createMenu(int syncId, PlayerInventory playerInventory, PlayerEntity player) {
+        this.markDirty();
+        return new PoweredCrusherScreenHandler(syncId, playerInventory, this, propertyDelegate,
+                this.energyStorage.amount);
     }
 }

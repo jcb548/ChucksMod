@@ -2,7 +2,7 @@ package net.chuck.chucksmod.block.entity.energy_storage;
 
 import net.chuck.chucksmod.block.entity.ModBlockEntities;
 import net.chuck.chucksmod.block.entity.tiers.TitaniumTier;
-import net.chuck.chucksmod.screen.energy_storage.TitaniumEnergyStorageScreenHandler;
+import net.chuck.chucksmod.screen.energy_storage.EnergyStorageScreenHandler;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
@@ -19,12 +19,5 @@ public class TitaniumEnergyStorageBlockEntity extends AbstractEnergyStorageBlock
     @Override
     public Text getDisplayName() {
         return Text.translatable("block.chucksmod.titanium_energy_storage");
-    }
-
-    @Nullable
-    @Override
-    public ScreenHandler createMenu(int syncId, PlayerInventory playerInventory, PlayerEntity player) {
-        this.markDirty();
-        return new TitaniumEnergyStorageScreenHandler(syncId, playerInventory, this);
     }
 }

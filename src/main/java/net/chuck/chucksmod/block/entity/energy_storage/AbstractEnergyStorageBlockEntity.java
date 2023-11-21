@@ -2,6 +2,7 @@ package net.chuck.chucksmod.block.entity.energy_storage;
 
 import net.chuck.chucksmod.block.entity.ImplementedInventory;
 import net.chuck.chucksmod.networking.ModMessages;
+import net.chuck.chucksmod.screen.energy_storage.EnergyStorageScreenHandler;
 import net.chuck.chucksmod.util.DirectionEnergyIOProperty;
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
 import net.fabricmc.fabric.api.networking.v1.PlayerLookup;
@@ -10,16 +11,20 @@ import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityType;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.PacketByteBuf;
+import net.minecraft.screen.ScreenHandler;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
 import team.reborn.energy.api.base.SimpleSidedEnergyContainer;
 
 public abstract class AbstractEnergyStorageBlockEntity extends BlockEntity implements ExtendedScreenHandlerFactory,
@@ -67,6 +72,12 @@ public abstract class AbstractEnergyStorageBlockEntity extends BlockEntity imple
             }
         };
     }
+    @Nullable
+    @Override
+    public ScreenHandler createMenu(int syncId, PlayerInventory playerInventory, PlayerEntity player) {
+        this.markDirty();
+        return new EnergyStorageScreenHandler(syncId, playerInventory, this, this.energyStorage.amount);
+    }
     @Override
     public DefaultedList<ItemStack> getItems() {
         return this.inventory;
@@ -96,6 +107,7 @@ public abstract class AbstractEnergyStorageBlockEntity extends BlockEntity imple
     }
     public void writeScreenOpeningData(ServerPlayerEntity player, PacketByteBuf buf) {
         buf.writeBlockPos(this.pos);
+        buf.writeLong(this.energyStorage.amount);
     }
 
     private boolean allowInsert(Direction side){

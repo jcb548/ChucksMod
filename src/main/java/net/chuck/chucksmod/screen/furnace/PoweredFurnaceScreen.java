@@ -1,4 +1,4 @@
-package net.chuck.chucksmod.screen.crusher;
+package net.chuck.chucksmod.screen.furnace;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.chuck.chucksmod.ChucksMod;
@@ -8,11 +8,10 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
-public abstract class AbstractPoweredCrusherScreen
-        <T extends AbstractPoweredCrusherScreenHandler> extends AbstractEnergyUsingScreen<T> {
-    protected static final Identifier TEXTURE = new Identifier(ChucksMod.MOD_ID,
-            "textures/gui/powered_crusher_gui.png");
-    public AbstractPoweredCrusherScreen(T handler, PlayerInventory inventory, Text title) {
+public class PoweredFurnaceScreen extends AbstractEnergyUsingScreen<PoweredFurnaceScreenHandler> {
+    private static final Identifier TEXTURE = new Identifier(ChucksMod.MOD_ID,
+            "textures/gui/powered_furnace_gui.png");
+    public PoweredFurnaceScreen(PoweredFurnaceScreenHandler handler, PlayerInventory inventory, Text title) {
         super(handler, inventory, title);
     }
 
@@ -25,10 +24,9 @@ public abstract class AbstractPoweredCrusherScreen
         renderProgressArrow(context, x, y);
         energyInfoArea.draw(context);
     }
-
     private void renderProgressArrow(DrawContext context, int x, int y){
         if(handler.isCrafting()){
-            context.drawTexture(TEXTURE,x + 84, y + 35, 176, 0, 16, handler.getScaledProgress());
+            context.drawTexture(TEXTURE,x + 79, y + 34, 176, 0, handler.getScaledProgress(), 17);
         }
     }
 }

@@ -3,21 +3,28 @@ package net.chuck.chucksmod.screen.generator;
 import net.chuck.chucksmod.block.entity.generator.AbstractHeatGeneratorBlockEntity;
 import net.chuck.chucksmod.block.entity.generator.IronHeatGeneratorBlockEntity;
 import net.chuck.chucksmod.screen.AbstractEnergyUsingScreenHandler;
+import net.chuck.chucksmod.screen.ModScreenHandlers;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.item.ItemStack;
+import net.minecraft.network.PacketByteBuf;
+import net.minecraft.screen.ArrayPropertyDelegate;
 import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.screen.slot.Slot;
 
-public abstract class AbstractGeneratorScreenHandler extends AbstractEnergyUsingScreenHandler {
+public class GeneratorScreenHandler extends AbstractEnergyUsingScreenHandler {
     protected static final int INV_SIZE = 1;
-    protected AbstractGeneratorScreenHandler(int syncId, PlayerInventory playerInventory, BlockEntity entity,
-                                             PropertyDelegate delegate, ScreenHandlerType type) {
-        super(syncId, playerInventory, entity, delegate, type, INV_SIZE);
+    public GeneratorScreenHandler(int syncId, PlayerInventory playerInventory, BlockEntity entity,
+                                  PropertyDelegate delegate, long energy) {
+        super(syncId, playerInventory, entity, delegate, ModScreenHandlers.GENERATOR_SCREEN_HANDLER, INV_SIZE);
+        this.blockEntity.setEnergyLevel(energy);
         this.addSlot(new Slot(inventory, AbstractHeatGeneratorBlockEntity.FUEL_SLOT, 80, 39));
-
+    }
+    public GeneratorScreenHandler(int syncId, PlayerInventory inventory, PacketByteBuf buf){
+        this(syncId, inventory, inventory.player.getWorld().getBlockEntity(buf.readBlockPos()),
+                new ArrayPropertyDelegate(AbstractHeatGeneratorBlockEntity.DELEGATE_SIZE), buf.readLong());
     }
 
     @Override

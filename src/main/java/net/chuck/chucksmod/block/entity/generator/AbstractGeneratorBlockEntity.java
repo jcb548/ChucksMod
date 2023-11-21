@@ -2,15 +2,20 @@ package net.chuck.chucksmod.block.entity.generator;
 
 import net.chuck.chucksmod.block.custom.AbstractEnergyCookerBlock;
 import net.chuck.chucksmod.block.entity.AbstractEnergyUsingBlockEntity;
+import net.chuck.chucksmod.screen.generator.GeneratorScreenHandler;
 import net.fabricmc.fabric.api.transfer.v1.transaction.Transaction;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntityType;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.screen.PropertyDelegate;
+import net.minecraft.screen.ScreenHandler;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
 import team.reborn.energy.api.EnergyStorage;
 import team.reborn.energy.api.EnergyStorageUtil;
 
@@ -52,6 +57,13 @@ public abstract class AbstractGeneratorBlockEntity extends AbstractEnergyUsingBl
         return 0;
     }
 
+    @Nullable
+    @Override
+    public ScreenHandler createMenu(int syncId, PlayerInventory playerInventory, PlayerEntity player) {
+        this.markDirty();
+        return new GeneratorScreenHandler(syncId, playerInventory, this, propertyDelegate,
+                this.energyStorage.amount);
+    }
     public abstract int getGeneration();
     public abstract int getMaxExtract();
     public abstract int getEnergyStorageCapacity();

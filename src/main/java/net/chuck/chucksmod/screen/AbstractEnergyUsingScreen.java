@@ -20,7 +20,10 @@ public abstract class AbstractEnergyUsingScreen<T extends AbstractEnergyUsingScr
         titleX = (backgroundWidth - textRenderer.getWidth(title)) / 2;
         assignEnergyInfoArea();
     }
-    protected abstract void assignEnergyInfoArea();
+    protected void assignEnergyInfoArea() {
+        energyInfoArea = new EnergyInfoArea(((width - backgroundWidth)/2) + 156,
+                ((height - backgroundHeight) / 2) + 13, handler.blockEntity.energyStorage);
+    }
     @Override
     protected void drawForeground(DrawContext context, int mouseX, int mouseY) {
         super.drawForeground(context, mouseX, mouseY);
