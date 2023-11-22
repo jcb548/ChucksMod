@@ -1,8 +1,10 @@
 package net.chuck.chucksmod.block.entity.tiers;
 
 public interface IronTier {
+    int WIRE_TRANSFER_RATE = 128;
     int MAX_INSERT_EXTRACT = 64;
-    int LOW_USAGE = 16;
+    int LOW_USAGE = 8;
+    int MEDIUM_USAGE = 16;
     int HIGH_USAGE = 32;
     int GENERATION = MAX_INSERT_EXTRACT;
     int GEN_MAX_EXTRACT = GENERATION;

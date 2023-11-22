@@ -230,9 +230,19 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.FABIUM_BOOTS)
                 .add(ModItems.DIRITONIUM_BOOTS)
                 .add(ModItems.TITANIUM_BOOTS);
-        /*getOrCreateTagBuilder(ModItemTags.ENCHANTABLES)
+
+        getOrCreateTagBuilder(ModItemTags.ENCHANTABLES)
+                .addTag(ItemTags.SWORDS)
+                .addTag(ItemTags.PICKAXES)
+                .addTag(ItemTags.AXES)
+                .addTag(ItemTags.SHOVELS)
+                .addTag(ItemTags.HOES)
+                .addTag(ItemTags.TRIMMABLE_ARMOR)
                 .add(Items.SHEARS)
-                .add(Items.FLINT_AND_STEEL);*/
+                .add(Items.FLINT_AND_STEEL)
+                .add(Items.ELYTRA)
+                .add(Items.TRIDENT);
+
         getOrCreateTagBuilder(ModItemTags.ELYTRAS)
                 .add(Items.ELYTRA);
 

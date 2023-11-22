@@ -423,6 +423,24 @@
   "advancements.chucksmod.overworld.enchant_item.title": "Enchant an Item",
   "advancements.chucksmod.overworld.enchant_item.desc": "Enchant an item in your enchanting table, It is recommended to place at least 15 bookshelves 1 unobstructed block away for max level (30) enchantments",
 
+  "advancements.chucksmod.overworld.enchant_sword.title": "Enchant a Sword",
+  "advancements.chucksmod.overworld.enchant_sword.desc": "Enchant a Sword in your enchanting table",
+
+  "advancements.chucksmod.overworld.enchant_tool.title": "Enchant a Tool",
+  "advancements.chucksmod.overworld.enchant_tool.desc": "Enchant an Tool in your enchanting table",
+
+  "advancements.chucksmod.overworld.enchant_armor.title": "Enchant a Piece of Armor",
+  "advancements.chucksmod.overworld.enchant_armor.desc": "Enchant an armor piece in your enchanting table",
+
+  "advancements.chucksmod.overworld.enchant_helmet.title": "Enchant a Helmet",
+  "advancements.chucksmod.overworld.enchant_helmet.desc": "Enchant a helmet in your enchanting table",
+
+  "advancements.chucksmod.overworld.enchant_boots.title": "Enchant a pair of Boots",
+  "advancements.chucksmod.overworld.enchant_boots.desc": "Enchant boots in your enchanting table",
+
+  "advancements.chucksmod.overworld.enchant_bow.title": "Enchant a Bow",
+  "advancements.chucksmod.overworld.enchant_bow.desc": "Enchant a bow with your Enchanting Table",
+
   "advancements.chucksmod.overworld.bookshelf.title": "Bookshelf",
   "advancements.chucksmod.overworld.bookshelf.desc": "Craft a bookshelf from 3 books and 6 planks",
 
@@ -484,13 +502,13 @@
   "advancements.chucksmod.overworld.gunpowder.desc": "Collect from a creeper",
 
   "advancements.chucksmod.overworld.sharpness.title": "Sharpness",
-  "advancements.chucksmod.overworld.sharpness.desc": "Enchant a Sword with at least Sharpness 3 (Max 5)",
+  "advancements.chucksmod.overworld.sharpness.desc": "Enchant a Sword with at least Sharpness 3 (Max 5) to increase damage dealt",
 
   "advancements.chucksmod.overworld.unbreaking.title": "Unbreaking",
-  "advancements.chucksmod.overworld.unbreaking.desc": "Enchant an Item with Unbreaking 3 (Max level)",
+  "advancements.chucksmod.overworld.unbreaking.desc": "Enchant an Item with Unbreaking 3 (Max level) to make it last longer",
 
   "advancements.chucksmod.overworld.efficiency.title": "Efficiency",
-  "advancements.chucksmod.overworld.efficiency.desc": "Enchant a Tool with at least Efficiency 3 (Max 5)",
+  "advancements.chucksmod.overworld.efficiency.desc": "Enchant a Tool with at least Efficiency 3 (Max 5) to allow it to mine faster",
 
   "advancements.chucksmod.overworld.silk.title": "Silky Smooth",
   "advancements.chucksmod.overworld.silk.desc": "Enchant a Tool with silk touch, to pickup any block broken as is (except special rare blocks)",
@@ -581,8 +599,19 @@
 
   "advancements.chucksmod.overworld.titanium_armor.title": "Titanium Armor",
   "advancements.chucksmod.overworld.titanium_armor.desc": "Craft a set of titanium armor (as strong as diamond) (helmet, chestplate, leggings, boots)",
+
+  "advancements.chucksmod.overworld.power.title": "Power",
+  "advancements.chucksmod.overworld.power.desc": "Enchant a Bow with at least Power 3 (Max 5), to increase damage of arrows shot",
   
+  "advancements.chucksmod.overworld.infinity.title": "Infinite Ammunition",
+  "advancements.chucksmod.overworld.infinity.desc": "Enchant a Bow with Infinity to allow it to shoot infinite normal arrows",
   
+  "advancements.chucksmod.overworld.flame.title": "Flaming Arrows",
+  "advancements.chucksmod.overworld.flame.desc": "Enchant a Bow with Flame to allow it to shoot fiery arrows, which set targets on fire, and light explosives",
+
+  "advancements.chucksmod.overworld.punch.title": "Punch",
+  "advancements.chucksmod.overworld.punch.desc": "Enchant a Bow with Punch (Max 2) to give its arrows extra knockback",
+
 
   "advancements.chucksmod.machines.root.title": "Gearing Up",
   "advancements.chucksmod.machines.root.desc": "Use your gears to create many different machines to do different tasks",
@@ -595,6 +624,15 @@
 
   "advancements.chucksmod.machines.iron_furnace.title": "Iron Furnace",
   "advancements.chucksmod.machines.iron_furnace.desc": "Craft an Iron Powered Furnace to smelt materials using energy",
+
+  "advancements.chucksmod.machines.iron_heat_generator.title": "Iron Heat Generator",
+  "advancements.chucksmod.machines.iron_heat_generator.desc": "Craft an Iron Heat Generator to produce power from flammable objects",
+
+  "advancements.chucksmod.machines.tin_wire.title": "Tin Wire",
+  "advancements.chucksmod.machines.tin_wire.desc": "Craft Tin Wire to transfer energy between energy blocks slowly",
+
+  "advancements.chucksmod.machines.copper_wire.title": "Copper Wire",
+  "advancements.chucksmod.machines.copper_wire.desc": "Craft Copper Wire to transfer energy at the rate of Iron Tier Machines",
 
 
 
@@ -610,6 +648,11 @@
   "advancements.chucksmod.nether.quartz.title": "Nether Quartz",
   "advancements.chucksmod.nether.quartz.desc": "Mine Quartz ore to obtain quartz, a great source of experience",
 
-  "advancements.chucksmod.nether.quartz.title": "Nether Fortress",
-  "advancements.chucksmod.nether.quartz.desc": "Enter a Nether Fortress, where mobs such as Blazes and Wither Skeletons can be found"
+  "advancements.chucksmod.nether.enter_fortress.title": "Nether Fortress",
+  "advancements.chucksmod.nether.enter_fortress.desc": "Enter a Nether Fortress, where mobs such as Blazes and Wither Skeletons can be found",
+
+
+
+  "advancements.chucksmod.bosses.root.title": "Bosses",
+  "advancements.chucksmod.bosses.root.desc": "Here are the list of Bosses to be killed"
 }

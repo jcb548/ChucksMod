@@ -5,6 +5,7 @@ import net.chuck.chucksmod.ChucksMod;
 import net.chuck.chucksmod.block.ModBlocks;
 import net.chuck.chucksmod.item.ModItemTags;
 import net.chuck.chucksmod.item.ModItems;
+import net.chuck.chucksmod.item.enchantment.ModEnchantments;
 import net.chuck.chucksmod.world.gen.ModStructureKeys;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricAdvancementProvider;
@@ -15,11 +16,14 @@ import net.minecraft.advancement.AdvancementRewards;
 import net.minecraft.advancement.AdvancementRequirements.CriterionMerger;
 import net.minecraft.advancement.criterion.*;
 import net.minecraft.block.Blocks;
+import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.Items;
 import net.minecraft.predicate.BlockPredicate;
+import net.minecraft.predicate.NumberRange;
 import net.minecraft.predicate.entity.EntityPredicate;
 import net.minecraft.predicate.entity.LocationPredicate;
+import net.minecraft.predicate.item.EnchantmentPredicate;
 import net.minecraft.predicate.item.ItemPredicate;
 import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.text.Text;
@@ -27,6 +31,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.structure.StructureKeys;
 
+import java.util.Optional;
 import java.util.function.Consumer;
 
 public class ModAdvancementsProvider extends FabricAdvancementProvider {
@@ -38,16 +43,30 @@ public class ModAdvancementsProvider extends FabricAdvancementProvider {
     public void generateAdvancement(Consumer<AdvancementEntry> consumer) {
         overworldAdvancements(consumer);
         machineAdvancements(consumer);
+        bossAdvancements(consumer);
         netherAdvancements(consumer);
     }
+
+    private void bossAdvancements(Consumer<AdvancementEntry> consumer) {
+        AdvancementEntry root = Advancement.Builder.create()
+                .display(ModItems.TITANIUM_SWORD, // The display icon
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".bosses.root.title"),
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".bosses.root.desc"), // The description
+                        new Identifier("textures/block/end_stone.png"), // Background image used
+                        AdvancementFrame.TASK, true, true, false)
+                .criterion("got_sword", InventoryChangedCriterion.Conditions.items(ItemPredicate.Builder.create()
+                        .tag(ItemTags.SWORDS).build()))
+                .build(consumer, ChucksMod.MOD_ID + "/bosses/root");
+
+    }
+
     private void overworldAdvancements(Consumer<AdvancementEntry> consumer){
         AdvancementEntry root = Advancement.Builder.create()
                 .display(Items.OAK_LOG, // The display icon
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.root.title"),
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.root.desc"), // The description
                         new Identifier(ChucksMod.MOD_ID, "textures/block/eucalyptus_planks.png"), // Background image used
-                        AdvancementFrame.TASK, true, true, false
-                )
+                        AdvancementFrame.TASK, true, true, false)
                 // The first string used in criterion is the name referenced by other advancements when they want to have 'requirements'
                 .criterion("got_logs", InventoryChangedCriterion.Conditions.items(ItemPredicate.Builder.create()
                         .tag(ItemTags.LOGS).build()))
@@ -396,8 +415,7 @@ public class ModAdvancementsProvider extends FabricAdvancementProvider {
                 .criterion("get_book", InventoryChangedCriterion.Conditions.items(Items.BOOK))
                 .parent(leather)
                 .build(consumer, ChucksMod.MOD_ID + "/overworld/book");
-
-
+        
         AdvancementEntry enchantmentTable = Advancement.Builder.create()
                 .display(Blocks.ENCHANTING_TABLE,
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.enchanting_table.title"),
@@ -447,6 +465,347 @@ public class ModAdvancementsProvider extends FabricAdvancementProvider {
                 .criterion("enchant_item", EnchantedItemCriterion.Conditions.any())
                 .parent(enchantmentTable)
                 .build(consumer, ChucksMod.MOD_ID + "/overworld/enchant_item");
+
+        AdvancementEntry unbreaking = Advancement.Builder.create().display(Items.DIAMOND,
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.unbreaking.title"),
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.unbreaking.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("unbreaking", InventoryChangedCriterion.Conditions.items(ItemPredicate.Builder.create()
+                        .tag(ModItemTags.ENCHANTABLES)
+                        .enchantment(new EnchantmentPredicate(Enchantments.UNBREAKING,
+                                NumberRange.IntRange.atLeast(3))).build()))
+                .parent(enchantItem)
+                .build(consumer, ChucksMod.MOD_ID + "/overworld/unbreaking");
+
+        AdvancementEntry enchantSword = Advancement.Builder.create().display(Items.GOLDEN_SWORD,
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.enchant_sword.title"),
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.enchant_sword.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("enchant_sword",
+                        Criteria.ENCHANTED_ITEM.create(
+                                new EnchantedItemCriterion.Conditions(Optional.empty(),
+                                        Optional.of(ItemPredicate.Builder.create()
+                                                .tag(ItemTags.SWORDS).build()),
+                                        NumberRange.IntRange.ANY)))
+                .parent(enchantItem)
+                .build(consumer, ChucksMod.MOD_ID + "/overworld/enchant_sword");
+
+        AdvancementEntry sharpness = Advancement.Builder.create().display(Items.DIAMOND_SWORD,
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.sharpness.title"),
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.sharpness.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("sharpness", InventoryChangedCriterion.Conditions.items(ItemPredicate.Builder.create()
+                        .tag(ItemTags.SWORDS)
+                        .enchantment(new EnchantmentPredicate(Enchantments.SHARPNESS,
+                                NumberRange.IntRange.atLeast(3))).build()))
+                .parent(enchantSword)
+                .build(consumer, ChucksMod.MOD_ID + "/overworld/sharpness");
+        
+        AdvancementEntry smite = Advancement.Builder.create().display(Items.IRON_SWORD,
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.smite.title"),
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.smite.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("smite", InventoryChangedCriterion.Conditions.items(ItemPredicate.Builder.create()
+                        .tag(ItemTags.SWORDS)
+                        .enchantment(new EnchantmentPredicate(Enchantments.SMITE,
+                                NumberRange.IntRange.atLeast(3))).build()))
+                .parent(enchantSword)
+                .build(consumer, ChucksMod.MOD_ID + "/overworld/smite");
+        
+        AdvancementEntry bane_of_arthropods = Advancement.Builder.create().display(Items.STONE_SWORD,
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.bane_of_arthropods.title"),
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.bane_of_arthropods.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("bane_of_arthropods", InventoryChangedCriterion.Conditions.items(ItemPredicate.Builder.create()
+                        .tag(ItemTags.SWORDS)
+                        .enchantment(new EnchantmentPredicate(Enchantments.BANE_OF_ARTHROPODS,
+                                NumberRange.IntRange.atLeast(3))).build()))
+                .parent(enchantSword)
+                .build(consumer, ChucksMod.MOD_ID + "/overworld/bane_of_arthropods");
+        
+        AdvancementEntry looting = Advancement.Builder.create().display(ModItems.TITANIUM_SWORD,
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.looting.title"),
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.looting.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("looting", InventoryChangedCriterion.Conditions.items(ItemPredicate.Builder.create()
+                        .tag(ItemTags.SWORDS)
+                        .enchantment(new EnchantmentPredicate(Enchantments.LOOTING,
+                                NumberRange.IntRange.atLeast(3))).build()))
+                .parent(enchantSword)
+                .build(consumer, ChucksMod.MOD_ID + "/overworld/looting");
+        
+        AdvancementEntry sweeping = Advancement.Builder.create().display(ModItems.BRONZE_SWORD,
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.sweeping.title"),
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.sweeping.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("sweeping", InventoryChangedCriterion.Conditions.items(ItemPredicate.Builder.create()
+                        .tag(ItemTags.SWORDS)
+                        .enchantment(new EnchantmentPredicate(Enchantments.SWEEPING,
+                                NumberRange.IntRange.atLeast(3))).build()))
+                .parent(enchantSword)
+                .build(consumer, ChucksMod.MOD_ID + "/overworld/sweeping");
+        
+        AdvancementEntry fire_aspect = Advancement.Builder.create().display(Items.NETHERITE_SWORD,
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.fire_aspect.title"),
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.fire_aspect.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("fire_aspect", InventoryChangedCriterion.Conditions.items(ItemPredicate.Builder.create()
+                        .tag(ItemTags.SWORDS)
+                        .enchantment(new EnchantmentPredicate(Enchantments.FIRE_ASPECT,
+                                NumberRange.IntRange.ANY)).build()))
+                .parent(enchantSword)
+                .build(consumer, ChucksMod.MOD_ID + "/overworld/fire_aspect");
+        
+        AdvancementEntry knockback = Advancement.Builder.create().display(Items.WOODEN_SWORD,
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.knockback.title"),
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.knockback.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("knockback", InventoryChangedCriterion.Conditions.items(ItemPredicate.Builder.create()
+                        .tag(ItemTags.SWORDS)
+                        .enchantment(new EnchantmentPredicate(Enchantments.KNOCKBACK,
+                                NumberRange.IntRange.ANY)).build()))
+                .parent(enchantSword)
+                .build(consumer, ChucksMod.MOD_ID + "/overworld/knockback");
+
+        AdvancementEntry alacrity = Advancement.Builder.create().display(ModItems.FABIUM_SWORD,
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.alacrity.title"),
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.alacrity.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("alacrity", InventoryChangedCriterion.Conditions.items(ItemPredicate.Builder.create()
+                        .tag(ItemTags.SWORDS)
+                        .enchantment(new EnchantmentPredicate(ModEnchantments.ALACRITY,
+                                NumberRange.IntRange.ANY)).build()))
+                .parent(enchantSword)
+                .build(consumer, ChucksMod.MOD_ID + "/overworld/alacrity");
+
+        AdvancementEntry enchantTool = Advancement.Builder.create().display(Items.GOLDEN_SHOVEL,
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.enchant_tool.title"),
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.enchant_tool.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("enchant_tool",
+                        Criteria.ENCHANTED_ITEM.create(
+                                new EnchantedItemCriterion.Conditions(Optional.empty(),
+                                        Optional.of(ItemPredicate.Builder.create()
+                                                .tag(ItemTags.TOOLS).build()),
+                                        NumberRange.IntRange.ANY)))
+                .parent(enchantItem)
+                .build(consumer, ChucksMod.MOD_ID + "/overworld/enchant_tool");
+
+        AdvancementEntry efficiency = Advancement.Builder.create().display(Items.GOLDEN_PICKAXE,
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.efficiency.title"),
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.efficiency.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("efficiency", InventoryChangedCriterion.Conditions.items(ItemPredicate.Builder.create()
+                        .tag(ItemTags.TOOLS)
+                        .enchantment(new EnchantmentPredicate(Enchantments.EFFICIENCY,
+                                NumberRange.IntRange.atLeast(3))).build()))
+                .parent(enchantTool)
+                .build(consumer, ChucksMod.MOD_ID + "/overworld/efficiency");
+
+        AdvancementEntry silk = Advancement.Builder.create().display(Items.DIAMOND_HOE,
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.silk.title"),
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.silk.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("silk", InventoryChangedCriterion.Conditions.items(ItemPredicate.Builder.create()
+                        .tag(ItemTags.TOOLS)
+                        .enchantment(new EnchantmentPredicate(Enchantments.SILK_TOUCH,
+                                NumberRange.IntRange.ANY)).build()))
+                .parent(enchantTool)
+                .build(consumer, ChucksMod.MOD_ID + "/overworld/silk");
+
+        AdvancementEntry fortune = Advancement.Builder.create().display(Items.DIAMOND_PICKAXE,
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.fortune.title"),
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.fortune.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("fortune", InventoryChangedCriterion.Conditions.items(ItemPredicate.Builder.create()
+                        .tag(ItemTags.TOOLS)
+                        .enchantment(new EnchantmentPredicate(Enchantments.FORTUNE,
+                                NumberRange.IntRange.atLeast(3))).build()))
+                .parent(enchantTool)
+                .build(consumer, ChucksMod.MOD_ID + "/overworld/fortune");
+
+        AdvancementEntry enchantArmor = Advancement.Builder.create().display(Items.GOLDEN_CHESTPLATE,
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.enchant_armor.title"),
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.enchant_armor.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("enchant_armor",
+                        Criteria.ENCHANTED_ITEM.create(
+                                new EnchantedItemCriterion.Conditions(Optional.empty(),
+                                        Optional.of(ItemPredicate.Builder.create()
+                                                .tag(ItemTags.TRIMMABLE_ARMOR).build()),
+                                        NumberRange.IntRange.ANY)))
+                .parent(enchantItem)
+                .build(consumer, ChucksMod.MOD_ID + "/overworld/enchant_armor");
+
+        AdvancementEntry protection = Advancement.Builder.create().display(Items.DIAMOND_CHESTPLATE,
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.protection.title"),
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.protection.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("protection", InventoryChangedCriterion.Conditions.items(ItemPredicate.Builder.create()
+                        .tag(ItemTags.TRIMMABLE_ARMOR)
+                        .enchantment(new EnchantmentPredicate(Enchantments.PROTECTION,
+                                NumberRange.IntRange.atLeast(3))).build()))
+                .parent(enchantArmor)
+                .build(consumer, ChucksMod.MOD_ID + "/overworld/protection");
+
+        AdvancementEntry fire_protection = Advancement.Builder.create().display(Items.NETHERITE_CHESTPLATE,
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.fire_protection.title"),
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.fire_protection.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("fire_protection", InventoryChangedCriterion.Conditions.items(ItemPredicate.Builder.create()
+                        .tag(ItemTags.TRIMMABLE_ARMOR)
+                        .enchantment(new EnchantmentPredicate(Enchantments.FIRE_PROTECTION,
+                                NumberRange.IntRange.atLeast(3))).build()))
+                .parent(enchantArmor)
+                .build(consumer, ChucksMod.MOD_ID + "/overworld/fire_protection");
+
+        AdvancementEntry blast_protection = Advancement.Builder.create().display(Items.IRON_CHESTPLATE,
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.blast_protection.title"),
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.blast_protection.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("blast_protection", InventoryChangedCriterion.Conditions.items(ItemPredicate.Builder.create()
+                        .tag(ItemTags.TRIMMABLE_ARMOR)
+                        .enchantment(new EnchantmentPredicate(Enchantments.BLAST_PROTECTION,
+                                NumberRange.IntRange.atLeast(3))).build()))
+                .parent(enchantArmor)
+                .build(consumer, ChucksMod.MOD_ID + "/overworld/blast_protection");
+
+        AdvancementEntry thorns = Advancement.Builder.create().display(Items.CACTUS,
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.thorns.title"),
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.thorns.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("thorns", InventoryChangedCriterion.Conditions.items(ItemPredicate.Builder.create()
+                        .tag(ItemTags.TRIMMABLE_ARMOR)
+                        .enchantment(new EnchantmentPredicate(Enchantments.THORNS,
+                                NumberRange.IntRange.atLeast(2))).build()))
+                .parent(enchantArmor)
+                .build(consumer, ChucksMod.MOD_ID + "/overworld/thorns");
+
+        AdvancementEntry enchantHelmet = Advancement.Builder.create().display(Items.GOLDEN_HELMET,
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.enchant_helmet.title"),
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.enchant_helmet.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("enchant_helmet",
+                        Criteria.ENCHANTED_ITEM.create(
+                                new EnchantedItemCriterion.Conditions(Optional.empty(),
+                                        Optional.of(ItemPredicate.Builder.create()
+                                                .tag(ModItemTags.HELMETS).build()),
+                                        NumberRange.IntRange.ANY)))
+                .parent(enchantArmor)
+                .build(consumer, ChucksMod.MOD_ID + "/overworld/enchant_helmet");
+
+        AdvancementEntry respiration = Advancement.Builder.create().display(Items.TURTLE_HELMET,
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.respiration.title"),
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.respiration.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("respiration", InventoryChangedCriterion.Conditions.items(ItemPredicate.Builder.create()
+                        .tag(ModItemTags.HELMETS)
+                        .enchantment(new EnchantmentPredicate(Enchantments.RESPIRATION,
+                                NumberRange.IntRange.atLeast(3))).build()))
+                .parent(enchantHelmet)
+                .build(consumer, ChucksMod.MOD_ID + "/overworld/respiration");
+
+        AdvancementEntry aqua_affinity = Advancement.Builder.create().display(Items.IRON_PICKAXE,
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.aqua_affinity.title"),
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.aqua_affinity.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("aqua_affinity", InventoryChangedCriterion.Conditions.items(ItemPredicate.Builder.create()
+                        .tag(ModItemTags.HELMETS)
+                        .enchantment(new EnchantmentPredicate(Enchantments.AQUA_AFFINITY,
+                                NumberRange.IntRange.ANY)).build()))
+                .parent(enchantHelmet)
+                .build(consumer, ChucksMod.MOD_ID + "/overworld/aqua_affinity");
+
+        AdvancementEntry enchantBoots = Advancement.Builder.create().display(Items.GOLDEN_BOOTS,
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.enchant_boots.title"),
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.enchant_boots.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("enchant_boots",
+                        Criteria.ENCHANTED_ITEM.create(
+                                new EnchantedItemCriterion.Conditions(Optional.empty(),
+                                        Optional.of(ItemPredicate.Builder.create()
+                                                .tag(ModItemTags.BOOTS).build()),
+                                        NumberRange.IntRange.ANY)))
+                .parent(enchantArmor)
+                .build(consumer, ChucksMod.MOD_ID + "/overworld/enchant_boots");
+
+        AdvancementEntry feather_falling = Advancement.Builder.create().display(Items.FEATHER,
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.feather_falling.title"),
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.feather_falling.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("feather_falling", InventoryChangedCriterion.Conditions.items(ItemPredicate.Builder.create()
+                        .tag(ModItemTags.BOOTS)
+                        .enchantment(new EnchantmentPredicate(Enchantments.FEATHER_FALLING,
+                                NumberRange.IntRange.atLeast(3))).build()))
+                .parent(enchantBoots)
+                .build(consumer, ChucksMod.MOD_ID + "/overworld/feather_falling");
+
+        AdvancementEntry depth_strider = Advancement.Builder.create().display(Items.IRON_BOOTS,
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.depth_strider.title"),
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.depth_strider.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("depth_strider", InventoryChangedCriterion.Conditions.items(ItemPredicate.Builder.create()
+                        .tag(ModItemTags.BOOTS)
+                        .enchantment(new EnchantmentPredicate(Enchantments.DEPTH_STRIDER,
+                                NumberRange.IntRange.atLeast(3))).build()))
+                .parent(enchantBoots)
+                .build(consumer, ChucksMod.MOD_ID + "/overworld/depth_strider");
+
+        AdvancementEntry enchantBow = Advancement.Builder.create().display(Items.BOW,
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.enchant_bow.title"),
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.enchant_bow.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("enchant_bow",
+                        Criteria.ENCHANTED_ITEM.create(
+                                new EnchantedItemCriterion.Conditions(Optional.empty(),
+                                        Optional.of(ItemPredicate.Builder.create().items(Items.BOW).build()),
+                                        NumberRange.IntRange.ANY)))
+                .parent(enchantItem)
+                .build(consumer, ChucksMod.MOD_ID + "/overworld/enchant_bow");
+
+        AdvancementEntry power = Advancement.Builder.create().display(Items.ARROW,
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.power.title"),
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.power.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("power", InventoryChangedCriterion.Conditions.items(ItemPredicate.Builder.create()
+                        .items(Items.BOW)
+                        .enchantment(new EnchantmentPredicate(Enchantments.POWER,
+                                NumberRange.IntRange.atLeast(3))).build()))
+                .parent(enchantBow)
+                .build(consumer, ChucksMod.MOD_ID + "/overworld/power");
+
+        AdvancementEntry infinity = Advancement.Builder.create().display(Items.SKELETON_SKULL,
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.infinity.title"),
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.infinity.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("infinity", InventoryChangedCriterion.Conditions.items(ItemPredicate.Builder.create()
+                        .items(Items.BOW)
+                        .enchantment(new EnchantmentPredicate(Enchantments.INFINITY,
+                                NumberRange.IntRange.ANY)).build()))
+                .parent(enchantBow)
+                .build(consumer, ChucksMod.MOD_ID + "/overworld/infinity");
+
+        AdvancementEntry flame = Advancement.Builder.create().display(Items.BLAZE_POWDER,
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.flame.title"),
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.flame.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("flame", InventoryChangedCriterion.Conditions.items(ItemPredicate.Builder.create()
+                        .items(Items.BOW)
+                        .enchantment(new EnchantmentPredicate(Enchantments.FLAME,
+                                NumberRange.IntRange.ANY)).build()))
+                .parent(enchantBow)
+                .build(consumer, ChucksMod.MOD_ID + "/overworld/flame");
+
+        AdvancementEntry punch = Advancement.Builder.create().display(Items.WOODEN_SWORD,
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.punch.title"),
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.punch.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("punch", InventoryChangedCriterion.Conditions.items(ItemPredicate.Builder.create()
+                        .items(Items.BOW)
+                        .enchantment(new EnchantmentPredicate(Enchantments.PUNCH,
+                                NumberRange.IntRange.ANY)).build()))
+                .parent(enchantBow)
+                .build(consumer, ChucksMod.MOD_ID + "/overworld/punch");
 
         AdvancementEntry bookshelf = Advancement.Builder.create().display(Blocks.BOOKSHELF,
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.bookshelf.title"),
@@ -666,6 +1025,17 @@ public class ModAdvancementsProvider extends FabricAdvancementProvider {
                 .parent(enchantmentTable)
                 .build(consumer, ChucksMod.MOD_ID + "/overworld/anvil");
 
+        AdvancementEntry mending = Advancement.Builder.create().display(Items.MOSS_BLOCK,
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.mending.title"),
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.mending.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("mending", InventoryChangedCriterion.Conditions.items(ItemPredicate.Builder.create()
+                        .tag(ModItemTags.ENCHANTABLES)
+                        .enchantment(new EnchantmentPredicate(Enchantments.MENDING,
+                                NumberRange.IntRange.ANY)).build()))
+                .parent(anvil)
+                .build(consumer, ChucksMod.MOD_ID + "/overworld/mending");
+        
         AdvancementEntry bucket = Advancement.Builder.create()
                 .display(Items.WATER_BUCKET,
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.bucket.title"),
@@ -806,6 +1176,42 @@ public class ModAdvancementsProvider extends FabricAdvancementProvider {
                 .criterion("get_iron_furnace", InventoryChangedCriterion.Conditions.items(ModBlocks.IRON_POWERED_FURNACE))
                 .parent(ironMachineBase)
                 .build(consumer, ChucksMod.MOD_ID + "/machines/iron_furnace");
+
+        AdvancementEntry ironHeatGenerator = Advancement.Builder.create()
+                .display(ModBlocks.IRON_HEAT_GENERATOR,
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".machines.iron_heat_generator.title"),
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".machines.iron_heat_generator.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("get_iron_heat_generator", InventoryChangedCriterion.Conditions.items(ModBlocks.IRON_HEAT_GENERATOR))
+                .parent(ironMachineBase)
+                .build(consumer, ChucksMod.MOD_ID + "/machines/iron_heat_generator");
+
+        AdvancementEntry ironEnergyStorage = Advancement.Builder.create()
+                .display(ModBlocks.IRON_ENERGY_STORAGE,
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".machines.iron_energy_storage.title"),
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".machines.iron_energy_storage.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("get_iron_energy_storage", InventoryChangedCriterion.Conditions.items(ModBlocks.IRON_ENERGY_STORAGE))
+                .parent(ironMachineBase)
+                .build(consumer, ChucksMod.MOD_ID + "/machines/iron_energy_storage");
+
+        AdvancementEntry tinWire = Advancement.Builder.create()
+                .display(ModBlocks.TIN_WIRE,
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".machines.tin_wire.title"),
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".machines.tin_wire.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("get_tin_wire", InventoryChangedCriterion.Conditions.items(ModBlocks.TIN_WIRE))
+                .parent(root)
+                .build(consumer, ChucksMod.MOD_ID + "/machines/tin_wire");
+
+        AdvancementEntry copperWire = Advancement.Builder.create()
+                .display(ModBlocks.COPPER_WIRE,
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".machines.copper_wire.title"),
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".machines.copper_wire.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("get_copper_wire", InventoryChangedCriterion.Conditions.items(ModBlocks.COPPER_WIRE))
+                .parent(ironMachineBase)
+                .build(consumer, ChucksMod.MOD_ID + "/machines/copper_wire");
     }
     private void netherAdvancements(Consumer<AdvancementEntry> consumer) {
         AdvancementEntry root = Advancement.Builder.create()

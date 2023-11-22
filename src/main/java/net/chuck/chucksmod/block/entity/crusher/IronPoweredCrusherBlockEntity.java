@@ -20,7 +20,7 @@ import org.jetbrains.annotations.Nullable;
  */
 public class IronPoweredCrusherBlockEntity extends AbstractPoweredCrusherBlockEntity implements IronTier {
     public IronPoweredCrusherBlockEntity(BlockPos pos, BlockState state) {
-        super(ModBlockEntities.IRON_POWERED_CRUSHER, pos, state, MACHINE_ENERGY_STORAGE, SPEED, MAX_INSERT_EXTRACT);
+        super(ModBlockEntities.IRON_POWERED_CRUSHER, pos, state, MACHINE_ENERGY_STORAGE, SPEED, HIGH_USAGE);
     }
 
     @Override
