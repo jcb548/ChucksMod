@@ -31,9 +31,9 @@ public abstract class AbstractHeatGeneratorBlockEntity extends AbstractGenerator
 
     @Override
     protected void useFuel() {
-        if (this.getFuelTime(this.inventory.get(FUEL_SLOT)) > 0){
-            this.fuelTime = this.getFuelTime(this.inventory.get(FUEL_SLOT));
-            this.burnTime = this.getFuelTime(this.inventory.get(FUEL_SLOT));
+        if (this.getFuelTime(this.inventory.getStack(FUEL_SLOT)) > 0){
+            this.fuelTime = this.getFuelTime(this.inventory.getStack(FUEL_SLOT));
+            this.burnTime = this.getFuelTime(this.inventory.getStack(FUEL_SLOT));
             this.removeStack(FUEL_SLOT, 1);
         }
     }

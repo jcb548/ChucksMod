@@ -11,6 +11,7 @@ import net.chuck.chucksmod.block.entity.furnace.IronPoweredFurnaceBlockEntity;
 import net.chuck.chucksmod.block.entity.furnace.TitaniumPoweredFurnaceBlockEntity;
 import net.chuck.chucksmod.block.entity.generator.IronHeatGeneratorBlockEntity;
 import net.chuck.chucksmod.block.entity.generator.TitaniumHeatGeneratorBlockEntity;
+import net.chuck.chucksmod.block.entity.quarry.IronQuarryBlockEntity;
 import net.chuck.chucksmod.block.entity.wire.CopperWireBlockEntity;
 import net.chuck.chucksmod.block.entity.wire.GoldWireBlockEntity;
 import net.chuck.chucksmod.block.entity.wire.TinWireBlockEntity;
@@ -34,6 +35,7 @@ public class ModBlockEntities {
     public static BlockEntityType<IronPoweredFurnaceBlockEntity> IRON_POWERED_FURNACE;
     public static BlockEntityType<IronHeatGeneratorBlockEntity> IRON_HEAT_GENERATOR;
     public static BlockEntityType<IronEnergyStorageBlockEntity> IRON_ENERGY_STORAGE;
+    public static BlockEntityType<IronQuarryBlockEntity> IRON_QUARRY;
     public static BlockEntityType<TinWireBlockEntity> TIN_WIRE;
     public static BlockEntityType<CopperWireBlockEntity> COPPER_WIRE;
     public static BlockEntityType<GoldWireBlockEntity> GOLD_WIRE;
@@ -72,6 +74,12 @@ public class ModBlockEntities {
                         ModBlocks.IRON_ENERGY_STORAGE).build());
         EnergyStorage.SIDED.registerForBlockEntity((blockEntity, direction) ->
                         blockEntity.energyStorage.getSideStorage(direction), IRON_ENERGY_STORAGE);
+        IRON_QUARRY = Registry.register(Registries.BLOCK_ENTITY_TYPE,
+                new Identifier(ChucksMod.MOD_ID, "iron_quarry"),
+                FabricBlockEntityTypeBuilder.create(IronQuarryBlockEntity::new,
+                        ModBlocks.IRON_QUARRY).build());
+        EnergyStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.energyStorage,
+                IRON_QUARRY);
         // Wires
         TIN_WIRE = Registry.register(Registries.BLOCK_ENTITY_TYPE,
                 new Identifier(ChucksMod.MOD_ID, "tin_wire"),

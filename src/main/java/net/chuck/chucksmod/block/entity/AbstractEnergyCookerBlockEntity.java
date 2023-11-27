@@ -1,6 +1,5 @@
 package net.chuck.chucksmod.block.entity;
 
-import net.chuck.chucksmod.block.custom.AbstractEnergyCookerBlock;
 import net.chuck.chucksmod.block.custom.AbstractEnergyUsingBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -77,7 +76,7 @@ public abstract class AbstractEnergyCookerBlockEntity extends AbstractEnergyUsin
             this.resetProgress();
             markDirty(world, blockPos, blockState);
         }
-        blockState = blockState.with(AbstractEnergyCookerBlock.LIT, isCrafting());
+        blockState = blockState.with(AbstractEnergyUsingBlock.LIT, isCrafting());
         world.setBlockState(blockPos, blockState, Block.NOTIFY_ALL);
     }
     private void resetProgress() {

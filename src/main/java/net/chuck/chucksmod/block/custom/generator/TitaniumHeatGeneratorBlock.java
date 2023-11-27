@@ -1,6 +1,6 @@
 package net.chuck.chucksmod.block.custom.generator;
 
-import net.chuck.chucksmod.block.custom.AbstractEnergyCookerBlock;
+import net.chuck.chucksmod.block.custom.AbstractEnergyUsingBlock;
 import net.chuck.chucksmod.block.entity.ModBlockEntities;
 import net.chuck.chucksmod.block.entity.generator.TitaniumHeatGeneratorBlockEntity;
 import net.minecraft.block.BlockState;
@@ -16,7 +16,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-public class TitaniumHeatGeneratorBlock extends AbstractEnergyCookerBlock {
+public class TitaniumHeatGeneratorBlock extends AbstractEnergyUsingBlock {
     public TitaniumHeatGeneratorBlock(Settings settings) {
         super(settings);
     }

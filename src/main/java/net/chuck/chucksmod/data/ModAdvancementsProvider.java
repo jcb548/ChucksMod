@@ -1212,6 +1212,15 @@ public class ModAdvancementsProvider extends FabricAdvancementProvider {
                 .criterion("get_copper_wire", InventoryChangedCriterion.Conditions.items(ModBlocks.COPPER_WIRE))
                 .parent(ironMachineBase)
                 .build(consumer, ChucksMod.MOD_ID + "/machines/copper_wire");
+
+        AdvancementEntry titaniumMachineBase = Advancement.Builder.create()
+                .display(ModBlocks.TITANIUM_MACHINE_BASE,
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".machines.titanium_machine_base.title"),
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".machines.titanium_machine_base.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("get_titanium_machine_base", InventoryChangedCriterion.Conditions.items(ModBlocks.TITANIUM_MACHINE_BASE))
+                .parent(ironMachineBase)
+                .build(consumer, ChucksMod.MOD_ID + "/machines/titanium_machine_base");
     }
     private void netherAdvancements(Consumer<AdvancementEntry> consumer) {
         AdvancementEntry root = Advancement.Builder.create()

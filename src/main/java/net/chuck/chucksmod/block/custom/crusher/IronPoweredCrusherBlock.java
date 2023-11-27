@@ -1,5 +1,6 @@
 package net.chuck.chucksmod.block.custom.crusher;
 
+import net.chuck.chucksmod.block.custom.AbstractEnergyUsingBlock;
 import net.chuck.chucksmod.block.entity.ModBlockEntities;
 import net.chuck.chucksmod.block.entity.crusher.IronPoweredCrusherBlockEntity;
 import net.minecraft.block.*;
@@ -21,7 +22,7 @@ import org.jetbrains.annotations.Nullable;
  *  This code is licensed under MIT License
  *  Details can be found in the license file in the root folder of this project
  */
-public class IronPoweredCrusherBlock extends AbstractPoweredCrusherBlock {
+public class IronPoweredCrusherBlock extends AbstractEnergyUsingBlock {
     public IronPoweredCrusherBlock(Settings settings) {
         super(settings);
     }

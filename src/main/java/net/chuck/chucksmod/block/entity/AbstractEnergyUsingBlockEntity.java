@@ -10,6 +10,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.inventory.Inventories;
+import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.PacketByteBuf;
@@ -23,11 +24,11 @@ public abstract class AbstractEnergyUsingBlockEntity extends BlockEntity impleme
         ImplementedInventory {
     public static final int INPUT_SLOT = 0;
     public final SimpleEnergyStorage energyStorage;
-    protected final DefaultedList<ItemStack> inventory;
+    protected final SimpleInventory inventory;
     public AbstractEnergyUsingBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state,
                                           int invSize, int energyStorageSize, int maxInsertExtract) {
         super(type, pos, state);
-        this.inventory = DefaultedList.ofSize(invSize, ItemStack.EMPTY);
+        this.inventory = new SimpleInventory(invSize);
         energyStorage = new SimpleEnergyStorage(energyStorageSize, maxInsertExtract, maxInsertExtract){
             @Override
             protected void onFinalCommit() {
@@ -65,19 +66,19 @@ public abstract class AbstractEnergyUsingBlockEntity extends BlockEntity impleme
     }
     @Override
     protected void writeNbt(NbtCompound nbt) {
-        Inventories.writeNbt(nbt, inventory);
+        Inventories.writeNbt(nbt, inventory.stacks);
         super.writeNbt(nbt);
         nbt.putLong("energy_block.energy", energyStorage.amount);
     }
 
     @Override
     public void readNbt(NbtCompound nbt) {
-        Inventories.readNbt(nbt, inventory);
+        Inventories.readNbt(nbt, inventory.stacks);
         super.readNbt(nbt);
         energyStorage.amount= nbt.getLong("energy_block.energy");
     }
     @Override
     public DefaultedList<ItemStack> getItems() {
-        return this.inventory;
+        return this.inventory.stacks;
     }
 }

@@ -48,6 +48,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.IRON_POWERED_CRUSHER);
                         entries.add(ModBlocks.IRON_POWERED_FURNACE);
                         entries.add(ModBlocks.IRON_HEAT_GENERATOR);
+                        entries.add(ModBlocks.IRON_QUARRY);
 
                         entries.add(ModItems.COPPER_DUST);
                         entries.add(ModBlocks.COPPER_DUST_BLOCK);

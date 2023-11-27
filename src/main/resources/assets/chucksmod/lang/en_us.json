@@ -203,6 +203,7 @@
   "block.chucksmod.iron_powered_furnace": "Iron Powered Furnace",
   "block.chucksmod.iron_energy_storage": "Iron Energy Storage",
   "block.chucksmod.iron_heat_generator": "Iron Fuel Generator",
+  "block.chucksmod.iron_quarry": "Iron Quarry",
 
   "block.chucksmod.slated_dirt": "Slated Dirt",
   "block.chucksmod.slated_grass": "Slated Grass",
@@ -628,11 +629,17 @@
   "advancements.chucksmod.machines.iron_heat_generator.title": "Iron Heat Generator",
   "advancements.chucksmod.machines.iron_heat_generator.desc": "Craft an Iron Heat Generator to produce power from flammable objects",
 
+  "advancements.chucksmod.machines.iron_energy_storage.title": "Iron Energy Storage",
+  "advancements.chucksmod.machines.iron_energy_storage.desc": "Craft an Iron Energy Storage to store generated energy",
+
   "advancements.chucksmod.machines.tin_wire.title": "Tin Wire",
   "advancements.chucksmod.machines.tin_wire.desc": "Craft Tin Wire to transfer energy between energy blocks slowly",
 
   "advancements.chucksmod.machines.copper_wire.title": "Copper Wire",
   "advancements.chucksmod.machines.copper_wire.desc": "Craft Copper Wire to transfer energy at the rate of Iron Tier Machines",
+
+  "advancements.chucksmod.machines.titanium_machine_base.title": "Titanium Tier",
+  "advancements.chucksmod.machines.titanium_machine_base.desc": "Titanium Tier Machines take just below 9 seconds to complete their tasks, but use more power",
 
 
 

@@ -13,8 +13,6 @@ import net.minecraft.screen.slot.SlotActionType;
 import net.minecraft.text.Text;
 
 public abstract class AbstractEnergyCookerScreenHandler extends AbstractEnergyUsingScreenHandler{
-    private final static int PLAYER_INVENTORY_START_IDX = 0;
-    private final static int PLAYER_INVENTORY_END_IDX = 35;
     protected final static int INPUT_SCREEN_SLOT_IDX = 36;
     protected final static int OUTPUT_SCREEN_SLOT_IDX = 37;
     protected AbstractEnergyCookerScreenHandler(int syncId, PlayerInventory playerInventory, BlockEntity entity,

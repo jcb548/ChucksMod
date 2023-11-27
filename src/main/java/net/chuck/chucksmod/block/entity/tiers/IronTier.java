@@ -12,4 +12,7 @@ public interface IronTier {
     int ENERGY_STORAGE = 5*MACHINE_ENERGY_STORAGE;
     int ENERGY_STORAGE_INSERT_EXTRACT = 2*MAX_INSERT_EXTRACT;
     int SPEED = 175;
+    int QUARRY_INV_SIZE = 8;
+    int QUARRY_SIZE = 7;
+    int QUARRY_SPEED = SPEED / 10;
 }

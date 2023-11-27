@@ -1,5 +1,6 @@
 package net.chuck.chucksmod.block.custom.crusher;
 
+import net.chuck.chucksmod.block.custom.AbstractEnergyUsingBlock;
 import net.chuck.chucksmod.block.entity.ModBlockEntities;
 import net.chuck.chucksmod.block.entity.crusher.TitaniumPoweredCrusherBlockEntity;
 import net.minecraft.block.BlockState;
@@ -23,7 +24,7 @@ import org.jetbrains.annotations.Nullable;
  *  This code is licensed under MIT License
  *  Details can be found in the license file in the root folder of this project
  */
-public class TitaniumPoweredCrusherBlock extends AbstractPoweredCrusherBlock {
+public class TitaniumPoweredCrusherBlock extends AbstractEnergyUsingBlock {
     public TitaniumPoweredCrusherBlock(Settings settings) {
         super(settings);
     }

@@ -8,6 +8,7 @@ import net.minecraft.block.BlockWithEntity;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.state.StateManager;
+import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.BlockMirror;
@@ -20,15 +21,18 @@ import org.jetbrains.annotations.Nullable;
 
 public abstract class AbstractEnergyUsingBlock extends BlockWithEntity {
     public static final DirectionProperty FACING = Properties.HORIZONTAL_FACING;
+    public static final BooleanProperty LIT = Properties.LIT;
     protected AbstractEnergyUsingBlock(Settings settings) {
         super(settings);
         this.setDefaultState(this.stateManager.getDefaultState()
-                .with(FACING, Direction.NORTH));
+                .with(FACING, Direction.NORTH)
+                .with(LIT, false));
     }
 
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
         builder.add(FACING);
+        builder.add(LIT);
     }
 
     @Nullable

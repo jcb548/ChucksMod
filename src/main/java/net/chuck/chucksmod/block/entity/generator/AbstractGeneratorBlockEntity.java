@@ -1,6 +1,6 @@
 package net.chuck.chucksmod.block.entity.generator;
 
-import net.chuck.chucksmod.block.custom.AbstractEnergyCookerBlock;
+import net.chuck.chucksmod.block.custom.AbstractEnergyUsingBlock;
 import net.chuck.chucksmod.block.entity.AbstractEnergyUsingBlockEntity;
 import net.chuck.chucksmod.screen.generator.GeneratorScreenHandler;
 import net.fabricmc.fabric.api.transfer.v1.transaction.Transaction;
@@ -91,7 +91,7 @@ public abstract class AbstractGeneratorBlockEntity extends AbstractEnergyUsingBl
             this.useFuel();
         }
         if (burning_start_of_tick != this.isGenerating()){
-            blockState = blockState.with(AbstractEnergyCookerBlock.LIT, this.isGenerating());
+            blockState = blockState.with(AbstractEnergyUsingBlock.LIT, this.isGenerating());
             world.setBlockState(blockPos, blockState, Block.NOTIFY_ALL);
             markDirty(world, blockPos, blockState);
         }

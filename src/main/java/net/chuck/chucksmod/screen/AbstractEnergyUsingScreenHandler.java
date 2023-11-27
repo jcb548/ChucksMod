@@ -12,6 +12,8 @@ import net.minecraft.screen.slot.Slot;
 import net.minecraft.world.World;
 
 public abstract class AbstractEnergyUsingScreenHandler extends ScreenHandler {
+    protected final static int PLAYER_INVENTORY_START_IDX = 0;
+    protected final static int PLAYER_INVENTORY_END_IDX = 35;
     protected final World world;
     protected final Inventory inventory;
     protected final PropertyDelegate propertyDelegate;

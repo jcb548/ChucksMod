@@ -1,6 +1,6 @@
 package net.chuck.chucksmod.block.custom.furnace;
 
-import net.chuck.chucksmod.block.custom.AbstractEnergyCookerBlock;
+import net.chuck.chucksmod.block.custom.AbstractEnergyUsingBlock;
 import net.chuck.chucksmod.block.entity.ModBlockEntities;
 import net.chuck.chucksmod.block.entity.furnace.IronPoweredFurnaceBlockEntity;
 import net.minecraft.block.BlockState;
@@ -16,7 +16,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-public class IronPoweredFurnaceBlock extends AbstractEnergyCookerBlock {
+public class IronPoweredFurnaceBlock extends AbstractEnergyUsingBlock {
     public IronPoweredFurnaceBlock(Settings settings) {
         super(settings);
     }
