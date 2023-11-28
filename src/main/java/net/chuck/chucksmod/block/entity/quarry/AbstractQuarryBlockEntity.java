@@ -81,12 +81,12 @@ public abstract class AbstractQuarryBlockEntity extends AbstractEnergyUsingBlock
             this.extractEnergy();
             markDirty(world, pos, blockState);
             if(shouldBreakBlock()){
-                if(!world.getPlayers().isEmpty()) {
+                /*if(!world.getPlayers().isEmpty()) {
                     for(int i=0; i< world.getPlayers().size(); i++) {
                         world.getPlayers().get(i).sendMessage(Text.literal("xPos: " + xPos + ", yPos: " + yPos +
                                 ", zPos: " + zPos));
                     }
-                }
+                }*/
                 BlockPos nextBlockPos = getNextBlockPos();
                 BlockState nextBlockState = world.getBlockState(nextBlockPos);
                 if(isBreakable(nextBlockState) && canBreak(nextBlockState)) {
@@ -95,7 +95,7 @@ public abstract class AbstractQuarryBlockEntity extends AbstractEnergyUsingBlock
                     for (int i = 0; i < drops.size(); i++) {
                         ItemStack excess = inventory.addStack(drops.get(i));
                         if (!excess.equals(ItemStack.EMPTY)) {
-                            ItemEntity items = new ItemEntity(serverWorld, pos.getX() + 0.5, pos.getY() + 0.5,
+                            ItemEntity items = new ItemEntity(serverWorld, pos.getX() + 0.5, pos.getY() + 1,
                                     pos.getZ() + 0.5, excess);
                             world.spawnEntity(items);
                         }
