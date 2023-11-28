@@ -1,5 +1,6 @@
 package net.chuck.chucksmod.data;
 
+import net.chuck.chucksmod.block.ModBlockTags;
 import net.chuck.chucksmod.block.ModBlocks;
 import net.chuck.chucksmod.block.custom.LettuceCropBlock;
 import net.chuck.chucksmod.block.custom.PineappleCropBlock;
@@ -108,12 +109,14 @@ public class ModBlockLootTableGenerator extends FabricBlockLootTableProvider {
         
         addDrop(ModBlocks.RAW_FABIUM_BLOCK);
         addDrop(ModBlocks.FABIUM_BLOCK);
+        addDrop(ModBlocks.FABIUM_BARS);
         addDrop(ModBlocks.NETHER_FABIUM_ORE, oreDrops(ModBlocks.NETHER_FABIUM_ORE, ModItems.RAW_FABIUM));
         addDrop(ModBlocks.END_STONE_FABIUM_ORE, oreDrops(ModBlocks.END_STONE_FABIUM_ORE, ModItems.RAW_FABIUM));
         addDrop(ModBlocks.DEEPSLATE_FABIUM_ORE, oreDrops(ModBlocks.DEEPSLATE_FABIUM_ORE, ModItems.RAW_FABIUM));
 
         addDrop(ModBlocks.RAW_DIRITONIUM_BLOCK);
         addDrop(ModBlocks.DIRITONIUM_BLOCK);
+        addDrop(ModBlocks.DIRITONIUM_BARS);
         addDrop(ModBlocks.END_STONE_DIRITONIUM_ORE, oreDrops(ModBlocks.END_STONE_DIRITONIUM_ORE,
                 ModItems.RAW_DIRITONIUM));
         addDrop(ModBlocks.DEEPSLATE_DIRITONIUM_ORE, oreDrops(ModBlocks.DEEPSLATE_DIRITONIUM_ORE,

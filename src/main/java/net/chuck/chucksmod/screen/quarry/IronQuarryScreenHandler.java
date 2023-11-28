@@ -15,7 +15,9 @@ import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.screen.slot.Slot;
 
-public class IronQuarryScreenHandler extends AbstractEnergyUsingScreenHandler {
+public class IronQuarryScreenHandler extends AbstractQuarryScreenHandler {
+    private static int FIRST_QUARRY_INV_SLOT = 36;
+    private static int LAST_QUARRY_INV_SLOT = 43;
     public IronQuarryScreenHandler(int syncId, PlayerInventory playerInventory, BlockEntity entity,
                                    PropertyDelegate delegate, long energy) {
         super(syncId, playerInventory, entity, delegate, ModScreenHandlers.IRON_QUARRY_SCREEN_HANDLER,
@@ -28,9 +30,11 @@ public class IronQuarryScreenHandler extends AbstractEnergyUsingScreenHandler {
                 new ArrayPropertyDelegate(AbstractQuarryBlockEntity.DELEGATE_SIZE), buf.readLong());
     }
 
-    @Override
-    public ItemStack quickMove(PlayerEntity player, int slot) {
-        return null;
+    public int getStartOfInventory(){
+        return FIRST_QUARRY_INV_SLOT;
+    }
+    public int getEndOfInventory(){
+        return LAST_QUARRY_INV_SLOT;
     }
     protected void addQuarryInventory(){
         for(int i=0; i<inventory.size();i++){

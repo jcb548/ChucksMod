@@ -24,12 +24,17 @@ public abstract class AbstractEnergyUsingScreen<T extends AbstractEnergyUsingScr
         energyInfoArea = new EnergyInfoArea(((width - backgroundWidth)/2) + 156,
                 ((height - backgroundHeight) / 2) + 13, handler.blockEntity.energyStorage);
     }
+    protected int getX(){
+        return (width - backgroundWidth) /2;
+    }
+
+    protected int getY(){
+        return (height - backgroundHeight) /2;
+    }
     @Override
     protected void drawForeground(DrawContext context, int mouseX, int mouseY) {
         super.drawForeground(context, mouseX, mouseY);
-        int x = (width-backgroundWidth)/2;
-        int y = (height-backgroundHeight)/2;
-        renderEnergyAreaToolTips(context, mouseX, mouseY, x, y);
+        renderEnergyAreaToolTips(context, mouseX, mouseY, getX(), getY());
     }
     private void renderEnergyAreaToolTips(DrawContext context, int pMouseX, int pMouseY, int x, int y){
         if(isMouseAboveArea(pMouseX, pMouseY, x, y, 156, 13, 8, 64)){

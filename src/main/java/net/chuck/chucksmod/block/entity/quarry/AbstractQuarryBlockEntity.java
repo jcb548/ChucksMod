@@ -2,19 +2,21 @@ package net.chuck.chucksmod.block.entity.quarry;
 
 import net.chuck.chucksmod.block.custom.AbstractEnergyUsingBlock;
 import net.chuck.chucksmod.block.entity.AbstractEnergyUsingBlockEntity;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.loot.context.LootContextParameterSet;
-import net.minecraft.loot.context.LootContextParameters;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.network.PacketByteBuf;
+import net.minecraft.registry.tag.BlockTags;
+import net.minecraft.registry.tag.FluidTags;
 import net.minecraft.screen.PropertyDelegate;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.Text;
-import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
 import java.util.List;
@@ -32,14 +34,13 @@ public abstract class AbstractQuarryBlockEntity extends AbstractEnergyUsingBlock
     public int xPos;
     public int yPos;
     public int zPos;
+    private boolean shouldResetPos = false;
     protected final PropertyDelegate propertyDelegate;
     public AbstractQuarryBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state,
                                      int invSize, int energyStorageSize, int maxProgress, int maxInsertExtract) {
         super(type, pos, state, invSize, energyStorageSize, maxInsertExtract);
         this.maxProgress = maxProgress;
-        this.xPos = 0;
-        this.yPos = pos.getY()-1;
-        this.zPos = 0;
+        resetPos();
         setupOffsets(getQuarrySize());
         this.propertyDelegate = new PropertyDelegate() {
             @Override
@@ -69,35 +70,47 @@ public abstract class AbstractQuarryBlockEntity extends AbstractEnergyUsingBlock
             return;
         }
         ServerWorld serverWorld = (ServerWorld) world;
+        if(shouldResetPos){
+            xPos = 0;
+            yPos = this.getPos().getY()+2;
+            zPos = 0;
+            shouldResetPos = false;
+        }
         if(world.isReceivingRedstonePower(pos) && this.hasEnoughEnergy() && yPos>-64){
             this.increaseProgress();
             this.extractEnergy();
             markDirty(world, pos, blockState);
             if(shouldBreakBlock()){
-                /*if(!world.getPlayers().isEmpty()) {
+                if(!world.getPlayers().isEmpty()) {
                     for(int i=0; i< world.getPlayers().size(); i++) {
                         world.getPlayers().get(i).sendMessage(Text.literal("xPos: " + xPos + ", yPos: " + yPos +
                                 ", zPos: " + zPos));
                     }
-                }*/
-                BlockPos nextBlock = getNextBlock();
-                List<ItemStack> drops = world.getBlockState(nextBlock).
-                        getDroppedStacks(new LootContextParameterSet.Builder(serverWorld)
-                                .add(LootContextParameters.ORIGIN, Vec3d.ofCenter(pos))
-                                .add(LootContextParameters.TOOL, getTool()));
-                for(int i=0;i<drops.size();i++){
-                    ItemStack excess = inventory.addStack(drops.get(i));
-                    if(!excess.equals(ItemStack.EMPTY)){
-                        ItemEntity items = new ItemEntity(serverWorld, pos.getX()+0.5, pos.getY()+0.5,
-                                pos.getZ()+0.5, excess);
-                        world.spawnEntity(items);
-                    }
                 }
-                world.breakBlock(nextBlock, false);
+                BlockPos nextBlockPos = getNextBlockPos();
+                BlockState nextBlockState = world.getBlockState(nextBlockPos);
+                if(isBreakable(nextBlockState) && canBreak(nextBlockState)) {
+                    List<ItemStack> drops = Block.getDroppedStacks(nextBlockState, serverWorld, nextBlockPos,
+                            serverWorld.getBlockEntity(nextBlockPos), null, getTool());
+                    for (int i = 0; i < drops.size(); i++) {
+                        ItemStack excess = inventory.addStack(drops.get(i));
+                        if (!excess.equals(ItemStack.EMPTY)) {
+                            ItemEntity items = new ItemEntity(serverWorld, pos.getX() + 0.5, pos.getY() + 0.5,
+                                    pos.getZ() + 0.5, excess);
+                            world.spawnEntity(items);
+                        }
+                    }
+                    world.breakBlock(nextBlockPos, false);
+                }
                 this.resetProgress();
             }
         }
     }
+
+    private boolean isBreakable(BlockState state){
+        return !state.isIn(BlockTags.WITHER_IMMUNE) &&  !state.isLiquid();
+    }
+    protected abstract boolean canBreak(BlockState state);
     /*
      * Facing:
      * west: -x
@@ -134,7 +147,7 @@ public abstract class AbstractQuarryBlockEntity extends AbstractEnergyUsingBlock
             }
         }
     }
-    private BlockPos getNextBlock(){
+    private BlockPos getNextBlockPos(){
         int xOffset = minOffsetX + xPos;
         int zOffset = minOffsetZ + zPos;
         BlockPos newPos = new BlockPos(pos.getX() + xOffset, yPos, pos.getZ() + zOffset);
@@ -176,4 +189,13 @@ public abstract class AbstractQuarryBlockEntity extends AbstractEnergyUsingBlock
         zPos = nbt.getInt("quarry.zPos");
     }
     public abstract ItemStack getTool();
+
+    private void resetPos(){
+        this.xPos = 0;
+        this.yPos = pos.getY()-1;
+        this.zPos = 0;
+    }
+    public void shouldResetPos(){
+        this.shouldResetPos = true;
+    }
 }

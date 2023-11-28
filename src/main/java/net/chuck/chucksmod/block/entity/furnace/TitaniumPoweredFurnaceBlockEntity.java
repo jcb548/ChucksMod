@@ -12,7 +12,7 @@ import org.jetbrains.annotations.Nullable;
 
 public class TitaniumPoweredFurnaceBlockEntity extends AbstractPoweredFurnaceBlockEntity implements TitaniumTier {
     public TitaniumPoweredFurnaceBlockEntity(BlockPos pos, BlockState state) {
-        super(ModBlockEntities.TITANIUM_POWERED_FURNACE, pos, state,MACHINE_ENERGY_STORAGE, SPEED, MEDIUM_USAGE);
+        super(ModBlockEntities.TITANIUM_POWERED_FURNACE, pos, state,MACHINE_ENERGY_STORAGE, SPEED, MAX_INSERT_EXTRACT);
     }
 
     @Override

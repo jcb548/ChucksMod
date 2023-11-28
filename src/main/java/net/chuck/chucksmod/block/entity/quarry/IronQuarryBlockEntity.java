@@ -4,11 +4,13 @@ import net.chuck.chucksmod.block.entity.ModBlockEntities;
 import net.chuck.chucksmod.block.entity.tiers.IronTier;
 import net.chuck.chucksmod.screen.quarry.IronQuarryScreenHandler;
 import net.minecraft.block.BlockState;
+import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
@@ -17,7 +19,7 @@ import org.jetbrains.annotations.Nullable;
 public class IronQuarryBlockEntity extends AbstractQuarryBlockEntity implements IronTier {
     public IronQuarryBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.IRON_QUARRY, pos, state, QUARRY_INV_SIZE, MACHINE_ENERGY_STORAGE,
-                QUARRY_SPEED, HIGH_USAGE);
+                QUARRY_SPEED, MAX_INSERT_EXTRACT);
     }
 
     @Override
@@ -46,5 +48,10 @@ public class IronQuarryBlockEntity extends AbstractQuarryBlockEntity implements 
     @Override
     public ItemStack getTool() {
         return new ItemStack(Items.IRON_PICKAXE);
+    }
+
+    @Override
+    protected boolean canBreak(BlockState state) {
+        return !state.isToolRequired() || state.isIn(BlockTags.PICKAXE_MINEABLE) && getTool().isSuitableFor(state);
     }
 }

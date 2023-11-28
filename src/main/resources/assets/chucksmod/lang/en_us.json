@@ -204,6 +204,7 @@
   "block.chucksmod.iron_energy_storage": "Iron Energy Storage",
   "block.chucksmod.iron_heat_generator": "Iron Fuel Generator",
   "block.chucksmod.iron_quarry": "Iron Quarry",
+  "tooltip.chucksmod.reset_quarry": "Reset Quarry Mining Position",
 
   "block.chucksmod.slated_dirt": "Slated Dirt",
   "block.chucksmod.slated_grass": "Slated Grass",

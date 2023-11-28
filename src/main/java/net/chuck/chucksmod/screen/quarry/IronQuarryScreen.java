@@ -8,7 +8,7 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
-public class IronQuarryScreen extends AbstractEnergyUsingScreen<IronQuarryScreenHandler> {
+public class IronQuarryScreen extends AbstractQuarryScreen<IronQuarryScreenHandler> {
     private static final Identifier TEXTURE = new Identifier(ChucksMod.MOD_ID,
             "textures/gui/quarry/iron_quarry_gui.png");
     public IronQuarryScreen(IronQuarryScreenHandler handler, PlayerInventory inventory, Text title) {

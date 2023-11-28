@@ -12,7 +12,7 @@ import org.jetbrains.annotations.Nullable;
 
 public class IronPoweredFurnaceBlockEntity extends AbstractPoweredFurnaceBlockEntity implements IronTier {
     public IronPoweredFurnaceBlockEntity(BlockPos pos, BlockState state) {
-        super(ModBlockEntities.IRON_POWERED_FURNACE, pos, state, MACHINE_ENERGY_STORAGE, SPEED, MEDIUM_USAGE);
+        super(ModBlockEntities.IRON_POWERED_FURNACE, pos, state, MACHINE_ENERGY_STORAGE, SPEED, MAX_INSERT_EXTRACT);
     }
 
     @Override

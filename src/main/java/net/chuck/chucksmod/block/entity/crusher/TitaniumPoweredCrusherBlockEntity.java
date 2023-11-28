@@ -20,7 +20,7 @@ import org.jetbrains.annotations.Nullable;
  */
 public class TitaniumPoweredCrusherBlockEntity extends AbstractPoweredCrusherBlockEntity implements TitaniumTier {
     public TitaniumPoweredCrusherBlockEntity(BlockPos pos, BlockState state) {
-        super(ModBlockEntities.TITANIUM_POWERED_CRUSHER, pos, state, MACHINE_ENERGY_STORAGE, SPEED, HIGH_USAGE);
+        super(ModBlockEntities.TITANIUM_POWERED_CRUSHER, pos, state, MACHINE_ENERGY_STORAGE, SPEED, MAX_INSERT_EXTRACT);
     }
 
     @Override

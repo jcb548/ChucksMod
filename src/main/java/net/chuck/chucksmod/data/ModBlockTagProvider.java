@@ -297,5 +297,9 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.SOUL_STONE_BRICK_SLAB)
                 .add(ModBlocks.SOUL_STONE_BRICK_STAIRS)
                 .add(ModBlocks.SOUL_STONE_BRICK_WALL);
+
+        getOrCreateTagBuilder(BlockTags.WITHER_IMMUNE)
+                .add(ModBlocks.FRANK_ALTAR)
+                .add(ModBlocks.SOUL_BLAZE_ALTAR);
     }
 }
