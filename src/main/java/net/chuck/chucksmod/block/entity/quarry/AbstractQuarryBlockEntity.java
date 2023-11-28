@@ -76,7 +76,8 @@ public abstract class AbstractQuarryBlockEntity extends AbstractEnergyUsingBlock
             zPos = 0;
             shouldResetPos = false;
         }
-        if(world.isReceivingRedstonePower(pos) && this.hasEnoughEnergy() && yPos>-64){
+        boolean shouldTryMine = world.isReceivingRedstonePower(pos) && this.hasEnoughEnergy() && yPos>-64;
+        if(shouldTryMine){
             this.increaseProgress();
             this.extractEnergy();
             markDirty(world, pos, blockState);
@@ -104,7 +105,10 @@ public abstract class AbstractQuarryBlockEntity extends AbstractEnergyUsingBlock
                 }
                 this.resetProgress();
             }
+
         }
+        blockState = blockState.with(AbstractEnergyUsingBlock.LIT, shouldTryMine);
+        world.setBlockState(pos, blockState, Block.NOTIFY_ALL);
     }
 
     private boolean isBreakable(BlockState state){

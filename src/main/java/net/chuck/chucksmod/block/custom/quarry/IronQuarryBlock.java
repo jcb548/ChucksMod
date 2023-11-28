@@ -19,7 +19,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-public class IronQuarryBlock extends AbstractEnergyUsingBlock {
+public class IronQuarryBlock extends AbstractQuarryBlock {
     public IronQuarryBlock(Settings settings) {
         super(settings);
     }
