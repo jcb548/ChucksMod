@@ -16,10 +16,10 @@ import net.minecraft.screen.slot.Slot;
 import net.minecraft.text.Text;
 
 public abstract class AbstractQuarryScreenHandler extends AbstractEnergyUsingScreenHandler {
+    protected static final int INV_ROW_SIZE = 8;
     protected AbstractQuarryScreenHandler(int syncId, PlayerInventory playerInventory, BlockEntity entity, PropertyDelegate delegate, ScreenHandlerType type, int invSize) {
         super(syncId, playerInventory, entity, delegate, type, invSize);
     }
-
     public void onButtonPress(){
         PacketByteBuf buf = PacketByteBufs.create();
         buf.writeBlockPos(blockEntity.getPos());
@@ -33,8 +33,8 @@ public abstract class AbstractQuarryScreenHandler extends AbstractEnergyUsingScr
             ItemStack itemStack2 = originalSlot.getStack();
             itemStack = itemStack2.copy();
             if (slot <= PLAYER_INVENTORY_END_IDX ?
-                    !this.insertItem(itemStack2, getStartOfInventory(), getEndOfInventory()+1, false) :
-                    !this.insertItem(itemStack2, PLAYER_INVENTORY_START_IDX, PLAYER_INVENTORY_END_IDX+1, true)) {
+                    moveToQuarry(itemStack2) :
+                    !this.insertItem(itemStack2, PLAYER_INVENTORY_START_IDX, PLAYER_INVENTORY_END_IDX+1, false)) {
                 return ItemStack.EMPTY;
             }
             if (itemStack2.isEmpty()) {
@@ -47,4 +47,8 @@ public abstract class AbstractQuarryScreenHandler extends AbstractEnergyUsingScr
     }
     public abstract int getStartOfInventory();
     public abstract int getEndOfInventory();
+
+    public boolean moveToQuarry(ItemStack itemStack){
+        return !this.insertItem(itemStack, getStartOfInventory(), getEndOfInventory()+1, false);
+    }
 }

@@ -12,6 +12,7 @@ import net.chuck.chucksmod.screen.furnace.PoweredFurnaceScreenHandler;
 import net.chuck.chucksmod.screen.energy_storage.EnergyStorageScreenHandler;
 import net.chuck.chucksmod.screen.generator.GeneratorScreenHandler;
 import net.chuck.chucksmod.screen.quarry.IronQuarryScreenHandler;
+import net.chuck.chucksmod.screen.quarry.TitaniumQuarryScreenHandler;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -43,6 +44,8 @@ public class ModScreenHandlers {
             new ExtendedScreenHandlerType<>(EnergyStorageScreenHandler::new);
     public static ScreenHandlerType<IronQuarryScreenHandler> IRON_QUARRY_SCREEN_HANDLER =
             new ExtendedScreenHandlerType<>(IronQuarryScreenHandler::new);
+    public static ScreenHandlerType<TitaniumQuarryScreenHandler> TITANIUM_QUARRY_SCREEN_HANDLER =
+            new ExtendedScreenHandlerType<>(TitaniumQuarryScreenHandler::new);
     public static ScreenHandlerType<BagScreenHandler3x1> BAG_3X1_SCREEN_HANDLER =
             new ExtendedScreenHandlerType<>(BagScreenHandler3x1::new);
     public static ScreenHandlerType<BagScreenHandler5x1> BAG_5X1_SCREEN_HANDLER =
@@ -66,8 +69,11 @@ public class ModScreenHandlers {
                 GENERATOR_SCREEN_HANDLER);
         Registry.register(Registries.SCREEN_HANDLER, new Identifier(ChucksMod.MOD_ID, "energy_storage"),
                 ENERGY_STORAGE_SCREEN_HANDLER);
-        Registry.register(Registries.SCREEN_HANDLER, new Identifier(ChucksMod.MOD_ID, "iron_quarry_storage"),
+
+        Registry.register(Registries.SCREEN_HANDLER, new Identifier(ChucksMod.MOD_ID, "iron_quarry"),
                 IRON_QUARRY_SCREEN_HANDLER);
+        Registry.register(Registries.SCREEN_HANDLER, new Identifier(ChucksMod.MOD_ID, "titanium_quarry"),
+                TITANIUM_QUARRY_SCREEN_HANDLER);
 
         Registry.register(Registries.SCREEN_HANDLER, new Identifier(ChucksMod.MOD_ID, "bag_3x1"),
                 BAG_3X1_SCREEN_HANDLER);

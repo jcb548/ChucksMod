@@ -16,8 +16,8 @@ import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.screen.slot.Slot;
 
 public class IronQuarryScreenHandler extends AbstractQuarryScreenHandler {
-    private static int FIRST_QUARRY_INV_SLOT = 36;
-    private static int LAST_QUARRY_INV_SLOT = 43;
+    protected static final int FIRST_QUARRY_INV_SLOT = 36;
+    private static final int LAST_QUARRY_INV_SLOT = 43;
     public IronQuarryScreenHandler(int syncId, PlayerInventory playerInventory, BlockEntity entity,
                                    PropertyDelegate delegate, long energy) {
         super(syncId, playerInventory, entity, delegate, ModScreenHandlers.IRON_QUARRY_SCREEN_HANDLER,
@@ -28,6 +28,11 @@ public class IronQuarryScreenHandler extends AbstractQuarryScreenHandler {
     public IronQuarryScreenHandler(int syncId, PlayerInventory inventory, PacketByteBuf buf){
         this(syncId, inventory, inventory.player.getWorld().getBlockEntity(buf.readBlockPos()),
                 new ArrayPropertyDelegate(AbstractQuarryBlockEntity.DELEGATE_SIZE), buf.readLong());
+    }
+
+    public IronQuarryScreenHandler(int syncId, PlayerInventory playerInventory, BlockEntity entity,
+                                   PropertyDelegate delegate, ScreenHandlerType type, int invSize){
+        super(syncId, playerInventory, entity, delegate, type, invSize);
     }
 
     public int getStartOfInventory(){

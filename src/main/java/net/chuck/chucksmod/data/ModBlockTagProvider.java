@@ -71,6 +71,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.CRUSHER)
                 .add(ModBlocks.IRON_HEAT_GENERATOR)
                 .add(ModBlocks.IRON_POWERED_CRUSHER)
+                .add(ModBlocks.IRON_POWERED_FURNACE)
                 .add(ModBlocks.IRON_MACHINE_BASE);
 
         getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
@@ -86,6 +87,9 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.CRUSHER)
                 .add(ModBlocks.IRON_HEAT_GENERATOR)
                 .add(ModBlocks.IRON_POWERED_CRUSHER)
+                .add(ModBlocks.IRON_POWERED_FURNACE)
+                .add(ModBlocks.IRON_ENERGY_STORAGE)
+                .add(ModBlocks.IRON_QUARRY)
 
                 .add(ModBlocks.SANDSTONE_BRICKS)
                 .add(ModBlocks.SANDSTONE_BRICK_STAIRS)
@@ -94,6 +98,11 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.CRACKED_SANDSTONE_BRICKS)
 
                 .add(ModBlocks.TITANIUM_MACHINE_BASE)
+                .add(ModBlocks.TITANIUM_HEAT_GENERATOR)
+                .add(ModBlocks.TITANIUM_POWERED_CRUSHER)
+                .add(ModBlocks.TITANIUM_POWERED_FURNACE)
+                .add(ModBlocks.TITANIUM_ENERGY_STORAGE)
+                .add(ModBlocks.TITANIUM_QUARRY)
                 
                 .add(ModBlocks.SOUL_STONE)
                 .add(ModBlocks.SOUL_STONE_STAIRS)
