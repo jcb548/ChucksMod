@@ -12,4 +12,7 @@ public interface TitaniumTier {
     int ENERGY_STORAGE = 5*MACHINE_ENERGY_STORAGE;
     int ENERGY_STORAGE_INSERT_EXTRACT = 2*MAX_INSERT_EXTRACT;
     int SPEED = 150;
+    int QUARRY_INV_SIZE = 17;
+    int QUARRY_SIZE = 9;
+    int QUARRY_SPEED = SPEED / 10;
 }

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "chucksmod:block/titanium_quarry_front_on",
+    "side": "chucksmod:block/titanium_quarry_side",
+    "top": "chucksmod:block/titanium_quarry_top"
+  }
+}

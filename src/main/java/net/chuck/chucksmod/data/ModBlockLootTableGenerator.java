@@ -96,7 +96,11 @@ public class ModBlockLootTableGenerator extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.NETHER_TITANIUM_ORE, oreDrops(ModBlocks.NETHER_TITANIUM_ORE, ModItems.RAW_TITANIUM));
         addDrop(ModBlocks.END_STONE_TITANIUM_ORE, oreDrops(ModBlocks.END_STONE_TITANIUM_ORE, ModItems.RAW_TITANIUM));
         addDrop(ModBlocks.TITANIUM_MACHINE_BASE);
+        addDrop(ModBlocks.TITANIUM_ENERGY_STORAGE);
+        addDrop(ModBlocks.TITANIUM_POWERED_FURNACE);
+        addDrop(ModBlocks.TITANIUM_POWERED_CRUSHER);
         addDrop(ModBlocks.TITANIUM_HEAT_GENERATOR);
+        addDrop(ModBlocks.TITANIUM_QUARRY);
 
         addDrop(ModBlocks.SOUL_STONE);
         addDrop(ModBlocks.SOUL_STONE_STAIRS);
@@ -159,7 +163,10 @@ public class ModBlockLootTableGenerator extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.IRON_MACHINE_BASE);
         addDrop(ModBlocks.CRUSHER);
         addDrop(ModBlocks.IRON_POWERED_CRUSHER);
+        addDrop(ModBlocks.IRON_POWERED_FURNACE);
         addDrop(ModBlocks.IRON_HEAT_GENERATOR);
+        addDrop(ModBlocks.IRON_QUARRY);
+        addDrop(ModBlocks.IRON_ENERGY_STORAGE);
 
         addDrop(ModBlocks.COPPER_WIRE);
         addDrop(ModBlocks.GOLD_WIRE);

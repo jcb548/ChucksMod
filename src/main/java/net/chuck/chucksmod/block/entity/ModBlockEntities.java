@@ -12,6 +12,7 @@ import net.chuck.chucksmod.block.entity.furnace.TitaniumPoweredFurnaceBlockEntit
 import net.chuck.chucksmod.block.entity.generator.IronHeatGeneratorBlockEntity;
 import net.chuck.chucksmod.block.entity.generator.TitaniumHeatGeneratorBlockEntity;
 import net.chuck.chucksmod.block.entity.quarry.IronQuarryBlockEntity;
+import net.chuck.chucksmod.block.entity.quarry.TitaniumQuarryBlockEntity;
 import net.chuck.chucksmod.block.entity.wire.CopperWireBlockEntity;
 import net.chuck.chucksmod.block.entity.wire.GoldWireBlockEntity;
 import net.chuck.chucksmod.block.entity.wire.TinWireBlockEntity;
@@ -43,6 +44,7 @@ public class ModBlockEntities {
     public static BlockEntityType<TitaniumEnergyStorageBlockEntity> TITANIUM_ENERGY_STORAGE;
     public static BlockEntityType<TitaniumPoweredCrusherBlockEntity> TITANIUM_POWERED_CRUSHER;
     public static BlockEntityType<TitaniumPoweredFurnaceBlockEntity> TITANIUM_POWERED_FURNACE;
+    public static BlockEntityType<TitaniumQuarryBlockEntity> TITANIUM_QUARRY;
     public static void registerBlockEntities() {
         CRUSHER = Registry.register(Registries.BLOCK_ENTITY_TYPE,
                 new Identifier(ChucksMod.MOD_ID, "crusher"),
@@ -80,6 +82,12 @@ public class ModBlockEntities {
                         ModBlocks.IRON_QUARRY).build());
         EnergyStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.energyStorage,
                 IRON_QUARRY);
+        TITANIUM_QUARRY = Registry.register(Registries.BLOCK_ENTITY_TYPE,
+                new Identifier(ChucksMod.MOD_ID, "titanium_quarry"),
+                FabricBlockEntityTypeBuilder.create(TitaniumQuarryBlockEntity::new,
+                        ModBlocks.TITANIUM_QUARRY).build());
+        EnergyStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.energyStorage,
+                TITANIUM_QUARRY);
         // Wires
         TIN_WIRE = Registry.register(Registries.BLOCK_ENTITY_TYPE,
                 new Identifier(ChucksMod.MOD_ID, "tin_wire"),

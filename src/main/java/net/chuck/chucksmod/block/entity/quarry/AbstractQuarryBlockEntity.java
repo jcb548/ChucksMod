@@ -9,13 +9,9 @@ import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
-import net.minecraft.network.PacketByteBuf;
 import net.minecraft.registry.tag.BlockTags;
-import net.minecraft.registry.tag.FluidTags;
 import net.minecraft.screen.PropertyDelegate;
-import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
-import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
@@ -114,7 +110,6 @@ public abstract class AbstractQuarryBlockEntity extends AbstractEnergyUsingBlock
     private boolean isBreakable(BlockState state){
         return !state.isIn(BlockTags.WITHER_IMMUNE) &&  !state.isLiquid();
     }
-    protected abstract boolean canBreak(BlockState state);
     /*
      * Facing:
      * west: -x
@@ -201,5 +196,8 @@ public abstract class AbstractQuarryBlockEntity extends AbstractEnergyUsingBlock
     }
     public void shouldResetPos(){
         this.shouldResetPos = true;
+    }
+    protected boolean canBreak(BlockState state) {
+        return !state.isToolRequired() || state.isIn(BlockTags.PICKAXE_MINEABLE) && getTool().isSuitableFor(state);
     }
 }
