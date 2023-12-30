@@ -8,6 +8,7 @@ import net.chuck.chucksmod.ChucksMod;
 import net.chuck.chucksmod.block.custom.*;
 import net.chuck.chucksmod.block.custom.altar.FrankAltarBlock;
 import net.chuck.chucksmod.block.custom.altar.SoulBlazeAltarBlock;
+import net.chuck.chucksmod.block.custom.copier.TitaniumCopierBlock;
 import net.chuck.chucksmod.block.custom.crusher.CrusherBlock;
 import net.chuck.chucksmod.block.custom.crusher.IronPoweredCrusherBlock;
 import net.chuck.chucksmod.block.custom.crusher.TitaniumPoweredCrusherBlock;
@@ -194,6 +195,8 @@ public class ModBlocks {
             new TitaniumHeatGeneratorBlock(FabricBlockSettings.copy(ModBlocks.TITANIUM_BLOCK)));
     public static final Block TITANIUM_QUARRY = registerBlock("titanium_quarry",
             new TitaniumQuarryBlock(FabricBlockSettings.copy(TITANIUM_BLOCK)));
+    public static final Block TITANIUM_COPIER = registerBlock("titanium_copier",
+            new TitaniumCopierBlock(FabricBlockSettings.copy(TITANIUM_BLOCK)));
     // Soul Blocks
     public static final Block SOUL_GRAVEL = registerBlock("soul_gravel",
             new FallingBlock(FabricBlockSettings.copy(Blocks.SAND)));

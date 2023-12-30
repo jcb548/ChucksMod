@@ -22,9 +22,9 @@ public abstract class AbstractEnergyCookerBlockEntity extends AbstractEnergyUsin
     protected int progress = 0;
     protected int maxProgress;
     protected final PropertyDelegate propertyDelegate;
-    public AbstractEnergyCookerBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state,
+    public AbstractEnergyCookerBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state, int invSize,
                                            int energyStorageSize, int maxProgress, int maxInsertExtract) {
-        super(type, pos, state, INV_SIZE, energyStorageSize, maxInsertExtract);
+        super(type, pos, state, invSize, energyStorageSize, maxInsertExtract);
         this.maxProgress = maxProgress;
         this.propertyDelegate = new PropertyDelegate() {
             @Override
@@ -48,6 +48,10 @@ public abstract class AbstractEnergyCookerBlockEntity extends AbstractEnergyUsin
                 return DELEGATE_SIZE;
             }
         };
+    }
+    public AbstractEnergyCookerBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state,
+                                           int energyStorageSize, int maxProgress, int maxInsertExtract){
+        this(type, pos, state, INV_SIZE, energyStorageSize, maxProgress, maxInsertExtract);
     }
     @Override
     protected void writeNbt(NbtCompound nbt) {

@@ -14,6 +14,7 @@ import net.chuck.chucksmod.screen.bag.BagScreen5x1;
 import net.chuck.chucksmod.screen.bag.BagScreen7x1;
 import net.chuck.chucksmod.screen.bag.BagScreen9x1;
 import net.chuck.chucksmod.screen.bag.BagScreen7x2;
+import net.chuck.chucksmod.screen.copier.CopierScreen;
 import net.chuck.chucksmod.screen.crusher.CrusherScreen;
 import net.chuck.chucksmod.screen.crusher.PoweredCrusherScreen;
 import net.chuck.chucksmod.screen.furnace.PoweredFurnaceScreen;
@@ -167,6 +168,7 @@ public class ChucksModClient implements ClientModInitializer {
         HandledScreens.register(ModScreenHandlers.POWERED_FURNACE_SCREEN_HANDLER, PoweredFurnaceScreen::new);
         HandledScreens.register(ModScreenHandlers.GENERATOR_SCREEN_HANDLER, HeatGeneratorScreen::new);
         HandledScreens.register(ModScreenHandlers.ENERGY_STORAGE_SCREEN_HANDLER, EnergyStorageScreen::new);
+        HandledScreens.register(ModScreenHandlers.COPIER_SCREEN_HANDLER, CopierScreen::new);
         HandledScreens.register(ModScreenHandlers.IRON_QUARRY_SCREEN_HANDLER, IronQuarryScreen::new);
         HandledScreens.register(ModScreenHandlers.TITANIUM_QUARRY_SCREEN_HANDLER, TitaniumQuarryScreen::new);
         HandledScreens.register(ModScreenHandlers.BAG_3X1_SCREEN_HANDLER, BagScreen3x1::new);

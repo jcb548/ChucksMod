@@ -140,6 +140,8 @@
   "block.chucksmod.titanium_powered_crusher": "Titanium Powered Crusher",
   "block.chucksmod.titanium_heat_generator": "Titanium Heat Generator",
   "block.chucksmod.titanium_quarry": "Titanium Quarry",
+  "block.chucksmod.titanium_copier": "Titanium Copier",
+  "tooltip.chucksmod.drain_xp": "Drain Xp",
 
   "item.chucksmod.raw_diritonium": "Raw Diritonium",
   "item.chucksmod.diritonium_ingot": "Diritonium Ingot",

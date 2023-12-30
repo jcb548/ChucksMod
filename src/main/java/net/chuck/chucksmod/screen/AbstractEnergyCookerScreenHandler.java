@@ -16,8 +16,12 @@ public abstract class AbstractEnergyCookerScreenHandler extends AbstractEnergyUs
     protected final static int INPUT_SCREEN_SLOT_IDX = 36;
     protected final static int OUTPUT_SCREEN_SLOT_IDX = 37;
     protected AbstractEnergyCookerScreenHandler(int syncId, PlayerInventory playerInventory, BlockEntity entity,
+                                                PropertyDelegate delegate, ScreenHandlerType type, int invSize) {
+        super(syncId, playerInventory, entity, delegate, type, invSize);
+    }
+    protected AbstractEnergyCookerScreenHandler(int syncId, PlayerInventory playerInventory, BlockEntity entity,
                                                 PropertyDelegate delegate, ScreenHandlerType type) {
-        super(syncId, playerInventory, entity, delegate, type, AbstractEnergyCookerBlockEntity.INV_SIZE);
+        this(syncId, playerInventory, entity, delegate, type, AbstractEnergyCookerBlockEntity.INV_SIZE);
         this.addSlot(new Slot(inventory, AbstractEnergyCookerBlockEntity.INPUT_SLOT, 55, 35));
         this.addSlot(new Slot(inventory, AbstractEnergyCookerBlockEntity.OUTPUT_SLOT, 116, 35));
     }
@@ -67,13 +71,5 @@ public abstract class AbstractEnergyCookerScreenHandler extends AbstractEnergyUs
     protected abstract boolean isRecipeItem(ItemStack item);
     public boolean isCrafting() {
         return propertyDelegate.get(AbstractPoweredFurnaceBlockEntity.PROGRESS_IDX) > 0;
-    }
-
-    @Override
-    public void onSlotClick(int slotIndex, int button, SlotActionType actionType, PlayerEntity player) {
-        super.onSlotClick(slotIndex, button, actionType, player);
-        if(player.getWorld().isClient) {
-            player.sendMessage(Text.literal(Integer.toString(slotIndex)));
-        }
     }
 }

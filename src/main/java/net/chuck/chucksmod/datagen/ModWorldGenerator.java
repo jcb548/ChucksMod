@@ -1,4 +1,4 @@
-package net.chuck.chucksmod.data;
+package net.chuck.chucksmod.datagen;
 
 import net.chuck.chucksmod.ChucksMod;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;

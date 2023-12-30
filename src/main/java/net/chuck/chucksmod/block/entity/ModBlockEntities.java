@@ -2,6 +2,7 @@ package net.chuck.chucksmod.block.entity;
 
 import net.chuck.chucksmod.ChucksMod;
 import net.chuck.chucksmod.block.ModBlocks;
+import net.chuck.chucksmod.block.entity.copier.TitaniumCopierBlockEntity;
 import net.chuck.chucksmod.block.entity.crusher.CrusherBlockEntity;
 import net.chuck.chucksmod.block.entity.crusher.IronPoweredCrusherBlockEntity;
 import net.chuck.chucksmod.block.entity.crusher.TitaniumPoweredCrusherBlockEntity;
@@ -45,6 +46,7 @@ public class ModBlockEntities {
     public static BlockEntityType<TitaniumPoweredCrusherBlockEntity> TITANIUM_POWERED_CRUSHER;
     public static BlockEntityType<TitaniumPoweredFurnaceBlockEntity> TITANIUM_POWERED_FURNACE;
     public static BlockEntityType<TitaniumQuarryBlockEntity> TITANIUM_QUARRY;
+    public static BlockEntityType<TitaniumCopierBlockEntity> TITANIUM_COPIER;
     public static void registerBlockEntities() {
         CRUSHER = Registry.register(Registries.BLOCK_ENTITY_TYPE,
                 new Identifier(ChucksMod.MOD_ID, "crusher"),
@@ -82,12 +84,6 @@ public class ModBlockEntities {
                         ModBlocks.IRON_QUARRY).build());
         EnergyStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.energyStorage,
                 IRON_QUARRY);
-        TITANIUM_QUARRY = Registry.register(Registries.BLOCK_ENTITY_TYPE,
-                new Identifier(ChucksMod.MOD_ID, "titanium_quarry"),
-                FabricBlockEntityTypeBuilder.create(TitaniumQuarryBlockEntity::new,
-                        ModBlocks.TITANIUM_QUARRY).build());
-        EnergyStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.energyStorage,
-                TITANIUM_QUARRY);
         // Wires
         TIN_WIRE = Registry.register(Registries.BLOCK_ENTITY_TYPE,
                 new Identifier(ChucksMod.MOD_ID, "tin_wire"),
@@ -130,5 +126,17 @@ public class ModBlockEntities {
                         ModBlocks.TITANIUM_HEAT_GENERATOR).build());
         EnergyStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.energyStorage,
                 TITANIUM_HEAT_GENERATOR);
+        TITANIUM_QUARRY = Registry.register(Registries.BLOCK_ENTITY_TYPE,
+                new Identifier(ChucksMod.MOD_ID, "titanium_quarry"),
+                FabricBlockEntityTypeBuilder.create(TitaniumQuarryBlockEntity::new,
+                        ModBlocks.TITANIUM_QUARRY).build());
+        EnergyStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.energyStorage,
+                TITANIUM_QUARRY);
+        TITANIUM_COPIER = Registry.register(Registries.BLOCK_ENTITY_TYPE,
+                new Identifier(ChucksMod.MOD_ID, "titanium_copier"),
+                FabricBlockEntityTypeBuilder.create(TitaniumCopierBlockEntity::new,
+                        ModBlocks.TITANIUM_COPIER).build());
+        EnergyStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.energyStorage,
+                TITANIUM_COPIER);
     }
 }

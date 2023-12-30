@@ -1,6 +1,5 @@
-package net.chuck.chucksmod.data;
+package net.chuck.chucksmod.datagen;
 
-import net.chuck.chucksmod.block.ModBlockTags;
 import net.chuck.chucksmod.block.ModBlocks;
 import net.chuck.chucksmod.block.custom.LettuceCropBlock;
 import net.chuck.chucksmod.block.custom.PineappleCropBlock;
@@ -101,6 +100,7 @@ public class ModBlockLootTableGenerator extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.TITANIUM_POWERED_CRUSHER);
         addDrop(ModBlocks.TITANIUM_HEAT_GENERATOR);
         addDrop(ModBlocks.TITANIUM_QUARRY);
+        addDrop(ModBlocks.TITANIUM_COPIER);
 
         addDrop(ModBlocks.SOUL_STONE);
         addDrop(ModBlocks.SOUL_STONE_STAIRS);

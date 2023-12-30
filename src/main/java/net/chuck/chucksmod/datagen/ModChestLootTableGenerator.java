@@ -1,4 +1,4 @@
-package net.chuck.chucksmod.data;
+package net.chuck.chucksmod.datagen;
 
 import net.chuck.chucksmod.ChucksMod;
 import net.chuck.chucksmod.block.ModBlocks;

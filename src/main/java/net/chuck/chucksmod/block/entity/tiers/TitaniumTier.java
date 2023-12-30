@@ -15,4 +15,6 @@ public interface TitaniumTier {
     int QUARRY_INV_SIZE = 17;
     int QUARRY_SIZE = 9;
     int QUARRY_SPEED = SPEED / 10;
+    int XP_STORAGE = 2000;
+    int XP_DRAIN_RATE = 100;
 }

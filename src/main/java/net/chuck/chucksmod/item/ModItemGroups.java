@@ -179,6 +179,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.TITANIUM_POWERED_FURNACE);
                         entries.add(ModBlocks.TITANIUM_HEAT_GENERATOR);
                         entries.add(ModBlocks.TITANIUM_QUARRY);
+                        entries.add(ModBlocks.TITANIUM_COPIER);
 
                         entries.add(ModItems.SOUL_DUST);
                         entries.add(ModBlocks.SOUL_GRAVEL);

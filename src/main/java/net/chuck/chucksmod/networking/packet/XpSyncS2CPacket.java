@@ -1,8 +1,10 @@
 package net.chuck.chucksmod.networking.packet;
 
 import net.chuck.chucksmod.block.entity.AbstractEnergyUsingBlockEntity;
+import net.chuck.chucksmod.block.entity.copier.AbstractCopierBlockEntity;
 import net.chuck.chucksmod.block.entity.energy_storage.AbstractEnergyStorageBlockEntity;
 import net.chuck.chucksmod.screen.AbstractEnergyUsingScreenHandler;
+import net.chuck.chucksmod.screen.copier.CopierScreenHandler;
 import net.chuck.chucksmod.screen.energy_storage.EnergyStorageScreenHandler;
 import net.fabricmc.fabric.api.networking.v1.PacketSender;
 import net.minecraft.client.MinecraftClient;
@@ -10,6 +12,7 @@ import net.minecraft.client.network.ClientPlayNetworkHandler;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
+
 /*
  *  Code inspired by or copied from
  *  Kaupenjoe
@@ -18,25 +21,18 @@ import net.minecraft.util.math.BlockPos;
  *  This code is licensed under MIT License
  *  Details can be found in the license file in the root folder of this project
  */
-public class EnergySyncS2CPacket {
+public class XpSyncS2CPacket {
     public static void receive(MinecraftClient client, ClientPlayNetworkHandler handler,
                                PacketByteBuf buf, PacketSender responseSender) {
-        long energy = buf.readLong();
-        BlockPos position = buf.readBlockPos();
+        int xp = buf.readInt();
+        BlockPos pos = buf.readBlockPos();
         if (client.world != null) {
-            if (client.world.getBlockEntity(position) instanceof AbstractEnergyUsingBlockEntity blockEntity) {
-                blockEntity.setEnergyLevel(energy);
-                if (client.player.currentScreenHandler instanceof AbstractEnergyUsingScreenHandler screenHandler &&
-                        screenHandler.blockEntity.getPos().equals(position)) {
-                    blockEntity.setEnergyLevel(energy);
-                }
-            }
-            if (client.world.getBlockEntity(position) instanceof AbstractEnergyStorageBlockEntity blockEntity) {
-                blockEntity.setEnergyLevel(energy);
-
-                if (client.player.currentScreenHandler instanceof EnergyStorageScreenHandler screenHandler &&
-                        screenHandler.blockEntity.getPos().equals(position)) {
-                    blockEntity.setEnergyLevel(energy);
+            client.world.getPlayers().get(0).sendMessage(Text.literal("not null"));
+            if (client.world.getWorldChunk(pos).getBlockEntity(pos) instanceof AbstractCopierBlockEntity blockEntity) {
+                blockEntity.xp = xp;
+                if (client.player.currentScreenHandler instanceof CopierScreenHandler screenHandler &&
+                        screenHandler.blockEntity.getPos().equals(pos)) {
+                    blockEntity.xp = xp;
                 }
             }
         }

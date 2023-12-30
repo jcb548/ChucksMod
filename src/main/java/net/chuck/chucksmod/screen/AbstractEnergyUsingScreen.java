@@ -21,8 +21,8 @@ public abstract class AbstractEnergyUsingScreen<T extends AbstractEnergyUsingScr
         assignEnergyInfoArea();
     }
     protected void assignEnergyInfoArea() {
-        energyInfoArea = new EnergyInfoArea(((width - backgroundWidth)/2) + 156,
-                ((height - backgroundHeight) / 2) + 13, handler.blockEntity.energyStorage);
+        energyInfoArea = new EnergyInfoArea(getX() + 156, getY() + 13,
+                handler.blockEntity.energyStorage);
     }
     protected int getX(){
         return (width - backgroundWidth) /2;
@@ -50,8 +50,8 @@ public abstract class AbstractEnergyUsingScreen<T extends AbstractEnergyUsingScr
         drawMouseoverTooltip(context, mouseX, mouseY);
     }
 
-    private boolean isMouseAboveArea(int pMouseX, int pMouseY, int x, int y, int offsetX, int offsetY,
-                                     int width, int height) {
+    protected boolean isMouseAboveArea(int pMouseX, int pMouseY, int x, int y, int offsetX, int offsetY,
+                                       int width, int height) {
         return MouseUtil.isMouseOver(pMouseX, pMouseY, x+offsetX, y+offsetY, width, height);
     }
 }

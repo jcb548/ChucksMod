@@ -1,6 +1,5 @@
-package net.chuck.chucksmod.data;
+package net.chuck.chucksmod.datagen;
 
-import dev.architectury.platform.Mod;
 import net.chuck.chucksmod.block.ModBlocks;
 import net.chuck.chucksmod.item.ModItemTags;
 import net.chuck.chucksmod.item.ModItems;

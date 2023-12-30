@@ -1,9 +1,7 @@
-package net.chuck.chucksmod.data;
+package net.chuck.chucksmod.datagen;
 
-import dev.architectury.platform.Mod;
 import net.chuck.chucksmod.block.ModBlocks;
 import net.chuck.chucksmod.block.ModBlockTags;
-import net.chuck.chucksmod.item.ModItemTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.block.Blocks;
@@ -58,7 +56,14 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.NETHER_TITANIUM_ORE)
                 .add(ModBlocks.END_STONE_TITANIUM_ORE)
                 .add(ModBlocks.TITANIUM_BARS)
-                .add(ModBlocks.TITANIUM_MACHINE_BASE);
+
+                .add(ModBlocks.TITANIUM_MACHINE_BASE)
+                .add(ModBlocks.TITANIUM_HEAT_GENERATOR)
+                .add(ModBlocks.TITANIUM_POWERED_CRUSHER)
+                .add(ModBlocks.TITANIUM_POWERED_FURNACE)
+                .add(ModBlocks.TITANIUM_ENERGY_STORAGE)
+                .add(ModBlocks.TITANIUM_QUARRY)
+                .add(ModBlocks.TITANIUM_COPIER);
 
         getOrCreateTagBuilder(BlockTags.NEEDS_STONE_TOOL)
                 .add(ModBlocks.TIN_BLOCK)
@@ -67,12 +72,14 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.TIN_BARS)
                 .addTag(ModBlockTags.BRONZE_BLOCKS)
                 .add(ModBlocks.BRONZE_BARS)
-                .add(ModBlocks.IRON_MACHINE_BASE)
                 .add(ModBlocks.CRUSHER)
+
+                .add(ModBlocks.IRON_MACHINE_BASE)
                 .add(ModBlocks.IRON_HEAT_GENERATOR)
                 .add(ModBlocks.IRON_POWERED_CRUSHER)
                 .add(ModBlocks.IRON_POWERED_FURNACE)
-                .add(ModBlocks.IRON_MACHINE_BASE);
+                .add(ModBlocks.IRON_ENERGY_STORAGE)
+                .add(ModBlocks.IRON_QUARRY);
 
         getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
                 .addTag(ModBlockTags.BARS)
@@ -83,8 +90,10 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .addTag(ModBlockTags.TITANIUM_ORES)
                 .addTag(ModBlockTags.TITANIUM_BLOCKS)
                 .addTag(ModBlockTags.RAW_TITANIUM_BLOCKS)
-                .add(ModBlocks.IRON_MACHINE_BASE)
+
                 .add(ModBlocks.CRUSHER)
+
+                .add(ModBlocks.IRON_MACHINE_BASE)
                 .add(ModBlocks.IRON_HEAT_GENERATOR)
                 .add(ModBlocks.IRON_POWERED_CRUSHER)
                 .add(ModBlocks.IRON_POWERED_FURNACE)
@@ -103,6 +112,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.TITANIUM_POWERED_FURNACE)
                 .add(ModBlocks.TITANIUM_ENERGY_STORAGE)
                 .add(ModBlocks.TITANIUM_QUARRY)
+                .add(ModBlocks.TITANIUM_COPIER)
                 
                 .add(ModBlocks.SOUL_STONE)
                 .add(ModBlocks.SOUL_STONE_STAIRS)
