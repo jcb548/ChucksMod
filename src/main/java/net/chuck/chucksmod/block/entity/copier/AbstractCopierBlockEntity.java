@@ -20,6 +20,7 @@ import net.minecraft.network.PacketByteBuf;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
@@ -81,15 +82,9 @@ public abstract class AbstractCopierBlockEntity extends AbstractEnergyCookerBloc
         buf.writeInt(this.xp);
     }
 
-    public void syncXp(){
-        if(!world.isClient) {
-            PacketByteBuf data = PacketByteBufs.create();
-            data.writeInt(xp);
-            data.writeBlockPos(getPos());
-            for (ServerPlayerEntity player : PlayerLookup.tracking((ServerWorld) world, getPos())) {
-                ServerPlayNetworking.send(player, ModMessages.XP_SYNC, data);
-            }
-        }
-    }
     public abstract int getXpDrainRate();
+
+    public void setXp(int xp){
+        this.xp = xp;
+    }
 }

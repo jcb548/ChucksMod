@@ -44,4 +44,8 @@ public class XpInfoArea extends InfoArea {
         context.drawTexture(CopierScreen.TEXTURE, area.getX(), area.getY()+(height-stored),
                 176, (height-stored), 8, stored);
     }
+
+    public int getXp(){
+        return xp;
+    }
 }

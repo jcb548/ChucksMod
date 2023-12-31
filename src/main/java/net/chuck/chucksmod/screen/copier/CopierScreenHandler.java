@@ -18,6 +18,7 @@ import net.minecraft.screen.ArrayPropertyDelegate;
 import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.screen.slot.Slot;
+import net.minecraft.text.Text;
 
 public class CopierScreenHandler extends AbstractEnergyCookerScreenHandler {
     protected final static int BOOK_SCREEN_SLOT_IDX = 38;
@@ -62,6 +63,5 @@ public class CopierScreenHandler extends AbstractEnergyCookerScreenHandler {
         PacketByteBuf buf = PacketByteBufs.create();
         buf.writeBlockPos(blockEntity.getPos());
         ClientPlayNetworking.send(ModMessages.COPIER_XP_DRAIN, buf);
-        copier.syncXp();
     }
 }

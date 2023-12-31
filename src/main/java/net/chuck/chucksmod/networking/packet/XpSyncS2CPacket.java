@@ -27,12 +27,11 @@ public class XpSyncS2CPacket {
         int xp = buf.readInt();
         BlockPos pos = buf.readBlockPos();
         if (client.world != null) {
-            client.world.getPlayers().get(0).sendMessage(Text.literal("not null"));
-            if (client.world.getWorldChunk(pos).getBlockEntity(pos) instanceof AbstractCopierBlockEntity blockEntity) {
-                blockEntity.xp = xp;
+            if (client.world.getWorldChunk(pos).getBlockEntity(pos) instanceof AbstractCopierBlockEntity copier) {
+                copier.setXp(xp);
                 if (client.player.currentScreenHandler instanceof CopierScreenHandler screenHandler &&
-                        screenHandler.blockEntity.getPos().equals(pos)) {
-                    blockEntity.xp = xp;
+                        screenHandler.copier.getPos().equals(pos)) {
+                    copier.setXp(xp);
                 }
             }
         }

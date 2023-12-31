@@ -5,7 +5,6 @@ import net.chuck.chucksmod.ChucksMod;
 import net.chuck.chucksmod.screen.AbstractEnergyUsingScreen;
 import net.chuck.chucksmod.screen.renderer.XpInfoArea;
 import net.minecraft.client.gui.DrawContext;
-import net.minecraft.client.gui.tooltip.Tooltip;
 import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.text.Text;
@@ -30,6 +29,7 @@ public class CopierScreen extends AbstractEnergyUsingScreen<CopierScreenHandler>
         context.drawTexture(TEXTURE, x, y, 0, 0, backgroundWidth, backgroundHeight);
         renderProgressArrow(context, x, y);
         energyInfoArea.draw(context);
+        if(!(xpInfoArea.getXp() == handler.copier.xp)) assignXpArea();
         xpInfoArea.draw(context);
     }
     private void renderProgressArrow(DrawContext context, int x, int y){
@@ -47,11 +47,11 @@ public class CopierScreen extends AbstractEnergyUsingScreen<CopierScreenHandler>
     @Override
     protected void init() {
         super.init();
-        assignXpArea();
         drainXp = ButtonWidget.builder(Text.translatable("tooltip.chucksmod.drain_xp"), button -> {
             handler.onButtonPress();
         }).dimensions(getX() + 26, getY() + 16, 48, 16).build();
         this.addDrawableChild(drainXp);
+        assignXpArea();
     }
 
     private void renderXpAreaToolTips(DrawContext context, int pMouseX, int pMouseY, int x, int y){
