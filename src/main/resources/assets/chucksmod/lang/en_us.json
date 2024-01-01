@@ -292,7 +292,8 @@
 
   "enchantment.chucksmod.withering": "Withering",
   "enchantment.chucksmod.alacrity": "Alacrity",
-  "enchantment.chucksmod.lifesteal_one": "Lifesteal I (15%)",
+  "enchantment.chucksmod.lifesteal_one": "Lifesteal I (10%)",
+  "enchantment.chucksmod.ender": "Ender",
 
   "itemgroup.chucksmod": "Chucks Mod",
 

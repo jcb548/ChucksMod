@@ -1,6 +1,7 @@
 package net.chuck.chucksmod.util;
 
 import net.chuck.chucksmod.item.ModItems;
+import net.chuck.chucksmod.item.enchantment.ModEnchantments;
 import net.fabricmc.fabric.api.loot.v2.LootTableEvents;
 import net.minecraft.item.Items;
 import net.minecraft.loot.LootPool;
@@ -9,6 +10,7 @@ import net.minecraft.loot.condition.RandomChanceLootCondition;
 import net.minecraft.loot.condition.RandomChanceWithLootingLootCondition;
 import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.loot.function.SetCountLootFunction;
+import net.minecraft.loot.function.SetEnchantmentsLootFunction;
 import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
 import net.minecraft.loot.provider.number.UniformLootNumberProvider;
 import net.minecraft.util.Identifier;
@@ -25,12 +27,13 @@ public class ModLootTableModifiers {
             = new Identifier("minecraft", "blocks/grass");
     private static final Identifier WITHER_SKELETON_ID =
             new Identifier("minecraft", "entities/wither_skeleton");
+    private static final Identifier WITHER_ID = new Identifier("entities/wither");
+    private static final Identifier ENDER_DRAGON_ID = new Identifier("entities/ender_dragon");
     private static final Identifier MINESHAFT_ID =
              new Identifier("minecraft", "chests/abandoned_mineshaft");
 
     public static void modifyLootTables() {
         LootTableEvents.MODIFY.register(((resourceManager, lootManager, id, tableBuilder, source) -> {
-
             if(GRASS_BLOCK_ID.equals(id)){
                 LootPool.Builder poolBuilder = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1))
@@ -79,6 +82,24 @@ public class ModLootTableModifiers {
                         .conditionally(RandomChanceLootCondition.builder(0.4f)) // found 40% of the time
                         .with(ItemEntry.builder(ModItems.PINEAPPLE_SEEDS))
                         .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 4.0f)).build());
+                tableBuilder.pool(poolBuilder.build());
+            }
+            if(WITHER_ID.equals(id)){
+                LootPool.Builder poolBuilder = LootPool.builder()
+                        .rolls(ConstantLootNumberProvider.create(1))
+                        .conditionally(RandomChanceLootCondition.builder(1))
+                        .with(ItemEntry.builder(Items.ENCHANTED_BOOK)
+                            .apply(new SetEnchantmentsLootFunction.Builder(true)
+                                    .enchantment(ModEnchantments.WITHERING, ConstantLootNumberProvider.create(1))).build());
+                tableBuilder.pool(poolBuilder.build());
+            }
+            if(ENDER_DRAGON_ID.equals(id)){
+                LootPool.Builder poolBuilder = LootPool.builder()
+                        .rolls(ConstantLootNumberProvider.create(1))
+                        .conditionally(RandomChanceLootCondition.builder(1))
+                        .with(ItemEntry.builder(Items.ENCHANTED_BOOK)
+                            .apply(new SetEnchantmentsLootFunction.Builder(true)
+                                    .enchantment(ModEnchantments.ENDER, ConstantLootNumberProvider.create(1))).build());
                 tableBuilder.pool(poolBuilder.build());
             }
         }));

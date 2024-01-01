@@ -40,7 +40,7 @@ public class LifestealOneEnchantment extends Enchantment {
         }
     }
     protected float getPercentage(){
-        return 0.15f;
+        return 0.1f;
     }
 
     @Override
@@ -48,5 +48,10 @@ public class LifestealOneEnchantment extends Enchantment {
         MutableText mutableText = Text.translatable(this.getTranslationKey());
         mutableText.formatted(Formatting.DARK_RED);
         return mutableText;
+    }
+
+    @Override
+    public boolean isTreasure() {
+        return true;
     }
 }

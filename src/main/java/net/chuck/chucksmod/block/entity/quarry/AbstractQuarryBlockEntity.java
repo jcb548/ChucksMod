@@ -78,12 +78,6 @@ public abstract class AbstractQuarryBlockEntity extends AbstractEnergyUsingBlock
             this.extractEnergy();
             markDirty(world, pos, blockState);
             if(shouldBreakBlock()){
-                /*if(!world.getPlayers().isEmpty()) {
-                    for(int i=0; i< world.getPlayers().size(); i++) {
-                        world.getPlayers().get(i).sendMessage(Text.literal("xPos: " + xPos + ", yPos: " + yPos +
-                                ", zPos: " + zPos));
-                    }
-                }*/
                 BlockPos nextBlockPos = getNextBlockPos();
                 BlockState nextBlockState = world.getBlockState(nextBlockPos);
                 if(isBreakable(nextBlockState) && canBreak(nextBlockState)) {
