@@ -7,6 +7,9 @@ import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
+import net.minecraft.text.MutableText;
+import net.minecraft.text.Text;
+import net.minecraft.util.Formatting;
 
 public class WitheringEnchantment extends Enchantment {
     protected WitheringEnchantment() {
@@ -50,5 +53,12 @@ public class WitheringEnchantment extends Enchantment {
                     20*2*level, ((int) (level/2.0)) + 1));
         }
         super.onTargetDamaged(user, target, level);
+    }
+
+    @Override
+    public Text getName(int level) {
+        MutableText text = Text.translatable(this.getTranslationKey());
+        text.formatted(Formatting.DARK_GRAY);
+        return text;
     }
 }
