@@ -3,13 +3,9 @@ package net.chuck.chucksmod.networking.packet;
 import net.fabricmc.fabric.api.networking.v1.PacketSender;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayNetworkHandler;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.particle.ParticleTypes;
-import net.minecraft.util.math.BlockPos;
-
-import java.util.UUID;
 
 public class TeleportParticleS2CPacket {
     public static void receive(MinecraftClient client, ClientPlayNetworkHandler handler,

@@ -1,6 +1,7 @@
 package net.chuck.chucksmod;
 
 import net.chuck.chucksmod.datagen.*;
+import net.chuck.chucksmod.datagen.advancement.ModAdvancementsProvider;
 import net.chuck.chucksmod.world.ModConfiguredFeatures;
 import net.chuck.chucksmod.world.ModPlacedFeatures;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;

@@ -427,30 +427,6 @@
   "advancements.chucksmod.overworld.nether_portal.title": "Light Nether Portal",
   "advancements.chucksmod.overworld.nether_portal.desc": "Place obsidian in a closed vertical rectangle, with a center at least 2 blocks wide and 3 blocks tall, and use flint and steel on inside",
 
-  "advancements.chucksmod.overworld.enchant_item.title": "Enchant an Item",
-  "advancements.chucksmod.overworld.enchant_item.desc": "Enchant an item in your enchanting table, It is recommended to place at least 15 bookshelves 1 unobstructed block away for max level (30) enchantments",
-
-  "advancements.chucksmod.overworld.enchant_sword.title": "Enchant a Sword",
-  "advancements.chucksmod.overworld.enchant_sword.desc": "Enchant a Sword in your enchanting table",
-
-  "advancements.chucksmod.overworld.enchant_tool.title": "Enchant a Tool",
-  "advancements.chucksmod.overworld.enchant_tool.desc": "Enchant an Tool in your enchanting table",
-
-  "advancements.chucksmod.overworld.enchant_armor.title": "Enchant a Piece of Armor",
-  "advancements.chucksmod.overworld.enchant_armor.desc": "Enchant an armor piece in your enchanting table",
-
-  "advancements.chucksmod.overworld.enchant_helmet.title": "Enchant a Helmet",
-  "advancements.chucksmod.overworld.enchant_helmet.desc": "Enchant a helmet in your enchanting table",
-
-  "advancements.chucksmod.overworld.enchant_boots.title": "Enchant a pair of Boots",
-  "advancements.chucksmod.overworld.enchant_boots.desc": "Enchant boots in your enchanting table",
-
-  "advancements.chucksmod.overworld.enchant_bow.title": "Enchant a Bow",
-  "advancements.chucksmod.overworld.enchant_bow.desc": "Enchant a bow with your Enchanting Table",
-
-  "advancements.chucksmod.overworld.bookshelf.title": "Bookshelf",
-  "advancements.chucksmod.overworld.bookshelf.desc": "Craft a bookshelf from 3 books and 6 planks",
-
   "advancements.chucksmod.overworld.village.title": "Village",
   "advancements.chucksmod.overworld.village.desc": "Enter a Village (Can be found in plains, savanna, snowy plains, taiga and deserts)",
 
@@ -508,72 +484,6 @@
   "advancements.chucksmod.overworld.gunpowder.title": "Gunpowder",
   "advancements.chucksmod.overworld.gunpowder.desc": "Collect from a creeper",
 
-  "advancements.chucksmod.overworld.sharpness.title": "Sharpness",
-  "advancements.chucksmod.overworld.sharpness.desc": "Enchant a Sword with at least Sharpness 3 (Max 5) to increase damage dealt",
-
-  "advancements.chucksmod.overworld.unbreaking.title": "Unbreaking",
-  "advancements.chucksmod.overworld.unbreaking.desc": "Enchant an Item with Unbreaking 3 (Max level) to make it last longer",
-
-  "advancements.chucksmod.overworld.efficiency.title": "Efficiency",
-  "advancements.chucksmod.overworld.efficiency.desc": "Enchant a Tool with at least Efficiency 3 (Max 5) to allow it to mine faster",
-
-  "advancements.chucksmod.overworld.silk.title": "Silky Smooth",
-  "advancements.chucksmod.overworld.silk.desc": "Enchant a Tool with silk touch, to pickup any block broken as is (except special rare blocks)",
-
-  "advancements.chucksmod.overworld.fortune.title": "Fortunate Opportunity",
-  "advancements.chucksmod.overworld.fortune.desc": "Enchant a Tool with Fortune 3 (Max level), to increase non block drops from blocks",
-
-  "advancements.chucksmod.overworld.looting.title": "Looting",
-  "advancements.chucksmod.overworld.looting.desc": "Enchant a Sword with Looting 3 (Max level), to increase drops from mobs",
-
-  "advancements.chucksmod.overworld.alacrity.title": "Alacrity",
-  "advancements.chucksmod.overworld.alacrity.desc": "Enchant a Sword with at least Alacrity 1 (Max 5, more easily obtainable through further play), to increase attack speed of weapon",
-
-  "advancements.chucksmod.overworld.knockback.title": "Go Away",
-  "advancements.chucksmod.overworld.knockback.desc": "Enchant a Sword with Knockback (Max 2), to knock mobs further back upon hit",
-
-  "advancements.chucksmod.overworld.fire_aspect.title": "Fiery Sword",
-  "advancements.chucksmod.overworld.fire_aspect.desc": "Enchant a Sword with Fire Aspect (Max 2), to set mobs on fire when hit (animals on fire drop cooked meat instead of raw meat)",
-
-  "advancements.chucksmod.overworld.sweeping.title": "Sweeping Efficiency",
-  "advancements.chucksmod.overworld.sweeping.desc": "Enchant a Sword with Sweeping Edge 3 (Max level), to increase damage dealt in the sweep area of sword attack",
-
-  "advancements.chucksmod.overworld.smite.title": "Smite",
-  "advancements.chucksmod.overworld.smite.desc": "Enchant a Sword with at least Smite 3 (Max 5), to increase damage dealt against undead mobs",
-
-  "advancements.chucksmod.overworld.mending.title": "Self-Repairing",
-  "advancements.chucksmod.overworld.mending.desc": "Add mending to an item using a mending enchanted book",
-
-  "advancements.chucksmod.overworld.bane_of_arthropods.title": "Spider Slayer",
-  "advancements.chucksmod.overworld.bane_of_arthropods.desc": "Enchant a Sword with at least Bane of Athropods 3 (Max 5), to increase damage dealt against arthropod mobs",
-
-  "advancements.chucksmod.overworld.anvil.title": "Anvil",
-  "advancements.chucksmod.overworld.anvil.desc": "Craft an anvil from 3 iron blocks and 4 iron ingots, to allow you to repair enchanted items, and add enchantments from books to items",
-
-  "advancements.chucksmod.overworld.protection.title": "Protection",
-  "advancements.chucksmod.overworld.protection.desc": "Enchant an Armor item with at least Protection 3 (Max 4) to reduce damage taken",
-
-  "advancements.chucksmod.overworld.blast_protection.title": "Explosive Protection",
-  "advancements.chucksmod.overworld.blast_protection.desc": "Enchant an Armor item with at least Blast Protection 3 (Max 4) to reduce damage taken from explosions",
-
-  "advancements.chucksmod.overworld.fire_protection.title": "Fire Protection",
-  "advancements.chucksmod.overworld.fire_protection.desc": "Enchant an Armor item with at least Fire Protection 3 (Max 4) to reduce damage taken from hot sources",
-
-  "advancements.chucksmod.overworld.feather_falling.title": "Feather Falling",
-  "advancements.chucksmod.overworld.feather_falling.desc": "Enchant Boots with at least Feather Falling 3 (Max 4) to reduce damage taken from falling",
-
-  "advancements.chucksmod.overworld.respiration.title": "Larger Lungs",
-  "advancements.chucksmod.overworld.respiration.desc": "Enchant a Helmet with Respiration 3 (Max level) to increase time before drowning underwater",
-
-  "advancements.chucksmod.overworld.aqua_affinity.title": "Aqua Affinity",
-  "advancements.chucksmod.overworld.aqua_affinity.desc": "Enchant a Helmet with Aqua Affinity to allow breaking blocks at normal speed underwater",
-
-  "advancements.chucksmod.overworld.depth_strider.title": "Depth Strider",
-  "advancements.chucksmod.overworld.depth_strider.desc": "Enchant Boots with Depth Strider 3 (Max level) to swim faster in water",
-
-  "advancements.chucksmod.overworld.thorns.title": "Prickly",
-  "advancements.chucksmod.overworld.thorns.desc": "Enchant an Armor item with at least Thorns 2 (Max 3) reflect damage whenever you take damage, at a cost of durability",
-
   "advancements.chucksmod.overworld.bucket.title": "Bucket",
   "advancements.chucksmod.overworld.bucket.desc": "Craft or obtain a Bucket from a chest to allow picking up of liquids",
 
@@ -607,17 +517,128 @@
   "advancements.chucksmod.overworld.titanium_armor.title": "Titanium Armor",
   "advancements.chucksmod.overworld.titanium_armor.desc": "Craft a set of titanium armor (as strong as diamond) (helmet, chestplate, leggings, boots)",
 
-  "advancements.chucksmod.overworld.power.title": "Power",
-  "advancements.chucksmod.overworld.power.desc": "Enchant a Bow with at least Power 3 (Max 5), to increase damage of arrows shot",
-  
-  "advancements.chucksmod.overworld.infinity.title": "Infinite Ammunition",
-  "advancements.chucksmod.overworld.infinity.desc": "Enchant a Bow with Infinity to allow it to shoot infinite normal arrows",
-  
-  "advancements.chucksmod.overworld.flame.title": "Flaming Arrows",
-  "advancements.chucksmod.overworld.flame.desc": "Enchant a Bow with Flame to allow it to shoot fiery arrows, which set targets on fire, and light explosives",
+  "advancements.chucksmod.overworld.enderman.title": "Slay an Enderman",
+  "advancements.chucksmod.overworld.enderman.desc": "Kill an Enderman, to obtain Ender pearls, which allow you to teleport, and are an ingredient for reaching the end",
 
-  "advancements.chucksmod.overworld.punch.title": "Punch",
-  "advancements.chucksmod.overworld.punch.desc": "Enchant a Bow with Punch (Max 2) to give its arrows extra knockback",
+  "advancements.chucksmod.overworld.eye_of_ender.title": "Eye of Ender",
+  "advancements.chucksmod.overworld.eye_of_ender.desc": "Craft an Eye of Ender from and ender pearl and blaze powder.",
+
+  "advancements.chucksmod.overworld.stronghold.title": "Stronghold",
+  "advancements.chucksmod.overworld.stronghold.desc": "Locate and enter a Stronghold. Strongholds can be located by right-clicking Eyes of Ender",
+
+  "advancements.chucksmod.overworld.ender_chest.title": "Ender Chest",
+  "advancements.chucksmod.overworld.ender_chest.desc": "Craft an Ender Chest from Obsidian and an Eye of Ender. Ender Chests are unique to each player, and can be accessed by opening one anywhere.",
+
+  "advancements.chucksmod.overworld.chest.title": "Chest",
+  "advancements.chucksmod.overworld.chest.desc": "Chests are crafted from planks, and can be used to store items. Chests can be placed next to each other to create a double chest.",
+
+
+
+  "advancements.chucksmod.enchanting.enchanting_table.title": "Enchanting",
+  "advancements.chucksmod.enchanting.enchanting_table.desc": "Welcome to Enchanting, where you can make your tools, weapons and armor stronger",
+
+  "advancements.chucksmod.enchanting.enchant_item.title": "Enchant an Item",
+  "advancements.chucksmod.enchanting.enchant_item.desc": "Enchant an item in your enchanting table, It is recommended to place at least 15 bookshelves 1 unobstructed block away for max level (30) enchantments",
+
+  "advancements.chucksmod.enchanting.enchant_sword.title": "Enchant a Sword",
+  "advancements.chucksmod.enchanting.enchant_sword.desc": "Enchant a Sword in your enchanting table",
+
+  "advancements.chucksmod.enchanting.enchant_tool.title": "Enchant a Tool",
+  "advancements.chucksmod.enchanting.enchant_tool.desc": "Enchant an Tool in your enchanting table",
+
+  "advancements.chucksmod.enchanting.enchant_armor.title": "Enchant a Piece of Armor",
+  "advancements.chucksmod.enchanting.enchant_armor.desc": "Enchant an armor piece in your enchanting table",
+
+  "advancements.chucksmod.enchanting.enchant_helmet.title": "Enchant a Helmet",
+  "advancements.chucksmod.enchanting.enchant_helmet.desc": "Enchant a helmet in your enchanting table",
+
+  "advancements.chucksmod.enchanting.enchant_boots.title": "Enchant a pair of Boots",
+  "advancements.chucksmod.enchanting.enchant_boots.desc": "Enchant boots in your enchanting table",
+
+  "advancements.chucksmod.enchanting.enchant_bow.title": "Enchant a Bow",
+  "advancements.chucksmod.enchanting.enchant_bow.desc": "Enchant a bow with your Enchanting Table",
+
+  "advancements.chucksmod.enchanting.bookshelf.title": "Bookshelf",
+  "advancements.chucksmod.enchanting.bookshelf.desc": "Craft a bookshelf from 3 books and 6 planks",
+
+  "advancements.chucksmod.enchanting.sharpness.title": "Sharpness",
+  "advancements.chucksmod.enchanting.sharpness.desc": "Enchant a Sword with at least Sharpness 3 (Max 5) to increase damage dealt",
+
+  "advancements.chucksmod.enchanting.unbreaking.title": "Unbreaking",
+  "advancements.chucksmod.enchanting.unbreaking.desc": "Enchant an Item with Unbreaking 3 (Max level) to make it last longer",
+
+  "advancements.chucksmod.enchanting.efficiency.title": "Efficiency",
+  "advancements.chucksmod.enchanting.efficiency.desc": "Enchant a Tool with at least Efficiency 3 (Max 5) to allow it to mine faster",
+
+  "advancements.chucksmod.enchanting.silk.title": "Silky Smooth",
+  "advancements.chucksmod.enchanting.silk.desc": "Enchant a Tool with silk touch, to pickup any block broken as is (except special rare blocks)",
+
+  "advancements.chucksmod.enchanting.fortune.title": "Fortunate Opportunity",
+  "advancements.chucksmod.enchanting.fortune.desc": "Enchant a Tool with Fortune 3 (Max level), to increase non block drops from blocks",
+
+  "advancements.chucksmod.enchanting.looting.title": "Looting",
+  "advancements.chucksmod.enchanting.looting.desc": "Enchant a Sword with Looting 3 (Max level), to increase drops from mobs",
+
+  "advancements.chucksmod.enchanting.alacrity.title": "Alacrity",
+  "advancements.chucksmod.enchanting.alacrity.desc": "Enchant a Sword with at least Alacrity 1 (Max 5, more easily obtainable through further play), to increase attack speed of weapon",
+
+  "advancements.chucksmod.enchanting.knockback.title": "Go Away",
+  "advancements.chucksmod.enchanting.knockback.desc": "Enchant a Sword with Knockback (Max 2), to knock mobs further back upon hit",
+
+  "advancements.chucksmod.enchanting.fire_aspect.title": "Fiery Sword",
+  "advancements.chucksmod.enchanting.fire_aspect.desc": "Enchant a Sword with Fire Aspect (Max 2), to set mobs on fire when hit (animals on fire drop cooked meat instead of raw meat)",
+
+  "advancements.chucksmod.enchanting.sweeping.title": "Sweeping Efficiency",
+  "advancements.chucksmod.enchanting.sweeping.desc": "Enchant a Sword with Sweeping Edge 3 (Max level), to increase damage dealt in the sweep area of sword attack",
+
+  "advancements.chucksmod.enchanting.smite.title": "Smite",
+  "advancements.chucksmod.enchanting.smite.desc": "Enchant a Sword with at least Smite 3 (Max 5), to increase damage dealt against undead mobs",
+
+  "advancements.chucksmod.enchanting.mending.title": "Self-Repairing",
+  "advancements.chucksmod.enchanting.mending.desc": "Add mending to an item using a mending enchanted book",
+
+  "advancements.chucksmod.enchanting.bane_of_arthropods.title": "Spider Slayer",
+  "advancements.chucksmod.enchanting.bane_of_arthropods.desc": "Enchant a Sword with at least Bane of Athropods 3 (Max 5), to increase damage dealt against arthropod mobs",
+
+  "advancements.chucksmod.enchanting.anvil.title": "Anvil",
+  "advancements.chucksmod.enchanting.anvil.desc": "Craft an anvil from 3 iron blocks and 4 iron ingots, to allow you to repair enchanted items, and add enchantments from books to items",
+
+  "advancements.chucksmod.enchanting.protection.title": "Protection",
+  "advancements.chucksmod.enchanting.protection.desc": "Enchant an Armor item with at least Protection 3 (Max 4) to reduce damage taken",
+
+  "advancements.chucksmod.enchanting.blast_protection.title": "Explosive Protection",
+  "advancements.chucksmod.enchanting.blast_protection.desc": "Enchant an Armor item with at least Blast Protection 3 (Max 4) to reduce damage taken from explosions",
+
+  "advancements.chucksmod.enchanting.fire_protection.title": "Fire Protection",
+  "advancements.chucksmod.enchanting.fire_protection.desc": "Enchant an Armor item with at least Fire Protection 3 (Max 4) to reduce damage taken from hot sources",
+
+  "advancements.chucksmod.enchanting.feather_falling.title": "Feather Falling",
+  "advancements.chucksmod.enchanting.feather_falling.desc": "Enchant Boots with at least Feather Falling 3 (Max 4) to reduce damage taken from falling",
+
+  "advancements.chucksmod.enchanting.respiration.title": "Larger Lungs",
+  "advancements.chucksmod.enchanting.respiration.desc": "Enchant a Helmet with Respiration 3 (Max level) to increase time before drowning underwater",
+
+  "advancements.chucksmod.enchanting.aqua_affinity.title": "Aqua Affinity",
+  "advancements.chucksmod.enchanting.aqua_affinity.desc": "Enchant a Helmet with Aqua Affinity to allow breaking blocks at normal speed underwater",
+
+  "advancements.chucksmod.enchanting.depth_strider.title": "Depth Strider",
+  "advancements.chucksmod.enchanting.depth_strider.desc": "Enchant Boots with Depth Strider 3 (Max level) to swim faster in water",
+
+  "advancements.chucksmod.enchanting.thorns.title": "Prickly",
+  "advancements.chucksmod.enchanting.thorns.desc": "Enchant an Armor item with at least Thorns 2 (Max 3) reflect damage whenever you take damage, at a cost of durability",
+
+  "advancements.chucksmod.enchanting.power.title": "Power",
+  "advancements.chucksmod.enchanting.power.desc": "Enchant a Bow with at least Power 3 (Max 5), to increase damage of arrows shot",
+
+  "advancements.chucksmod.enchanting.infinity.title": "Infinite Ammunition",
+  "advancements.chucksmod.enchanting.infinity.desc": "Enchant a Bow with Infinity to allow it to shoot infinite normal arrows",
+
+  "advancements.chucksmod.enchanting.flame.title": "Flaming Arrows",
+  "advancements.chucksmod.enchanting.flame.desc": "Enchant a Bow with Flame to allow it to shoot fiery arrows, which set targets on fire, and light explosives",
+
+  "advancements.chucksmod.enchanting.punch.title": "Punch",
+  "advancements.chucksmod.enchanting.punch.desc": "Enchant a Bow with Punch (Max 2) to give its arrows extra knockback",
+
 
 
   "advancements.chucksmod.machines.root.title": "Gearing Up",
@@ -645,7 +666,8 @@
   "advancements.chucksmod.machines.copper_wire.desc": "Craft Copper Wire to transfer energy at the rate of Iron Tier Machines",
 
   "advancements.chucksmod.machines.titanium_machine_base.title": "Titanium Tier",
-  "advancements.chucksmod.machines.titanium_machine_base.desc": "Titanium Tier Machines take just below 9 seconds to complete their tasks, but use more power",
+  "advancements.chucksmod.machines.titanium_machine_base.desc": "Titanium Tier Machines take just below 9 seconds to complete their tasks, but use more power. All Iron Tier Machines can be upgraded to titanium tier",
+
 
 
 
@@ -664,8 +686,28 @@
   "advancements.chucksmod.nether.enter_fortress.title": "Nether Fortress",
   "advancements.chucksmod.nether.enter_fortress.desc": "Enter a Nether Fortress, where mobs such as Blazes and Wither Skeletons can be found",
 
+  "advancements.chucksmod.nether.zombified_piglin.title": "Kill a Zombified Piglin",
+  "advancements.chucksmod.nether.zombified_piglin.desc": "Kill a Zombified Piglin for gold",
+
+  "advancements.chucksmod.nether.blaze.title": "Kill a Blaze",
+  "advancements.chucksmod.nether.blaze.desc": "Kill a Blaze for blaze rod, an ingredient for summoning the Soul Blaze, and getting to the End",
+
+  "advancements.chucksmod.nether.blaze_powder.title": "Blaze Powder",
+  "advancements.chucksmod.nether.blaze_powder.desc": "Craft Blaze Rods into Blaze Powder, an ingredient for Eyes of Ender, and Strength potions",
+
+  "advancements.chucksmod.nether.wither_skeleton.title": "Kill a Wither Skeleton",
+  "advancements.chucksmod.nether.wither_skeleton.desc": "Kill a Wither Skeleton for coal, and Wither Skeleton skulls, which can be used to summon the wither",
+
+
+
+  "advancements.chucksmod.end.root.title": "The End",
+  "advancements.chucksmod.end.root.desc": "Welcome to the End, a barren, space-like dimension, home of the Ender Dragon, and other inhabitants...",
+
 
 
   "advancements.chucksmod.bosses.root.title": "Bosses",
-  "advancements.chucksmod.bosses.root.desc": "Here are the list of Bosses to be killed"
+  "advancements.chucksmod.bosses.root.desc": "Here are the list of Bosses to be killed, in recommended order",
+
+  "advancements.chucksmod.bosses.wither.title": "Wither",
+  "advancements.chucksmod.bosses.wither.desc": "Slay the wither, to gain access to the Withering enchantment, and obtain a nether star"
 }
