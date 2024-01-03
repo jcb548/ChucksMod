@@ -21,19 +21,20 @@ public class CopierDrainXpC2SPacket {
         //Happens on server only
         BlockPos pos = buf.readBlockPos();
         if(player.getServerWorld().getWorldChunk(pos).getBlockEntity(pos) instanceof AbstractCopierBlockEntity copier){
-            /*if(copier.fluidStorage.amount < copier.fluidStorage.getCapacity() && player.totalExperience >= copier.getXpDrainRate()){
-                copier.fluidStorage.insert(copier.getXpDrainRate()) += copier.getXpDrainRate();
-                player.addExperience(-copier.getXpDrainRate());
-            } else if(player.totalExperience > 0){
-                copier.xp += player.totalExperience;
-                player.addExperience(-player.totalExperience);
+            if(copier.fluidStorage.amount < copier.fluidStorage.getCapacity()){
+                long transferAmount = copier.getXpDrainRate();
+                player.sendMessage(Text.literal(transferAmount+""));
+                if(copier.fluidStorage.getCapacity()-copier.fluidStorage.amount < transferAmount){
+                    transferAmount = copier.fluidStorage.getCapacity()-copier.fluidStorage.amount;
+                };
+                player.sendMessage(Text.literal(copier.getXpCapacity()+ " "+ copier.fluidStorage.amount + " " + transferAmount));
+                if(player.totalExperience < transferAmount){
+                    transferAmount = player.totalExperience;
+                }
+                player.sendMessage(Text.literal(transferAmount+""));
+                copier.drainPlayerXp(transferAmount);
+                player.addExperience(-(int)transferAmount);
             }
-            PacketByteBuf data = PacketByteBufs.create();
-            data.writeInt(copier.xp);
-            data.writeBlockPos(pos);
-            for (ServerPlayerEntity serverPlayer : PlayerLookup.tracking(player.getServerWorld(), pos)) {
-                ServerPlayNetworking.send(serverPlayer, ModMessages.XP_SYNC, data);
-            }*/
         }
     }
 }

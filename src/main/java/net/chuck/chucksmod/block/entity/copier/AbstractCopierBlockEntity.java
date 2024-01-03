@@ -142,12 +142,12 @@ public abstract class AbstractCopierBlockEntity extends AbstractEnergyCookerBloc
     @Override
     public void tick(World world, BlockPos blockPos, BlockState blockState) {
         super.tick(world, blockPos, blockState);
-        if(hasXpBucketInSlot()){
-            transferXpToStorage();
+        if(canExtractFromXpBucket()){
+            transferXpBucketToStorage();
         }
     }
 
-    private void transferXpToStorage() {
+    private void transferXpBucketToStorage() {
         try(Transaction transaction = Transaction.openOuter()){
             this.fluidStorage.insert(FluidVariant.of(ModFluids.STILL_LIQUID_XP),
                     FluidStack.convertDropletsToMb(FluidConstants.BUCKET), transaction);
@@ -156,8 +156,16 @@ public abstract class AbstractCopierBlockEntity extends AbstractEnergyCookerBloc
         }
     }
 
-    private boolean hasXpBucketInSlot() {
-        return getStack(XP_BUCKET_SLOT).getItem() == ModFluids.LIQUID_XP_BUCKET;
+    public void drainPlayerXp(long amount){
+        try(Transaction transaction = Transaction.openOuter()){
+            this.fluidStorage.insert(FluidVariant.of(ModFluids.STILL_LIQUID_XP),
+                    amount, transaction);
+            transaction.commit();
+        }
+    }
+
+    private boolean canExtractFromXpBucket() {
+        return getStack(XP_BUCKET_SLOT).getItem() == ModFluids.LIQUID_XP_BUCKET && fluidStorage.amount + 1000 < fluidStorage.getCapacity();
     }
 
     private void extractXp() {
