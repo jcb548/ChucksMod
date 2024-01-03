@@ -42,7 +42,7 @@ public abstract class AbstractPoweredFurnaceBlockEntity extends AbstractEnergyCo
     @Override
     public ScreenHandler createMenu(int syncId, PlayerInventory playerInventory, PlayerEntity player) {
         this.markDirty();
-        return new PoweredFurnaceScreenHandler(syncId, playerInventory, this, propertyDelegate,
-                this.energyStorage.amount);
+        sendEnergyPacket();
+        return new PoweredFurnaceScreenHandler(syncId, playerInventory, this, propertyDelegate);
     }
 }

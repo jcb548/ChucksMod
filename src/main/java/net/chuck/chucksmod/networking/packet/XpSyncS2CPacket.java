@@ -6,7 +6,9 @@ import net.chuck.chucksmod.block.entity.energy_storage.AbstractEnergyStorageBloc
 import net.chuck.chucksmod.screen.AbstractEnergyUsingScreenHandler;
 import net.chuck.chucksmod.screen.copier.CopierScreenHandler;
 import net.chuck.chucksmod.screen.energy_storage.EnergyStorageScreenHandler;
+import net.chuck.chucksmod.util.FluidStack;
 import net.fabricmc.fabric.api.networking.v1.PacketSender;
+import net.fabricmc.fabric.api.transfer.v1.fluid.FluidVariant;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayNetworkHandler;
 import net.minecraft.network.PacketByteBuf;
@@ -24,14 +26,17 @@ import net.minecraft.util.math.BlockPos;
 public class XpSyncS2CPacket {
     public static void receive(MinecraftClient client, ClientPlayNetworkHandler handler,
                                PacketByteBuf buf, PacketSender responseSender) {
-        int xp = buf.readInt();
+        FluidVariant variant = FluidVariant.fromPacket(buf);
+        long xpLevel = buf.readLong();
         BlockPos pos = buf.readBlockPos();
+
         if (client.world != null) {
             if (client.world.getWorldChunk(pos).getBlockEntity(pos) instanceof AbstractCopierBlockEntity copier) {
-                copier.setXp(xp);
+                copier.setXpLevel(variant, xpLevel);
                 if (client.player.currentScreenHandler instanceof CopierScreenHandler screenHandler &&
                         screenHandler.copier.getPos().equals(pos)) {
-                    copier.setXp(xp);
+                    copier.setXpLevel(variant, xpLevel);
+                    screenHandler.setXp(new FluidStack(variant, xpLevel));
                 }
             }
         }

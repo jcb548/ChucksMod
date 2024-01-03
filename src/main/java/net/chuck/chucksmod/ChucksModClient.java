@@ -7,6 +7,7 @@ import net.chuck.chucksmod.client.ArmorHudOverlay;
 import net.chuck.chucksmod.entity.ModBoats;
 import net.chuck.chucksmod.entity.ModEntities;
 import net.chuck.chucksmod.entity.client.*;
+import net.chuck.chucksmod.fluid.ModFluids;
 import net.chuck.chucksmod.networking.ModMessages;
 import net.chuck.chucksmod.screen.*;
 import net.chuck.chucksmod.screen.bag.BagScreen3x1;
@@ -24,6 +25,8 @@ import net.chuck.chucksmod.screen.quarry.IronQuarryScreen;
 import net.chuck.chucksmod.screen.quarry.TitaniumQuarryScreen;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
+import net.fabricmc.fabric.api.client.render.fluid.v1.FluidRenderHandlerRegistry;
+import net.fabricmc.fabric.api.client.render.fluid.v1.SimpleFluidRenderHandler;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
@@ -33,6 +36,7 @@ import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.TexturedRenderLayers;
 import net.minecraft.client.util.SpriteIdentifier;
+import net.minecraft.util.Identifier;
 
 /*
  *  Code inspired by or copied from
@@ -56,9 +60,19 @@ public class ChucksModClient implements ClientModInitializer {
         registerEntityRenderers();
 
         registerSignRenderers();
+        registerFluidRenderers();
 
         TerraformBoatClientHelper.registerModelLayers(ModBoats.EUCALYPTUS_BOAT_ID, false);
         TerraformBoatClientHelper.registerModelLayers(ModBoats.DIRITIA_BOAT_ID, false);
+    }
+
+    private void registerFluidRenderers() {
+        FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.STILL_LIQUID_XP, ModFluids.FLOWING_LIQUID_XP,
+                new SimpleFluidRenderHandler(
+                        new Identifier("minecraft:block/water_still"),
+                        new Identifier("minecraft:block/water_flow"),
+                        0xA11CF700
+                ));
     }
 
     private void registerSignRenderers(){
@@ -161,6 +175,9 @@ public class ChucksModClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.HARDENED_WHITE_GLASS_PANE, RenderLayer.getTranslucent());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.HARDENED_YELLOW_GLASS, RenderLayer.getTranslucent());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.HARDENED_YELLOW_GLASS_PANE, RenderLayer.getTranslucent());
+
+        BlockRenderLayerMap.INSTANCE.putFluids(RenderLayer.getTranslucent(), ModFluids.STILL_LIQUID_XP,
+                ModFluids.FLOWING_LIQUID_XP);
     }
     private void registerHandledScreens(){
         HandledScreens.register(ModScreenHandlers.CRUSHER_SCREEN_HANDLER, CrusherScreen::new);

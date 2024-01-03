@@ -61,8 +61,8 @@ public abstract class AbstractGeneratorBlockEntity extends AbstractEnergyUsingBl
     @Override
     public ScreenHandler createMenu(int syncId, PlayerInventory playerInventory, PlayerEntity player) {
         this.markDirty();
-        return new GeneratorScreenHandler(syncId, playerInventory, this, propertyDelegate,
-                this.energyStorage.amount);
+        sendEnergyPacket();
+        return new GeneratorScreenHandler(syncId, playerInventory, this, propertyDelegate);
     }
     public abstract int getGeneration();
     public abstract int getMaxExtract();

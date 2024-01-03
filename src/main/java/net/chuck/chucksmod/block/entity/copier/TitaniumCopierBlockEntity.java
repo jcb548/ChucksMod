@@ -14,7 +14,6 @@ import org.jetbrains.annotations.Nullable;
 public class TitaniumCopierBlockEntity extends AbstractCopierBlockEntity implements TitaniumTier {
     public TitaniumCopierBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.TITANIUM_COPIER, pos, state, MACHINE_ENERGY_STORAGE, SPEED, MAX_INSERT_EXTRACT);
-        maxXp = XP_STORAGE;
     }
 
     @Override
@@ -30,5 +29,10 @@ public class TitaniumCopierBlockEntity extends AbstractCopierBlockEntity impleme
     @Override
     public int getXpDrainRate() {
         return XP_DRAIN_RATE;
+    }
+
+    @Override
+    public int getXpCapacity() {
+        return XP_BUCKETS;
     }
 }

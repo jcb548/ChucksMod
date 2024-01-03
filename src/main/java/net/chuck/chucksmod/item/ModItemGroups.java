@@ -2,6 +2,7 @@ package net.chuck.chucksmod.item;
 
 import net.chuck.chucksmod.ChucksMod;
 import net.chuck.chucksmod.block.ModBlocks;
+import net.chuck.chucksmod.fluid.ModFluids;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
@@ -295,6 +296,8 @@ public class ModItemGroups {
                         entries.add(ModItems.WOOL_BAG);
                         entries.add(ModItems.LEATHER_BAG);
                         entries.add(ModItems.COPPER_BAG);
+
+                        entries.add(ModFluids.LIQUID_XP_BUCKET);
                     }).build());
     public static void registerItemGroups() {
         ChucksMod.LOGGER.info("Registering Item Groups for " + ChucksMod.MOD_ID);

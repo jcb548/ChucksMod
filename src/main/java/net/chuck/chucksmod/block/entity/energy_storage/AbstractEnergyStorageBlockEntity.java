@@ -61,22 +61,28 @@ public abstract class AbstractEnergyStorageBlockEntity extends BlockEntity imple
             protected void onFinalCommit() {
                 markDirty();
                 if(!world.isClient()){
-                    PacketByteBuf data = PacketByteBufs.create();
-                    data.writeLong(amount);
-                    data.writeBlockPos(getPos());
-
-                    for(ServerPlayerEntity player : PlayerLookup.tracking((ServerWorld) world, getPos())){
-                        ServerPlayNetworking.send(player, ModMessages.ENERGY_SYNC, data);
-                    }
+                    sendEnergyPacket();
                 }
             }
         };
     }
+
+    private void sendEnergyPacket() {
+        PacketByteBuf data = PacketByteBufs.create();
+        data.writeLong(energyStorage.amount);
+        data.writeBlockPos(getPos());
+
+        for(ServerPlayerEntity player : PlayerLookup.tracking((ServerWorld) world, getPos())){
+            ServerPlayNetworking.send(player, ModMessages.ENERGY_SYNC, data);
+        }
+    }
+
     @Nullable
     @Override
     public ScreenHandler createMenu(int syncId, PlayerInventory playerInventory, PlayerEntity player) {
         this.markDirty();
-        return new EnergyStorageScreenHandler(syncId, playerInventory, this, this.energyStorage.amount);
+        sendEnergyPacket();
+        return new EnergyStorageScreenHandler(syncId, playerInventory, this);
     }
     @Override
     public DefaultedList<ItemStack> getItems() {

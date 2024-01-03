@@ -21,8 +21,8 @@ public class CopierDrainXpC2SPacket {
         //Happens on server only
         BlockPos pos = buf.readBlockPos();
         if(player.getServerWorld().getWorldChunk(pos).getBlockEntity(pos) instanceof AbstractCopierBlockEntity copier){
-            if(copier.xp < copier.maxXp && player.totalExperience >= copier.getXpDrainRate()){
-                copier.xp += copier.getXpDrainRate();
+            /*if(copier.fluidStorage.amount < copier.fluidStorage.getCapacity() && player.totalExperience >= copier.getXpDrainRate()){
+                copier.fluidStorage.insert(copier.getXpDrainRate()) += copier.getXpDrainRate();
                 player.addExperience(-copier.getXpDrainRate());
             } else if(player.totalExperience > 0){
                 copier.xp += player.totalExperience;
@@ -33,7 +33,7 @@ public class CopierDrainXpC2SPacket {
             data.writeBlockPos(pos);
             for (ServerPlayerEntity serverPlayer : PlayerLookup.tracking(player.getServerWorld(), pos)) {
                 ServerPlayNetworking.send(serverPlayer, ModMessages.XP_SYNC, data);
-            }
+            }*/
         }
     }
 }

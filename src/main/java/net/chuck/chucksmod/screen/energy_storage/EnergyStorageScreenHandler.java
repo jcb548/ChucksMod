@@ -22,15 +22,13 @@ public class EnergyStorageScreenHandler extends ScreenHandler {
     protected final Inventory inventory;
     public final AbstractEnergyStorageBlockEntity blockEntity;
     public EnergyStorageScreenHandler(int syncId, PlayerInventory inventory, PacketByteBuf buf){
-        this(syncId, inventory, inventory.player.getWorld().getBlockEntity(buf.readBlockPos()),
-                buf.readLong());
+        this(syncId, inventory, inventory.player.getWorld().getBlockEntity(buf.readBlockPos()));
     }
-    public EnergyStorageScreenHandler(int syncId, PlayerInventory playerInventory, BlockEntity entity, long energy) {
+    public EnergyStorageScreenHandler(int syncId, PlayerInventory playerInventory, BlockEntity entity) {
         super(ModScreenHandlers.ENERGY_STORAGE_SCREEN_HANDLER, syncId);
         checkSize(((Inventory) entity), AbstractEnergyStorageBlockEntity.INV_SIZE);
         this.inventory = (Inventory) entity;
         this.blockEntity = (AbstractEnergyStorageBlockEntity) entity;
-        this.blockEntity.setEnergyLevel(energy);
         inventory.onOpen(playerInventory.player);
         this.addSlot(new Slot(inventory, AbstractEnergyStorageBlockEntity.INPUT_SLOT, 20, 35));
         addPlayerInventory(playerInventory);

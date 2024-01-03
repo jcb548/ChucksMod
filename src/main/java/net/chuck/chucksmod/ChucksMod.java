@@ -7,6 +7,7 @@ import net.chuck.chucksmod.entity.ModEntities;
 import net.chuck.chucksmod.entity.custom.FrankBoss;
 import net.chuck.chucksmod.entity.custom.SoulBlazeBoss;
 import net.chuck.chucksmod.entity.custom.WyattEntity;
+import net.chuck.chucksmod.fluid.ModFluids;
 import net.chuck.chucksmod.item.ModItemGroups;
 import net.chuck.chucksmod.item.ModItems;
 import net.chuck.chucksmod.item.enchantment.ModEnchantments;
@@ -55,6 +56,8 @@ public class ChucksMod implements ModInitializer {
 		ModRecipes.registerRecipes();
 		ModBoats.registerBoats();
 		ModEnchantments.registerEnchantments();
+
+		ModFluids.register();
 
 		//Custom portals
 		CustomPortalBuilder.beginPortal().frameBlock(Blocks.GOLD_BLOCK)

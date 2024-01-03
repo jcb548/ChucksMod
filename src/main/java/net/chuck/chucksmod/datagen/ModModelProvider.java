@@ -4,6 +4,7 @@ import net.chuck.chucksmod.block.ModBlocks;
 import net.chuck.chucksmod.block.custom.LettuceCropBlock;
 import net.chuck.chucksmod.block.custom.PineappleCropBlock;
 import net.chuck.chucksmod.block.custom.TomatoCropBlock;
+import net.chuck.chucksmod.fluid.ModFluids;
 import net.chuck.chucksmod.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
@@ -329,5 +330,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.HANGING_DIRITIA_SIGN, Models.GENERATED);
         itemModelGenerator.register(ModItems.DIRITIA_BOAT, Models.GENERATED);
         itemModelGenerator.register(ModItems.DIRITIA_CHEST_BOAT, Models.GENERATED);
+
+        itemModelGenerator.register(ModFluids.LIQUID_XP_BUCKET, Models.GENERATED);
     }
 }

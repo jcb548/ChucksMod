@@ -18,6 +18,7 @@ import net.chuck.chucksmod.block.entity.wire.CopperWireBlockEntity;
 import net.chuck.chucksmod.block.entity.wire.GoldWireBlockEntity;
 import net.chuck.chucksmod.block.entity.wire.TinWireBlockEntity;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
+import net.fabricmc.fabric.api.transfer.v1.fluid.FluidStorage;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -137,6 +138,8 @@ public class ModBlockEntities {
                 FabricBlockEntityTypeBuilder.create(TitaniumCopierBlockEntity::new,
                         ModBlocks.TITANIUM_COPIER).build());
         EnergyStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.energyStorage,
+                TITANIUM_COPIER);
+        FluidStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.fluidStorage,
                 TITANIUM_COPIER);
     }
 }

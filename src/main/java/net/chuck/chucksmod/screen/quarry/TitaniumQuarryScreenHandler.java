@@ -15,15 +15,14 @@ public class TitaniumQuarryScreenHandler extends IronQuarryScreenHandler {
     private static final int LAST_QUARRY_INV_SLOT = 51;
     private static final int INV_ROWS = 2;
     public TitaniumQuarryScreenHandler(int syncId, PlayerInventory playerInventory, BlockEntity entity,
-                                       PropertyDelegate delegate, long energy) {
+                                       PropertyDelegate delegate) {
         super(syncId, playerInventory, entity, delegate, ModScreenHandlers.TITANIUM_QUARRY_SCREEN_HANDLER,
                 TitaniumQuarryBlockEntity.QUARRY_INV_SIZE);
-        this.blockEntity.setEnergyLevel(energy);
         addQuarryInventory();
     }
     public TitaniumQuarryScreenHandler(int syncId, PlayerInventory inventory, PacketByteBuf buf){
         this(syncId, inventory, inventory.player.getWorld().getBlockEntity(buf.readBlockPos()),
-                new ArrayPropertyDelegate(AbstractQuarryBlockEntity.DELEGATE_SIZE), buf.readLong());
+                new ArrayPropertyDelegate(AbstractQuarryBlockEntity.DELEGATE_SIZE));
     }
     @Override
     public int getEndOfInventory(){

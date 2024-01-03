@@ -19,15 +19,14 @@ public class IronQuarryScreenHandler extends AbstractQuarryScreenHandler {
     protected static final int FIRST_QUARRY_INV_SLOT = 36;
     private static final int LAST_QUARRY_INV_SLOT = 43;
     public IronQuarryScreenHandler(int syncId, PlayerInventory playerInventory, BlockEntity entity,
-                                   PropertyDelegate delegate, long energy) {
+                                   PropertyDelegate delegate) {
         super(syncId, playerInventory, entity, delegate, ModScreenHandlers.IRON_QUARRY_SCREEN_HANDLER,
                 IronQuarryBlockEntity.QUARRY_INV_SIZE);
-        this.blockEntity.setEnergyLevel(energy);
         addQuarryInventory();
     }
     public IronQuarryScreenHandler(int syncId, PlayerInventory inventory, PacketByteBuf buf){
         this(syncId, inventory, inventory.player.getWorld().getBlockEntity(buf.readBlockPos()),
-                new ArrayPropertyDelegate(AbstractQuarryBlockEntity.DELEGATE_SIZE), buf.readLong());
+                new ArrayPropertyDelegate(AbstractQuarryBlockEntity.DELEGATE_SIZE));
     }
 
     public IronQuarryScreenHandler(int syncId, PlayerInventory playerInventory, BlockEntity entity,

@@ -16,13 +16,12 @@ import net.minecraft.screen.ScreenHandlerType;
 
 public class PoweredFurnaceScreenHandler extends AbstractEnergyCookerScreenHandler {
     public PoweredFurnaceScreenHandler(int syncId, PlayerInventory playerInventory, BlockEntity entity,
-                                       PropertyDelegate delegate, long energy) {
+                                       PropertyDelegate delegate) {
         super(syncId, playerInventory, entity, delegate, ModScreenHandlers.POWERED_FURNACE_SCREEN_HANDLER);
-        this.blockEntity.setEnergyLevel(energy);
     }
     public PoweredFurnaceScreenHandler(int syncId, PlayerInventory inventory, PacketByteBuf buf){
         this(syncId, inventory, inventory.player.getWorld().getBlockEntity(buf.readBlockPos()),
-                new ArrayPropertyDelegate(AbstractPoweredFurnaceBlockEntity.DELEGATE_SIZE), buf.readLong());
+                new ArrayPropertyDelegate(AbstractPoweredFurnaceBlockEntity.DELEGATE_SIZE));
     }
     public int getScaledProgress() {
         int progress = this.propertyDelegate.get(AbstractEnergyCookerBlockEntity.PROGRESS_IDX);

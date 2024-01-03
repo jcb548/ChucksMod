@@ -17,14 +17,13 @@ import net.minecraft.screen.slot.Slot;
 public class GeneratorScreenHandler extends AbstractEnergyUsingScreenHandler {
     protected static final int INV_SIZE = 1;
     public GeneratorScreenHandler(int syncId, PlayerInventory playerInventory, BlockEntity entity,
-                                  PropertyDelegate delegate, long energy) {
+                                  PropertyDelegate delegate) {
         super(syncId, playerInventory, entity, delegate, ModScreenHandlers.GENERATOR_SCREEN_HANDLER, INV_SIZE);
-        this.blockEntity.setEnergyLevel(energy);
         this.addSlot(new Slot(inventory, AbstractHeatGeneratorBlockEntity.FUEL_SLOT, 80, 39));
     }
     public GeneratorScreenHandler(int syncId, PlayerInventory inventory, PacketByteBuf buf){
         this(syncId, inventory, inventory.player.getWorld().getBlockEntity(buf.readBlockPos()),
-                new ArrayPropertyDelegate(AbstractHeatGeneratorBlockEntity.DELEGATE_SIZE), buf.readLong());
+                new ArrayPropertyDelegate(AbstractHeatGeneratorBlockEntity.DELEGATE_SIZE));
     }
 
     @Override

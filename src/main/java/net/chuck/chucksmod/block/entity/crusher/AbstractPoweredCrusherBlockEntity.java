@@ -49,7 +49,7 @@ public abstract class AbstractPoweredCrusherBlockEntity extends AbstractEnergyCo
     @Override
     public ScreenHandler createMenu(int syncId, PlayerInventory playerInventory, PlayerEntity player) {
         this.markDirty();
-        return new PoweredCrusherScreenHandler(syncId, playerInventory, this, propertyDelegate,
-                this.energyStorage.amount);
+        sendEnergyPacket();
+        return new PoweredCrusherScreenHandler(syncId, playerInventory, this, propertyDelegate);
     }
 }

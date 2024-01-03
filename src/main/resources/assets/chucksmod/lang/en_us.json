@@ -290,10 +290,17 @@
   "tooltip.chucksmod.7x2bag.tooltip": "Can store 14 items, opened by right-clicking",
   "gui.chucksmod.bag": "Bag",
 
+  "chucksmod.tooltip.liquid.amount.with.capacity": "%s / %s mB",
+  "chucksmod.tooltip.liquid.amount": "%s mB",
+  "block.minecraft.empty": "Empty",
+
   "enchantment.chucksmod.withering": "Withering",
   "enchantment.chucksmod.alacrity": "Alacrity",
   "enchantment.chucksmod.lifesteal_one": "Lifesteal I (10%)",
   "enchantment.chucksmod.ender": "Ender",
+
+  "block.chucksmod.liquid_xp": "Liquid Xp",
+  "item.chucksmod.liquid_xp_bucket": "Bucket of Liquid Xp",
 
   "itemgroup.chucksmod": "Chucks Mod",
 

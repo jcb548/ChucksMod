@@ -42,8 +42,8 @@ public class TitaniumQuarryBlockEntity extends AbstractQuarryBlockEntity impleme
     @Override
     public ScreenHandler createMenu(int syncId, PlayerInventory playerInventory, PlayerEntity player) {
         this.markDirty();
-        return new TitaniumQuarryScreenHandler(syncId, playerInventory,this, propertyDelegate,
-                this.energyStorage.amount);
+        sendEnergyPacket();
+        return new TitaniumQuarryScreenHandler(syncId, playerInventory,this, propertyDelegate);
     }
 
     @Override

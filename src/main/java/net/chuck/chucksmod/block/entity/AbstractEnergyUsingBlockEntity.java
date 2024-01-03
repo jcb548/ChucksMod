@@ -9,15 +9,19 @@ import net.fabricmc.fabric.api.transfer.v1.transaction.Transaction;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityType;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;
 import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.PacketByteBuf;
+import net.minecraft.screen.ScreenHandler;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
+import org.jetbrains.annotations.Nullable;
 import team.reborn.energy.api.base.SimpleEnergyStorage;
 
 public abstract class AbstractEnergyUsingBlockEntity extends BlockEntity implements ExtendedScreenHandlerFactory,
@@ -34,17 +38,22 @@ public abstract class AbstractEnergyUsingBlockEntity extends BlockEntity impleme
             protected void onFinalCommit() {
                 markDirty();
                 if(!world.isClient()){
-                    PacketByteBuf data = PacketByteBufs.create();
-                    data.writeLong(amount);
-                    data.writeBlockPos(getPos());
-
-                    for(ServerPlayerEntity player : PlayerLookup.tracking((ServerWorld) world, getPos())){
-                        ServerPlayNetworking.send(player, ModMessages.ENERGY_SYNC, data);
-                    }
+                    sendEnergyPacket();
                 }
             }
         };
     }
+
+    protected void sendEnergyPacket() {
+        PacketByteBuf data = PacketByteBufs.create();
+        data.writeLong(energyStorage.amount);
+        data.writeBlockPos(getPos());
+
+        for(ServerPlayerEntity player : PlayerLookup.tracking((ServerWorld) world, getPos())){
+            ServerPlayNetworking.send(player, ModMessages.ENERGY_SYNC, data);
+        }
+    }
+
     public void setEnergyLevel(long energyLevel){
         this.energyStorage.amount = energyLevel;
     }
@@ -62,7 +71,7 @@ public abstract class AbstractEnergyUsingBlockEntity extends BlockEntity impleme
     protected abstract int getEnergyUsage();
     public void writeScreenOpeningData(ServerPlayerEntity player, PacketByteBuf buf) {
         buf.writeBlockPos(this.pos);
-        buf.writeLong(this.energyStorage.amount);
+        sendEnergyPacket();
     }
     @Override
     protected void writeNbt(NbtCompound nbt) {

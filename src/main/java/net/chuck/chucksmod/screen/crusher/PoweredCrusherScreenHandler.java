@@ -18,13 +18,12 @@ import net.minecraft.screen.ScreenHandlerType;
 
 public class PoweredCrusherScreenHandler extends AbstractEnergyCookerScreenHandler {
     public PoweredCrusherScreenHandler(int syncId, PlayerInventory playerInventory, BlockEntity entity,
-                                       PropertyDelegate delegate, long energy) {
+                                       PropertyDelegate delegate) {
         super(syncId, playerInventory, entity, delegate, ModScreenHandlers.POWERED_CRUSHER_SCREEN_HANDLER);
-        this.blockEntity.setEnergyLevel(energy);
     }
     public PoweredCrusherScreenHandler(int syncId, PlayerInventory inventory, PacketByteBuf buf){
         this(syncId, inventory, inventory.player.getWorld().getBlockEntity(buf.readBlockPos()),
-                new ArrayPropertyDelegate(AbstractPoweredCrusherBlockEntity.DELEGATE_SIZE), buf.readLong());
+                new ArrayPropertyDelegate(AbstractPoweredCrusherBlockEntity.DELEGATE_SIZE));
     }
     public int getScaledProgress() {
         int progress = this.propertyDelegate.get(AbstractEnergyCookerBlockEntity.PROGRESS_IDX);
