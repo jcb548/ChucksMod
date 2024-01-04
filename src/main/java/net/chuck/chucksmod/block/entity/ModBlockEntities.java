@@ -8,6 +8,7 @@ import net.chuck.chucksmod.block.entity.crusher.IronPoweredCrusherBlockEntity;
 import net.chuck.chucksmod.block.entity.crusher.TitaniumPoweredCrusherBlockEntity;
 import net.chuck.chucksmod.block.entity.energy_storage.IronEnergyStorageBlockEntity;
 import net.chuck.chucksmod.block.entity.energy_storage.TitaniumEnergyStorageBlockEntity;
+import net.chuck.chucksmod.block.entity.fluid_tank.IronFluidTankBlockEntity;
 import net.chuck.chucksmod.block.entity.furnace.IronPoweredFurnaceBlockEntity;
 import net.chuck.chucksmod.block.entity.furnace.TitaniumPoweredFurnaceBlockEntity;
 import net.chuck.chucksmod.block.entity.generator.IronHeatGeneratorBlockEntity;
@@ -39,6 +40,7 @@ public class ModBlockEntities {
     public static BlockEntityType<IronHeatGeneratorBlockEntity> IRON_HEAT_GENERATOR;
     public static BlockEntityType<IronEnergyStorageBlockEntity> IRON_ENERGY_STORAGE;
     public static BlockEntityType<IronQuarryBlockEntity> IRON_QUARRY;
+    public static BlockEntityType<IronFluidTankBlockEntity> IRON_FLUID_TANK;
     public static BlockEntityType<TinWireBlockEntity> TIN_WIRE;
     public static BlockEntityType<CopperWireBlockEntity> COPPER_WIRE;
     public static BlockEntityType<GoldWireBlockEntity> GOLD_WIRE;
@@ -85,6 +87,10 @@ public class ModBlockEntities {
                         ModBlocks.IRON_QUARRY).build());
         EnergyStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.energyStorage,
                 IRON_QUARRY);
+        IRON_FLUID_TANK = Registry.register(Registries.BLOCK_ENTITY_TYPE,
+                new Identifier(ChucksMod.MOD_ID, "iron_fluid_tank"),
+                FabricBlockEntityTypeBuilder.create(IronFluidTankBlockEntity::new,
+                        ModBlocks.IRON_FLUID_TANK).build());
         // Wires
         TIN_WIRE = Registry.register(Registries.BLOCK_ENTITY_TYPE,
                 new Identifier(ChucksMod.MOD_ID, "tin_wire"),

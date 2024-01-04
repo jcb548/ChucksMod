@@ -45,8 +45,6 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.HARDENED_TINTED_GLASS);
 
         getOrCreateTagBuilder(BlockTags.NEEDS_IRON_TOOL)
-                .add(ModBlocks.IRON_POWERED_CRUSHER)
-                .add(ModBlocks.IRON_HEAT_GENERATOR)
                 .add(ModBlocks.GOLD_BARS)
 
                 .add(ModBlocks.TITANIUM_BLOCK)
@@ -79,7 +77,8 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.IRON_POWERED_CRUSHER)
                 .add(ModBlocks.IRON_POWERED_FURNACE)
                 .add(ModBlocks.IRON_ENERGY_STORAGE)
-                .add(ModBlocks.IRON_QUARRY);
+                .add(ModBlocks.IRON_QUARRY)
+                .add(ModBlocks.IRON_FLUID_TANK);
 
         getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
                 .addTag(ModBlockTags.BARS)
@@ -99,6 +98,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.IRON_POWERED_FURNACE)
                 .add(ModBlocks.IRON_ENERGY_STORAGE)
                 .add(ModBlocks.IRON_QUARRY)
+                .add(ModBlocks.IRON_FLUID_TANK)
 
                 .add(ModBlocks.SANDSTONE_BRICKS)
                 .add(ModBlocks.SANDSTONE_BRICK_STAIRS)

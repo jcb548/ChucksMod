@@ -1,5 +1,6 @@
 package net.chuck.chucksmod.datagen;
 
+import dev.architectury.platform.Mod;
 import net.chuck.chucksmod.block.ModBlocks;
 import net.chuck.chucksmod.block.custom.LettuceCropBlock;
 import net.chuck.chucksmod.block.custom.PineappleCropBlock;
@@ -8,6 +9,8 @@ import net.chuck.chucksmod.fluid.ModFluids;
 import net.chuck.chucksmod.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
+import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.data.client.*;
 import net.minecraft.item.ArmorItem;
 
@@ -184,6 +187,8 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerCooker(ModBlocks.IRON_POWERED_FURNACE, TexturedModel.ORIENTABLE);
         blockStateModelGenerator.registerCooker(ModBlocks.IRON_HEAT_GENERATOR, TexturedModel.ORIENTABLE);
         blockStateModelGenerator.registerCooker(ModBlocks.IRON_QUARRY, TexturedModel.ORIENTABLE);
+        registerVerticalColumn(blockStateModelGenerator, ModBlocks.IRON_FLUID_TANK);
+
 
         BlockStateModelGenerator.BlockTexturePool sandstone_bricks_pool =
                 blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.SANDSTONE_BRICKS);
@@ -332,5 +337,14 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.DIRITIA_CHEST_BOAT, Models.GENERATED);
 
         itemModelGenerator.register(ModFluids.LIQUID_XP_BUCKET, Models.GENERATED);
+    }
+    private static void registerVerticalColumn(BlockStateModelGenerator blockStateModelGenerator, Block block){
+        TextureMap map =  new TextureMap()
+                .put(TextureKey.PARTICLE, TextureMap.getId(block))
+                .put(TextureKey.UP, TextureMap.getSubId(block, "_top"))
+                .put(TextureKey.DOWN, TextureMap.getSubId(block, "_top"))
+                .put(TextureKey.SIDE, TextureMap.getId(block));
+        blockStateModelGenerator.blockStateCollector.accept(BlockStateModelGenerator.createSingletonBlockState(block,
+                Models.CUBE.upload(block, map, blockStateModelGenerator.modelCollector)));
     }
 }

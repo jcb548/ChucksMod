@@ -15,23 +15,24 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
 
+import java.util.UUID;
+
 public class CopierDrainXpC2SPacket {
     public static void receive(MinecraftServer server, ServerPlayerEntity player, ServerPlayNetworkHandler handler,
                         PacketByteBuf buf, PacketSender responseSender){
         //Happens on server only
         BlockPos pos = buf.readBlockPos();
-        if(player.getServerWorld().getWorldChunk(pos).getBlockEntity(pos) instanceof AbstractCopierBlockEntity copier){
+        UUID playerUuid = buf.readUuid();
+        if(player.getServerWorld().getWorldChunk(pos).getBlockEntity(pos) instanceof AbstractCopierBlockEntity copier
+                && player.getUuid().equals(playerUuid)){
             if(copier.fluidStorage.amount < copier.fluidStorage.getCapacity()){
                 long transferAmount = copier.getXpDrainRate();
-                player.sendMessage(Text.literal(transferAmount+""));
                 if(copier.fluidStorage.getCapacity()-copier.fluidStorage.amount < transferAmount){
                     transferAmount = copier.fluidStorage.getCapacity()-copier.fluidStorage.amount;
-                };
-                player.sendMessage(Text.literal(copier.getXpCapacity()+ " "+ copier.fluidStorage.amount + " " + transferAmount));
+                }
                 if(player.totalExperience < transferAmount){
                     transferAmount = player.totalExperience;
                 }
-                player.sendMessage(Text.literal(transferAmount+""));
                 copier.drainPlayerXp(transferAmount);
                 player.addExperience(-(int)transferAmount);
             }

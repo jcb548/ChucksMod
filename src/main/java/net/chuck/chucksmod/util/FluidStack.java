@@ -3,6 +3,7 @@ package net.chuck.chucksmod.util;
 import net.fabricmc.fabric.api.transfer.v1.fluid.FluidVariant;
 
 public class FluidStack {
+    public static int BUCKET_MB = 1000;
     public FluidVariant fluidVariant;
     public long amount;
 

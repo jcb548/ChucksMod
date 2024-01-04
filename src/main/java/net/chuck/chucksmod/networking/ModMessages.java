@@ -16,6 +16,7 @@ import net.minecraft.util.Identifier;
 public class ModMessages {
     public static final Identifier ENERGY_SYNC = new Identifier(ChucksMod.MOD_ID, "energy_sync");
     public static final Identifier XP_SYNC = new Identifier(ChucksMod.MOD_ID, "xp_sync");
+    public static final Identifier FLUID_SYNC = new Identifier(ChucksMod.MOD_ID, "fluid_sync");
     public static final Identifier TELEPORT_PARTICLE = new Identifier(ChucksMod.MOD_ID, "teleport_particle");
     public static final Identifier ENERGY_STORAGE_BLOCK_SYNC =
             new Identifier(ChucksMod.MOD_ID, "energy_storage_sync");
@@ -24,6 +25,7 @@ public class ModMessages {
     public static void registerS2CPackets(){
         ClientPlayNetworking.registerGlobalReceiver(ENERGY_SYNC, EnergySyncS2CPacket::receive);
         ClientPlayNetworking.registerGlobalReceiver(XP_SYNC, XpSyncS2CPacket::receive);
+        ClientPlayNetworking.registerGlobalReceiver(FLUID_SYNC, FluidTankSyncS2CPacket::receive);
         ClientPlayNetworking.registerGlobalReceiver(TELEPORT_PARTICLE, TeleportParticleS2CPacket::receive);
     }
     public static void registerC2SPackets(){

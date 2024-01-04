@@ -15,4 +15,5 @@ public interface IronTier {
     int QUARRY_INV_SIZE = 8;
     int QUARRY_SIZE = 7;
     int QUARRY_SPEED = SPEED / 10;
+    int FLUID_TANK_BUCKETS = 8;
 }

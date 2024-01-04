@@ -14,6 +14,7 @@ import net.chuck.chucksmod.block.custom.crusher.IronPoweredCrusherBlock;
 import net.chuck.chucksmod.block.custom.crusher.TitaniumPoweredCrusherBlock;
 import net.chuck.chucksmod.block.custom.energy_storage.IronEnergyStorageBlock;
 import net.chuck.chucksmod.block.custom.energy_storage.TitaniumEnergyStorageBlock;
+import net.chuck.chucksmod.block.custom.fluid_tank.IronFluidTankBlock;
 import net.chuck.chucksmod.block.custom.furnace.IronPoweredFurnaceBlock;
 import net.chuck.chucksmod.block.custom.furnace.TitaniumPoweredFurnaceBlock;
 import net.chuck.chucksmod.block.custom.generator.IronHeatGeneratorBlock;
@@ -162,6 +163,8 @@ public class ModBlocks {
             new IronEnergyStorageBlock(FabricBlockSettings.copy(Blocks.IRON_BLOCK)));
     public static final Block IRON_QUARRY = registerBlock("iron_quarry",
             new IronQuarryBlock(FabricBlockSettings.copy(Blocks.IRON_BLOCK)));
+    public static final Block IRON_FLUID_TANK = registerBlock("iron_fluid_tank",
+            new IronFluidTankBlock(FabricBlockSettings.copy(Blocks.IRON_BLOCK)));
 
     public static final Block TIN_WIRE = registerBlock("tin_wire",
             new TinWireBlock(FabricBlockSettings.copy(ModBlocks.TIN_BLOCK)));

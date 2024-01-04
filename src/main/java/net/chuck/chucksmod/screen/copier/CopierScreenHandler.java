@@ -21,6 +21,8 @@ import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.screen.slot.Slot;
 import net.minecraft.text.Text;
 
+import java.util.UUID;
+
 public class CopierScreenHandler extends AbstractEnergyCookerScreenHandler {
     protected final static int BOOK_SCREEN_SLOT_IDX = 38;
     protected final static int XP_BUCKET_SLOT_IDX = 39;
@@ -62,9 +64,10 @@ public class CopierScreenHandler extends AbstractEnergyCookerScreenHandler {
         return maxProgress != 0 && progress != 0 ? progress * progressArrowSize / maxProgress : 0;
     }
 
-    public void onButtonPress(){
+    public void onButtonPress(UUID playerUuid){
         PacketByteBuf buf = PacketByteBufs.create();
         buf.writeBlockPos(blockEntity.getPos());
+        buf.writeUuid(playerUuid);
         ClientPlayNetworking.send(ModMessages.COPIER_XP_DRAIN, buf);
     }
 

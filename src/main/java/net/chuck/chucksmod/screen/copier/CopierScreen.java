@@ -54,7 +54,7 @@ public class CopierScreen extends AbstractEnergyUsingScreen<CopierScreenHandler>
     protected void init() {
         super.init();
         drainXp = ButtonWidget.builder(Text.translatable("tooltip.chucksmod.drain_xp"), button -> {
-            handler.onButtonPress();
+            handler.onButtonPress(this.client.player.getUuid());
         }).dimensions(getX() + 46, getY() + 16, 48, 16).build();
         this.addDrawableChild(drainXp);
         assignFluidStackRenderer();
