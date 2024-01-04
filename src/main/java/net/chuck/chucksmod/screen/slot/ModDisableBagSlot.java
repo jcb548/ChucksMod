@@ -1,4 +1,4 @@
-package net.chuck.chucksmod.util;
+package net.chuck.chucksmod.screen.slot;
 
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.screen.slot.Slot;

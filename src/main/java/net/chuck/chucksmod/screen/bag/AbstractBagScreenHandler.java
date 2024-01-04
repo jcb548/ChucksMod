@@ -2,7 +2,7 @@ package net.chuck.chucksmod.screen.bag;
 
 import net.chuck.chucksmod.item.custom.bag.BagItem5x1;
 import net.chuck.chucksmod.screen.ModScreenHandlers;
-import net.chuck.chucksmod.util.ModDisableBagSlot;
+import net.chuck.chucksmod.screen.slot.ModDisableBagSlot;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;
