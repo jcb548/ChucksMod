@@ -142,6 +142,7 @@
   "block.chucksmod.titanium_quarry": "Titanium Quarry",
   "block.chucksmod.titanium_copier": "Titanium Copier",
   "tooltip.chucksmod.drain_xp": "Drain Xp",
+  "block.chucksmod.titanium_fluid_tank": "Titanium Fluid Tank",
 
   "item.chucksmod.raw_diritonium": "Raw Diritonium",
   "item.chucksmod.diritonium_ingot": "Diritonium Ingot",
@@ -208,6 +209,7 @@
   "block.chucksmod.iron_heat_generator": "Iron Fuel Generator",
   "block.chucksmod.iron_quarry": "Iron Quarry",
   "tooltip.chucksmod.reset_quarry": "Reset Quarry Mining Position",
+
 
   "block.chucksmod.slated_dirt": "Slated Dirt",
   "block.chucksmod.slated_grass": "Slated Grass",

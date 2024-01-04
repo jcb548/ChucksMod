@@ -103,6 +103,7 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerCooker(ModBlocks.TITANIUM_HEAT_GENERATOR, TexturedModel.ORIENTABLE);
         blockStateModelGenerator.registerCooker(ModBlocks.TITANIUM_QUARRY, TexturedModel.ORIENTABLE);
         blockStateModelGenerator.registerCooker(ModBlocks.TITANIUM_COPIER, TexturedModel.ORIENTABLE);
+        registerVerticalColumn(blockStateModelGenerator, ModBlocks.TITANIUM_FLUID_TANK);
 
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SOUL_GRAVEL);
         BlockStateModelGenerator.BlockTexturePool soul_stone_pool =

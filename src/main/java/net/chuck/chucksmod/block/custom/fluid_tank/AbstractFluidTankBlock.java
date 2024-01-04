@@ -35,7 +35,6 @@ public abstract class AbstractFluidTankBlock extends BlockWithEntity {
             BlockEntity blockEntity = world.getBlockEntity(pos);
             if (blockEntity instanceof AbstractFluidTankBlockEntity fluidTank) {
                 fluidTank.sendFluidPacket();
-                player.sendMessage(Text.literal(fluidTank.fluidStorage.toString()));
                 if (player.getStackInHand(hand).getItem() instanceof BucketItem) {
                     fluidTank.interactBucket(player, hand);
                 }

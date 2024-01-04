@@ -9,6 +9,7 @@ import net.chuck.chucksmod.block.entity.crusher.TitaniumPoweredCrusherBlockEntit
 import net.chuck.chucksmod.block.entity.energy_storage.IronEnergyStorageBlockEntity;
 import net.chuck.chucksmod.block.entity.energy_storage.TitaniumEnergyStorageBlockEntity;
 import net.chuck.chucksmod.block.entity.fluid_tank.IronFluidTankBlockEntity;
+import net.chuck.chucksmod.block.entity.fluid_tank.TitaniumFluidTankBlockEntity;
 import net.chuck.chucksmod.block.entity.furnace.IronPoweredFurnaceBlockEntity;
 import net.chuck.chucksmod.block.entity.furnace.TitaniumPoweredFurnaceBlockEntity;
 import net.chuck.chucksmod.block.entity.generator.IronHeatGeneratorBlockEntity;
@@ -50,6 +51,7 @@ public class ModBlockEntities {
     public static BlockEntityType<TitaniumPoweredFurnaceBlockEntity> TITANIUM_POWERED_FURNACE;
     public static BlockEntityType<TitaniumQuarryBlockEntity> TITANIUM_QUARRY;
     public static BlockEntityType<TitaniumCopierBlockEntity> TITANIUM_COPIER;
+    public static BlockEntityType<TitaniumFluidTankBlockEntity> TITANIUM_FLUID_TANK;
     public static void registerBlockEntities() {
         CRUSHER = Registry.register(Registries.BLOCK_ENTITY_TYPE,
                 new Identifier(ChucksMod.MOD_ID, "crusher"),
@@ -91,6 +93,9 @@ public class ModBlockEntities {
                 new Identifier(ChucksMod.MOD_ID, "iron_fluid_tank"),
                 FabricBlockEntityTypeBuilder.create(IronFluidTankBlockEntity::new,
                         ModBlocks.IRON_FLUID_TANK).build());
+        FluidStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.fluidStorage,
+                IRON_FLUID_TANK);
+
         // Wires
         TIN_WIRE = Registry.register(Registries.BLOCK_ENTITY_TYPE,
                 new Identifier(ChucksMod.MOD_ID, "tin_wire"),
@@ -147,5 +152,12 @@ public class ModBlockEntities {
                 TITANIUM_COPIER);
         FluidStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.fluidStorage,
                 TITANIUM_COPIER);
+
+        TITANIUM_FLUID_TANK = Registry.register(Registries.BLOCK_ENTITY_TYPE,
+                new Identifier(ChucksMod.MOD_ID, "titanium_fluid_tank"),
+                FabricBlockEntityTypeBuilder.create(TitaniumFluidTankBlockEntity::new,
+                        ModBlocks.TITANIUM_FLUID_TANK).build());
+        FluidStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.fluidStorage,
+                TITANIUM_FLUID_TANK);
     }
 }
