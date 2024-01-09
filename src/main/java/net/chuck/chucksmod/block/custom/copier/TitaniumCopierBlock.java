@@ -17,7 +17,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-public class TitaniumCopierBlock extends AbstractEnergyUsingBlock {
+public class TitaniumCopierBlock extends AbstractCopierBlock {
     public TitaniumCopierBlock(Settings settings) {
         super(settings);
     }

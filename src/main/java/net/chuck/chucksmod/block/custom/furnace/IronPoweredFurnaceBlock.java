@@ -16,7 +16,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-public class IronPoweredFurnaceBlock extends AbstractEnergyUsingBlock {
+public class IronPoweredFurnaceBlock extends AbstractPoweredFurnaceBlock {
     public IronPoweredFurnaceBlock(Settings settings) {
         super(settings);
     }

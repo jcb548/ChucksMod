@@ -2,7 +2,7 @@
   "type": "chucksmod:crusher_recipe",
   "ingredients": [
     {
-      "item": "minecraft:bronze_ingot"
+      "item": "chucksmod:bronze_ingot"
     }
   ],
   "output": {

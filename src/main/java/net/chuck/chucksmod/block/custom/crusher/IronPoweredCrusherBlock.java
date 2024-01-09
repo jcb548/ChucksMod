@@ -22,7 +22,7 @@ import org.jetbrains.annotations.Nullable;
  *  This code is licensed under MIT License
  *  Details can be found in the license file in the root folder of this project
  */
-public class IronPoweredCrusherBlock extends AbstractEnergyUsingBlock {
+public class IronPoweredCrusherBlock extends AbstractPoweredCrusherBlock {
     public IronPoweredCrusherBlock(Settings settings) {
         super(settings);
     }

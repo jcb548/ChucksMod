@@ -1,5 +1,6 @@
 package net.chuck.chucksmod.block.entity.energy_storage;
 
+import net.chuck.chucksmod.block.entity.EnergyStoring;
 import net.chuck.chucksmod.block.entity.ImplementedInventory;
 import net.chuck.chucksmod.networking.ModMessages;
 import net.chuck.chucksmod.screen.energy_storage.EnergyStorageScreenHandler;
@@ -25,10 +26,11 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
+import team.reborn.energy.api.EnergyStorage;
 import team.reborn.energy.api.base.SimpleSidedEnergyContainer;
 
 public abstract class AbstractEnergyStorageBlockEntity extends BlockEntity implements ExtendedScreenHandlerFactory,
-        ImplementedInventory {
+        ImplementedInventory, EnergyStoring {
     public static final int INPUT_SLOT = 0;
     public static final int INV_SIZE = 1;
     protected final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(INV_SIZE, ItemStack.EMPTY);
@@ -67,16 +69,6 @@ public abstract class AbstractEnergyStorageBlockEntity extends BlockEntity imple
         };
     }
 
-    private void sendEnergyPacket() {
-        PacketByteBuf data = PacketByteBufs.create();
-        data.writeLong(energyStorage.amount);
-        data.writeBlockPos(getPos());
-
-        for(ServerPlayerEntity player : PlayerLookup.tracking((ServerWorld) world, getPos())){
-            ServerPlayNetworking.send(player, ModMessages.ENERGY_SYNC, data);
-        }
-    }
-
     @Nullable
     @Override
     public ScreenHandler createMenu(int syncId, PlayerInventory playerInventory, PlayerEntity player) {
@@ -102,11 +94,6 @@ public abstract class AbstractEnergyStorageBlockEntity extends BlockEntity imple
         super.readNbt(nbt);
         energyStorage.amount= nbt.getLong("energy_storage.energy");
     }
-    public void tick(World world, BlockPos blockPos, BlockState blockState) {
-        if (world.isClient()){
-            return;
-        }
-    }
 
     public void setEnergyLevel(long energyLevel){
         this.energyStorage.amount = energyLevel;
@@ -131,4 +118,19 @@ public abstract class AbstractEnergyStorageBlockEntity extends BlockEntity imple
         return false;
     }
 
+    @Override
+    public EnergyStorage getEnergyStorage() {
+        return energyStorage.getSideStorage(null);
+    }
+    protected void sendEnergyPacket() {
+        for(ServerPlayerEntity player : PlayerLookup.tracking((ServerWorld) world, getPos())){
+            sendEnergyPacket(player);
+        }
+    }
+    public void sendEnergyPacket(ServerPlayerEntity player){
+        PacketByteBuf data = PacketByteBufs.create();
+        data.writeLong(energyStorage.amount);
+        data.writeBlockPos(getPos());
+        ServerPlayNetworking.send(player, ModMessages.ENERGY_SYNC, data);
+    }
 }

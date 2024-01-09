@@ -24,7 +24,7 @@ import org.jetbrains.annotations.Nullable;
  *  This code is licensed under MIT License
  *  Details can be found in the license file in the root folder of this project
  */
-public class TitaniumPoweredCrusherBlock extends AbstractEnergyUsingBlock {
+public class TitaniumPoweredCrusherBlock extends AbstractPoweredCrusherBlock {
     public TitaniumPoweredCrusherBlock(Settings settings) {
         super(settings);
     }

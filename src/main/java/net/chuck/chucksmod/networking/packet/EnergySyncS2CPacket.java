@@ -1,6 +1,7 @@
 package net.chuck.chucksmod.networking.packet;
 
 import net.chuck.chucksmod.block.entity.AbstractEnergyUsingBlockEntity;
+import net.chuck.chucksmod.block.entity.EnergyStoring;
 import net.chuck.chucksmod.block.entity.energy_storage.AbstractEnergyStorageBlockEntity;
 import net.chuck.chucksmod.screen.AbstractEnergyUsingScreenHandler;
 import net.chuck.chucksmod.screen.energy_storage.EnergyStorageScreenHandler;
@@ -24,19 +25,15 @@ public class EnergySyncS2CPacket {
         long energy = buf.readLong();
         BlockPos position = buf.readBlockPos();
         if (client.world != null) {
-            if (client.world.getBlockEntity(position) instanceof AbstractEnergyUsingBlockEntity blockEntity) {
-                blockEntity.setEnergyLevel(energy);
+            if (client.world.getBlockEntity(position) instanceof EnergyStoring energyStoring) {
+                energyStoring.setEnergyLevel(energy);
                 if (client.player.currentScreenHandler instanceof AbstractEnergyUsingScreenHandler screenHandler &&
                         screenHandler.blockEntity.getPos().equals(position)) {
-                    blockEntity.setEnergyLevel(energy);
+                    energyStoring.setEnergyLevel(energy);
                 }
-            }
-            if (client.world.getBlockEntity(position) instanceof AbstractEnergyStorageBlockEntity blockEntity) {
-                blockEntity.setEnergyLevel(energy);
-
                 if (client.player.currentScreenHandler instanceof EnergyStorageScreenHandler screenHandler &&
                         screenHandler.blockEntity.getPos().equals(position)) {
-                    blockEntity.setEnergyLevel(energy);
+                    energyStoring.setEnergyLevel(energy);
                 }
             }
         }

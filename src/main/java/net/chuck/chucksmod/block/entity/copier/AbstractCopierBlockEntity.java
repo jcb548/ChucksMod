@@ -1,6 +1,7 @@
 package net.chuck.chucksmod.block.entity.copier;
 
 import net.chuck.chucksmod.block.entity.AbstractEnergyCookerBlockEntity;
+import net.chuck.chucksmod.block.entity.FluidStoring;
 import net.chuck.chucksmod.fluid.ModFluids;
 import net.chuck.chucksmod.networking.ModMessages;
 import net.chuck.chucksmod.screen.copier.CopierScreenHandler;
@@ -34,7 +35,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.Map;
 
-public abstract class AbstractCopierBlockEntity extends AbstractEnergyCookerBlockEntity {
+public abstract class AbstractCopierBlockEntity extends AbstractEnergyCookerBlockEntity implements FluidStoring {
     public static final int INV_SIZE = 4;
     public static final int BOOK_SLOT = 2;
     public static final int XP_BUCKET_SLOT = 3;
@@ -58,14 +59,17 @@ public abstract class AbstractCopierBlockEntity extends AbstractEnergyCookerBloc
         }
     };
 
-    private void sendFluidPacket() {
+    public void sendFluidPacket() {
+        for (ServerPlayerEntity player : ((ServerWorld) world).getPlayers()){
+            sendFluidPacket(player);
+        }
+    }
+    public void sendFluidPacket(ServerPlayerEntity player){
         PacketByteBuf data = PacketByteBufs.create();
         fluidStorage.variant.toPacket(data);
         data.writeLong(fluidStorage.amount);
         data.writeBlockPos(getPos());
-        for (ServerPlayerEntity player : PlayerLookup.tracking((ServerWorld) world, getPos())){
-            ServerPlayNetworking.send(player, ModMessages.XP_SYNC, data);
-        }
+        ServerPlayNetworking.send(player, ModMessages.XP_SYNC, data);
     }
 
     public AbstractCopierBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state,
@@ -81,16 +85,16 @@ public abstract class AbstractCopierBlockEntity extends AbstractEnergyCookerBloc
 
     @Override
     public void readNbt(NbtCompound nbt) {
-        super.readNbt(nbt);
         fluidStorage.variant = FluidVariant.fromNbt((NbtCompound) nbt.get("copier.fluid_variant"));
         fluidStorage.amount = nbt.getLong("copier.fluid_level");
+        super.readNbt(nbt);
     }
 
     @Override
     protected void writeNbt(NbtCompound nbt) {
-        super.writeNbt(nbt);
         nbt.put("copier.fluid_variant", fluidStorage.variant.toNbt());
         nbt.putLong("copier.fluid_level", fluidStorage.amount);
+        super.writeNbt(nbt);
     }
 
     public boolean hasEnchantedBook(){
@@ -111,7 +115,7 @@ public abstract class AbstractCopierBlockEntity extends AbstractEnergyCookerBloc
     protected void craftItem() {
         inventory.setStack(OUTPUT_SLOT, inventory.getStack(INPUT_SLOT).copy());
         inventory.removeStack(BOOK_SLOT, 1);
-        extractXp();
+        this.extractXp();
     }
 
     public int getXpCost(){
@@ -174,5 +178,10 @@ public abstract class AbstractCopierBlockEntity extends AbstractEnergyCookerBloc
                     getXpCost(), transaction);
             transaction.commit();
         }
+    }
+
+    @Override
+    public SingleVariantStorage<FluidVariant> getFluidStorage() {
+        return fluidStorage;
     }
 }

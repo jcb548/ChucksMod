@@ -16,7 +16,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-public class TitaniumPoweredFurnaceBlock extends AbstractEnergyUsingBlock {
+public class TitaniumPoweredFurnaceBlock extends AbstractPoweredFurnaceBlock {
     public TitaniumPoweredFurnaceBlock(Settings settings) {
         super(settings);
     }

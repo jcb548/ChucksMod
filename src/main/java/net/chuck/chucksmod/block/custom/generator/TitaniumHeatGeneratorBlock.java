@@ -16,7 +16,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-public class TitaniumHeatGeneratorBlock extends AbstractEnergyUsingBlock {
+public class TitaniumHeatGeneratorBlock extends AbstractHeatGeneratorBlock {
     public TitaniumHeatGeneratorBlock(Settings settings) {
         super(settings);
     }

@@ -21,10 +21,4 @@ public class TitaniumFluidTankBlock extends AbstractFluidTankBlock{
     public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
         return new TitaniumFluidTankBlockEntity(pos, state);
     }
-    @Nullable
-    @Override
-    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return validateTicker(type, ModBlockEntities.TITANIUM_FLUID_TANK,
-                ((world1, pos, state1, blockEntity) -> blockEntity.tick(world1, pos, state1)));
-    }
 }

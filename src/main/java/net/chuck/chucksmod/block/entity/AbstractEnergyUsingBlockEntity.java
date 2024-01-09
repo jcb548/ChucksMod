@@ -25,7 +25,7 @@ import org.jetbrains.annotations.Nullable;
 import team.reborn.energy.api.base.SimpleEnergyStorage;
 
 public abstract class AbstractEnergyUsingBlockEntity extends BlockEntity implements ExtendedScreenHandlerFactory,
-        ImplementedInventory {
+        ImplementedInventory, EnergyStoring {
     public static final int INPUT_SLOT = 0;
     public final SimpleEnergyStorage energyStorage;
     protected final SimpleInventory inventory;
@@ -45,13 +45,15 @@ public abstract class AbstractEnergyUsingBlockEntity extends BlockEntity impleme
     }
 
     protected void sendEnergyPacket() {
+        for(ServerPlayerEntity player : PlayerLookup.tracking((ServerWorld) world, getPos())){
+            sendEnergyPacket(player);
+        }
+    }
+    public void sendEnergyPacket(ServerPlayerEntity player){
         PacketByteBuf data = PacketByteBufs.create();
         data.writeLong(energyStorage.amount);
         data.writeBlockPos(getPos());
-
-        for(ServerPlayerEntity player : PlayerLookup.tracking((ServerWorld) world, getPos())){
-            ServerPlayNetworking.send(player, ModMessages.ENERGY_SYNC, data);
-        }
+        ServerPlayNetworking.send(player, ModMessages.ENERGY_SYNC, data);
     }
 
     public void setEnergyLevel(long energyLevel){
@@ -89,5 +91,10 @@ public abstract class AbstractEnergyUsingBlockEntity extends BlockEntity impleme
     @Override
     public DefaultedList<ItemStack> getItems() {
         return this.inventory.stacks;
+    }
+
+    @Override
+    public SimpleEnergyStorage getEnergyStorage() {
+        return energyStorage;
     }
 }

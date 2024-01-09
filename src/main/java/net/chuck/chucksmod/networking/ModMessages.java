@@ -22,6 +22,10 @@ public class ModMessages {
             new Identifier(ChucksMod.MOD_ID, "energy_storage_sync");
     public static final Identifier RESET_QUARRY_SYNC = new Identifier(ChucksMod.MOD_ID, "quarry_reset_sync");
     public static final Identifier COPIER_XP_DRAIN = new Identifier(ChucksMod.MOD_ID, "copier_xd_drain");
+    public static final Identifier LOOKING_AT_ENERGY_STORAGE =
+            new Identifier(ChucksMod.MOD_ID, "looking_at_energy_storage");
+    public static final Identifier LOOKING_AT_FLUID_STORAGE =
+            new Identifier(ChucksMod.MOD_ID, "looking_at_fluid_storage");
     public static void registerS2CPackets(){
         ClientPlayNetworking.registerGlobalReceiver(ENERGY_SYNC, EnergySyncS2CPacket::receive);
         ClientPlayNetworking.registerGlobalReceiver(XP_SYNC, XpSyncS2CPacket::receive);
@@ -32,5 +36,7 @@ public class ModMessages {
         ServerPlayNetworking.registerGlobalReceiver(ENERGY_STORAGE_BLOCK_SYNC, EnergyStorageBlockSyncC2SPacket::receive);
         ServerPlayNetworking.registerGlobalReceiver(RESET_QUARRY_SYNC, ResetQuarryC2SPacket::receive);
         ServerPlayNetworking.registerGlobalReceiver(COPIER_XP_DRAIN, CopierDrainXpC2SPacket::receive);
+        ServerPlayNetworking.registerGlobalReceiver(LOOKING_AT_ENERGY_STORAGE, LookingAtEnergyStorageC2SPacket::receive);
+        ServerPlayNetworking.registerGlobalReceiver(LOOKING_AT_FLUID_STORAGE, LookingAtFluidStorageC2SPacket::receive);
     }
 }

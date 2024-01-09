@@ -1,9 +1,9 @@
 package net.chuck.chucksmod.block.entity.fluid_tank;
 
+import net.chuck.chucksmod.block.entity.FluidStoring;
 import net.chuck.chucksmod.networking.ModMessages;
 import net.chuck.chucksmod.util.FluidStack;
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
-import net.fabricmc.fabric.api.networking.v1.PlayerLookup;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.fabricmc.fabric.api.transfer.v1.fluid.FluidConstants;
 import net.fabricmc.fabric.api.transfer.v1.fluid.FluidVariant;
@@ -26,10 +26,9 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public abstract class AbstractFluidTankBlockEntity extends BlockEntity {
-    private boolean shouldSync = false;
+public abstract class AbstractFluidTankBlockEntity extends BlockEntity implements FluidStoring {
     int prevPlayerCount = 0;
-    public SingleVariantStorage<FluidVariant> fluidStorage = new SingleVariantStorage<FluidVariant>() {
+    public SingleVariantStorage<FluidVariant> fluidStorage = new SingleVariantStorage<>() {
         @Override
         protected FluidVariant getBlankVariant() {
             return FluidVariant.blank();
@@ -43,7 +42,6 @@ public abstract class AbstractFluidTankBlockEntity extends BlockEntity {
         protected void onFinalCommit() {
             markDirty();
             if(!world.isClient) {
-                shouldSync = true;
                 sendFluidPacket();
             }
         }
@@ -100,31 +98,25 @@ public abstract class AbstractFluidTankBlockEntity extends BlockEntity {
     }
 
     public void sendFluidPacket() {
+        for (ServerPlayerEntity player : ((ServerWorld) world).getPlayers()){
+            sendFluidPacket(player);
+        }
+    }
+    public void sendFluidPacket(ServerPlayerEntity player){
         PacketByteBuf data = PacketByteBufs.create();
         fluidStorage.variant.toPacket(data);
         data.writeLong(fluidStorage.amount);
         data.writeBlockPos(getPos());
-        for (ServerPlayerEntity player : ((ServerWorld) world).getPlayers()){
-            ServerPlayNetworking.send(player, ModMessages.FLUID_SYNC, data);
-        }
-    }
-
-    public void tick(World world, BlockPos blockPos, BlockState blockState) {
-        if (world.isClient()) {
-            return;
-        }
-        if(world.getPlayers().size() != prevPlayerCount){
-            shouldSync = true;
-            prevPlayerCount = world.getPlayers().size();
-        }
-        if(shouldSync) {
-            sendFluidPacket();
-            shouldSync = false;
-        }
+        ServerPlayNetworking.send(player, ModMessages.FLUID_SYNC, data);
     }
 
     public void setFluidStorage(FluidVariant fluidVariant, long fluidLevel) {
         this.fluidStorage.variant = fluidVariant;
         this.fluidStorage.amount = fluidLevel;
+    }
+
+    @Override
+    public SingleVariantStorage<FluidVariant> getFluidStorage() {
+        return fluidStorage;
     }
 }

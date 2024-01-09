@@ -4,7 +4,7 @@ import com.terraformersmc.terraform.boat.api.client.TerraformBoatClientHelper;
 import com.terraformersmc.terraform.sign.SpriteIdentifierRegistry;
 import net.chuck.chucksmod.block.ModBlocks;
 import net.chuck.chucksmod.client.ArmorHudOverlay;
-import net.chuck.chucksmod.client.LookingAtTankOverlay;
+import net.chuck.chucksmod.client.LookingAtBlockOverlay;
 import net.chuck.chucksmod.entity.ModBoats;
 import net.chuck.chucksmod.entity.ModEntities;
 import net.chuck.chucksmod.entity.client.*;
@@ -58,7 +58,7 @@ public class ChucksModClient implements ClientModInitializer {
         registerHandledScreens();
 
         HudRenderCallback.EVENT.register(new ArmorHudOverlay());
-        HudRenderCallback.EVENT.register(new LookingAtTankOverlay());
+        HudRenderCallback.EVENT.register(new LookingAtBlockOverlay());
         registerEntityRenderers();
 
         registerSignRenderers();

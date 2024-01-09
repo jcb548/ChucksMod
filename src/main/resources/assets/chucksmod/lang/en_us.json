@@ -140,7 +140,9 @@
   "block.chucksmod.titanium_powered_crusher": "Titanium Powered Crusher",
   "block.chucksmod.titanium_heat_generator": "Titanium Heat Generator",
   "block.chucksmod.titanium_quarry": "Titanium Quarry",
+  "tooltip.chucksmod.titanium_quarry": "Mines blocks in a 9x9 area in front of Quarry",
   "block.chucksmod.titanium_copier": "Titanium Copier",
+  "tooltip.chucksmod.copier": "Copies enchantments from books, at a cost of experience",
   "tooltip.chucksmod.drain_xp": "Drain Xp",
   "block.chucksmod.titanium_fluid_tank": "Titanium Fluid Tank",
 
@@ -204,11 +206,18 @@
   "item.chucksmod.iron_energy_core": "Iron Energy Core",
   "item.chucksmod.iron_bag": "Iron Bag",
   "block.chucksmod.iron_powered_crusher": "Iron Powered Crusher",
+  "tooltip.chucksmod.crusher": "Crushes materials into dusts",
   "block.chucksmod.iron_powered_furnace": "Iron Powered Furnace",
+  "tooltip.chucksmod.powered_furnace": "Smelts items using energy at an increased rate",
   "block.chucksmod.iron_energy_storage": "Iron Energy Storage",
+  "tooltip.chucksmod.energy_storage": "Stores a large amount of energy for future use",
   "block.chucksmod.iron_heat_generator": "Iron Fuel Generator",
+  "tooltip.chucksmod.heat_generator": "Generates Energy from furnace fuels",
   "block.chucksmod.iron_quarry": "Iron Quarry",
   "tooltip.chucksmod.reset_quarry": "Reset Quarry Mining Position",
+  "tooltip.chucksmod.iron_quarry": "Mines blocks in a 7x7 area in front of Quarry",
+  "block.chucksmod.iron_fluid_tank": "Iron Fluid Tank",
+  "tooltip.chucksmod.fluid_tank": "Stores blocks of fluid",
 
 
   "block.chucksmod.slated_dirt": "Slated Dirt",
@@ -295,6 +304,7 @@
   "chucksmod.tooltip.liquid.amount.with.capacity": "%s / %s mB",
   "chucksmod.tooltip.liquid.amount": "%s mB",
   "block.minecraft.empty": "Empty",
+  "chucksmod.tooltip.energy.amount.with.capacity": "%s / %s E",
 
   "enchantment.chucksmod.withering": "Withering",
   "enchantment.chucksmod.alacrity": "Alacrity",
