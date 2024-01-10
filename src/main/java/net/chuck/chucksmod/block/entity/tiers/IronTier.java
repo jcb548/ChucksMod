@@ -16,4 +16,7 @@ public interface IronTier {
     int QUARRY_SIZE = 7;
     int QUARRY_SPEED = SPEED / 10;
     int FLUID_TANK_BUCKETS = 8;
+    int PUMP_SIZE = 2*QUARRY_SIZE-1;
+    int PUMP_SPEED = SPEED/15;
+    int MACHINE_BUCKET_STORAGE = 2;
 }

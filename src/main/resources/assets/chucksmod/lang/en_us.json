@@ -218,6 +218,7 @@
   "tooltip.chucksmod.iron_quarry": "Mines blocks in a 7x7 area in front of Quarry",
   "block.chucksmod.iron_fluid_tank": "Iron Fluid Tank",
   "tooltip.chucksmod.fluid_tank": "Stores blocks of fluid",
+  "block.chucksmod.iron_pump": "Iron Pump",
 
 
   "block.chucksmod.slated_dirt": "Slated Dirt",

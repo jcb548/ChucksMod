@@ -20,6 +20,7 @@ import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.fluid.Fluid;
 import net.minecraft.item.EnchantedBookItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -47,7 +48,7 @@ public abstract class AbstractCopierBlockEntity extends AbstractEnergyCookerBloc
 
         @Override
         protected long getCapacity(FluidVariant variant) {
-            return FluidStack.convertDropletsToMb(FluidConstants.BUCKET)* getXpCapacity();
+            return FluidStack.convertDropletsToMb(FluidConstants.BUCKET)* getBucketCapacity();
         }
 
         @Override
@@ -59,28 +60,10 @@ public abstract class AbstractCopierBlockEntity extends AbstractEnergyCookerBloc
         }
     };
 
-    public void sendFluidPacket() {
-        for (ServerPlayerEntity player : ((ServerWorld) world).getPlayers()){
-            sendFluidPacket(player);
-        }
-    }
-    public void sendFluidPacket(ServerPlayerEntity player){
-        PacketByteBuf data = PacketByteBufs.create();
-        fluidStorage.variant.toPacket(data);
-        data.writeLong(fluidStorage.amount);
-        data.writeBlockPos(getPos());
-        ServerPlayNetworking.send(player, ModMessages.XP_SYNC, data);
-    }
-
     public AbstractCopierBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state,
                                      int energyStorageSize, int maxProgress, int maxInsertExtract) {
         super(type, pos, state, INV_SIZE, energyStorageSize, maxProgress, maxInsertExtract);
         this.maxProgress = maxProgress;
-    }
-
-    public void setXpLevel(FluidVariant fluidVariant, long fluidLevel){
-        this.fluidStorage.variant = fluidVariant;
-        this.fluidStorage.amount = fluidLevel;
     }
 
     @Override
@@ -141,7 +124,6 @@ public abstract class AbstractCopierBlockEntity extends AbstractEnergyCookerBloc
     }
 
     public abstract int getXpDrainRate();
-    public abstract int getXpCapacity();
 
     @Override
     public void tick(World world, BlockPos blockPos, BlockState blockState) {
@@ -183,5 +165,10 @@ public abstract class AbstractCopierBlockEntity extends AbstractEnergyCookerBloc
     @Override
     public SingleVariantStorage<FluidVariant> getFluidStorage() {
         return fluidStorage;
+    }
+
+    @Override
+    public Fluid getAllowedFluid() {
+        return ModFluids.STILL_LIQUID_XP;
     }
 }

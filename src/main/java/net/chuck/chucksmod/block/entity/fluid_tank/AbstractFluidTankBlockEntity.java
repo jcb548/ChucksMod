@@ -27,7 +27,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public abstract class AbstractFluidTankBlockEntity extends BlockEntity implements FluidStoring {
-    int prevPlayerCount = 0;
     public SingleVariantStorage<FluidVariant> fluidStorage = new SingleVariantStorage<>() {
         @Override
         protected FluidVariant getBlankVariant() {
@@ -36,7 +35,7 @@ public abstract class AbstractFluidTankBlockEntity extends BlockEntity implement
 
         @Override
         protected long getCapacity(FluidVariant variant) {
-            return FluidStack.convertDropletsToMb(FluidConstants.BUCKET)*getFluidCapacity();
+            return FluidStack.convertDropletsToMb(FluidConstants.BUCKET)*getBucketCapacity();
         }
         @Override
         protected void onFinalCommit() {
@@ -50,41 +49,6 @@ public abstract class AbstractFluidTankBlockEntity extends BlockEntity implement
         super(type, pos, state);
     }
 
-    public abstract int getFluidCapacity();
-    public void interactBucket(PlayerEntity player, Hand hand){
-        if(player.getStackInHand(hand).getItem() instanceof BucketItem bucketItem){
-            if(bucketItem.fluid == Fluids.EMPTY){
-                if(fluidStorage.amount >= FluidStack.BUCKET_MB){
-                    try(Transaction transaction = Transaction.openOuter()){
-                        ItemStack filledBucket = new ItemStack(fluidStorage.variant.getFluid().getBucketItem());
-                        this.fluidStorage.extract(fluidStorage.variant,
-                                FluidStack.convertDropletsToMb(FluidConstants.BUCKET), transaction);
-                        transaction.commit();
-                        if(player.getStackInHand(hand).getCount() > 1){
-                            player.setStackInHand(hand, new ItemStack(Items.BUCKET, player.getStackInHand(hand).getCount()-1));
-                            if(!player.getInventory().insertStack(filledBucket)){
-                                ItemEntity bucket = new ItemEntity(player.getWorld(), player.getX(), player.getY(), player.getZ(), filledBucket);
-                                player.getWorld().spawnEntity(bucket);
-                            }
-                        } else {
-                            player.setStackInHand(hand, filledBucket);
-                        }
-                    }
-                }
-            } else {
-                if((fluidStorage.variant.getFluid().equals(Fluids.EMPTY)) || (fluidStorage.variant.getFluid().equals(bucketItem.fluid) && fluidStorage.amount +
-                        FluidStack.BUCKET_MB < fluidStorage.getCapacity())){
-                    try(Transaction transaction = Transaction.openOuter()){
-                        this.fluidStorage.insert(FluidVariant.of(bucketItem.fluid),
-                                FluidStack.convertDropletsToMb(FluidConstants.BUCKET), transaction);
-                        transaction.commit();
-                        player.setStackInHand(hand, new ItemStack(Items.BUCKET));
-                    }
-                }
-            }
-        }
-    }
-
     @Override
     public void readNbt(NbtCompound nbt) {
         fluidStorage.variant = FluidVariant.fromNbt((NbtCompound) nbt.get("tank.fluid_variant"));
@@ -95,24 +59,6 @@ public abstract class AbstractFluidTankBlockEntity extends BlockEntity implement
     protected void writeNbt(NbtCompound nbt) {
         nbt.put("tank.fluid_variant", fluidStorage.variant.toNbt());
         nbt.putLong("tank.fluid_level", fluidStorage.amount);
-    }
-
-    public void sendFluidPacket() {
-        for (ServerPlayerEntity player : ((ServerWorld) world).getPlayers()){
-            sendFluidPacket(player);
-        }
-    }
-    public void sendFluidPacket(ServerPlayerEntity player){
-        PacketByteBuf data = PacketByteBufs.create();
-        fluidStorage.variant.toPacket(data);
-        data.writeLong(fluidStorage.amount);
-        data.writeBlockPos(getPos());
-        ServerPlayNetworking.send(player, ModMessages.FLUID_SYNC, data);
-    }
-
-    public void setFluidStorage(FluidVariant fluidVariant, long fluidLevel) {
-        this.fluidStorage.variant = fluidVariant;
-        this.fluidStorage.amount = fluidLevel;
     }
 
     @Override

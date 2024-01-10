@@ -41,7 +41,7 @@ public class IronQuarryBlockEntity extends AbstractQuarryBlockEntity implements 
     }
 
     @Override
-    protected int getQuarrySize() {
+    protected int getSize() {
         return QUARRY_SIZE;
     }
 

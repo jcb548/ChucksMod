@@ -1,5 +1,6 @@
 package net.chuck.chucksmod.block.custom.fluid_tank;
 
+import net.chuck.chucksmod.block.entity.FluidStoring;
 import net.chuck.chucksmod.block.entity.ModBlockEntities;
 import net.chuck.chucksmod.block.entity.fluid_tank.AbstractFluidTankBlockEntity;
 import net.minecraft.block.Block;
@@ -13,6 +14,7 @@ import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.BucketItem;
 import net.minecraft.item.ItemStack;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
@@ -38,8 +40,7 @@ public abstract class AbstractFluidTankBlock extends BlockWithEntity {
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if(!world.isClient) {
             BlockEntity blockEntity = world.getBlockEntity(pos);
-            if (blockEntity instanceof AbstractFluidTankBlockEntity fluidTank) {
-                fluidTank.sendFluidPacket();
+            if (blockEntity instanceof FluidStoring fluidTank) {
                 if (player.getStackInHand(hand).getItem() instanceof BucketItem) {
                     fluidTank.interactBucket(player, hand);
                 }

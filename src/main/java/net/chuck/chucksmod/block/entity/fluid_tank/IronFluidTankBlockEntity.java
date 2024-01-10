@@ -11,7 +11,7 @@ public class IronFluidTankBlockEntity extends AbstractFluidTankBlockEntity imple
     }
 
     @Override
-    public int getFluidCapacity() {
+    public int getBucketCapacity() {
         return FLUID_TANK_BUCKETS;
     }
 }

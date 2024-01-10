@@ -2,6 +2,7 @@ package net.chuck.chucksmod.block.entity;
 
 import net.chuck.chucksmod.ChucksMod;
 import net.chuck.chucksmod.block.ModBlocks;
+import net.chuck.chucksmod.block.custom.pump.IronPumpBlock;
 import net.chuck.chucksmod.block.entity.copier.TitaniumCopierBlockEntity;
 import net.chuck.chucksmod.block.entity.crusher.CrusherBlockEntity;
 import net.chuck.chucksmod.block.entity.crusher.IronPoweredCrusherBlockEntity;
@@ -14,6 +15,7 @@ import net.chuck.chucksmod.block.entity.furnace.IronPoweredFurnaceBlockEntity;
 import net.chuck.chucksmod.block.entity.furnace.TitaniumPoweredFurnaceBlockEntity;
 import net.chuck.chucksmod.block.entity.generator.IronHeatGeneratorBlockEntity;
 import net.chuck.chucksmod.block.entity.generator.TitaniumHeatGeneratorBlockEntity;
+import net.chuck.chucksmod.block.entity.pump.IronPumpBlockEntity;
 import net.chuck.chucksmod.block.entity.quarry.IronQuarryBlockEntity;
 import net.chuck.chucksmod.block.entity.quarry.TitaniumQuarryBlockEntity;
 import net.chuck.chucksmod.block.entity.wire.CopperWireBlockEntity;
@@ -42,6 +44,7 @@ public class ModBlockEntities {
     public static BlockEntityType<IronEnergyStorageBlockEntity> IRON_ENERGY_STORAGE;
     public static BlockEntityType<IronQuarryBlockEntity> IRON_QUARRY;
     public static BlockEntityType<IronFluidTankBlockEntity> IRON_FLUID_TANK;
+    public static BlockEntityType<IronPumpBlockEntity> IRON_PUMP;
     public static BlockEntityType<TinWireBlockEntity> TIN_WIRE;
     public static BlockEntityType<CopperWireBlockEntity> COPPER_WIRE;
     public static BlockEntityType<GoldWireBlockEntity> GOLD_WIRE;
@@ -95,6 +98,15 @@ public class ModBlockEntities {
                         ModBlocks.IRON_FLUID_TANK).build());
         FluidStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.fluidStorage,
                 IRON_FLUID_TANK);
+
+        IRON_PUMP = Registry.register(Registries.BLOCK_ENTITY_TYPE,
+                new Identifier(ChucksMod.MOD_ID, "iron_pump"),
+                FabricBlockEntityTypeBuilder.create(IronPumpBlockEntity::new,
+                        ModBlocks.IRON_PUMP).build());
+        EnergyStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.energyStorage,
+                IRON_PUMP);
+        FluidStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.fluidStorage,
+                IRON_PUMP);
 
         // Wires
         TIN_WIRE = Registry.register(Registries.BLOCK_ENTITY_TYPE,

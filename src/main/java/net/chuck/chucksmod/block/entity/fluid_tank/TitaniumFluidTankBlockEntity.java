@@ -11,7 +11,7 @@ public class TitaniumFluidTankBlockEntity extends AbstractFluidTankBlockEntity i
     }
 
     @Override
-    public int getFluidCapacity() {
+    public int getBucketCapacity() {
         return FLUID_TANK_BUCKETS;
     }
 }

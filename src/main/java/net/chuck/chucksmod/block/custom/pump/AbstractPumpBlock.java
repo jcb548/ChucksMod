@@ -1,43 +1,31 @@
-package net.chuck.chucksmod.block.custom.copier;
+package net.chuck.chucksmod.block.custom.pump;
 
 import net.chuck.chucksmod.block.custom.AbstractEnergyUsingBlock;
 import net.chuck.chucksmod.block.entity.copier.AbstractCopierBlockEntity;
-import net.chuck.chucksmod.block.entity.copier.TitaniumCopierBlockEntity;
+import net.chuck.chucksmod.block.entity.pump.AbstractPumpBlockEntity;
 import net.minecraft.block.BlockState;
-import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.BucketItem;
-import net.minecraft.item.ItemStack;
 import net.minecraft.screen.NamedScreenHandlerFactory;
-import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
-import org.jetbrains.annotations.Nullable;
 
-import java.util.List;
-
-public abstract class AbstractCopierBlock extends AbstractEnergyUsingBlock {
-    protected AbstractCopierBlock(Settings settings) {
+public abstract class AbstractPumpBlock extends AbstractEnergyUsingBlock {
+    protected AbstractPumpBlock(Settings settings) {
         super(settings);
     }
 
     @Override
-    public void appendTooltip(ItemStack stack, @Nullable BlockView world, List<Text> tooltip, TooltipContext options) {
-        tooltip.add(Text.translatable("tooltip.chucksmod.copier"));
-        super.appendTooltip(stack, world, tooltip, options);
-    }
-    @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if (!world.isClient) {
             if(player.getStackInHand(hand).getItem() instanceof BucketItem && world.getBlockEntity(pos) instanceof
-            AbstractCopierBlockEntity entity){
+                    AbstractPumpBlockEntity entity){
                 entity.interactBucket(player, hand);
             } else {
-                NamedScreenHandlerFactory screenHandlerFactory = ((AbstractCopierBlockEntity) world.getBlockEntity(pos));
+                NamedScreenHandlerFactory screenHandlerFactory = ((AbstractPumpBlockEntity) world.getBlockEntity(pos));
                 if (screenHandlerFactory != null) {
                     player.openHandledScreen(screenHandlerFactory);
                 }

@@ -47,7 +47,7 @@ public class TitaniumQuarryBlockEntity extends AbstractQuarryBlockEntity impleme
     }
 
     @Override
-    protected int getQuarrySize() {
+    protected int getSize() {
         return QUARRY_SIZE;
     }
 
