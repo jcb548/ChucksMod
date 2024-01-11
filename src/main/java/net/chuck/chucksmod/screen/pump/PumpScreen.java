@@ -29,13 +29,13 @@ public class PumpScreen extends AbstractEnergyUsingScreen<PumpScreenHandler> {
         int y = (height - backgroundHeight)/2;
         context.drawTexture(TEXTURE, x, y, 0, 0, backgroundWidth, backgroundHeight);
         energyInfoArea.draw(context);
-        fluidStackRenderer.drawFluid(context, handler.fluidStack, x+8, y+13, 15, 46,
+        fluidStackRenderer.drawFluid(context, handler.fluidStack, x+8, y+13, 15, 48,
                 FluidStack.convertDropletsToMb(FluidConstants.BUCKET)*handler.pump.getBucketCapacity());
     }
     protected void assignFluidStackRenderer(){
         fluidStackRenderer = new FluidStackRenderer
                 (FluidStack.convertDropletsToMb(FluidConstants.BUCKET)*handler.pump.getBucketCapacity(),
-                        true, 15, 46);
+                        true, 15, 48);
     }
 
     @Override

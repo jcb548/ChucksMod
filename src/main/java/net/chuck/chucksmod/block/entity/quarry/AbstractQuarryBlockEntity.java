@@ -46,6 +46,7 @@ public abstract class AbstractQuarryBlockEntity extends AbstractMiningBlockEntit
                     }
                     world.breakBlock(nextBlockPos, false);
                 }
+                incrementBlockPos();
                 this.resetProgress();
             }
         }

@@ -33,7 +33,7 @@ public class CopierScreen extends AbstractEnergyUsingScreen<CopierScreenHandler>
         context.drawTexture(TEXTURE, x, y, 0, 0, backgroundWidth, backgroundHeight);
         renderProgressArrow(context, x, y);
         energyInfoArea.draw(context);
-        fluidStackRenderer.drawFluid(context, handler.fluidStack, x+8, y+13, 15, 46,
+        fluidStackRenderer.drawFluid(context, handler.fluidStack, x+8, y+13, 15, 48,
                 FluidStack.convertDropletsToMb(FluidConstants.BUCKET)*handler.copier.getBucketCapacity());
     }
     private void renderProgressArrow(DrawContext context, int x, int y){
@@ -45,7 +45,7 @@ public class CopierScreen extends AbstractEnergyUsingScreen<CopierScreenHandler>
     protected void assignFluidStackRenderer(){
         fluidStackRenderer = new FluidStackRenderer
                 (FluidStack.convertDropletsToMb(FluidConstants.BUCKET)*handler.copier.getBucketCapacity(),
-                        true, 15, 46);
+                        true, 15, 48);
     }
 
     @Override

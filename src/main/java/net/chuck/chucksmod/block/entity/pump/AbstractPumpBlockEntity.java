@@ -17,6 +17,7 @@ import net.minecraft.block.FluidBlock;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.fluid.Fluid;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.PacketByteBuf;
@@ -27,6 +28,7 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.property.Properties;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
@@ -52,6 +54,7 @@ public abstract class AbstractPumpBlockEntity extends AbstractMiningBlockEntity 
     };
     public AbstractPumpBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state, int energyStorageSize, int maxProgress, int maxInsertExtract) {
         super(type, pos, state, 0, energyStorageSize, maxProgress, maxInsertExtract);
+
     }
 
     @Override
@@ -81,40 +84,36 @@ public abstract class AbstractPumpBlockEntity extends AbstractMiningBlockEntity 
             if(shouldBreakBlock()){
                 BlockPos nextBlockPos = getNextBlockPos();
                 BlockState nextBlockState = world.getBlockState(nextBlockPos);
-                world.getPlayers().get(0).sendMessage(Text.literal(nextBlockPos.toString() + ", " +
-                        nextBlockState.toString()));
+                world.getPlayers().get(0).sendMessage(Text.literal(nextBlockPos.toString()));
+                world.getPlayers().get(0).sendMessage(nextBlockState.getBlock().getName());
                 if(nextBlockState.getBlock() instanceof FluidBlock fluidBlock){
-                    if(fluidBlock.getFluidState(nextBlockState).getFluid().equals(fluidStorage.variant.getFluid())
-                            || fluidStorage.amount == 0){
-                        world.getPlayers().get(0).sendMessage(Text.literal(nextBlockPos.toString() + ", " +
-                                fluidBlock.getFluidState(nextBlockState).getFluid().toString()));
-                        //world.getPlayers().get(0).sendMessage(Text.literal(fluidBlock.getFluidState(nextBlockState).getFluid().toString()));
+                    if(fluidBlock.getFluidState(nextBlockState).isStill() &&
+                            (fluidBlock.getFluidState(nextBlockState).getFluid().equals(fluidStorage.variant.getFluid())
+                            || fluidStorage.amount == 0)){
                         try(Transaction transaction = Transaction.openOuter()){
                             fluidStorage.insert(FluidVariant.of(fluidBlock.getFluidState(nextBlockState).getFluid()),
                                     FluidStack.convertDropletsToMb(FluidConstants.BUCKET), transaction);
                             transaction.commit();
                             world.setBlockState(nextBlockPos, Blocks.AIR.getDefaultState());
+                            resetProgress();
                         }
                     }
+                } else if (nextBlockState.get(Properties.WATERLOGGED) &&
+                        (Fluids.WATER.equals(fluidStorage.variant.getFluid())
+                        || fluidStorage.amount == 0)){
+                    try(Transaction transaction = Transaction.openOuter()){
+                        fluidStorage.insert(FluidVariant.of(Fluids.WATER),
+                                FluidStack.convertDropletsToMb(FluidConstants.BUCKET), transaction);
+                        transaction.commit();
+                        world.setBlockState(nextBlockPos, nextBlockState.with(Properties.WATERLOGGED, false));
+                        resetProgress();
+                    }
                 }
-                resetProgress();
+                if(!canBeInfiniteWater(nextBlockState, nextBlockPos)) incrementBlockPos();
             }
         }
         blockState = blockState.with(AbstractEnergyUsingBlock.LIT, shouldTryPump);
         world.setBlockState(pos, blockState, Block.NOTIFY_ALL);
-    }
-    private boolean isPumpable(BlockState state){
-        if(state.getBlock() instanceof FluidBlock fluidBlock){
-            if(fluidBlock.getFluidState(state).getFluid().equals(fluidStorage.variant.getFluid())
-                    || fluidStorage.amount == 0){
-                return true;
-            }
-        }
-        if(state.get(Properties.WATERLOGGED) &&
-                (fluidStorage.variant.getFluid().equals(Fluids.WATER) || fluidStorage.amount == 0)){
-            return true;
-        }
-        return false;
     }
     public abstract int getBucketCapacity();
     @Override
@@ -137,5 +136,16 @@ public abstract class AbstractPumpBlockEntity extends AbstractMiningBlockEntity 
         this.yPos = pos.getY()-1;
         this.zPos = 0;
         shouldResetPos = false;
+    }
+    private boolean canBeInfiniteWater(BlockState state, BlockPos pos){
+        int numWaterAdjacent = 0;
+        if(state.getFluidState().getFluid().equals(Fluids.WATER)){
+            for(Direction direction : Direction.values()){
+                if(direction.getAxis().isHorizontal()){
+                    if(world.getBlockState(pos.offset(direction)).getFluidState().getFluid().equals(Fluids.WATER)) numWaterAdjacent++;
+                }
+            }
+        }
+        return numWaterAdjacent>0;
     }
 }

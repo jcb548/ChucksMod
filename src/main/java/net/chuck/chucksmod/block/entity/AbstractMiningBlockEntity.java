@@ -56,7 +56,9 @@ public abstract class AbstractMiningBlockEntity extends AbstractEnergyUsingBlock
     protected BlockPos getNextBlockPos(){
         int xOffset = minOffsetX + xPos;
         int zOffset = minOffsetZ + zPos;
-        BlockPos newPos = new BlockPos(pos.getX() + xOffset, yPos, pos.getZ() + zOffset);
+        return new BlockPos(pos.getX() + xOffset, yPos, pos.getZ() + zOffset);
+    }
+    protected void incrementBlockPos(){
         xPos++;
         if(xPos>=getSize()){
             xPos = 0;
@@ -66,7 +68,6 @@ public abstract class AbstractMiningBlockEntity extends AbstractEnergyUsingBlock
                 yPos--;
             }
         }
-        return newPos;
     }
     protected void increaseProgress(){
         progress++;
@@ -92,23 +93,23 @@ public abstract class AbstractMiningBlockEntity extends AbstractEnergyUsingBlock
                 this.minOffsetX = -(quarrySize/2);
                 this.maxOffsetX = quarrySize/2;
                 this.minOffsetZ = -quarrySize;
-                this.maxOffsetZ = 0;
+                this.maxOffsetZ = 1;
             }
             case SOUTH -> {
                 this.minOffsetX = -(quarrySize/2);
                 this.maxOffsetX = quarrySize/2;
-                this.minOffsetZ = quarrySize;
-                this.maxOffsetZ = 0;
+                this.minOffsetZ = 1;
+                this.maxOffsetZ = quarrySize;
             }
             case EAST -> {
-                this.minOffsetX = 0;
+                this.minOffsetX = 1;
                 this.maxOffsetX = quarrySize;
                 this.minOffsetZ = -(quarrySize/2);
                 this.maxOffsetZ = quarrySize/2;
             }
             default -> {
                 this.minOffsetX = -quarrySize;
-                this.maxOffsetX = 0;
+                this.maxOffsetX = 1;
                 this.minOffsetZ = -(quarrySize/2);
                 this.maxOffsetZ = quarrySize/2;
             }
