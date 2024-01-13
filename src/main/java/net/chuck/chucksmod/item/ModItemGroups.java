@@ -45,6 +45,8 @@ public class ModItemGroups {
                         entries.add(ModItems.IRON_GEAR);
                         entries.add(ModItems.IRON_ENERGY_CORE);
                         entries.add(ModBlocks.IRON_MACHINE_BASE);
+                        entries.add(ModItems.IRON_AXLE);
+                        entries.add(ModItems.IRON_MOTOR);
                         entries.add(ModBlocks.IRON_ENERGY_STORAGE);
                         entries.add(ModBlocks.IRON_POWERED_CRUSHER);
                         entries.add(ModBlocks.IRON_POWERED_FURNACE);
@@ -176,6 +178,8 @@ public class ModItemGroups {
                         entries.add(ModBlocks.TITANIUM_DUST_BLOCK);
                         entries.add(ModItems.TITANIUM_GEAR);
                         entries.add(ModItems.TITANIUM_ENERGY_CORE);
+                        entries.add(ModItems.TITANIUM_AXLE);
+                        entries.add(ModItems.TITANIUM_MOTOR);
                         entries.add(ModBlocks.TITANIUM_MACHINE_BASE);
                         entries.add(ModBlocks.TITANIUM_ENERGY_STORAGE);
                         entries.add(ModBlocks.TITANIUM_POWERED_CRUSHER);
@@ -184,6 +188,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.TITANIUM_QUARRY);
                         entries.add(ModBlocks.TITANIUM_COPIER);
                         entries.add(ModBlocks.TITANIUM_FLUID_TANK);
+                        entries.add(ModBlocks.TITANIUM_PUMP);
 
                         entries.add(ModItems.SOUL_DUST);
                         entries.add(ModBlocks.SOUL_GRAVEL);

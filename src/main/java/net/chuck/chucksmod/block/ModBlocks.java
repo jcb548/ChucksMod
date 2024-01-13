@@ -21,6 +21,7 @@ import net.chuck.chucksmod.block.custom.furnace.TitaniumPoweredFurnaceBlock;
 import net.chuck.chucksmod.block.custom.generator.IronHeatGeneratorBlock;
 import net.chuck.chucksmod.block.custom.generator.TitaniumHeatGeneratorBlock;
 import net.chuck.chucksmod.block.custom.pump.IronPumpBlock;
+import net.chuck.chucksmod.block.custom.pump.TitaniumPumpBlock;
 import net.chuck.chucksmod.block.custom.quarry.IronQuarryBlock;
 import net.chuck.chucksmod.block.custom.quarry.TitaniumQuarryBlock;
 import net.chuck.chucksmod.block.custom.wire.CopperWireBlock;
@@ -206,6 +207,8 @@ public class ModBlocks {
             new TitaniumCopierBlock(FabricBlockSettings.copy(TITANIUM_BLOCK)));
     public static final Block TITANIUM_FLUID_TANK = registerBlock("titanium_fluid_tank",
             new TitaniumFluidTankBlock(FabricBlockSettings.copy(ModBlocks.TITANIUM_BLOCK)));
+    public static final Block TITANIUM_PUMP = registerBlock("titanium_pump",
+            new TitaniumPumpBlock(FabricBlockSettings.copy(ModBlocks.TITANIUM_BLOCK)));
     // Soul Blocks
     public static final Block SOUL_GRAVEL = registerBlock("soul_gravel",
             new FallingBlock(FabricBlockSettings.copy(Blocks.SAND)));

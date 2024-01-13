@@ -13,6 +13,7 @@ import net.chuck.chucksmod.item.custom.bag.*;
 import net.chuck.chucksmod.item.custom.wither.*;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
+import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -60,6 +61,10 @@ public class ModItems {
             new Item(new FabricItemSettings()));
     //Prismarine
     public static final Item IRON_ENERGY_CORE = registerItem("iron_energy_core",
+            new Item(new FabricItemSettings()));
+    public static final Item IRON_AXLE = registerItem("iron_axle",
+            new Item(new FabricItemSettings()));
+    public static final Item IRON_MOTOR = registerItem("iron_motor",
             new Item(new FabricItemSettings()));
     public static final Item PRISMARINE_DUST = registerItem("prismarine_dust",
             new Item(new FabricItemSettings()));
@@ -134,6 +139,8 @@ public class ModItems {
     public static final Item TITANIUM_GEAR = registerItem("titanium_gear", new Item(new FabricItemSettings()));
     public static final Item TITANIUM_ENERGY_CORE = registerItem("titanium_energy_core",
             new Item(new FabricItemSettings()));
+    public static final Item TITANIUM_AXLE = registerItem("titanium_axle", new Item(new FabricItemSettings()));
+    public static final Item TITANIUM_MOTOR = registerItem("titanium_motor", new Item(new FabricItemSettings()));
     public static final Item TITANIUM_SWORD = registerItem("titanium_sword",
             new ModSwordItem(ModToolMaterials.TITANIUM, 3, -2.2f, new FabricItemSettings()));
     public static final Item TITANIUM_PICKAXE = registerItem("titanium_pickaxe",

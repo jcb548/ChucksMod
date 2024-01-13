@@ -5,6 +5,7 @@ import net.chuck.chucksmod.item.ModItemTags;
 import net.chuck.chucksmod.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
+import net.minecraft.block.Blocks;
 import net.minecraft.item.Items;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.ItemTags;
@@ -287,5 +288,24 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
         getOrCreateTagBuilder(ModItemTags.CRUSHERS)
                 .add(ModBlocks.CRUSHER.asItem())
                 .add(ModBlocks.IRON_POWERED_CRUSHER.asItem());
+        getOrCreateTagBuilder(ModItemTags.GLASS)
+                .addTag(ModItemTags.HARDENED_GLASS)
+                .add(Items.GLASS)
+                .add(Items.BLACK_STAINED_GLASS)
+                .add(Items.BLUE_STAINED_GLASS)
+                .add(Items.BROWN_STAINED_GLASS)
+                .add(Items.CYAN_STAINED_GLASS)
+                .add(Items.GRAY_STAINED_GLASS)
+                .add(Items.GREEN_STAINED_GLASS)
+                .add(Items.LIGHT_BLUE_STAINED_GLASS)
+                .add(Items.LIGHT_GRAY_STAINED_GLASS)
+                .add(Items.LIME_STAINED_GLASS)
+                .add(Items.MAGENTA_STAINED_GLASS)
+                .add(Items.ORANGE_STAINED_GLASS)
+                .add(Items.PINK_STAINED_GLASS)
+                .add(Items.PURPLE_STAINED_GLASS)
+                .add(Items.RED_STAINED_GLASS)
+                .add(Items.WHITE_STAINED_GLASS)
+                .add(Items.YELLOW_STAINED_GLASS);
     }
 }

@@ -145,6 +145,8 @@
   "tooltip.chucksmod.copier": "Copies enchantments from books, at a cost of experience",
   "tooltip.chucksmod.drain_xp": "Drain Xp",
   "block.chucksmod.titanium_fluid_tank": "Titanium Fluid Tank",
+  "block.chucksmod.titanium_pump": "Titanium Pump",
+  "tooltip.chucksmod.titanium_pump": "Pumps liquids from a 17x17 area in front of pump into a fluid tank",
 
   "item.chucksmod.raw_diritonium": "Raw Diritonium",
   "item.chucksmod.diritonium_ingot": "Diritonium Ingot",
@@ -219,6 +221,9 @@
   "block.chucksmod.iron_fluid_tank": "Iron Fluid Tank",
   "tooltip.chucksmod.fluid_tank": "Stores blocks of fluid",
   "block.chucksmod.iron_pump": "Iron Pump",
+  "tooltip.chucksmod.iron_pump": "Pumps liquids from a 13x13 area in front of pump into a fluid tank",
+  "item.chucksmod.iron_axle": "Iron Axle",
+  "item.chucksmod.iron_motor": "Iron Motor",
 
 
   "block.chucksmod.slated_dirt": "Slated Dirt",

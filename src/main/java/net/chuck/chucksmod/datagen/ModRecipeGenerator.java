@@ -1,5 +1,6 @@
 package net.chuck.chucksmod.datagen;
 
+import com.sun.jna.platform.unix.X11;
 import net.chuck.chucksmod.block.ModBlocks;
 import net.chuck.chucksmod.item.ModItemTags;
 import net.chuck.chucksmod.item.ModItems;
@@ -7,10 +8,7 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
-import net.minecraft.data.server.recipe.RecipeExporter;
-import net.minecraft.data.server.recipe.RecipeProvider;
-import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
-import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
+import net.minecraft.data.server.recipe.*;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
@@ -70,7 +68,8 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
         generateIronMachineRecipes(exporter);
         generateTitaniumRecipes(exporter);
     }
-    private void generateSandstoneRecipes(RecipeExporter exporter){
+
+    private void generateSandstoneRecipes(RecipeExporter exporter) {
         offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.SANDSTONE_BRICKS,
                 Blocks.SMOOTH_SANDSTONE);
         offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.SANDSTONE_BRICK_STAIRS,
@@ -96,8 +95,8 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 ModBlocks.SANDSTONE_BRICKS);
         offerPolishedStoneRecipe(exporter, RecipeCategory.BREWING, ModBlocks.SANDSTONE_BRICKS, Blocks.SMOOTH_SANDSTONE);
     }
-    
-    private void generateSoulRecipes(RecipeExporter exporter){
+
+    private void generateSoulRecipes(RecipeExporter exporter) {
         ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.SOUL_GRAVEL)
                 .pattern("#S#")
                 .pattern("S#S")
@@ -157,15 +156,22 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
         offerPoweredFurnaceRecipe(exporter, ModBlocks.IRON_POWERED_FURNACE, ModItems.COPPER_POWER_CIRCUIT,
                 ModBlocks.COPPER_WIRE, ModBlocks.IRON_MACHINE_BASE);
         offerPoweredCrusherRecipe(exporter, ModBlocks.IRON_POWERED_CRUSHER, ModItems.COPPER_POWER_CIRCUIT,
-                ModBlocks.IRON_MACHINE_BASE, ModBlocks.COPPER_WIRE, ModItems.IRON_GEAR);
+                ModBlocks.IRON_MACHINE_BASE, ModBlocks.COPPER_WIRE, ModItems.IRON_GEAR, ModItems.IRON_MOTOR);
         offerHeatGeneratorRecipe(exporter, ModBlocks.IRON_HEAT_GENERATOR, ModItems.COPPER_COIL,
                 ModItems.COPPER_POWER_CIRCUIT, ModBlocks.COPPER_WIRE, ModBlocks.IRON_MACHINE_BASE, Items.IRON_INGOT);
-        offerEnergyCoreRecipe(exporter, ModItems.IRON_ENERGY_CORE ,Items.IRON_INGOT);
+        offerEnergyCoreRecipe(exporter, ModItems.IRON_ENERGY_CORE, Items.IRON_INGOT);
         offerEnergyStorageRecipe(exporter, ModBlocks.IRON_ENERGY_STORAGE, ModItems.COPPER_POWER_CIRCUIT,
                 ModBlocks.COPPER_WIRE, ModBlocks.IRON_MACHINE_BASE, ModItems.IRON_ENERGY_CORE);
+        offerAxleRecipe(exporter, ModItems.IRON_AXLE, Items.IRON_INGOT);
+        offerMotorRecipe(exporter, ModItems.IRON_MOTOR, Items.IRON_INGOT, ModItems.IRON_AXLE, ModBlocks.COPPER_WIRE);
+        offerQuarryRecipe(exporter, ModBlocks.IRON_QUARRY, ModBlocks.IRON_MACHINE_BASE, Items.IRON_PICKAXE,
+                Items.IRON_SHOVEL, ModItems.COPPER_POWER_CIRCUIT, ModItems.IRON_MOTOR, ModBlocks.COPPER_WIRE);
+        offerTankRecipe(exporter, ModBlocks.IRON_FLUID_TANK, Items.IRON_INGOT);
+        offerPumpRecipe(exporter, ModBlocks.IRON_PUMP, ModBlocks.IRON_MACHINE_BASE, ModItems.COPPER_POWER_CIRCUIT,
+                ModItems.IRON_MOTOR, ModItems.IRON_GEAR, ModBlocks.IRON_FLUID_TANK, ModBlocks.COPPER_WIRE);
     }
 
-    public static String hasTag(TagKey<Item> material){
+    public static String hasTag(TagKey<Item> material) {
         return "has_" + material.id().getPath();
     }
 
@@ -393,7 +399,8 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
         offerLeggingsRecipe(exporter, ModItemTags.BRONZE_INGOTS, ModItems.BRONZE_LEGGINGS);
         offerBootsRecipe(exporter, ModItemTags.BRONZE_INGOTS, ModItems.BRONZE_BOOTS);
         offerStainedGlassPaneRecipe(exporter, ModBlocks.BRONZE_BARS, ModItems.BRONZE_INGOT);
-    } 
+    }
+
     private void generateTitaniumRecipes(RecipeExporter exporter) {
         // Titanium
         offerReversibleCompactingRecipes(exporter,
@@ -441,13 +448,24 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
         offerPoweredFurnaceRecipe(exporter, ModBlocks.TITANIUM_POWERED_FURNACE, ModItems.GOLD_POWER_CIRCUIT,
                 ModBlocks.GOLD_WIRE, ModBlocks.TITANIUM_MACHINE_BASE);
         offerPoweredCrusherRecipe(exporter, ModBlocks.TITANIUM_POWERED_CRUSHER, ModItems.GOLD_POWER_CIRCUIT,
-                ModBlocks.TITANIUM_MACHINE_BASE, ModBlocks.GOLD_WIRE, ModItems.TITANIUM_GEAR);
+                ModBlocks.TITANIUM_MACHINE_BASE, ModBlocks.GOLD_WIRE, ModItems.TITANIUM_GEAR, ModItems.TITANIUM_MOTOR);
         offerHeatGeneratorRecipe(exporter, ModBlocks.TITANIUM_HEAT_GENERATOR, ModItems.GOLD_COIL,
                 ModItems.GOLD_POWER_CIRCUIT, ModBlocks.GOLD_WIRE, ModBlocks.TITANIUM_MACHINE_BASE,
                 ModItems.TITANIUM_INGOT);
-        offerEnergyCoreRecipe(exporter, ModItems.TITANIUM_ENERGY_CORE ,ModItems.TITANIUM_INGOT);
+        offerEnergyCoreRecipe(exporter, ModItems.TITANIUM_ENERGY_CORE, ModItems.TITANIUM_INGOT);
         offerEnergyStorageRecipe(exporter, ModBlocks.TITANIUM_ENERGY_STORAGE, ModItems.GOLD_POWER_CIRCUIT,
                 ModBlocks.GOLD_WIRE, ModBlocks.TITANIUM_MACHINE_BASE, ModItems.TITANIUM_ENERGY_CORE);
+        offerAxleRecipe(exporter, ModItems.TITANIUM_AXLE, ModItemTags.TITANIUM_INGOTS);
+        offerMotorRecipe(exporter, ModItems.TITANIUM_MOTOR, ModItemTags.TITANIUM_INGOTS, ModItems.TITANIUM_AXLE,
+                ModBlocks.GOLD_WIRE);
+        offerQuarryRecipe(exporter, ModBlocks.TITANIUM_QUARRY, ModBlocks.TITANIUM_MACHINE_BASE,
+                ModItems.TITANIUM_PICKAXE, ModItems.TITANIUM_SHOVEL, ModItems.GOLD_POWER_CIRCUIT,
+                ModItems.TITANIUM_MOTOR, ModBlocks.GOLD_WIRE);
+        offerTankRecipe(exporter, ModBlocks.TITANIUM_FLUID_TANK, ModItemTags.TITANIUM_INGOTS);
+        offerPumpRecipe(exporter, ModBlocks.TITANIUM_PUMP, ModBlocks.TITANIUM_MACHINE_BASE, ModItems.GOLD_POWER_CIRCUIT,
+                ModItems.TITANIUM_MOTOR, ModItems.TITANIUM_GEAR, ModBlocks.TITANIUM_FLUID_TANK, ModBlocks.GOLD_WIRE);
+        offerCopierRecipe(exporter, ModBlocks.TITANIUM_COPIER, ModBlocks.TITANIUM_MACHINE_BASE,
+                ModItems.GOLD_POWER_CIRCUIT, ModBlocks.TITANIUM_FLUID_TANK, ModBlocks.GOLD_WIRE);
     }
 
     private void generateVanillaDustSmeltingAndBlockRecipes(RecipeExporter exporter) {
@@ -474,7 +492,8 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 RecipeCategory.DECORATIONS, ModBlocks.GOLD_DUST_BLOCK);
         offerStainedGlassPaneRecipe(exporter, ModBlocks.GOLD_BARS, Items.GOLD_INGOT);
     }
-    private void generateCopperRecipes(RecipeExporter exporter){
+
+    private void generateCopperRecipes(RecipeExporter exporter) {
         offerSmelting(exporter, List.of(ModItems.COPPER_DUST), RecipeCategory.MISC, Items.COPPER_INGOT,
                 0.7f, 200, "copper_ingot");
         offerBlasting(exporter, List.of(ModItems.COPPER_DUST), RecipeCategory.MISC, Items.COPPER_INGOT,
@@ -488,7 +507,7 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
         offerPowerCircuitRecipe(exporter, ModBlocks.COPPER_WIRE.asItem(), ModItems.COPPER_POWER_CIRCUIT);
     }
 
-    private void generateGoldRecipes(RecipeExporter exporter){
+    private void generateGoldRecipes(RecipeExporter exporter) {
         offerGearRecipe(exporter, Items.GOLD_INGOT, ModItems.GOLD_GEAR);
         offerWireRecipe(exporter, Items.GOLD_INGOT, ModBlocks.GOLD_WIRE.asItem());
         offerCoilRecipe(exporter, ModBlocks.GOLD_WIRE.asItem(), ModItems.GOLD_COIL);
@@ -513,7 +532,7 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
         offerWireRecipe(exporter, ModItemTags.TIN_INGOTS, ModBlocks.TIN_WIRE.asItem());
     }
 
-    private void generateHardenedGlassRecipes(RecipeExporter exporter){
+    private void generateHardenedGlassRecipes(RecipeExporter exporter) {
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.OBSIDIAN_SAND, 2)
                 .pattern(" D ")
                 .pattern("DSD")
@@ -564,7 +583,7 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
         offerStainedGlassPaneRecipe(exporter, ModBlocks.HARDENED_YELLOW_GLASS_PANE, ModBlocks.HARDENED_YELLOW_GLASS);
     }
 
-    public static void offerSwordRecipe(RecipeExporter exporter, TagKey<Item> material, Item output){
+    public static void offerSwordRecipe(RecipeExporter exporter, TagKey<Item> material, Item output) {
         ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, output)
                 .pattern("B")
                 .pattern("B")
@@ -575,7 +594,8 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .criterion(hasTag(material), conditionsFromTag(material))
                 .offerTo(exporter);
     }
-    public static void offerSwordRecipe(RecipeExporter exporter, Item material, Item output){
+
+    public static void offerSwordRecipe(RecipeExporter exporter, Item material, Item output) {
         ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, output)
                 .pattern("B")
                 .pattern("B")
@@ -586,7 +606,8 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
                 .offerTo(exporter);
     }
-    public static void offerPickaxeRecipe(RecipeExporter exporter, TagKey<Item> material, Item output){
+
+    public static void offerPickaxeRecipe(RecipeExporter exporter, TagKey<Item> material, Item output) {
         ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, output)
                 .pattern("BBB")
                 .pattern(" S ")
@@ -597,7 +618,8 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
                 .offerTo(exporter);
     }
-    public static void offerPickaxeRecipe(RecipeExporter exporter, Item material, Item output){
+
+    public static void offerPickaxeRecipe(RecipeExporter exporter, Item material, Item output) {
         ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, output)
                 .pattern("BBB")
                 .pattern(" S ")
@@ -608,7 +630,8 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
                 .offerTo(exporter);
     }
-    public static void offerAxeRecipe(RecipeExporter exporter, TagKey<Item> material, Item output){
+
+    public static void offerAxeRecipe(RecipeExporter exporter, TagKey<Item> material, Item output) {
         ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, output)
                 .pattern("BB")
                 .pattern("BS")
@@ -619,7 +642,8 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
                 .offerTo(exporter);
     }
-    public static void offerAxeRecipe(RecipeExporter exporter, Item material, Item output){
+
+    public static void offerAxeRecipe(RecipeExporter exporter, Item material, Item output) {
         ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, output)
                 .pattern("BB")
                 .pattern("BS")
@@ -630,7 +654,8 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
                 .offerTo(exporter);
     }
-    public static void offerShovelRecipe(RecipeExporter exporter, TagKey<Item> material, Item output){
+
+    public static void offerShovelRecipe(RecipeExporter exporter, TagKey<Item> material, Item output) {
         ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, output)
                 .pattern("B")
                 .pattern("S")
@@ -641,7 +666,8 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
                 .offerTo(exporter);
     }
-    public static void offerShovelRecipe(RecipeExporter exporter, Item material, Item output){
+
+    public static void offerShovelRecipe(RecipeExporter exporter, Item material, Item output) {
         ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, output)
                 .pattern("B")
                 .pattern("S")
@@ -652,7 +678,8 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
                 .offerTo(exporter);
     }
-    public static void offerHoeRecipe(RecipeExporter exporter, TagKey<Item> material, Item output){
+
+    public static void offerHoeRecipe(RecipeExporter exporter, TagKey<Item> material, Item output) {
         ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, output)
                 .pattern("BB")
                 .pattern("S ")
@@ -663,7 +690,8 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
                 .offerTo(exporter);
     }
-    public static void offerHoeRecipe(RecipeExporter exporter, Item material, Item output){
+
+    public static void offerHoeRecipe(RecipeExporter exporter, Item material, Item output) {
         ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, output)
                 .pattern("BB")
                 .pattern("S ")
@@ -674,7 +702,8 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
                 .offerTo(exporter);
     }
-    public static void offerHelmetRecipe(RecipeExporter exporter, TagKey<Item> material, Item output){
+
+    public static void offerHelmetRecipe(RecipeExporter exporter, TagKey<Item> material, Item output) {
         ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, output)
                 .pattern("BBB")
                 .pattern("B B")
@@ -682,7 +711,8 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .criterion(hasTag(material), conditionsFromTag(material))
                 .offerTo(exporter);
     }
-    public static void offerHelmetRecipe(RecipeExporter exporter, Item material, Item output){
+
+    public static void offerHelmetRecipe(RecipeExporter exporter, Item material, Item output) {
         ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, output)
                 .pattern("BBB")
                 .pattern("B B")
@@ -690,7 +720,8 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .criterion(hasItem(material), conditionsFromItem(material))
                 .offerTo(exporter);
     }
-    public static void offerChestplateRecipe(RecipeExporter exporter, TagKey<Item> material, Item output){
+
+    public static void offerChestplateRecipe(RecipeExporter exporter, TagKey<Item> material, Item output) {
         ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, output)
                 .pattern("B B")
                 .pattern("BBB")
@@ -699,7 +730,8 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .criterion(hasTag(material), conditionsFromTag(material))
                 .offerTo(exporter);
     }
-    public static void offerChestplateRecipe(RecipeExporter exporter, Item material, Item output){
+
+    public static void offerChestplateRecipe(RecipeExporter exporter, Item material, Item output) {
         ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, output)
                 .pattern("B B")
                 .pattern("BBB")
@@ -708,7 +740,8 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .criterion(hasItem(material), conditionsFromItem(material))
                 .offerTo(exporter);
     }
-    public static void offerLeggingsRecipe(RecipeExporter exporter, TagKey<Item> material, Item output){
+
+    public static void offerLeggingsRecipe(RecipeExporter exporter, TagKey<Item> material, Item output) {
         ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, output)
                 .pattern("BBB")
                 .pattern("B B")
@@ -717,7 +750,8 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .input('B', material)
                 .offerTo(exporter);
     }
-    public static void offerLeggingsRecipe(RecipeExporter exporter, Item material, Item output){
+
+    public static void offerLeggingsRecipe(RecipeExporter exporter, Item material, Item output) {
         ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, output)
                 .pattern("BBB")
                 .pattern("B B")
@@ -726,7 +760,8 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .criterion(hasItem(material), conditionsFromItem(material))
                 .offerTo(exporter);
     }
-    public static void offerBootsRecipe(RecipeExporter exporter, TagKey<Item> material, Item output){
+
+    public static void offerBootsRecipe(RecipeExporter exporter, TagKey<Item> material, Item output) {
         ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, output)
                 .pattern("B B")
                 .pattern("B B")
@@ -734,7 +769,8 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .criterion(hasTag(material), conditionsFromTag(material))
                 .offerTo(exporter);
     }
-    public static void offerBootsRecipe(RecipeExporter exporter, Item material, Item output){
+
+    public static void offerBootsRecipe(RecipeExporter exporter, Item material, Item output) {
         ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, output)
                 .pattern("B B")
                 .pattern("B B")
@@ -742,7 +778,8 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .criterion(hasItem(material), conditionsFromItem(material))
                 .offerTo(exporter);
     }
-    public static void offerGearRecipe(RecipeExporter exporter, TagKey<Item> material, Item output){
+
+    public static void offerGearRecipe(RecipeExporter exporter, TagKey<Item> material, Item output) {
         ShapedRecipeJsonBuilder.create(RecipeCategory.REDSTONE, output)
                 .pattern(" # ")
                 .pattern("# #")
@@ -751,7 +788,8 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .criterion(hasTag(material), conditionsFromTag(material))
                 .offerTo(exporter);
     }
-    public static void offerGearRecipe(RecipeExporter exporter, Item material, Item output){
+
+    public static void offerGearRecipe(RecipeExporter exporter, Item material, Item output) {
         ShapedRecipeJsonBuilder.create(RecipeCategory.REDSTONE, output)
                 .pattern(" # ")
                 .pattern("# #")
@@ -760,21 +798,24 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .criterion(hasItem(material), conditionsFromItem(material))
                 .offerTo(exporter);
     }
-    public static void offerWireRecipe(RecipeExporter exporter, TagKey<Item> material, Item output){
+
+    public static void offerWireRecipe(RecipeExporter exporter, TagKey<Item> material, Item output) {
         ShapedRecipeJsonBuilder.create(RecipeCategory.REDSTONE, output, 6)
                 .pattern("##")
                 .input('#', material)
                 .criterion(hasTag(material), conditionsFromTag(material))
                 .offerTo(exporter);
     }
-    public static void offerWireRecipe(RecipeExporter exporter, Item material, Item output){
+
+    public static void offerWireRecipe(RecipeExporter exporter, Item material, Item output) {
         ShapedRecipeJsonBuilder.create(RecipeCategory.REDSTONE, output, 6)
                 .pattern("##")
                 .input('#', material)
                 .criterion(hasItem(material), conditionsFromItem(material))
                 .offerTo(exporter);
     }
-    public static void offerDyeingRecipe(RecipeExporter exporter, TagKey<Item> input, Item dye, Block output){
+
+    public static void offerDyeingRecipe(RecipeExporter exporter, TagKey<Item> input, Item dye, Block output) {
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, output, 8)
                 .pattern("GGG")
                 .pattern("GDG")
@@ -785,7 +826,8 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .criterion(hasTag(input), conditionsFromTag(input))
                 .offerTo(exporter);
     }
-    public static void offerDyeingRecipe(RecipeExporter exporter, Item input, Item dye, Block output){
+
+    public static void offerDyeingRecipe(RecipeExporter exporter, Item input, Item dye, Block output) {
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, output, 8)
                 .pattern("GGG")
                 .pattern("GDG")
@@ -797,7 +839,7 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .offerTo(exporter);
     }
 
-    public void generateBagRecipes(RecipeExporter exporter){
+    public void generateBagRecipes(RecipeExporter exporter) {
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.STRING_STRAP, 1)
                 .pattern("SSS")
                 .pattern("S S")
@@ -832,7 +874,7 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
         offerBagRecipe(exporter, Items.NETHERITE_INGOT, ModItems.NETHERITE_BAG);
     }
 
-    public static void offerBagRecipe(RecipeExporter exporter, Item material, Item output){
+    public static void offerBagRecipe(RecipeExporter exporter, Item material, Item output) {
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, output, 1)
                 .pattern("S S")
                 .pattern("MMM")
@@ -844,7 +886,7 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .offerTo(exporter);
     }
 
-    public static void offerBagRecipe(RecipeExporter exporter, TagKey<Item> material, Item output){
+    public static void offerBagRecipe(RecipeExporter exporter, TagKey<Item> material, Item output) {
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, output, 1)
                 .pattern("S S")
                 .pattern("MMM")
@@ -855,7 +897,8 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .criterion(hasTag(material), conditionsFromTag(material))
                 .offerTo(exporter);
     }
-    public static void offerPowerCircuitRecipe(RecipeExporter exporter, Item wire, Item output){
+
+    public static void offerPowerCircuitRecipe(RecipeExporter exporter, Item wire, Item output) {
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, output, 1)
                 .pattern("WRW")
                 .pattern("RRR")
@@ -866,7 +909,8 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .criterion(hasItem(Items.REDSTONE), conditionsFromItem(Items.REDSTONE))
                 .offerTo(exporter);
     }
-    public static void offerCoilRecipe(RecipeExporter exporter, Item wire, Item output){
+
+    public static void offerCoilRecipe(RecipeExporter exporter, Item wire, Item output) {
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, output, 4)
                 .pattern(" W ")
                 .pattern("W W")
@@ -875,7 +919,8 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .criterion(hasItem(wire), conditionsFromItem(wire))
                 .offerTo(exporter);
     }
-    public static void offerMachineBaseRecipe(RecipeExporter exporter, Item material, Item gear, Item output){
+
+    public static void offerMachineBaseRecipe(RecipeExporter exporter, Item material, Item gear, Item output) {
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, output, 1)
                 .pattern("MRM")
                 .pattern("RGR")
@@ -888,28 +933,30 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .criterion(hasItem(gear), conditionsFromItem(gear))
                 .offerTo(exporter);
     }
+
     public static void offerPoweredCrusherRecipe(RecipeExporter exporter, Block crusher, Item powerCircuit,
-                                                 Block machineBase, Block wire, Item gear){
+                                                 Block machineBase, Block wire, Item gear, Item motor) {
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, crusher)
-                .pattern("DCD")
-                .pattern("WMW")
+                .pattern("MCM")
+                .pattern("WBW")
                 .pattern("GPG")
                 .input('C', powerCircuit)
                 .input('W', wire)
-                .input('M', machineBase)
-                .input('D', Items.DIAMOND)
+                .input('B', machineBase)
+                .input('M', motor)
                 .input('P', Blocks.PISTON)
                 .input('G', gear)
                 .criterion(hasItem(powerCircuit), conditionsFromItem(powerCircuit))
                 .criterion(hasItem(wire), conditionsFromItem(wire))
                 .criterion(hasItem(machineBase), conditionsFromItem(machineBase))
-                .criterion(hasItem(Items.DIAMOND), conditionsFromItem(Items.DIAMOND))
+                .criterion(hasItem(motor), conditionsFromItem(motor))
                 .criterion(hasItem(Blocks.PISTON), conditionsFromItem(Blocks.PISTON))
                 .criterion(hasItem(gear), conditionsFromItem(gear))
                 .offerTo(exporter);
     }
+
     public static void offerHeatGeneratorRecipe(RecipeExporter exporter, Block generator, Item coil, Item powerCircuit,
-                                                Block wire, Block machineBase, Item material){
+                                                Block wire, Block machineBase, Item material) {
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, generator)
                 .pattern("CPC")
                 .pattern("WMW")
@@ -928,8 +975,9 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .criterion(hasItem(Blocks.FURNACE), conditionsFromItem(Blocks.FURNACE))
                 .offerTo(exporter);
     }
+
     public static void offerPoweredFurnaceRecipe(RecipeExporter exporter, Block furnace, Item powerCircuit,
-                                                Block wire, Block machineBase){
+                                                 Block wire, Block machineBase) {
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, furnace)
                 .pattern(" P ")
                 .pattern("WMW")
@@ -946,7 +994,8 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .criterion(hasItem(Blocks.FURNACE), conditionsFromItem(Blocks.FURNACE))
                 .offerTo(exporter);
     }
-    public static void offerEnergyCoreRecipe(RecipeExporter exporter, Item energyCore, Item material){
+
+    public static void offerEnergyCoreRecipe(RecipeExporter exporter, Item energyCore, Item material) {
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, energyCore)
                 .pattern("RMR")
                 .pattern("MBM")
@@ -959,8 +1008,9 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .criterion(hasItem(material), conditionsFromItem(material))
                 .offerTo(exporter);
     }
+
     public static void offerEnergyStorageRecipe(RecipeExporter exporter, Block energyStorage, Item powerCircuit,
-                                                 Block wire, Block machineBase, Item energyCore){
+                                                Block wire, Block machineBase, Item energyCore) {
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, energyStorage)
                 .pattern("C C")
                 .pattern("WMW")
@@ -975,6 +1025,169 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .criterion(hasItem(energyCore), conditionsFromItem(energyCore))
                 .criterion(hasItem(wire), conditionsFromItem(wire))
                 .criterion(hasItem(Blocks.LEVER), conditionsFromItem(Blocks.LEVER))
+                .offerTo(exporter);
+    }
+
+    public static void offerAxleRecipe(RecipeExporter exporter, Item axle, Item material) {
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, axle, 4)
+                .pattern("MM")
+                .input('M', material)
+                .criterion(hasItem(material), conditionsFromItem(material))
+                .offerTo(exporter);
+    }
+
+    public static void offerAxleRecipe(RecipeExporter exporter, Item axle, TagKey<Item> material) {
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, axle, 4)
+                .pattern("MM")
+                .input('M', material)
+                .criterion(hasTag(material), conditionsFromTag(material))
+                .offerTo(exporter);
+    }
+
+    public static void offerMotorRecipe(RecipeExporter exporter, Item motor, Item material, Item axle, Block wire) {
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, motor, 2)
+                .pattern("MIM")
+                .pattern("WAW")
+                .pattern("MIM")
+                .input('M', material)
+                .input('W', wire)
+                .input('A', axle)
+                .input('I', Items.IRON_INGOT)
+                .criterion(hasItem(material), conditionsFromItem(material))
+                .criterion(hasItem(wire), conditionsFromItem(wire))
+                .criterion(hasItem(axle), conditionsFromItem(axle))
+                .criterion(hasItem(Items.IRON_INGOT), conditionsFromItem(Items.IRON_INGOT))
+                .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, motor, 2)
+                .pattern("MIM")
+                .pattern("WAW")
+                .pattern("MIM")
+                .input('M', material)
+                .input('W', wire)
+                .input('A', axle)
+                .input('I', Items.IRON_INGOT)
+                .criterion(hasItem(material), conditionsFromItem(material))
+                .criterion(hasItem(wire), conditionsFromItem(wire))
+                .criterion(hasItem(axle), conditionsFromItem(axle))
+                .criterion(hasItem(Items.IRON_INGOT), conditionsFromItem(Items.IRON_INGOT))
+                .offerTo(exporter, CraftingRecipeJsonBuilder.getItemId(motor) + "_vertical");
+    }
+
+    public static void offerMotorRecipe(RecipeExporter exporter, Item motor, TagKey<Item> material, Item axle, Block wire) {
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, motor, 2)
+                .pattern("MIM")
+                .pattern("WAW")
+                .pattern("MIM")
+                .input('M', material)
+                .input('W', wire)
+                .input('A', axle)
+                .input('I', Items.IRON_INGOT)
+                .criterion(hasTag(material), conditionsFromTag(material))
+                .criterion(hasItem(wire), conditionsFromItem(wire))
+                .criterion(hasItem(axle), conditionsFromItem(axle))
+                .criterion(hasItem(Items.IRON_INGOT), conditionsFromItem(Items.IRON_INGOT))
+                .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, motor, 2)
+                .pattern("MWM")
+                .pattern("IAI")
+                .pattern("MWM")
+                .input('M', material)
+                .input('W', wire)
+                .input('A', axle)
+                .input('I', Items.IRON_INGOT)
+                .criterion(hasTag(material), conditionsFromTag(material))
+                .criterion(hasItem(wire), conditionsFromItem(wire))
+                .criterion(hasItem(axle), conditionsFromItem(axle))
+                .criterion(hasItem(Items.IRON_INGOT), conditionsFromItem(Items.IRON_INGOT))
+                .offerTo(exporter, CraftingRecipeJsonBuilder.getItemId(motor) + "_vertical");
+    }
+
+    public static void offerQuarryRecipe(RecipeExporter exporter, Block quarry, Block machineBase, Item pickaxe,
+                                         Item shovel, Item powerCircuit, Item motor, Block wire) {
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, quarry)
+                .pattern("MCM")
+                .pattern("WBW")
+                .pattern("P#S")
+                .input('M', motor)
+                .input('C', powerCircuit)
+                .input('W', wire)
+                .input('B', machineBase)
+                .input('P', pickaxe)
+                .input('#', Blocks.CHEST)
+                .input('S', shovel)
+                .criterion(hasItem(motor), conditionsFromItem(motor))
+                .criterion(hasItem(powerCircuit), conditionsFromItem(powerCircuit))
+                .criterion(hasItem(wire), conditionsFromItem(wire))
+                .criterion(hasItem(machineBase), conditionsFromItem(machineBase))
+                .criterion(hasItem(pickaxe), conditionsFromItem(pickaxe))
+                .criterion(hasItem(Blocks.CHEST), conditionsFromItem(Blocks.CHEST))
+                .criterion(hasItem(shovel), conditionsFromItem(shovel))
+                .offerTo(exporter);
+    }
+
+    public static void offerTankRecipe(RecipeExporter exporter, Block tank, Item material) {
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, tank)
+                .pattern("MGM")
+                .pattern("G G")
+                .pattern("MGM")
+                .input('M', material)
+                .input('G', ModItemTags.GLASS)
+                .criterion(hasItem(material), conditionsFromItem(material))
+                .criterion(hasTag(ModItemTags.GLASS), conditionsFromTag(ModItemTags.GLASS))
+                .offerTo(exporter);
+    }
+
+    public static void offerTankRecipe(RecipeExporter exporter, Block tank, TagKey<Item> material) {
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, tank)
+                .pattern("MGM")
+                .pattern("G G")
+                .pattern("MGM")
+                .input('M', material)
+                .input('G', ModItemTags.GLASS)
+                .criterion(hasTag(material), conditionsFromTag(material))
+                .criterion(hasTag(ModItemTags.GLASS), conditionsFromTag(ModItemTags.GLASS))
+                .offerTo(exporter);
+    }
+
+    public static void offerPumpRecipe(RecipeExporter exporter, Block pump, Block machineBase, Item powerCircuit,
+                                       Item motor, Item gear, Block tank, Block wire) {
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, pump)
+                .pattern("MCM")
+                .pattern("WBW")
+                .pattern("GTG")
+                .input('M', motor)
+                .input('C', powerCircuit)
+                .input('W', wire)
+                .input('B', machineBase)
+                .input('G', gear)
+                .input('T', tank)
+                .criterion(hasItem(motor), conditionsFromItem(motor))
+                .criterion(hasItem(powerCircuit), conditionsFromItem(powerCircuit))
+                .criterion(hasItem(wire), conditionsFromItem(wire))
+                .criterion(hasItem(machineBase), conditionsFromItem(machineBase))
+                .criterion(hasItem(gear), conditionsFromItem(gear))
+                .criterion(hasItem(tank), conditionsFromItem(tank))
+                .offerTo(exporter);
+    }
+
+    public static void offerCopierRecipe(RecipeExporter exporter, Block copier, Block machineBase, Item powerCircuit,
+                                         Block tank, Block wire){
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, copier)
+                .pattern(" C ")
+                .pattern("WMW")
+                .pattern("ABT")
+                .input('C', powerCircuit)
+                .input('W', wire)
+                .input('M', machineBase)
+                .input('T', tank)
+                .input('A', Blocks.ANVIL)
+                .input('B', Items.ENCHANTED_BOOK)
+                .criterion(hasItem(powerCircuit), conditionsFromItem(powerCircuit))
+                .criterion(hasItem(wire), conditionsFromItem(wire))
+                .criterion(hasItem(machineBase), conditionsFromItem(machineBase))
+                .criterion(hasItem(tank), conditionsFromItem(tank))
+                .criterion(hasItem(Blocks.ANVIL), conditionsFromItem(Blocks.ANVIL))
+                .criterion(hasItem(Items.ENCHANTED_BOOK), conditionsFromItem(Items.ENCHANTED_BOOK))
                 .offerTo(exporter);
     }
 }

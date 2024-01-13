@@ -33,6 +33,6 @@ public class TitaniumCopierBlockEntity extends AbstractCopierBlockEntity impleme
 
     @Override
     public int getBucketCapacity() {
-        return XP_BUCKETS;
+        return MACHINE_BUCKET_STORAGE;
     }
 }

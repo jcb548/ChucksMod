@@ -102,6 +102,7 @@ public class ModBlockLootTableGenerator extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.TITANIUM_QUARRY);
         addDrop(ModBlocks.TITANIUM_COPIER);
         addDrop(ModBlocks.TITANIUM_FLUID_TANK);
+        addDrop(ModBlocks.TITANIUM_PUMP);
 
         addDrop(ModBlocks.SOUL_STONE);
         addDrop(ModBlocks.SOUL_STONE_STAIRS);

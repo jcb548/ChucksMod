@@ -1,7 +1,6 @@
 package net.chuck.chucksmod.block.custom.pump;
 
 import net.chuck.chucksmod.block.custom.AbstractEnergyUsingBlock;
-import net.chuck.chucksmod.block.entity.copier.AbstractCopierBlockEntity;
 import net.chuck.chucksmod.block.entity.pump.AbstractPumpBlockEntity;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
@@ -12,6 +11,8 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+
+import java.util.List;
 
 public abstract class AbstractPumpBlock extends AbstractEnergyUsingBlock {
     protected AbstractPumpBlock(Settings settings) {

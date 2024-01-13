@@ -2,6 +2,7 @@ package net.chuck.chucksmod.block.custom.pump;
 
 import net.chuck.chucksmod.block.entity.ModBlockEntities;
 import net.chuck.chucksmod.block.entity.pump.IronPumpBlockEntity;
+import net.chuck.chucksmod.block.entity.pump.TitaniumPumpBlockEntity;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
@@ -16,27 +17,27 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class IronPumpBlock extends AbstractPumpBlock{
-    public IronPumpBlock(Settings settings) {
+public class TitaniumPumpBlock extends AbstractPumpBlock{
+    public TitaniumPumpBlock(Settings settings) {
         super(settings);
     }
 
     @Nullable
     @Override
     public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
-        return new IronPumpBlockEntity(pos, state);
+        return new TitaniumPumpBlockEntity(pos, state);
     }
 
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return validateTicker(type, ModBlockEntities.IRON_PUMP,
+        return validateTicker(type, ModBlockEntities.TITANIUM_PUMP,
                 ((world1, pos, state1, blockEntity) -> blockEntity.tick(world1, pos, state1)));
     }
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable BlockView world, List<Text> tooltip, TooltipContext options) {
-        tooltip.add(Text.translatable("tooltip.chucksmod.iron_pump"));
+        tooltip.add(Text.translatable("tooltip.chucksmod.titanium_pump"));
         super.appendTooltip(stack, world, tooltip, options);
     }
 }

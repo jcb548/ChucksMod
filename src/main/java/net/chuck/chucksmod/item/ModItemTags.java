@@ -45,4 +45,6 @@ public class ModItemTags {
             new Identifier("c", "titanium_dusts"));
     public static final TagKey<Item> CRUSHERS = TagKey.of(RegistryKeys.ITEM,
             new Identifier(ChucksMod.MOD_ID, "crushers"));
+    public static final TagKey<Item> GLASS = TagKey.of(RegistryKeys.ITEM,
+            new Identifier("c", "glass"));
 }
