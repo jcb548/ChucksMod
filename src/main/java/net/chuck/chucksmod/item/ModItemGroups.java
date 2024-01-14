@@ -54,6 +54,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.IRON_QUARRY);
                         entries.add(ModBlocks.IRON_FLUID_TANK);
                         entries.add(ModBlocks.IRON_PUMP);
+                        entries.add(ModBlocks.IRON_FLUID_PIPE);
 
                         entries.add(ModItems.COPPER_DUST);
                         entries.add(ModBlocks.COPPER_DUST_BLOCK);

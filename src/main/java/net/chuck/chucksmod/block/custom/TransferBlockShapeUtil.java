@@ -1,5 +1,6 @@
-package net.chuck.chucksmod.block.custom.wire;
+package net.chuck.chucksmod.block.custom;
 
+import net.chuck.chucksmod.block.custom.wire.WireBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
@@ -10,7 +11,7 @@ import java.util.IdentityHashMap;
 import java.util.List;
 import java.util.Map;
 
-public final class WireShapeUtil {
+public final class TransferBlockShapeUtil {
     private static final Map<BlockState, VoxelShape> SHAPE_CACHE = new IdentityHashMap<>();
 
     private static VoxelShape getStateShape(BlockState state) {
@@ -35,7 +36,7 @@ public final class WireShapeUtil {
     }
 
     public static VoxelShape getShape(BlockState state) {
-        return SHAPE_CACHE.computeIfAbsent(state, WireShapeUtil::getStateShape);
+        return SHAPE_CACHE.computeIfAbsent(state, TransferBlockShapeUtil::getStateShape);
     }
 
 }

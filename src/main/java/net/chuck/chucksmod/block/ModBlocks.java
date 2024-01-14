@@ -14,6 +14,7 @@ import net.chuck.chucksmod.block.custom.crusher.IronPoweredCrusherBlock;
 import net.chuck.chucksmod.block.custom.crusher.TitaniumPoweredCrusherBlock;
 import net.chuck.chucksmod.block.custom.energy_storage.IronEnergyStorageBlock;
 import net.chuck.chucksmod.block.custom.energy_storage.TitaniumEnergyStorageBlock;
+import net.chuck.chucksmod.block.custom.fluid_pipe.IronFluidPipeBlock;
 import net.chuck.chucksmod.block.custom.fluid_tank.IronFluidTankBlock;
 import net.chuck.chucksmod.block.custom.fluid_tank.TitaniumFluidTankBlock;
 import net.chuck.chucksmod.block.custom.furnace.IronPoweredFurnaceBlock;
@@ -27,6 +28,7 @@ import net.chuck.chucksmod.block.custom.quarry.TitaniumQuarryBlock;
 import net.chuck.chucksmod.block.custom.wire.CopperWireBlock;
 import net.chuck.chucksmod.block.custom.wire.GoldWireBlock;
 import net.chuck.chucksmod.block.custom.wire.TinWireBlock;
+import net.chuck.chucksmod.block.entity.fluid_pipe.IronFluidPipeBlockEntity;
 import net.chuck.chucksmod.world.tree.DiritiaSaplingGenerator;
 import net.chuck.chucksmod.world.tree.EucalyptusSaplingGenerator;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
@@ -170,6 +172,8 @@ public class ModBlocks {
             new IronFluidTankBlock(FabricBlockSettings.copy(Blocks.IRON_BLOCK)));
     public static final Block IRON_PUMP = registerBlock("iron_pump",
             new IronPumpBlock(FabricBlockSettings.copy(Blocks.IRON_BLOCK)));
+    public static final Block IRON_FLUID_PIPE = registerBlock("iron_fluid_pipe",
+            new IronFluidPipeBlock(FabricBlockSettings.copy(Blocks.IRON_BLOCK)));
 
     public static final Block TIN_WIRE = registerBlock("tin_wire",
             new TinWireBlock(FabricBlockSettings.copy(ModBlocks.TIN_BLOCK)));

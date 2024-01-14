@@ -1,12 +1,10 @@
-package net.chuck.chucksmod.block.custom.wire;
+package net.chuck.chucksmod.block.custom.fluid_pipe;
 
 import net.chuck.chucksmod.block.custom.AbstractTransferBlock;
 import net.chuck.chucksmod.block.custom.TransferBlockShapeUtil;
+import net.chuck.chucksmod.block.entity.fluid_pipe.AbstractFluidPipeBlockEntity;
 import net.chuck.chucksmod.block.entity.wire.WireBlockEntity;
 import net.minecraft.block.*;
-import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.block.entity.BlockEntityTicker;
-import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
@@ -20,7 +18,6 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -49,27 +46,36 @@ import java.util.Map;
  * SOFTWARE.
  */
 
-public abstract class WireBlock extends AbstractTransferBlock {
-    public WireBlock(Settings settings) {
+public abstract class AbstractFluidPipeBlock extends AbstractTransferBlock {
+    public static final BooleanProperty EXTRACT = BooleanProperty.of("extract");
+    public AbstractFluidPipeBlock(Settings settings) {
         super(settings);
+        setDefaultState(this.getDefaultState().with(EXTRACT, false));
     }
 
     @Override
-    @SuppressWarnings("deprecation")
-    public void neighborUpdate(BlockState state, World world, BlockPos pos, Block sourceBlock, BlockPos sourcePos, boolean notify) {
-        if(!world.isClient) {
-            if (world.getBlockEntity(pos) instanceof WireBlockEntity wire) {
-                wire.neighbourUpdate();
-            }
-        }
-        super.neighborUpdate(state, world, pos, sourceBlock, sourcePos, notify);
+    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
+        super.appendProperties(builder);
+        builder.add(EXTRACT);
     }
 
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        if (!world.isClient && world.getBlockEntity(pos) instanceof WireBlockEntity wire){
-            player.sendMessage(Text.literal(Long.toString(wire.energyStorage.amount)));
+        if (!world.isClient && world.getBlockEntity(pos) instanceof AbstractFluidPipeBlockEntity pipe){
+            if(!pipe.targets.isEmpty()){
+                world.setBlockState(pos, state.with(EXTRACT, !state.get(EXTRACT)));
+            }
         }
         return ActionResult.SUCCESS;
+    }
+
+    @Override
+    public void neighborUpdate(BlockState state, World world, BlockPos pos, Block sourceBlock, BlockPos sourcePos, boolean notify) {
+        if(!world.isClient) {
+            if (world.getBlockEntity(pos) instanceof AbstractFluidPipeBlockEntity pipe) {
+                pipe.neighbourUpdate();
+            }
+        }
+        super.neighborUpdate(state, world, pos, sourceBlock, sourcePos, notify);
     }
 }

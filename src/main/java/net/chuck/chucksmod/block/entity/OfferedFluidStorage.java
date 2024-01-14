@@ -1,8 +1,9 @@
 package net.chuck.chucksmod.block.entity;
 
-import net.chuck.chucksmod.block.entity.wire.WireBlockEntity;
+import net.chuck.chucksmod.block.entity.fluid_pipe.AbstractFluidPipeBlockEntity;
+import net.fabricmc.fabric.api.transfer.v1.fluid.FluidVariant;
+import net.fabricmc.fabric.api.transfer.v1.storage.Storage;
 import net.minecraft.util.math.Direction;
-import team.reborn.energy.api.EnergyStorage;
 
 /*
  * This file is part of TechReborn, licensed under the MIT License (MIT).
@@ -27,12 +28,9 @@ import team.reborn.energy.api.EnergyStorage;
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-/**
- * {@link EnergyStorage} adjacent to an energy cable, with some additional info.
- */
-public record OfferedEnergyStorage(WireBlockEntity sourceCable, Direction direction, EnergyStorage storage) {
+public record OfferedFluidStorage(AbstractFluidPipeBlockEntity source, Direction direction, Storage<FluidVariant> storage) {
     public void afterTransfer() {
         // Block insertions from this side.
-        sourceCable.blockedSides |= 1 << direction.ordinal();
+        source.blockedSides |= 1 << direction.ordinal();
     }
 }

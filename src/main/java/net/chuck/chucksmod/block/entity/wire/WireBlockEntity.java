@@ -69,7 +69,7 @@ public abstract class WireBlockEntity extends BlockEntity {
         return adjacentCaches[direction.getId()];
     }
     @Nullable
-    BlockEntity getAdjacentBlockEntity(Direction direction) {
+    public BlockEntity getAdjacentBlockEntity(Direction direction) {
         return getAdjacentCache(direction).getBlockEntity();
     }
     public void appendTargets(List<OfferedEnergyStorage> targetStorages){
