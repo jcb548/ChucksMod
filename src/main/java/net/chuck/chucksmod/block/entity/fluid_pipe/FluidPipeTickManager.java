@@ -7,7 +7,9 @@ import net.fabricmc.fabric.api.transfer.v1.fluid.FluidVariant;
 import net.fabricmc.fabric.api.transfer.v1.storage.Storage;
 import net.fabricmc.fabric.api.transfer.v1.storage.base.SingleVariantStorage;
 import net.fabricmc.fabric.api.transfer.v1.transaction.Transaction;
+import net.minecraft.fluid.Fluids;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.text.Text;
 import net.minecraft.util.math.Direction;
 import team.reborn.energy.api.EnergyStorage;
 
@@ -38,6 +40,7 @@ import java.util.*;
  */
 public class FluidPipeTickManager {
     private static final List<AbstractFluidPipeBlockEntity> pipes = new ArrayList<>();
+    private static final List<OfferedFluidStorage> extractionStorages = new ArrayList<>();
     private static final List<OfferedFluidStorage> targetStorages = new ArrayList<>();
     private static final Deque<AbstractFluidPipeBlockEntity> bfsQueue = new ArrayDeque<>();
     private static long tickCounter = 0;
@@ -53,25 +56,38 @@ public class FluidPipeTickManager {
             // group all energy on the network
             long networkCapacity = 0;
             long networkAmount = 0;
+            FluidVariant variant = FluidVariant.of(Fluids.EMPTY);
             for(AbstractFluidPipeBlockEntity pipe : pipes){
+                // get variant in pipes
+                if(variant == FluidVariant.of(Fluids.EMPTY) && !pipe.fluidStorage.variant.equals(FluidVariant.of(Fluids.EMPTY))){
+                    variant = pipe.fluidStorage.variant;
+                }
+                //get capacity and amount in network
                 networkCapacity += pipe.fluidStorage.getCapacity();
                 networkAmount += pipe.fluidStorage.amount;
-                // update cable connections
-                pipe.appendTargets(targetStorages);
+                // update pipe connections
+                pipe.appendTargets(targetStorages, extractionStorages);
                 // Block any I/O while we access the network amount directly to keep pipes and network in sync, to
-                // avoid duping or voiding energy
+                // avoid duping or voiding fluids
                 pipe.ioBlocked = true;
             }
-            if( networkAmount > networkCapacity){
+            if(networkAmount > networkCapacity){
                 networkAmount = networkCapacity;
             }
             // Pull energy from storages.
+            ExtractResult extractResult = extract(networkCapacity - networkAmount, start.getTransferRate());
+            if(variant.equals(FluidVariant.of(Fluids.EMPTY))){
+                variant = extractResult.variant;
+            }
+            networkAmount += extractResult.amount;
+            if(start.getWorld().getPlayers().size()>0)start.getWorld().getPlayers().get(0).sendMessage(Text.literal(networkAmount + " " + networkCapacity + " "+extractResult.amount));
             //networkAmount += dispatchTransfer(Storage<FluidVariant>::extract, networkCapacity - networkAmount, start.getTransferRate());
             // Push energy into storages
             //networkAmount -= dispatchTransfer(Storage<FluidVariant>::insert, networkAmount, start.getTransferRate());
             // split energy evenly across pipes
             int pipeCount = pipes.size();
             for(AbstractFluidPipeBlockEntity pipe : pipes){
+                pipe.fluidStorage.variant = variant;
                 pipe.fluidStorage.amount = networkAmount/pipeCount;
                 networkAmount -= pipe.fluidStorage.amount;
                 pipeCount--;
@@ -81,6 +97,7 @@ public class FluidPipeTickManager {
         } finally {
             pipes.clear();
             targetStorages.clear();
+            extractionStorages.clear();
             bfsQueue.clear();
         }
     }
@@ -94,7 +111,8 @@ public class FluidPipeTickManager {
             AbstractFluidPipeBlockEntity current = bfsQueue.removeFirst();
             for (Direction direction : Direction.values()){
                 if(current.getAdjacentBlockEntity(direction) instanceof AbstractFluidPipeBlockEntity adjPipe){
-                    if(shouldTickCable(adjPipe)){
+                    if(shouldTickCable(adjPipe) && (adjPipe.fluidStorage.variant.equals(FluidVariant.of(Fluids.EMPTY))
+                            || adjPipe.fluidStorage.variant.equals(current.fluidStorage.variant))){
                         bfsQueue.add(adjPipe);
                         adjPipe.lastTick = tickCounter;
                         pipes.add(adjPipe);
@@ -109,6 +127,25 @@ public class FluidPipeTickManager {
         if(pipe.lastTick == tickCounter) return false;
         // Ignore cables in non-ticking chunks
         return pipe.getWorld() instanceof ServerWorld serverWorld && serverWorld.isChunkLoaded(pipe.getPos());
+    }
+    private static ExtractResult extract(long maxAmount, long transferRate){
+        long extractedAmount = 0;
+        FluidVariant variant = FluidVariant.of(Fluids.EMPTY);
+        for(OfferedFluidStorage storage : extractionStorages){
+            if(storage.storage() instanceof SingleVariantStorage<FluidVariant> fluidStorage &&
+                    !fluidStorage.variant.equals(FluidVariant.blank())) {
+                try (Transaction tx = Transaction.openOuter()) {
+                    if(maxAmount > transferRate) {
+                        extractedAmount += fluidStorage.extract(fluidStorage.variant, transferRate, tx);
+                    } else {
+                        extractedAmount += fluidStorage.extract(fluidStorage.variant, maxAmount, tx);
+                    }
+                    if(variant.equals(FluidVariant.of(Fluids.EMPTY))) variant = fluidStorage.variant;
+                    tx.commit();
+                }
+            }
+        }
+        return new ExtractResult(extractedAmount, variant);
     }
     private static long dispatchTransfer(TransferOperation operation, long maxAmount, long transferRate){
         List<SortableStorage> sortedTargets = new ArrayList<>();
@@ -153,4 +190,5 @@ public class FluidPipeTickManager {
             }
         }
     }
+    private record ExtractResult(long amount, FluidVariant variant){}
 }

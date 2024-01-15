@@ -4,6 +4,7 @@ import net.chuck.chucksmod.block.custom.AbstractTransferBlock;
 import net.chuck.chucksmod.block.custom.TransferBlockShapeUtil;
 import net.chuck.chucksmod.block.entity.fluid_pipe.AbstractFluidPipeBlockEntity;
 import net.chuck.chucksmod.block.entity.wire.WireBlockEntity;
+import net.chuck.chucksmod.item.ModItems;
 import net.minecraft.block.*;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.state.StateManager;
@@ -62,9 +63,11 @@ public abstract class AbstractFluidPipeBlock extends AbstractTransferBlock {
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if (!world.isClient && world.getBlockEntity(pos) instanceof AbstractFluidPipeBlockEntity pipe){
-            if(!pipe.targets.isEmpty()){
+            if(!pipe.targets.isEmpty() && player.getStackInHand(hand).getItem().equals(ModItems.IRON_MOTOR)){
+                pipe.setExtracting(!state.get(EXTRACT));
                 world.setBlockState(pos, state.with(EXTRACT, !state.get(EXTRACT)));
             }
+            player.sendMessage(Text.literal(pipe.fluidStorage.variant.getFluid()+" "+pipe.fluidStorage.amount+ " "+pipe.fluidStorage.getCapacity()));
         }
         return ActionResult.SUCCESS;
     }
