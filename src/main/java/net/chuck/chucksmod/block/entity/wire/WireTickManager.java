@@ -33,15 +33,15 @@ import java.util.*;
  * SOFTWARE.
  */
 public class WireTickManager {
-    private static final List<WireBlockEntity> wires = new ArrayList<>();
+    private static final List<AbstractWireBlockEntity> wires = new ArrayList<>();
     private static final List<OfferedEnergyStorage> targetStorages = new ArrayList<>();
-    private static final Deque<WireBlockEntity> bfsQueue = new ArrayDeque<>();
+    private static final Deque<AbstractWireBlockEntity> bfsQueue = new ArrayDeque<>();
     private static long tickCounter = 0;
 
     static {
         ServerTickEvents.START_SERVER_TICK.register(server -> tickCounter++);
     }
-    public static void handleWireTick(WireBlockEntity start){
+    public static void handleWireTick(AbstractWireBlockEntity start){
         if (!(start.getWorld() instanceof ServerWorld)) throw new IllegalStateException();
         try{
             gatherWires(start);
@@ -49,7 +49,7 @@ public class WireTickManager {
             // group all energy on the network
             long networkCapacity = 0;
             long networkAmount = 0;
-            for(WireBlockEntity wire : wires){
+            for(AbstractWireBlockEntity wire : wires){
                 networkCapacity += wire.energyStorage.getCapacity();
                 networkAmount += wire.energyStorage.amount;
                 // update cable connections
@@ -67,7 +67,7 @@ public class WireTickManager {
             networkAmount -= dispatchTransfer(EnergyStorage::insert, networkAmount, start.getTransferRate());
             // split energy evenly across wires
             int wireCount = wires.size();
-            for(WireBlockEntity wire : wires){
+            for(AbstractWireBlockEntity wire : wires){
                 wire.energyStorage.amount = networkAmount/wireCount;
                 networkAmount -= wire.energyStorage.amount;
                 wireCount--;
@@ -81,15 +81,15 @@ public class WireTickManager {
         }
     }
 
-    private static void gatherWires(WireBlockEntity start){
+    private static void gatherWires(AbstractWireBlockEntity start){
         if(!shouldTickCable(start)) return;
         bfsQueue.add(start);
         start.lastTick = tickCounter;
         wires.add(start);
         while(!bfsQueue.isEmpty()){
-            WireBlockEntity current = bfsQueue.removeFirst();
+            AbstractWireBlockEntity current = bfsQueue.removeFirst();
             for (Direction direction : Direction.values()){
-                if(current.getAdjacentBlockEntity(direction) instanceof WireBlockEntity adjCable){
+                if(current.getAdjacentBlockEntity(direction) instanceof AbstractWireBlockEntity adjCable){
                     if(shouldTickCable(adjCable)){
                         bfsQueue.add(adjCable);
                         adjCable.lastTick = tickCounter;
@@ -100,7 +100,7 @@ public class WireTickManager {
         }
     }
 
-    private static boolean shouldTickCable(WireBlockEntity wire) {
+    private static boolean shouldTickCable(AbstractWireBlockEntity wire) {
         // Only gather and tick each cable once per tick.
         if(wire.lastTick == tickCounter) return false;
         // Ignore cables in non-ticking chunks

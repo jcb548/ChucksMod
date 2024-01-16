@@ -1,26 +1,17 @@
 package net.chuck.chucksmod.block.custom.wire;
 
 import net.chuck.chucksmod.block.custom.AbstractTransferBlock;
-import net.chuck.chucksmod.block.custom.TransferBlockShapeUtil;
-import net.chuck.chucksmod.block.entity.wire.WireBlockEntity;
+import net.chuck.chucksmod.block.entity.wire.AbstractWireBlockEntity;
 import net.minecraft.block.*;
-import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.block.entity.BlockEntityTicker;
-import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
-import net.minecraft.util.Util;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
-import net.minecraft.util.shape.VoxelShape;
-import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -49,16 +40,15 @@ import java.util.Map;
  * SOFTWARE.
  */
 
-public abstract class WireBlock extends AbstractTransferBlock {
-    public WireBlock(Settings settings) {
+public abstract class AbstractWireBlock extends AbstractTransferBlock {
+    public AbstractWireBlock(Settings settings) {
         super(settings);
     }
-
     @Override
     @SuppressWarnings("deprecation")
     public void neighborUpdate(BlockState state, World world, BlockPos pos, Block sourceBlock, BlockPos sourcePos, boolean notify) {
         if(!world.isClient) {
-            if (world.getBlockEntity(pos) instanceof WireBlockEntity wire) {
+            if (world.getBlockEntity(pos) instanceof AbstractWireBlockEntity wire) {
                 wire.neighbourUpdate();
             }
         }
@@ -67,7 +57,7 @@ public abstract class WireBlock extends AbstractTransferBlock {
 
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        if (!world.isClient && world.getBlockEntity(pos) instanceof WireBlockEntity wire){
+        if (!world.isClient && world.getBlockEntity(pos) instanceof AbstractWireBlockEntity wire){
             player.sendMessage(Text.literal(Long.toString(wire.energyStorage.amount)));
         }
         return ActionResult.SUCCESS;

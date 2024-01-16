@@ -17,7 +17,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class CopperWireBlock extends WireBlock{
+public class CopperWireBlock extends AbstractWireBlock {
     public CopperWireBlock(Settings settings) {
         super(settings);
     }

@@ -5,7 +5,7 @@ import net.chuck.chucksmod.block.entity.tiers.IronTier;
 import net.minecraft.block.BlockState;
 import net.minecraft.util.math.BlockPos;
 
-public class CopperWireBlockEntity extends WireBlockEntity implements IronTier {
+public class CopperWireBlockEntity extends AbstractWireBlockEntity implements IronTier {
     public CopperWireBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.COPPER_WIRE, pos, state);
     }

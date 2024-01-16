@@ -16,13 +16,16 @@ import net.minecraft.fluid.Fluids;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.util.Util;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public abstract class AbstractFluidPipeBlockEntity extends BlockEntity {
     public final SingleVariantStorage<FluidVariant> fluidStorage;
@@ -32,8 +35,14 @@ public abstract class AbstractFluidPipeBlockEntity extends BlockEntity {
     public boolean ioBlocked = false;
     // null means that it needs to be re-queried
     public List<FluidPipeTarget> targets = null;
-    public boolean extracting = false;
-    private Direction lastInsertFrom = null;
+    public Map<Direction, Boolean> extracting_map = Util.make(new HashMap<>(), map -> {
+        map.put(Direction.EAST, false);
+        map.put(Direction.WEST, false);
+        map.put(Direction.NORTH, false);
+        map.put(Direction.SOUTH, false);
+        map.put(Direction.UP, false);
+        map.put(Direction.DOWN, false);
+    });
     public AbstractFluidPipeBlockEntity(BlockEntityType type, BlockPos pos, BlockState state) {
         super(type, pos, state);
         fluidStorage = new SingleVariantStorage<>() {
@@ -48,7 +57,10 @@ public abstract class AbstractFluidPipeBlockEntity extends BlockEntity {
             }
         };
     }
-    public void setExtracting(boolean extracting){this.extracting = extracting;}
+    public void setExtracting(Direction direction, boolean extracting) {
+        boolean current = extracting_map.get(direction);
+        extracting_map.replace(direction, !current);
+    }
     private BlockApiCache<Storage<FluidVariant>, Direction> getAdjacentCache(Direction direction) {
         if (adjacentCaches[direction.getId()] == null) {
             adjacentCaches[direction.getId()] = BlockApiCache.create(FluidStorage.SIDED, (ServerWorld) world, pos.offset(direction));
@@ -59,6 +71,10 @@ public abstract class AbstractFluidPipeBlockEntity extends BlockEntity {
     @Nullable
     public BlockEntity getAdjacentBlockEntity(Direction direction) {
         return getAdjacentCache(direction).getBlockEntity();
+    }
+    public boolean canExtract(Direction direction){
+        BlockApiCache<Storage<FluidVariant>, Direction> adjCache = getAdjacentCache(direction);
+        return !(adjCache.getBlockEntity() instanceof AbstractFluidPipeBlockEntity) && adjCache.find(direction.getOpposite()) != null;
     }
     public void appendTargets(List<OfferedFluidStorage> targetStorages, List<OfferedFluidStorage> extractionStorages){
         ServerWorld serverWorld = (ServerWorld) world;
@@ -81,6 +97,9 @@ public abstract class AbstractFluidPipeBlockEntity extends BlockEntity {
                     foundSomething = true;
                     targets.add(new FluidPipeTarget(direction, adjCache));
                 }
+                if(!foundSomething){
+                    extracting_map.replace(direction, false);
+                }
                 newBlockState = newBlockState.with(AbstractFluidPipeBlock.PROPERTY_MAP.get(direction), foundSomething);
             }
             serverWorld.setBlockState(getPos(), newBlockState);
@@ -92,7 +111,7 @@ public abstract class AbstractFluidPipeBlockEntity extends BlockEntity {
                 //Schedule a rebuild next tick
                 targets = null;
             } else {
-                if(this.extracting){
+                if(extracting_map.get(target.directionTo)){
                     extractionStorages.add(new OfferedFluidStorage(this, target.directionTo, storage));
                 } else {
                     targetStorages.add(new OfferedFluidStorage(this, target.directionTo, storage));

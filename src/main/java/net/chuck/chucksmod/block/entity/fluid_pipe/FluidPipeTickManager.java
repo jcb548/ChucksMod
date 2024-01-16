@@ -56,10 +56,10 @@ public class FluidPipeTickManager {
             // group all energy on the network
             long networkCapacity = 0;
             long networkAmount = 0;
-            FluidVariant variant = FluidVariant.of(Fluids.EMPTY);
+            FluidVariant variant = FluidVariant.blank();
             for(AbstractFluidPipeBlockEntity pipe : pipes){
                 // get variant in pipes
-                if(variant == FluidVariant.of(Fluids.EMPTY) && !pipe.fluidStorage.variant.equals(FluidVariant.of(Fluids.EMPTY))){
+                if(variant == FluidVariant.blank() && !pipe.fluidStorage.variant.equals(FluidVariant.blank())){
                     variant = pipe.fluidStorage.variant;
                 }
                 //get capacity and amount in network
@@ -76,15 +76,11 @@ public class FluidPipeTickManager {
             }
             // Pull energy from storages.
             ExtractResult extractResult = extract(networkCapacity - networkAmount, start.getTransferRate());
-            if(variant.equals(FluidVariant.of(Fluids.EMPTY))){
+            if(variant.equals(FluidVariant.blank())){
                 variant = extractResult.variant;
             }
             networkAmount += extractResult.amount;
-            if(start.getWorld().getPlayers().size()>0)start.getWorld().getPlayers().get(0).sendMessage(Text.literal(networkAmount + " " + networkCapacity + " "+extractResult.amount));
-            //networkAmount += dispatchTransfer(Storage<FluidVariant>::extract, networkCapacity - networkAmount, start.getTransferRate());
-            // Push energy into storages
-            //networkAmount -= dispatchTransfer(Storage<FluidVariant>::insert, networkAmount, start.getTransferRate());
-            // split energy evenly across pipes
+            if(networkAmount > 0) networkAmount -= insert(networkAmount, start.getTransferRate(), variant);
             int pipeCount = pipes.size();
             for(AbstractFluidPipeBlockEntity pipe : pipes){
                 pipe.fluidStorage.variant = variant;
@@ -111,7 +107,7 @@ public class FluidPipeTickManager {
             AbstractFluidPipeBlockEntity current = bfsQueue.removeFirst();
             for (Direction direction : Direction.values()){
                 if(current.getAdjacentBlockEntity(direction) instanceof AbstractFluidPipeBlockEntity adjPipe){
-                    if(shouldTickCable(adjPipe) && (adjPipe.fluidStorage.variant.equals(FluidVariant.of(Fluids.EMPTY))
+                    if(shouldTickCable(adjPipe) && (adjPipe.fluidStorage.variant.equals(FluidVariant.blank())
                             || adjPipe.fluidStorage.variant.equals(current.fluidStorage.variant))){
                         bfsQueue.add(adjPipe);
                         adjPipe.lastTick = tickCounter;
@@ -130,65 +126,39 @@ public class FluidPipeTickManager {
     }
     private static ExtractResult extract(long maxAmount, long transferRate){
         long extractedAmount = 0;
-        FluidVariant variant = FluidVariant.of(Fluids.EMPTY);
+        FluidVariant variant = FluidVariant.blank();
+        long extract = transferRate;
+        if(extractionStorages.size()*extract > maxAmount){
+            extract = maxAmount/extractionStorages.size();
+        }
         for(OfferedFluidStorage storage : extractionStorages){
             if(storage.storage() instanceof SingleVariantStorage<FluidVariant> fluidStorage &&
                     !fluidStorage.variant.equals(FluidVariant.blank())) {
                 try (Transaction tx = Transaction.openOuter()) {
-                    if(maxAmount > transferRate) {
-                        extractedAmount += fluidStorage.extract(fluidStorage.variant, transferRate, tx);
-                    } else {
-                        extractedAmount += fluidStorage.extract(fluidStorage.variant, maxAmount, tx);
-                    }
-                    if(variant.equals(FluidVariant.of(Fluids.EMPTY))) variant = fluidStorage.variant;
+                    extractedAmount += fluidStorage.extract(fluidStorage.variant, extract, tx);
+                    if(variant.equals(FluidVariant.blank())) variant = fluidStorage.variant;
                     tx.commit();
                 }
             }
         }
         return new ExtractResult(extractedAmount, variant);
     }
-    private static long dispatchTransfer(TransferOperation operation, long maxAmount, long transferRate){
-        List<SortableStorage> sortedTargets = new ArrayList<>();
-        for (var storage : targetStorages){
-            sortedTargets.add(new SortableStorage(operation, storage));
-        }
-        // shuffle for better average transfer
-        Collections.shuffle(sortedTargets);
-        // sort by lowest simulation target
-        sortedTargets.sort(Comparator.comparingLong(sortableStorage -> sortableStorage.simulationResult));
-        // actually perform the transfer
-        try (Transaction transaction = Transaction.openOuter()){
-            long transferredAmount = 0;
-            for(int i=0; i<sortedTargets.size();i++){
-                SortableStorage target = sortedTargets.get(i);
-                int remainingTargets = sortedTargets.size()-i;
-                long remainingAmount = maxAmount - transferredAmount;
-                // Limit max amount to the cable transfer rate.
-                long targetMaxAmount = Math.min((remainingAmount/remainingTargets), transferRate);
-                long localTransferred = operation.transfer(target.storage.storage(), targetMaxAmount, transaction);
-                if(localTransferred > 0){
-                    transferredAmount += localTransferred;
-                    // Block duplicate transactions
-                    target.storage.afterTransfer();
-                }
-            }
-            transaction.commit();
-            return transferredAmount;
-        }
-    }
-    private interface TransferOperation{
-        long transfer(Storage<FluidVariant> storage, long maxAmount, Transaction transaction);
-    }
-    private static class SortableStorage {
-        private final OfferedFluidStorage storage;
-        private final long simulationResult;
 
-        SortableStorage(TransferOperation operation, OfferedFluidStorage storage) {
-            this.storage = storage;
-            try (Transaction tx = Transaction.openOuter()) {
-                this.simulationResult = operation.transfer(storage.storage(), Long.MAX_VALUE, tx);
-            }
+    private static long insert(long maxAmount, long transferRate, FluidVariant variant){
+        long insertedAmount = 0;
+        long insert = transferRate;
+        if(targetStorages.size()*insert > maxAmount){
+            insert = maxAmount/targetStorages.size();
         }
+        for(OfferedFluidStorage storage : targetStorages){
+            if(storage.storage() instanceof SingleVariantStorage<FluidVariant> fluidStorage &&
+            !variant.equals(FluidVariant.blank()))
+                try(Transaction tx = Transaction.openOuter()){
+                    insertedAmount += fluidStorage.insert(variant, insert, tx);
+                    tx.commit();
+                }
+        }
+        return insertedAmount;
     }
     private record ExtractResult(long amount, FluidVariant variant){}
 }

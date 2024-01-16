@@ -1,15 +1,13 @@
 package net.chuck.chucksmod.networking.packet;
 
-import net.chuck.chucksmod.util.DirectionEnergyIOProperty;
+import net.chuck.chucksmod.util.DirectionIOProperty;
 import net.fabricmc.fabric.api.networking.v1.PacketSender;
 import net.minecraft.block.BlockState;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerPlayNetworkHandler;
 import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
 
 public class EnergyStorageBlockSyncC2SPacket {
     public static void receive(MinecraftServer server, ServerPlayerEntity player, ServerPlayNetworkHandler handler,
@@ -20,7 +18,7 @@ public class EnergyStorageBlockSyncC2SPacket {
         String value = buf.readString(1);
         BlockState oldState = player.getServerWorld().getBlockState(pos);
         player.getServerWorld().setBlockState(pos,
-                oldState.withIfExists(DirectionEnergyIOProperty.getSide(side),
-                        DirectionEnergyIOProperty.getNextState(value)));
+                oldState.withIfExists(DirectionIOProperty.getSide(side),
+                        DirectionIOProperty.getNextState(value)));
     }
 }

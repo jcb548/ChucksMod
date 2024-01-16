@@ -4,7 +4,7 @@ import net.chuck.chucksmod.block.entity.EnergyStoring;
 import net.chuck.chucksmod.block.entity.ImplementedInventory;
 import net.chuck.chucksmod.networking.ModMessages;
 import net.chuck.chucksmod.screen.energy_storage.EnergyStorageScreenHandler;
-import net.chuck.chucksmod.util.DirectionEnergyIOProperty;
+import net.chuck.chucksmod.util.DirectionIOProperty;
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
 import net.fabricmc.fabric.api.networking.v1.PlayerLookup;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
@@ -24,7 +24,6 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
-import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 import team.reborn.energy.api.EnergyStorage;
 import team.reborn.energy.api.base.SimpleSidedEnergyContainer;
@@ -104,15 +103,15 @@ public abstract class AbstractEnergyStorageBlockEntity extends BlockEntity imple
     }
 
     private boolean allowInsert(Direction side){
-        if(this.getCachedState().get(DirectionEnergyIOProperty.of(side.getName()))
-                .equals(DirectionEnergyIOProperty.INSERT)){
+        if(this.getCachedState().get(DirectionIOProperty.of(side.getName()))
+                .equals(DirectionIOProperty.INSERT)){
             return true;
         }
         return false;
     }
     private boolean allowExtract(Direction side){
-        if(this.getCachedState().get(DirectionEnergyIOProperty.of(side.getName()))
-                .equals(DirectionEnergyIOProperty.EXTRACT)){
+        if(this.getCachedState().get(DirectionIOProperty.of(side.getName()))
+                .equals(DirectionIOProperty.EXTRACT)){
             return true;
         }
         return false;

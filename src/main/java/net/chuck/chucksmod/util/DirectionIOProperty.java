@@ -7,13 +7,13 @@ import net.minecraft.util.math.Direction;
 import java.util.Collection;
 import java.util.Optional;
 
-public class DirectionEnergyIOProperty extends Property<String> {
-    public static final DirectionEnergyIOProperty UP = DirectionEnergyIOProperty.of("up");
-    public static final DirectionEnergyIOProperty DOWN = DirectionEnergyIOProperty.of("down");
-    public static final DirectionEnergyIOProperty NORTH = DirectionEnergyIOProperty.of("north");
-    public static final DirectionEnergyIOProperty SOUTH = DirectionEnergyIOProperty.of("south");
-    public static final DirectionEnergyIOProperty EAST = DirectionEnergyIOProperty.of("east");
-    public static final DirectionEnergyIOProperty WEST = DirectionEnergyIOProperty.of("west");
+public class DirectionIOProperty extends Property<String> {
+    public static final DirectionIOProperty UP = DirectionIOProperty.of("up");
+    public static final DirectionIOProperty DOWN = DirectionIOProperty.of("down");
+    public static final DirectionIOProperty NORTH = DirectionIOProperty.of("north");
+    public static final DirectionIOProperty SOUTH = DirectionIOProperty.of("south");
+    public static final DirectionIOProperty EAST = DirectionIOProperty.of("east");
+    public static final DirectionIOProperty WEST = DirectionIOProperty.of("west");
     public static final String DISABLED = "d";
     public static final String INSERT = "i";
     public static final String EXTRACT = "e";
@@ -24,11 +24,11 @@ public class DirectionEnergyIOProperty extends Property<String> {
     public static final byte EAST_KEY = 4;
     public static final byte WEST_KEY = 5;
     private final ImmutableSet<String> values = ImmutableSet.of(DISABLED, INSERT, EXTRACT);
-    protected DirectionEnergyIOProperty(String name) {
+    protected DirectionIOProperty(String name) {
         super(name, String.class);
     }
-    public static DirectionEnergyIOProperty of(String name){
-        return new DirectionEnergyIOProperty(name);
+    public static DirectionIOProperty of(String name){
+        return new DirectionIOProperty(name);
     }
 
     @Override
@@ -65,19 +65,19 @@ public class DirectionEnergyIOProperty extends Property<String> {
         return DISABLED;
     }
 
-    public static DirectionEnergyIOProperty getSide(byte side){
+    public static DirectionIOProperty getSide(byte side){
         switch (side){
-            case 0: return DirectionEnergyIOProperty.UP;
-            case 1: return DirectionEnergyIOProperty.DOWN;
-            case 2: return DirectionEnergyIOProperty.NORTH;
-            case 3: return DirectionEnergyIOProperty.SOUTH;
-            case 4: return DirectionEnergyIOProperty.EAST;
-            case 5: return DirectionEnergyIOProperty.WEST;
-            default: return DirectionEnergyIOProperty.UP;
+            case 0: return DirectionIOProperty.UP;
+            case 1: return DirectionIOProperty.DOWN;
+            case 2: return DirectionIOProperty.NORTH;
+            case 3: return DirectionIOProperty.SOUTH;
+            case 4: return DirectionIOProperty.EAST;
+            case 5: return DirectionIOProperty.WEST;
+            default: return DirectionIOProperty.UP;
         }
     }
 
-    public static DirectionEnergyIOProperty getProperty(Direction direction){
+    public static DirectionIOProperty getProperty(Direction direction){
         switch (direction){
             case UP -> {
                 return UP;

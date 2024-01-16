@@ -1,9 +1,8 @@
 package net.chuck.chucksmod.block.custom.fluid_pipe;
 
+import com.ibm.icu.util.LocaleMatcher;
 import net.chuck.chucksmod.block.custom.AbstractTransferBlock;
-import net.chuck.chucksmod.block.custom.TransferBlockShapeUtil;
 import net.chuck.chucksmod.block.entity.fluid_pipe.AbstractFluidPipeBlockEntity;
-import net.chuck.chucksmod.block.entity.wire.WireBlockEntity;
 import net.chuck.chucksmod.item.ModItems;
 import net.minecraft.block.*;
 import net.minecraft.entity.player.PlayerEntity;
@@ -12,16 +11,12 @@ import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
-import net.minecraft.util.Util;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
-import net.minecraft.util.shape.VoxelShape;
-import net.minecraft.world.BlockView;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
-
-import java.util.HashMap;
-import java.util.Map;
+import org.jetbrains.annotations.Nullable;
 
 /*
  * This file is part of TechReborn, licensed under the MIT License (MIT).
@@ -48,26 +43,39 @@ import java.util.Map;
  */
 
 public abstract class AbstractFluidPipeBlock extends AbstractTransferBlock {
-    public static final BooleanProperty EXTRACT = BooleanProperty.of("extract");
+    public static final BooleanProperty EAST_EXTRACT = BooleanProperty.of("east_extract");
+    public static final BooleanProperty WEST_EXTRACT = BooleanProperty.of("west_extract");
+    public static final BooleanProperty NORTH_EXTRACT = BooleanProperty.of("north_extract");
+    public static final BooleanProperty SOUTH_EXTRACT = BooleanProperty.of("south_extract");
+    public static final BooleanProperty UP_EXTRACT = BooleanProperty.of("up_extract");
+    public static final BooleanProperty DOWN_EXTRACT = BooleanProperty.of("down_extract");
     public AbstractFluidPipeBlock(Settings settings) {
         super(settings);
-        setDefaultState(this.getDefaultState().with(EXTRACT, false));
+        /*setDefaultState(this.getDefaultState()
+                .with(EAST_EXTRACT, false)
+                .with(WEST_EXTRACT, false)
+                .with(NORTH_EXTRACT, false)
+                .with(SOUTH_EXTRACT, false)
+                .with(UP_EXTRACT, false)
+                .with(DOWN_EXTRACT, false)
+        );*/
     }
 
-    @Override
+    /*@Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        super.appendProperties(builder);
-        builder.add(EXTRACT);
-    }
+        builder.add(EAST_EXTRACT, WEST_EXTRACT, NORTH_EXTRACT, SOUTH_EXTRACT, UP_EXTRACT, DOWN_EXTRACT);
+    }*/
 
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if (!world.isClient && world.getBlockEntity(pos) instanceof AbstractFluidPipeBlockEntity pipe){
             if(!pipe.targets.isEmpty() && player.getStackInHand(hand).getItem().equals(ModItems.IRON_MOTOR)){
-                pipe.setExtracting(!state.get(EXTRACT));
-                world.setBlockState(pos, state.with(EXTRACT, !state.get(EXTRACT)));
+                Direction hitDirection = getHitDirection(hit.getPos(), pos, player);
+                if(hitDirection != null && pipe.canExtract(hitDirection)) {
+                    pipe.setExtracting(hitDirection, !pipe.extracting_map.get(hitDirection));
+                }
             }
-            player.sendMessage(Text.literal(pipe.fluidStorage.variant.getFluid()+" "+pipe.fluidStorage.amount+ " "+pipe.fluidStorage.getCapacity()));
+            player.sendMessage(Text.literal(pipe.extracting_map.toString()));
         }
         return ActionResult.SUCCESS;
     }
@@ -80,5 +88,36 @@ public abstract class AbstractFluidPipeBlock extends AbstractTransferBlock {
             }
         }
         super.neighborUpdate(state, world, pos, sourceBlock, sourcePos, notify);
+    }
+    @Nullable
+    private Direction getHitDirection(Vec3d pos, BlockPos blockPos, PlayerEntity player){
+        double localX = blockPos.getX() + 0.5 - pos.x;
+        double localY = blockPos.getY() + 0.5 - pos.y;
+        double localZ = blockPos.getZ() + 0.5 - pos.z;
+        player.sendMessage(Text.literal(localX+ ", " + localY + ", "+localZ));
+        if(Math.abs(localX) <= 0.2 && Math.abs(localZ) <= 0.2){
+            if(localY > 0.2){
+                return Direction.DOWN;
+            }
+            if(localY < -0.2){
+                return Direction.UP;
+            }
+        }if(Math.abs(localY) <= 0.2 && Math.abs(localZ) <= 0.2){
+            if(localX > 0.2){
+                return Direction.WEST;
+            }
+            if(localX < -0.2){
+                return Direction.EAST;
+            }
+        }
+        if(Math.abs(localX) <= 0.2 && Math.abs(localY) <= 0.2){
+            if(localZ > 0.2){
+                return Direction.NORTH;
+            }
+            if(localZ < -0.2){
+                return Direction.SOUTH;
+            }
+        }
+        return null;
     }
 }

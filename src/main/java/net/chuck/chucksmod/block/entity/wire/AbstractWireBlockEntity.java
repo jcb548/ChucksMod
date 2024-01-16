@@ -1,7 +1,6 @@
 package net.chuck.chucksmod.block.entity.wire;
 
-import net.chuck.chucksmod.block.custom.wire.WireBlock;
-import net.chuck.chucksmod.block.entity.ModBlockEntities;
+import net.chuck.chucksmod.block.custom.wire.AbstractWireBlock;
 import net.chuck.chucksmod.block.entity.OfferedEnergyStorage;
 import net.fabricmc.fabric.api.lookup.v1.block.BlockApiCache;
 import net.minecraft.block.BlockState;
@@ -44,7 +43,7 @@ import java.util.List;
  * SOFTWARE.
  */
 
-public abstract class WireBlockEntity extends BlockEntity {
+public abstract class AbstractWireBlockEntity extends BlockEntity {
     public final SimpleEnergyStorage energyStorage;
     public long lastTick = 0;
     public int blockedSides = 0;
@@ -56,7 +55,7 @@ public abstract class WireBlockEntity extends BlockEntity {
      */
     @SuppressWarnings("unchecked")
     private final BlockApiCache<EnergyStorage, Direction>[] adjacentCaches = new BlockApiCache[6];
-    public WireBlockEntity(BlockEntityType type, BlockPos pos, BlockState state) {
+    public AbstractWireBlockEntity(BlockEntityType type, BlockPos pos, BlockState state) {
         super(type, pos, state);
         energyStorage = new SimpleEnergyStorage(4*getTransferRate(), getTransferRate(), getTransferRate());
     }
@@ -84,7 +83,7 @@ public abstract class WireBlockEntity extends BlockEntity {
             for (Direction direction: Direction.values()){
                 boolean foundSomething = false;
                 BlockApiCache<EnergyStorage, Direction> adjCache = getAdjacentCache(direction);
-                if(adjCache.getBlockEntity() instanceof WireBlockEntity adjWire) {
+                if(adjCache.getBlockEntity() instanceof AbstractWireBlockEntity adjWire) {
                     if (adjWire.getTransferRate() == this.getTransferRate()){
                         foundSomething = true;
                     }
@@ -92,7 +91,7 @@ public abstract class WireBlockEntity extends BlockEntity {
                     foundSomething = true;
                     targets.add(new WireTarget(direction, adjCache));
                 }
-                newBlockState = newBlockState.with(WireBlock.PROPERTY_MAP.get(direction), foundSomething);
+                newBlockState = newBlockState.with(AbstractWireBlock.PROPERTY_MAP.get(direction), foundSomething);
             }
             serverWorld.setBlockState(getPos(), newBlockState);
         }

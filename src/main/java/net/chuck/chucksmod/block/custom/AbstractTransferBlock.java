@@ -39,13 +39,10 @@ public abstract class AbstractTransferBlock extends BlockWithEntity {
         );
     }
     @Override
-    public BlockRenderType getRenderType(BlockState state) {
-        return BlockRenderType.MODEL;
-    }
-    @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
         builder.add(EAST, WEST, NORTH, SOUTH, UP, DOWN);
     }
+
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
         return TransferBlockShapeUtil.getShape(state);
@@ -54,5 +51,10 @@ public abstract class AbstractTransferBlock extends BlockWithEntity {
     @Override
     public VoxelShape getCullingShape(BlockState state, BlockView world, BlockPos pos) {
         return TransferBlockShapeUtil.getShape(state);
+    }
+
+    @Override
+    public BlockRenderType getRenderType(BlockState state) {
+        return BlockRenderType.MODEL;
     }
 }

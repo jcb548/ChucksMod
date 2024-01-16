@@ -1,7 +1,7 @@
 package net.chuck.chucksmod.block.custom.energy_storage;
 
 import net.chuck.chucksmod.block.entity.energy_storage.AbstractEnergyStorageBlockEntity;
-import net.chuck.chucksmod.util.DirectionEnergyIOProperty;
+import net.chuck.chucksmod.util.DirectionIOProperty;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.client.item.TooltipContext;
@@ -24,22 +24,22 @@ import java.util.List;
 
 public abstract class AbstractEnergyStorageBlock extends BlockWithEntity implements BlockEntityProvider{
     public static final DirectionProperty FACING = Properties.HORIZONTAL_FACING;
-    public static final DirectionEnergyIOProperty UP = DirectionEnergyIOProperty.UP;
-    public static final DirectionEnergyIOProperty DOWN = DirectionEnergyIOProperty.DOWN;
-    public static final DirectionEnergyIOProperty NORTH = DirectionEnergyIOProperty.NORTH;
-    public static final DirectionEnergyIOProperty SOUTH = DirectionEnergyIOProperty.SOUTH;
-    public static final DirectionEnergyIOProperty EAST = DirectionEnergyIOProperty.EAST;
-    public static final DirectionEnergyIOProperty WEST = DirectionEnergyIOProperty.WEST;
+    public static final DirectionIOProperty UP = DirectionIOProperty.UP;
+    public static final DirectionIOProperty DOWN = DirectionIOProperty.DOWN;
+    public static final DirectionIOProperty NORTH = DirectionIOProperty.NORTH;
+    public static final DirectionIOProperty SOUTH = DirectionIOProperty.SOUTH;
+    public static final DirectionIOProperty EAST = DirectionIOProperty.EAST;
+    public static final DirectionIOProperty WEST = DirectionIOProperty.WEST;
     protected AbstractEnergyStorageBlock(Settings settings) {
         super(settings);
         this.setDefaultState(this.stateManager.getDefaultState()
                 .with(FACING, Direction.NORTH)
-                .with(UP, DirectionEnergyIOProperty.DISABLED)
-                .with(DOWN, DirectionEnergyIOProperty.DISABLED)
-                .with(NORTH, DirectionEnergyIOProperty.DISABLED)
-                .with(SOUTH, DirectionEnergyIOProperty.DISABLED)
-                .with(EAST, DirectionEnergyIOProperty.INSERT)
-                .with(WEST, DirectionEnergyIOProperty.EXTRACT)
+                .with(UP, DirectionIOProperty.DISABLED)
+                .with(DOWN, DirectionIOProperty.DISABLED)
+                .with(NORTH, DirectionIOProperty.DISABLED)
+                .with(SOUTH, DirectionIOProperty.DISABLED)
+                .with(EAST, DirectionIOProperty.INSERT)
+                .with(WEST, DirectionIOProperty.EXTRACT)
         );
     }
     @Nullable
@@ -47,14 +47,14 @@ public abstract class AbstractEnergyStorageBlock extends BlockWithEntity impleme
     public BlockState getPlacementState(ItemPlacementContext ctx) {
         Direction blockFacing = ctx.getHorizontalPlayerFacing().getOpposite();
         return this.getDefaultState().with(FACING, blockFacing)
-                .with(DirectionEnergyIOProperty.getProperty(blockFacing),
-                        DirectionEnergyIOProperty.DISABLED)
-                .with(DirectionEnergyIOProperty.getProperty(blockFacing.getOpposite()),
-                        DirectionEnergyIOProperty.DISABLED)
-                .with(DirectionEnergyIOProperty.getProperty(blockFacing.rotateYClockwise()),
-                        DirectionEnergyIOProperty.INSERT)
-                .with(DirectionEnergyIOProperty.getProperty(blockFacing.rotateYCounterclockwise()),
-                        DirectionEnergyIOProperty.EXTRACT);
+                .with(DirectionIOProperty.getProperty(blockFacing),
+                        DirectionIOProperty.DISABLED)
+                .with(DirectionIOProperty.getProperty(blockFacing.getOpposite()),
+                        DirectionIOProperty.DISABLED)
+                .with(DirectionIOProperty.getProperty(blockFacing.rotateYClockwise()),
+                        DirectionIOProperty.INSERT)
+                .with(DirectionIOProperty.getProperty(blockFacing.rotateYCounterclockwise()),
+                        DirectionIOProperty.EXTRACT);
     }
 
     @Override

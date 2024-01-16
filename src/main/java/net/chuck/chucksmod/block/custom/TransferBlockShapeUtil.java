@@ -1,6 +1,6 @@
 package net.chuck.chucksmod.block.custom;
 
-import net.chuck.chucksmod.block.custom.wire.WireBlock;
+import net.chuck.chucksmod.util.DirectionIOProperty;
 import net.minecraft.block.BlockState;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
@@ -17,10 +17,9 @@ public final class TransferBlockShapeUtil {
     private static VoxelShape getStateShape(BlockState state) {
         final double size = 0.375;
         final VoxelShape baseShape = VoxelShapes.cuboid(size, size, size, 1 - size, 1 - size, 1 - size);
-
         final List<VoxelShape> connections = new ArrayList<>();
         for (Direction dir : Direction.values()) {
-            if (state.get(WireBlock.PROPERTY_MAP.get(dir))) {
+            if (state.get(AbstractTransferBlock.PROPERTY_MAP.get(dir))) {
                 double[] mins = new double[] { size, size, size };
                 double[] maxs = new double[] { 1 - size, 1 - size, 1 - size };
                 int axis = dir.getAxis().ordinal();

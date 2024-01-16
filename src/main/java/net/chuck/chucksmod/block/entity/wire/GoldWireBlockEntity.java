@@ -5,7 +5,7 @@ import net.chuck.chucksmod.block.entity.tiers.TitaniumTier;
 import net.minecraft.block.BlockState;
 import net.minecraft.util.math.BlockPos;
 
-public class GoldWireBlockEntity extends WireBlockEntity implements TitaniumTier {
+public class GoldWireBlockEntity extends AbstractWireBlockEntity implements TitaniumTier {
     public GoldWireBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.GOLD_WIRE, pos, state);
     }

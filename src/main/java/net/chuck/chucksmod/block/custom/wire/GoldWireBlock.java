@@ -17,7 +17,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class GoldWireBlock extends WireBlock{
+public class GoldWireBlock extends AbstractWireBlock {
     public GoldWireBlock(Settings settings) {
         super(settings);
     }

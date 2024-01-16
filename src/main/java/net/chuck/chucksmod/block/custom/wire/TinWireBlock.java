@@ -17,7 +17,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class TinWireBlock extends WireBlock{
+public class TinWireBlock extends AbstractWireBlock {
     public TinWireBlock(Settings settings) {
         super(settings);
     }
