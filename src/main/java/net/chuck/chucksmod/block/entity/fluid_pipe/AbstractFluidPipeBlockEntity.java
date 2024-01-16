@@ -3,6 +3,7 @@ package net.chuck.chucksmod.block.entity.fluid_pipe;
 import net.chuck.chucksmod.block.custom.fluid_pipe.AbstractFluidPipeBlock;
 import net.chuck.chucksmod.block.entity.OfferedFluidStorage;
 import net.chuck.chucksmod.block.entity.wire.WireTickManager;
+import net.chuck.chucksmod.util.DirectionIOProperty;
 import net.chuck.chucksmod.util.FluidStack;
 import net.fabricmc.fabric.api.lookup.v1.block.BlockApiCache;
 import net.fabricmc.fabric.api.transfer.v1.fluid.FluidStorage;
@@ -100,7 +101,16 @@ public abstract class AbstractFluidPipeBlockEntity extends BlockEntity {
                 if(!foundSomething){
                     extracting_map.replace(direction, false);
                 }
-                newBlockState = newBlockState.with(AbstractFluidPipeBlock.PROPERTY_MAP.get(direction), foundSomething);
+                if(!foundSomething){
+                    newBlockState = newBlockState.with(AbstractFluidPipeBlock.PROPERTY_MAP.get(direction),
+                            DirectionIOProperty.DISABLED);
+                } else if(extracting_map.get(direction)){
+                    newBlockState = newBlockState.with(AbstractFluidPipeBlock.PROPERTY_MAP.get(direction),
+                            DirectionIOProperty.EXTRACT);
+                } else {
+                    newBlockState = newBlockState.with(AbstractFluidPipeBlock.PROPERTY_MAP.get(direction),
+                            DirectionIOProperty.INSERT);
+                }
             }
             serverWorld.setBlockState(getPos(), newBlockState);
         }

@@ -7,28 +7,52 @@
       }
     },
     {
-      "when": { "north": "true" },
+      "when": { "north": "insert" },
       "apply": { "model": "chucksmod:block/iron_fluid_pipe_side" }
     },
     {
-      "when": { "east": "true" },
+      "when": { "east": "insert" },
       "apply": { "model": "chucksmod:block/iron_fluid_pipe_side", "y": 90 }
     },
     {
-      "when": { "south": "true" },
+      "when": { "south": "insert" },
       "apply": { "model": "chucksmod:block/iron_fluid_pipe_side", "y": 180 }
     },
     {
-      "when": { "west": "true" },
+      "when": { "west": "insert" },
       "apply": { "model": "chucksmod:block/iron_fluid_pipe_side", "y": 270 }
     },
     {
-      "when": { "up": "true" },
+      "when": { "up": "insert" },
       "apply": { "model": "chucksmod:block/iron_fluid_pipe_side", "x": 270}
     },
     {
-      "when": { "down": "true" },
+      "when": { "down": "insert" },
       "apply": { "model": "chucksmod:block/iron_fluid_pipe_side", "x": 90 }
+    },
+    {
+      "when": { "north": "extract" },
+      "apply": { "model": "chucksmod:block/iron_fluid_pipe_side_extract" }
+    },
+    {
+      "when": { "east": "extract" },
+      "apply": { "model": "chucksmod:block/iron_fluid_pipe_side_extract", "y": 90 }
+    },
+    {
+      "when": { "south": "extract" },
+      "apply": { "model": "chucksmod:block/iron_fluid_pipe_side_extract", "y": 180 }
+    },
+    {
+      "when": { "west": "extract" },
+      "apply": { "model": "chucksmod:block/iron_fluid_pipe_side_extract", "y": 270 }
+    },
+    {
+      "when": { "up": "extract" },
+      "apply": { "model": "chucksmod:block/iron_fluid_pipe_side_extract", "x": 270}
+    },
+    {
+      "when": { "down": "extract" },
+      "apply": { "model": "chucksmod:block/iron_fluid_pipe_side_extract", "x": 90 }
     }
   ]
 }

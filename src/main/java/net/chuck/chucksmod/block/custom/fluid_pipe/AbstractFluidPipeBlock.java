@@ -2,8 +2,10 @@ package net.chuck.chucksmod.block.custom.fluid_pipe;
 
 import com.ibm.icu.util.LocaleMatcher;
 import net.chuck.chucksmod.block.custom.AbstractTransferBlock;
+import net.chuck.chucksmod.block.custom.TransferBlockShapeUtil;
 import net.chuck.chucksmod.block.entity.fluid_pipe.AbstractFluidPipeBlockEntity;
 import net.chuck.chucksmod.item.ModItems;
+import net.chuck.chucksmod.util.DirectionIOProperty;
 import net.minecraft.block.*;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.state.StateManager;
@@ -11,12 +13,18 @@ import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
+import net.minecraft.util.Util;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.shape.VoxelShape;
+import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /*
  * This file is part of TechReborn, licensed under the MIT License (MIT).
@@ -42,30 +50,52 @@ import org.jetbrains.annotations.Nullable;
  * SOFTWARE.
  */
 
-public abstract class AbstractFluidPipeBlock extends AbstractTransferBlock {
-    public static final BooleanProperty EAST_EXTRACT = BooleanProperty.of("east_extract");
-    public static final BooleanProperty WEST_EXTRACT = BooleanProperty.of("west_extract");
-    public static final BooleanProperty NORTH_EXTRACT = BooleanProperty.of("north_extract");
-    public static final BooleanProperty SOUTH_EXTRACT = BooleanProperty.of("south_extract");
-    public static final BooleanProperty UP_EXTRACT = BooleanProperty.of("up_extract");
-    public static final BooleanProperty DOWN_EXTRACT = BooleanProperty.of("down_extract");
+public abstract class AbstractFluidPipeBlock extends BlockWithEntity {
+    public static final DirectionIOProperty EAST = DirectionIOProperty.EAST;
+    public static final DirectionIOProperty WEST = DirectionIOProperty.WEST;
+    public static final DirectionIOProperty NORTH = DirectionIOProperty.NORTH;
+    public static final DirectionIOProperty SOUTH = DirectionIOProperty.SOUTH;
+    public static final DirectionIOProperty UP = DirectionIOProperty.UP;
+    public static final DirectionIOProperty DOWN = DirectionIOProperty.DOWN;
+    public static final Map<Direction, DirectionIOProperty> PROPERTY_MAP = Util.make(new HashMap<>(), map -> {
+        map.put(Direction.EAST, EAST);
+        map.put(Direction.WEST, WEST);
+        map.put(Direction.NORTH, NORTH);
+        map.put(Direction.SOUTH, SOUTH);
+        map.put(Direction.UP, UP);
+        map.put(Direction.DOWN, DOWN);
+    });
     public AbstractFluidPipeBlock(Settings settings) {
         super(settings);
-        /*setDefaultState(this.getDefaultState()
-                .with(EAST_EXTRACT, false)
-                .with(WEST_EXTRACT, false)
-                .with(NORTH_EXTRACT, false)
-                .with(SOUTH_EXTRACT, false)
-                .with(UP_EXTRACT, false)
-                .with(DOWN_EXTRACT, false)
-        );*/
+        setDefaultState(this.getDefaultState()
+                .with(EAST, DirectionIOProperty.DISABLED)
+                .with(WEST, DirectionIOProperty.DISABLED)
+                .with(NORTH, DirectionIOProperty.DISABLED)
+                .with(SOUTH, DirectionIOProperty.DISABLED)
+                .with(UP, DirectionIOProperty.DISABLED)
+                .with(DOWN, DirectionIOProperty.DISABLED)
+        );
     }
 
-    /*@Override
+    @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(EAST_EXTRACT, WEST_EXTRACT, NORTH_EXTRACT, SOUTH_EXTRACT, UP_EXTRACT, DOWN_EXTRACT);
-    }*/
+        builder.add(EAST, WEST, NORTH, SOUTH, UP, DOWN);
+    }
 
+    @Override
+    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
+        return TransferBlockShapeUtil.getPipeShape(state);
+    }
+
+    @Override
+    public VoxelShape getCullingShape(BlockState state, BlockView world, BlockPos pos) {
+        return TransferBlockShapeUtil.getPipeShape(state);
+    }
+
+    @Override
+    public BlockRenderType getRenderType(BlockState state) {
+        return BlockRenderType.MODEL;
+    }
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if (!world.isClient && world.getBlockEntity(pos) instanceof AbstractFluidPipeBlockEntity pipe){
@@ -73,6 +103,10 @@ public abstract class AbstractFluidPipeBlock extends AbstractTransferBlock {
                 Direction hitDirection = getHitDirection(hit.getPos(), pos, player);
                 if(hitDirection != null && pipe.canExtract(hitDirection)) {
                     pipe.setExtracting(hitDirection, !pipe.extracting_map.get(hitDirection));
+                    String value;
+                    if(pipe.extracting_map.get(hitDirection)) value = DirectionIOProperty.EXTRACT;
+                    else value = DirectionIOProperty.INSERT;
+                    world.setBlockState(pos, world.getBlockState(pos).with(DirectionIOProperty.getProperty(hitDirection), value));
                 }
             }
             player.sendMessage(Text.literal(pipe.extracting_map.toString()));
