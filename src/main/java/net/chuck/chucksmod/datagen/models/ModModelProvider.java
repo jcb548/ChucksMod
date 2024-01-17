@@ -1,6 +1,5 @@
-package net.chuck.chucksmod.datagen;
+package net.chuck.chucksmod.datagen.models;
 
-import dev.architectury.platform.Mod;
 import net.chuck.chucksmod.block.ModBlocks;
 import net.chuck.chucksmod.block.custom.LettuceCropBlock;
 import net.chuck.chucksmod.block.custom.PineappleCropBlock;
@@ -9,12 +8,10 @@ import net.chuck.chucksmod.fluid.ModFluids;
 import net.chuck.chucksmod.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
 import net.minecraft.data.client.*;
 import net.minecraft.item.ArmorItem;
-import net.minecraft.state.property.Properties;
-import net.minecraft.util.Identifier;
+
+import static net.chuck.chucksmod.datagen.models.ModModelGenerator.registerVerticalColumn;
 
 /*
  *  Code inspired by or copied from
@@ -38,12 +35,16 @@ public class ModModelProvider extends FabricModelProvider {
 
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.IRON_DUST_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.COPPER_DUST_BLOCK);
-        registerBars(blockStateModelGenerator, ModBlocks.COPPER_BARS);
+        ModModelGenerator.registerBars(blockStateModelGenerator, ModBlocks.COPPER_BARS);
+        ModModelGenerator.registerWire(blockStateModelGenerator, ModBlocks.COPPER_WIRE);
+
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.GOLD_DUST_BLOCK);
-        registerBars(blockStateModelGenerator, ModBlocks.GOLD_BARS);
+        ModModelGenerator.registerBars(blockStateModelGenerator, ModBlocks.GOLD_BARS);
+        ModModelGenerator.registerWire(blockStateModelGenerator, ModBlocks.GOLD_WIRE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.PRISMARINE_DUST_BLOCK);
+
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.PRISMARINE_IRON_DUST_BLOCK);
-        registerBars(blockStateModelGenerator, ModBlocks.PRISMARINE_BARS);
+        ModModelGenerator.registerBars(blockStateModelGenerator, ModBlocks.PRISMARINE_BARS);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.OBSIDIAN_SAND);
 
         blockStateModelGenerator.registerGlassPane(ModBlocks.HARDENED_GLASS, ModBlocks.HARDENED_GLASS_PANE);
@@ -86,11 +87,12 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RAW_TIN_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.TIN_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_TIN_ORE);
-        registerBars(blockStateModelGenerator, ModBlocks.TIN_BARS);
+        ModModelGenerator.registerBars(blockStateModelGenerator, ModBlocks.TIN_BARS);
+        ModModelGenerator.registerWire(blockStateModelGenerator, ModBlocks.TIN_WIRE);
 
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.BRONZE_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.BRONZE_DUST_BLOCK);
-        registerBars(blockStateModelGenerator, ModBlocks.BRONZE_BARS);
+        ModModelGenerator.registerBars(blockStateModelGenerator, ModBlocks.BRONZE_BARS);
 
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.TITANIUM_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RAW_TITANIUM_BLOCK);
@@ -99,13 +101,13 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.NETHER_TITANIUM_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.END_STONE_TITANIUM_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_TITANIUM_ORE);
-        registerBars(blockStateModelGenerator, ModBlocks.TITANIUM_BARS);
+        ModModelGenerator.registerBars(blockStateModelGenerator, ModBlocks.TITANIUM_BARS);
         blockStateModelGenerator.registerCooker(ModBlocks.TITANIUM_POWERED_CRUSHER, TexturedModel.ORIENTABLE);
         blockStateModelGenerator.registerCooker(ModBlocks.TITANIUM_POWERED_FURNACE, TexturedModel.ORIENTABLE);
         blockStateModelGenerator.registerCooker(ModBlocks.TITANIUM_HEAT_GENERATOR, TexturedModel.ORIENTABLE);
         blockStateModelGenerator.registerCooker(ModBlocks.TITANIUM_QUARRY, TexturedModel.ORIENTABLE);
         blockStateModelGenerator.registerCooker(ModBlocks.TITANIUM_COPIER, TexturedModel.ORIENTABLE);
-        registerVerticalColumn(blockStateModelGenerator, ModBlocks.TITANIUM_FLUID_TANK);
+        ModModelGenerator.registerVerticalColumn(blockStateModelGenerator, ModBlocks.TITANIUM_FLUID_TANK);
         blockStateModelGenerator.registerCooker(ModBlocks.TITANIUM_PUMP, TexturedModel.ORIENTABLE);
 
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SOUL_GRAVEL);
@@ -126,13 +128,13 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.NETHER_FABIUM_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.END_STONE_FABIUM_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_FABIUM_ORE);
-        registerBars(blockStateModelGenerator, ModBlocks.FABIUM_BARS);
+        ModModelGenerator.registerBars(blockStateModelGenerator, ModBlocks.FABIUM_BARS);
 
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DIRITONIUM_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RAW_DIRITONIUM_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.END_STONE_DIRITONIUM_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_DIRITONIUM_ORE);
-        registerBars(blockStateModelGenerator, ModBlocks.DIRITONIUM_BARS);
+        ModModelGenerator.registerBars(blockStateModelGenerator, ModBlocks.DIRITONIUM_BARS);
 
         BlockStateModelGenerator.LogTexturePool eucalyptus_log_pool =
                 blockStateModelGenerator.registerLog(ModBlocks.EUCALYPTUS_LOG);
@@ -226,16 +228,19 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.COPPER_GEAR, Models.GENERATED);
         itemModelGenerator.register(ModItems.COPPER_POWER_CIRCUIT, Models.GENERATED);
         itemModelGenerator.register(ModItems.COPPER_COIL, Models.GENERATED);
+        itemModelGenerator.register(ModBlocks.COPPER_WIRE.asItem(), Models.GENERATED);
 
         itemModelGenerator.register(ModItems.GOLD_DUST, Models.GENERATED);
         itemModelGenerator.register(ModItems.GOLD_GEAR, Models.GENERATED);
         itemModelGenerator.register(ModItems.GOLD_POWER_CIRCUIT, Models.GENERATED);
         itemModelGenerator.register(ModItems.GOLD_COIL, Models.GENERATED);
+        itemModelGenerator.register(ModBlocks.GOLD_WIRE.asItem(), Models.GENERATED);
 
         itemModelGenerator.register(ModItems.TIN_DUST, Models.GENERATED);
         itemModelGenerator.register(ModItems.RAW_TIN, Models.GENERATED);
         itemModelGenerator.register(ModItems.TIN_INGOT, Models.GENERATED);
         itemModelGenerator.register(ModItems.TIN_GEAR, Models.GENERATED);
+        itemModelGenerator.register(ModBlocks.TIN_WIRE.asItem(), Models.GENERATED);
 
         itemModelGenerator.register(ModItems.BRONZE_INGOT, Models.GENERATED);
         itemModelGenerator.register(ModItems.BRONZE_DUST, Models.GENERATED);
@@ -346,53 +351,5 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.DIRITIA_CHEST_BOAT, Models.GENERATED);
 
         itemModelGenerator.register(ModFluids.LIQUID_XP_BUCKET, Models.GENERATED);
-    }
-    private static void registerVerticalColumn(BlockStateModelGenerator blockStateModelGenerator, Block block){
-        TextureMap map =  new TextureMap()
-                .put(TextureKey.PARTICLE, TextureMap.getId(block))
-                .put(TextureKey.UP, TextureMap.getSubId(block, "_top"))
-                .put(TextureKey.DOWN, TextureMap.getSubId(block, "_top"))
-                .put(TextureKey.SIDE, TextureMap.getId(block));
-        blockStateModelGenerator.blockStateCollector.accept(BlockStateModelGenerator.createSingletonBlockState(block,
-                Models.CUBE.upload(block, map, blockStateModelGenerator.modelCollector)));
-    }
-
-    private static void registerBars(BlockStateModelGenerator blockStateModelGenerator, Block barsBlock) {
-        Identifier identifier = ModelIds.getBlockSubModelId(barsBlock, "_post_ends");
-        Identifier identifier2 = ModelIds.getBlockSubModelId(barsBlock, "_post");
-        Identifier identifier3 = ModelIds.getBlockSubModelId(barsBlock, "_cap");
-        Identifier identifier4 = ModelIds.getBlockSubModelId(barsBlock, "_cap_alt");
-        Identifier identifier5 = ModelIds.getBlockSubModelId(barsBlock, "_side");
-        Identifier identifier6 = ModelIds.getBlockSubModelId(barsBlock, "_side_alt");
-        blockStateModelGenerator.blockStateCollector.accept(MultipartBlockStateSupplier.create(barsBlock)
-                .with(BlockStateVariant.create().put(VariantSettings.MODEL, identifier))
-                .with((When)When.create().set(Properties.NORTH, false).set(Properties.EAST, false)
-                                .set(Properties.SOUTH, false).set(Properties.WEST, false),
-                        BlockStateVariant.create().put(VariantSettings.MODEL, identifier2))
-                .with((When)When.create().set(Properties.NORTH, true).set(Properties.EAST, false)
-                        .set(Properties.SOUTH, false).set(Properties.WEST, false),
-                        BlockStateVariant.create().put(VariantSettings.MODEL, identifier3))
-                .with((When)When.create().set(Properties.NORTH, false).set(Properties.EAST, true)
-                        .set(Properties.SOUTH, false).set(Properties.WEST, false),
-                        BlockStateVariant.create().put(VariantSettings.MODEL, identifier3)
-                                .put(VariantSettings.Y, VariantSettings.Rotation.R90))
-                .with((When)When.create().set(Properties.NORTH, false).set(Properties.EAST, false)
-                        .set(Properties.SOUTH, true).set(Properties.WEST, false),
-                        BlockStateVariant.create().put(VariantSettings.MODEL, identifier4))
-                .with((When)When.create().set(Properties.NORTH, false).set(Properties.EAST, false)
-                        .set(Properties.SOUTH, false).set(Properties.WEST, true),
-                        BlockStateVariant.create().put(VariantSettings.MODEL, identifier4)
-                                .put(VariantSettings.Y, VariantSettings.Rotation.R90))
-                .with((When)When.create().set(Properties.NORTH, true),
-                        BlockStateVariant.create().put(VariantSettings.MODEL, identifier5))
-                .with((When)When.create().set(Properties.EAST, true),
-                        BlockStateVariant.create().put(VariantSettings.MODEL, identifier5)
-                                .put(VariantSettings.Y, VariantSettings.Rotation.R90))
-                .with((When)When.create().set(Properties.SOUTH, true),
-                        BlockStateVariant.create().put(VariantSettings.MODEL, identifier6))
-                .with((When)When.create().set(Properties.WEST, true),
-                        BlockStateVariant.create().put(VariantSettings.MODEL, identifier6)
-                                .put(VariantSettings.Y, VariantSettings.Rotation.R90)));
-        blockStateModelGenerator.registerItemModel(barsBlock);
     }
 }

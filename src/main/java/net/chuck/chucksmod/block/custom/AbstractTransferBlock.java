@@ -3,6 +3,7 @@ package net.chuck.chucksmod.block.custom;
 import net.minecraft.block.*;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
+import net.minecraft.state.property.Properties;
 import net.minecraft.util.Util;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -13,12 +14,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 public abstract class AbstractTransferBlock extends BlockWithEntity {
-    public static final BooleanProperty EAST = BooleanProperty.of("east");
-    public static final BooleanProperty WEST = BooleanProperty.of("west");
-    public static final BooleanProperty NORTH = BooleanProperty.of("north");
-    public static final BooleanProperty SOUTH = BooleanProperty.of("south");
-    public static final BooleanProperty UP = BooleanProperty.of("up");
-    public static final BooleanProperty DOWN = BooleanProperty.of("down");
+    public static final BooleanProperty EAST = Properties.EAST;
+    public static final BooleanProperty WEST = Properties.WEST;
+    public static final BooleanProperty NORTH = Properties.NORTH;
+    public static final BooleanProperty SOUTH = Properties.SOUTH;
+    public static final BooleanProperty UP = Properties.UP;
+    public static final BooleanProperty DOWN = Properties.DOWN;
     public static final Map<Direction, BooleanProperty> PROPERTY_MAP = Util.make(new HashMap<>(), map -> {
         map.put(Direction.EAST, EAST);
         map.put(Direction.WEST, WEST);
