@@ -53,6 +53,8 @@ public class ModItems {
             new Item(new FabricItemSettings()));
 
     //Vanilla gears
+    public static final Item WRENCH = registerItem("wrench",
+            new Item(new FabricItemSettings()));
     public static final Item IRON_GEAR = registerItem("iron_gear",
             new Item(new FabricItemSettings()));
     public static final Item COPPER_GEAR = registerItem("copper_gear",

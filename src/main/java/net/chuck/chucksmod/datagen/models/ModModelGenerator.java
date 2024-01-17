@@ -1,5 +1,6 @@
 package net.chuck.chucksmod.datagen.models;
 
+import net.chuck.chucksmod.util.DirectionIOProperty;
 import net.minecraft.block.Block;
 import net.minecraft.data.client.*;
 import net.minecraft.state.property.Properties;
@@ -72,6 +73,53 @@ public class ModModelGenerator {
                                 .put(VariantSettings.X, VariantSettings.Rotation.R270))
                 .with(When.create().set(Properties.DOWN, true),
                         BlockStateVariant.create().put(VariantSettings.MODEL, side)
+                                .put(VariantSettings.X, VariantSettings.Rotation.R90))
+        );
+    }
+    public static void registerPipe(BlockStateModelGenerator blockStateModelGenerator, Block pipe){
+        TextureMap textureMap = new TextureMap().put(ModTextureKeys.CABLE, TextureMap.getId(pipe));
+        Identifier core = ModModels.THIN_WIRE_CORE.upload(pipe, "_core",textureMap,
+                blockStateModelGenerator.modelCollector);
+        Identifier side = ModModels.THIN_WIRE_SIDE.upload(pipe, "_side",textureMap,
+                blockStateModelGenerator.modelCollector);
+        TextureMap textureMap1 = new TextureMap().put(ModTextureKeys.CABLE, TextureMap.getSubId(pipe, "_extract"));
+        Identifier extract = ModModels.THIN_WIRE_SIDE.upload(pipe, "_extract",
+                textureMap1, blockStateModelGenerator.modelCollector);
+        blockStateModelGenerator.blockStateCollector.accept(MultipartBlockStateSupplier.create(pipe)
+                .with(BlockStateVariant.create().put(VariantSettings.MODEL, core))
+                .with(When.create().set(DirectionIOProperty.NORTH, "insert"),
+                        BlockStateVariant.create().put(VariantSettings.MODEL, side))
+                .with(When.create().set(DirectionIOProperty.EAST, "insert"),
+                        BlockStateVariant.create().put(VariantSettings.MODEL, side)
+                                .put(VariantSettings.Y, VariantSettings.Rotation.R90))
+                .with(When.create().set(DirectionIOProperty.SOUTH, "insert"),
+                        BlockStateVariant.create().put(VariantSettings.MODEL, side)
+                                .put(VariantSettings.Y, VariantSettings.Rotation.R180))
+                .with(When.create().set(DirectionIOProperty.WEST, "insert"),
+                        BlockStateVariant.create().put(VariantSettings.MODEL, side)
+                                .put(VariantSettings.Y, VariantSettings.Rotation.R270))
+                .with(When.create().set(DirectionIOProperty.UP, "insert"),
+                        BlockStateVariant.create().put(VariantSettings.MODEL, side)
+                                .put(VariantSettings.X, VariantSettings.Rotation.R270))
+                .with(When.create().set(DirectionIOProperty.DOWN, "insert"),
+                        BlockStateVariant.create().put(VariantSettings.MODEL, side)
+                                .put(VariantSettings.X, VariantSettings.Rotation.R90))
+                .with(When.create().set(DirectionIOProperty.NORTH, "extract"),
+                        BlockStateVariant.create().put(VariantSettings.MODEL, extract))
+                .with(When.create().set(DirectionIOProperty.EAST, "extract"),
+                        BlockStateVariant.create().put(VariantSettings.MODEL, extract)
+                                .put(VariantSettings.Y, VariantSettings.Rotation.R90))
+                .with(When.create().set(DirectionIOProperty.SOUTH, "extract"),
+                        BlockStateVariant.create().put(VariantSettings.MODEL, extract)
+                                .put(VariantSettings.Y, VariantSettings.Rotation.R180))
+                .with(When.create().set(DirectionIOProperty.WEST, "extract"),
+                        BlockStateVariant.create().put(VariantSettings.MODEL, extract)
+                                .put(VariantSettings.Y, VariantSettings.Rotation.R270))
+                .with(When.create().set(DirectionIOProperty.UP, "extract"),
+                        BlockStateVariant.create().put(VariantSettings.MODEL, extract)
+                                .put(VariantSettings.X, VariantSettings.Rotation.R270))
+                .with(When.create().set(DirectionIOProperty.DOWN, "extract"),
+                        BlockStateVariant.create().put(VariantSettings.MODEL, extract)
                                 .put(VariantSettings.X, VariantSettings.Rotation.R90))
         );
     }

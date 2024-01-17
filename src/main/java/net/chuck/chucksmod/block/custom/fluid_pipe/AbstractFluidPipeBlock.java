@@ -4,6 +4,7 @@ import com.ibm.icu.util.LocaleMatcher;
 import net.chuck.chucksmod.block.custom.AbstractTransferBlock;
 import net.chuck.chucksmod.block.custom.TransferBlockShapeUtil;
 import net.chuck.chucksmod.block.entity.fluid_pipe.AbstractFluidPipeBlockEntity;
+import net.chuck.chucksmod.item.ModItemTags;
 import net.chuck.chucksmod.item.ModItems;
 import net.chuck.chucksmod.util.DirectionIOProperty;
 import net.minecraft.block.*;
@@ -25,6 +26,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.function.Predicate;
 
 /*
  * This file is part of TechReborn, licensed under the MIT License (MIT).
@@ -99,8 +101,8 @@ public abstract class AbstractFluidPipeBlock extends BlockWithEntity {
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if (!world.isClient && world.getBlockEntity(pos) instanceof AbstractFluidPipeBlockEntity pipe){
-            if(!pipe.targets.isEmpty() && player.getStackInHand(hand).getItem().equals(ModItems.IRON_MOTOR)){
-                Direction hitDirection = getHitDirection(hit.getPos(), pos, player);
+            if(!pipe.targets.isEmpty() && player.getStackInHand(hand).streamTags().anyMatch(Predicate.isEqual(ModItemTags.WRENCHES))){
+                Direction hitDirection = getHitDirection(hit.getPos(), pos);
                 if(hitDirection != null && pipe.canExtract(hitDirection)) {
                     pipe.setExtracting(hitDirection, !pipe.extracting_map.get(hitDirection));
                     String value;
@@ -108,10 +110,10 @@ public abstract class AbstractFluidPipeBlock extends BlockWithEntity {
                     else value = DirectionIOProperty.INSERT;
                     world.setBlockState(pos, world.getBlockState(pos).with(DirectionIOProperty.getProperty(hitDirection), value));
                 }
+                return ActionResult.SUCCESS;
             }
-            player.sendMessage(Text.literal(pipe.extracting_map.toString()));
         }
-        return ActionResult.SUCCESS;
+        return ActionResult.PASS;
     }
 
     @Override
@@ -124,11 +126,10 @@ public abstract class AbstractFluidPipeBlock extends BlockWithEntity {
         super.neighborUpdate(state, world, pos, sourceBlock, sourcePos, notify);
     }
     @Nullable
-    private Direction getHitDirection(Vec3d pos, BlockPos blockPos, PlayerEntity player){
+    private Direction getHitDirection(Vec3d pos, BlockPos blockPos){
         double localX = blockPos.getX() + 0.5 - pos.x;
         double localY = blockPos.getY() + 0.5 - pos.y;
         double localZ = blockPos.getZ() + 0.5 - pos.z;
-        player.sendMessage(Text.literal(localX+ ", " + localY + ", "+localZ));
         if(Math.abs(localX) <= 0.2 && Math.abs(localZ) <= 0.2){
             if(localY > 0.2){
                 return Direction.DOWN;

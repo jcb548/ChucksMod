@@ -307,5 +307,8 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(Items.RED_STAINED_GLASS)
                 .add(Items.WHITE_STAINED_GLASS)
                 .add(Items.YELLOW_STAINED_GLASS);
+        
+        getOrCreateTagBuilder(ModItemTags.WRENCHES)
+                .add(ModItems.WRENCH);
     }
 }

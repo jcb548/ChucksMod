@@ -47,4 +47,6 @@ public class ModItemTags {
             new Identifier(ChucksMod.MOD_ID, "crushers"));
     public static final TagKey<Item> GLASS = TagKey.of(RegistryKeys.ITEM,
             new Identifier("c", "glass"));
+    public static final TagKey<Item> WRENCHES = TagKey.of(RegistryKeys.ITEM,
+            new Identifier("c", "wrenches"));
 }

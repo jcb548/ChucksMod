@@ -1,5 +1,6 @@
 {
   "item.chucksmod.hamburger": "Hamburger",
+  "item.chucksmod.wrench": "Wrench",
   "item.chucksmod.tomato": "Tomato",
   "item.chucksmod.tomato_seeds": "Tomato Seeds",
   "item.chucksmod.lettuce": "Lettuce",
@@ -147,6 +148,7 @@
   "block.chucksmod.titanium_fluid_tank": "Titanium Fluid Tank",
   "block.chucksmod.titanium_pump": "Titanium Pump",
   "tooltip.chucksmod.titanium_pump": "Pumps liquids from a 17x17 area in front of pump into a fluid tank",
+  "block.chucksmod.titanium_fluid_pipe": "Titanium Fluid Pipe",
 
   "item.chucksmod.raw_diritonium": "Raw Diritonium",
   "item.chucksmod.diritonium_ingot": "Diritonium Ingot",
@@ -224,7 +226,7 @@
   "tooltip.chucksmod.iron_pump": "Pumps liquids from a 13x13 area in front of pump into a fluid tank",
   "item.chucksmod.iron_axle": "Iron Axle",
   "item.chucksmod.iron_motor": "Iron Motor",
-
+  "block.chucksmod.iron_fluid_pipe": "Iron Fluid Pipe",
 
   "block.chucksmod.slated_dirt": "Slated Dirt",
   "block.chucksmod.slated_grass": "Slated Grass",

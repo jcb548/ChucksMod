@@ -24,6 +24,7 @@ public class ModItemGroups {
             new Identifier(ChucksMod.MOD_ID, "chucksmod"),
             FabricItemGroup.builder().displayName(Text.translatable("itemgroup.chucksmod"))
                 .icon(() -> new ItemStack(Items.PORKCHOP)).entries((displayContext, entries) -> {
+                        entries.add(ModItems.WRENCH);
                         entries.add(ModItems.HAMBURGER);
                         entries.add(ModItems.TOMATO);
                         entries.add(ModItems.TOMATO_SEEDS);

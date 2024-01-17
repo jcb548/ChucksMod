@@ -1,5 +1,7 @@
 package net.chuck.chucksmod.datagen.models;
 
+import com.ibm.icu.text.Normalizer2;
+import dev.architectury.platform.Mod;
 import net.chuck.chucksmod.block.ModBlocks;
 import net.chuck.chucksmod.block.custom.LettuceCropBlock;
 import net.chuck.chucksmod.block.custom.PineappleCropBlock;
@@ -193,8 +195,9 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerCooker(ModBlocks.IRON_POWERED_FURNACE, TexturedModel.ORIENTABLE);
         blockStateModelGenerator.registerCooker(ModBlocks.IRON_HEAT_GENERATOR, TexturedModel.ORIENTABLE);
         blockStateModelGenerator.registerCooker(ModBlocks.IRON_QUARRY, TexturedModel.ORIENTABLE);
-        registerVerticalColumn(blockStateModelGenerator, ModBlocks.IRON_FLUID_TANK);
+        ModModelGenerator.registerVerticalColumn(blockStateModelGenerator, ModBlocks.IRON_FLUID_TANK);
         blockStateModelGenerator.registerCooker(ModBlocks.IRON_PUMP, TexturedModel.ORIENTABLE);
+        ModModelGenerator.registerPipe(blockStateModelGenerator, ModBlocks.IRON_FLUID_PIPE);
 
 
         BlockStateModelGenerator.BlockTexturePool sandstone_bricks_pool =
@@ -216,6 +219,7 @@ public class ModModelProvider extends FabricModelProvider {
 
     @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
+        itemModelGenerator.register(ModItems.WRENCH, Models.HANDHELD);
         itemModelGenerator.register(ModItems.STONE_DUST, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.IRON_DUST, Models.GENERATED);
@@ -223,6 +227,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.IRON_ENERGY_CORE, Models.GENERATED);
         itemModelGenerator.register(ModItems.IRON_AXLE, Models.GENERATED);
         itemModelGenerator.register(ModItems.IRON_MOTOR, Models.GENERATED);
+        itemModelGenerator.register(ModBlocks.IRON_FLUID_PIPE.asItem(), Models.GENERATED);
 
         itemModelGenerator.register(ModItems.COPPER_DUST, Models.GENERATED);
         itemModelGenerator.register(ModItems.COPPER_GEAR, Models.GENERATED);
