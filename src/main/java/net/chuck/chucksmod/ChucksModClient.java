@@ -23,6 +23,7 @@ import net.chuck.chucksmod.screen.furnace.PoweredFurnaceScreen;
 import net.chuck.chucksmod.screen.generator.heat.HeatGeneratorScreen;
 import net.chuck.chucksmod.screen.energy_storage.EnergyStorageScreen;
 import net.chuck.chucksmod.screen.generator.steam.SteamGeneratorScreen;
+import net.chuck.chucksmod.screen.generator.lava.LavaGeneratorScreen;
 import net.chuck.chucksmod.screen.pump.PumpScreen;
 import net.chuck.chucksmod.screen.quarry.IronQuarryScreen;
 import net.chuck.chucksmod.screen.quarry.TitaniumQuarryScreen;
@@ -192,6 +193,7 @@ public class ChucksModClient implements ClientModInitializer {
         HandledScreens.register(ModScreenHandlers.COPIER_SCREEN_HANDLER, CopierScreen::new);
         HandledScreens.register(ModScreenHandlers.PUMP_SCREEN_HANDLER, PumpScreen::new);
         HandledScreens.register(ModScreenHandlers.STEAM_GENERATOR_SCREEN_HANDLER, SteamGeneratorScreen::new);
+        HandledScreens.register(ModScreenHandlers.LAVA_GENERATOR_SCREEN_HANDLER, LavaGeneratorScreen::new);
         HandledScreens.register(ModScreenHandlers.IRON_QUARRY_SCREEN_HANDLER, IronQuarryScreen::new);
         HandledScreens.register(ModScreenHandlers.TITANIUM_QUARRY_SCREEN_HANDLER, TitaniumQuarryScreen::new);
         HandledScreens.register(ModScreenHandlers.BAG_3X1_SCREEN_HANDLER, BagScreen3x1::new);

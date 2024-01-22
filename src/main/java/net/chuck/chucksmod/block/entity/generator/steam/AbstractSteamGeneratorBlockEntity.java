@@ -80,4 +80,7 @@ public abstract class AbstractSteamGeneratorBlockEntity extends AbstractHeatGene
     protected boolean hasLiquid() {
         return fluidStorage.amount >= WATER_USAGE;
     }
+    public boolean isGenerating() {
+        return this.burnTime > 0 && hasLiquid();
+    }
 }

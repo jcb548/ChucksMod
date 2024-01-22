@@ -30,6 +30,10 @@ public class GeneratorScreenHandler extends AbstractEnergyUsingScreenHandler {
         super(syncId, playerInventory, entity, delegate, type, INV_SIZE);
         this.addSlot(new Slot(inventory, AbstractHeatGeneratorBlockEntity.FUEL_SLOT, 80, 39));
     }
+    public GeneratorScreenHandler(int syncId, PlayerInventory playerInventory, BlockEntity entity,
+                                  PropertyDelegate delegate, ScreenHandlerType type, int invSize) {
+        super(syncId, playerInventory, entity, delegate, type, invSize);
+    }
 
     @Override
     public ItemStack quickMove(PlayerEntity player, int invSlot) {

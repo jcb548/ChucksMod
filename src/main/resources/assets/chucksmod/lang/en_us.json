@@ -150,6 +150,8 @@
   "tooltip.chucksmod.titanium_pump": "Pumps liquids from a 17x17 area in front of pump into a fluid tank",
   "block.chucksmod.titanium_fluid_pipe": "Titanium Fluid Pipe",
   "block.chucksmod.titanium_steam_generator": "Titanium Steam Generator",
+  "block.chucksmod.titanium_lava_generator": "Titanium Lava Generator",
+  "tooltip.chucksmod.lava_generator": "Generates energy from lava",
 
   "item.chucksmod.raw_diritonium": "Raw Diritonium",
   "item.chucksmod.diritonium_ingot": "Diritonium Ingot",

@@ -15,7 +15,8 @@ import net.minecraft.screen.PropertyDelegate;
 public class SteamGeneratorScreenHandler extends GeneratorScreenHandler implements FluidStoringScreenHandler {
     public FluidStack fluidStack;
     public FluidStoring fluidStoring;
-    public SteamGeneratorScreenHandler(int syncId, PlayerInventory playerInventory, BlockEntity entity, PropertyDelegate delegate) {
+    public SteamGeneratorScreenHandler(int syncId, PlayerInventory playerInventory, BlockEntity entity,
+                                       PropertyDelegate delegate) {
         super(syncId, playerInventory, entity, delegate, ModScreenHandlers.STEAM_GENERATOR_SCREEN_HANDLER);
         if(entity instanceof FluidStoring fluidStoring){
             this.fluidStoring = fluidStoring;

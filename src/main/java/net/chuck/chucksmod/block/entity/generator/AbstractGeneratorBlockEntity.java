@@ -75,8 +75,8 @@ public abstract class AbstractGeneratorBlockEntity extends AbstractEnergyUsingBl
             transaction.commit();
         }
     }
-    protected boolean isGenerating() {
-        return this.burnTime > 0 && hasLiquid();
+    public boolean isGenerating() {
+        return this.burnTime > 0;
     }
     protected void useFuel(){
 

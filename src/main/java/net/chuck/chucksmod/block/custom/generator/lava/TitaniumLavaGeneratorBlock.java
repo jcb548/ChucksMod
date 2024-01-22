@@ -29,7 +29,7 @@ public class TitaniumLavaGeneratorBlock extends AbstractLavaGeneratorBlock{
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return validateTicker(type, ModBlockEntities.TITANIUM_STEAM_GENERATOR,
+        return validateTicker(type, ModBlockEntities.TITANIUM_LAVA_GENERATOR,
                 ((world1, pos, state1, blockEntity) -> blockEntity.tick(world1, pos, state1)));
     }
 

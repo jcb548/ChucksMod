@@ -65,7 +65,8 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.TITANIUM_FLUID_TANK)
                 .add(ModBlocks.TITANIUM_PUMP)
                 .add(ModBlocks.TITANIUM_FLUID_PIPE)
-                .add(ModBlocks.TITANIUM_STEAM_GENERATOR);
+                .add(ModBlocks.TITANIUM_STEAM_GENERATOR)
+                .add(ModBlocks.TITANIUM_LAVA_GENERATOR);
 
         getOrCreateTagBuilder(BlockTags.NEEDS_STONE_TOOL)
                 .add(ModBlocks.TIN_BLOCK)
@@ -127,6 +128,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.TITANIUM_PUMP)
                 .add(ModBlocks.TITANIUM_FLUID_PIPE)
                 .add(ModBlocks.TITANIUM_STEAM_GENERATOR)
+                .add(ModBlocks.TITANIUM_LAVA_GENERATOR)
 
                 .add(ModBlocks.SOUL_STONE)
                 .add(ModBlocks.SOUL_STONE_STAIRS)

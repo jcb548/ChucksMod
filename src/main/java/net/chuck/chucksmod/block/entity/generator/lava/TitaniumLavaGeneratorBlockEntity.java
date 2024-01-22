@@ -41,6 +41,6 @@ public class TitaniumLavaGeneratorBlockEntity extends AbstractLavaGeneratorBlock
 
     @Override
     public Text getDisplayName() {
-        return Text.translatable("blocks.chucksmod.titanium_lava_generator");
+        return Text.translatable("block.chucksmod.titanium_lava_generator");
     }
 }
