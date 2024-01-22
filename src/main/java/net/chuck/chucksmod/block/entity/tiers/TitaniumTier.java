@@ -20,4 +20,5 @@ public interface TitaniumTier {
     int XP_DRAIN_RATE = 100;
     int PUMP_SIZE = 2*QUARRY_SIZE-1;
     int PUMP_SPEED = SPEED/15;
+    int FLUID_PIPE_TRANSFER_RATE = 200;
 }

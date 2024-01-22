@@ -111,6 +111,8 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerCooker(ModBlocks.TITANIUM_COPIER, TexturedModel.ORIENTABLE);
         ModModelGenerator.registerVerticalColumn(blockStateModelGenerator, ModBlocks.TITANIUM_FLUID_TANK);
         blockStateModelGenerator.registerCooker(ModBlocks.TITANIUM_PUMP, TexturedModel.ORIENTABLE);
+        ModModelGenerator.registerPipe(blockStateModelGenerator, ModBlocks.TITANIUM_FLUID_PIPE);
+        blockStateModelGenerator.registerCooker(ModBlocks.TITANIUM_STEAM_GENERATOR, TexturedModel.ORIENTABLE);
 
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SOUL_GRAVEL);
         BlockStateModelGenerator.BlockTexturePool soul_stone_pool =
@@ -198,6 +200,7 @@ public class ModModelProvider extends FabricModelProvider {
         ModModelGenerator.registerVerticalColumn(blockStateModelGenerator, ModBlocks.IRON_FLUID_TANK);
         blockStateModelGenerator.registerCooker(ModBlocks.IRON_PUMP, TexturedModel.ORIENTABLE);
         ModModelGenerator.registerPipe(blockStateModelGenerator, ModBlocks.IRON_FLUID_PIPE);
+        blockStateModelGenerator.registerCooker(ModBlocks.IRON_STEAM_GENERATOR, TexturedModel.ORIENTABLE);
 
 
         BlockStateModelGenerator.BlockTexturePool sandstone_bricks_pool =
@@ -276,6 +279,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.TITANIUM_ENERGY_CORE, Models.GENERATED);
         itemModelGenerator.register(ModItems.TITANIUM_AXLE, Models.GENERATED);
         itemModelGenerator.register(ModItems.TITANIUM_MOTOR, Models.GENERATED);
+        itemModelGenerator.register(ModBlocks.TITANIUM_FLUID_PIPE.asItem(), Models.GENERATED);
 
         itemModelGenerator.register(ModItems.SOUL_DUST, Models.GENERATED);
         itemModelGenerator.register(ModItems.BLAZE_STAR, Models.GENERATED);

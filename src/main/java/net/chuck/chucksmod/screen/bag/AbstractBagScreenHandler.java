@@ -1,6 +1,7 @@
 package net.chuck.chucksmod.screen.bag;
 
 import net.chuck.chucksmod.item.custom.bag.BagItem5x1;
+import net.chuck.chucksmod.screen.AbstractModScreenHandler;
 import net.chuck.chucksmod.screen.ModScreenHandlers;
 import net.chuck.chucksmod.screen.slot.ModDisableBagSlot;
 import net.minecraft.entity.player.PlayerEntity;
@@ -17,7 +18,7 @@ import net.minecraft.screen.slot.Slot;
 
 ;
 
-public abstract class AbstractBagScreenHandler extends ScreenHandler implements InventoryChangedListener {
+public abstract class AbstractBagScreenHandler extends AbstractModScreenHandler implements InventoryChangedListener {
     protected SimpleInventory inventory;
     protected ItemStack bagItemStack;
     public AbstractBagScreenHandler(ScreenHandlerType<?> type, int syncId){
@@ -59,24 +60,13 @@ public abstract class AbstractBagScreenHandler extends ScreenHandler implements 
         }
         return itemStack;
     }
-
-    @Override
-    public boolean canUse(PlayerEntity player) {
-        return this.inventory.canPlayerUse(player);
-    }
     public void addPlayerInventory(PlayerInventory playerInventory) {
-        for(int i=0;i<3;++i) {
-            for(int j=0;j<9;++j) {
-                this.addSlot(new Slot(playerInventory, j + i*9 + 9, 8 + j*18,
-                        ModScreenHandlers.SINGLE_ROW_INV_TITLE + ModScreenHandlers.INV_BELOW_TITLE + i*18));
-            }
-        }
+        addPlayerInventory(playerInventory, ModScreenHandlers.SINGLE_ROW_INV_TITLE +
+                ModScreenHandlers.INV_BELOW_TITLE);
     }
     public void addPlayerHotbar(PlayerInventory playerInventory){
-        for(int i=0;i<9;++i) {
-            this.addSlot(new Slot(playerInventory, i, 8 + i*18, ModScreenHandlers.SINGLE_ROW_INV_TITLE +
-                    ModScreenHandlers.HOTBAR_BELOW_TITLE));
-        }
+        addPlayerHotbar(playerInventory, ModScreenHandlers.SINGLE_ROW_INV_TITLE +
+                ModScreenHandlers.HOTBAR_BELOW_TITLE);
     }
 
     protected abstract void addBagInventory();

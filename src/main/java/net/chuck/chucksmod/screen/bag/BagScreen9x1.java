@@ -12,8 +12,7 @@ public class BagScreen9x1 extends AbstractBagScreen<BagScreenHandler9x1>{
     }
 
     @Override
-    protected Identifier getTexture() {
-        return new Identifier(ChucksMod.MOD_ID,
-                "textures/gui/bag/9x1_bag_gui.png");
+    public Identifier getTexture() {
+        return new Identifier(ChucksMod.MOD_ID, "textures/gui/bag/9x1_bag_gui.png");
     }
 }

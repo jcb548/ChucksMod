@@ -2,6 +2,7 @@ package net.chuck.chucksmod.screen.energy_storage;
 
 import net.chuck.chucksmod.block.entity.energy_storage.AbstractEnergyStorageBlockEntity;
 import net.chuck.chucksmod.networking.ModMessages;
+import net.chuck.chucksmod.screen.AbstractModScreenHandler;
 import net.chuck.chucksmod.screen.ModScreenHandlers;
 import net.chuck.chucksmod.util.DirectionIOProperty;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
@@ -17,7 +18,7 @@ import net.minecraft.screen.slot.Slot;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.Direction;
 
-public class EnergyStorageScreenHandler extends ScreenHandler {
+public class EnergyStorageScreenHandler extends AbstractModScreenHandler {
     protected final Inventory inventory;
     public final AbstractEnergyStorageBlockEntity blockEntity;
     public EnergyStorageScreenHandler(int syncId, PlayerInventory inventory, PacketByteBuf buf){
@@ -30,8 +31,8 @@ public class EnergyStorageScreenHandler extends ScreenHandler {
         this.blockEntity = (AbstractEnergyStorageBlockEntity) entity;
         inventory.onOpen(playerInventory.player);
         this.addSlot(new Slot(inventory, AbstractEnergyStorageBlockEntity.INPUT_SLOT, 20, 35));
-        addPlayerInventory(playerInventory);
-        addPlayerHotbar(playerInventory);
+        addPlayerInventory(playerInventory, 84);
+        addPlayerHotbar(playerInventory, 142);
     }
 
     @Override
@@ -56,23 +57,6 @@ public class EnergyStorageScreenHandler extends ScreenHandler {
             }
         }
         return newStack;
-    }
-    @Override
-    public boolean canUse(PlayerEntity player) {
-        return this.inventory.canPlayerUse(player);
-    }
-    public void addPlayerInventory(PlayerInventory inventory) {
-        for(int i=0;i<3;++i) {
-            for(int j=0;j<9;++j) {
-                this.addSlot(new Slot(inventory, j + i*9 + 9, 8 + j*18, 84 + i*18));
-            }
-        }
-    }
-
-    public void addPlayerHotbar(PlayerInventory inventory){
-        for(int i=0;i<9;++i) {
-            this.addSlot(new Slot(inventory, i, 8 + i*18, 142));
-        }
     }
 
     public void onButtonPress(byte id) {

@@ -15,12 +15,16 @@ import net.chuck.chucksmod.block.custom.crusher.TitaniumPoweredCrusherBlock;
 import net.chuck.chucksmod.block.custom.energy_storage.IronEnergyStorageBlock;
 import net.chuck.chucksmod.block.custom.energy_storage.TitaniumEnergyStorageBlock;
 import net.chuck.chucksmod.block.custom.fluid_pipe.IronFluidPipeBlock;
+import net.chuck.chucksmod.block.custom.fluid_pipe.TitaniumFluidPipeBlock;
 import net.chuck.chucksmod.block.custom.fluid_tank.IronFluidTankBlock;
 import net.chuck.chucksmod.block.custom.fluid_tank.TitaniumFluidTankBlock;
 import net.chuck.chucksmod.block.custom.furnace.IronPoweredFurnaceBlock;
 import net.chuck.chucksmod.block.custom.furnace.TitaniumPoweredFurnaceBlock;
-import net.chuck.chucksmod.block.custom.generator.IronHeatGeneratorBlock;
-import net.chuck.chucksmod.block.custom.generator.TitaniumHeatGeneratorBlock;
+import net.chuck.chucksmod.block.custom.generator.heat.IronHeatGeneratorBlock;
+import net.chuck.chucksmod.block.custom.generator.lava.TitaniumLavaGeneratorBlock;
+import net.chuck.chucksmod.block.custom.generator.steam.IronSteamGeneratorBlock;
+import net.chuck.chucksmod.block.custom.generator.heat.TitaniumHeatGeneratorBlock;
+import net.chuck.chucksmod.block.custom.generator.steam.TitaniumSteamGeneratorBlock;
 import net.chuck.chucksmod.block.custom.pump.IronPumpBlock;
 import net.chuck.chucksmod.block.custom.pump.TitaniumPumpBlock;
 import net.chuck.chucksmod.block.custom.quarry.IronQuarryBlock;
@@ -28,7 +32,6 @@ import net.chuck.chucksmod.block.custom.quarry.TitaniumQuarryBlock;
 import net.chuck.chucksmod.block.custom.wire.CopperWireBlock;
 import net.chuck.chucksmod.block.custom.wire.GoldWireBlock;
 import net.chuck.chucksmod.block.custom.wire.TinWireBlock;
-import net.chuck.chucksmod.block.entity.fluid_pipe.IronFluidPipeBlockEntity;
 import net.chuck.chucksmod.world.tree.DiritiaSaplingGenerator;
 import net.chuck.chucksmod.world.tree.EucalyptusSaplingGenerator;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
@@ -172,6 +175,8 @@ public class ModBlocks {
             new IronFluidTankBlock(FabricBlockSettings.copy(Blocks.IRON_BLOCK)));
     public static final Block IRON_PUMP = registerBlock("iron_pump",
             new IronPumpBlock(FabricBlockSettings.copy(Blocks.IRON_BLOCK)));
+    public static final Block IRON_STEAM_GENERATOR = registerBlock("iron_steam_generator",
+            new IronSteamGeneratorBlock(FabricBlockSettings.copy(Blocks.IRON_BLOCK)));
     public static final Block IRON_FLUID_PIPE = registerBlock("iron_fluid_pipe",
             new IronFluidPipeBlock(FabricBlockSettings.copy(Blocks.IRON_BLOCK)));
 
@@ -213,6 +218,12 @@ public class ModBlocks {
             new TitaniumFluidTankBlock(FabricBlockSettings.copy(ModBlocks.TITANIUM_BLOCK)));
     public static final Block TITANIUM_PUMP = registerBlock("titanium_pump",
             new TitaniumPumpBlock(FabricBlockSettings.copy(ModBlocks.TITANIUM_BLOCK)));
+    public static final Block TITANIUM_FLUID_PIPE = registerBlock("titanium_fluid_pipe",
+            new TitaniumFluidPipeBlock(FabricBlockSettings.copy(ModBlocks.TITANIUM_BLOCK)));
+    public static final Block TITANIUM_STEAM_GENERATOR = registerBlock("titanium_steam_generator",
+            new TitaniumSteamGeneratorBlock(FabricBlockSettings.copy(ModBlocks.TITANIUM_BLOCK)));
+    public static final Block TITANIUM_LAVA_GENERATOR = registerBlock("titanium_lava_generator",
+            new TitaniumLavaGeneratorBlock(FabricBlockSettings.copy(ModBlocks.TITANIUM_BLOCK)));
     // Soul Blocks
     public static final Block SOUL_GRAVEL = registerBlock("soul_gravel",
             new FallingBlock(FabricBlockSettings.copy(Blocks.SAND)));
@@ -250,6 +261,8 @@ public class ModBlocks {
             new Block(FabricBlockSettings.copy(Blocks.DEEPSLATE_DIAMOND_ORE)));
     public static final Block FABIUM_BARS = registerBlock("fabium_bars",
             new PaneBlock(FabricBlockSettings.copy(Blocks.IRON_BARS)));
+    public static final Block FABIUM_PORTAL_BLOCK = registerBlock("fabium_portal_block",
+            new Block(FabricBlockSettings.copy(ModBlocks.FABIUM_BLOCK)));
 
     // Diritonium
     public static final Block DIRITONIUM_BLOCK = registerBlock("diritonium_block",

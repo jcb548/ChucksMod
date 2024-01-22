@@ -1,7 +1,7 @@
 package net.chuck.chucksmod.screen.generator;
 
-import net.chuck.chucksmod.block.entity.generator.AbstractHeatGeneratorBlockEntity;
-import net.chuck.chucksmod.block.entity.generator.IronHeatGeneratorBlockEntity;
+import net.chuck.chucksmod.block.entity.generator.heat.AbstractHeatGeneratorBlockEntity;
+import net.chuck.chucksmod.block.entity.generator.heat.IronHeatGeneratorBlockEntity;
 import net.chuck.chucksmod.screen.AbstractEnergyUsingScreenHandler;
 import net.chuck.chucksmod.screen.ModScreenHandlers;
 import net.minecraft.block.entity.BlockEntity;
@@ -24,6 +24,11 @@ public class GeneratorScreenHandler extends AbstractEnergyUsingScreenHandler {
     public GeneratorScreenHandler(int syncId, PlayerInventory inventory, PacketByteBuf buf){
         this(syncId, inventory, inventory.player.getWorld().getBlockEntity(buf.readBlockPos()),
                 new ArrayPropertyDelegate(AbstractHeatGeneratorBlockEntity.DELEGATE_SIZE));
+    }
+    public GeneratorScreenHandler(int syncId, PlayerInventory playerInventory, BlockEntity entity,
+                                  PropertyDelegate delegate, ScreenHandlerType type) {
+        super(syncId, playerInventory, entity, delegate, type, INV_SIZE);
+        this.addSlot(new Slot(inventory, AbstractHeatGeneratorBlockEntity.FUEL_SLOT, 80, 39));
     }
 
     @Override

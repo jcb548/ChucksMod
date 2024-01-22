@@ -1,6 +1,7 @@
 package net.chuck.chucksmod.networking.packet;
 
 import net.chuck.chucksmod.block.entity.FluidStoring;
+import net.chuck.chucksmod.screen.FluidStoringScreenHandler;
 import net.chuck.chucksmod.screen.copier.CopierScreenHandler;
 import net.chuck.chucksmod.util.FluidStack;
 import net.fabricmc.fabric.api.networking.v1.PacketSender;
@@ -27,10 +28,10 @@ public class FluidSyncS2CPacket {
         if (client.world != null) {
             if (client.world.getWorldChunk(pos).getBlockEntity(pos) instanceof FluidStoring tank) {
                 tank.setFluidStorage(variant, fluidLevel);
-                if (client.player.currentScreenHandler instanceof CopierScreenHandler screenHandler &&
-                        screenHandler.copier.getPos().equals(pos)) {
+                if (client.player.currentScreenHandler instanceof FluidStoringScreenHandler screenHandler &&
+                        screenHandler.getFluidStoring().getPos().equals(pos)) {
                     tank.setFluidStorage(variant, fluidLevel);
-                    screenHandler.setXp(new FluidStack(variant, fluidLevel));
+                    screenHandler.setFluidStack(new FluidStack(variant, fluidLevel));
                 }
             }
         }

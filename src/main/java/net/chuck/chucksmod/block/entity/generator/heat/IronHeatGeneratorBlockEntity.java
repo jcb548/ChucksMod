@@ -1,13 +1,9 @@
-package net.chuck.chucksmod.block.entity.generator;
+package net.chuck.chucksmod.block.entity.generator.heat;
 import net.chuck.chucksmod.block.entity.ModBlockEntities;
 import net.chuck.chucksmod.block.entity.tiers.IronTier;
 import net.minecraft.block.BlockState;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.screen.ScreenHandler;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
-import org.jetbrains.annotations.Nullable;
 
 public class IronHeatGeneratorBlockEntity extends AbstractHeatGeneratorBlockEntity implements IronTier {
     public IronHeatGeneratorBlockEntity(BlockPos pos, BlockState state) {

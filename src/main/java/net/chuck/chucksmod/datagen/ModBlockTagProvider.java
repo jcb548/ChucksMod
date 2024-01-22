@@ -63,7 +63,9 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.TITANIUM_QUARRY)
                 .add(ModBlocks.TITANIUM_COPIER)
                 .add(ModBlocks.TITANIUM_FLUID_TANK)
-                .add(ModBlocks.TITANIUM_PUMP);
+                .add(ModBlocks.TITANIUM_PUMP)
+                .add(ModBlocks.TITANIUM_FLUID_PIPE)
+                .add(ModBlocks.TITANIUM_STEAM_GENERATOR);
 
         getOrCreateTagBuilder(BlockTags.NEEDS_STONE_TOOL)
                 .add(ModBlocks.TIN_BLOCK)
@@ -82,6 +84,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.IRON_QUARRY)
                 .add(ModBlocks.IRON_FLUID_TANK)
                 .add(ModBlocks.IRON_PUMP)
+                .add(ModBlocks.IRON_STEAM_GENERATOR)
                 .add(ModBlocks.IRON_FLUID_PIPE);
 
         getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
@@ -105,6 +108,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.IRON_FLUID_TANK)
                 .add(ModBlocks.IRON_PUMP)
                 .add(ModBlocks.IRON_FLUID_PIPE)
+                .add(ModBlocks.IRON_STEAM_GENERATOR)
 
                 .add(ModBlocks.SANDSTONE_BRICKS)
                 .add(ModBlocks.SANDSTONE_BRICK_STAIRS)
@@ -121,6 +125,8 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.TITANIUM_COPIER)
                 .add(ModBlocks.TITANIUM_FLUID_TANK)
                 .add(ModBlocks.TITANIUM_PUMP)
+                .add(ModBlocks.TITANIUM_FLUID_PIPE)
+                .add(ModBlocks.TITANIUM_STEAM_GENERATOR)
 
                 .add(ModBlocks.SOUL_STONE)
                 .add(ModBlocks.SOUL_STONE_STAIRS)

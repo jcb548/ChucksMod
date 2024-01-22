@@ -2,6 +2,7 @@ package net.chuck.chucksmod.screen.energy_storage;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.chuck.chucksmod.ChucksMod;
+import net.chuck.chucksmod.screen.AbstractModScreen;
 import net.chuck.chucksmod.screen.renderer.EnergyInfoArea;
 import net.chuck.chucksmod.util.DirectionIOProperty;
 import net.chuck.chucksmod.util.MouseUtil;
@@ -14,9 +15,7 @@ import net.minecraft.util.Identifier;
 
 import java.util.Optional;
 
-public class EnergyStorageScreen extends HandledScreen<EnergyStorageScreenHandler> {
-    private static final Identifier TEXTURE = new Identifier(ChucksMod.MOD_ID,
-            "textures/gui/energy_storage_gui.png");
+public class EnergyStorageScreen extends AbstractModScreen<EnergyStorageScreenHandler> {
     private ButtonWidget up;
     private ButtonWidget down;
     private ButtonWidget front;
@@ -84,26 +83,21 @@ public class EnergyStorageScreen extends HandledScreen<EnergyStorageScreenHandle
 
     @Override
     protected void drawBackground(DrawContext context, float delta, int mouseX, int mouseY) {
-        RenderSystem.setShaderColor(1.0f, 1.0f, 1.0f, 1.0f);
-        context.drawTexture(TEXTURE, getX(), getY(), 0, 0, backgroundWidth, backgroundHeight);
+        super.drawBackground(context, delta, mouseX, mouseY);
         energyInfoArea.draw(context);
         drawSideTextures(context, x, y);
     }
+
     @Override
-    public void render(DrawContext context, int mouseX, int mouseY, float delta) {
-        renderBackground(context, mouseX, mouseY, delta);
-        super.render(context, mouseX, mouseY, delta);
-        drawMouseoverTooltip(context, mouseX, mouseY);
+    public Identifier getTexture() {
+        return new Identifier(ChucksMod.MOD_ID, "textures/gui/energy_storage_gui.png");
     }
+
     private void renderEnergyAreaToolTips(DrawContext context, int pMouseX, int pMouseY, int x, int y){
         if(isMouseAboveArea(pMouseX, pMouseY, x, y, 156, 13, 8, 64)){
             context.drawTooltip(this.client.textRenderer, energyInfoArea.getTooltips(), Optional.empty(),
                     pMouseX-x, pMouseY-y);
         }
-    }
-    private boolean isMouseAboveArea(int pMouseX, int pMouseY, int x, int y, int offsetX, int offsetY,
-                                     int width, int height) {
-        return MouseUtil.isMouseOver(pMouseX, pMouseY, x+offsetX, y+offsetY, width, height);
     }
 
     protected int getX(){
@@ -123,20 +117,20 @@ public class EnergyStorageScreen extends HandledScreen<EnergyStorageScreenHandle
         return 0;
     }
     private void drawSideTextures(DrawContext context, int x, int y){
-        context.drawTexture(TEXTURE, x+COLUMN_2_X, y+ROW_1_Y,176, getIOOffset(DirectionIOProperty.UP_KEY),
+        context.drawTexture(getTexture(), x+COLUMN_2_X, y+ROW_1_Y,176, getIOOffset(DirectionIOProperty.UP_KEY),
                 BUTTON_WIDTH, BUTTON_HEIGHT);
-        context.drawTexture(TEXTURE, x+COLUMN_2_X,y+ROW_3_Y,  176, getIOOffset(DirectionIOProperty.DOWN_KEY),
+        context.drawTexture(getTexture(), x+COLUMN_2_X,y+ROW_3_Y,  176, getIOOffset(DirectionIOProperty.DOWN_KEY),
                 BUTTON_WIDTH, BUTTON_HEIGHT);
-        context.drawTexture(TEXTURE, x+COLUMN_2_X,y+ROW_2_Y,  176,
+        context.drawTexture(getTexture(), x+COLUMN_2_X,y+ROW_2_Y,  176,
                 getIOOffset(handler.directionToGUISide(DirectionIOProperty.NORTH_KEY)),
                 BUTTON_WIDTH, BUTTON_HEIGHT);
-        context.drawTexture(TEXTURE, x+COLUMN_3_X, y+ROW_3_Y, 176,
+        context.drawTexture(getTexture(), x+COLUMN_3_X, y+ROW_3_Y, 176,
                 getIOOffset(handler.directionToGUISide(DirectionIOProperty.SOUTH_KEY)),
                 BUTTON_WIDTH, BUTTON_HEIGHT);
-        context.drawTexture(TEXTURE, x+COLUMN_1_X,y+ROW_2_Y,  176,
+        context.drawTexture(getTexture(), x+COLUMN_1_X,y+ROW_2_Y,  176,
                 getIOOffset(handler.directionToGUISide(DirectionIOProperty.EAST_KEY)),
                 BUTTON_WIDTH, BUTTON_HEIGHT);
-        context.drawTexture(TEXTURE, x+COLUMN_3_X,y+ROW_2_Y,  176,
+        context.drawTexture(getTexture(), x+COLUMN_3_X,y+ROW_2_Y,  176,
                 getIOOffset(handler.directionToGUISide(DirectionIOProperty.WEST_KEY)),
                 BUTTON_WIDTH, BUTTON_HEIGHT);
     }

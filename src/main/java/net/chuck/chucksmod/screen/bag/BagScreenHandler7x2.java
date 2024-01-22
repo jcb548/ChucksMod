@@ -20,20 +20,14 @@ public class BagScreenHandler7x2 extends AbstractBagScreenHandler{
     }
     @Override
     public void addPlayerInventory(PlayerInventory playerInventory) {
-        for(int i=0;i<3;++i) {
-            for(int j=0;j<9;++j) {
-                this.addSlot(new Slot(playerInventory, j + i*9 + 9, 8 + j*18,
-                        ModScreenHandlers.DOUBLE_ROW_INV_TITLE + ModScreenHandlers.INV_BELOW_TITLE + i*18));
-            }
-        }
+        addPlayerInventory(playerInventory, ModScreenHandlers.DOUBLE_ROW_INV_TITLE +
+                ModScreenHandlers.INV_BELOW_TITLE);
     }
 
     @Override
     public void addPlayerHotbar(PlayerInventory playerInventory){
-        for(int i=0;i<9;++i) {
-            this.addSlot(new Slot(playerInventory, i, 8 + i*18, ModScreenHandlers.DOUBLE_ROW_INV_TITLE +
-                    ModScreenHandlers.HOTBAR_BELOW_TITLE));
-        }
+        addPlayerHotbar(playerInventory, ModScreenHandlers.DOUBLE_ROW_INV_TITLE +
+                ModScreenHandlers.HOTBAR_BELOW_TITLE);
     }
     @Override
     protected void addBagInventory() {

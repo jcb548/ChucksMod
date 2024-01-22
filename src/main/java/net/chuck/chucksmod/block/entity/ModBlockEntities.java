@@ -2,7 +2,6 @@ package net.chuck.chucksmod.block.entity;
 
 import net.chuck.chucksmod.ChucksMod;
 import net.chuck.chucksmod.block.ModBlocks;
-import net.chuck.chucksmod.block.custom.pump.IronPumpBlock;
 import net.chuck.chucksmod.block.entity.copier.TitaniumCopierBlockEntity;
 import net.chuck.chucksmod.block.entity.crusher.CrusherBlockEntity;
 import net.chuck.chucksmod.block.entity.crusher.IronPoweredCrusherBlockEntity;
@@ -10,12 +9,16 @@ import net.chuck.chucksmod.block.entity.crusher.TitaniumPoweredCrusherBlockEntit
 import net.chuck.chucksmod.block.entity.energy_storage.IronEnergyStorageBlockEntity;
 import net.chuck.chucksmod.block.entity.energy_storage.TitaniumEnergyStorageBlockEntity;
 import net.chuck.chucksmod.block.entity.fluid_pipe.IronFluidPipeBlockEntity;
+import net.chuck.chucksmod.block.entity.fluid_pipe.TitaniumFluidPipeBlockEntity;
 import net.chuck.chucksmod.block.entity.fluid_tank.IronFluidTankBlockEntity;
 import net.chuck.chucksmod.block.entity.fluid_tank.TitaniumFluidTankBlockEntity;
 import net.chuck.chucksmod.block.entity.furnace.IronPoweredFurnaceBlockEntity;
 import net.chuck.chucksmod.block.entity.furnace.TitaniumPoweredFurnaceBlockEntity;
-import net.chuck.chucksmod.block.entity.generator.IronHeatGeneratorBlockEntity;
-import net.chuck.chucksmod.block.entity.generator.TitaniumHeatGeneratorBlockEntity;
+import net.chuck.chucksmod.block.entity.generator.heat.IronHeatGeneratorBlockEntity;
+import net.chuck.chucksmod.block.entity.generator.lava.TitaniumLavaGeneratorBlockEntity;
+import net.chuck.chucksmod.block.entity.generator.steam.IronSteamGeneratorBlockEntity;
+import net.chuck.chucksmod.block.entity.generator.heat.TitaniumHeatGeneratorBlockEntity;
+import net.chuck.chucksmod.block.entity.generator.steam.TitaniumSteamGeneratorBlockEntity;
 import net.chuck.chucksmod.block.entity.pump.IronPumpBlockEntity;
 import net.chuck.chucksmod.block.entity.pump.TitaniumPumpBlockEntity;
 import net.chuck.chucksmod.block.entity.quarry.IronQuarryBlockEntity;
@@ -47,6 +50,8 @@ public class ModBlockEntities {
     public static BlockEntityType<IronQuarryBlockEntity> IRON_QUARRY;
     public static BlockEntityType<IronFluidTankBlockEntity> IRON_FLUID_TANK;
     public static BlockEntityType<IronPumpBlockEntity> IRON_PUMP;
+    public static BlockEntityType<IronFluidPipeBlockEntity> IRON_FLUID_PIPE;
+    public static BlockEntityType<IronSteamGeneratorBlockEntity> IRON_STEAM_GENERATOR;
     public static BlockEntityType<TinWireBlockEntity> TIN_WIRE;
     public static BlockEntityType<CopperWireBlockEntity> COPPER_WIRE;
     public static BlockEntityType<GoldWireBlockEntity> GOLD_WIRE;
@@ -58,7 +63,9 @@ public class ModBlockEntities {
     public static BlockEntityType<TitaniumCopierBlockEntity> TITANIUM_COPIER;
     public static BlockEntityType<TitaniumFluidTankBlockEntity> TITANIUM_FLUID_TANK;
     public static BlockEntityType<TitaniumPumpBlockEntity> TITANIUM_PUMP;
-    public static BlockEntityType<IronFluidPipeBlockEntity> IRON_FLUID_PIPE;
+    public static BlockEntityType<TitaniumFluidPipeBlockEntity> TITANIUM_FLUID_PIPE;
+    public static BlockEntityType<TitaniumSteamGeneratorBlockEntity> TITANIUM_STEAM_GENERATOR;
+    public static BlockEntityType<TitaniumLavaGeneratorBlockEntity> TITANIUM_LAVA_GENERATOR;
     public static void registerBlockEntities() {
         CRUSHER = Registry.register(Registries.BLOCK_ENTITY_TYPE,
                 new Identifier(ChucksMod.MOD_ID, "crusher"),
@@ -111,6 +118,14 @@ public class ModBlockEntities {
                 IRON_PUMP);
         FluidStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.fluidStorage,
                 IRON_PUMP);
+        IRON_STEAM_GENERATOR = Registry.register(Registries.BLOCK_ENTITY_TYPE,
+                new Identifier(ChucksMod.MOD_ID, "iron_steam_generator"),
+                FabricBlockEntityTypeBuilder.create(IronSteamGeneratorBlockEntity::new,
+                        ModBlocks.IRON_STEAM_GENERATOR).build());
+        EnergyStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.energyStorage,
+                IRON_STEAM_GENERATOR);
+        FluidStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.fluidStorage,
+                IRON_STEAM_GENERATOR);
 
         // Wires
         TIN_WIRE = Registry.register(Registries.BLOCK_ENTITY_TYPE,
@@ -187,11 +202,33 @@ public class ModBlockEntities {
         FluidStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.fluidStorage,
                 TITANIUM_PUMP);
 
+        TITANIUM_STEAM_GENERATOR = Registry.register(Registries.BLOCK_ENTITY_TYPE,
+                new Identifier(ChucksMod.MOD_ID, "titanium_steam_generator"),
+                FabricBlockEntityTypeBuilder.create(TitaniumSteamGeneratorBlockEntity::new,
+                        ModBlocks.TITANIUM_STEAM_GENERATOR).build());
+        EnergyStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.energyStorage,
+                TITANIUM_STEAM_GENERATOR);
+        FluidStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.fluidStorage,
+                TITANIUM_STEAM_GENERATOR);
+
+        TITANIUM_LAVA_GENERATOR = Registry.register(Registries.BLOCK_ENTITY_TYPE,
+                new Identifier(ChucksMod.MOD_ID, "titanium_lava_generator"),
+                FabricBlockEntityTypeBuilder.create(TitaniumLavaGeneratorBlockEntity::new,
+                        ModBlocks.TITANIUM_LAVA_GENERATOR).build());
+        EnergyStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.energyStorage,
+                TITANIUM_LAVA_GENERATOR);
+        FluidStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.fluidStorage,
+                TITANIUM_LAVA_GENERATOR);
         // Fluid Pipes
         IRON_FLUID_PIPE = Registry.register(Registries.BLOCK_ENTITY_TYPE,
                 new Identifier(ChucksMod.MOD_ID, "iron_fluid_pipe"),
                 FabricBlockEntityTypeBuilder.create(IronFluidPipeBlockEntity::new, ModBlocks.IRON_FLUID_PIPE).build());
         FluidStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.fluidStorage,
                 IRON_FLUID_PIPE);
+        TITANIUM_FLUID_PIPE = Registry.register(Registries.BLOCK_ENTITY_TYPE,
+                new Identifier(ChucksMod.MOD_ID, "titanium_fluid_pipe"),
+                FabricBlockEntityTypeBuilder.create(TitaniumFluidPipeBlockEntity::new, ModBlocks.TITANIUM_FLUID_PIPE).build());
+        FluidStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.fluidStorage,
+                TITANIUM_FLUID_PIPE);
     }
 }

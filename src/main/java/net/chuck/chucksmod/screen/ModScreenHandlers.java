@@ -12,6 +12,7 @@ import net.chuck.chucksmod.screen.crusher.PoweredCrusherScreenHandler;
 import net.chuck.chucksmod.screen.furnace.PoweredFurnaceScreenHandler;
 import net.chuck.chucksmod.screen.energy_storage.EnergyStorageScreenHandler;
 import net.chuck.chucksmod.screen.generator.GeneratorScreenHandler;
+import net.chuck.chucksmod.screen.generator.steam.SteamGeneratorScreenHandler;
 import net.chuck.chucksmod.screen.pump.PumpScreenHandler;
 import net.chuck.chucksmod.screen.quarry.IronQuarryScreenHandler;
 import net.chuck.chucksmod.screen.quarry.TitaniumQuarryScreenHandler;
@@ -48,6 +49,8 @@ public class ModScreenHandlers {
             new ExtendedScreenHandlerType<>(IronQuarryScreenHandler::new);
     public static ScreenHandlerType<PumpScreenHandler> PUMP_SCREEN_HANDLER =
             new ExtendedScreenHandlerType<>(PumpScreenHandler::new);
+    public static ScreenHandlerType<SteamGeneratorScreenHandler> STEAM_GENERATOR_SCREEN_HANDLER =
+            new ExtendedScreenHandlerType<>(SteamGeneratorScreenHandler::new);
     public static ScreenHandlerType<TitaniumQuarryScreenHandler> TITANIUM_QUARRY_SCREEN_HANDLER =
             new ExtendedScreenHandlerType<>(TitaniumQuarryScreenHandler::new);
     public static ScreenHandlerType<CopierScreenHandler> COPIER_SCREEN_HANDLER =
@@ -75,6 +78,8 @@ public class ModScreenHandlers {
                 GENERATOR_SCREEN_HANDLER);
         Registry.register(Registries.SCREEN_HANDLER, new Identifier(ChucksMod.MOD_ID, "energy_storage"),
                 ENERGY_STORAGE_SCREEN_HANDLER);
+        Registry.register(Registries.SCREEN_HANDLER, new Identifier(ChucksMod.MOD_ID, "steam_generator"),
+                STEAM_GENERATOR_SCREEN_HANDLER);
 
         Registry.register(Registries.SCREEN_HANDLER, new Identifier(ChucksMod.MOD_ID, "iron_quarry"),
                 IRON_QUARRY_SCREEN_HANDLER);

@@ -9,25 +9,25 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
 public class PoweredCrusherScreen extends AbstractEnergyUsingScreen<PoweredCrusherScreenHandler> {
-    protected static final Identifier TEXTURE = new Identifier(ChucksMod.MOD_ID,
-            "textures/gui/powered_crusher_gui.png");
     public PoweredCrusherScreen(PoweredCrusherScreenHandler handler, PlayerInventory inventory, Text title) {
         super(handler, inventory, title);
     }
 
     @Override
+    public Identifier getTexture() {
+        return new Identifier(ChucksMod.MOD_ID,
+                "textures/gui/powered_crusher_gui.png");
+    }
+
+    @Override
     protected void drawBackground(DrawContext context, float delta, int mouseX, int mouseY) {
-        RenderSystem.setShaderColor(1.0f, 1.0f, 1.0f, 1.0f);
-        int x = (width - backgroundWidth) /2;
-        int y = (height - backgroundHeight)/2;
-        context.drawTexture(TEXTURE, x, y, 0, 0, backgroundWidth, backgroundHeight);
-        renderProgressArrow(context, x, y);
-        energyInfoArea.draw(context);
+        super.drawBackground(context, delta, mouseX, mouseY);
+        renderProgressArrow(context, getX(), getY());
     }
 
     private void renderProgressArrow(DrawContext context, int x, int y){
         if(handler.isCrafting()){
-            context.drawTexture(TEXTURE,x + 84, y + 35, 176, 0, 16, handler.getScaledProgress());
+            context.drawTexture(getTexture(),x + 84, y + 35, 176, 0, 16, handler.getScaledProgress());
         }
     }
 }

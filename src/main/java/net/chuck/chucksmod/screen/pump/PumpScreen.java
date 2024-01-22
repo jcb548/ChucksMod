@@ -16,19 +16,18 @@ import java.util.Optional;
 
 public class PumpScreen extends AbstractEnergyUsingScreen<PumpScreenHandler> {
     private FluidStackRenderer fluidStackRenderer;
-    public static final Identifier TEXTURE = new Identifier(ChucksMod.MOD_ID,
-            "textures/gui/pump_gui.png");
     public PumpScreen(PumpScreenHandler handler, PlayerInventory inventory, Text title) {
         super(handler, inventory, title);
     }
 
     @Override
+    public Identifier getTexture() {
+        return new Identifier(ChucksMod.MOD_ID, "textures/gui/pump_gui.png");
+    }
+
+    @Override
     protected void drawBackground(DrawContext context, float delta, int mouseX, int mouseY) {
-        RenderSystem.setShaderColor(1.0f, 1.0f, 1.0f, 1.0f);
-        int x = (width - backgroundWidth) /2;
-        int y = (height - backgroundHeight)/2;
-        context.drawTexture(TEXTURE, x, y, 0, 0, backgroundWidth, backgroundHeight);
-        energyInfoArea.draw(context);
+        super.drawBackground(context, delta, mouseX, mouseY);
         fluidStackRenderer.drawFluid(context, handler.fluidStack, x+8, y+13, 15, 48,
                 FluidStack.convertDropletsToMb(FluidConstants.BUCKET)*handler.pump.getBucketCapacity());
     }

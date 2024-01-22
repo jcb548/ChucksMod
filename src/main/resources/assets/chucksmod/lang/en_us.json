@@ -149,6 +149,7 @@
   "block.chucksmod.titanium_pump": "Titanium Pump",
   "tooltip.chucksmod.titanium_pump": "Pumps liquids from a 17x17 area in front of pump into a fluid tank",
   "block.chucksmod.titanium_fluid_pipe": "Titanium Fluid Pipe",
+  "block.chucksmod.titanium_steam_generator": "Titanium Steam Generator",
 
   "item.chucksmod.raw_diritonium": "Raw Diritonium",
   "item.chucksmod.diritonium_ingot": "Diritonium Ingot",
@@ -227,6 +228,8 @@
   "item.chucksmod.iron_axle": "Iron Axle",
   "item.chucksmod.iron_motor": "Iron Motor",
   "block.chucksmod.iron_fluid_pipe": "Iron Fluid Pipe",
+  "block.chucksmod.iron_steam_generator": "Iron Steam Generator",
+  "tooltip.chucksmod.steam_generator": "Generates Energy from steam created from burning furnace fuels, twice as efficient as a Fuel Generator",
 
   "block.chucksmod.slated_dirt": "Slated Dirt",
   "block.chucksmod.slated_grass": "Slated Grass",
@@ -680,20 +683,44 @@
   "advancements.chucksmod.machines.iron_furnace.title": "Iron Furnace",
   "advancements.chucksmod.machines.iron_furnace.desc": "Craft an Iron Powered Furnace to smelt materials using energy",
 
-  "advancements.chucksmod.machines.iron_heat_generator.title": "Iron Heat Generator",
-  "advancements.chucksmod.machines.iron_heat_generator.desc": "Craft an Iron Heat Generator to produce power from flammable objects",
+  "advancements.chucksmod.machines.iron_heat_generator.title": "Iron Fuel Generator",
+  "advancements.chucksmod.machines.iron_heat_generator.desc": "Craft an Iron Fuel Generator to produce power from flammable objects",
+
+  "advancements.chucksmod.machines.iron_steam_generator.title": "Iron Steam Generator",
+  "advancements.chucksmod.machines.iron_steam_generator.desc": "Craft an Iron Steam Generator to produce power from producing steam, at twice the fuel efficiency of a Fuel Generator",
 
   "advancements.chucksmod.machines.iron_energy_storage.title": "Iron Energy Storage",
   "advancements.chucksmod.machines.iron_energy_storage.desc": "Craft an Iron Energy Storage to store generated energy",
+
+  "advancements.chucksmod.machines.iron_tank.title": "Iron Fluid Tank",
+  "advancements.chucksmod.machines.iron_tank.desc": "Craft an Iron Fluid Tank to store fluids",
+
+  "advancements.chucksmod.machines.iron_pump.title": "Iron Pump",
+  "advancements.chucksmod.machines.iron_pump.desc": "Craft an Iron Pump to pump fluids from the world into an inventory",
+
+  "advancements.chucksmod.machines.iron_fluid_pipe.title": "Iron Fluid Pipes",
+  "advancements.chucksmod.machines.iron_fluid_pipe.desc": "Craft Iron Fluid Pipes to transfer fluids between machines and tanks",
+
+  "advancements.chucksmod.machines.iron_quarry.title": "Iron Quarry",
+  "advancements.chucksmod.machines.iron_quarry.desc": "Craft an Iron Quarry to mine any blocks that can be mined with an Iron Pickaxe",
 
   "advancements.chucksmod.machines.tin_wire.title": "Tin Wire",
   "advancements.chucksmod.machines.tin_wire.desc": "Craft Tin Wire to transfer energy between energy blocks slowly",
 
   "advancements.chucksmod.machines.copper_wire.title": "Copper Wire",
-  "advancements.chucksmod.machines.copper_wire.desc": "Craft Copper Wire to transfer energy at the rate of Iron Tier Machines",
+  "advancements.chucksmod.machines.copper_wire.desc": "Craft Copper Wire to transfer energy at the rate of Iron tier machines",
 
   "advancements.chucksmod.machines.titanium_machine_base.title": "Titanium Tier",
   "advancements.chucksmod.machines.titanium_machine_base.desc": "Titanium Tier Machines take just below 9 seconds to complete their tasks, but use more power. All Iron Tier Machines can be upgraded to titanium tier",
+
+  "advancements.chucksmod.machines.titanium_machines.title": "Titanium Machines",
+  "advancements.chucksmod.machines.titanium_machines.desc": "Craft Titanium tier versions of all Iron tier blocks",
+
+  "advancements.chucksmod.machines.gold_wire.title": "Gold Wire",
+  "advancements.chucksmod.machines.gold_wire.desc": "Craft Gold Wire to transfer energy at the rate of Titanium tier machines",
+
+  "advancements.chucksmod.machines.titanium_copier.title": "Gold Wire",
+  "advancements.chucksmod.machines.titanium_copier.desc": "Craft Gold Wire to transfer energy at the rate of Titanium tier machines",
 
 
 

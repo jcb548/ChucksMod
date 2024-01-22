@@ -1,4 +1,4 @@
-package net.chuck.chucksmod.block.custom.generator;
+package net.chuck.chucksmod.block.custom.generator.heat;
 
 import net.chuck.chucksmod.block.custom.AbstractEnergyUsingBlock;
 import net.minecraft.client.item.TooltipContext;

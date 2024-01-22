@@ -1,18 +1,20 @@
-package net.chuck.chucksmod.block.entity.generator;
+package net.chuck.chucksmod.block.entity.generator.heat;
 
-import net.chuck.chucksmod.block.custom.generator.IronHeatGeneratorBlock;
+import net.chuck.chucksmod.block.custom.generator.heat.IronHeatGeneratorBlock;
+import net.chuck.chucksmod.block.entity.generator.AbstractGeneratorBlockEntity;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.AbstractFurnaceBlockEntity;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Map;
 
-public abstract class AbstractHeatGeneratorBlockEntity extends AbstractGeneratorBlockEntity{
+public abstract class AbstractHeatGeneratorBlockEntity extends AbstractGeneratorBlockEntity {
     public static final int FUEL_SLOT = 0;
 
     public static final int INV_SIZE = 1;
@@ -20,6 +22,7 @@ public abstract class AbstractHeatGeneratorBlockEntity extends AbstractGenerator
     public AbstractHeatGeneratorBlockEntity(BlockEntityType type, BlockPos pos, BlockState state,
                                             int generationSpeed, int energyStorageSize) {
         super(type, pos, state, INV_SIZE, generationSpeed, energyStorageSize);
+        FUELS.remove(Items.LAVA_BUCKET);
     }
     protected int getFuelTime(ItemStack fuel) {
         if (fuel.isEmpty()) {

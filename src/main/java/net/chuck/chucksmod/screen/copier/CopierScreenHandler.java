@@ -1,9 +1,11 @@
 package net.chuck.chucksmod.screen.copier;
 
 import net.chuck.chucksmod.block.entity.AbstractEnergyCookerBlockEntity;
+import net.chuck.chucksmod.block.entity.FluidStoring;
 import net.chuck.chucksmod.block.entity.copier.AbstractCopierBlockEntity;
 import net.chuck.chucksmod.networking.ModMessages;
 import net.chuck.chucksmod.screen.AbstractEnergyCookerScreenHandler;
+import net.chuck.chucksmod.screen.FluidStoringScreenHandler;
 import net.chuck.chucksmod.screen.ModScreenHandlers;
 import net.chuck.chucksmod.screen.slot.BucketSlot;
 import net.chuck.chucksmod.screen.slot.SingleItemFilterSlot;
@@ -24,7 +26,7 @@ import net.minecraft.screen.slot.Slot;
 
 import java.util.UUID;
 
-public class CopierScreenHandler extends AbstractEnergyCookerScreenHandler {
+public class CopierScreenHandler extends AbstractEnergyCookerScreenHandler implements FluidStoringScreenHandler {
     protected final static int BOOK_SCREEN_SLOT_IDX = 38;
     protected final static int XP_BUCKET_SLOT_IDX = 39;
     public FluidStack fluidStack;
@@ -39,8 +41,9 @@ public class CopierScreenHandler extends AbstractEnergyCookerScreenHandler {
         this.addSlot(new SingleItemFilterSlot(inventory, AbstractCopierBlockEntity.BOOK_SLOT, 77, 37,
                 Items.BOOK));
         this.addSlot(new BucketSlot(inventory, AbstractCopierBlockEntity.XP_BUCKET_SLOT, 28, 15));
-        if(this.blockEntity instanceof AbstractCopierBlockEntity) copier =
-                (AbstractCopierBlockEntity) blockEntity;
+        if(this.blockEntity instanceof AbstractCopierBlockEntity) {
+            copier = (AbstractCopierBlockEntity) blockEntity;
+        }
         this.fluidStack = new FluidStack(copier.fluidStorage.variant, copier.fluidStorage.amount);
 
     }
@@ -122,7 +125,12 @@ public class CopierScreenHandler extends AbstractEnergyCookerScreenHandler {
         ClientPlayNetworking.send(ModMessages.COPIER_XP_DRAIN, buf);
     }
 
-    public void setXp(FluidStack stack) {
+    public void setFluidStack(FluidStack stack) {
         fluidStack = stack;
+    }
+
+    @Override
+    public FluidStoring getFluidStoring() {
+        return copier;
     }
 }

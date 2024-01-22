@@ -40,7 +40,7 @@ public abstract class AbstractCopierBlockEntity extends AbstractEnergyCookerBloc
     public static final int INV_SIZE = 4;
     public static final int BOOK_SLOT = 2;
     public static final int XP_BUCKET_SLOT = 3;
-    public SingleVariantStorage<FluidVariant> fluidStorage = new SingleVariantStorage<FluidVariant>() {
+    public SingleVariantStorage<FluidVariant> fluidStorage = new SingleVariantStorage<>() {
         @Override
         protected FluidVariant getBlankVariant() {
             return FluidVariant.blank();

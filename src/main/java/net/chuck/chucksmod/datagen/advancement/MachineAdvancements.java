@@ -31,10 +31,11 @@ public class MachineAdvancements {
                 .display(ModBlocks.IRON_MACHINE_BASE,
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".machines.iron_machine_base.title"),
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".machines.iron_machine_base.desc"),
-                        null, AdvancementFrame.TASK, true, true, false)
+                        null, AdvancementFrame.GOAL, true, true, false)
                 .criterion("get_iron_machine_base", InventoryChangedCriterion.Conditions.items(ModBlocks.IRON_MACHINE_BASE))
                 .parent(root)
                 .build(consumer, ChucksMod.MOD_ID + "/machines/iron_machine_base");
+        consumer.accept(ironMachineBase);
 
         AdvancementEntry ironCrusher = Advancement.Builder.create()
                 .display(ModBlocks.IRON_POWERED_CRUSHER,
@@ -63,6 +64,15 @@ public class MachineAdvancements {
                 .parent(ironMachineBase)
                 .build(consumer, ChucksMod.MOD_ID + "/machines/iron_heat_generator");
 
+        AdvancementEntry ironSteamGenerator = Advancement.Builder.create()
+                .display(ModBlocks.IRON_STEAM_GENERATOR,
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".machines.iron_steam_generator.title"),
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".machines.iron_steam_generator.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("get_iron_steam_generator", InventoryChangedCriterion.Conditions.items(ModBlocks.IRON_STEAM_GENERATOR))
+                .parent(ironHeatGenerator)
+                .build(consumer, ChucksMod.MOD_ID + "/machines/iron_steam_generator");
+
         AdvancementEntry ironEnergyStorage = Advancement.Builder.create()
                 .display(ModBlocks.IRON_ENERGY_STORAGE,
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".machines.iron_energy_storage.title"),
@@ -71,6 +81,42 @@ public class MachineAdvancements {
                 .criterion("get_iron_energy_storage", InventoryChangedCriterion.Conditions.items(ModBlocks.IRON_ENERGY_STORAGE))
                 .parent(ironMachineBase)
                 .build(consumer, ChucksMod.MOD_ID + "/machines/iron_energy_storage");
+
+        AdvancementEntry ironTank = Advancement.Builder.create()
+                .display(ModBlocks.IRON_FLUID_TANK,
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".machines.iron_tank.title"),
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".machines.iron_tank.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("get_iron_tank", InventoryChangedCriterion.Conditions.items(ModBlocks.IRON_FLUID_TANK))
+                .parent(ironMachineBase)
+                .build(consumer, ChucksMod.MOD_ID + "/machines/iron_tank");
+
+        AdvancementEntry ironPump = Advancement.Builder.create()
+                .display(ModBlocks.IRON_PUMP,
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".machines.iron_pump.title"),
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".machines.iron_pump.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("get_iron_pump", InventoryChangedCriterion.Conditions.items(ModBlocks.IRON_PUMP))
+                .parent(ironMachineBase)
+                .build(consumer, ChucksMod.MOD_ID + "/machines/iron_pump");
+
+        AdvancementEntry ironQuarry = Advancement.Builder.create()
+                .display(ModBlocks.IRON_QUARRY,
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".machines.iron_quarry.title"),
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".machines.iron_quarry.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("get_iron_quarry", InventoryChangedCriterion.Conditions.items(ModBlocks.IRON_QUARRY))
+                .parent(ironMachineBase)
+                .build(consumer, ChucksMod.MOD_ID + "/machines/iron_quarry");
+
+        AdvancementEntry ironFluidPipe = Advancement.Builder.create()
+                .display(ModBlocks.IRON_FLUID_PIPE,
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".machines.iron_fluid_pipe.title"),
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".machines.iron_fluid_pipe.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("get_iron_fluid_pipe", InventoryChangedCriterion.Conditions.items(ModBlocks.IRON_FLUID_PIPE))
+                .parent(ironMachineBase)
+                .build(consumer, ChucksMod.MOD_ID + "/machines/iron_fluid_pipe");
 
         AdvancementEntry tinWire = Advancement.Builder.create()
                 .display(ModBlocks.TIN_WIRE,
@@ -94,9 +140,47 @@ public class MachineAdvancements {
                 .display(ModBlocks.TITANIUM_MACHINE_BASE,
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".machines.titanium_machine_base.title"),
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".machines.titanium_machine_base.desc"),
-                        null, AdvancementFrame.TASK, true, true, false)
+                        null, AdvancementFrame.GOAL, true, true, false)
                 .criterion("get_titanium_machine_base", InventoryChangedCriterion.Conditions.items(ModBlocks.TITANIUM_MACHINE_BASE))
                 .parent(ironMachineBase)
                 .build(consumer, ChucksMod.MOD_ID + "/machines/titanium_machine_base");
+
+        AdvancementEntry titaniumMachines = Advancement.Builder.create()
+                .display(ModBlocks.TITANIUM_POWERED_CRUSHER,
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".machines.titanium_machines.title"),
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".machines.titanium_machines.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("get_titanium_machines", InventoryChangedCriterion.Conditions.items(
+                        ModBlocks.TITANIUM_POWERED_CRUSHER,
+                        ModBlocks.TITANIUM_POWERED_FURNACE,
+                        ModBlocks.TITANIUM_FLUID_TANK,
+                        ModBlocks.TITANIUM_FLUID_PIPE,
+                        ModBlocks.TITANIUM_QUARRY,
+                        ModBlocks.TITANIUM_HEAT_GENERATOR,
+                        ModBlocks.TITANIUM_STEAM_GENERATOR,
+                        ModBlocks.TITANIUM_ENERGY_STORAGE,
+                        ModBlocks.TITANIUM_PUMP
+                        ))
+                .parent(titaniumMachineBase)
+                .build(consumer, ChucksMod.MOD_ID + "/machines/titanium_machines");
+
+        AdvancementEntry goldWire = Advancement.Builder.create()
+                .display(ModBlocks.GOLD_WIRE,
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".machines.gold_wire.title"),
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".machines.gold_wire.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("get_gold_wire", InventoryChangedCriterion.Conditions.items(ModBlocks.GOLD_WIRE))
+                .parent(titaniumMachineBase)
+                .build(consumer, ChucksMod.MOD_ID + "/machines/gold_wire");
+
+        AdvancementEntry titaniumCopier = Advancement.Builder.create()
+                .display(ModBlocks.TITANIUM_COPIER,
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".machines.titanium_copier.title"),
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".machines.titanium_copier.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("get_titanium_copier", InventoryChangedCriterion.Conditions.items(ModBlocks.TITANIUM_COPIER))
+                .parent(titaniumMachineBase)
+                .build(consumer, ChucksMod.MOD_ID + "/machines/titanium_copier");
     }
+    // /advancement grant Player66 through minecraft:chucksmod/machines/titanium_machines
 }

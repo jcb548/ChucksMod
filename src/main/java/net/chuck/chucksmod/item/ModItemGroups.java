@@ -56,6 +56,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.IRON_FLUID_TANK);
                         entries.add(ModBlocks.IRON_PUMP);
                         entries.add(ModBlocks.IRON_FLUID_PIPE);
+                        entries.add(ModBlocks.IRON_STEAM_GENERATOR);
 
                         entries.add(ModItems.COPPER_DUST);
                         entries.add(ModBlocks.COPPER_DUST_BLOCK);
@@ -191,6 +192,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.TITANIUM_COPIER);
                         entries.add(ModBlocks.TITANIUM_FLUID_TANK);
                         entries.add(ModBlocks.TITANIUM_PUMP);
+                        entries.add(ModBlocks.TITANIUM_FLUID_PIPE);
 
                         entries.add(ModItems.SOUL_DUST);
                         entries.add(ModBlocks.SOUL_GRAVEL);

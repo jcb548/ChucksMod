@@ -13,6 +13,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.book.RecipeCategory;
+import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.registry.tag.TagKey;
 
@@ -152,13 +153,20 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
     }
 
     private void generateIronMachineRecipes(RecipeExporter exporter) {
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.WRENCH)
+                .pattern(" I ")
+                .pattern(" II")
+                .pattern("I  ")
+                .input('I', Items.IRON_INGOT)
+                .criterion(hasItem(Items.IRON_INGOT), conditionsFromItem(Items.IRON_INGOT))
+                .offerTo(exporter);
         offerMachineBaseRecipe(exporter, Items.IRON_INGOT, ModItems.IRON_GEAR, ModBlocks.IRON_MACHINE_BASE.asItem());
         offerPoweredFurnaceRecipe(exporter, ModBlocks.IRON_POWERED_FURNACE, ModItems.COPPER_POWER_CIRCUIT,
                 ModBlocks.COPPER_WIRE, ModBlocks.IRON_MACHINE_BASE);
         offerPoweredCrusherRecipe(exporter, ModBlocks.IRON_POWERED_CRUSHER, ModItems.COPPER_POWER_CIRCUIT,
                 ModBlocks.IRON_MACHINE_BASE, ModBlocks.COPPER_WIRE, ModItems.IRON_GEAR, ModItems.IRON_MOTOR);
         offerHeatGeneratorRecipe(exporter, ModBlocks.IRON_HEAT_GENERATOR, ModItems.COPPER_COIL,
-                ModItems.COPPER_POWER_CIRCUIT, ModBlocks.COPPER_WIRE, ModBlocks.IRON_MACHINE_BASE, Items.IRON_INGOT);
+                ModItems.COPPER_POWER_CIRCUIT, ModBlocks.COPPER_WIRE, ModBlocks.IRON_MACHINE_BASE);
         offerEnergyCoreRecipe(exporter, ModItems.IRON_ENERGY_CORE, Items.IRON_INGOT);
         offerEnergyStorageRecipe(exporter, ModBlocks.IRON_ENERGY_STORAGE, ModItems.COPPER_POWER_CIRCUIT,
                 ModBlocks.COPPER_WIRE, ModBlocks.IRON_MACHINE_BASE, ModItems.IRON_ENERGY_CORE);
@@ -169,6 +177,9 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
         offerTankRecipe(exporter, ModBlocks.IRON_FLUID_TANK, Items.IRON_INGOT);
         offerPumpRecipe(exporter, ModBlocks.IRON_PUMP, ModBlocks.IRON_MACHINE_BASE, ModItems.COPPER_POWER_CIRCUIT,
                 ModItems.IRON_MOTOR, ModItems.IRON_GEAR, ModBlocks.IRON_FLUID_TANK, ModBlocks.COPPER_WIRE);
+        offerFluidPipeRecipe(exporter, ModBlocks.IRON_FLUID_PIPE, Items.IRON_INGOT);
+        offerSteamGeneratorRecipe(exporter, ModBlocks.IRON_STEAM_GENERATOR, ModItems.COPPER_COIL, 
+                ModItems.COPPER_POWER_CIRCUIT, ModBlocks.COPPER_WIRE, ModBlocks.IRON_MACHINE_BASE, ModBlocks.IRON_FLUID_TANK);
     }
 
     public static String hasTag(TagKey<Item> material) {
@@ -432,7 +443,7 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 1f,
                 100,
                 "titanium_ingot");
-        offerGearRecipe(exporter, ModItems.TITANIUM_INGOT, ModItems.TITANIUM_GEAR);
+        offerGearRecipe(exporter, ModItemTags.TITANIUM_INGOTS, ModItems.TITANIUM_GEAR);
         offerSwordRecipe(exporter, ModItems.TITANIUM_INGOT, ModItems.TITANIUM_SWORD);
         offerPickaxeRecipe(exporter, ModItems.TITANIUM_INGOT, ModItems.TITANIUM_PICKAXE);
         offerAxeRecipe(exporter, ModItems.TITANIUM_INGOT, ModItems.TITANIUM_AXE);
@@ -443,15 +454,14 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
         offerLeggingsRecipe(exporter, ModItems.TITANIUM_INGOT, ModItems.TITANIUM_LEGGINGS);
         offerBootsRecipe(exporter, ModItems.TITANIUM_INGOT, ModItems.TITANIUM_BOOTS);
         offerStainedGlassPaneRecipe(exporter, ModBlocks.TITANIUM_BARS, ModItems.TITANIUM_INGOT);
-        offerMachineBaseRecipe(exporter, ModItems.TITANIUM_INGOT, ModItems.TITANIUM_GEAR,
+        offerMachineBaseRecipe(exporter, ModItemTags.TITANIUM_INGOTS, ModItems.TITANIUM_GEAR,
                 ModBlocks.TITANIUM_MACHINE_BASE.asItem());
         offerPoweredFurnaceRecipe(exporter, ModBlocks.TITANIUM_POWERED_FURNACE, ModItems.GOLD_POWER_CIRCUIT,
                 ModBlocks.GOLD_WIRE, ModBlocks.TITANIUM_MACHINE_BASE);
         offerPoweredCrusherRecipe(exporter, ModBlocks.TITANIUM_POWERED_CRUSHER, ModItems.GOLD_POWER_CIRCUIT,
                 ModBlocks.TITANIUM_MACHINE_BASE, ModBlocks.GOLD_WIRE, ModItems.TITANIUM_GEAR, ModItems.TITANIUM_MOTOR);
         offerHeatGeneratorRecipe(exporter, ModBlocks.TITANIUM_HEAT_GENERATOR, ModItems.GOLD_COIL,
-                ModItems.GOLD_POWER_CIRCUIT, ModBlocks.GOLD_WIRE, ModBlocks.TITANIUM_MACHINE_BASE,
-                ModItems.TITANIUM_INGOT);
+                ModItems.GOLD_POWER_CIRCUIT, ModBlocks.GOLD_WIRE, ModBlocks.TITANIUM_MACHINE_BASE);
         offerEnergyCoreRecipe(exporter, ModItems.TITANIUM_ENERGY_CORE, ModItems.TITANIUM_INGOT);
         offerEnergyStorageRecipe(exporter, ModBlocks.TITANIUM_ENERGY_STORAGE, ModItems.GOLD_POWER_CIRCUIT,
                 ModBlocks.GOLD_WIRE, ModBlocks.TITANIUM_MACHINE_BASE, ModItems.TITANIUM_ENERGY_CORE);
@@ -466,6 +476,10 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 ModItems.TITANIUM_MOTOR, ModItems.TITANIUM_GEAR, ModBlocks.TITANIUM_FLUID_TANK, ModBlocks.GOLD_WIRE);
         offerCopierRecipe(exporter, ModBlocks.TITANIUM_COPIER, ModBlocks.TITANIUM_MACHINE_BASE,
                 ModItems.GOLD_POWER_CIRCUIT, ModBlocks.TITANIUM_FLUID_TANK, ModBlocks.GOLD_WIRE);
+        offerFluidPipeRecipe(exporter, ModBlocks.TITANIUM_FLUID_PIPE, ModItemTags.TITANIUM_INGOTS);
+        offerSteamGeneratorRecipe(exporter, ModBlocks.TITANIUM_STEAM_GENERATOR, ModItems.GOLD_COIL,
+                ModItems.GOLD_POWER_CIRCUIT, ModBlocks.GOLD_WIRE, ModBlocks.TITANIUM_MACHINE_BASE,
+                ModBlocks.TITANIUM_FLUID_TANK);
     }
 
     private void generateVanillaDustSmeltingAndBlockRecipes(RecipeExporter exporter) {
@@ -934,6 +948,20 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .offerTo(exporter);
     }
 
+    public static void offerMachineBaseRecipe(RecipeExporter exporter, TagKey<Item> material, Item gear, Item output) {
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, output, 1)
+                .pattern("MRM")
+                .pattern("RGR")
+                .pattern("MRM")
+                .input('R', Items.REDSTONE)
+                .input('M', material)
+                .input('G', gear)
+                .criterion(hasTag(material), conditionsFromTag(material))
+                .criterion(hasItem(Items.REDSTONE), conditionsFromItem(Items.REDSTONE))
+                .criterion(hasItem(gear), conditionsFromItem(gear))
+                .offerTo(exporter);
+    }
+
     public static void offerPoweredCrusherRecipe(RecipeExporter exporter, Block crusher, Item powerCircuit,
                                                  Block machineBase, Block wire, Item gear, Item motor) {
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, crusher)
@@ -956,23 +984,43 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
     }
 
     public static void offerHeatGeneratorRecipe(RecipeExporter exporter, Block generator, Item coil, Item powerCircuit,
-                                                Block wire, Block machineBase, Item material) {
+                                                Block wire, Block machineBase) {
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, generator)
-                .pattern("CPC")
+                .pattern(" P ")
                 .pattern("WMW")
-                .pattern("IFI")
+                .pattern("CFC")
                 .input('C', coil)
                 .input('P', powerCircuit)
                 .input('W', wire)
                 .input('M', machineBase)
-                .input('I', material)
                 .input('F', Blocks.FURNACE)
                 .criterion(hasItem(coil), conditionsFromItem(coil))
                 .criterion(hasItem(powerCircuit), conditionsFromItem(powerCircuit))
                 .criterion(hasItem(wire), conditionsFromItem(wire))
                 .criterion(hasItem(machineBase), conditionsFromItem(machineBase))
-                .criterion(hasItem(material), conditionsFromItem(material))
                 .criterion(hasItem(Blocks.FURNACE), conditionsFromItem(Blocks.FURNACE))
+                .offerTo(exporter);
+    }
+    public static void offerSteamGeneratorRecipe(RecipeExporter exporter, Block generator, Item coil, Item powerCircuit,
+                                                Block wire, Block machineBase, Block tank) {
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, generator)
+                .pattern("TPG")
+                .pattern("WMW")
+                .pattern("CFC")
+                .input('C', coil)
+                .input('P', powerCircuit)
+                .input('W', wire)
+                .input('M', machineBase)
+                .input('F', Blocks.FURNACE)
+                .input('T', tank)
+                .input('G', ModItemTags.GLASS)
+                .criterion(hasItem(coil), conditionsFromItem(coil))
+                .criterion(hasItem(powerCircuit), conditionsFromItem(powerCircuit))
+                .criterion(hasItem(wire), conditionsFromItem(wire))
+                .criterion(hasItem(machineBase), conditionsFromItem(machineBase))
+                .criterion(hasItem(Blocks.FURNACE), conditionsFromItem(Blocks.FURNACE))
+                .criterion(hasItem(tank), conditionsFromItem(tank))
+                .criterion(hasTag(ModItemTags.GLASS), conditionsFromTag(ModItemTags.GLASS))
                 .offerTo(exporter);
     }
 
@@ -1188,6 +1236,50 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .criterion(hasItem(tank), conditionsFromItem(tank))
                 .criterion(hasItem(Blocks.ANVIL), conditionsFromItem(Blocks.ANVIL))
                 .criterion(hasItem(Items.ENCHANTED_BOOK), conditionsFromItem(Items.ENCHANTED_BOOK))
+                .offerTo(exporter);
+    }
+    public static void offerItemPipeRecipe(RecipeExporter exporter, Block itemPipe, Item material){
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, itemPipe, 8)
+                .pattern("MMM")
+                .pattern("T T")
+                .pattern("MMM")
+                .input('M', material)
+                .input('T', ModItemTags.TIN_INGOTS)
+                .criterion(hasItem(material), conditionsFromItem(material))
+                .criterion(hasTag(ModItemTags.TIN_INGOTS), conditionsFromTag(ModItemTags.TIN_INGOTS))
+                .offerTo(exporter);
+    }
+    public static void offerItemPipeRecipe(RecipeExporter exporter, Block itemPipe, TagKey<Item> material){
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, itemPipe, 8)
+                .pattern("MMM")
+                .pattern("T T")
+                .pattern("MMM")
+                .input('M', material)
+                .input('T', ModItemTags.TIN_INGOTS)
+                .criterion(hasTag(material), conditionsFromTag(material))
+                .criterion(hasTag(ModItemTags.TIN_INGOTS), conditionsFromTag(ModItemTags.TIN_INGOTS))
+                .offerTo(exporter);
+    }
+    public static void offerFluidPipeRecipe(RecipeExporter exporter, Block fluidPipe, Item material){
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, fluidPipe, 8)
+                .pattern("MMM")
+                .pattern("C C")
+                .pattern("MMM")
+                .input('M', material)
+                .input('C', Items.COPPER_INGOT)
+                .criterion(hasItem(material), conditionsFromItem(material))
+                .criterion(hasItem(Items.COPPER_INGOT), conditionsFromItem(Items.COPPER_INGOT))
+                .offerTo(exporter);
+    }
+    public static void offerFluidPipeRecipe(RecipeExporter exporter, Block fluidPipe, TagKey<Item> material){
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, fluidPipe, 8)
+                .pattern("MMM")
+                .pattern("C C")
+                .pattern("MMM")
+                .input('M', material)
+                .input('C', Items.COPPER_INGOT)
+                .criterion(hasTag(material), conditionsFromTag(material))
+                .criterion(hasItem(Items.COPPER_INGOT), conditionsFromItem(Items.COPPER_INGOT))
                 .offerTo(exporter);
     }
 }

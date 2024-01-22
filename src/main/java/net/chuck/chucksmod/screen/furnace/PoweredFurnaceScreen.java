@@ -9,24 +9,23 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
 public class PoweredFurnaceScreen extends AbstractEnergyUsingScreen<PoweredFurnaceScreenHandler> {
-    private static final Identifier TEXTURE = new Identifier(ChucksMod.MOD_ID,
-            "textures/gui/powered_furnace_gui.png");
     public PoweredFurnaceScreen(PoweredFurnaceScreenHandler handler, PlayerInventory inventory, Text title) {
         super(handler, inventory, title);
     }
 
     @Override
+    public Identifier getTexture() {
+        return new Identifier(ChucksMod.MOD_ID, "textures/gui/powered_furnace_gui.png");
+    }
+
+    @Override
     protected void drawBackground(DrawContext context, float delta, int mouseX, int mouseY) {
-        RenderSystem.setShaderColor(1.0f, 1.0f, 1.0f, 1.0f);
-        int x = (width - backgroundWidth) /2;
-        int y = (height - backgroundHeight)/2;
-        context.drawTexture(TEXTURE, x, y, 0, 0, backgroundWidth, backgroundHeight);
-        renderProgressArrow(context, x, y);
-        energyInfoArea.draw(context);
+        super.drawBackground(context, delta, mouseX, mouseY);
+        renderProgressArrow(context, getX(), getY());
     }
     private void renderProgressArrow(DrawContext context, int x, int y){
         if(handler.isCrafting()){
-            context.drawTexture(TEXTURE,x + 79, y + 34, 176, 0, handler.getScaledProgress(), 17);
+            context.drawTexture(getTexture(),x + 79, y + 34, 176, 0, handler.getScaledProgress(), 17);
         }
     }
 }

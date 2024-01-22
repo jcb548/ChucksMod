@@ -103,6 +103,7 @@ public class ModBlockLootTableGenerator extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.TITANIUM_COPIER);
         addDrop(ModBlocks.TITANIUM_FLUID_TANK);
         addDrop(ModBlocks.TITANIUM_PUMP);
+        addDrop(ModBlocks.TITANIUM_STEAM_GENERATOR);
 
         addDrop(ModBlocks.SOUL_STONE);
         addDrop(ModBlocks.SOUL_STONE_STAIRS);
@@ -172,6 +173,7 @@ public class ModBlockLootTableGenerator extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.IRON_FLUID_TANK);
         addDrop(ModBlocks.IRON_PUMP);
         addDrop(ModBlocks.IRON_FLUID_PIPE);
+        addDrop(ModBlocks.IRON_STEAM_GENERATOR);
 
         addDrop(ModBlocks.COPPER_WIRE);
         addDrop(ModBlocks.GOLD_WIRE);

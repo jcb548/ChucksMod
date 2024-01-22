@@ -17,28 +17,26 @@ import net.minecraft.util.Identifier;
 import java.util.Optional;
 
 public class CopierScreen extends AbstractEnergyUsingScreen<CopierScreenHandler> {
-    public static final Identifier TEXTURE = new Identifier(ChucksMod.MOD_ID,
-            "textures/gui/copier_gui.png");
     private FluidStackRenderer fluidStackRenderer;
     protected ButtonWidget drainXp;
     public CopierScreen(CopierScreenHandler handler, PlayerInventory inventory, Text title) {
         super(handler, inventory, title);
     }
+    @Override
+    public Identifier getTexture() {
+        return new Identifier(ChucksMod.MOD_ID, "textures/gui/copier_gui.png");
+    }
 
     @Override
     protected void drawBackground(DrawContext context, float delta, int mouseX, int mouseY) {
-        RenderSystem.setShaderColor(1.0f, 1.0f, 1.0f, 1.0f);
-        int x = (width - backgroundWidth) /2;
-        int y = (height - backgroundHeight)/2;
-        context.drawTexture(TEXTURE, x, y, 0, 0, backgroundWidth, backgroundHeight);
-        renderProgressArrow(context, x, y);
-        energyInfoArea.draw(context);
+        super.drawBackground(context, delta, mouseX, mouseY );
+        renderProgressArrow(context, getX(), getY());
         fluidStackRenderer.drawFluid(context, handler.fluidStack, x+8, y+13, 15, 48,
                 FluidStack.convertDropletsToMb(FluidConstants.BUCKET)*handler.copier.getBucketCapacity());
     }
     private void renderProgressArrow(DrawContext context, int x, int y){
         if(handler.isCrafting()){
-            context.drawTexture(TEXTURE,x + 102, y + 37, 176, 68, handler.getScaledProgress(), 16);
+            context.drawTexture(getTexture(),x + 102, y + 37, 176, 68, handler.getScaledProgress(), 16);
         }
     }
 
