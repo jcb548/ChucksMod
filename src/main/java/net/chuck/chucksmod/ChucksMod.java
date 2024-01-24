@@ -23,6 +23,7 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.kyrptonaught.customportalapi.api.CustomPortalBuilder;
 import net.minecraft.block.Blocks;
+import net.minecraft.item.Items;
 import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -60,12 +61,12 @@ public class ChucksMod implements ModInitializer {
 		ModFluids.register();
 
 		//Custom portals
-		CustomPortalBuilder.beginPortal().frameBlock(Blocks.GOLD_BLOCK)
-				.lightWithItem(ModItems.WITHER_BONE)
-				.destDimID(new Identifier(MOD_ID, "test"))
+		CustomPortalBuilder.beginPortal().frameBlock(ModBlocks.FABIUM_PORTAL_BLOCK)
+				.lightWithItem(Items.FLINT_AND_STEEL)
+				.destDimID(new Identifier(MOD_ID, "fabia"))
 				.tintColor(256, 0, 0).registerPortal();
 		CustomPortalBuilder.beginPortal().frameBlock(ModBlocks.DIRITONIUM_BLOCK)
-				.lightWithItem(ModItems.WITHER_BONE)
+				.lightWithItem(Items.FLINT_AND_STEEL)
 				.destDimID(new Identifier(MOD_ID, "diritia"))
 				.tintColor(211, 185, 255).registerPortal();
 		//ServerTickEvents.START_SERVER_TICK.register(new PlayerTickHandler());

@@ -38,6 +38,8 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.FABIUM_BLOCK)
                 .add(ModBlocks.RAW_FABIUM_BLOCK)
                 .addTag(ModBlockTags.FABIUM_ORES)
+                .add(ModBlocks.FABIUM_PORTAL_BLOCK)
+
                 .add(ModBlocks.DIRITONIUM_BARS)
 
                 .addTag(ModBlockTags.HARDENED_GLASS)
@@ -142,6 +144,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .addTag(ModBlockTags.FABIUM_ORES)
                 .add(ModBlocks.RAW_FABIUM_BLOCK)
                 .add(ModBlocks.FABIUM_BLOCK)
+                .add(ModBlocks.FABIUM_PORTAL_BLOCK)
 
                 .addTag(ModBlockTags.BRONZE_BLOCKS)
 

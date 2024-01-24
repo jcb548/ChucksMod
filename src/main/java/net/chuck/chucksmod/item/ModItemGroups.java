@@ -228,6 +228,7 @@ public class ModItemGroups {
                         entries.add(ModItems.FABIUM_LEGGINGS);
                         entries.add(ModItems.FABIUM_BOOTS);
                         entries.add(ModItems.SOUL_BLAZE_SPAWN_EGG);
+                        entries.add(ModBlocks.FABIUM_PORTAL_BLOCK);
 
                         entries.add(ModItems.RAW_DIRITONIUM);
                         entries.add(ModItems.DIRITONIUM_INGOT);

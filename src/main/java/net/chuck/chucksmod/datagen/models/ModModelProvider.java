@@ -134,6 +134,7 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.END_STONE_FABIUM_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_FABIUM_ORE);
         ModModelGenerator.registerBars(blockStateModelGenerator, ModBlocks.FABIUM_BARS);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.FABIUM_PORTAL_BLOCK);
 
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DIRITONIUM_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RAW_DIRITONIUM_BLOCK);

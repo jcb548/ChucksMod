@@ -5,6 +5,7 @@ import net.chuck.chucksmod.datagen.advancement.ModAdvancementsProvider;
 import net.chuck.chucksmod.datagen.models.ModModelProvider;
 import net.chuck.chucksmod.world.ModConfiguredFeatures;
 import net.chuck.chucksmod.world.ModPlacedFeatures;
+import net.chuck.chucksmod.world.dimension.ModDimensions;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.minecraft.registry.RegistryBuilder;
@@ -37,5 +38,6 @@ public class ChuckModDataGenerator implements DataGeneratorEntrypoint {
 	public void buildRegistry(RegistryBuilder registryBuilder) {
 		registryBuilder.addRegistry(RegistryKeys.CONFIGURED_FEATURE, ModConfiguredFeatures::bootstrap);
 		registryBuilder.addRegistry(RegistryKeys.PLACED_FEATURE, ModPlacedFeatures::bootstrap);
+		registryBuilder.addRegistry(RegistryKeys.DIMENSION_TYPE, ModDimensions::bootstrapType);
 	}
 }
