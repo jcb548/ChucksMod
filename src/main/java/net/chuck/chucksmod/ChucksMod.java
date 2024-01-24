@@ -62,11 +62,11 @@ public class ChucksMod implements ModInitializer {
 
 		//Custom portals
 		CustomPortalBuilder.beginPortal().frameBlock(ModBlocks.FABIUM_PORTAL_BLOCK)
-				.lightWithItem(Items.FLINT_AND_STEEL)
+				.lightWithItem(ModItems.WITHER_BONE)
 				.destDimID(new Identifier(MOD_ID, "fabia"))
 				.tintColor(256, 0, 0).registerPortal();
 		CustomPortalBuilder.beginPortal().frameBlock(ModBlocks.DIRITONIUM_BLOCK)
-				.lightWithItem(Items.FLINT_AND_STEEL)
+				.lightWithItem(ModItems.WITHER_BONE)
 				.destDimID(new Identifier(MOD_ID, "diritia"))
 				.tintColor(211, 185, 255).registerPortal();
 		//ServerTickEvents.START_SERVER_TICK.register(new PlayerTickHandler());

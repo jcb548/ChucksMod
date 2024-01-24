@@ -3,39 +3,34 @@ package net.chuck.chucksmod.recipe;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.DataResult;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import net.chuck.chucksmod.block.entity.crusher.AbstractCrusherBlockEntity;
+import net.chuck.chucksmod.block.entity.portal_builder.AbstractPortalBuilderBlockEntity;
 import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketByteBuf;
-import net.minecraft.recipe.*;
-import net.minecraft.registry.DynamicRegistryManager;
+import net.minecraft.recipe.Ingredient;
+import net.minecraft.recipe.RecipeCodecs;
+import net.minecraft.recipe.RecipeSerializer;
+import net.minecraft.recipe.RecipeType;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.dynamic.Codecs;
 import net.minecraft.world.World;
 
 import java.util.List;
 
-/*
- *  Code inspired by or copied from
- *  Kaupenjoe
- *  Copyright (c) 2023
- *
- *  This code is licensed under MIT License
- *  Details can be found in the license file in the root folder of this project
- */
-public class CrusherRecipe extends ModRecipe {
-    public final int FIRST_INGREDIENT = 0;
-
-    public CrusherRecipe(List<Ingredient> ingredients, ItemStack output) {
+public class PortalRecipe extends ModRecipe {
+    public final int BLOCK = 0;
+    public final int FIRST_BOSS_ITEM = 1;
+    public final int SECOND_BOSS_ITEM = 2;
+    public PortalRecipe(List<Ingredient> ingredients, ItemStack output){
         super(ingredients, output);
     }
     @Override
     public boolean matches(SimpleInventory inventory, World world) {
-        if(world.isClient()) {
-            return false;
-        }
-
-        return this.ingredients.get(FIRST_INGREDIENT).test(inventory.getStack(AbstractCrusherBlockEntity.INPUT_SLOT));
+        if(world.isClient) return false;
+        return this.ingredients.get(BLOCK).test(inventory.getStack(AbstractPortalBuilderBlockEntity.INPUT_SLOT)) &&
+                inventory.getStack(AbstractPortalBuilderBlockEntity.INPUT_SLOT).getCount() >=8 &&
+                this.ingredients.get(FIRST_BOSS_ITEM).test(inventory.getStack(AbstractPortalBuilderBlockEntity.FIRST_BOSS_ITEM_SLOT))
+                && this.ingredients.get(SECOND_BOSS_ITEM).test(inventory.getStack(AbstractPortalBuilderBlockEntity.SECOND_BOSS_ITEM_SLOT));
     }
 
     @Override
@@ -47,20 +42,19 @@ public class CrusherRecipe extends ModRecipe {
     public RecipeType<?> getType() {
         return Type.INSTANCE;
     }
-
-    public static class Type implements RecipeType<CrusherRecipe> {
+    public static class Type implements RecipeType<PortalRecipe>{
         public static final Type INSTANCE = new Type();
-        public static final String ID = "crusher_recipe";
+        public static final String ID = "portal_recipe";
     }
-    public static class Serializer implements RecipeSerializer<CrusherRecipe> {
-        public static final Serializer INSTANCE = new Serializer();
-        public static final String ID = "crusher_recipe";
+    public static class Serializer implements RecipeSerializer<PortalRecipe>{
+        public static final Serializer INSTANCE = new PortalRecipe.Serializer();
+        public static final String ID = "portal_recipe";
 
-        public static final Codec<CrusherRecipe> CODEC = RecordCodecBuilder.create(in -> in.group(
+        public static final Codec<PortalRecipe> CODEC = RecordCodecBuilder.create(in -> in.group(
                 validateAmount(Ingredient.DISALLOW_EMPTY_CODEC, 9).fieldOf("ingredients")
-                        .forGetter(CrusherRecipe::getIngredients), RecipeCodecs.CRAFTING_RESULT.fieldOf("output")
+                        .forGetter(PortalRecipe::getIngredients), RecipeCodecs.CRAFTING_RESULT.fieldOf("output")
                         .forGetter(r -> r.output)
-        ).apply(in, CrusherRecipe::new));
+        ).apply(in, PortalRecipe::new));
 
         private static Codec<List<Ingredient>> validateAmount(Codec<Ingredient> delegate, int max){
             return Codecs.validate(Codecs.validate(
@@ -70,22 +64,22 @@ public class CrusherRecipe extends ModRecipe {
         }
 
         @Override
-        public Codec<CrusherRecipe> codec() {
+        public Codec<PortalRecipe> codec() {
             return CODEC;
         }
 
         @Override
-        public CrusherRecipe read(PacketByteBuf buf) {
+        public PortalRecipe read(PacketByteBuf buf) {
             DefaultedList<Ingredient> inputs = DefaultedList.ofSize(buf.readInt(), Ingredient.EMPTY);
             for(int i=0; i< inputs.size(); i++){
                 inputs.set(i, Ingredient.fromPacket(buf));
             }
             ItemStack output = buf.readItemStack();
-            return new CrusherRecipe(inputs, output);
+            return new PortalRecipe(inputs, output);
         }
 
         @Override
-        public void write(PacketByteBuf buf, CrusherRecipe recipe) {
+        public void write(PacketByteBuf buf, PortalRecipe recipe) {
             buf.writeInt(recipe.getIngredients().size());
             for(Ingredient ingredient : recipe.getIngredients()){
                 ingredient.write(buf);

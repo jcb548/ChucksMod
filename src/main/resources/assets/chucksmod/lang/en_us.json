@@ -89,7 +89,13 @@
   "item.chucksmod.fabium_axe": "Fabium Axe",
   "item.chucksmod.fabium_shovel": "Fabium Shovel",
   "item.chucksmod.fabium_hoe": "Fabium Hoe",
-
+  "item.chucksmod.fabium_helmet": "Fabium Helmet",
+  "item.chucksmod.fabium_chestplate": "Fabium Chestplate",
+  "item.chucksmod.fabium_leggings": "Fabium Leggings",
+  "item.chucksmod.fabium_boots": "Fabium Boots",
+  "block.chucksmod.fabium_bars": "Fabium Bars",
+  "block.chucksmod.fabium_portal_builder": "Fabium Portal Block Builder",
+  "tooltip.chucksmod.portal_builder": "",
 
   "item.chucksmod.soul_dust": "Soul Dust",
   "block.chucksmod.soul_gravel": "Soul Gravel",
@@ -106,12 +112,6 @@
   "item.chucksmod.blaze_star": "Blazing Star",
   "item.chucksmod.soul_blaze_spawn_egg": "Soul Blaze Spawn Egg",
   "entity.chucksmod.soul_blaze": "Soul Blaze",
-
-  "item.chucksmod.fabium_helmet": "Fabium Helmet",
-  "item.chucksmod.fabium_chestplate": "Fabium Chestplate",
-  "item.chucksmod.fabium_leggings": "Fabium Leggings",
-  "item.chucksmod.fabium_boots": "Fabium Boots",
-  "block.chucksmod.fabium_bars": "Fabium Bars",
 
   "item.chucksmod.raw_titanium": "Raw Titanium",
   "item.chucksmod.titanium_dust": "Titanium Dust",

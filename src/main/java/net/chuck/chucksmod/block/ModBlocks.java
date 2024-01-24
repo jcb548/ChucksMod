@@ -25,6 +25,7 @@ import net.chuck.chucksmod.block.custom.generator.lava.TitaniumLavaGeneratorBloc
 import net.chuck.chucksmod.block.custom.generator.steam.IronSteamGeneratorBlock;
 import net.chuck.chucksmod.block.custom.generator.heat.TitaniumHeatGeneratorBlock;
 import net.chuck.chucksmod.block.custom.generator.steam.TitaniumSteamGeneratorBlock;
+import net.chuck.chucksmod.block.custom.portal_builder.FabiumPortalBuilderBlock;
 import net.chuck.chucksmod.block.custom.pump.IronPumpBlock;
 import net.chuck.chucksmod.block.custom.pump.TitaniumPumpBlock;
 import net.chuck.chucksmod.block.custom.quarry.IronQuarryBlock;
@@ -263,6 +264,8 @@ public class ModBlocks {
             new PaneBlock(FabricBlockSettings.copy(Blocks.IRON_BARS)));
     public static final Block FABIUM_PORTAL_BLOCK = registerBlock("fabium_portal_block",
             new Block(FabricBlockSettings.copy(ModBlocks.FABIUM_BLOCK)));
+    public static final Block FABIUM_PORTAL_BUILDER = registerBlock("fabium_portal_builder",
+            new FabiumPortalBuilderBlock(FabricBlockSettings.copy(ModBlocks.FABIUM_BLOCK)));
 
     // Diritonium
     public static final Block DIRITONIUM_BLOCK = registerBlock("diritonium_block",

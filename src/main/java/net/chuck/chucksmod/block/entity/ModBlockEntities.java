@@ -19,6 +19,7 @@ import net.chuck.chucksmod.block.entity.generator.lava.TitaniumLavaGeneratorBloc
 import net.chuck.chucksmod.block.entity.generator.steam.IronSteamGeneratorBlockEntity;
 import net.chuck.chucksmod.block.entity.generator.heat.TitaniumHeatGeneratorBlockEntity;
 import net.chuck.chucksmod.block.entity.generator.steam.TitaniumSteamGeneratorBlockEntity;
+import net.chuck.chucksmod.block.entity.portal_builder.FabiumPortalBuilderBlockEntity;
 import net.chuck.chucksmod.block.entity.pump.IronPumpBlockEntity;
 import net.chuck.chucksmod.block.entity.pump.TitaniumPumpBlockEntity;
 import net.chuck.chucksmod.block.entity.quarry.IronQuarryBlockEntity;
@@ -66,6 +67,8 @@ public class ModBlockEntities {
     public static BlockEntityType<TitaniumFluidPipeBlockEntity> TITANIUM_FLUID_PIPE;
     public static BlockEntityType<TitaniumSteamGeneratorBlockEntity> TITANIUM_STEAM_GENERATOR;
     public static BlockEntityType<TitaniumLavaGeneratorBlockEntity> TITANIUM_LAVA_GENERATOR;
+    
+    public static BlockEntityType<FabiumPortalBuilderBlockEntity> FABIUM_PORTAL_BUILDER;
     public static void registerBlockEntities() {
         CRUSHER = Registry.register(Registries.BLOCK_ENTITY_TYPE,
                 new Identifier(ChucksMod.MOD_ID, "crusher"),
@@ -230,5 +233,13 @@ public class ModBlockEntities {
                 FabricBlockEntityTypeBuilder.create(TitaniumFluidPipeBlockEntity::new, ModBlocks.TITANIUM_FLUID_PIPE).build());
         FluidStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.fluidStorage,
                 TITANIUM_FLUID_PIPE);
+        
+        //fabium
+        FABIUM_PORTAL_BUILDER = Registry.register(Registries.BLOCK_ENTITY_TYPE,
+                new Identifier(ChucksMod.MOD_ID, "fabium_portal_builder"),
+                FabricBlockEntityTypeBuilder.create(FabiumPortalBuilderBlockEntity::new,
+                        ModBlocks.FABIUM_PORTAL_BUILDER).build());
+        EnergyStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.energyStorage,
+                FABIUM_PORTAL_BUILDER);
     }
 }

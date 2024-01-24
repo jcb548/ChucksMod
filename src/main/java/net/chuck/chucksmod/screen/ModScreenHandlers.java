@@ -14,6 +14,7 @@ import net.chuck.chucksmod.screen.energy_storage.EnergyStorageScreenHandler;
 import net.chuck.chucksmod.screen.generator.GeneratorScreenHandler;
 import net.chuck.chucksmod.screen.generator.lava.LavaGeneratorScreenHandler;
 import net.chuck.chucksmod.screen.generator.steam.SteamGeneratorScreenHandler;
+import net.chuck.chucksmod.screen.portal_builder.PortalBuilderScreenHandler;
 import net.chuck.chucksmod.screen.pump.PumpScreenHandler;
 import net.chuck.chucksmod.screen.quarry.IronQuarryScreenHandler;
 import net.chuck.chucksmod.screen.quarry.TitaniumQuarryScreenHandler;
@@ -56,6 +57,8 @@ public class ModScreenHandlers {
             new ExtendedScreenHandlerType<>(LavaGeneratorScreenHandler::new);
     public static ScreenHandlerType<TitaniumQuarryScreenHandler> TITANIUM_QUARRY_SCREEN_HANDLER =
             new ExtendedScreenHandlerType<>(TitaniumQuarryScreenHandler::new);
+    public static ScreenHandlerType<PortalBuilderScreenHandler> PORTAL_BUILDER_SCREEN_HANDLER =
+            new ExtendedScreenHandlerType<>(PortalBuilderScreenHandler::new);
     public static ScreenHandlerType<CopierScreenHandler> COPIER_SCREEN_HANDLER =
             new ExtendedScreenHandlerType<>(CopierScreenHandler::new);
     public static ScreenHandlerType<BagScreenHandler3x1> BAG_3X1_SCREEN_HANDLER =
@@ -95,6 +98,8 @@ public class ModScreenHandlers {
                 COPIER_SCREEN_HANDLER);
         Registry.register(Registries.SCREEN_HANDLER, new Identifier(ChucksMod.MOD_ID, "pump"),
                 PUMP_SCREEN_HANDLER);
+        Registry.register(Registries.SCREEN_HANDLER, new Identifier(ChucksMod.MOD_ID, "portal_builder"),
+                PORTAL_BUILDER_SCREEN_HANDLER);
 
         Registry.register(Registries.SCREEN_HANDLER, new Identifier(ChucksMod.MOD_ID, "bag_3x1"),
                 BAG_3X1_SCREEN_HANDLER);

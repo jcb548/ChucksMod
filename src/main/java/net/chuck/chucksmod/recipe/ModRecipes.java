@@ -18,5 +18,9 @@ public class ModRecipes {
                 CrusherRecipe.Serializer.INSTANCE);
         Registry.register(Registries.RECIPE_TYPE, new Identifier(ChucksMod.MOD_ID, CrusherRecipe.Type.ID),
                 CrusherRecipe.Type.INSTANCE);
+        Registry.register(Registries.RECIPE_SERIALIZER, new Identifier(ChucksMod.MOD_ID, PortalRecipe.Serializer.ID),
+                PortalRecipe.Serializer.INSTANCE);
+        Registry.register(Registries.RECIPE_TYPE, new Identifier(ChucksMod.MOD_ID, PortalRecipe.Type.ID),
+                PortalRecipe.Type.INSTANCE);
     }
 }

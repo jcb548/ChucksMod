@@ -72,4 +72,11 @@ public abstract class AbstractEnergyCookerScreenHandler extends AbstractEnergyUs
     public boolean isCrafting() {
         return propertyDelegate.get(AbstractPoweredFurnaceBlockEntity.PROGRESS_IDX) > 0;
     }
+    public int getScaledProgress(int size) {
+        int progress = this.propertyDelegate.get(AbstractEnergyCookerBlockEntity.PROGRESS_IDX);
+        int maxProgress = this.propertyDelegate.get(AbstractEnergyCookerBlockEntity.MAX_PROGRESS_IDX);
+        int progressArrowSize = size;
+
+        return maxProgress != 0 && progress != 0 ? progress * progressArrowSize / maxProgress : 0;
+    }
 }
