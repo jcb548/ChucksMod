@@ -24,7 +24,7 @@ public class PortalBuilderScreen extends AbstractEnergyUsingScreen<PortalBuilder
 
     private void renderProgressArrow(DrawContext context, int x, int y){
         if(handler.isCrafting()){
-            context.drawTexture(getTexture(),x + 84, y + 34, 176, 0, handler.getScaledProgress(24), 17);
+            context.drawTexture(getTexture(),x + 85, y + 33, 176, 0, handler.getScaledProgress(24), 17);
         }
     }
 }

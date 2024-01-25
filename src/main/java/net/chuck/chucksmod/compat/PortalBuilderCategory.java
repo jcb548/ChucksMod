@@ -20,45 +20,49 @@ import java.util.List;
 //done with help:
 //https://github.com/TeamGalacticraft/Galacticraft/tree/main (MIT License)
 
-public class CrusherCategory implements DisplayCategory<BasicDisplay> {
+public class PortalBuilderCategory implements DisplayCategory<BasicDisplay> {
     public static final Identifier TEXTURE = new Identifier(ChucksMod.MOD_ID,
             "textures/gui/rei_displays.png");
-    public static final CategoryIdentifier<CrusherDisplay> CRUSHER =
-            CategoryIdentifier.of(ChucksMod.MOD_ID, "crusher");
+    public static final CategoryIdentifier<PortalBuilderDisplay> PORTAL_BUILDER =
+            CategoryIdentifier.of(ChucksMod.MOD_ID, "portal_builder");
     @Override
     public CategoryIdentifier<? extends BasicDisplay> getCategoryIdentifier() {
-        return CRUSHER;
+        return PORTAL_BUILDER;
     }
 
     @Override
     public Text getTitle() {
-        return Text.translatable("title.chucksmod.crusher");
+        return Text.translatable("title.chucksmod.portal_builder");
     }
 
     @Override
     public Renderer getIcon() {
-        return EntryStacks.of(ModBlocks.IRON_POWERED_CRUSHER.asItem().getDefaultStack());
+        return EntryStacks.of(ModBlocks.FABIUM_PORTAL_BUILDER.asItem().getDefaultStack());
     }
 
     @Override
     public List<Widget> setupDisplay(BasicDisplay display, Rectangle bounds) {
         final Point startPoint = new Point(bounds.getCenterX()-87, bounds.getCenterY()-35);
         List<Widget> widgets = new LinkedList<>();
-        widgets.add(Widgets.createTexturedWidget(TEXTURE, new Rectangle(startPoint.x+39, startPoint.y+20,
-                97, 36)));
-        widgets.add(Widgets.createSlot(new Point(startPoint.x+49, startPoint.y+30))
+        widgets.add(Widgets.createTexturedWidget(TEXTURE, new Rectangle(startPoint.x+25, startPoint.y+7,
+                125, 64), 0, 36));
+        widgets.add(Widgets.createSlot(new Point(startPoint.x+72, startPoint.y+31))
                 .entries(display.getInputEntries().get(0)));
+        widgets.add(Widgets.createSlot(new Point(startPoint.x+31, startPoint.y+13))
+                .entries(display.getInputEntries().get(1)));
+        widgets.add(Widgets.createSlot(new Point(startPoint.x+31, startPoint.y+49))
+                .entries(display.getInputEntries().get(2)));
 
-        widgets.add(Widgets.createSlot(new Point(startPoint.x+110, startPoint.y+30))
+        widgets.add(Widgets.createSlot(new Point(startPoint.x+124, startPoint.y+31))
                 .markOutput().entries(display.getOutputEntries().get(0)));
 
-        widgets.add(new AnimatedWidget(TEXTURE, new Rectangle(startPoint.x+80, startPoint.y+30,
-                16, 16),97, 0, false));
+        widgets.add(new AnimatedWidget(TEXTURE, new Rectangle(startPoint.x+92, startPoint.y+30,
+                24, 17),125, 36, true));
         return widgets;
     }
 
     @Override
     public int getDisplayHeight() {
-        return 40;
+        return 68;
     }
 }

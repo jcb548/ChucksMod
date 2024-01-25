@@ -95,7 +95,9 @@
   "item.chucksmod.fabium_boots": "Fabium Boots",
   "block.chucksmod.fabium_bars": "Fabium Bars",
   "block.chucksmod.fabium_portal_builder": "Fabium Portal Block Builder",
-  "tooltip.chucksmod.portal_builder": "",
+  "tooltip.chucksmod.portal_builder": "Block which assembles Portal Blocks from resource blocks and boss drops",
+  "title.chucksmod.portal_builder": "Portal Block Builder",
+  "block.chucksmod.fabium_portal_block": "Fabium Portal Block",
 
   "item.chucksmod.soul_dust": "Soul Dust",
   "block.chucksmod.soul_gravel": "Soul Gravel",
@@ -209,6 +211,7 @@
   "item.chucksmod.eucalyptus_chest_boat": "Eucalyptus Boat with Chest",
 
   "block.chucksmod.crusher": "Stone Crusher",
+  "title.chucksmod.crusher": "Crusher",
 
   "item.chucksmod.iron_energy_core": "Iron Energy Core",
   "item.chucksmod.iron_bag": "Iron Bag",
