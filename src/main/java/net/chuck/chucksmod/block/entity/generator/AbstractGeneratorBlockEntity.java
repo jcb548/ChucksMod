@@ -26,7 +26,6 @@ public abstract class AbstractGeneratorBlockEntity extends AbstractEnergyUsingBl
     protected PropertyDelegate propertyDelegate;
     protected int burnTime = 0;
     protected int fuelTime = 0;
-    private boolean burning_last_tick = false;
     public AbstractGeneratorBlockEntity(BlockEntityType type, BlockPos pos, BlockState state,
                                         int invSize, int generationSpeed, int energyStorageSize) {
         super(type, pos, state, invSize, energyStorageSize, generationSpeed);
@@ -85,7 +84,11 @@ public abstract class AbstractGeneratorBlockEntity extends AbstractEnergyUsingBl
         if (world.isClient()){
             return;
         }
-        boolean burning_start_of_tick = this.isGenerating();
+        if(this.isGenerating() != blockState.get(AbstractEnergyUsingBlock.LIT)){
+            blockState = blockState.with(AbstractEnergyUsingBlock.LIT, this.isGenerating());
+            world.setBlockState(blockPos, blockState, Block.NOTIFY_ALL);
+            markDirty(world, blockPos, blockState);
+        }
         if (this.isGenerating()){
             if(fuelTime > 0) --this.burnTime;
             this.useLiquid();
@@ -94,16 +97,10 @@ public abstract class AbstractGeneratorBlockEntity extends AbstractEnergyUsingBl
         if (!this.isGenerating() && this.energyStorage.amount < this.getEnergyStorageCapacity() && hasLiquid()){
             this.useFuel();
         }
-        if (burning_start_of_tick != this.isGenerating() || burning_last_tick != this.isGenerating()){
-            blockState = blockState.with(AbstractEnergyUsingBlock.LIT, this.isGenerating());
-            world.setBlockState(blockPos, blockState, Block.NOTIFY_ALL);
-            markDirty(world, blockPos, blockState);
-        }
         for (Direction side : Direction.values()){
             EnergyStorageUtil.move(this.energyStorage, EnergyStorage.SIDED.find(world, pos.offset(side),
                     side.getOpposite()), getMaxExtract(), null);
         }
-        burning_last_tick = this.isGenerating();
     }
     @Override
     protected void writeNbt(NbtCompound nbt) {
