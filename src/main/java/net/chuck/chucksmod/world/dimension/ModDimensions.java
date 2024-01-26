@@ -30,7 +30,7 @@ public class ModDimensions {
 
     public static void bootstrapType(Registerable<DimensionType> context){
         context.register(FABIA_TYPE, new DimensionType(
-                OptionalLong.of(12000),     //fixedTime
+                OptionalLong.empty(),     //fixedTime
                 true,       //hasSkylight
                 false,      //hasCeiling
                 false,      //ultraWarm
@@ -38,12 +38,12 @@ public class ModDimensions {
                 1.0,        //coordinateScale
                 true,       //bedWorks
                 false,      //respawnAnchorWorks
-                0,          //minY
+                -64,          //minY
                 256,        //height
                 256,        //logicalHeight
                 BlockTags.INFINIBURN_END,    //infiniburn
                 DimensionTypes.OVERWORLD_ID,     //effectsLocation
-                1.0f,        //ambient light
+                0.0f,        //ambient light
                 new DimensionType.MonsterSettings(false, false, UniformIntProvider.create(0, 0), 4)));
         context.register(DIRITIA_TYPE, new DimensionType(
                 OptionalLong.of(12000),     //fixedTime

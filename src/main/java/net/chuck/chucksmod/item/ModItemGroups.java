@@ -209,6 +209,30 @@ public class ModItemGroups {
                         entries.add(ModBlocks.SOUL_BLAZE_ALTAR);
                         entries.add(ModItems.SOUL_BLAZE_ROD);
 
+                        entries.add(ModBlocks.ECLOGITE);
+                        entries.add(ModBlocks.ECLOGITE_SLAB);
+                        entries.add(ModBlocks.ECLOGITE_STAIRS);
+                        entries.add(ModBlocks.ECLOGITE_WALL);
+                        entries.add(ModBlocks.ECLOGITE_BRICKS);
+                        entries.add(ModBlocks.ECLOGITE_BRICK_SLAB);
+                        entries.add(ModBlocks.ECLOGITE_BRICK_STAIRS);
+                        entries.add(ModBlocks.ECLOGITE_BRICK_WALL);
+                        entries.add(ModBlocks.CRACKED_ECLOGITE_BRICKS);
+
+                        entries.add(ModBlocks.SERPENTINITE);
+                        entries.add(ModBlocks.SERPENTINITE_SLAB);
+                        entries.add(ModBlocks.SERPENTINITE_STAIRS);
+                        entries.add(ModBlocks.SERPENTINITE_WALL);
+                        entries.add(ModBlocks.SERPENTINITE_BRICKS);
+                        entries.add(ModBlocks.SERPENTINITE_BRICK_SLAB);
+                        entries.add(ModBlocks.SERPENTINITE_BRICK_STAIRS);
+                        entries.add(ModBlocks.SERPENTINITE_BRICK_WALL);
+                        entries.add(ModBlocks.CRACKED_SERPENTINITE_BRICKS);
+                        entries.add(ModBlocks.POLISHED_SERPENTINITE);
+                        entries.add(ModBlocks.POLISHED_SERPENTINITE_SLAB);
+                        entries.add(ModBlocks.POLISHED_SERPENTINITE_STAIRS);
+                        entries.add(ModBlocks.POLISHED_SERPENTINITE_WALL);
+
                         entries.add(ModItems.RAW_FABIUM);
                         entries.add(ModItems.FABIUM_INGOT);
                         entries.add(ModItems.FABIUM_GEAR);

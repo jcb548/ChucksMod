@@ -128,6 +128,37 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.CRACKED_SOUL_STONE_BRICKS);
         blockStateModelGenerator.registerSimpleState(ModBlocks.SOUL_BLAZE_ALTAR);
 
+        BlockStateModelGenerator.BlockTexturePool eclogite_pool =
+                blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.ECLOGITE);
+        eclogite_pool.stairs(ModBlocks.ECLOGITE_STAIRS);
+        eclogite_pool.slab(ModBlocks.ECLOGITE_SLAB);
+        eclogite_pool.wall(ModBlocks.ECLOGITE_WALL);
+        BlockStateModelGenerator.BlockTexturePool eclogite_bricks_pool =
+                blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.ECLOGITE_BRICKS);
+        eclogite_bricks_pool.stairs(ModBlocks.ECLOGITE_BRICK_STAIRS);
+        eclogite_bricks_pool.slab(ModBlocks.ECLOGITE_BRICK_SLAB);
+        eclogite_bricks_pool.wall(ModBlocks.ECLOGITE_BRICK_WALL);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.CRACKED_ECLOGITE_BRICKS);
+
+        BlockStateModelGenerator.BlockTexturePool serpentinite_pool =
+                blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.SERPENTINITE);
+        serpentinite_pool.stairs(ModBlocks.SERPENTINITE_STAIRS);
+        serpentinite_pool.slab(ModBlocks.SERPENTINITE_SLAB);
+        serpentinite_pool.wall(ModBlocks.SERPENTINITE_WALL);
+        BlockStateModelGenerator.BlockTexturePool serpentinite_bricks_pool =
+                blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.SERPENTINITE_BRICKS);
+        serpentinite_bricks_pool.stairs(ModBlocks.SERPENTINITE_BRICK_STAIRS);
+        serpentinite_bricks_pool.slab(ModBlocks.SERPENTINITE_BRICK_SLAB);
+        serpentinite_bricks_pool.wall(ModBlocks.SERPENTINITE_BRICK_WALL);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.CRACKED_SERPENTINITE_BRICKS);
+        BlockStateModelGenerator.BlockTexturePool polished_serpentinite_pool =
+                blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.POLISHED_SERPENTINITE);
+        polished_serpentinite_pool.stairs(ModBlocks.POLISHED_SERPENTINITE_STAIRS);
+        polished_serpentinite_pool.slab(ModBlocks.POLISHED_SERPENTINITE_SLAB);
+        polished_serpentinite_pool.wall(ModBlocks.POLISHED_SERPENTINITE_WALL);
+
+
+
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.FABIUM_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RAW_FABIUM_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.NETHER_FABIUM_ORE);

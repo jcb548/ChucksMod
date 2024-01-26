@@ -266,6 +266,57 @@ public class ModBlocks {
             new Block(FabricBlockSettings.copy(ModBlocks.FABIUM_BLOCK)));
     public static final Block FABIUM_PORTAL_BUILDER = registerBlock("fabium_portal_builder",
             new FabiumPortalBuilderBlock(FabricBlockSettings.copy(ModBlocks.FABIUM_BLOCK)));
+    
+    //Fabia
+    public static final Block ECLOGITE = registerBlock("eclogite",
+            new Block(FabricBlockSettings.copy(Blocks.SMOOTH_STONE).strength(4.0f, 9.0f)));
+    public static final Block ECLOGITE_STAIRS = registerBlock("eclogite_stairs",
+            new StairsBlock(ModBlocks.ECLOGITE.getDefaultState(),
+                    FabricBlockSettings.copy(ECLOGITE)));
+    public static final Block ECLOGITE_SLAB = registerBlock("eclogite_slab",
+            new SlabBlock(FabricBlockSettings.copy(ECLOGITE)));
+    public static final Block ECLOGITE_WALL = registerBlock("eclogite_wall",
+            new WallBlock(FabricBlockSettings.copy(ECLOGITE)));
+    public static final Block ECLOGITE_BRICKS = registerBlock("eclogite_bricks",
+            new Block(FabricBlockSettings.copy(ECLOGITE)));
+    public static final Block ECLOGITE_BRICK_STAIRS = registerBlock("eclogite_brick_stairs",
+            new StairsBlock(ModBlocks.ECLOGITE_BRICKS.getDefaultState(),
+                    FabricBlockSettings.copy(ECLOGITE)));
+    public static final Block ECLOGITE_BRICK_SLAB = registerBlock("eclogite_brick_slab",
+            new SlabBlock(FabricBlockSettings.copy(ECLOGITE)));
+    public static final Block ECLOGITE_BRICK_WALL = registerBlock("eclogite_brick_wall",
+            new WallBlock(FabricBlockSettings.copy(ECLOGITE)));
+    public static final Block CRACKED_ECLOGITE_BRICKS = registerBlock("cracked_eclogite_bricks",
+            new Block(FabricBlockSettings.copy(ECLOGITE)));
+    public static final Block SERPENTINITE = registerBlock("serpentinite",
+            new Block(FabricBlockSettings.copy(Blocks.SMOOTH_STONE).strength(3.0f, 7.0f)));
+    public static final Block SERPENTINITE_STAIRS = registerBlock("serpentinite_stairs",
+            new StairsBlock(ModBlocks.SERPENTINITE.getDefaultState(),
+                    FabricBlockSettings.copy(SERPENTINITE)));
+    public static final Block SERPENTINITE_SLAB = registerBlock("serpentinite_slab",
+            new SlabBlock(FabricBlockSettings.copy(SERPENTINITE)));
+    public static final Block SERPENTINITE_WALL = registerBlock("serpentinite_wall",
+            new WallBlock(FabricBlockSettings.copy(SERPENTINITE)));
+    public static final Block SERPENTINITE_BRICKS = registerBlock("serpentinite_bricks",
+            new Block(FabricBlockSettings.copy(SERPENTINITE)));
+    public static final Block SERPENTINITE_BRICK_STAIRS = registerBlock("serpentinite_brick_stairs",
+            new StairsBlock(ModBlocks.SERPENTINITE_BRICKS.getDefaultState(),
+                    FabricBlockSettings.copy(SERPENTINITE)));
+    public static final Block SERPENTINITE_BRICK_SLAB = registerBlock("serpentinite_brick_slab",
+            new SlabBlock(FabricBlockSettings.copy(SERPENTINITE)));
+    public static final Block SERPENTINITE_BRICK_WALL = registerBlock("serpentinite_brick_wall",
+            new WallBlock(FabricBlockSettings.copy(SERPENTINITE)));
+    public static final Block CRACKED_SERPENTINITE_BRICKS = registerBlock("cracked_serpentinite_bricks",
+            new Block(FabricBlockSettings.copy(SERPENTINITE)));
+    public static final Block POLISHED_SERPENTINITE = registerBlock("polished_serpentinite",
+            new Block(FabricBlockSettings.copy(SERPENTINITE)));
+    public static final Block POLISHED_SERPENTINITE_STAIRS = registerBlock("polished_serpentinite_stairs",
+            new StairsBlock(ModBlocks.POLISHED_SERPENTINITE.getDefaultState(),
+                    FabricBlockSettings.copy(SERPENTINITE)));
+    public static final Block POLISHED_SERPENTINITE_SLAB = registerBlock("polished_serpentinite_slab",
+            new SlabBlock(FabricBlockSettings.copy(SERPENTINITE)));
+    public static final Block POLISHED_SERPENTINITE_WALL = registerBlock("polished_serpentinite_wall",
+            new WallBlock(FabricBlockSettings.copy(SERPENTINITE)));
 
     // Diritonium
     public static final Block DIRITONIUM_BLOCK = registerBlock("diritonium_block",

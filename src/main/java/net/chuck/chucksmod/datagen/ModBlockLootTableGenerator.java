@@ -114,6 +114,30 @@ public class ModBlockLootTableGenerator extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.SOUL_STONE_BRICK_SLAB, slabDrops(ModBlocks.SOUL_STONE_BRICK_SLAB));
         addDrop(ModBlocks.SOUL_STONE_BRICKS);
         addDrop(ModBlocks.CRACKED_SOUL_STONE_BRICKS);
+
+        addDrop(ModBlocks.ECLOGITE);
+        addDrop(ModBlocks.ECLOGITE_STAIRS);
+        addDrop(ModBlocks.ECLOGITE_SLAB, slabDrops(ModBlocks.ECLOGITE_SLAB));
+        addDrop(ModBlocks.ECLOGITE_WALL);
+        addDrop(ModBlocks.ECLOGITE_BRICKS);
+        addDrop(ModBlocks.ECLOGITE_BRICK_STAIRS);
+        addDrop(ModBlocks.ECLOGITE_BRICK_SLAB, slabDrops(ModBlocks.ECLOGITE_BRICK_SLAB));
+        addDrop(ModBlocks.ECLOGITE_BRICK_WALL);
+        addDrop(ModBlocks.CRACKED_ECLOGITE_BRICKS);
+
+        addDrop(ModBlocks.SERPENTINITE);
+        addDrop(ModBlocks.SERPENTINITE_STAIRS);
+        addDrop(ModBlocks.SERPENTINITE_SLAB, slabDrops(ModBlocks.SERPENTINITE_SLAB));
+        addDrop(ModBlocks.SERPENTINITE_WALL);
+        addDrop(ModBlocks.SERPENTINITE_BRICKS);
+        addDrop(ModBlocks.SERPENTINITE_BRICK_STAIRS);
+        addDrop(ModBlocks.SERPENTINITE_BRICK_SLAB, slabDrops(ModBlocks.SERPENTINITE_BRICK_SLAB));
+        addDrop(ModBlocks.SERPENTINITE_BRICK_WALL);
+        addDrop(ModBlocks.CRACKED_SERPENTINITE_BRICKS);
+        addDrop(ModBlocks.POLISHED_SERPENTINITE);
+        addDrop(ModBlocks.POLISHED_SERPENTINITE_STAIRS);
+        addDrop(ModBlocks.POLISHED_SERPENTINITE_SLAB, slabDrops(ModBlocks.POLISHED_SERPENTINITE_SLAB));
+        addDrop(ModBlocks.POLISHED_SERPENTINITE_WALL);
         
         addDrop(ModBlocks.RAW_FABIUM_BLOCK);
         addDrop(ModBlocks.FABIUM_BLOCK);
