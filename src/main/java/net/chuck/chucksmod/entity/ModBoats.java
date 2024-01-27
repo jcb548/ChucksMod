@@ -15,16 +15,22 @@ public class ModBoats {
             new Identifier(ChucksMod.MOD_ID, "eucalyptus_boat");
     public static final Identifier EUCALYPTUS_CHEST_BOAT_ID =
             new Identifier(ChucksMod.MOD_ID, "eucalyptus_chest_boat");
-
     public static final RegistryKey<TerraformBoatType> EUCALYPTUS_BOAT_KEY =
             TerraformBoatTypeRegistry.createKey(EUCALYPTUS_BOAT_ID);
+
     public static final Identifier DIRITIA_BOAT_ID =
             new Identifier(ChucksMod.MOD_ID, "diritia_boat");
     public static final Identifier DIRITIA_CHEST_BOAT_ID =
             new Identifier(ChucksMod.MOD_ID, "diritia_chest_boat");
-
     public static final RegistryKey<TerraformBoatType> DIRITIA_BOAT_KEY =
             TerraformBoatTypeRegistry.createKey(DIRITIA_BOAT_ID);
+
+    public static final Identifier FABIA_BOAT_ID =
+            new Identifier(ChucksMod.MOD_ID, "fabia_boat");
+    public static final Identifier FABIA_CHEST_BOAT_ID =
+            new Identifier(ChucksMod.MOD_ID, "fabia_chest_boat");
+    public static final RegistryKey<TerraformBoatType> FABIA_BOAT_KEY =
+            TerraformBoatTypeRegistry.createKey(FABIA_BOAT_ID);
     public static void registerBoats(){
         TerraformBoatType eucalyptusBoat = new TerraformBoatType.Builder()
                 .item(ModItems.EUCALYPTUS_BOAT)
@@ -36,6 +42,11 @@ public class ModBoats {
                 .chestItem(ModItems.DIRITIA_CHEST_BOAT)
                 .planks(ModBlocks.DIRITIA_PLANKS.asItem()).build();
         Registry.register(TerraformBoatTypeRegistry.INSTANCE, DIRITIA_BOAT_KEY, diritiaBoat);
+        TerraformBoatType fabiaBoat = new TerraformBoatType.Builder()
+                .item(ModItems.FABIA_BOAT)
+                .chestItem(ModItems.FABIA_CHEST_BOAT)
+                .planks(ModBlocks.FABIA_PLANKS.asItem()).build();
+        Registry.register(TerraformBoatTypeRegistry.INSTANCE, FABIA_BOAT_KEY, fabiaBoat);
     }
 }
 

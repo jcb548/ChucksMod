@@ -233,6 +233,26 @@ public class ModItemGroups {
                         entries.add(ModBlocks.POLISHED_SERPENTINITE_STAIRS);
                         entries.add(ModBlocks.POLISHED_SERPENTINITE_WALL);
 
+                        entries.add(ModBlocks.FABIA_LOG);
+                        entries.add(ModBlocks.FABIA_WOOD);
+                        entries.add(ModBlocks.STRIPPED_FABIA_LOG);
+                        entries.add(ModBlocks.STRIPPED_FABIA_WOOD);
+                        entries.add(ModBlocks.FABIA_PLANKS);
+                        entries.add(ModBlocks.FABIA_LEAVES);
+                        entries.add(ModBlocks.FABIA_SAPLING);
+                        entries.add(ModBlocks.FABIA_SLAB);
+                        entries.add(ModBlocks.FABIA_STAIRS);
+                        entries.add(ModBlocks.FABIA_BUTTON);
+                        entries.add(ModBlocks.FABIA_PRESSURE_PLATE);
+                        entries.add(ModBlocks.FABIA_FENCE);
+                        entries.add(ModBlocks.FABIA_FENCE_GATE);
+                        entries.add(ModBlocks.FABIA_DOOR);
+                        entries.add(ModBlocks.FABIA_TRAPDOOR);
+                        entries.add(ModItems.FABIA_SIGN);
+                        entries.add(ModItems.HANGING_FABIA_SIGN);
+                        entries.add(ModItems.FABIA_BOAT);
+                        entries.add(ModItems.FABIA_CHEST_BOAT);
+
                         entries.add(ModItems.RAW_FABIUM);
                         entries.add(ModItems.FABIUM_INGOT);
                         entries.add(ModItems.FABIUM_GEAR);

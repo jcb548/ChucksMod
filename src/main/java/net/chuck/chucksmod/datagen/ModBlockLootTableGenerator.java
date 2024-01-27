@@ -139,6 +139,22 @@ public class ModBlockLootTableGenerator extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.POLISHED_SERPENTINITE_SLAB, slabDrops(ModBlocks.POLISHED_SERPENTINITE_SLAB));
         addDrop(ModBlocks.POLISHED_SERPENTINITE_WALL);
         
+        addDrop(ModBlocks.FABIA_SAPLING);
+        addDrop(ModBlocks.FABIA_LOG);
+        addDrop(ModBlocks.FABIA_WOOD);
+        addDrop(ModBlocks.STRIPPED_FABIA_LOG);
+        addDrop(ModBlocks.STRIPPED_FABIA_WOOD);
+        addDrop(ModBlocks.FABIA_LEAVES, leavesDrops(ModBlocks.FABIA_LEAVES, ModBlocks.FABIA_SAPLING,
+                0.02f, 0.022222223f, 0.025f, 0.033333335f, 0.1f));
+        addDrop(ModBlocks.FABIA_BUTTON);
+        addDrop(ModBlocks.FABIA_DOOR, doorDrops(ModBlocks.FABIA_DOOR));
+        addDrop(ModBlocks.FABIA_TRAPDOOR);
+        addDrop(ModBlocks.FABIA_FENCE);
+        addDrop(ModBlocks.FABIA_FENCE_GATE);
+        addDrop(ModBlocks.FABIA_PRESSURE_PLATE);
+        addDrop(ModBlocks.FABIA_STAIRS);
+        addDrop(ModBlocks.FABIA_SLAB, slabDrops(ModBlocks.FABIA_SLAB));
+        
         addDrop(ModBlocks.RAW_FABIUM_BLOCK);
         addDrop(ModBlocks.FABIUM_BLOCK);
         addDrop(ModBlocks.FABIUM_BARS);

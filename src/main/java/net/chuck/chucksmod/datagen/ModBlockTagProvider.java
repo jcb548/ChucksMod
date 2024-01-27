@@ -222,31 +222,40 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
         getOrCreateTagBuilder(BlockTags.PLANKS)
                 .add(ModBlocks.EUCALYPTUS_PLANKS)
-                .add(ModBlocks.DIRITIA_PLANKS);
+                .add(ModBlocks.DIRITIA_PLANKS)
+                .add(ModBlocks.FABIA_PLANKS);
         getOrCreateTagBuilder(BlockTags.WOODEN_BUTTONS)
                 .add(ModBlocks.EUCALYPTUS_BUTTON)
+                .add(ModBlocks.FABIA_BUTTON)
                 .add(ModBlocks.DIRITIA_BUTTON);
         getOrCreateTagBuilder(BlockTags.WOODEN_DOORS)
                 .add(ModBlocks.EUCALYPTUS_DOOR)
-                .add(ModBlocks.DIRITIA_DOOR);
+                .add(ModBlocks.DIRITIA_DOOR)
+                .add(ModBlocks.FABIA_DOOR);
         getOrCreateTagBuilder(BlockTags.WOODEN_FENCES)
                 .add(ModBlocks.EUCALYPTUS_FENCE)
+                .add(ModBlocks.FABIA_FENCE)
                 .add(ModBlocks.DIRITIA_FENCE);
         getOrCreateTagBuilder(BlockTags.WOODEN_SLABS)
                 .add(ModBlocks.EUCALYPTUS_SLAB)
-                .add(ModBlocks.DIRITIA_SLAB);
+                .add(ModBlocks.DIRITIA_SLAB)
+                .add(ModBlocks.FABIA_SLAB);
         getOrCreateTagBuilder(BlockTags.WOODEN_STAIRS)
                 .add(ModBlocks.EUCALYPTUS_STAIRS)
-                .add(ModBlocks.DIRITIA_STAIRS);
+                .add(ModBlocks.DIRITIA_STAIRS)
+                .add(ModBlocks.FABIA_STAIRS);
         getOrCreateTagBuilder(BlockTags.WOODEN_PRESSURE_PLATES)
                 .add(ModBlocks.EUCALYPTUS_PRESSURE_PLATE)
-                .add(ModBlocks.DIRITIA_PRESSURE_PLATE);
+                .add(ModBlocks.DIRITIA_PRESSURE_PLATE)
+                .add(ModBlocks.FABIA_PRESSURE_PLATE);
         getOrCreateTagBuilder(BlockTags.WOODEN_TRAPDOORS)
                 .add(ModBlocks.EUCALYPTUS_TRAPDOOR)
-                .add(ModBlocks.DIRITIA_TRAPDOOR);
+                .add(ModBlocks.DIRITIA_TRAPDOOR)
+                .add(ModBlocks.FABIA_TRAPDOOR);
         getOrCreateTagBuilder(BlockTags.FENCE_GATES)
                 .add(ModBlocks.EUCALYPTUS_FENCE_GATE)
-                .add(ModBlocks.DIRITIA_FENCE_GATE);
+                .add(ModBlocks.DIRITIA_FENCE_GATE)
+                .add(ModBlocks.FABIA_FENCE_GATE);
 
         getOrCreateTagBuilder(BlockTags.DRAGON_IMMUNE)
                 .add(ModBlocks.DIRITONIUM_BLOCK)
@@ -257,7 +266,8 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
         getOrCreateTagBuilder(BlockTags.LOGS_THAT_BURN)
                 .addTag(ModBlockTags.EUCALYPTUS_LOGS)
-                .addTag(ModBlockTags.DIRITIA_LOGS);
+                .addTag(ModBlockTags.DIRITIA_LOGS)
+                .addTag(ModBlockTags.FABIA_LOGS);
 
         getOrCreateTagBuilder(ModBlockTags.EUCALYPTUS_LOGS)
                 .add(ModBlocks.EUCALYPTUS_LOG)
@@ -270,6 +280,12 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.DIRITIA_WOOD)
                 .add(ModBlocks.STRIPPED_DIRITIA_LOG)
                 .add(ModBlocks.STRIPPED_DIRITIA_WOOD);
+
+        getOrCreateTagBuilder(ModBlockTags.FABIA_LOGS)
+                .add(ModBlocks.FABIA_LOG)
+                .add(ModBlocks.FABIA_WOOD)
+                .add(ModBlocks.STRIPPED_FABIA_LOG)
+                .add(ModBlocks.STRIPPED_FABIA_WOOD);
 
         getOrCreateTagBuilder(BlockTags.WALLS)
                 .add(ModBlocks.SANDSTONE_BRICK_WALL);

@@ -123,41 +123,50 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
         getOrCreateTagBuilder(ItemTags.PLANKS)
                 .add(ModBlocks.EUCALYPTUS_PLANKS.asItem())
-                .add(ModBlocks.DIRITIA_PLANKS.asItem());
+                .add(ModBlocks.DIRITIA_PLANKS.asItem())
+                .add(ModBlocks.FABIA_PLANKS.asItem());
 
         getOrCreateTagBuilder(ItemTags.WOODEN_BUTTONS)
                 .add(ModBlocks.EUCALYPTUS_BUTTON.asItem())
-                .add(ModBlocks.DIRITIA_BUTTON.asItem());
+                .add(ModBlocks.DIRITIA_BUTTON.asItem())
+                .add(ModBlocks.FABIA_BUTTON.asItem());
 
         getOrCreateTagBuilder(ItemTags.WOODEN_DOORS)
                 .add(ModBlocks.EUCALYPTUS_DOOR.asItem())
-                .add(ModBlocks.DIRITIA_DOOR.asItem());
+                .add(ModBlocks.DIRITIA_DOOR.asItem())
+                .add(ModBlocks.FABIA_DOOR.asItem());
 
         getOrCreateTagBuilder(ItemTags.WOODEN_FENCES)
                 .add(ModBlocks.EUCALYPTUS_FENCE.asItem())
-                .add(ModBlocks.DIRITIA_FENCE.asItem());
+                .add(ModBlocks.DIRITIA_FENCE.asItem())
+                .add(ModBlocks.FABIA_FENCE.asItem());
 
         getOrCreateTagBuilder(ItemTags.WOODEN_SLABS)
                 .add(ModBlocks.EUCALYPTUS_SLAB.asItem())
-                .add(ModBlocks.DIRITIA_SLAB.asItem());
+                .add(ModBlocks.DIRITIA_SLAB.asItem())
+                .add(ModBlocks.FABIA_SLAB.asItem());
 
         getOrCreateTagBuilder(ItemTags.WOODEN_STAIRS)
                 .add(ModBlocks.EUCALYPTUS_STAIRS.asItem())
-                .add(ModBlocks.DIRITIA_STAIRS.asItem());
+                .add(ModBlocks.DIRITIA_STAIRS.asItem())
+                .add(ModBlocks.FABIA_STAIRS.asItem());
 
         getOrCreateTagBuilder(ItemTags.WOODEN_PRESSURE_PLATES)
                 .add(ModBlocks.EUCALYPTUS_PRESSURE_PLATE.asItem())
-                .add(ModBlocks.DIRITIA_PRESSURE_PLATE.asItem());
+                .add(ModBlocks.DIRITIA_PRESSURE_PLATE.asItem())
+                .add(ModBlocks.FABIA_PRESSURE_PLATE.asItem());
 
         getOrCreateTagBuilder(ItemTags.WOODEN_TRAPDOORS)
                 .add(ModBlocks.EUCALYPTUS_TRAPDOOR.asItem())
-                .add(ModBlocks.DIRITIA_TRAPDOOR.asItem());
+                .add(ModBlocks.DIRITIA_TRAPDOOR.asItem())
+                .add(ModBlocks.FABIA_TRAPDOOR.asItem());
 
         getOrCreateTagBuilder(ItemTags.FENCE_GATES)
                 .add(ModBlocks.EUCALYPTUS_FENCE_GATE.asItem())
-                .add(ModBlocks.DIRITIA_FENCE_GATE.asItem());
+                .add(ModBlocks.DIRITIA_FENCE_GATE.asItem())
+                .add(ModBlocks.FABIA_FENCE_GATE.asItem());
 
-        getOrCreateTagBuilder(ItemTags.LOGS)
+        getOrCreateTagBuilder(ItemTags.LOGS_THAT_BURN)
                 .add(ModBlocks.EUCALYPTUS_LOG.asItem())
                 .add(ModBlocks.EUCALYPTUS_WOOD.asItem())
                 .add(ModBlocks.STRIPPED_EUCALYPTUS_LOG.asItem())
@@ -165,7 +174,11 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModBlocks.DIRITIA_LOG.asItem())
                 .add(ModBlocks.DIRITIA_WOOD.asItem())
                 .add(ModBlocks.STRIPPED_DIRITIA_LOG.asItem())
-                .add(ModBlocks.STRIPPED_DIRITIA_WOOD.asItem());
+                .add(ModBlocks.STRIPPED_DIRITIA_WOOD.asItem())
+                .add(ModBlocks.FABIA_LOG.asItem())
+                .add(ModBlocks.FABIA_WOOD.asItem())
+                .add(ModBlocks.STRIPPED_FABIA_LOG.asItem())
+                .add(ModBlocks.STRIPPED_FABIA_WOOD.asItem());
 
         getOrCreateTagBuilder(ItemTags.WALLS)
                 .add(ModBlocks.SANDSTONE_BRICK_WALL.asItem());

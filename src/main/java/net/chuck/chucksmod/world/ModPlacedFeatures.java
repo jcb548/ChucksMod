@@ -48,8 +48,8 @@ public class ModPlacedFeatures {
     // Trees
     public static final RegistryKey<PlacedFeature> DIRITIA_TREE_PLACED_KEY =
             registerKey("diritia_tree_placed");
-    /*public static final RegistryKey<PlacedFeature> DIRITIA_CHERRY_TREE_PLACED_KEY =
-            registerKey("diritia_cherry_tree_placed");*/
+    public static final RegistryKey<PlacedFeature> FABIA_TREE_PLACED_KEY =
+            registerKey("fabia_tree_placed");
     // Ores
     public static final RegistryKey<PlacedFeature> DIRITIA_DIRITONIUM_ORE_PLACED_KEY =
             registerKey("diritia_diritonium_ore_placed");
@@ -89,6 +89,10 @@ public class ModPlacedFeatures {
                         .getOrThrow(ModConfiguredFeatures.DIRITIA_TREE_KEY),
                 VegetationPlacedFeatures.treeModifiersWithWouldSurvive(PlacedFeatures
                         .createCountExtraModifier(1, 0.1f, 2), ModBlocks.DIRITIA_SAPLING));
+        register(context, FABIA_TREE_PLACED_KEY, configuredFeatureRegistryEntryLookup
+                        .getOrThrow(ModConfiguredFeatures.FABIA_TREE_KEY),
+                VegetationPlacedFeatures.treeModifiersWithWouldSurvive(PlacedFeatures
+                        .createCountExtraModifier(1, 0.1f, 2), ModBlocks.FABIA_SAPLING));
 
         //Register New Overworld Ores
         register(context, TIN_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup

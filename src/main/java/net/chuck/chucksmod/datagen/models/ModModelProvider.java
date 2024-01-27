@@ -157,7 +157,29 @@ public class ModModelProvider extends FabricModelProvider {
         polished_serpentinite_pool.slab(ModBlocks.POLISHED_SERPENTINITE_SLAB);
         polished_serpentinite_pool.wall(ModBlocks.POLISHED_SERPENTINITE_WALL);
 
+        blockStateModelGenerator.registerSingleton(ModBlocks.FABIA_LEAVES, TexturedModel.LEAVES);
+        BlockStateModelGenerator.LogTexturePool fabia_log_pool =
+                blockStateModelGenerator.registerLog(ModBlocks.FABIA_LOG);
+        fabia_log_pool.log(ModBlocks.FABIA_LOG);
+        fabia_log_pool.wood(ModBlocks.FABIA_WOOD);
+        BlockStateModelGenerator.LogTexturePool stripped_fabia_log_pool =
+                blockStateModelGenerator.registerLog(ModBlocks.STRIPPED_FABIA_LOG);
+        stripped_fabia_log_pool.log(ModBlocks.STRIPPED_FABIA_LOG);
+        stripped_fabia_log_pool.wood(ModBlocks.STRIPPED_FABIA_WOOD);
 
+        BlockStateModelGenerator.BlockTexturePool fabia_pool =
+                blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.FABIA_PLANKS);
+        fabia_pool.stairs(ModBlocks.FABIA_STAIRS);
+        fabia_pool.slab(ModBlocks.FABIA_SLAB);
+        fabia_pool.fence(ModBlocks.FABIA_FENCE);
+        fabia_pool.fenceGate(ModBlocks.FABIA_FENCE_GATE);
+        fabia_pool.button(ModBlocks.FABIA_BUTTON);
+        fabia_pool.pressurePlate(ModBlocks.FABIA_PRESSURE_PLATE);
+        blockStateModelGenerator.registerDoor(ModBlocks.FABIA_DOOR);
+        blockStateModelGenerator.registerTrapdoor(ModBlocks.FABIA_TRAPDOOR);
+        fabia_pool.family(ModBlocks.FABIA_FAMILY);
+        blockStateModelGenerator.registerTintableCross(ModBlocks.FABIA_SAPLING,
+                BlockStateModelGenerator.TintType.NOT_TINTED);
 
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.FABIUM_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RAW_FABIUM_BLOCK);
@@ -392,6 +414,10 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.HANGING_DIRITIA_SIGN, Models.GENERATED);
         itemModelGenerator.register(ModItems.DIRITIA_BOAT, Models.GENERATED);
         itemModelGenerator.register(ModItems.DIRITIA_CHEST_BOAT, Models.GENERATED);
+
+        itemModelGenerator.register(ModItems.HANGING_FABIA_SIGN, Models.GENERATED);
+        itemModelGenerator.register(ModItems.FABIA_BOAT, Models.GENERATED);
+        itemModelGenerator.register(ModItems.FABIA_CHEST_BOAT, Models.GENERATED);
 
         itemModelGenerator.register(ModFluids.LIQUID_XP_BUCKET, Models.GENERATED);
     }

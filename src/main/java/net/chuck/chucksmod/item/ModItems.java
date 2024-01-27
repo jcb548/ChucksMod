@@ -283,6 +283,18 @@ public class ModItems {
     public static final Item DIRITIA_CHEST_BOAT =
             TerraformBoatItemHelper.registerBoatItem(ModBoats.DIRITIA_CHEST_BOAT_ID,
                     ModBoats.DIRITIA_BOAT_KEY, true);
+    public static final Item FABIA_SIGN = registerItem("fabia_sign",
+            new SignItem(new FabricItemSettings().maxCount(16),
+                    ModBlocks.STANDING_FABIA_SIGN, ModBlocks.WALL_FABIA_SIGN));
+    public static final Item HANGING_FABIA_SIGN = registerItem("fabia_hanging_sign",
+            new HangingSignItem(ModBlocks.HANGING_FABIA_SIGN, ModBlocks.WALL_HANGING_FABIA_SIGN,
+                    new FabricItemSettings().maxCount(16)));
+    public static final Item FABIA_BOAT =
+            TerraformBoatItemHelper.registerBoatItem(ModBoats.FABIA_BOAT_ID,
+                    ModBoats.FABIA_BOAT_KEY, false);
+    public static final Item FABIA_CHEST_BOAT =
+            TerraformBoatItemHelper.registerBoatItem(ModBoats.FABIA_CHEST_BOAT_ID,
+                    ModBoats.FABIA_BOAT_KEY, true);
 
     private static void addItemsToIngredientGroup(FabricItemGroupEntries entries){
         entries.add(RAW_TIN);

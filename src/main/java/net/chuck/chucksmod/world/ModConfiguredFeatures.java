@@ -2,6 +2,7 @@ package net.chuck.chucksmod.world;
 
 import net.chuck.chucksmod.ChucksMod;
 import net.chuck.chucksmod.block.ModBlocks;
+import net.chuck.chucksmod.world.tree.custom.FabiaTrunkPlacer;
 import net.minecraft.block.Blocks;
 import net.minecraft.registry.Registerable;
 import net.minecraft.registry.RegistryKey;
@@ -97,6 +98,9 @@ public class ModConfiguredFeatures {
             registerKey("diritia_endstone_vein");
     public static final RegistryKey<ConfiguredFeature<?, ?>> DIRITIA_TREE_KEY =
             registerKey("diritia_tree");
+    //Fabia
+    public static final RegistryKey<ConfiguredFeature<?, ?>> FABIA_TREE_KEY =
+            registerKey("fabia_tree");
 
 
     public static RegistryKey<ConfiguredFeature<?, ?>> registerKey(String name) {
@@ -239,6 +243,13 @@ public class ModConfiguredFeatures {
                 BlockStateProvider.of(ModBlocks.DIRITIA_LEAVES),
                 new JungleFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(0), 2),
                 new TwoLayersFeatureSize(1,1,1)).build());
+
+        register(context, FABIA_TREE_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
+                BlockStateProvider.of(ModBlocks.FABIA_LOG),
+                new FabiaTrunkPlacer(6, 1, 2),
+                BlockStateProvider.of(ModBlocks.FABIA_LEAVES),
+                new BlobFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(1), 2),
+                new TwoLayersFeatureSize(1,0,2)).build());
 
         // Register Overworld Ores
         register(context, TIN_ORE_KEY, Feature.ORE, new OreFeatureConfig(overworldTinOres, 9));

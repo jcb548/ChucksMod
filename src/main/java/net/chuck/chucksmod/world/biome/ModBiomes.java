@@ -45,6 +45,7 @@ public class ModBiomes{
         DefaultBiomeFeatures.addDungeons(biomeBuilder);
         DefaultBiomeFeatures.addAmethystGeodes(biomeBuilder);
         biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.EUCALYPTUS_PLACED_KEY);
+        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.FABIA_TREE_PLACED_KEY);
         biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, VegetationPlacedFeatures.PATCH_GRASS_TAIGA);
 
         return new Biome.Builder()
@@ -56,10 +57,10 @@ public class ModBiomes{
                 .effects((new BiomeEffects.Builder())
                         .waterColor(4159204)
                         .waterFogColor(329011)
-                        .skyColor(0x30c918)
+                        .fogColor(0x205B04)
                         .grassColor(0x328009)
                         .foliageColor(0x328009)
-                        .fogColor(0x30c918)
+                        .skyColor(0x30c918)
                         .moodSound(BiomeMoodSound.CAVE)
                         .music(MusicType.createIngameMusic(RegistryEntry.of(SoundEvents.MUSIC_DISC_5))).build())
                 .build();

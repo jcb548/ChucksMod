@@ -16,6 +16,7 @@ import net.minecraft.util.Identifier;
 public class ModBlockTags {
     public static final TagKey<Block> EUCALYPTUS_LOGS = ModBlockTags.of("eucalyptus_logs");
     public static final TagKey<Block> DIRITIA_LOGS = ModBlockTags.of("diritia_logs");
+    public static final TagKey<Block> FABIA_LOGS = ModBlockTags.of("fabia_logs");
     public static final TagKey<Block> HARDENED_GLASS = ModBlockTags.of("hardened_glass");
     public static final TagKey<Block> HARDENED_GLASS_PANES = ModBlockTags.of("hardened_glass_panes");
     public static final TagKey<Block> WIRES = ModBlockTags.of("wires");

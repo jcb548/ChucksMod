@@ -35,6 +35,7 @@ import net.chuck.chucksmod.block.custom.wire.GoldWireBlock;
 import net.chuck.chucksmod.block.custom.wire.TinWireBlock;
 import net.chuck.chucksmod.world.tree.DiritiaSaplingGenerator;
 import net.chuck.chucksmod.world.tree.EucalyptusSaplingGenerator;
+import net.chuck.chucksmod.world.tree.FabiaSaplingGenerator;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
@@ -317,6 +318,64 @@ public class ModBlocks {
             new SlabBlock(FabricBlockSettings.copy(SERPENTINITE)));
     public static final Block POLISHED_SERPENTINITE_WALL = registerBlock("polished_serpentinite_wall",
             new WallBlock(FabricBlockSettings.copy(SERPENTINITE)));
+    public static final Block FABIA_LOG = registerBlock("fabia_log",
+            new PillarBlock(FabricBlockSettings.copy(Blocks.OAK_LOG)));
+    public static final Block FABIA_WOOD = registerBlock("fabia_wood",
+            new PillarBlock(FabricBlockSettings.copy(Blocks.OAK_WOOD)));
+    public static final Block STRIPPED_FABIA_LOG = registerBlock("stripped_fabia_log",
+            new PillarBlock(FabricBlockSettings.copy(Blocks.STRIPPED_OAK_LOG)));
+    public static final Block STRIPPED_FABIA_WOOD = registerBlock("stripped_fabia_wood",
+            new PillarBlock(FabricBlockSettings.copy(Blocks.STRIPPED_OAK_WOOD)));
+    public static final Block FABIA_PLANKS = registerBlock("fabia_planks",
+            new Block(FabricBlockSettings.copy(Blocks.OAK_PLANKS)));
+    public static final Block FABIA_LEAVES = registerBlock("fabia_leaves",
+            new LeavesBlock(FabricBlockSettings.copy(Blocks.OAK_LEAVES).nonOpaque()));
+    public static final Block FABIA_SAPLING = registerBlock("fabia_sapling",
+            new SaplingBlock(new FabiaSaplingGenerator(), FabricBlockSettings.copy(Blocks.OAK_SAPLING)));
+    public static final Block FABIA_STAIRS = registerBlock("fabia_stairs",
+            new StairsBlock(ModBlocks.FABIA_PLANKS.getDefaultState(),
+                    FabricBlockSettings.copy(Blocks.OAK_STAIRS)));
+    public static final Block FABIA_SLAB = registerBlock("fabia_slab",
+            new SlabBlock(FabricBlockSettings.copy(Blocks.OAK_SLAB)));
+    public static final Block FABIA_BUTTON = registerBlock("fabia_button",
+            new ButtonBlock(FabricBlockSettings.copy(Blocks.OAK_BUTTON), BlockSetType.OAK, 10, true));
+    public static final Block FABIA_PRESSURE_PLATE = registerBlock("fabia_pressure_plate",
+            new PressurePlateBlock(PressurePlateBlock.ActivationRule.EVERYTHING,
+                    FabricBlockSettings.copy(Blocks.OAK_PRESSURE_PLATE), BlockSetType.OAK));
+    public static final Block FABIA_FENCE = registerBlock("fabia_fence",
+            new FenceBlock(FabricBlockSettings.copy(Blocks.OAK_FENCE)));
+    public static final Block FABIA_FENCE_GATE = registerBlock("fabia_fence_gate",
+            new FenceGateBlock(FabricBlockSettings.copy(Blocks.OAK_FENCE_GATE), WoodType.OAK));
+    public static final Block FABIA_DOOR = registerBlock("fabia_door",
+            new DoorBlock(FabricBlockSettings.copy(Blocks.OAK_DOOR), BlockSetType.OAK));
+    public static final Block FABIA_TRAPDOOR = registerBlock("fabia_trapdoor",
+            new TrapdoorBlock(FabricBlockSettings.copy(Blocks.OAK_TRAPDOOR), BlockSetType.OAK));
+    public static final Identifier FABIA_SIGN_TEXTURE =
+            new Identifier(ChucksMod.MOD_ID, "entity/signs/fabia");
+    public static final Identifier FABIA_HANGING_SIGN_TEXTURE =
+            new Identifier(ChucksMod.MOD_ID, "entity/signs/hanging/fabia");
+    public static final Identifier FABIA_HANGING_GUI_SIGN_TEXTURE =
+            new Identifier(ChucksMod.MOD_ID, "textures/gui/hanging_signs/fabia");
+    public static final Block STANDING_FABIA_SIGN =
+            Registry.register(Registries.BLOCK, new Identifier(ChucksMod.MOD_ID, "fabia_standing_sign"),
+                    new TerraformSignBlock(FABIA_SIGN_TEXTURE, FabricBlockSettings.copyOf(Blocks.OAK_SIGN)));
+    public static final Block WALL_FABIA_SIGN =
+            Registry.register(Registries.BLOCK, new Identifier(ChucksMod.MOD_ID, "fabia_wall_sign"),
+                    new TerraformWallSignBlock(FABIA_SIGN_TEXTURE,
+                            FabricBlockSettings.copyOf(Blocks.OAK_WALL_SIGN)));
+    public static final Block HANGING_FABIA_SIGN =
+            Registry.register(Registries.BLOCK, new Identifier(ChucksMod.MOD_ID, "fabia_hanging_sign"),
+                    new TerraformHangingSignBlock(FABIA_HANGING_SIGN_TEXTURE, FABIA_HANGING_GUI_SIGN_TEXTURE,
+                            FabricBlockSettings.copyOf(Blocks.OAK_HANGING_SIGN)));
+    public static final Block WALL_HANGING_FABIA_SIGN =
+            Registry.register(Registries.BLOCK, new Identifier(ChucksMod.MOD_ID, "fabia_wall_standing_sign"),
+                    new TerraformWallHangingSignBlock(FABIA_HANGING_SIGN_TEXTURE,
+                            FABIA_HANGING_GUI_SIGN_TEXTURE,
+                            FabricBlockSettings.copyOf(Blocks.OAK_WALL_HANGING_SIGN)));
+    public static final BlockFamily FABIA_FAMILY = BlockFamilies.register(ModBlocks.FABIA_PLANKS)
+            .sign(ModBlocks.STANDING_FABIA_SIGN, ModBlocks.WALL_FABIA_SIGN)
+            .group("wooden").unlockCriterionName("has_planks").build();
+    
 
     // Diritonium
     public static final Block DIRITONIUM_BLOCK = registerBlock("diritonium_block",

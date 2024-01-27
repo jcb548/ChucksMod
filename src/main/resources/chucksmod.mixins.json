@@ -9,7 +9,8 @@
     "ModPlayerMixin",
     "ModRemoveAnvilLevelCapScreen",
     "ModRemoveAnvilLevelCapScreenHandler",
-    "ModRemoveOldArmorDisplay"
+    "ModRemoveOldArmorDisplay",
+    "TrunkPlacerTypeInvoker"
   ],
   "injectors": {
     "defaultRequire": 1
