@@ -189,6 +189,18 @@ public class ModModelProvider extends FabricModelProvider {
         ModModelGenerator.registerBars(blockStateModelGenerator, ModBlocks.FABIUM_BARS);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.FABIUM_PORTAL_BLOCK);
         blockStateModelGenerator.registerCooker(ModBlocks.FABIUM_PORTAL_BUILDER, TexturedModel.ORIENTABLE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SERPENTINITE_COAL_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SERPENTINITE_COPPER_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SERPENTINITE_DIAMOND_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SERPENTINITE_DIRITONIUM_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SERPENTINITE_EMERALD_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SERPENTINITE_FABIUM_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SERPENTINITE_GOLD_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SERPENTINITE_IRON_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SERPENTINITE_LAPIS_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SERPENTINITE_REDSTONE_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SERPENTINITE_TIN_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SERPENTINITE_TITANIUM_ORE);
 
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DIRITONIUM_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RAW_DIRITONIUM_BLOCK);

@@ -232,6 +232,18 @@ public class ModItemGroups {
                         entries.add(ModBlocks.POLISHED_SERPENTINITE_SLAB);
                         entries.add(ModBlocks.POLISHED_SERPENTINITE_STAIRS);
                         entries.add(ModBlocks.POLISHED_SERPENTINITE_WALL);
+                        entries.add(ModBlocks.SERPENTINITE_COAL_ORE);
+                        entries.add(ModBlocks.SERPENTINITE_COPPER_ORE);
+                        entries.add(ModBlocks.SERPENTINITE_DIAMOND_ORE);
+                        entries.add(ModBlocks.SERPENTINITE_DIRITONIUM_ORE);
+                        entries.add(ModBlocks.SERPENTINITE_EMERALD_ORE);
+                        entries.add(ModBlocks.SERPENTINITE_FABIUM_ORE);
+                        entries.add(ModBlocks.SERPENTINITE_GOLD_ORE);
+                        entries.add(ModBlocks.SERPENTINITE_IRON_ORE);
+                        entries.add(ModBlocks.SERPENTINITE_LAPIS_ORE);
+                        entries.add(ModBlocks.SERPENTINITE_REDSTONE_ORE);
+                        entries.add(ModBlocks.SERPENTINITE_TIN_ORE);
+                        entries.add(ModBlocks.SERPENTINITE_TITANIUM_ORE);
 
                         entries.add(ModBlocks.FABIA_LOG);
                         entries.add(ModBlocks.FABIA_WOOD);

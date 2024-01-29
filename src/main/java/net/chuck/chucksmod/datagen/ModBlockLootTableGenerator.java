@@ -7,6 +7,7 @@ import net.chuck.chucksmod.block.custom.TomatoCropBlock;
 import net.chuck.chucksmod.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
+import net.minecraft.item.Items;
 import net.minecraft.loot.condition.BlockStatePropertyLootCondition;
 import net.minecraft.predicate.StatePredicate;
 
@@ -138,7 +139,20 @@ public class ModBlockLootTableGenerator extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.POLISHED_SERPENTINITE_STAIRS);
         addDrop(ModBlocks.POLISHED_SERPENTINITE_SLAB, slabDrops(ModBlocks.POLISHED_SERPENTINITE_SLAB));
         addDrop(ModBlocks.POLISHED_SERPENTINITE_WALL);
-        
+
+        addDrop(ModBlocks.SERPENTINITE_COAL_ORE, oreDrops(ModBlocks.SERPENTINITE_COAL_ORE, Items.COAL));
+        addDrop(ModBlocks.SERPENTINITE_COPPER_ORE, copperOreDrops(ModBlocks.SERPENTINITE_COPPER_ORE));
+        addDrop(ModBlocks.SERPENTINITE_DIAMOND_ORE, oreDrops(ModBlocks.SERPENTINITE_DIAMOND_ORE, Items.DIAMOND));
+        addDrop(ModBlocks.SERPENTINITE_DIRITONIUM_ORE, oreDrops(ModBlocks.SERPENTINITE_DIRITONIUM_ORE, ModItems.RAW_DIRITONIUM));
+        addDrop(ModBlocks.SERPENTINITE_EMERALD_ORE, oreDrops(ModBlocks.SERPENTINITE_EMERALD_ORE, Items.EMERALD));
+        addDrop(ModBlocks.SERPENTINITE_FABIUM_ORE, oreDrops(ModBlocks.SERPENTINITE_FABIUM_ORE, ModItems.RAW_FABIUM));
+        addDrop(ModBlocks.SERPENTINITE_GOLD_ORE, oreDrops(ModBlocks.SERPENTINITE_GOLD_ORE, Items.RAW_GOLD));
+        addDrop(ModBlocks.SERPENTINITE_IRON_ORE, oreDrops(ModBlocks.SERPENTINITE_IRON_ORE, Items.RAW_IRON));
+        addDrop(ModBlocks.SERPENTINITE_LAPIS_ORE, lapisOreDrops(ModBlocks.SERPENTINITE_LAPIS_ORE));
+        addDrop(ModBlocks.SERPENTINITE_REDSTONE_ORE, redstoneOreDrops(ModBlocks.SERPENTINITE_REDSTONE_ORE));
+        addDrop(ModBlocks.SERPENTINITE_TIN_ORE, oreDrops(ModBlocks.SERPENTINITE_TIN_ORE, ModItems.RAW_TIN));
+        addDrop(ModBlocks.SERPENTINITE_TITANIUM_ORE, oreDrops(ModBlocks.SERPENTINITE_TITANIUM_ORE, ModItems.RAW_TITANIUM));
+
         addDrop(ModBlocks.FABIA_SAPLING);
         addDrop(ModBlocks.FABIA_LOG);
         addDrop(ModBlocks.FABIA_WOOD);

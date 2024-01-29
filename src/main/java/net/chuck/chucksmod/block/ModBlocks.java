@@ -318,6 +318,31 @@ public class ModBlocks {
             new SlabBlock(FabricBlockSettings.copy(SERPENTINITE)));
     public static final Block POLISHED_SERPENTINITE_WALL = registerBlock("polished_serpentinite_wall",
             new WallBlock(FabricBlockSettings.copy(SERPENTINITE)));
+    //Serpentinite Ores
+    public static final Block SERPENTINITE_COAL_ORE = registerBlock("serpentinite_coal_ore",
+            new Block(FabricBlockSettings.copy(Blocks.GOLD_ORE).strength(5.0f, 9.0f)));
+    public static final Block SERPENTINITE_COPPER_ORE = registerBlock("serpentinite_copper_ore",
+            new Block(FabricBlockSettings.copy(ModBlocks.SERPENTINITE_COAL_ORE)));
+    public static final Block SERPENTINITE_DIAMOND_ORE = registerBlock("serpentinite_diamond_ore",
+            new Block(FabricBlockSettings.copy(ModBlocks.SERPENTINITE_COAL_ORE)));
+    public static final Block SERPENTINITE_DIRITONIUM_ORE = registerBlock("serpentinite_diritonium_ore",
+            new Block(FabricBlockSettings.copy(ModBlocks.SERPENTINITE_COAL_ORE)));
+    public static final Block SERPENTINITE_EMERALD_ORE = registerBlock("serpentinite_emerald_ore",
+            new Block(FabricBlockSettings.copy(ModBlocks.SERPENTINITE_COAL_ORE)));
+    public static final Block SERPENTINITE_FABIUM_ORE = registerBlock("serpentinite_fabium_ore",
+            new Block(FabricBlockSettings.copy(ModBlocks.SERPENTINITE_COAL_ORE)));
+    public static final Block SERPENTINITE_GOLD_ORE = registerBlock("serpentinite_gold_ore",
+            new Block(FabricBlockSettings.copy(ModBlocks.SERPENTINITE_COAL_ORE)));
+    public static final Block SERPENTINITE_IRON_ORE = registerBlock("serpentinite_iron_ore",
+            new Block(FabricBlockSettings.copy(ModBlocks.SERPENTINITE_COAL_ORE)));
+    public static final Block SERPENTINITE_LAPIS_ORE = registerBlock("serpentinite_lapis_ore",
+            new Block(FabricBlockSettings.copy(ModBlocks.SERPENTINITE_COAL_ORE)));
+    public static final Block SERPENTINITE_REDSTONE_ORE = registerBlock("serpentinite_redstone_ore",
+            new Block(FabricBlockSettings.copy(ModBlocks.SERPENTINITE_COAL_ORE)));
+    public static final Block SERPENTINITE_TIN_ORE = registerBlock("serpentinite_tin_ore",
+            new Block(FabricBlockSettings.copy(ModBlocks.SERPENTINITE_COAL_ORE)));
+    public static final Block SERPENTINITE_TITANIUM_ORE = registerBlock("serpentinite_titanium_ore",
+            new Block(FabricBlockSettings.copy(ModBlocks.SERPENTINITE_COAL_ORE)));
     public static final Block FABIA_LOG = registerBlock("fabia_log",
             new PillarBlock(FabricBlockSettings.copy(Blocks.OAK_LOG)));
     public static final Block FABIA_WOOD = registerBlock("fabia_wood",

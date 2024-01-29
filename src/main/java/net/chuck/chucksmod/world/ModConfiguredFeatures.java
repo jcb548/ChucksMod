@@ -68,6 +68,13 @@ public class ModConfiguredFeatures {
             registerKey("end_diritonium_ore");
     public static final RegistryKey<ConfiguredFeature<?, ?>> END_ANCIENT_DEBRIS_KEY =
             registerKey("end_ancient_debris");
+    //Fabia
+    public static final RegistryKey<ConfiguredFeature<?, ?>> FABIA_TREE_KEY =
+            registerKey("fabia_tree");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> FABIA_ECLOGITE_KEY = registerKey("fabia_eclogite");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> FABIA_ANCIENT_DEBRIS_KEY =
+            registerKey("fabia_ancient_debris");
+
     // Generation for Diritia Islands
     public static final RegistryKey<ConfiguredFeature<?, ?>> DIRITIA_DIRITONIUM_ORE_KEY =
             registerKey("diritia_diritonium_ore");
@@ -99,9 +106,6 @@ public class ModConfiguredFeatures {
             registerKey("diritia_endstone_vein");
     public static final RegistryKey<ConfiguredFeature<?, ?>> DIRITIA_TREE_KEY =
             registerKey("diritia_tree");
-    //Fabia
-    public static final RegistryKey<ConfiguredFeature<?, ?>> FABIA_TREE_KEY =
-            registerKey("fabia_tree");
 
 
     public static RegistryKey<ConfiguredFeature<?, ?>> registerKey(String name) {
@@ -113,6 +117,7 @@ public class ModConfiguredFeatures {
         RuleTest deepslateReplaceables = new TagMatchRuleTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES);
         RuleTest netherrackReplaceables = new TagMatchRuleTest(BlockTags.BASE_STONE_NETHER);
         RuleTest endstoneReplaceables = new BlockMatchRuleTest(Blocks.END_STONE);
+        RuleTest serpentiniteReplaceables = new BlockMatchRuleTest(ModBlocks.SERPENTINITE);
 
         // Extra gen of overworld ores
         List<OreFeatureConfig.Target> newCopperOres =
@@ -185,6 +190,13 @@ public class ModConfiguredFeatures {
                         ModBlocks.END_STONE_DIRITONIUM_ORE.getDefaultState()));
         List<OreFeatureConfig.Target> endAncientDebris =
                 List.of(OreFeatureConfig.createTarget(endstoneReplaceables,
+                        Blocks.ANCIENT_DEBRIS.getDefaultState()));
+        //Fabia Ores
+        List<OreFeatureConfig.Target> fabiaEclogiteVein =
+                List.of(OreFeatureConfig.createTarget(serpentiniteReplaceables,
+                        ModBlocks.ECLOGITE.getDefaultState()));
+        List<OreFeatureConfig.Target> fabiaAncientDebris =
+                List.of(OreFeatureConfig.createTarget(serpentiniteReplaceables,
                         Blocks.ANCIENT_DEBRIS.getDefaultState()));
         //Diritia Ores
         List<OreFeatureConfig.Target> diritiaDiritoniumOre =
@@ -271,6 +283,10 @@ public class ModConfiguredFeatures {
         register(context, END_TITANIUM_ORE_KEY, Feature.ORE, new OreFeatureConfig(endTitaniumOre, 12));
         register(context, END_DIRITONIUM_ORE_KEY, Feature.ORE, new OreFeatureConfig(endDiritoniumOre, 6));
         register(context, END_ANCIENT_DEBRIS_KEY, Feature.ORE, new OreFeatureConfig(endAncientDebris, 6));
+        // Register Fabia Ores
+        register(context, FABIA_ANCIENT_DEBRIS_KEY, Feature.ORE, new OreFeatureConfig(fabiaAncientDebris, 7));
+        register(context, FABIA_ECLOGITE_KEY, Feature.ORE, new OreFeatureConfig(fabiaEclogiteVein, 64));
+
         // Register Diritia Ores
         register(context, DIRITIA_DIRITONIUM_ORE_KEY, Feature.ORE, new OreFeatureConfig(diritiaDiritoniumOre, 12));
         register(context, DIRITIA_TITANIUM_ORE_KEY, Feature.ORE, new OreFeatureConfig(diritiaTitaniumOre, 8));

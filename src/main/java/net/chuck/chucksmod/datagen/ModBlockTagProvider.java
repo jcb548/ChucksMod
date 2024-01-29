@@ -30,7 +30,6 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         getOrCreateTagBuilder(TagKey.of(RegistryKeys.BLOCK,
                 new Identifier("fabric", "needs_tool_level_4")))
                 .addTag(ModBlockTags.DIRITONIUM_ORES)
-                .add(ModBlocks.DIRITONIUM_BLOCK)
                 .add(ModBlocks.RAW_DIRITONIUM_BLOCK)
                 .add(ModBlocks.DIRITONIUM_BLOCK);
 
@@ -49,6 +48,10 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
         getOrCreateTagBuilder(BlockTags.NEEDS_IRON_TOOL)
                 .add(ModBlocks.GOLD_BARS)
+                .add(ModBlocks.SERPENTINITE_GOLD_ORE)
+                .add(ModBlocks.SERPENTINITE_DIAMOND_ORE)
+                .add(ModBlocks.SERPENTINITE_EMERALD_ORE)
+                .add(ModBlocks.SERPENTINITE_REDSTONE_ORE)
 
                 .add(ModBlocks.TITANIUM_BLOCK)
                 .add(ModBlocks.RAW_TITANIUM_BLOCK)
@@ -57,6 +60,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.NETHER_TITANIUM_ORE)
                 .add(ModBlocks.END_STONE_TITANIUM_ORE)
                 .add(ModBlocks.TITANIUM_BARS)
+                .add(ModBlocks.SERPENTINITE_TITANIUM_ORE)
 
                 .add(ModBlocks.TITANIUM_MACHINE_BASE)
                 .add(ModBlocks.TITANIUM_HEAT_GENERATOR)
@@ -97,6 +101,10 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.TIN_BLOCK)
                 .add(ModBlocks.TIN_ORE)
                 .add(ModBlocks.DEEPSLATE_TIN_ORE)
+                .add(ModBlocks.SERPENTINITE_TIN_ORE)
+                .add(ModBlocks.SERPENTINITE_IRON_ORE)
+                .add(ModBlocks.SERPENTINITE_COPPER_ORE)
+                .add(ModBlocks.SERPENTINITE_LAPIS_ORE)
                 .add(ModBlocks.TIN_BARS)
                 .addTag(ModBlockTags.BRONZE_BLOCKS)
                 .add(ModBlocks.BRONZE_BARS)
@@ -187,6 +195,14 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.POLISHED_SERPENTINITE_STAIRS)
                 .add(ModBlocks.POLISHED_SERPENTINITE_SLAB)
                 .add(ModBlocks.POLISHED_SERPENTINITE_WALL)
+                .add(ModBlocks.SERPENTINITE_COAL_ORE)
+                .add(ModBlocks.SERPENTINITE_COPPER_ORE)
+                .add(ModBlocks.SERPENTINITE_DIAMOND_ORE)
+                .add(ModBlocks.SERPENTINITE_EMERALD_ORE)
+                .add(ModBlocks.SERPENTINITE_GOLD_ORE)
+                .add(ModBlocks.SERPENTINITE_IRON_ORE)
+                .add(ModBlocks.SERPENTINITE_LAPIS_ORE)
+                .add(ModBlocks.SERPENTINITE_REDSTONE_ORE)
 
                 .addTag(ModBlockTags.FABIUM_ORES)
                 .add(ModBlocks.RAW_FABIUM_BLOCK)
@@ -330,7 +346,8 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
         getOrCreateTagBuilder(ModBlockTags.TIN_ORES)
                 .add(ModBlocks.TIN_ORE)
-                .add(ModBlocks.DEEPSLATE_TIN_ORE);
+                .add(ModBlocks.DEEPSLATE_TIN_ORE)
+                .add(ModBlocks.SERPENTINITE_TIN_ORE);
 
         getOrCreateTagBuilder(ModBlockTags.TIN_BLOCKS)
                 .add(ModBlocks.TIN_BLOCK);
@@ -345,7 +362,8 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.TITANIUM_ORE)
                 .add(ModBlocks.DEEPSLATE_TITANIUM_ORE)
                 .add(ModBlocks.NETHER_TITANIUM_ORE)
-                .add(ModBlocks.END_STONE_TITANIUM_ORE);
+                .add(ModBlocks.END_STONE_TITANIUM_ORE)
+                .add(ModBlocks.SERPENTINITE_TITANIUM_ORE);
 
         getOrCreateTagBuilder(ModBlockTags.TITANIUM_BLOCKS)
                 .add(ModBlocks.TITANIUM_BLOCK);
@@ -372,11 +390,13 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         getOrCreateTagBuilder(ModBlockTags.FABIUM_ORES)
                 .add(ModBlocks.NETHER_FABIUM_ORE)
                 .add(ModBlocks.END_STONE_FABIUM_ORE)
-                .add(ModBlocks.DEEPSLATE_FABIUM_ORE);
+                .add(ModBlocks.DEEPSLATE_FABIUM_ORE)
+                .add(ModBlocks.SERPENTINITE_FABIUM_ORE);
 
         getOrCreateTagBuilder(ModBlockTags.DIRITONIUM_ORES)
                 .add(ModBlocks.END_STONE_DIRITONIUM_ORE)
-                .add(ModBlocks.DEEPSLATE_DIRITONIUM_ORE);
+                .add(ModBlocks.DEEPSLATE_DIRITONIUM_ORE)
+                .add(ModBlocks.SERPENTINITE_DIRITONIUM_ORE);
 
         getOrCreateTagBuilder(ModBlockTags.CRUSHERS)
                 .add(ModBlocks.CRUSHER)
@@ -384,7 +404,10 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
         getOrCreateTagBuilder(ModBlockTags.GENERATORS)
                 .add(ModBlocks.IRON_HEAT_GENERATOR)
-                .add(ModBlocks.TITANIUM_HEAT_GENERATOR);
+                .add(ModBlocks.TITANIUM_HEAT_GENERATOR)
+                .add(ModBlocks.IRON_STEAM_GENERATOR)
+                .add(ModBlocks.TITANIUM_STEAM_GENERATOR)
+                .add(ModBlocks.TITANIUM_LAVA_GENERATOR);
 
         getOrCreateTagBuilder(ModBlockTags.MACHINE_BASES)
                 .add(ModBlocks.IRON_MACHINE_BASE)
