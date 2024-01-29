@@ -40,10 +40,27 @@ public class ModBiomes{
         GenerationSettings.LookupBackedBuilder biomeBuilder =
                 new GenerationSettings.LookupBackedBuilder(context.getRegistryLookup(RegistryKeys.PLACED_FEATURE),
                         context.getRegistryLookup(RegistryKeys.CONFIGURED_CARVER));
+        //Carvers
         DefaultBiomeFeatures.addLandCarvers(biomeBuilder);
+
         DefaultBiomeFeatures.addFrozenTopLayer(biomeBuilder);
         DefaultBiomeFeatures.addDungeons(biomeBuilder);
         DefaultBiomeFeatures.addAmethystGeodes(biomeBuilder);
+
+        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.FABIA_COAL_ORE_PLACED_KEY);
+        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.FABIA_COPPER_ORE_PLACED_KEY);
+        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.FABIA_DIAMOND_ORE_PLACED_KEY);
+        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.FABIA_DIRITONIUM_ORE_PLACED_KEY);
+        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.FABIA_EMERALD_ORE_PLACED_KEY);
+        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.FABIA_FABIUM_ORE_PLACED_KEY);
+        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.FABIA_GOLD_ORE_PLACED_KEY);
+        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.FABIA_IRON_ORE_PLACED_KEY);
+        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.FABIA_LAPIS_ORE_PLACED_KEY);
+        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.FABIA_REDSTONE_ORE_PLACED_KEY);
+        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.FABIA_TIN_ORE_PLACED_KEY);
+        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.FABIA_TITANIUM_ORE_PLACED_KEY);
+
+        DefaultBiomeFeatures.addDefaultVegetation(biomeBuilder);
         biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.EUCALYPTUS_PLACED_KEY);
         biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.FABIA_TREE_PLACED_KEY);
         biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, VegetationPlacedFeatures.PATCH_GRASS_TAIGA);

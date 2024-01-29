@@ -51,6 +51,33 @@ public class ModPlacedFeatures {
     public static final RegistryKey<PlacedFeature> FABIA_TREE_PLACED_KEY =
             registerKey("fabia_tree_placed");
     // Ores
+    //Fabia
+    public static final RegistryKey<PlacedFeature> FABIA_COAL_ORE_PLACED_KEY =
+            registerKey("fabia_coal_ore_placed");
+    public static final RegistryKey<PlacedFeature> FABIA_COPPER_ORE_PLACED_KEY =
+            registerKey("fabia_copper_ore_placed");
+    public static final RegistryKey<PlacedFeature> FABIA_DIAMOND_ORE_PLACED_KEY =
+            registerKey("fabia_diamond_ore_placed");
+    public static final RegistryKey<PlacedFeature> FABIA_DIRITONIUM_ORE_PLACED_KEY =
+            registerKey("fabia_diritonium_ore_placed");
+    public static final RegistryKey<PlacedFeature> FABIA_EMERALD_ORE_PLACED_KEY =
+            registerKey("fabia_emerald_ore_placed");
+    public static final RegistryKey<PlacedFeature> FABIA_FABIUM_ORE_PLACED_KEY =
+            registerKey("fabia_fabium_ore_placed");
+    public static final RegistryKey<PlacedFeature> FABIA_GOLD_ORE_PLACED_KEY =
+            registerKey("fabia_gold_ore_placed");
+    public static final RegistryKey<PlacedFeature> FABIA_IRON_ORE_PLACED_KEY =
+            registerKey("fabia_iron_ore_placed");
+    public static final RegistryKey<PlacedFeature> FABIA_LAPIS_ORE_PLACED_KEY =
+            registerKey("fabia_lapis_ore_placed");
+    public static final RegistryKey<PlacedFeature> FABIA_REDSTONE_ORE_PLACED_KEY =
+            registerKey("fabia_redstone_ore_placed");
+    public static final RegistryKey<PlacedFeature> FABIA_TIN_ORE_PLACED_KEY =
+            registerKey("fabia_tin_ore_placed");
+    public static final RegistryKey<PlacedFeature> FABIA_TITANIUM_ORE_PLACED_KEY =
+            registerKey("fabia_titanium_ore_placed");
+
+    //Diritia
     public static final RegistryKey<PlacedFeature> DIRITIA_DIRITONIUM_ORE_PLACED_KEY =
             registerKey("diritia_diritonium_ore_placed");
     public static final RegistryKey<PlacedFeature> DIRITIA_COAL_ORE_PLACED_KEY =
@@ -139,6 +166,44 @@ public class ModPlacedFeatures {
         register(context, END_ANCIENT_DEBRIS_PLACED_KEY, configuredFeatureRegistryEntryLookup
                 .getOrThrow(ModConfiguredFeatures.END_ANCIENT_DEBRIS_KEY), ModOrePlacement.modifiersWithCount(16,
                 HeightRangePlacementModifier.uniform(YOffset.fixed( 0), YOffset.fixed(128))));
+        //Register Fabia Ores
+        register(context, FABIA_COAL_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup
+                .getOrThrow(ModConfiguredFeatures.FABIA_COAL_ORE_KEY), ModOrePlacement.modifiersWithCount(36,
+                HeightRangePlacementModifier.uniform(YOffset.fixed(-16), YOffset.fixed(96))));
+        register(context, FABIA_COPPER_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup
+                .getOrThrow(ModConfiguredFeatures.FABIA_COPPER_ORE_KEY), ModOrePlacement.modifiersWithCount(36,
+                HeightRangePlacementModifier.uniform(YOffset.fixed(-16), YOffset.fixed(96))));
+        register(context, FABIA_DIAMOND_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup
+                .getOrThrow(ModConfiguredFeatures.FABIA_DIAMOND_ORE_KEY), ModOrePlacement.modifiersWithCount(6,
+                HeightRangePlacementModifier.uniform(YOffset.fixed(-64), YOffset.fixed(32))));
+        register(context, FABIA_DIRITONIUM_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup
+                .getOrThrow(ModConfiguredFeatures.FABIA_DIRITONIUM_ORE_KEY), ModOrePlacement.modifiersWithCount(6,
+                HeightRangePlacementModifier.uniform(YOffset.fixed(-64), YOffset.fixed(-16))));
+        register(context, FABIA_EMERALD_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup
+                .getOrThrow(ModConfiguredFeatures.FABIA_EMERALD_ORE_KEY), ModOrePlacement.modifiersWithCount(4,
+                HeightRangePlacementModifier.uniform(YOffset.fixed(-64), YOffset.fixed(-16))));
+        register(context, FABIA_FABIUM_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup
+                .getOrThrow(ModConfiguredFeatures.FABIA_FABIUM_ORE_KEY), ModOrePlacement.modifiersWithCount(18,
+                HeightRangePlacementModifier.uniform(YOffset.fixed(-64), YOffset.fixed(16))));
+        register(context, FABIA_GOLD_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup
+                .getOrThrow(ModConfiguredFeatures.FABIA_GOLD_ORE_KEY), ModOrePlacement.modifiersWithCount(9,
+                HeightRangePlacementModifier.uniform(YOffset.fixed(-64), YOffset.fixed(32))));
+        register(context, FABIA_IRON_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup
+                .getOrThrow(ModConfiguredFeatures.FABIA_IRON_ORE_KEY), ModOrePlacement.modifiersWithCount(24,
+                HeightRangePlacementModifier.uniform(YOffset.fixed(-64), YOffset.fixed(96))));
+        register(context, FABIA_LAPIS_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup
+                .getOrThrow(ModConfiguredFeatures.FABIA_LAPIS_ORE_KEY), ModOrePlacement.modifiersWithCount(16,
+                HeightRangePlacementModifier.uniform(YOffset.fixed(-64), YOffset.fixed(32))));
+        register(context, FABIA_REDSTONE_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup
+                .getOrThrow(ModConfiguredFeatures.FABIA_REDSTONE_ORE_KEY), ModOrePlacement.modifiersWithCount(36,
+                HeightRangePlacementModifier.uniform(YOffset.fixed(-64), YOffset.fixed(96))));
+        register(context, FABIA_TIN_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup
+                .getOrThrow(ModConfiguredFeatures.FABIA_TIN_ORE_KEY), ModOrePlacement.modifiersWithCount(10,
+                HeightRangePlacementModifier.uniform(YOffset.fixed(0), YOffset.fixed(96))));
+        register(context, FABIA_TITANIUM_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup
+                .getOrThrow(ModConfiguredFeatures.FABIA_TITANIUM_ORE_KEY), ModOrePlacement.modifiersWithCount(10,
+                HeightRangePlacementModifier.uniform(YOffset.fixed(-64), YOffset.fixed(16))));
+
         //Register Diritia ores
         register(context, DIRITIA_DIRITONIUM_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup
                 .getOrThrow(ModConfiguredFeatures.DIRITIA_DIRITONIUM_ORE_KEY), ModOrePlacement.modifiersWithCount(20,

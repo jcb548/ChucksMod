@@ -71,9 +71,34 @@ public class ModConfiguredFeatures {
     //Fabia
     public static final RegistryKey<ConfiguredFeature<?, ?>> FABIA_TREE_KEY =
             registerKey("fabia_tree");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> FABIA_ECLOGITE_KEY = registerKey("fabia_eclogite");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> FABIA_ECLOGITE_KEY =
+            registerKey("fabia_eclogite");
     public static final RegistryKey<ConfiguredFeature<?, ?>> FABIA_ANCIENT_DEBRIS_KEY =
             registerKey("fabia_ancient_debris");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> FABIA_COAL_ORE_KEY =
+            registerKey("fabia_coal_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> FABIA_COPPER_ORE_KEY =
+            registerKey("fabia_copper_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> FABIA_DIAMOND_ORE_KEY =
+            registerKey("fabia_diamond_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> FABIA_DIRITONIUM_ORE_KEY =
+            registerKey("fabia_diritonium_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> FABIA_EMERALD_ORE_KEY =
+            registerKey("fabia_emerald_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> FABIA_FABIUM_ORE_KEY =
+            registerKey("fabia_fabium_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> FABIA_GOLD_ORE_KEY =
+            registerKey("fabia_gold_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> FABIA_IRON_ORE_KEY =
+            registerKey("fabia_iron_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> FABIA_LAPIS_ORE_KEY =
+            registerKey("fabia_lapis_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> FABIA_REDSTONE_ORE_KEY =
+            registerKey("fabia_redstone_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> FABIA_TIN_ORE_KEY =
+            registerKey("fabia_tin_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> FABIA_TITANIUM_ORE_KEY =
+            registerKey("fabia_titanium_ore");
 
     // Generation for Diritia Islands
     public static final RegistryKey<ConfiguredFeature<?, ?>> DIRITIA_DIRITONIUM_ORE_KEY =
@@ -198,6 +223,42 @@ public class ModConfiguredFeatures {
         List<OreFeatureConfig.Target> fabiaAncientDebris =
                 List.of(OreFeatureConfig.createTarget(serpentiniteReplaceables,
                         Blocks.ANCIENT_DEBRIS.getDefaultState()));
+        List<OreFeatureConfig.Target> fabiaCoalOre =
+                List.of(OreFeatureConfig.createTarget(serpentiniteReplaceables,
+                        ModBlocks.SERPENTINITE_COAL_ORE.getDefaultState()));
+        List<OreFeatureConfig.Target> fabiaCopperOre =
+                List.of(OreFeatureConfig.createTarget(serpentiniteReplaceables,
+                        ModBlocks.SERPENTINITE_COPPER_ORE.getDefaultState()));
+        List<OreFeatureConfig.Target> fabiaDiamondOre =
+                List.of(OreFeatureConfig.createTarget(serpentiniteReplaceables,
+                        ModBlocks.SERPENTINITE_DIAMOND_ORE.getDefaultState()));
+        List<OreFeatureConfig.Target> fabiaDiritoniumOre =
+                List.of(OreFeatureConfig.createTarget(serpentiniteReplaceables,
+                        ModBlocks.SERPENTINITE_DIRITONIUM_ORE.getDefaultState()));
+        List<OreFeatureConfig.Target> fabiaEmeraldOre =
+                List.of(OreFeatureConfig.createTarget(serpentiniteReplaceables,
+                        ModBlocks.SERPENTINITE_EMERALD_ORE.getDefaultState()));
+        List<OreFeatureConfig.Target> fabiaFabiumOre =
+                List.of(OreFeatureConfig.createTarget(serpentiniteReplaceables,
+                        ModBlocks.SERPENTINITE_FABIUM_ORE.getDefaultState()));
+        List<OreFeatureConfig.Target> fabiaGoldOre =
+                List.of(OreFeatureConfig.createTarget(serpentiniteReplaceables,
+                        ModBlocks.SERPENTINITE_GOLD_ORE.getDefaultState()));
+        List<OreFeatureConfig.Target> fabiaIronOre =
+                List.of(OreFeatureConfig.createTarget(serpentiniteReplaceables,
+                        ModBlocks.SERPENTINITE_IRON_ORE.getDefaultState()));
+        List<OreFeatureConfig.Target> fabiaLapisOre =
+                List.of(OreFeatureConfig.createTarget(serpentiniteReplaceables,
+                        ModBlocks.SERPENTINITE_LAPIS_ORE.getDefaultState()));
+        List<OreFeatureConfig.Target> fabiaRedstoneOre =
+                List.of(OreFeatureConfig.createTarget(serpentiniteReplaceables,
+                        ModBlocks.SERPENTINITE_REDSTONE_ORE.getDefaultState()));
+        List<OreFeatureConfig.Target> fabiaTinOre =
+                List.of(OreFeatureConfig.createTarget(serpentiniteReplaceables,
+                        ModBlocks.SERPENTINITE_TIN_ORE.getDefaultState()));
+        List<OreFeatureConfig.Target> fabiaTitaniumOre =
+                List.of(OreFeatureConfig.createTarget(serpentiniteReplaceables,
+                        ModBlocks.SERPENTINITE_TITANIUM_ORE.getDefaultState()));
         //Diritia Ores
         List<OreFeatureConfig.Target> diritiaDiritoniumOre =
                 List.of(OreFeatureConfig.createTarget(deepslateReplaceables,
@@ -286,7 +347,18 @@ public class ModConfiguredFeatures {
         // Register Fabia Ores
         register(context, FABIA_ANCIENT_DEBRIS_KEY, Feature.ORE, new OreFeatureConfig(fabiaAncientDebris, 7));
         register(context, FABIA_ECLOGITE_KEY, Feature.ORE, new OreFeatureConfig(fabiaEclogiteVein, 64));
-
+        register(context, FABIA_COAL_ORE_KEY, Feature.ORE, new OreFeatureConfig(fabiaCoalOre, 17));
+        register(context, FABIA_COPPER_ORE_KEY, Feature.ORE, new OreFeatureConfig(fabiaCopperOre, 14));
+        register(context, FABIA_DIAMOND_ORE_KEY, Feature.ORE, new OreFeatureConfig(fabiaDiamondOre, 9));
+        register(context, FABIA_DIRITONIUM_ORE_KEY, Feature.ORE, new OreFeatureConfig(fabiaDiritoniumOre, 6));
+        register(context, FABIA_EMERALD_ORE_KEY, Feature.ORE, new OreFeatureConfig(fabiaEmeraldOre, 4));
+        register(context, FABIA_FABIUM_ORE_KEY, Feature.ORE, new OreFeatureConfig(fabiaFabiumOre, 11));
+        register(context, FABIA_GOLD_ORE_KEY, Feature.ORE, new OreFeatureConfig(fabiaGoldOre, 10));
+        register(context, FABIA_IRON_ORE_KEY, Feature.ORE, new OreFeatureConfig(fabiaIronOre, 10));
+        register(context, FABIA_LAPIS_ORE_KEY, Feature.ORE, new OreFeatureConfig(fabiaLapisOre, 8));
+        register(context, FABIA_REDSTONE_ORE_KEY, Feature.ORE, new OreFeatureConfig(fabiaRedstoneOre, 12));
+        register(context, FABIA_TIN_ORE_KEY, Feature.ORE, new OreFeatureConfig(fabiaTinOre, 6));
+        register(context, FABIA_TITANIUM_ORE_KEY, Feature.ORE, new OreFeatureConfig(fabiaTitaniumOre, 9));
         // Register Diritia Ores
         register(context, DIRITIA_DIRITONIUM_ORE_KEY, Feature.ORE, new OreFeatureConfig(diritiaDiritoniumOre, 12));
         register(context, DIRITIA_TITANIUM_ORE_KEY, Feature.ORE, new OreFeatureConfig(diritiaTitaniumOre, 8));
