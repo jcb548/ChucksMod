@@ -2,6 +2,7 @@ package net.chuck.chucksmod.world;
 
 import net.chuck.chucksmod.ChucksMod;
 import net.chuck.chucksmod.block.ModBlocks;
+import net.chuck.chucksmod.world.tree.custom.FabiaFoliagePlacer;
 import net.chuck.chucksmod.world.tree.custom.FabiaTrunkPlacer;
 import net.minecraft.block.Blocks;
 import net.minecraft.registry.Registerable;
@@ -248,7 +249,7 @@ public class ModConfiguredFeatures {
                 BlockStateProvider.of(ModBlocks.FABIA_LOG),
                 new FabiaTrunkPlacer(6, 1, 2),
                 BlockStateProvider.of(ModBlocks.FABIA_LEAVES),
-                new BlobFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(1), 2),
+                new FabiaFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(1), 2),
                 new TwoLayersFeatureSize(1,0,2)).build());
 
         // Register Overworld Ores

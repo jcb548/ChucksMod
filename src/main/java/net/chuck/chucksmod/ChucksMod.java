@@ -18,6 +18,7 @@ import net.chuck.chucksmod.util.ModCustomTrades;
 import net.chuck.chucksmod.util.ModLootTableModifiers;
 import net.chuck.chucksmod.util.ModRegistries;
 import net.chuck.chucksmod.world.gen.ModWorldGeneration;
+import net.chuck.chucksmod.world.tree.ModFoliagePlacerTypes;
 import net.chuck.chucksmod.world.tree.ModTrunkPlacerTypes;
 import net.fabricmc.api.ModInitializer;
 
@@ -61,6 +62,7 @@ public class ChucksMod implements ModInitializer {
 
 		ModFluids.register();
 		ModTrunkPlacerTypes.register();
+		ModFoliagePlacerTypes.register();
 
 		//Custom portals
 		CustomPortalBuilder.beginPortal().frameBlock(ModBlocks.FABIUM_PORTAL_BLOCK)

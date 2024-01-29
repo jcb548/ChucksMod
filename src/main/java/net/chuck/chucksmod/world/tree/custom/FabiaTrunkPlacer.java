@@ -44,33 +44,41 @@ public class FabiaTrunkPlacer extends TrunkPlacer {
             getAndSetState(world, replacer, random, startPos.up(i), config);
             if(i >= 3 && i%2 == 0 && random.nextBoolean()){
                 if(random.nextFloat()>0.25f){
-                    for(int x = 1; x<= 4;x++){
+                    int x=1;
+                    int y = random.nextBetween(3, 5);
+                    for(; x<= y;x++){
                         replacer.accept(startPos.up(i).offset(Direction.NORTH, x),
                                 (BlockState) Function.identity().apply(config.trunkProvider.get(random,
                                         startPos.up(i).offset(Direction.NORTH, x)).with(PillarBlock.AXIS, Direction.Axis.Z)));
-                        if(x==4) nodes.add(new FoliagePlacer.TreeNode(startPos.up(i).offset(Direction.NORTH, x), 0, false));
                     }
+                    nodes.add(new FoliagePlacer.TreeNode(startPos.up(i).offset(Direction.NORTH, x), 0, false));
                 }if(random.nextFloat()>0.25f){
-                    for(int x = 1; x<= 4;x++){
+                    int x=1;
+                    int y = random.nextBetween(3, 5);
+                    for(; x<= y;x++){
                         replacer.accept(startPos.up(i).offset(Direction.SOUTH, x),
                                 (BlockState) Function.identity().apply(config.trunkProvider.get(random,
                                         startPos.up(i).offset(Direction.SOUTH, x)).with(PillarBlock.AXIS, Direction.Axis.Z)));
-                        if(x==4) nodes.add(new FoliagePlacer.TreeNode(startPos.up(i).offset(Direction.SOUTH, x), 0, false));
                     }
+                    nodes.add(new FoliagePlacer.TreeNode(startPos.up(i).offset(Direction.SOUTH, x), 0, false));
                 }if(random.nextFloat()>0.25f){
-                    for(int x = 1; x<= 4;x++){
+                    int x=1;
+                    int y = random.nextBetween(3, 5);
+                    for(; x<= y;x++){
                         replacer.accept(startPos.up(i).offset(Direction.EAST, x),
                                 (BlockState) Function.identity().apply(config.trunkProvider.get(random,
                                         startPos.up(i).offset(Direction.EAST, x)).with(PillarBlock.AXIS, Direction.Axis.X)));
-                        if(x==4) nodes.add(new FoliagePlacer.TreeNode(startPos.up(i).offset(Direction.EAST, x), 0, false));
                     }
+                    nodes.add(new FoliagePlacer.TreeNode(startPos.up(i).offset(Direction.EAST, x), 0, false));
                 }if(random.nextFloat()>0.25f){
-                    for(int x = 1; x<= 4;x++){
+                    int x=1;
+                    int y = random.nextBetween(3, 5);
+                    for(; x<= y;x++){
                         replacer.accept(startPos.up(i).offset(Direction.WEST, x),
                                 (BlockState) Function.identity().apply(config.trunkProvider.get(random,
                                         startPos.up(i).offset(Direction.WEST, x)).with(PillarBlock.AXIS, Direction.Axis.X)));
-                        if(x==4) nodes.add(new FoliagePlacer.TreeNode(startPos.up(i).offset(Direction.WEST, x), 0, false));
                     }
+                    nodes.add(new FoliagePlacer.TreeNode(startPos.up(i).offset(Direction.WEST, x), 0, false));
                 }
             }
         }
