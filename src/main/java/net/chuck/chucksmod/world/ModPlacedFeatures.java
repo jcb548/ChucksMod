@@ -76,6 +76,10 @@ public class ModPlacedFeatures {
             registerKey("fabia_tin_ore_placed");
     public static final RegistryKey<PlacedFeature> FABIA_TITANIUM_ORE_PLACED_KEY =
             registerKey("fabia_titanium_ore_placed");
+    public static final RegistryKey<PlacedFeature> FABIA_ECLOGITE_VEIN_PLACED_KEY =
+            registerKey("fabia_eclogite_vein_placed");
+    public static final RegistryKey<PlacedFeature> FABIA_TUFF_VEIN_PLACED_KEY =
+            registerKey("fabia_tuff_vein_placed");
 
     //Diritia
     public static final RegistryKey<PlacedFeature> DIRITIA_DIRITONIUM_ORE_PLACED_KEY =
@@ -203,6 +207,12 @@ public class ModPlacedFeatures {
         register(context, FABIA_TITANIUM_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup
                 .getOrThrow(ModConfiguredFeatures.FABIA_TITANIUM_ORE_KEY), ModOrePlacement.modifiersWithCount(10,
                 HeightRangePlacementModifier.uniform(YOffset.fixed(-64), YOffset.fixed(16))));
+        register(context, FABIA_ECLOGITE_VEIN_PLACED_KEY, configuredFeatureRegistryEntryLookup
+                .getOrThrow(ModConfiguredFeatures.FABIA_ECLOGITE_VEIN_KEY), ModOrePlacement.modifiersWithCount(6,
+                HeightRangePlacementModifier.uniform(YOffset.fixed(-64), YOffset.fixed(128))));
+        register(context, FABIA_TUFF_VEIN_PLACED_KEY, configuredFeatureRegistryEntryLookup
+                .getOrThrow(ModConfiguredFeatures.FABIA_TUFF_VEIN_KEY), ModOrePlacement.modifiersWithCount(6,
+                HeightRangePlacementModifier.uniform(YOffset.fixed(-64), YOffset.fixed(128))));
 
         //Register Diritia ores
         register(context, DIRITIA_DIRITONIUM_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup

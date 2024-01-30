@@ -60,6 +60,9 @@ public class ModBiomes{
         biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.FABIA_TIN_ORE_PLACED_KEY);
         biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.FABIA_TITANIUM_ORE_PLACED_KEY);
 
+        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.FABIA_ECLOGITE_VEIN_PLACED_KEY);
+        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.FABIA_TUFF_VEIN_PLACED_KEY);
+
         DefaultBiomeFeatures.addDefaultVegetation(biomeBuilder);
         biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.EUCALYPTUS_PLACED_KEY);
         biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.FABIA_TREE_PLACED_KEY);

@@ -304,7 +304,12 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.STRIPPED_FABIA_WOOD);
 
         getOrCreateTagBuilder(BlockTags.WALLS)
-                .add(ModBlocks.SANDSTONE_BRICK_WALL);
+                .add(ModBlocks.SANDSTONE_BRICK_WALL)
+                .add(ModBlocks.ECLOGITE_WALL)
+                .add(ModBlocks.ECLOGITE_BRICK_WALL)
+                .add(ModBlocks.SERPENTINITE_WALL)
+                .add(ModBlocks.SERPENTINITE_BRICK_WALL)
+                .add(ModBlocks.POLISHED_SERPENTINITE_WALL);
 
         getOrCreateTagBuilder(ModBlockTags.HARDENED_GLASS)
                 .add(ModBlocks.HARDENED_GLASS)
