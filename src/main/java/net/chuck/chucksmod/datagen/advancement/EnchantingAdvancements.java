@@ -144,7 +144,7 @@ public class EnchantingAdvancements {
                 .parent(enchantSword)
                 .build(consumer, ChucksMod.MOD_ID + "/enchanting/knockback");
 
-        AdvancementEntry alacrity = Advancement.Builder.create().display(ModItems.FABIUM_SWORD,
+        AdvancementEntry alacrity = Advancement.Builder.create().display(ModItems.TRIAFIUM_SWORD,
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".enchanting.alacrity.title"),
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".enchanting.alacrity.desc"),
                         null, AdvancementFrame.TASK, true, true, false)

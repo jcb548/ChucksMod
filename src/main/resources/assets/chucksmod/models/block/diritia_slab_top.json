@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab_top",
-  "textures": {
-    "bottom": "chucksmod:block/diritia_planks",
-    "side": "chucksmod:block/diritia_planks",
-    "top": "chucksmod:block/diritia_planks"
-  }
-}

@@ -157,44 +157,44 @@ public class ModModelProvider extends FabricModelProvider {
         polished_serpentinite_pool.slab(ModBlocks.POLISHED_SERPENTINITE_SLAB);
         polished_serpentinite_pool.wall(ModBlocks.POLISHED_SERPENTINITE_WALL);
 
-        blockStateModelGenerator.registerSingleton(ModBlocks.FABIA_LEAVES, TexturedModel.LEAVES);
-        BlockStateModelGenerator.LogTexturePool fabia_log_pool =
-                blockStateModelGenerator.registerLog(ModBlocks.FABIA_LOG);
-        fabia_log_pool.log(ModBlocks.FABIA_LOG);
-        fabia_log_pool.wood(ModBlocks.FABIA_WOOD);
-        BlockStateModelGenerator.LogTexturePool stripped_fabia_log_pool =
-                blockStateModelGenerator.registerLog(ModBlocks.STRIPPED_FABIA_LOG);
-        stripped_fabia_log_pool.log(ModBlocks.STRIPPED_FABIA_LOG);
-        stripped_fabia_log_pool.wood(ModBlocks.STRIPPED_FABIA_WOOD);
+        blockStateModelGenerator.registerSingleton(ModBlocks.TRIAFIA_LEAVES, TexturedModel.LEAVES);
+        BlockStateModelGenerator.LogTexturePool triafia_log_pool =
+                blockStateModelGenerator.registerLog(ModBlocks.TRIAFIA_LOG);
+        triafia_log_pool.log(ModBlocks.TRIAFIA_LOG);
+        triafia_log_pool.wood(ModBlocks.TRIAFIA_WOOD);
+        BlockStateModelGenerator.LogTexturePool stripped_triafia_log_pool =
+                blockStateModelGenerator.registerLog(ModBlocks.STRIPPED_TRIAFIA_LOG);
+        stripped_triafia_log_pool.log(ModBlocks.STRIPPED_TRIAFIA_LOG);
+        stripped_triafia_log_pool.wood(ModBlocks.STRIPPED_TRIAFIA_WOOD);
 
-        BlockStateModelGenerator.BlockTexturePool fabia_pool =
-                blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.FABIA_PLANKS);
-        fabia_pool.stairs(ModBlocks.FABIA_STAIRS);
-        fabia_pool.slab(ModBlocks.FABIA_SLAB);
-        fabia_pool.fence(ModBlocks.FABIA_FENCE);
-        fabia_pool.fenceGate(ModBlocks.FABIA_FENCE_GATE);
-        fabia_pool.button(ModBlocks.FABIA_BUTTON);
-        fabia_pool.pressurePlate(ModBlocks.FABIA_PRESSURE_PLATE);
-        blockStateModelGenerator.registerDoor(ModBlocks.FABIA_DOOR);
-        blockStateModelGenerator.registerTrapdoor(ModBlocks.FABIA_TRAPDOOR);
-        fabia_pool.family(ModBlocks.FABIA_FAMILY);
-        blockStateModelGenerator.registerTintableCross(ModBlocks.FABIA_SAPLING,
+        BlockStateModelGenerator.BlockTexturePool triafia_pool =
+                blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.TRIAFIA_PLANKS);
+        triafia_pool.stairs(ModBlocks.TRIAFIA_STAIRS);
+        triafia_pool.slab(ModBlocks.TRIAFIA_SLAB);
+        triafia_pool.fence(ModBlocks.TRIAFIA_FENCE);
+        triafia_pool.fenceGate(ModBlocks.TRIAFIA_FENCE_GATE);
+        triafia_pool.button(ModBlocks.TRIAFIA_BUTTON);
+        triafia_pool.pressurePlate(ModBlocks.TRIAFIA_PRESSURE_PLATE);
+        blockStateModelGenerator.registerDoor(ModBlocks.TRIAFIA_DOOR);
+        blockStateModelGenerator.registerTrapdoor(ModBlocks.TRIAFIA_TRAPDOOR);
+        triafia_pool.family(ModBlocks.TRIAFIA_FAMILY);
+        blockStateModelGenerator.registerTintableCross(ModBlocks.TRIAFIA_SAPLING,
                 BlockStateModelGenerator.TintType.NOT_TINTED);
 
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.FABIUM_BLOCK);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RAW_FABIUM_BLOCK);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.NETHER_FABIUM_ORE);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.END_STONE_FABIUM_ORE);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_FABIUM_ORE);
-        ModModelGenerator.registerBars(blockStateModelGenerator, ModBlocks.FABIUM_BARS);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.FABIUM_PORTAL_BLOCK);
-        blockStateModelGenerator.registerCooker(ModBlocks.FABIUM_PORTAL_BUILDER, TexturedModel.ORIENTABLE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.TRIAFIUM_BLOCK);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RAW_TRIAFIUM_BLOCK);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.NETHER_TRIAFIUM_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.END_STONE_TRIAFIUM_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_TRIAFIUM_ORE);
+        ModModelGenerator.registerBars(blockStateModelGenerator, ModBlocks.TRIAFIUM_BARS);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.TRIAFIUM_PORTAL_BLOCK);
+        blockStateModelGenerator.registerCooker(ModBlocks.TRIAFIUM_PORTAL_BUILDER, TexturedModel.ORIENTABLE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SERPENTINITE_COAL_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SERPENTINITE_COPPER_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SERPENTINITE_DIAMOND_ORE);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SERPENTINITE_DIRITONIUM_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SERPENTINITE_PACSARIUM_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SERPENTINITE_EMERALD_ORE);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SERPENTINITE_FABIUM_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SERPENTINITE_TRIAFIUM_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SERPENTINITE_GOLD_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SERPENTINITE_IRON_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SERPENTINITE_LAPIS_ORE);
@@ -202,11 +202,11 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SERPENTINITE_TIN_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SERPENTINITE_TITANIUM_ORE);
 
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DIRITONIUM_BLOCK);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RAW_DIRITONIUM_BLOCK);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.END_STONE_DIRITONIUM_ORE);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_DIRITONIUM_ORE);
-        ModModelGenerator.registerBars(blockStateModelGenerator, ModBlocks.DIRITONIUM_BARS);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.PACSARIUM_BLOCK);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RAW_PACSARIUM_BLOCK);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.END_STONE_PACSARIUM_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_PACSARIUM_ORE);
+        ModModelGenerator.registerBars(blockStateModelGenerator, ModBlocks.PACSARIUM_BARS);
 
         BlockStateModelGenerator.LogTexturePool eucalyptus_log_pool =
                 blockStateModelGenerator.registerLog(ModBlocks.EUCALYPTUS_LOG);
@@ -232,33 +232,33 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerTrapdoor(ModBlocks.EUCALYPTUS_TRAPDOOR);
         eucalyptus_pool.family(ModBlocks.EUCALYPTUS_FAMILY);
 
-        blockStateModelGenerator.registerTintableCross(ModBlocks.DIRITIA_PLANT,
+        blockStateModelGenerator.registerTintableCross(ModBlocks.PACSARIA_PLANT,
                 BlockStateModelGenerator.TintType.TINTED);
-        blockStateModelGenerator.registerTintableCross(ModBlocks.DIRITIA_LIGHT_PLANT,
+        blockStateModelGenerator.registerTintableCross(ModBlocks.PACSARIA_LIGHT_PLANT,
                 BlockStateModelGenerator.TintType.NOT_TINTED);
-        blockStateModelGenerator.registerTintableCross(ModBlocks.DIRITIA_SAPLING,
+        blockStateModelGenerator.registerTintableCross(ModBlocks.PACSARIA_SAPLING,
                 BlockStateModelGenerator.TintType.NOT_TINTED);
 
-        BlockStateModelGenerator.LogTexturePool diritia_log_pool =
-                blockStateModelGenerator.registerLog(ModBlocks.DIRITIA_LOG);
-        diritia_log_pool.log(ModBlocks.DIRITIA_LOG);
-        diritia_log_pool.wood(ModBlocks.DIRITIA_WOOD);
-        BlockStateModelGenerator.LogTexturePool stripped_diritia_log_pool =
-                blockStateModelGenerator.registerLog(ModBlocks.STRIPPED_DIRITIA_LOG);
-        stripped_diritia_log_pool.log(ModBlocks.STRIPPED_DIRITIA_LOG);
-        stripped_diritia_log_pool.wood(ModBlocks.STRIPPED_DIRITIA_WOOD);
+        BlockStateModelGenerator.LogTexturePool pacsaria_log_pool =
+                blockStateModelGenerator.registerLog(ModBlocks.PACSARIA_LOG);
+        pacsaria_log_pool.log(ModBlocks.PACSARIA_LOG);
+        pacsaria_log_pool.wood(ModBlocks.PACSARIA_WOOD);
+        BlockStateModelGenerator.LogTexturePool stripped_pacsaria_log_pool =
+                blockStateModelGenerator.registerLog(ModBlocks.STRIPPED_PACSARIA_LOG);
+        stripped_pacsaria_log_pool.log(ModBlocks.STRIPPED_PACSARIA_LOG);
+        stripped_pacsaria_log_pool.wood(ModBlocks.STRIPPED_PACSARIA_WOOD);
 
-        BlockStateModelGenerator.BlockTexturePool diritia_pool =
-                blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.DIRITIA_PLANKS);
-        diritia_pool.stairs(ModBlocks.DIRITIA_STAIRS);
-        diritia_pool.slab(ModBlocks.DIRITIA_SLAB);
-        diritia_pool.fence(ModBlocks.DIRITIA_FENCE);
-        diritia_pool.fenceGate(ModBlocks.DIRITIA_FENCE_GATE);
-        diritia_pool.button(ModBlocks.DIRITIA_BUTTON);
-        diritia_pool.pressurePlate(ModBlocks.DIRITIA_PRESSURE_PLATE);
-        blockStateModelGenerator.registerDoor(ModBlocks.DIRITIA_DOOR);
-        blockStateModelGenerator.registerTrapdoor(ModBlocks.DIRITIA_TRAPDOOR);
-        diritia_pool.family(ModBlocks.DIRITIA_FAMILY);
+        BlockStateModelGenerator.BlockTexturePool pacsaria_pool =
+                blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.PACSARIA_PLANKS);
+        pacsaria_pool.stairs(ModBlocks.PACSARIA_STAIRS);
+        pacsaria_pool.slab(ModBlocks.PACSARIA_SLAB);
+        pacsaria_pool.fence(ModBlocks.PACSARIA_FENCE);
+        pacsaria_pool.fenceGate(ModBlocks.PACSARIA_FENCE_GATE);
+        pacsaria_pool.button(ModBlocks.PACSARIA_BUTTON);
+        pacsaria_pool.pressurePlate(ModBlocks.PACSARIA_PRESSURE_PLATE);
+        blockStateModelGenerator.registerDoor(ModBlocks.PACSARIA_DOOR);
+        blockStateModelGenerator.registerTrapdoor(ModBlocks.PACSARIA_TRAPDOOR);
+        pacsaria_pool.family(ModBlocks.PACSARIA_FAMILY);
 
         blockStateModelGenerator.registerCooker(ModBlocks.CRUSHER, TexturedModel.ORIENTABLE);
         blockStateModelGenerator.registerCooker(ModBlocks.IRON_POWERED_CRUSHER, TexturedModel.ORIENTABLE);
@@ -353,33 +353,33 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.BLAZE_STAR, Models.GENERATED);
         itemModelGenerator.register(ModItems.SOUL_BLAZE_ROD, Models.GENERATED);
 
-        itemModelGenerator.register(ModItems.RAW_FABIUM, Models.GENERATED);
-        itemModelGenerator.register(ModItems.FABIUM_INGOT, Models.GENERATED);
-        itemModelGenerator.register(ModItems.FABIUM_GEAR, Models.GENERATED);
-        itemModelGenerator.register(ModItems.FABIUM_SWORD, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.FABIUM_PICKAXE, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.FABIUM_AXE, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.FABIUM_SHOVEL, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.FABIUM_HOE, Models.HANDHELD);
-        itemModelGenerator.registerArmor((ArmorItem) ModItems.FABIUM_HELMET);
-        itemModelGenerator.registerArmor((ArmorItem) ModItems.FABIUM_CHESTPLATE);
-        itemModelGenerator.registerArmor((ArmorItem) ModItems.FABIUM_LEGGINGS);
-        itemModelGenerator.registerArmor((ArmorItem) ModItems.FABIUM_BOOTS);
+        itemModelGenerator.register(ModItems.RAW_TRIAFIUM, Models.GENERATED);
+        itemModelGenerator.register(ModItems.TRIAFIUM_INGOT, Models.GENERATED);
+        itemModelGenerator.register(ModItems.TRIAFIUM_GEAR, Models.GENERATED);
+        itemModelGenerator.register(ModItems.TRIAFIUM_SWORD, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.TRIAFIUM_PICKAXE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.TRIAFIUM_AXE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.TRIAFIUM_SHOVEL, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.TRIAFIUM_HOE, Models.HANDHELD);
+        itemModelGenerator.registerArmor((ArmorItem) ModItems.TRIAFIUM_HELMET);
+        itemModelGenerator.registerArmor((ArmorItem) ModItems.TRIAFIUM_CHESTPLATE);
+        itemModelGenerator.registerArmor((ArmorItem) ModItems.TRIAFIUM_LEGGINGS);
+        itemModelGenerator.registerArmor((ArmorItem) ModItems.TRIAFIUM_BOOTS);
 
-        itemModelGenerator.register(ModItems.RAW_DIRITONIUM, Models.GENERATED);
-        itemModelGenerator.register(ModItems.DIRITONIUM_INGOT, Models.GENERATED);
-        itemModelGenerator.register(ModItems.DIRITONIUM_GEAR, Models.GENERATED);
-        itemModelGenerator.register(ModItems.DIRITONIUM_SWORD, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.DIRITONIUM_PICKAXE, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.DIRITONIUM_AXE, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.DIRITONIUM_SHOVEL, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.DIRITONIUM_HOE, Models.HANDHELD);
-        itemModelGenerator.registerArmor((ArmorItem) ModItems.DIRITONIUM_HELMET);
-        itemModelGenerator.registerArmor((ArmorItem) ModItems.DIRITONIUM_CHESTPLATE);
-        itemModelGenerator.registerArmor((ArmorItem) ModItems.DIRITONIUM_LEGGINGS);
-        itemModelGenerator.registerArmor((ArmorItem) ModItems.DIRITONIUM_BOOTS);
-        itemModelGenerator.register(ModItems.DIRITIA_CRYSTAL, Models.GENERATED);
-        itemModelGenerator.register(ModItems.DIRITIA_CRYSTAL_SHARD, Models.GENERATED);
+        itemModelGenerator.register(ModItems.RAW_PACSARIUM, Models.GENERATED);
+        itemModelGenerator.register(ModItems.PACSARIUM_INGOT, Models.GENERATED);
+        itemModelGenerator.register(ModItems.PACSARIUM_GEAR, Models.GENERATED);
+        itemModelGenerator.register(ModItems.PACSARIUM_SWORD, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.PACSARIUM_PICKAXE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.PACSARIUM_AXE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.PACSARIUM_SHOVEL, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.PACSARIUM_HOE, Models.HANDHELD);
+        itemModelGenerator.registerArmor((ArmorItem) ModItems.PACSARIUM_HELMET);
+        itemModelGenerator.registerArmor((ArmorItem) ModItems.PACSARIUM_CHESTPLATE);
+        itemModelGenerator.registerArmor((ArmorItem) ModItems.PACSARIUM_LEGGINGS);
+        itemModelGenerator.registerArmor((ArmorItem) ModItems.PACSARIUM_BOOTS);
+        itemModelGenerator.register(ModItems.PACSARIA_CRYSTAL, Models.GENERATED);
+        itemModelGenerator.register(ModItems.PACSARIA_CRYSTAL_SHARD, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.HAMBURGER, Models.GENERATED);
         itemModelGenerator.register(ModItems.TOMATO, Models.GENERATED);
@@ -417,19 +417,19 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.IRON_BAG, Models.GENERATED);
         itemModelGenerator.register(ModItems.BRONZE_BAG, Models.GENERATED);
         itemModelGenerator.register(ModItems.NETHERITE_BAG, Models.GENERATED);
-        itemModelGenerator.register(ModItems.FABIUM_BAG, Models.GENERATED);
+        itemModelGenerator.register(ModItems.TRIAFIUM_BAG, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.HANGING_EUCALYPTUS_SIGN, Models.GENERATED);
         itemModelGenerator.register(ModItems.EUCALYPTUS_BOAT, Models.GENERATED);
         itemModelGenerator.register(ModItems.EUCALYPTUS_CHEST_BOAT, Models.GENERATED);
 
-        itemModelGenerator.register(ModItems.HANGING_DIRITIA_SIGN, Models.GENERATED);
-        itemModelGenerator.register(ModItems.DIRITIA_BOAT, Models.GENERATED);
-        itemModelGenerator.register(ModItems.DIRITIA_CHEST_BOAT, Models.GENERATED);
+        itemModelGenerator.register(ModItems.HANGING_PACSARIA_SIGN, Models.GENERATED);
+        itemModelGenerator.register(ModItems.PACSARIA_BOAT, Models.GENERATED);
+        itemModelGenerator.register(ModItems.PACSARIA_CHEST_BOAT, Models.GENERATED);
 
-        itemModelGenerator.register(ModItems.HANGING_FABIA_SIGN, Models.GENERATED);
-        itemModelGenerator.register(ModItems.FABIA_BOAT, Models.GENERATED);
-        itemModelGenerator.register(ModItems.FABIA_CHEST_BOAT, Models.GENERATED);
+        itemModelGenerator.register(ModItems.HANGING_TRIAFIA_SIGN, Models.GENERATED);
+        itemModelGenerator.register(ModItems.TRIAFIA_BOAT, Models.GENERATED);
+        itemModelGenerator.register(ModItems.TRIAFIA_CHEST_BOAT, Models.GENERATED);
 
         itemModelGenerator.register(ModFluids.LIQUID_XP_BUCKET, Models.GENERATED);
     }

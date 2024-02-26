@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "D": {
+      "item": "chucksmod:pacsarium_ingot"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "D",
+    "S",
+    "S"
+  ],
+  "result": {
+    "item": "chucksmod:pacsarium_shovel"
+  },
+  "show_notification": true
+}

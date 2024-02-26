@@ -2,8 +2,8 @@ package net.chuck.chucksmod.world;
 
 import net.chuck.chucksmod.ChucksMod;
 import net.chuck.chucksmod.block.ModBlocks;
-import net.chuck.chucksmod.world.tree.custom.FabiaFoliagePlacer;
-import net.chuck.chucksmod.world.tree.custom.FabiaTrunkPlacer;
+import net.chuck.chucksmod.world.tree.custom.TriafiaFoliagePlacer;
+import net.chuck.chucksmod.world.tree.custom.TriafiaTrunkPlacer;
 import net.minecraft.block.Blocks;
 import net.minecraft.registry.Registerable;
 import net.minecraft.registry.RegistryKey;
@@ -55,84 +55,84 @@ public class ModConfiguredFeatures {
             registerKey("new_quartz_ore");
     public static final RegistryKey<ConfiguredFeature <?, ?>> NEW_ANCIENT_DEBRIS_KEY =
             registerKey("new_ancient_debris");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> NETHER_FABIUM_ORE_KEY =
-            registerKey("nether_fabium_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> NETHER_TRIAFIUM_ORE_KEY =
+            registerKey("nether_triafium_ore");
     public static final RegistryKey<ConfiguredFeature<?, ?>> NETHER_TITANIUM_ORE_KEY =
             registerKey("nether_titanium_ore");
     // End
-    public static final RegistryKey<ConfiguredFeature<?, ?>> END_FABIUM_ORE_KEY =
-            registerKey("end_fabium_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> END_TRIAFIUM_ORE_KEY =
+            registerKey("end_triafium_ore");
     public static final RegistryKey<ConfiguredFeature<?, ?>> END_TITANIUM_ORE_KEY =
             registerKey("end_titanium_ore");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> END_DIRITONIUM_ORE_KEY =
-            registerKey("end_diritonium_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> END_PACSARIUM_ORE_KEY =
+            registerKey("end_pacsarium_ore");
     public static final RegistryKey<ConfiguredFeature<?, ?>> END_ANCIENT_DEBRIS_KEY =
             registerKey("end_ancient_debris");
-    //Fabia
-    public static final RegistryKey<ConfiguredFeature<?, ?>> FABIA_TREE_KEY =
-            registerKey("fabia_tree");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> FABIA_ANCIENT_DEBRIS_KEY =
-            registerKey("fabia_ancient_debris");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> FABIA_COAL_ORE_KEY =
-            registerKey("fabia_coal_ore");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> FABIA_COPPER_ORE_KEY =
-            registerKey("fabia_copper_ore");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> FABIA_DIAMOND_ORE_KEY =
-            registerKey("fabia_diamond_ore");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> FABIA_DIRITONIUM_ORE_KEY =
-            registerKey("fabia_diritonium_ore");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> FABIA_EMERALD_ORE_KEY =
-            registerKey("fabia_emerald_ore");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> FABIA_FABIUM_ORE_KEY =
-            registerKey("fabia_fabium_ore");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> FABIA_GOLD_ORE_KEY =
-            registerKey("fabia_gold_ore");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> FABIA_IRON_ORE_KEY =
-            registerKey("fabia_iron_ore");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> FABIA_LAPIS_ORE_KEY =
-            registerKey("fabia_lapis_ore");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> FABIA_REDSTONE_ORE_KEY =
-            registerKey("fabia_redstone_ore");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> FABIA_TIN_ORE_KEY =
-            registerKey("fabia_tin_ore");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> FABIA_TITANIUM_ORE_KEY =
-            registerKey("fabia_titanium_ore");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> FABIA_ECLOGITE_VEIN_KEY =
-            registerKey("fabia_eclogite_vein");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> FABIA_TUFF_VEIN_KEY =
-            registerKey("fabia_tuff_vein");
+    //Triafia
+    public static final RegistryKey<ConfiguredFeature<?, ?>> TRIAFIA_TREE_KEY =
+            registerKey("triafia_tree");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> TRIAFIA_ANCIENT_DEBRIS_KEY =
+            registerKey("triafia_ancient_debris");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> TRIAFIA_COAL_ORE_KEY =
+            registerKey("triafia_coal_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> TRIAFIA_COPPER_ORE_KEY =
+            registerKey("triafia_copper_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> TRIAFIA_DIAMOND_ORE_KEY =
+            registerKey("triafia_diamond_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> TRIAFIA_PACSARIUM_ORE_KEY =
+            registerKey("triafia_pacsarium_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> TRIAFIA_EMERALD_ORE_KEY =
+            registerKey("triafia_emerald_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> TRIAFIA_TRIAFIUM_ORE_KEY =
+            registerKey("triafia_triafium_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> TRIAFIA_GOLD_ORE_KEY =
+            registerKey("triafia_gold_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> TRIAFIA_IRON_ORE_KEY =
+            registerKey("triafia_iron_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> TRIAFIA_LAPIS_ORE_KEY =
+            registerKey("triafia_lapis_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> TRIAFIA_REDSTONE_ORE_KEY =
+            registerKey("triafia_redstone_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> TRIAFIA_TIN_ORE_KEY =
+            registerKey("triafia_tin_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> TRIAFIA_TITANIUM_ORE_KEY =
+            registerKey("triafia_titanium_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> TRIAFIA_ECLOGITE_VEIN_KEY =
+            registerKey("triafia_eclogite_vein");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> TRIAFIA_TUFF_VEIN_KEY =
+            registerKey("triafia_tuff_vein");
 
-    // Generation for Diritia Islands
-    public static final RegistryKey<ConfiguredFeature<?, ?>> DIRITIA_DIRITONIUM_ORE_KEY =
-            registerKey("diritia_diritonium_ore");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> DIRITIA_FABIUM_ORE_KEY =
-            registerKey("diritia_fabium_ore");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> DIRITIA_TITANIUM_ORE_KEY =
-            registerKey("diritia_titanium_ore");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> DIRITIA_ANCIENT_DEBRIS_KEY =
-            registerKey("diritia_ancient_debris");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> DIRITIA_COAL_ORE_KEY =
-            registerKey("diritia_coal_ore");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> DIRITIA_IRON_ORE_KEY =
-            registerKey("diritia_iron_ore");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> DIRITIA_GOLD_ORE_KEY =
-            registerKey("diritia_gold_ore");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> DIRITIA_DIAMOND_ORE_KEY =
-            registerKey("diritia_diamond_ore");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> DIRITIA_REDSTONE_ORE_KEY =
-            registerKey("diritia_redstone_ore");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> DIRITIA_LAPIS_ORE_KEY =
-            registerKey("diritia_lapis_ore");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> DIRITIA_COPPER_ORE_KEY =
-            registerKey("diritia_copper_ore");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> DIRITIA_CALCITE_VEIN_KEY =
-            registerKey("diritia_calcite_vein");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> DIRITIA_BLACKSTONE_VEIN_KEY =
-            registerKey("diritia_blackstone_vein");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> DIRITIA_ENDSTONE_VEIN_KEY =
-            registerKey("diritia_endstone_vein");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> DIRITIA_TREE_KEY =
-            registerKey("diritia_tree");
+    // Generation for Pacsaria Islands
+    public static final RegistryKey<ConfiguredFeature<?, ?>> PACSARIA_PACSARIUM_ORE_KEY =
+            registerKey("pacsaria_pacsarium_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> PACSARIA_TRIAFIUM_ORE_KEY =
+            registerKey("pacsaria_triafium_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> PACSARIA_TITANIUM_ORE_KEY =
+            registerKey("pacsaria_titanium_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> PACSARIA_ANCIENT_DEBRIS_KEY =
+            registerKey("pacsaria_ancient_debris");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> PACSARIA_COAL_ORE_KEY =
+            registerKey("pacsaria_coal_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> PACSARIA_IRON_ORE_KEY =
+            registerKey("pacsaria_iron_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> PACSARIA_GOLD_ORE_KEY =
+            registerKey("pacsaria_gold_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> PACSARIA_DIAMOND_ORE_KEY =
+            registerKey("pacsaria_diamond_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> PACSARIA_REDSTONE_ORE_KEY =
+            registerKey("pacsaria_redstone_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> PACSARIA_LAPIS_ORE_KEY =
+            registerKey("pacsaria_lapis_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> PACSARIA_COPPER_ORE_KEY =
+            registerKey("pacsaria_copper_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> PACSARIA_CALCITE_VEIN_KEY =
+            registerKey("pacsaria_calcite_vein");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> PACSARIA_BLACKSTONE_VEIN_KEY =
+            registerKey("pacsaria_blackstone_vein");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> PACSARIA_ENDSTONE_VEIN_KEY =
+            registerKey("pacsaria_endstone_vein");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> PACSARIA_TREE_KEY =
+            registerKey("pacsaria_tree");
 
 
     public static RegistryKey<ConfiguredFeature<?, ?>> registerKey(String name) {
@@ -198,113 +198,113 @@ public class ModConfiguredFeatures {
                                 ModBlocks.DEEPSLATE_TITANIUM_ORE.getDefaultState()));
 
         // New Nether Ores
-        List<OreFeatureConfig.Target> netherFabiumOre =
+        List<OreFeatureConfig.Target> netherTriafiumOre =
                 List.of(OreFeatureConfig.createTarget(netherrackReplaceables,
-                        ModBlocks.NETHER_FABIUM_ORE.getDefaultState()));
+                        ModBlocks.NETHER_TRIAFIUM_ORE.getDefaultState()));
         List<OreFeatureConfig.Target> netherTitaniumOre =
                 List.of(OreFeatureConfig.createTarget(netherrackReplaceables,
                         ModBlocks.NETHER_TITANIUM_ORE.getDefaultState()));
 
         //End Ores
-        List<OreFeatureConfig.Target> endFabiumOre =
+        List<OreFeatureConfig.Target> endTriafiumOre =
                 List.of(OreFeatureConfig.createTarget(endstoneReplaceables,
-                        ModBlocks.END_STONE_FABIUM_ORE.getDefaultState()));
+                        ModBlocks.END_STONE_TRIAFIUM_ORE.getDefaultState()));
         List<OreFeatureConfig.Target> endTitaniumOre =
                 List.of(OreFeatureConfig.createTarget(endstoneReplaceables,
                         ModBlocks.END_STONE_TITANIUM_ORE.getDefaultState()));
-        List<OreFeatureConfig.Target> endDiritoniumOre =
+        List<OreFeatureConfig.Target> endPacsariumOre =
                 List.of(OreFeatureConfig.createTarget(endstoneReplaceables,
-                        ModBlocks.END_STONE_DIRITONIUM_ORE.getDefaultState()));
+                        ModBlocks.END_STONE_PACSARIUM_ORE.getDefaultState()));
         List<OreFeatureConfig.Target> endAncientDebris =
                 List.of(OreFeatureConfig.createTarget(endstoneReplaceables,
                         Blocks.ANCIENT_DEBRIS.getDefaultState()));
-        //Fabia Ores
-        List<OreFeatureConfig.Target> fabiaAncientDebris =
+        //Triafia Ores
+        List<OreFeatureConfig.Target> triafiaAncientDebris =
                 List.of(OreFeatureConfig.createTarget(serpentiniteReplaceables,
                         Blocks.ANCIENT_DEBRIS.getDefaultState()));
-        List<OreFeatureConfig.Target> fabiaCoalOre =
+        List<OreFeatureConfig.Target> triafiaCoalOre =
                 List.of(OreFeatureConfig.createTarget(serpentiniteReplaceables,
                         ModBlocks.SERPENTINITE_COAL_ORE.getDefaultState()));
-        List<OreFeatureConfig.Target> fabiaCopperOre =
+        List<OreFeatureConfig.Target> triafiaCopperOre =
                 List.of(OreFeatureConfig.createTarget(serpentiniteReplaceables,
                         ModBlocks.SERPENTINITE_COPPER_ORE.getDefaultState()));
-        List<OreFeatureConfig.Target> fabiaDiamondOre =
+        List<OreFeatureConfig.Target> triafiaDiamondOre =
                 List.of(OreFeatureConfig.createTarget(serpentiniteReplaceables,
                         ModBlocks.SERPENTINITE_DIAMOND_ORE.getDefaultState()));
-        List<OreFeatureConfig.Target> fabiaDiritoniumOre =
+        List<OreFeatureConfig.Target> triafiaPacsariumOre =
                 List.of(OreFeatureConfig.createTarget(serpentiniteReplaceables,
-                        ModBlocks.SERPENTINITE_DIRITONIUM_ORE.getDefaultState()));
-        List<OreFeatureConfig.Target> fabiaEmeraldOre =
+                        ModBlocks.SERPENTINITE_PACSARIUM_ORE.getDefaultState()));
+        List<OreFeatureConfig.Target> triafiaEmeraldOre =
                 List.of(OreFeatureConfig.createTarget(serpentiniteReplaceables,
                         ModBlocks.SERPENTINITE_EMERALD_ORE.getDefaultState()));
-        List<OreFeatureConfig.Target> fabiaFabiumOre =
+        List<OreFeatureConfig.Target> triafiaTriafiumOre =
                 List.of(OreFeatureConfig.createTarget(serpentiniteReplaceables,
-                        ModBlocks.SERPENTINITE_FABIUM_ORE.getDefaultState()));
-        List<OreFeatureConfig.Target> fabiaGoldOre =
+                        ModBlocks.SERPENTINITE_TRIAFIUM_ORE.getDefaultState()));
+        List<OreFeatureConfig.Target> triafiaGoldOre =
                 List.of(OreFeatureConfig.createTarget(serpentiniteReplaceables,
                         ModBlocks.SERPENTINITE_GOLD_ORE.getDefaultState()));
-        List<OreFeatureConfig.Target> fabiaIronOre =
+        List<OreFeatureConfig.Target> triafiaIronOre =
                 List.of(OreFeatureConfig.createTarget(serpentiniteReplaceables,
                         ModBlocks.SERPENTINITE_IRON_ORE.getDefaultState()));
-        List<OreFeatureConfig.Target> fabiaLapisOre =
+        List<OreFeatureConfig.Target> triafiaLapisOre =
                 List.of(OreFeatureConfig.createTarget(serpentiniteReplaceables,
                         ModBlocks.SERPENTINITE_LAPIS_ORE.getDefaultState()));
-        List<OreFeatureConfig.Target> fabiaRedstoneOre =
+        List<OreFeatureConfig.Target> triafiaRedstoneOre =
                 List.of(OreFeatureConfig.createTarget(serpentiniteReplaceables,
                         ModBlocks.SERPENTINITE_REDSTONE_ORE.getDefaultState()));
-        List<OreFeatureConfig.Target> fabiaTinOre =
+        List<OreFeatureConfig.Target> triafiaTinOre =
                 List.of(OreFeatureConfig.createTarget(serpentiniteReplaceables,
                         ModBlocks.SERPENTINITE_TIN_ORE.getDefaultState()));
-        List<OreFeatureConfig.Target> fabiaTitaniumOre =
+        List<OreFeatureConfig.Target> triafiaTitaniumOre =
                 List.of(OreFeatureConfig.createTarget(serpentiniteReplaceables,
                         ModBlocks.SERPENTINITE_TITANIUM_ORE.getDefaultState()));
-        List<OreFeatureConfig.Target> fabiaEclogiteVein =
+        List<OreFeatureConfig.Target> triafiaEclogiteVein =
                 List.of(OreFeatureConfig.createTarget(serpentiniteReplaceables,
                         ModBlocks.ECLOGITE.getDefaultState()));
-        List<OreFeatureConfig.Target> fabiaTuffVein =
+        List<OreFeatureConfig.Target> triafiaTuffVein =
                 List.of(OreFeatureConfig.createTarget(serpentiniteReplaceables,
                         Blocks.TUFF.getDefaultState()));
-        //Diritia Ores
-        List<OreFeatureConfig.Target> diritiaDiritoniumOre =
+        //Pacsaria Ores
+        List<OreFeatureConfig.Target> pacsariaPacsariumOre =
                 List.of(OreFeatureConfig.createTarget(deepslateReplaceables,
-                        ModBlocks.DEEPSLATE_DIRITONIUM_ORE.getDefaultState()));
-        List<OreFeatureConfig.Target> diritiaFabiumOre =
+                        ModBlocks.DEEPSLATE_PACSARIUM_ORE.getDefaultState()));
+        List<OreFeatureConfig.Target> pacsariaTriafiumOre =
                 List.of(OreFeatureConfig.createTarget(deepslateReplaceables,
-                        ModBlocks.DEEPSLATE_FABIUM_ORE.getDefaultState()));
-        List<OreFeatureConfig.Target> diritiaTitaniumOre =
+                        ModBlocks.DEEPSLATE_TRIAFIUM_ORE.getDefaultState()));
+        List<OreFeatureConfig.Target> pacsariaTitaniumOre =
                 List.of(OreFeatureConfig.createTarget(deepslateReplaceables,
                         ModBlocks.DEEPSLATE_TITANIUM_ORE.getDefaultState()));
-        List<OreFeatureConfig.Target> diritiaAncientDebris =
+        List<OreFeatureConfig.Target> pacsariaAncientDebris =
                 List.of(OreFeatureConfig.createTarget(deepslateReplaceables,
                         Blocks.ANCIENT_DEBRIS.getDefaultState()));
-        List<OreFeatureConfig.Target> diritiaCoalOre =
+        List<OreFeatureConfig.Target> pacsariaCoalOre =
                 List.of(OreFeatureConfig.createTarget(deepslateReplaceables,
                         Blocks.DEEPSLATE_COAL_ORE.getDefaultState()));
-        List<OreFeatureConfig.Target> diritiaIronOre =
+        List<OreFeatureConfig.Target> pacsariaIronOre =
                 List.of(OreFeatureConfig.createTarget(deepslateReplaceables,
                         Blocks.DEEPSLATE_IRON_ORE.getDefaultState()));
-        List<OreFeatureConfig.Target> diritiaGoldOre =
+        List<OreFeatureConfig.Target> pacsariaGoldOre =
                 List.of(OreFeatureConfig.createTarget(deepslateReplaceables,
                         Blocks.DEEPSLATE_GOLD_ORE.getDefaultState()));
-        List<OreFeatureConfig.Target> diritiaDiamondOre =
+        List<OreFeatureConfig.Target> pacsariaDiamondOre =
                 List.of(OreFeatureConfig.createTarget(deepslateReplaceables,
                         Blocks.DEEPSLATE_DIAMOND_ORE.getDefaultState()));
-        List<OreFeatureConfig.Target> diritiaCopperOre =
+        List<OreFeatureConfig.Target> pacsariaCopperOre =
                 List.of(OreFeatureConfig.createTarget(deepslateReplaceables,
                         Blocks.DEEPSLATE_COPPER_ORE.getDefaultState()));
-        List<OreFeatureConfig.Target> diritiaRedstoneOre =
+        List<OreFeatureConfig.Target> pacsariaRedstoneOre =
                 List.of(OreFeatureConfig.createTarget(deepslateReplaceables,
                         Blocks.DEEPSLATE_REDSTONE_ORE.getDefaultState()));
-        List<OreFeatureConfig.Target> diritiaLapisOre =
+        List<OreFeatureConfig.Target> pacsariaLapisOre =
                 List.of(OreFeatureConfig.createTarget(deepslateReplaceables,
                         Blocks.DEEPSLATE_LAPIS_ORE.getDefaultState()));
-        List<OreFeatureConfig.Target> diritiaCalcite =
+        List<OreFeatureConfig.Target> pacsariaCalcite =
                 List.of(OreFeatureConfig.createTarget(deepslateReplaceables,
                         Blocks.CALCITE.getDefaultState()));
-        List<OreFeatureConfig.Target> diritiaBlackstoneVein =
+        List<OreFeatureConfig.Target> pacsariaBlackstoneVein =
                 List.of(OreFeatureConfig.createTarget(deepslateReplaceables,
                         Blocks.BLACKSTONE.getDefaultState()));
-        List<OreFeatureConfig.Target> diritiaEndstoneVein =
+        List<OreFeatureConfig.Target> pacsariaEndstoneVein =
                 List.of(OreFeatureConfig.createTarget(deepslateReplaceables,
                         Blocks.END_STONE.getDefaultState()));
 
@@ -316,18 +316,18 @@ public class ModConfiguredFeatures {
                 new BlobFoliagePlacer(ConstantIntProvider.create(3), ConstantIntProvider.create(0), 2),
                 new TwoLayersFeatureSize(1, 1, 1)).build());
 
-        register(context, DIRITIA_TREE_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
-                BlockStateProvider.of(ModBlocks.DIRITIA_LOG),
+        register(context, PACSARIA_TREE_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
+                BlockStateProvider.of(ModBlocks.PACSARIA_LOG),
                 new ForkingTrunkPlacer(7, 3, 3),
-                BlockStateProvider.of(ModBlocks.DIRITIA_LEAVES),
+                BlockStateProvider.of(ModBlocks.PACSARIA_LEAVES),
                 new JungleFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(0), 2),
                 new TwoLayersFeatureSize(1,1,1)).build());
 
-        register(context, FABIA_TREE_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
-                BlockStateProvider.of(ModBlocks.FABIA_LOG),
-                new FabiaTrunkPlacer(6, 1, 2),
-                BlockStateProvider.of(ModBlocks.FABIA_LEAVES),
-                new FabiaFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(1), 2),
+        register(context, TRIAFIA_TREE_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
+                BlockStateProvider.of(ModBlocks.TRIAFIA_LOG),
+                new TriafiaTrunkPlacer(6, 1, 2),
+                BlockStateProvider.of(ModBlocks.TRIAFIA_LEAVES),
+                new TriafiaFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(1), 2),
                 new TwoLayersFeatureSize(1,0,2)).build());
 
         // Register Overworld Ores
@@ -340,46 +340,46 @@ public class ModConfiguredFeatures {
         register(context, NEW_DIAMOND_ORE_KEY, Feature.ORE, new OreFeatureConfig(newDiamondOres, 8));
         register(context, NEW_REDSTONE_ORE_KEY, Feature.ORE, new OreFeatureConfig(newRedstoneOres, 8));
         // Register new Nether Ores
-        register(context, NETHER_FABIUM_ORE_KEY, Feature.ORE, new OreFeatureConfig(netherFabiumOre, 6));
+        register(context, NETHER_TRIAFIUM_ORE_KEY, Feature.ORE, new OreFeatureConfig(netherTriafiumOre, 6));
         register(context, NETHER_TITANIUM_ORE_KEY, Feature.ORE, new OreFeatureConfig(netherTitaniumOre, 10));
         register(context, NEW_QUARTZ_ORE_KEY, Feature.ORE, new OreFeatureConfig(newQuartzOres, 14));
         register(context, NEW_ANCIENT_DEBRIS_KEY, Feature.ORE, new OreFeatureConfig(newAncientDebris, 8));
         // Register End Ores
-        register(context, END_FABIUM_ORE_KEY, Feature.ORE, new OreFeatureConfig(endFabiumOre, 8));
+        register(context, END_TRIAFIUM_ORE_KEY, Feature.ORE, new OreFeatureConfig(endTriafiumOre, 8));
         register(context, END_TITANIUM_ORE_KEY, Feature.ORE, new OreFeatureConfig(endTitaniumOre, 12));
-        register(context, END_DIRITONIUM_ORE_KEY, Feature.ORE, new OreFeatureConfig(endDiritoniumOre, 6));
+        register(context, END_PACSARIUM_ORE_KEY, Feature.ORE, new OreFeatureConfig(endPacsariumOre, 6));
         register(context, END_ANCIENT_DEBRIS_KEY, Feature.ORE, new OreFeatureConfig(endAncientDebris, 6));
-        // Register Fabia Ores
-        register(context, FABIA_ANCIENT_DEBRIS_KEY, Feature.ORE, new OreFeatureConfig(fabiaAncientDebris, 7));
-        register(context, FABIA_COAL_ORE_KEY, Feature.ORE, new OreFeatureConfig(fabiaCoalOre, 17));
-        register(context, FABIA_COPPER_ORE_KEY, Feature.ORE, new OreFeatureConfig(fabiaCopperOre, 14));
-        register(context, FABIA_DIAMOND_ORE_KEY, Feature.ORE, new OreFeatureConfig(fabiaDiamondOre, 9));
-        register(context, FABIA_DIRITONIUM_ORE_KEY, Feature.ORE, new OreFeatureConfig(fabiaDiritoniumOre, 6));
-        register(context, FABIA_EMERALD_ORE_KEY, Feature.ORE, new OreFeatureConfig(fabiaEmeraldOre, 4));
-        register(context, FABIA_FABIUM_ORE_KEY, Feature.ORE, new OreFeatureConfig(fabiaFabiumOre, 11));
-        register(context, FABIA_GOLD_ORE_KEY, Feature.ORE, new OreFeatureConfig(fabiaGoldOre, 10));
-        register(context, FABIA_IRON_ORE_KEY, Feature.ORE, new OreFeatureConfig(fabiaIronOre, 10));
-        register(context, FABIA_LAPIS_ORE_KEY, Feature.ORE, new OreFeatureConfig(fabiaLapisOre, 8));
-        register(context, FABIA_REDSTONE_ORE_KEY, Feature.ORE, new OreFeatureConfig(fabiaRedstoneOre, 12));
-        register(context, FABIA_TIN_ORE_KEY, Feature.ORE, new OreFeatureConfig(fabiaTinOre, 6));
-        register(context, FABIA_TITANIUM_ORE_KEY, Feature.ORE, new OreFeatureConfig(fabiaTitaniumOre, 9));
-        register(context, FABIA_ECLOGITE_VEIN_KEY, Feature.ORE, new OreFeatureConfig(fabiaEclogiteVein, 64));
-        register(context, FABIA_TUFF_VEIN_KEY, Feature.ORE, new OreFeatureConfig(fabiaTuffVein, 64));
-        // Register Diritia Ores
-        register(context, DIRITIA_DIRITONIUM_ORE_KEY, Feature.ORE, new OreFeatureConfig(diritiaDiritoniumOre, 12));
-        register(context, DIRITIA_TITANIUM_ORE_KEY, Feature.ORE, new OreFeatureConfig(diritiaTitaniumOre, 8));
-        register(context, DIRITIA_FABIUM_ORE_KEY, Feature.ORE, new OreFeatureConfig(diritiaFabiumOre, 12));
-        register(context, DIRITIA_ANCIENT_DEBRIS_KEY, Feature.ORE, new OreFeatureConfig(diritiaAncientDebris, 10));
-        register(context, DIRITIA_COAL_ORE_KEY, Feature.ORE, new OreFeatureConfig(diritiaCoalOre, 16));
-        register(context, DIRITIA_IRON_ORE_KEY, Feature.ORE, new OreFeatureConfig(diritiaIronOre, 9));
-        register(context, DIRITIA_DIAMOND_ORE_KEY, Feature.ORE, new OreFeatureConfig(diritiaDiamondOre, 8));
-        register(context, DIRITIA_GOLD_ORE_KEY, Feature.ORE, new OreFeatureConfig(diritiaGoldOre, 9));
-        register(context, DIRITIA_REDSTONE_ORE_KEY, Feature.ORE, new OreFeatureConfig(diritiaRedstoneOre, 9));
-        register(context, DIRITIA_LAPIS_ORE_KEY, Feature.ORE, new OreFeatureConfig(diritiaLapisOre, 6));
-        register(context, DIRITIA_COPPER_ORE_KEY, Feature.ORE, new OreFeatureConfig(diritiaCopperOre, 16));
-        register(context, DIRITIA_CALCITE_VEIN_KEY, Feature.ORE, new OreFeatureConfig(diritiaCalcite, 64));
-        register(context, DIRITIA_BLACKSTONE_VEIN_KEY, Feature.ORE, new OreFeatureConfig(diritiaBlackstoneVein, 64));
-        register(context, DIRITIA_ENDSTONE_VEIN_KEY, Feature.ORE, new OreFeatureConfig(diritiaEndstoneVein, 64));
+        // Register Triafia Ores
+        register(context, TRIAFIA_ANCIENT_DEBRIS_KEY, Feature.ORE, new OreFeatureConfig(triafiaAncientDebris, 7));
+        register(context, TRIAFIA_COAL_ORE_KEY, Feature.ORE, new OreFeatureConfig(triafiaCoalOre, 17));
+        register(context, TRIAFIA_COPPER_ORE_KEY, Feature.ORE, new OreFeatureConfig(triafiaCopperOre, 14));
+        register(context, TRIAFIA_DIAMOND_ORE_KEY, Feature.ORE, new OreFeatureConfig(triafiaDiamondOre, 9));
+        register(context, TRIAFIA_PACSARIUM_ORE_KEY, Feature.ORE, new OreFeatureConfig(triafiaPacsariumOre, 6));
+        register(context, TRIAFIA_EMERALD_ORE_KEY, Feature.ORE, new OreFeatureConfig(triafiaEmeraldOre, 4));
+        register(context, TRIAFIA_TRIAFIUM_ORE_KEY, Feature.ORE, new OreFeatureConfig(triafiaTriafiumOre, 11));
+        register(context, TRIAFIA_GOLD_ORE_KEY, Feature.ORE, new OreFeatureConfig(triafiaGoldOre, 10));
+        register(context, TRIAFIA_IRON_ORE_KEY, Feature.ORE, new OreFeatureConfig(triafiaIronOre, 10));
+        register(context, TRIAFIA_LAPIS_ORE_KEY, Feature.ORE, new OreFeatureConfig(triafiaLapisOre, 8));
+        register(context, TRIAFIA_REDSTONE_ORE_KEY, Feature.ORE, new OreFeatureConfig(triafiaRedstoneOre, 12));
+        register(context, TRIAFIA_TIN_ORE_KEY, Feature.ORE, new OreFeatureConfig(triafiaTinOre, 6));
+        register(context, TRIAFIA_TITANIUM_ORE_KEY, Feature.ORE, new OreFeatureConfig(triafiaTitaniumOre, 9));
+        register(context, TRIAFIA_ECLOGITE_VEIN_KEY, Feature.ORE, new OreFeatureConfig(triafiaEclogiteVein, 64));
+        register(context, TRIAFIA_TUFF_VEIN_KEY, Feature.ORE, new OreFeatureConfig(triafiaTuffVein, 64));
+        // Register Pacsaria Ores
+        register(context, PACSARIA_PACSARIUM_ORE_KEY, Feature.ORE, new OreFeatureConfig(pacsariaPacsariumOre, 12));
+        register(context, PACSARIA_TITANIUM_ORE_KEY, Feature.ORE, new OreFeatureConfig(pacsariaTitaniumOre, 8));
+        register(context, PACSARIA_TRIAFIUM_ORE_KEY, Feature.ORE, new OreFeatureConfig(pacsariaTriafiumOre, 12));
+        register(context, PACSARIA_ANCIENT_DEBRIS_KEY, Feature.ORE, new OreFeatureConfig(pacsariaAncientDebris, 10));
+        register(context, PACSARIA_COAL_ORE_KEY, Feature.ORE, new OreFeatureConfig(pacsariaCoalOre, 16));
+        register(context, PACSARIA_IRON_ORE_KEY, Feature.ORE, new OreFeatureConfig(pacsariaIronOre, 9));
+        register(context, PACSARIA_DIAMOND_ORE_KEY, Feature.ORE, new OreFeatureConfig(pacsariaDiamondOre, 8));
+        register(context, PACSARIA_GOLD_ORE_KEY, Feature.ORE, new OreFeatureConfig(pacsariaGoldOre, 9));
+        register(context, PACSARIA_REDSTONE_ORE_KEY, Feature.ORE, new OreFeatureConfig(pacsariaRedstoneOre, 9));
+        register(context, PACSARIA_LAPIS_ORE_KEY, Feature.ORE, new OreFeatureConfig(pacsariaLapisOre, 6));
+        register(context, PACSARIA_COPPER_ORE_KEY, Feature.ORE, new OreFeatureConfig(pacsariaCopperOre, 16));
+        register(context, PACSARIA_CALCITE_VEIN_KEY, Feature.ORE, new OreFeatureConfig(pacsariaCalcite, 64));
+        register(context, PACSARIA_BLACKSTONE_VEIN_KEY, Feature.ORE, new OreFeatureConfig(pacsariaBlackstoneVein, 64));
+        register(context, PACSARIA_ENDSTONE_VEIN_KEY, Feature.ORE, new OreFeatureConfig(pacsariaEndstoneVein, 64));
     }
     private static <FC extends FeatureConfig, F extends Feature<FC>> void
         register(Registerable<ConfiguredFeature<?, ?>> context, RegistryKey<ConfiguredFeature<?, ?>> key,

@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_pacsaria_log": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "chucksmod:pacsaria_log"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:pacsaria_planks_from_pacsaria_log"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_pacsaria_log",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:pacsaria_planks_from_pacsaria_log"
+    ]
+  },
+  "sends_telemetry_event": false
+}

@@ -28,27 +28,27 @@ public class ModRegistries {
         instance.add(ModBlocks.STRIPPED_EUCALYPTUS_WOOD, 5, 5);
         instance.add(ModBlocks.EUCALYPTUS_PLANKS, 5, 20);
         instance.add(ModBlocks.EUCALYPTUS_LEAVES, 30, 60);
-        instance.add(ModBlocks.DIRITIA_LOG, 5, 5);
-        instance.add(ModBlocks.DIRITIA_WOOD, 5, 5);
-        instance.add(ModBlocks.STRIPPED_DIRITIA_LOG, 5, 5);
-        instance.add(ModBlocks.STRIPPED_DIRITIA_WOOD, 5, 5);
-        instance.add(ModBlocks.DIRITIA_PLANKS, 5, 20);
-        instance.add(ModBlocks.DIRITIA_LEAVES, 30, 60);
-        instance.add(ModBlocks.FABIA_LOG, 5, 5);
-        instance.add(ModBlocks.FABIA_WOOD, 5, 5);
-        instance.add(ModBlocks.STRIPPED_FABIA_LOG, 5, 5);
-        instance.add(ModBlocks.STRIPPED_FABIA_WOOD, 5, 5);
-        instance.add(ModBlocks.FABIA_PLANKS, 5, 20);
-        instance.add(ModBlocks.FABIA_LEAVES, 30, 60);
+        instance.add(ModBlocks.PACSARIA_LOG, 5, 5);
+        instance.add(ModBlocks.PACSARIA_WOOD, 5, 5);
+        instance.add(ModBlocks.STRIPPED_PACSARIA_LOG, 5, 5);
+        instance.add(ModBlocks.STRIPPED_PACSARIA_WOOD, 5, 5);
+        instance.add(ModBlocks.PACSARIA_PLANKS, 5, 20);
+        instance.add(ModBlocks.PACSARIA_LEAVES, 30, 60);
+        instance.add(ModBlocks.TRIAFIA_LOG, 5, 5);
+        instance.add(ModBlocks.TRIAFIA_WOOD, 5, 5);
+        instance.add(ModBlocks.STRIPPED_TRIAFIA_LOG, 5, 5);
+        instance.add(ModBlocks.STRIPPED_TRIAFIA_WOOD, 5, 5);
+        instance.add(ModBlocks.TRIAFIA_PLANKS, 5, 20);
+        instance.add(ModBlocks.TRIAFIA_LEAVES, 30, 60);
     }
 
     private static void registerStrippables(){
         StrippableBlockRegistry.register(ModBlocks.EUCALYPTUS_LOG, ModBlocks.STRIPPED_EUCALYPTUS_LOG);
         StrippableBlockRegistry.register(ModBlocks.EUCALYPTUS_WOOD, ModBlocks.STRIPPED_EUCALYPTUS_WOOD);
-        StrippableBlockRegistry.register(ModBlocks.DIRITIA_LOG, ModBlocks.STRIPPED_DIRITIA_LOG);
-        StrippableBlockRegistry.register(ModBlocks.DIRITIA_WOOD, ModBlocks.STRIPPED_DIRITIA_WOOD);
-        StrippableBlockRegistry.register(ModBlocks.FABIA_LOG, ModBlocks.STRIPPED_FABIA_LOG);
-        StrippableBlockRegistry.register(ModBlocks.FABIA_WOOD, ModBlocks.STRIPPED_FABIA_WOOD);
+        StrippableBlockRegistry.register(ModBlocks.PACSARIA_LOG, ModBlocks.STRIPPED_PACSARIA_LOG);
+        StrippableBlockRegistry.register(ModBlocks.PACSARIA_WOOD, ModBlocks.STRIPPED_PACSARIA_WOOD);
+        StrippableBlockRegistry.register(ModBlocks.TRIAFIA_LOG, ModBlocks.STRIPPED_TRIAFIA_LOG);
+        StrippableBlockRegistry.register(ModBlocks.TRIAFIA_WOOD, ModBlocks.STRIPPED_TRIAFIA_WOOD);
     }
 
     private static void registerFuels(){
@@ -57,15 +57,15 @@ public class ModRegistries {
         FuelRegistry.INSTANCE.add(ModBlocks.STRIPPED_EUCALYPTUS_LOG,300);
         FuelRegistry.INSTANCE.add(ModBlocks.STRIPPED_EUCALYPTUS_WOOD,300);
         FuelRegistry.INSTANCE.add(ModBlocks.EUCALYPTUS_PLANKS,300);
-        FuelRegistry.INSTANCE.add(ModBlocks.DIRITIA_LOG,300);
-        FuelRegistry.INSTANCE.add(ModBlocks.DIRITIA_WOOD,300);
-        FuelRegistry.INSTANCE.add(ModBlocks.STRIPPED_DIRITIA_LOG,300);
-        FuelRegistry.INSTANCE.add(ModBlocks.STRIPPED_DIRITIA_WOOD,300);
-        FuelRegistry.INSTANCE.add(ModBlocks.DIRITIA_PLANKS,300);
-        FuelRegistry.INSTANCE.add(ModBlocks.FABIA_LOG,300);
-        FuelRegistry.INSTANCE.add(ModBlocks.FABIA_WOOD,300);
-        FuelRegistry.INSTANCE.add(ModBlocks.STRIPPED_FABIA_LOG,300);
-        FuelRegistry.INSTANCE.add(ModBlocks.STRIPPED_FABIA_WOOD,300);
-        FuelRegistry.INSTANCE.add(ModBlocks.FABIA_PLANKS,300);
+        FuelRegistry.INSTANCE.add(ModBlocks.PACSARIA_LOG,300);
+        FuelRegistry.INSTANCE.add(ModBlocks.PACSARIA_WOOD,300);
+        FuelRegistry.INSTANCE.add(ModBlocks.STRIPPED_PACSARIA_LOG,300);
+        FuelRegistry.INSTANCE.add(ModBlocks.STRIPPED_PACSARIA_WOOD,300);
+        FuelRegistry.INSTANCE.add(ModBlocks.PACSARIA_PLANKS,300);
+        FuelRegistry.INSTANCE.add(ModBlocks.TRIAFIA_LOG,300);
+        FuelRegistry.INSTANCE.add(ModBlocks.TRIAFIA_WOOD,300);
+        FuelRegistry.INSTANCE.add(ModBlocks.STRIPPED_TRIAFIA_LOG,300);
+        FuelRegistry.INSTANCE.add(ModBlocks.STRIPPED_TRIAFIA_WOOD,300);
+        FuelRegistry.INSTANCE.add(ModBlocks.TRIAFIA_PLANKS,300);
     }
 }

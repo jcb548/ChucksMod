@@ -557,7 +557,7 @@ public class OverworldAdvancements {
                 .criterion("replant_cherry", ItemCriterion.Conditions.createPlacedBlock(Blocks.CHERRY_SAPLING))
                 .criterion("replant_mangrove", ItemCriterion.Conditions.createPlacedBlock(Blocks.MANGROVE_PROPAGULE))
                 .criterion("replant_eucalyptus", ItemCriterion.Conditions.createPlacedBlock(ModBlocks.EUCALYPTUS_SAPLING))
-                .criterion("replant_diritia", ItemCriterion.Conditions.createPlacedBlock(ModBlocks.DIRITIA_SAPLING))
+                .criterion("replant_pacsaria", ItemCriterion.Conditions.createPlacedBlock(ModBlocks.PACSARIA_SAPLING))
                 .parent(sapling)
                 .build(consumer, ChucksMod.MOD_ID + "/overworld/replant_sapling");
 

@@ -1,0 +1,11 @@
+{
+  "type": "chucksmod:triafia_type",
+  "generator": {
+    "type": "minecraft:noise",
+    "settings": "chucksmod:triafia_test_three",
+    "biome_source": {
+      "type": "minecraft:fixed",
+      "biome": "chucksmod:triafia_plains"
+    }
+  }
+}

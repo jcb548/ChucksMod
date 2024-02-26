@@ -29,18 +29,18 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
     protected void configure(RegistryWrapper.WrapperLookup arg) {
         getOrCreateTagBuilder(TagKey.of(RegistryKeys.BLOCK,
                 new Identifier("fabric", "needs_tool_level_4")))
-                .addTag(ModBlockTags.DIRITONIUM_ORES)
-                .add(ModBlocks.RAW_DIRITONIUM_BLOCK)
-                .add(ModBlocks.DIRITONIUM_BLOCK);
+                .addTag(ModBlockTags.PACSARIUM_ORES)
+                .add(ModBlocks.RAW_PACSARIUM_BLOCK)
+                .add(ModBlocks.PACSARIUM_BLOCK);
 
         getOrCreateTagBuilder(BlockTags.NEEDS_DIAMOND_TOOL)
-                .add(ModBlocks.FABIUM_BLOCK)
-                .add(ModBlocks.RAW_FABIUM_BLOCK)
-                .addTag(ModBlockTags.FABIUM_ORES)
-                .add(ModBlocks.FABIUM_PORTAL_BLOCK)
-                .add(ModBlocks.FABIUM_PORTAL_BUILDER)
+                .add(ModBlocks.TRIAFIUM_BLOCK)
+                .add(ModBlocks.RAW_TRIAFIUM_BLOCK)
+                .addTag(ModBlockTags.TRIAFIUM_ORES)
+                .add(ModBlocks.TRIAFIUM_PORTAL_BLOCK)
+                .add(ModBlocks.TRIAFIUM_PORTAL_BUILDER)
 
-                .add(ModBlocks.DIRITONIUM_BARS)
+                .add(ModBlocks.PACSARIUM_BARS)
 
                 .addTag(ModBlockTags.HARDENED_GLASS)
                 .addTag(ModBlockTags.HARDENED_GLASS_PANES)
@@ -204,17 +204,17 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.SERPENTINITE_LAPIS_ORE)
                 .add(ModBlocks.SERPENTINITE_REDSTONE_ORE)
 
-                .addTag(ModBlockTags.FABIUM_ORES)
-                .add(ModBlocks.RAW_FABIUM_BLOCK)
-                .add(ModBlocks.FABIUM_BLOCK)
-                .add(ModBlocks.FABIUM_PORTAL_BLOCK)
-                .add(ModBlocks.FABIUM_PORTAL_BUILDER)
+                .addTag(ModBlockTags.TRIAFIUM_ORES)
+                .add(ModBlocks.RAW_TRIAFIUM_BLOCK)
+                .add(ModBlocks.TRIAFIUM_BLOCK)
+                .add(ModBlocks.TRIAFIUM_PORTAL_BLOCK)
+                .add(ModBlocks.TRIAFIUM_PORTAL_BUILDER)
 
                 .addTag(ModBlockTags.BRONZE_BLOCKS)
 
-                .add(ModBlocks.DIRITONIUM_BLOCK)
-                .add(ModBlocks.RAW_DIRITONIUM_BLOCK)
-                .addTag(ModBlockTags.DIRITONIUM_ORES)
+                .add(ModBlocks.PACSARIUM_BLOCK)
+                .add(ModBlocks.RAW_PACSARIUM_BLOCK)
+                .addTag(ModBlockTags.PACSARIUM_ORES)
 
                 .addTag(ModBlockTags.HARDENED_GLASS)
                 .add(ModBlocks.HARDENED_TINTED_GLASS)
@@ -238,52 +238,52 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
         getOrCreateTagBuilder(BlockTags.PLANKS)
                 .add(ModBlocks.EUCALYPTUS_PLANKS)
-                .add(ModBlocks.DIRITIA_PLANKS)
-                .add(ModBlocks.FABIA_PLANKS);
+                .add(ModBlocks.PACSARIA_PLANKS)
+                .add(ModBlocks.TRIAFIA_PLANKS);
         getOrCreateTagBuilder(BlockTags.WOODEN_BUTTONS)
                 .add(ModBlocks.EUCALYPTUS_BUTTON)
-                .add(ModBlocks.FABIA_BUTTON)
-                .add(ModBlocks.DIRITIA_BUTTON);
+                .add(ModBlocks.TRIAFIA_BUTTON)
+                .add(ModBlocks.PACSARIA_BUTTON);
         getOrCreateTagBuilder(BlockTags.WOODEN_DOORS)
                 .add(ModBlocks.EUCALYPTUS_DOOR)
-                .add(ModBlocks.DIRITIA_DOOR)
-                .add(ModBlocks.FABIA_DOOR);
+                .add(ModBlocks.PACSARIA_DOOR)
+                .add(ModBlocks.TRIAFIA_DOOR);
         getOrCreateTagBuilder(BlockTags.WOODEN_FENCES)
                 .add(ModBlocks.EUCALYPTUS_FENCE)
-                .add(ModBlocks.FABIA_FENCE)
-                .add(ModBlocks.DIRITIA_FENCE);
+                .add(ModBlocks.TRIAFIA_FENCE)
+                .add(ModBlocks.PACSARIA_FENCE);
         getOrCreateTagBuilder(BlockTags.WOODEN_SLABS)
                 .add(ModBlocks.EUCALYPTUS_SLAB)
-                .add(ModBlocks.DIRITIA_SLAB)
-                .add(ModBlocks.FABIA_SLAB);
+                .add(ModBlocks.PACSARIA_SLAB)
+                .add(ModBlocks.TRIAFIA_SLAB);
         getOrCreateTagBuilder(BlockTags.WOODEN_STAIRS)
                 .add(ModBlocks.EUCALYPTUS_STAIRS)
-                .add(ModBlocks.DIRITIA_STAIRS)
-                .add(ModBlocks.FABIA_STAIRS);
+                .add(ModBlocks.PACSARIA_STAIRS)
+                .add(ModBlocks.TRIAFIA_STAIRS);
         getOrCreateTagBuilder(BlockTags.WOODEN_PRESSURE_PLATES)
                 .add(ModBlocks.EUCALYPTUS_PRESSURE_PLATE)
-                .add(ModBlocks.DIRITIA_PRESSURE_PLATE)
-                .add(ModBlocks.FABIA_PRESSURE_PLATE);
+                .add(ModBlocks.PACSARIA_PRESSURE_PLATE)
+                .add(ModBlocks.TRIAFIA_PRESSURE_PLATE);
         getOrCreateTagBuilder(BlockTags.WOODEN_TRAPDOORS)
                 .add(ModBlocks.EUCALYPTUS_TRAPDOOR)
-                .add(ModBlocks.DIRITIA_TRAPDOOR)
-                .add(ModBlocks.FABIA_TRAPDOOR);
+                .add(ModBlocks.PACSARIA_TRAPDOOR)
+                .add(ModBlocks.TRIAFIA_TRAPDOOR);
         getOrCreateTagBuilder(BlockTags.FENCE_GATES)
                 .add(ModBlocks.EUCALYPTUS_FENCE_GATE)
-                .add(ModBlocks.DIRITIA_FENCE_GATE)
-                .add(ModBlocks.FABIA_FENCE_GATE);
+                .add(ModBlocks.PACSARIA_FENCE_GATE)
+                .add(ModBlocks.TRIAFIA_FENCE_GATE);
 
         getOrCreateTagBuilder(BlockTags.DRAGON_IMMUNE)
-                .add(ModBlocks.DIRITONIUM_BLOCK)
-                .add(ModBlocks.END_STONE_DIRITONIUM_ORE)
-                .add(ModBlocks.DEEPSLATE_DIRITONIUM_ORE)
-                .add(ModBlocks.RAW_DIRITONIUM_BLOCK)
+                .add(ModBlocks.PACSARIUM_BLOCK)
+                .add(ModBlocks.END_STONE_PACSARIUM_ORE)
+                .add(ModBlocks.DEEPSLATE_PACSARIUM_ORE)
+                .add(ModBlocks.RAW_PACSARIUM_BLOCK)
                 .add(Blocks.ANCIENT_DEBRIS);
 
         getOrCreateTagBuilder(BlockTags.LOGS_THAT_BURN)
                 .addTag(ModBlockTags.EUCALYPTUS_LOGS)
-                .addTag(ModBlockTags.DIRITIA_LOGS)
-                .addTag(ModBlockTags.FABIA_LOGS);
+                .addTag(ModBlockTags.PACSARIA_LOGS)
+                .addTag(ModBlockTags.TRIAFIA_LOGS);
 
         getOrCreateTagBuilder(ModBlockTags.EUCALYPTUS_LOGS)
                 .add(ModBlocks.EUCALYPTUS_LOG)
@@ -291,17 +291,17 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.STRIPPED_EUCALYPTUS_LOG)
                 .add(ModBlocks.STRIPPED_EUCALYPTUS_WOOD);
 
-        getOrCreateTagBuilder(ModBlockTags.DIRITIA_LOGS)
-                .add(ModBlocks.DIRITIA_LOG)
-                .add(ModBlocks.DIRITIA_WOOD)
-                .add(ModBlocks.STRIPPED_DIRITIA_LOG)
-                .add(ModBlocks.STRIPPED_DIRITIA_WOOD);
+        getOrCreateTagBuilder(ModBlockTags.PACSARIA_LOGS)
+                .add(ModBlocks.PACSARIA_LOG)
+                .add(ModBlocks.PACSARIA_WOOD)
+                .add(ModBlocks.STRIPPED_PACSARIA_LOG)
+                .add(ModBlocks.STRIPPED_PACSARIA_WOOD);
 
-        getOrCreateTagBuilder(ModBlockTags.FABIA_LOGS)
-                .add(ModBlocks.FABIA_LOG)
-                .add(ModBlocks.FABIA_WOOD)
-                .add(ModBlocks.STRIPPED_FABIA_LOG)
-                .add(ModBlocks.STRIPPED_FABIA_WOOD);
+        getOrCreateTagBuilder(ModBlockTags.TRIAFIA_LOGS)
+                .add(ModBlocks.TRIAFIA_LOG)
+                .add(ModBlocks.TRIAFIA_WOOD)
+                .add(ModBlocks.STRIPPED_TRIAFIA_LOG)
+                .add(ModBlocks.STRIPPED_TRIAFIA_WOOD);
 
         getOrCreateTagBuilder(BlockTags.WALLS)
                 .add(ModBlocks.SANDSTONE_BRICK_WALL)
@@ -388,20 +388,20 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.COPPER_BARS)
                 .add(ModBlocks.GOLD_BARS)
                 .add(ModBlocks.TIN_BARS)
-                .add(ModBlocks.FABIUM_BARS)
-                .add(ModBlocks.DIRITONIUM_BARS)
+                .add(ModBlocks.TRIAFIUM_BARS)
+                .add(ModBlocks.PACSARIUM_BARS)
                 .add(ModBlocks.PRISMARINE_BARS);
 
-        getOrCreateTagBuilder(ModBlockTags.FABIUM_ORES)
-                .add(ModBlocks.NETHER_FABIUM_ORE)
-                .add(ModBlocks.END_STONE_FABIUM_ORE)
-                .add(ModBlocks.DEEPSLATE_FABIUM_ORE)
-                .add(ModBlocks.SERPENTINITE_FABIUM_ORE);
+        getOrCreateTagBuilder(ModBlockTags.TRIAFIUM_ORES)
+                .add(ModBlocks.NETHER_TRIAFIUM_ORE)
+                .add(ModBlocks.END_STONE_TRIAFIUM_ORE)
+                .add(ModBlocks.DEEPSLATE_TRIAFIUM_ORE)
+                .add(ModBlocks.SERPENTINITE_TRIAFIUM_ORE);
 
-        getOrCreateTagBuilder(ModBlockTags.DIRITONIUM_ORES)
-                .add(ModBlocks.END_STONE_DIRITONIUM_ORE)
-                .add(ModBlocks.DEEPSLATE_DIRITONIUM_ORE)
-                .add(ModBlocks.SERPENTINITE_DIRITONIUM_ORE);
+        getOrCreateTagBuilder(ModBlockTags.PACSARIUM_ORES)
+                .add(ModBlocks.END_STONE_PACSARIUM_ORE)
+                .add(ModBlocks.DEEPSLATE_PACSARIUM_ORE)
+                .add(ModBlocks.SERPENTINITE_PACSARIUM_ORE);
 
         getOrCreateTagBuilder(ModBlockTags.CRUSHERS)
                 .add(ModBlocks.CRUSHER)

@@ -22,9 +22,9 @@ import net.minecraft.world.gen.feature.PlacedFeatures;
 import net.minecraft.world.gen.feature.VegetationPlacedFeatures;
 
 public class ModBiomes{
-    public static final RegistryKey<Biome> FABIA_PLAINS = RegistryKey.of(RegistryKeys.BIOME, new Identifier(ChucksMod.MOD_ID, "fabia_plains"));
+    public static final RegistryKey<Biome> TRIAFIA_PLAINS = RegistryKey.of(RegistryKeys.BIOME, new Identifier(ChucksMod.MOD_ID, "triafia_plains"));
     public static void bootstrap(Registerable<Biome> context){
-        context.register(FABIA_PLAINS, fabiaPlains(context));
+        context.register(TRIAFIA_PLAINS, triafiaPlains(context));
     }
     public static void globalOverworldGeneratrion(GenerationSettings.LookupBackedBuilder builder){
         DefaultBiomeFeatures.addLandCarvers(builder);
@@ -34,7 +34,7 @@ public class ModBiomes{
         DefaultBiomeFeatures.addSprings(builder);
         DefaultBiomeFeatures.addFrozenTopLayer(builder);
     }
-    public static Biome fabiaPlains(Registerable<Biome> context){
+    public static Biome triafiaPlains(Registerable<Biome> context){
         SpawnSettings.Builder spawnBuilder = new SpawnSettings.Builder();
         spawnBuilder.spawn(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(EntityType.ZOMBIE, 4, 4, 5));
         GenerationSettings.LookupBackedBuilder biomeBuilder =
@@ -47,25 +47,25 @@ public class ModBiomes{
         DefaultBiomeFeatures.addDungeons(biomeBuilder);
         DefaultBiomeFeatures.addAmethystGeodes(biomeBuilder);
 
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.FABIA_COAL_ORE_PLACED_KEY);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.FABIA_COPPER_ORE_PLACED_KEY);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.FABIA_DIAMOND_ORE_PLACED_KEY);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.FABIA_DIRITONIUM_ORE_PLACED_KEY);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.FABIA_EMERALD_ORE_PLACED_KEY);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.FABIA_FABIUM_ORE_PLACED_KEY);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.FABIA_GOLD_ORE_PLACED_KEY);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.FABIA_IRON_ORE_PLACED_KEY);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.FABIA_LAPIS_ORE_PLACED_KEY);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.FABIA_REDSTONE_ORE_PLACED_KEY);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.FABIA_TIN_ORE_PLACED_KEY);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.FABIA_TITANIUM_ORE_PLACED_KEY);
+        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.TRIAFIA_COAL_ORE_PLACED_KEY);
+        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.TRIAFIA_COPPER_ORE_PLACED_KEY);
+        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.TRIAFIA_DIAMOND_ORE_PLACED_KEY);
+        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.TRIAFIA_PACSARIUM_ORE_PLACED_KEY);
+        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.TRIAFIA_EMERALD_ORE_PLACED_KEY);
+        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.TRIAFIA_TRIAFIUM_ORE_PLACED_KEY);
+        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.TRIAFIA_GOLD_ORE_PLACED_KEY);
+        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.TRIAFIA_IRON_ORE_PLACED_KEY);
+        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.TRIAFIA_LAPIS_ORE_PLACED_KEY);
+        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.TRIAFIA_REDSTONE_ORE_PLACED_KEY);
+        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.TRIAFIA_TIN_ORE_PLACED_KEY);
+        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.TRIAFIA_TITANIUM_ORE_PLACED_KEY);
 
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.FABIA_ECLOGITE_VEIN_PLACED_KEY);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.FABIA_TUFF_VEIN_PLACED_KEY);
+        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.TRIAFIA_ECLOGITE_VEIN_PLACED_KEY);
+        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.TRIAFIA_TUFF_VEIN_PLACED_KEY);
 
         DefaultBiomeFeatures.addDefaultVegetation(biomeBuilder);
         biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.EUCALYPTUS_PLACED_KEY);
-        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.FABIA_TREE_PLACED_KEY);
+        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.TRIAFIA_TREE_PLACED_KEY);
         biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, VegetationPlacedFeatures.PATCH_GRASS_TAIGA);
 
         return new Biome.Builder()

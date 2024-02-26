@@ -1,10 +1,10 @@
 {
   "replace": false,
   "values": [
-    "chucksmod:endstone_diritonium_ore",
-    "chucksmod:deepslate_diritonium_ore",
-    "chucksmod:diritonium_block",
-    "chucksmod:raw_diritonium_block",
-    "chucksmod:diritonium_block"
+    "chucksmod:endstone_pacsarium_ore",
+    "chucksmod:deepslate_pacsarium_ore",
+    "chucksmod:pacsarium_block",
+    "chucksmod:raw_pacsarium_block",
+    "chucksmod:pacsarium_block"
   ]
 }

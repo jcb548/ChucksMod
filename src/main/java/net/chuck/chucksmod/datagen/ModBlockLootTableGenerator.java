@@ -143,9 +143,9 @@ public class ModBlockLootTableGenerator extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.SERPENTINITE_COAL_ORE, oreDrops(ModBlocks.SERPENTINITE_COAL_ORE, Items.COAL));
         addDrop(ModBlocks.SERPENTINITE_COPPER_ORE, copperOreDrops(ModBlocks.SERPENTINITE_COPPER_ORE));
         addDrop(ModBlocks.SERPENTINITE_DIAMOND_ORE, oreDrops(ModBlocks.SERPENTINITE_DIAMOND_ORE, Items.DIAMOND));
-        addDrop(ModBlocks.SERPENTINITE_DIRITONIUM_ORE, oreDrops(ModBlocks.SERPENTINITE_DIRITONIUM_ORE, ModItems.RAW_DIRITONIUM));
+        addDrop(ModBlocks.SERPENTINITE_PACSARIUM_ORE, oreDrops(ModBlocks.SERPENTINITE_PACSARIUM_ORE, ModItems.RAW_PACSARIUM));
         addDrop(ModBlocks.SERPENTINITE_EMERALD_ORE, oreDrops(ModBlocks.SERPENTINITE_EMERALD_ORE, Items.EMERALD));
-        addDrop(ModBlocks.SERPENTINITE_FABIUM_ORE, oreDrops(ModBlocks.SERPENTINITE_FABIUM_ORE, ModItems.RAW_FABIUM));
+        addDrop(ModBlocks.SERPENTINITE_TRIAFIUM_ORE, oreDrops(ModBlocks.SERPENTINITE_TRIAFIUM_ORE, ModItems.RAW_TRIAFIUM));
         addDrop(ModBlocks.SERPENTINITE_GOLD_ORE, oreDrops(ModBlocks.SERPENTINITE_GOLD_ORE, Items.RAW_GOLD));
         addDrop(ModBlocks.SERPENTINITE_IRON_ORE, oreDrops(ModBlocks.SERPENTINITE_IRON_ORE, Items.RAW_IRON));
         addDrop(ModBlocks.SERPENTINITE_LAPIS_ORE, lapisOreDrops(ModBlocks.SERPENTINITE_LAPIS_ORE));
@@ -153,38 +153,38 @@ public class ModBlockLootTableGenerator extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.SERPENTINITE_TIN_ORE, oreDrops(ModBlocks.SERPENTINITE_TIN_ORE, ModItems.RAW_TIN));
         addDrop(ModBlocks.SERPENTINITE_TITANIUM_ORE, oreDrops(ModBlocks.SERPENTINITE_TITANIUM_ORE, ModItems.RAW_TITANIUM));
 
-        addDrop(ModBlocks.FABIA_SAPLING);
-        addDrop(ModBlocks.FABIA_LOG);
-        addDrop(ModBlocks.FABIA_WOOD);
-        addDrop(ModBlocks.STRIPPED_FABIA_LOG);
-        addDrop(ModBlocks.STRIPPED_FABIA_WOOD);
-        addDrop(ModBlocks.FABIA_LEAVES, leavesDrops(ModBlocks.FABIA_LEAVES, ModBlocks.FABIA_SAPLING,
+        addDrop(ModBlocks.TRIAFIA_SAPLING);
+        addDrop(ModBlocks.TRIAFIA_LOG);
+        addDrop(ModBlocks.TRIAFIA_WOOD);
+        addDrop(ModBlocks.STRIPPED_TRIAFIA_LOG);
+        addDrop(ModBlocks.STRIPPED_TRIAFIA_WOOD);
+        addDrop(ModBlocks.TRIAFIA_LEAVES, leavesDrops(ModBlocks.TRIAFIA_LEAVES, ModBlocks.TRIAFIA_SAPLING,
                 0.02f, 0.022222223f, 0.025f, 0.033333335f, 0.1f));
-        addDrop(ModBlocks.FABIA_BUTTON);
-        addDrop(ModBlocks.FABIA_DOOR, doorDrops(ModBlocks.FABIA_DOOR));
-        addDrop(ModBlocks.FABIA_TRAPDOOR);
-        addDrop(ModBlocks.FABIA_FENCE);
-        addDrop(ModBlocks.FABIA_FENCE_GATE);
-        addDrop(ModBlocks.FABIA_PRESSURE_PLATE);
-        addDrop(ModBlocks.FABIA_STAIRS);
-        addDrop(ModBlocks.FABIA_SLAB, slabDrops(ModBlocks.FABIA_SLAB));
+        addDrop(ModBlocks.TRIAFIA_BUTTON);
+        addDrop(ModBlocks.TRIAFIA_DOOR, doorDrops(ModBlocks.TRIAFIA_DOOR));
+        addDrop(ModBlocks.TRIAFIA_TRAPDOOR);
+        addDrop(ModBlocks.TRIAFIA_FENCE);
+        addDrop(ModBlocks.TRIAFIA_FENCE_GATE);
+        addDrop(ModBlocks.TRIAFIA_PRESSURE_PLATE);
+        addDrop(ModBlocks.TRIAFIA_STAIRS);
+        addDrop(ModBlocks.TRIAFIA_SLAB, slabDrops(ModBlocks.TRIAFIA_SLAB));
         
-        addDrop(ModBlocks.RAW_FABIUM_BLOCK);
-        addDrop(ModBlocks.FABIUM_BLOCK);
-        addDrop(ModBlocks.FABIUM_BARS);
-        addDrop(ModBlocks.NETHER_FABIUM_ORE, oreDrops(ModBlocks.NETHER_FABIUM_ORE, ModItems.RAW_FABIUM));
-        addDrop(ModBlocks.END_STONE_FABIUM_ORE, oreDrops(ModBlocks.END_STONE_FABIUM_ORE, ModItems.RAW_FABIUM));
-        addDrop(ModBlocks.DEEPSLATE_FABIUM_ORE, oreDrops(ModBlocks.DEEPSLATE_FABIUM_ORE, ModItems.RAW_FABIUM));
-        addDrop(ModBlocks.FABIUM_PORTAL_BLOCK);
-        addDrop(ModBlocks.FABIUM_PORTAL_BUILDER);
+        addDrop(ModBlocks.RAW_TRIAFIUM_BLOCK);
+        addDrop(ModBlocks.TRIAFIUM_BLOCK);
+        addDrop(ModBlocks.TRIAFIUM_BARS);
+        addDrop(ModBlocks.NETHER_TRIAFIUM_ORE, oreDrops(ModBlocks.NETHER_TRIAFIUM_ORE, ModItems.RAW_TRIAFIUM));
+        addDrop(ModBlocks.END_STONE_TRIAFIUM_ORE, oreDrops(ModBlocks.END_STONE_TRIAFIUM_ORE, ModItems.RAW_TRIAFIUM));
+        addDrop(ModBlocks.DEEPSLATE_TRIAFIUM_ORE, oreDrops(ModBlocks.DEEPSLATE_TRIAFIUM_ORE, ModItems.RAW_TRIAFIUM));
+        addDrop(ModBlocks.TRIAFIUM_PORTAL_BLOCK);
+        addDrop(ModBlocks.TRIAFIUM_PORTAL_BUILDER);
 
-        addDrop(ModBlocks.RAW_DIRITONIUM_BLOCK);
-        addDrop(ModBlocks.DIRITONIUM_BLOCK);
-        addDrop(ModBlocks.DIRITONIUM_BARS);
-        addDrop(ModBlocks.END_STONE_DIRITONIUM_ORE, oreDrops(ModBlocks.END_STONE_DIRITONIUM_ORE,
-                ModItems.RAW_DIRITONIUM));
-        addDrop(ModBlocks.DEEPSLATE_DIRITONIUM_ORE, oreDrops(ModBlocks.DEEPSLATE_DIRITONIUM_ORE,
-                ModItems.RAW_DIRITONIUM));
+        addDrop(ModBlocks.RAW_PACSARIUM_BLOCK);
+        addDrop(ModBlocks.PACSARIUM_BLOCK);
+        addDrop(ModBlocks.PACSARIUM_BARS);
+        addDrop(ModBlocks.END_STONE_PACSARIUM_ORE, oreDrops(ModBlocks.END_STONE_PACSARIUM_ORE,
+                ModItems.RAW_PACSARIUM));
+        addDrop(ModBlocks.DEEPSLATE_PACSARIUM_ORE, oreDrops(ModBlocks.DEEPSLATE_PACSARIUM_ORE,
+                ModItems.RAW_PACSARIUM));
 
         addDrop(ModBlocks.EUCALYPTUS_SAPLING);
         addDrop(ModBlocks.EUCALYPTUS_LOG);
@@ -202,23 +202,23 @@ public class ModBlockLootTableGenerator extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.EUCALYPTUS_STAIRS);
         addDrop(ModBlocks.EUCALYPTUS_SLAB, slabDrops(ModBlocks.EUCALYPTUS_SLAB));
 
-        addDrop(ModBlocks.DIRITIA_SAPLING);
-        addDrop(ModBlocks.DIRITIA_LOG);
-        addDrop(ModBlocks.DIRITIA_WOOD);
-        addDrop(ModBlocks.STRIPPED_DIRITIA_LOG);
-        addDrop(ModBlocks.STRIPPED_DIRITIA_WOOD);
-        addDrop(ModBlocks.DIRITIA_LEAVES, leavesDrops(ModBlocks.DIRITIA_LEAVES, ModBlocks.DIRITIA_SAPLING,
+        addDrop(ModBlocks.PACSARIA_SAPLING);
+        addDrop(ModBlocks.PACSARIA_LOG);
+        addDrop(ModBlocks.PACSARIA_WOOD);
+        addDrop(ModBlocks.STRIPPED_PACSARIA_LOG);
+        addDrop(ModBlocks.STRIPPED_PACSARIA_WOOD);
+        addDrop(ModBlocks.PACSARIA_LEAVES, leavesDrops(ModBlocks.PACSARIA_LEAVES, ModBlocks.PACSARIA_SAPLING,
                 0.02f, 0.022222223f, 0.025f, 0.033333335f, 0.1f));
-        addDrop(ModBlocks.DIRITIA_BUTTON);
-        addDrop(ModBlocks.DIRITIA_DOOR, doorDrops(ModBlocks.DIRITIA_DOOR));
-        addDrop(ModBlocks.DIRITIA_TRAPDOOR);
-        addDrop(ModBlocks.DIRITIA_FENCE);
-        addDrop(ModBlocks.DIRITIA_FENCE_GATE);
-        addDrop(ModBlocks.DIRITIA_PRESSURE_PLATE);
-        addDrop(ModBlocks.DIRITIA_STAIRS);
-        addDrop(ModBlocks.DIRITIA_SLAB, slabDrops(ModBlocks.DIRITIA_SLAB));
-        addDrop(ModBlocks.DIRITIA_PLANT, grassDrops(ModBlocks.DIRITIA_PLANT));
-        addDrop(ModBlocks.DIRITIA_LIGHT_PLANT);
+        addDrop(ModBlocks.PACSARIA_BUTTON);
+        addDrop(ModBlocks.PACSARIA_DOOR, doorDrops(ModBlocks.PACSARIA_DOOR));
+        addDrop(ModBlocks.PACSARIA_TRAPDOOR);
+        addDrop(ModBlocks.PACSARIA_FENCE);
+        addDrop(ModBlocks.PACSARIA_FENCE_GATE);
+        addDrop(ModBlocks.PACSARIA_PRESSURE_PLATE);
+        addDrop(ModBlocks.PACSARIA_STAIRS);
+        addDrop(ModBlocks.PACSARIA_SLAB, slabDrops(ModBlocks.PACSARIA_SLAB));
+        addDrop(ModBlocks.PACSARIA_PLANT, grassDrops(ModBlocks.PACSARIA_PLANT));
+        addDrop(ModBlocks.PACSARIA_LIGHT_PLANT);
 
         addDrop(ModBlocks.IRON_MACHINE_BASE);
         addDrop(ModBlocks.CRUSHER);

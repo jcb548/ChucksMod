@@ -23,7 +23,7 @@ public class FrankAltarBlock extends Block {
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand,
                               BlockHitResult hit) {
         ItemStack heldItem = player.getStackInHand(hand);
-        if(heldItem.isOf(ModItems.DIRITIA_CRYSTAL)){
+        if(heldItem.isOf(ModItems.PACSARIA_CRYSTAL)){
             FrankBoss entity = new FrankBoss(ModEntities.FRANK_BOSS, world);
             entity.setPos(pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5);
             world.spawnEntity(entity);

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "D": {
+      "item": "chucksmod:pacsarium_ingot"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "DDD",
+    " S ",
+    " S "
+  ],
+  "result": {
+    "item": "chucksmod:pacsarium_pickaxe"
+  },
+  "show_notification": true
+}

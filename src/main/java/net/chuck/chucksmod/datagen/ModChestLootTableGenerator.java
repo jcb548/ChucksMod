@@ -21,13 +21,13 @@ import java.util.function.BiConsumer;
 
 public class ModChestLootTableGenerator extends SimpleFabricLootTableProvider {
     //
-    public static final Identifier DIRITIA_HOUSE = new Identifier(ChucksMod.MOD_ID, "chests/diritia_house");
-    // /setblock ~ ~ ~ minecraft:chest{LootTable:"chucksmod:chests/diritia_dungeon"}
-    public static final Identifier DIRITIA_DUNGEON = new Identifier(ChucksMod.MOD_ID, "chests/diritia_dungeon");
-    // /setblock ~ ~ ~ minecraft:chest{LootTable:"chucksmod:chests/diritia_library"}
-    public static final Identifier DIRITIA_LIBRARY = new Identifier(ChucksMod.MOD_ID, "chests/diritia_library");
-    // /setblock ~ ~ ~ minecraft:chest{LootTable:"chucksmod:chests/diritia_armoury"}
-    public static final Identifier DIRITIA_ARMOURY = new Identifier(ChucksMod.MOD_ID, "chests/diritia_armoury");
+    public static final Identifier PACSARIA_HOUSE = new Identifier(ChucksMod.MOD_ID, "chests/pacsaria_house");
+    // /setblock ~ ~ ~ minecraft:chest{LootTable:"chucksmod:chests/pacsaria_dungeon"}
+    public static final Identifier PACSARIA_DUNGEON = new Identifier(ChucksMod.MOD_ID, "chests/pacsaria_dungeon");
+    // /setblock ~ ~ ~ minecraft:chest{LootTable:"chucksmod:chests/pacsaria_library"}
+    public static final Identifier PACSARIA_LIBRARY = new Identifier(ChucksMod.MOD_ID, "chests/pacsaria_library");
+    // /setblock ~ ~ ~ minecraft:chest{LootTable:"chucksmod:chests/pacsaria_armoury"}
+    public static final Identifier PACSARIA_ARMOURY = new Identifier(ChucksMod.MOD_ID, "chests/pacsaria_armoury");
     public static final Identifier GUNPOWDER = new Identifier(ChucksMod.MOD_ID, "chests/gunpowder");
     public static final Identifier SUGAR_CANE = new Identifier(ChucksMod.MOD_ID, "chests/sugar_cane");
     // /setblock ~ ~ ~ minecraft:chest{LootTable:"chucksmod:chests/chuck_house_resources"}
@@ -35,19 +35,21 @@ public class ModChestLootTableGenerator extends SimpleFabricLootTableProvider {
             "chests/chuck_house_resources");
     public static final Identifier CHUCK_HOUSE_BLOCKS = new Identifier(ChucksMod.MOD_ID,
             "chests/chuck_house_blocks");
+    public static final Identifier TRIAFIA_CASTLE_LOOT = new Identifier(ChucksMod.MOD_ID,
+            "chests/triafia_castle_loot");
     public ModChestLootTableGenerator(FabricDataOutput output) {
         super(output, LootContextTypes.CHEST);
     }
 
     @Override
     public void accept(BiConsumer<Identifier, LootTable.Builder> exporter) {
-        // /setblock ~ ~ ~ minecraft:chest{LootTable:"chucksmod:chests/diritia_house"}
-        exporter.accept(DIRITIA_HOUSE, LootTable.builder()
+        // /setblock ~ ~ ~ minecraft:chest{LootTable:"chucksmod:chests/pacsaria_house"}
+        exporter.accept(PACSARIA_HOUSE, LootTable.builder()
                 .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0f))
                     .with(ItemEntry.builder(Items.GOLDEN_APPLE).weight(15))
                     .with(ItemEntry.builder(Items.ENCHANTED_GOLDEN_APPLE).weight(5))
-                    .with(ItemEntry.builder(ModItems.DIRITIA_CRYSTAL_SHARD).weight(10))
-                    .with(ItemEntry.builder(ModItems.DIRITONIUM_INGOT).weight(10))
+                    .with(ItemEntry.builder(ModItems.PACSARIA_CRYSTAL_SHARD).weight(10))
+                    .with(ItemEntry.builder(ModItems.PACSARIUM_INGOT).weight(10))
                     .with(ItemEntry.builder(Items.NAME_TAG).weight(20))
                     .with(ItemEntry.builder(Items.BOOK).weight(30))
                         .apply(EnchantWithLevelsLootFunction.builder(UniformLootNumberProvider.create(20.0f, 39.0f))))
@@ -75,16 +77,16 @@ public class ModChestLootTableGenerator extends SimpleFabricLootTableProvider {
                         .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(2.0f, 12.0f)))
                     .with(ItemEntry.builder(Items.COAL).weight(15))
                         .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 8.0f)))
-                    .with(ItemEntry.builder(ModItems.RAW_DIRITONIUM).weight(10))
+                    .with(ItemEntry.builder(ModItems.RAW_PACSARIUM).weight(10))
                             .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 8.0f)))
                     .with(ItemEntry.builder(Items.BONE).weight(10))
                             .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 8.0f)))
                     .with(ItemEntry.builder(Items.BLAZE_POWDER).weight(10))
                             .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 8.0f)))));
-        exporter.accept(DIRITIA_DUNGEON, LootTable.builder()
+        exporter.accept(PACSARIA_DUNGEON, LootTable.builder()
                 .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0f))
                     .with(ItemEntry.builder(Items.ENCHANTED_GOLDEN_APPLE).weight(5))
-                    .with(ItemEntry.builder(ModItems.DIRITONIUM_INGOT).weight(10))
+                    .with(ItemEntry.builder(ModItems.PACSARIUM_INGOT).weight(10))
                     .with(ItemEntry.builder(Items.NAME_TAG).weight(20))
                     .with(ItemEntry.builder(Items.BOOK).weight(30))
                         .apply(EnchantWithLevelsLootFunction.builder(UniformLootNumberProvider.create(20.0f, 39.0f))))
@@ -97,7 +99,7 @@ public class ModChestLootTableGenerator extends SimpleFabricLootTableProvider {
                 .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(3.0f))
                     .with(ItemEntry.builder(Items.IRON_INGOT).weight(10))
                         .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 8.0f)))
-                    .with(ItemEntry.builder(ModItems.DIRITIA_CRYSTAL_SHARD).weight(20))
+                    .with(ItemEntry.builder(ModItems.PACSARIA_CRYSTAL_SHARD).weight(20))
                         .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 3.0f)))
                     .with(ItemEntry.builder(Items.GOLD_INGOT).weight(5))
                         .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 4.0f)))
@@ -114,19 +116,19 @@ public class ModChestLootTableGenerator extends SimpleFabricLootTableProvider {
                         .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(2.0f, 12.0f)))
                     .with(ItemEntry.builder(Items.COAL).weight(15))
                         .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 8.0f)))
-                    .with(ItemEntry.builder(ModItems.RAW_DIRITONIUM).weight(10))
+                    .with(ItemEntry.builder(ModItems.RAW_PACSARIUM).weight(10))
                             .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 8.0f)))
                     .with(ItemEntry.builder(Items.BONE).weight(10))
                             .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 8.0f)))
                     .with(ItemEntry.builder(Items.BLAZE_POWDER).weight(10))
                             .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 8.0f)))));
-        exporter.accept(DIRITIA_LIBRARY, LootTable.builder()
+        exporter.accept(PACSARIA_LIBRARY, LootTable.builder()
                 .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(4.0f))
                     .with(ItemEntry.builder(Items.BOOK).weight(50))
                         .apply(EnchantWithLevelsLootFunction.builder(UniformLootNumberProvider.create(1.0f, 39.0f)))
                     .with(ItemEntry.builder(Items.PAPER).weight(50))
                     .with(ItemEntry.builder(Items.BOOK).weight(50))));
-        exporter.accept(DIRITIA_ARMOURY, LootTable.builder()
+        exporter.accept(PACSARIA_ARMOURY, LootTable.builder()
                 .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0f))
                     .with(ItemEntry.builder(Items.NETHERITE_HELMET).weight(10))
                         .apply(SetDamageLootFunction.builder(UniformLootNumberProvider.create(0.1f, 0.9f)))
@@ -147,41 +149,41 @@ public class ModChestLootTableGenerator extends SimpleFabricLootTableProvider {
                         .apply(SetDamageLootFunction.builder(UniformLootNumberProvider.create(0.1f, 0.9f)))
                         .apply(EnchantRandomlyLootFunction.builder()))
                 .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0f))
-                    .with(ItemEntry.builder(ModItems.FABIUM_HELMET).weight(10))
+                    .with(ItemEntry.builder(ModItems.TRIAFIUM_HELMET).weight(10))
                         .apply(SetDamageLootFunction.builder(UniformLootNumberProvider.create(0.1f, 0.9f)))
                         .apply(EnchantRandomlyLootFunction.builder())
-                    .with(ItemEntry.builder(ModItems.FABIUM_CHESTPLATE).weight(10))
+                    .with(ItemEntry.builder(ModItems.TRIAFIUM_CHESTPLATE).weight(10))
                         .apply(SetDamageLootFunction.builder(UniformLootNumberProvider.create(0.1f, 0.9f)))
                         .apply(EnchantRandomlyLootFunction.builder())
-                    .with(ItemEntry.builder(ModItems.FABIUM_LEGGINGS).weight(10))
+                    .with(ItemEntry.builder(ModItems.TRIAFIUM_LEGGINGS).weight(10))
                         .apply(SetDamageLootFunction.builder(UniformLootNumberProvider.create(0.1f, 0.9f)))
                         .apply(EnchantRandomlyLootFunction.builder())
-                    .with(ItemEntry.builder(ModItems.FABIUM_BOOTS).weight(10))
+                    .with(ItemEntry.builder(ModItems.TRIAFIUM_BOOTS).weight(10))
                         .apply(SetDamageLootFunction.builder(UniformLootNumberProvider.create(0.1f, 0.9f)))
                         .apply(EnchantRandomlyLootFunction.builder())
-                    .with(ItemEntry.builder(ModItems.FABIUM_SWORD).weight(10))
+                    .with(ItemEntry.builder(ModItems.TRIAFIUM_SWORD).weight(10))
                         .apply(SetDamageLootFunction.builder(UniformLootNumberProvider.create(0.1f, 0.9f)))
                         .apply(EnchantRandomlyLootFunction.builder())
-                    .with(ItemEntry.builder(ModItems.FABIUM_AXE).weight(10))
+                    .with(ItemEntry.builder(ModItems.TRIAFIUM_AXE).weight(10))
                         .apply(SetDamageLootFunction.builder(UniformLootNumberProvider.create(0.1f, 0.9f)))
                         .apply(EnchantRandomlyLootFunction.builder()))
                 .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0f))
-                    .with(ItemEntry.builder(ModItems.DIRITONIUM_HELMET).weight(10))
+                    .with(ItemEntry.builder(ModItems.PACSARIUM_HELMET).weight(10))
                         .apply(SetDamageLootFunction.builder(UniformLootNumberProvider.create(0.1f, 0.9f)))
                         .apply(EnchantRandomlyLootFunction.builder())
-                    .with(ItemEntry.builder(ModItems.DIRITONIUM_CHESTPLATE).weight(10))
+                    .with(ItemEntry.builder(ModItems.PACSARIUM_CHESTPLATE).weight(10))
                         .apply(SetDamageLootFunction.builder(UniformLootNumberProvider.create(0.1f, 0.9f)))
                         .apply(EnchantRandomlyLootFunction.builder())
-                    .with(ItemEntry.builder(ModItems.DIRITONIUM_LEGGINGS).weight(10))
+                    .with(ItemEntry.builder(ModItems.PACSARIUM_LEGGINGS).weight(10))
                         .apply(SetDamageLootFunction.builder(UniformLootNumberProvider.create(0.1f, 0.9f)))
                         .apply(EnchantRandomlyLootFunction.builder())
-                    .with(ItemEntry.builder(ModItems.DIRITONIUM_BOOTS).weight(10))
+                    .with(ItemEntry.builder(ModItems.PACSARIUM_BOOTS).weight(10))
                         .apply(SetDamageLootFunction.builder(UniformLootNumberProvider.create(0.1f, 0.9f)))
                         .apply(EnchantRandomlyLootFunction.builder())
-                    .with(ItemEntry.builder(ModItems.DIRITONIUM_SWORD).weight(10))
+                    .with(ItemEntry.builder(ModItems.PACSARIUM_SWORD).weight(10))
                         .apply(SetDamageLootFunction.builder(UniformLootNumberProvider.create(0.1f, 0.9f)))
                         .apply(EnchantRandomlyLootFunction.builder())
-                    .with(ItemEntry.builder(ModItems.DIRITONIUM_AXE).weight(10))
+                    .with(ItemEntry.builder(ModItems.PACSARIUM_AXE).weight(10))
                         .apply(SetDamageLootFunction.builder(UniformLootNumberProvider.create(0.1f, 0.9f)))
                         .apply(EnchantRandomlyLootFunction.builder())));
         exporter.accept(GUNPOWDER, LootTable.builder()
@@ -251,5 +253,6 @@ public class ModChestLootTableGenerator extends SimpleFabricLootTableProvider {
                     .with(ItemEntry.builder(Blocks.SAND).weight(10))
                         .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(12.0f, 24.0f)))
                 ));
+        exporter.accept(TRIAFIA_CASTLE_LOOT, LootTable.builder());
     }
 }

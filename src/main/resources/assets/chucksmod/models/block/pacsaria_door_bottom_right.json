@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_bottom_right",
+  "textures": {
+    "bottom": "chucksmod:block/pacsaria_door_bottom",
+    "top": "chucksmod:block/pacsaria_door_top"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "F": {
+      "item": "chucksmod:triafium_ingot"
+    }
+  },
+  "pattern": [
+    "FFF",
+    "F F"
+  ],
+  "result": {
+    "item": "chucksmod:triafium_helmet"
+  },
+  "show_notification": true
+}

@@ -15,8 +15,8 @@ import net.minecraft.util.Identifier;
  */
 public class ModBlockTags {
     public static final TagKey<Block> EUCALYPTUS_LOGS = ModBlockTags.of("eucalyptus_logs");
-    public static final TagKey<Block> DIRITIA_LOGS = ModBlockTags.of("diritia_logs");
-    public static final TagKey<Block> FABIA_LOGS = ModBlockTags.of("fabia_logs");
+    public static final TagKey<Block> PACSARIA_LOGS = ModBlockTags.of("pacsaria_logs");
+    public static final TagKey<Block> TRIAFIA_LOGS = ModBlockTags.of("triafia_logs");
     public static final TagKey<Block> HARDENED_GLASS = ModBlockTags.of("hardened_glass");
     public static final TagKey<Block> HARDENED_GLASS_PANES = ModBlockTags.of("hardened_glass_panes");
     public static final TagKey<Block> WIRES = ModBlockTags.of("wires");
@@ -28,8 +28,8 @@ public class ModBlockTags {
     public static final TagKey<Block> TITANIUM_ORES = ModBlockTags.commonOf("titanium_ores");
     public static final TagKey<Block> TITANIUM_BLOCKS = ModBlockTags.commonOf("titanium_blocks");
     public static final TagKey<Block> RAW_TITANIUM_BLOCKS = ModBlockTags.commonOf("raw_titanium_blocks");
-    public static final TagKey<Block> FABIUM_ORES = ModBlockTags.of("fabium_ores");
-    public static final TagKey<Block> DIRITONIUM_ORES = ModBlockTags.of("diritonium_ores");
+    public static final TagKey<Block> TRIAFIUM_ORES = ModBlockTags.of("triafium_ores");
+    public static final TagKey<Block> PACSARIUM_ORES = ModBlockTags.of("pacsarium_ores");
     public static final TagKey<Block> DUST_BLOCKS = ModBlockTags.of("dust_blocks");
     public static final TagKey<Block> CRUSHERS = ModBlockTags.of("crushers");
     public static final TagKey<Block> GENERATORS = ModBlockTags.of("generators");

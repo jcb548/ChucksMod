@@ -41,10 +41,10 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
         generateBronzeRecipes(exporter);
         generatePrismarineRecipes(exporter);
         generateSoulRecipes(exporter);
-        generateFabiumRecipes(exporter);
+        generateTriafiumRecipes(exporter);
         generateDiritonoumRecipes(exporter);
         generateEucalyptusRecipes(exporter);
-        generateDiritiaWoodRecipes(exporter);
+        generatePacsariaWoodRecipes(exporter);
         generateSandstoneRecipes(exporter);
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.CRUSHER)
@@ -186,48 +186,48 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
         return "has_" + material.id().getPath();
     }
 
-    private void generateDiritiaWoodRecipes(RecipeExporter exporter) {
-        offerShapelessRecipe(exporter, ModBlocks.DIRITIA_PLANKS, ModBlocks.DIRITIA_LOG,
-                "diritia_planks", 4);
-        offerShapelessRecipe(exporter, ModBlocks.DIRITIA_PLANKS, ModBlocks.DIRITIA_WOOD,
-                "diritia_planks", 4);
-        offerShapelessRecipe(exporter, ModBlocks.DIRITIA_PLANKS, ModBlocks.STRIPPED_DIRITIA_LOG,
-                "diritia_planks", 4);
-        offerShapelessRecipe(exporter, ModBlocks.DIRITIA_PLANKS, ModBlocks.STRIPPED_DIRITIA_WOOD,
-                "diritia_planks", 4);
-        createDoorRecipe(ModBlocks.DIRITIA_DOOR, Ingredient.ofItems(ModBlocks.DIRITIA_PLANKS))
-                .criterion(hasItem(ModBlocks.DIRITIA_PLANKS), conditionsFromItem(ModBlocks.DIRITIA_PLANKS))
+    private void generatePacsariaWoodRecipes(RecipeExporter exporter) {
+        offerShapelessRecipe(exporter, ModBlocks.PACSARIA_PLANKS, ModBlocks.PACSARIA_LOG,
+                "pacsaria_planks", 4);
+        offerShapelessRecipe(exporter, ModBlocks.PACSARIA_PLANKS, ModBlocks.PACSARIA_WOOD,
+                "pacsaria_planks", 4);
+        offerShapelessRecipe(exporter, ModBlocks.PACSARIA_PLANKS, ModBlocks.STRIPPED_PACSARIA_LOG,
+                "pacsaria_planks", 4);
+        offerShapelessRecipe(exporter, ModBlocks.PACSARIA_PLANKS, ModBlocks.STRIPPED_PACSARIA_WOOD,
+                "pacsaria_planks", 4);
+        createDoorRecipe(ModBlocks.PACSARIA_DOOR, Ingredient.ofItems(ModBlocks.PACSARIA_PLANKS))
+                .criterion(hasItem(ModBlocks.PACSARIA_PLANKS), conditionsFromItem(ModBlocks.PACSARIA_PLANKS))
                 .offerTo(exporter);
-        createTrapdoorRecipe(ModBlocks.DIRITIA_TRAPDOOR, Ingredient.ofItems(ModBlocks.DIRITIA_PLANKS))
-                .criterion(hasItem(ModBlocks.DIRITIA_PLANKS), conditionsFromItem(ModBlocks.DIRITIA_PLANKS))
+        createTrapdoorRecipe(ModBlocks.PACSARIA_TRAPDOOR, Ingredient.ofItems(ModBlocks.PACSARIA_PLANKS))
+                .criterion(hasItem(ModBlocks.PACSARIA_PLANKS), conditionsFromItem(ModBlocks.PACSARIA_PLANKS))
                 .offerTo(exporter);
-        createFenceRecipe(ModBlocks.DIRITIA_FENCE, Ingredient.ofItems(ModBlocks.DIRITIA_PLANKS))
-                .criterion(hasItem(ModBlocks.DIRITIA_PLANKS), conditionsFromItem(ModBlocks.DIRITIA_PLANKS))
+        createFenceRecipe(ModBlocks.PACSARIA_FENCE, Ingredient.ofItems(ModBlocks.PACSARIA_PLANKS))
+                .criterion(hasItem(ModBlocks.PACSARIA_PLANKS), conditionsFromItem(ModBlocks.PACSARIA_PLANKS))
                 .offerTo(exporter);
-        createFenceGateRecipe(ModBlocks.DIRITIA_FENCE_GATE, Ingredient.ofItems(ModBlocks.DIRITIA_PLANKS))
-                .criterion(hasItem(ModBlocks.DIRITIA_PLANKS), conditionsFromItem(ModBlocks.DIRITIA_PLANKS))
+        createFenceGateRecipe(ModBlocks.PACSARIA_FENCE_GATE, Ingredient.ofItems(ModBlocks.PACSARIA_PLANKS))
+                .criterion(hasItem(ModBlocks.PACSARIA_PLANKS), conditionsFromItem(ModBlocks.PACSARIA_PLANKS))
                 .offerTo(exporter);
-        createSlabRecipe(RecipeCategory.BUILDING_BLOCKS, ModBlocks.DIRITIA_SLAB,
-                Ingredient.ofItems(ModBlocks.DIRITIA_PLANKS))
-                .criterion(hasItem(ModBlocks.DIRITIA_PLANKS), conditionsFromItem(ModBlocks.DIRITIA_PLANKS))
+        createSlabRecipe(RecipeCategory.BUILDING_BLOCKS, ModBlocks.PACSARIA_SLAB,
+                Ingredient.ofItems(ModBlocks.PACSARIA_PLANKS))
+                .criterion(hasItem(ModBlocks.PACSARIA_PLANKS), conditionsFromItem(ModBlocks.PACSARIA_PLANKS))
                 .offerTo(exporter);
-        createStairsRecipe(ModBlocks.DIRITIA_STAIRS, Ingredient.ofItems(ModBlocks.DIRITIA_PLANKS))
-                .criterion(hasItem(ModBlocks.DIRITIA_PLANKS), conditionsFromItem(ModBlocks.DIRITIA_PLANKS))
+        createStairsRecipe(ModBlocks.PACSARIA_STAIRS, Ingredient.ofItems(ModBlocks.PACSARIA_PLANKS))
+                .criterion(hasItem(ModBlocks.PACSARIA_PLANKS), conditionsFromItem(ModBlocks.PACSARIA_PLANKS))
                 .offerTo(exporter);
-        createSignRecipe(ModItems.DIRITIA_SIGN, Ingredient.ofItems(ModBlocks.DIRITIA_PLANKS))
-                .criterion(hasItem(ModBlocks.DIRITIA_PLANKS), conditionsFromItem(ModBlocks.DIRITIA_PLANKS))
+        createSignRecipe(ModItems.PACSARIA_SIGN, Ingredient.ofItems(ModBlocks.PACSARIA_PLANKS))
+                .criterion(hasItem(ModBlocks.PACSARIA_PLANKS), conditionsFromItem(ModBlocks.PACSARIA_PLANKS))
                 .offerTo(exporter);
-        offerHangingSignRecipe(exporter, ModItems.HANGING_DIRITIA_SIGN, ModBlocks.DIRITIA_PLANKS);
+        offerHangingSignRecipe(exporter, ModItems.HANGING_PACSARIA_SIGN, ModBlocks.PACSARIA_PLANKS);
         offerSmelting(exporter,
-                List.of(ModBlocks.DIRITIA_LOG, ModBlocks.STRIPPED_DIRITIA_LOG,
-                        ModBlocks.DIRITIA_WOOD, ModBlocks.STRIPPED_DIRITIA_WOOD),
+                List.of(ModBlocks.PACSARIA_LOG, ModBlocks.STRIPPED_PACSARIA_LOG,
+                        ModBlocks.PACSARIA_WOOD, ModBlocks.STRIPPED_PACSARIA_WOOD),
                 RecipeCategory.MISC,
                 Items.CHARCOAL,
                 2f,
                 100,
                 "charcoal");
-        offerBoatRecipe(exporter, ModItems.DIRITIA_BOAT, ModBlocks.DIRITIA_PLANKS);
-        offerChestBoatRecipe(exporter, ModItems.DIRITIA_CHEST_BOAT, ModItems.DIRITIA_BOAT);
+        offerBoatRecipe(exporter, ModItems.PACSARIA_BOAT, ModBlocks.PACSARIA_PLANKS);
+        offerChestBoatRecipe(exporter, ModItems.PACSARIA_CHEST_BOAT, ModItems.PACSARIA_BOAT);
     }
 
     private void generateEucalyptusRecipes(RecipeExporter exporter) {
@@ -275,49 +275,49 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
     }
 
     private void generateDiritonoumRecipes(RecipeExporter exporter) {
-        offerSmelting(exporter, List.of(ModItems.RAW_DIRITONIUM), RecipeCategory.TOOLS, ModItems.DIRITONIUM_INGOT,
-                1.3f, 200, "diritonium_ingot");
-        offerBlasting(exporter, List.of(ModItems.RAW_DIRITONIUM), RecipeCategory.TOOLS, ModItems.DIRITONIUM_INGOT,
-                1.3f, 100, "diritonium_ingot");
-        offerReversibleCompactingRecipes(exporter, RecipeCategory.BUILDING_BLOCKS, ModItems.RAW_DIRITONIUM,
-                RecipeCategory.DECORATIONS, ModBlocks.RAW_DIRITONIUM_BLOCK);
-        offerReversibleCompactingRecipes(exporter, RecipeCategory.BUILDING_BLOCKS, ModItems.DIRITONIUM_INGOT,
-                RecipeCategory.DECORATIONS, ModBlocks.DIRITONIUM_BLOCK);
-        offerSwordRecipe(exporter, ModItems.DIRITONIUM_INGOT, ModItems.DIRITONIUM_SWORD);
-        offerPickaxeRecipe(exporter, ModItems.DIRITONIUM_INGOT, ModItems.DIRITONIUM_PICKAXE);
-        offerAxeRecipe(exporter, ModItems.DIRITONIUM_INGOT, ModItems.DIRITONIUM_AXE);
-        offerShovelRecipe(exporter, ModItems.DIRITONIUM_INGOT, ModItems.DIRITONIUM_SHOVEL);
-        offerHoeRecipe(exporter, ModItems.DIRITONIUM_INGOT, ModItems.DIRITONIUM_HOE);
-        offerHelmetRecipe(exporter, ModItems.DIRITONIUM_INGOT, ModItems.DIRITONIUM_HELMET);
-        offerChestplateRecipe(exporter, ModItems.DIRITONIUM_INGOT, ModItems.DIRITONIUM_CHESTPLATE);
-        offerLeggingsRecipe(exporter, ModItems.DIRITONIUM_INGOT, ModItems.DIRITONIUM_LEGGINGS);
-        offerBootsRecipe(exporter, ModItems.DIRITONIUM_INGOT, ModItems.DIRITONIUM_BOOTS);
-        offerGearRecipe(exporter, ModItems.DIRITONIUM_INGOT, ModItems.DIRITONIUM_GEAR);
-        offerStainedGlassPaneRecipe(exporter, ModBlocks.DIRITONIUM_BARS, ModItems.DIRITONIUM_INGOT);
-        offerCompactingRecipe(exporter, RecipeCategory.MISC, ModItems.DIRITIA_CRYSTAL,
-                ModItems.DIRITIA_CRYSTAL_SHARD);
+        offerSmelting(exporter, List.of(ModItems.RAW_PACSARIUM), RecipeCategory.TOOLS, ModItems.PACSARIUM_INGOT,
+                1.3f, 200, "pacsarium_ingot");
+        offerBlasting(exporter, List.of(ModItems.RAW_PACSARIUM), RecipeCategory.TOOLS, ModItems.PACSARIUM_INGOT,
+                1.3f, 100, "pacsarium_ingot");
+        offerReversibleCompactingRecipes(exporter, RecipeCategory.BUILDING_BLOCKS, ModItems.RAW_PACSARIUM,
+                RecipeCategory.DECORATIONS, ModBlocks.RAW_PACSARIUM_BLOCK);
+        offerReversibleCompactingRecipes(exporter, RecipeCategory.BUILDING_BLOCKS, ModItems.PACSARIUM_INGOT,
+                RecipeCategory.DECORATIONS, ModBlocks.PACSARIUM_BLOCK);
+        offerSwordRecipe(exporter, ModItems.PACSARIUM_INGOT, ModItems.PACSARIUM_SWORD);
+        offerPickaxeRecipe(exporter, ModItems.PACSARIUM_INGOT, ModItems.PACSARIUM_PICKAXE);
+        offerAxeRecipe(exporter, ModItems.PACSARIUM_INGOT, ModItems.PACSARIUM_AXE);
+        offerShovelRecipe(exporter, ModItems.PACSARIUM_INGOT, ModItems.PACSARIUM_SHOVEL);
+        offerHoeRecipe(exporter, ModItems.PACSARIUM_INGOT, ModItems.PACSARIUM_HOE);
+        offerHelmetRecipe(exporter, ModItems.PACSARIUM_INGOT, ModItems.PACSARIUM_HELMET);
+        offerChestplateRecipe(exporter, ModItems.PACSARIUM_INGOT, ModItems.PACSARIUM_CHESTPLATE);
+        offerLeggingsRecipe(exporter, ModItems.PACSARIUM_INGOT, ModItems.PACSARIUM_LEGGINGS);
+        offerBootsRecipe(exporter, ModItems.PACSARIUM_INGOT, ModItems.PACSARIUM_BOOTS);
+        offerGearRecipe(exporter, ModItems.PACSARIUM_INGOT, ModItems.PACSARIUM_GEAR);
+        offerStainedGlassPaneRecipe(exporter, ModBlocks.PACSARIUM_BARS, ModItems.PACSARIUM_INGOT);
+        offerCompactingRecipe(exporter, RecipeCategory.MISC, ModItems.PACSARIA_CRYSTAL,
+                ModItems.PACSARIA_CRYSTAL_SHARD);
     }
 
-    private void generateFabiumRecipes(RecipeExporter exporter) {
-        offerSmelting(exporter, List.of(ModItems.RAW_FABIUM), RecipeCategory.TOOLS, ModItems.FABIUM_INGOT,
-                1.0f, 200, "fabium_ingot");
-        offerBlasting(exporter, List.of(ModItems.RAW_FABIUM), RecipeCategory.TOOLS, ModItems.FABIUM_INGOT,
-                1.0f, 100, "fabium_ingot");
-        offerReversibleCompactingRecipes(exporter, RecipeCategory.BUILDING_BLOCKS, ModItems.RAW_FABIUM,
-                RecipeCategory.DECORATIONS, ModBlocks.RAW_FABIUM_BLOCK);
-        offerReversibleCompactingRecipes(exporter, RecipeCategory.BUILDING_BLOCKS, ModItems.FABIUM_INGOT,
-                RecipeCategory.DECORATIONS, ModBlocks.FABIUM_BLOCK);
-        offerSwordRecipe(exporter, ModItems.FABIUM_INGOT, ModItems.FABIUM_SWORD);
-        offerPickaxeRecipe(exporter, ModItems.FABIUM_INGOT, ModItems.FABIUM_PICKAXE);
-        offerAxeRecipe(exporter, ModItems.FABIUM_INGOT, ModItems.FABIUM_AXE);
-        offerShovelRecipe(exporter, ModItems.FABIUM_INGOT, ModItems.FABIUM_SHOVEL);
-        offerHoeRecipe(exporter, ModItems.FABIUM_INGOT, ModItems.FABIUM_HOE);
-        offerHelmetRecipe(exporter, ModItems.FABIUM_INGOT, ModItems.FABIUM_HELMET);
-        offerChestplateRecipe(exporter, ModItems.FABIUM_INGOT, ModItems.FABIUM_CHESTPLATE);
-        offerLeggingsRecipe(exporter, ModItems.FABIUM_INGOT, ModItems.FABIUM_LEGGINGS);
-        offerBootsRecipe(exporter, ModItems.FABIUM_INGOT, ModItems.FABIUM_BOOTS);
-        offerGearRecipe(exporter, ModItems.FABIUM_INGOT, ModItems.FABIUM_GEAR);
-        offerStainedGlassPaneRecipe(exporter, ModBlocks.FABIUM_BARS, ModItems.FABIUM_INGOT);
+    private void generateTriafiumRecipes(RecipeExporter exporter) {
+        offerSmelting(exporter, List.of(ModItems.RAW_TRIAFIUM), RecipeCategory.TOOLS, ModItems.TRIAFIUM_INGOT,
+                1.0f, 200, "triafium_ingot");
+        offerBlasting(exporter, List.of(ModItems.RAW_TRIAFIUM), RecipeCategory.TOOLS, ModItems.TRIAFIUM_INGOT,
+                1.0f, 100, "triafium_ingot");
+        offerReversibleCompactingRecipes(exporter, RecipeCategory.BUILDING_BLOCKS, ModItems.RAW_TRIAFIUM,
+                RecipeCategory.DECORATIONS, ModBlocks.RAW_TRIAFIUM_BLOCK);
+        offerReversibleCompactingRecipes(exporter, RecipeCategory.BUILDING_BLOCKS, ModItems.TRIAFIUM_INGOT,
+                RecipeCategory.DECORATIONS, ModBlocks.TRIAFIUM_BLOCK);
+        offerSwordRecipe(exporter, ModItems.TRIAFIUM_INGOT, ModItems.TRIAFIUM_SWORD);
+        offerPickaxeRecipe(exporter, ModItems.TRIAFIUM_INGOT, ModItems.TRIAFIUM_PICKAXE);
+        offerAxeRecipe(exporter, ModItems.TRIAFIUM_INGOT, ModItems.TRIAFIUM_AXE);
+        offerShovelRecipe(exporter, ModItems.TRIAFIUM_INGOT, ModItems.TRIAFIUM_SHOVEL);
+        offerHoeRecipe(exporter, ModItems.TRIAFIUM_INGOT, ModItems.TRIAFIUM_HOE);
+        offerHelmetRecipe(exporter, ModItems.TRIAFIUM_INGOT, ModItems.TRIAFIUM_HELMET);
+        offerChestplateRecipe(exporter, ModItems.TRIAFIUM_INGOT, ModItems.TRIAFIUM_CHESTPLATE);
+        offerLeggingsRecipe(exporter, ModItems.TRIAFIUM_INGOT, ModItems.TRIAFIUM_LEGGINGS);
+        offerBootsRecipe(exporter, ModItems.TRIAFIUM_INGOT, ModItems.TRIAFIUM_BOOTS);
+        offerGearRecipe(exporter, ModItems.TRIAFIUM_INGOT, ModItems.TRIAFIUM_GEAR);
+        offerStainedGlassPaneRecipe(exporter, ModBlocks.TRIAFIUM_BARS, ModItems.TRIAFIUM_INGOT);
     }
 
     private void generatePrismarineRecipes(RecipeExporter exporter) {
@@ -884,7 +884,7 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
         offerBagRecipe(exporter, Items.COPPER_INGOT, ModItems.COPPER_BAG);
         offerBagRecipe(exporter, Items.IRON_INGOT, ModItems.IRON_BAG);
         offerBagRecipe(exporter, ModItemTags.BRONZE_INGOTS, ModItems.BRONZE_BAG);
-        offerBagRecipe(exporter, ModItems.FABIUM_INGOT, ModItems.FABIUM_BAG);
+        offerBagRecipe(exporter, ModItems.TRIAFIUM_INGOT, ModItems.TRIAFIUM_BAG);
         offerBagRecipe(exporter, Items.NETHERITE_INGOT, ModItems.NETHERITE_BAG);
     }
 

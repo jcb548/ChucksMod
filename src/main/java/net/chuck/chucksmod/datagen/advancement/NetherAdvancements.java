@@ -30,13 +30,13 @@ public class NetherAdvancements {
                 .criterion("enter_nether", ChangedDimensionCriterion.Conditions.to(World.NETHER))
                 .build(consumer, ChucksMod.MOD_ID + "/nether/root");
 
-        AdvancementEntry rawFabium = Advancement.Builder.create().display(ModItems.RAW_FABIUM,
-                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".nether.raw_fabium.title"),
-                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".nether.raw_fabium.desc"),
+        AdvancementEntry rawTriafium = Advancement.Builder.create().display(ModItems.RAW_TRIAFIUM,
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".nether.raw_triafium.title"),
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".nether.raw_triafium.desc"),
                         null, AdvancementFrame.TASK, true, true, false)
-                .criterion("raw_fabium", InventoryChangedCriterion.Conditions.items(ModItems.RAW_FABIUM))
+                .criterion("raw_triafium", InventoryChangedCriterion.Conditions.items(ModItems.RAW_TRIAFIUM))
                 .parent(root)
-                .build(consumer, ChucksMod.MOD_ID + "/nether/raw_fabium");
+                .build(consumer, ChucksMod.MOD_ID + "/nether/raw_triafium");
 
         AdvancementEntry ancientDebris = Advancement.Builder.create().display(Blocks.ANCIENT_DEBRIS,
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".nether.ancient_debris.title"),

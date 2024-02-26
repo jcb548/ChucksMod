@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "D": {
+      "item": "chucksmod:pacsarium_ingot"
+    }
+  },
+  "pattern": [
+    "DDD",
+    "D D",
+    "D D"
+  ],
+  "result": {
+    "item": "chucksmod:pacsarium_leggings"
+  },
+  "show_notification": true
+}

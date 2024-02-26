@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/inner_stairs",
-  "textures": {
-    "bottom": "chucksmod:block/diritia_planks",
-    "side": "chucksmod:block/diritia_planks",
-    "top": "chucksmod:block/diritia_planks"
-  }
-}

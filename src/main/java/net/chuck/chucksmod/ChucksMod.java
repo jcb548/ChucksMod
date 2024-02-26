@@ -65,13 +65,13 @@ public class ChucksMod implements ModInitializer {
 		ModFoliagePlacerTypes.register();
 
 		//Custom portals
-		CustomPortalBuilder.beginPortal().frameBlock(ModBlocks.FABIUM_PORTAL_BLOCK)
+		CustomPortalBuilder.beginPortal().frameBlock(ModBlocks.TRIAFIUM_PORTAL_BLOCK)
 				.lightWithItem(ModItems.WITHER_BONE)
-				.destDimID(new Identifier(MOD_ID, "fabia"))
+				.destDimID(new Identifier(MOD_ID, "triafia"))
 				.tintColor(256, 0, 0).registerPortal();
-		CustomPortalBuilder.beginPortal().frameBlock(ModBlocks.DIRITONIUM_BLOCK)
+		CustomPortalBuilder.beginPortal().frameBlock(ModBlocks.PACSARIUM_BLOCK)
 				.lightWithItem(ModItems.WITHER_BONE)
-				.destDimID(new Identifier(MOD_ID, "diritia"))
+				.destDimID(new Identifier(MOD_ID, "pacsaria"))
 				.tintColor(211, 185, 255).registerPortal();
 		//ServerTickEvents.START_SERVER_TICK.register(new PlayerTickHandler());
 		FabricDefaultAttributeRegistry.register(ModEntities.WYATT, WyattEntity.setAttributes());

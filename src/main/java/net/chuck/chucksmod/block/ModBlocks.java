@@ -25,7 +25,7 @@ import net.chuck.chucksmod.block.custom.generator.lava.TitaniumLavaGeneratorBloc
 import net.chuck.chucksmod.block.custom.generator.steam.IronSteamGeneratorBlock;
 import net.chuck.chucksmod.block.custom.generator.heat.TitaniumHeatGeneratorBlock;
 import net.chuck.chucksmod.block.custom.generator.steam.TitaniumSteamGeneratorBlock;
-import net.chuck.chucksmod.block.custom.portal_builder.FabiumPortalBuilderBlock;
+import net.chuck.chucksmod.block.custom.portal_builder.TriafiumPortalBuilderBlock;
 import net.chuck.chucksmod.block.custom.pump.IronPumpBlock;
 import net.chuck.chucksmod.block.custom.pump.TitaniumPumpBlock;
 import net.chuck.chucksmod.block.custom.quarry.IronQuarryBlock;
@@ -33,9 +33,9 @@ import net.chuck.chucksmod.block.custom.quarry.TitaniumQuarryBlock;
 import net.chuck.chucksmod.block.custom.wire.CopperWireBlock;
 import net.chuck.chucksmod.block.custom.wire.GoldWireBlock;
 import net.chuck.chucksmod.block.custom.wire.TinWireBlock;
-import net.chuck.chucksmod.world.tree.DiritiaSaplingGenerator;
+import net.chuck.chucksmod.world.tree.PacsariaSaplingGenerator;
 import net.chuck.chucksmod.world.tree.EucalyptusSaplingGenerator;
-import net.chuck.chucksmod.world.tree.FabiaSaplingGenerator;
+import net.chuck.chucksmod.world.tree.TriafiaSaplingGenerator;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
@@ -250,25 +250,25 @@ public class ModBlocks {
     public static final Block SOUL_BLAZE_ALTAR = registerBlock("soul_blaze_altar",
             new SoulBlazeAltarBlock(FabricBlockSettings.copy(Blocks.BEDROCK)));
 
-    // Fabium
-    public static final Block FABIUM_BLOCK = registerBlock("fabium_block",
+    // Triafium
+    public static final Block TRIAFIUM_BLOCK = registerBlock("triafium_block",
             new Block(FabricBlockSettings.copy(Blocks.GOLD_BLOCK)));
-    public static final Block RAW_FABIUM_BLOCK = registerBlock("raw_fabium_block",
+    public static final Block RAW_TRIAFIUM_BLOCK = registerBlock("raw_triafium_block",
             new Block(FabricBlockSettings.copy(Blocks.RAW_GOLD_BLOCK)));
-    public static final Block NETHER_FABIUM_ORE = registerBlock("nether_fabium_ore",
+    public static final Block NETHER_TRIAFIUM_ORE = registerBlock("nether_triafium_ore",
             new Block(FabricBlockSettings.copy(Blocks.NETHER_QUARTZ_ORE)));
-    public static final Block END_STONE_FABIUM_ORE = registerBlock("endstone_fabium_ore",
+    public static final Block END_STONE_TRIAFIUM_ORE = registerBlock("endstone_triafium_ore",
             new Block(FabricBlockSettings.copy(Blocks.NETHER_QUARTZ_ORE)));
-    public static final Block DEEPSLATE_FABIUM_ORE = registerBlock("deepslate_fabium_ore",
+    public static final Block DEEPSLATE_TRIAFIUM_ORE = registerBlock("deepslate_triafium_ore",
             new Block(FabricBlockSettings.copy(Blocks.DEEPSLATE_DIAMOND_ORE)));
-    public static final Block FABIUM_BARS = registerBlock("fabium_bars",
+    public static final Block TRIAFIUM_BARS = registerBlock("triafium_bars",
             new PaneBlock(FabricBlockSettings.copy(Blocks.IRON_BARS)));
-    public static final Block FABIUM_PORTAL_BLOCK = registerBlock("fabium_portal_block",
-            new Block(FabricBlockSettings.copy(ModBlocks.FABIUM_BLOCK)));
-    public static final Block FABIUM_PORTAL_BUILDER = registerBlock("fabium_portal_builder",
-            new FabiumPortalBuilderBlock(FabricBlockSettings.copy(ModBlocks.FABIUM_BLOCK)));
+    public static final Block TRIAFIUM_PORTAL_BLOCK = registerBlock("triafium_portal_block",
+            new Block(FabricBlockSettings.copy(ModBlocks.TRIAFIUM_BLOCK)));
+    public static final Block TRIAFIUM_PORTAL_BUILDER = registerBlock("triafium_portal_builder",
+            new TriafiumPortalBuilderBlock(FabricBlockSettings.copy(ModBlocks.TRIAFIUM_BLOCK)));
     
-    //Fabia
+    //Triafia
     public static final Block ECLOGITE = registerBlock("eclogite",
             new Block(FabricBlockSettings.copy(Blocks.SMOOTH_STONE).strength(4.0f, 9.0f)));
     public static final Block ECLOGITE_STAIRS = registerBlock("eclogite_stairs",
@@ -325,11 +325,11 @@ public class ModBlocks {
             new Block(FabricBlockSettings.copy(ModBlocks.SERPENTINITE_COAL_ORE)));
     public static final Block SERPENTINITE_DIAMOND_ORE = registerBlock("serpentinite_diamond_ore",
             new Block(FabricBlockSettings.copy(ModBlocks.SERPENTINITE_COAL_ORE)));
-    public static final Block SERPENTINITE_DIRITONIUM_ORE = registerBlock("serpentinite_diritonium_ore",
+    public static final Block SERPENTINITE_PACSARIUM_ORE = registerBlock("serpentinite_pacsarium_ore",
             new Block(FabricBlockSettings.copy(ModBlocks.SERPENTINITE_COAL_ORE)));
     public static final Block SERPENTINITE_EMERALD_ORE = registerBlock("serpentinite_emerald_ore",
             new Block(FabricBlockSettings.copy(ModBlocks.SERPENTINITE_COAL_ORE)));
-    public static final Block SERPENTINITE_FABIUM_ORE = registerBlock("serpentinite_fabium_ore",
+    public static final Block SERPENTINITE_TRIAFIUM_ORE = registerBlock("serpentinite_triafium_ore",
             new Block(FabricBlockSettings.copy(ModBlocks.SERPENTINITE_COAL_ORE)));
     public static final Block SERPENTINITE_GOLD_ORE = registerBlock("serpentinite_gold_ore",
             new Block(FabricBlockSettings.copy(ModBlocks.SERPENTINITE_COAL_ORE)));
@@ -343,138 +343,138 @@ public class ModBlocks {
             new Block(FabricBlockSettings.copy(ModBlocks.SERPENTINITE_COAL_ORE)));
     public static final Block SERPENTINITE_TITANIUM_ORE = registerBlock("serpentinite_titanium_ore",
             new Block(FabricBlockSettings.copy(ModBlocks.SERPENTINITE_COAL_ORE)));
-    public static final Block FABIA_LOG = registerBlock("fabia_log",
+    public static final Block TRIAFIA_LOG = registerBlock("triafia_log",
             new PillarBlock(FabricBlockSettings.copy(Blocks.OAK_LOG)));
-    public static final Block FABIA_WOOD = registerBlock("fabia_wood",
+    public static final Block TRIAFIA_WOOD = registerBlock("triafia_wood",
             new PillarBlock(FabricBlockSettings.copy(Blocks.OAK_WOOD)));
-    public static final Block STRIPPED_FABIA_LOG = registerBlock("stripped_fabia_log",
+    public static final Block STRIPPED_TRIAFIA_LOG = registerBlock("stripped_triafia_log",
             new PillarBlock(FabricBlockSettings.copy(Blocks.STRIPPED_OAK_LOG)));
-    public static final Block STRIPPED_FABIA_WOOD = registerBlock("stripped_fabia_wood",
+    public static final Block STRIPPED_TRIAFIA_WOOD = registerBlock("stripped_triafia_wood",
             new PillarBlock(FabricBlockSettings.copy(Blocks.STRIPPED_OAK_WOOD)));
-    public static final Block FABIA_PLANKS = registerBlock("fabia_planks",
+    public static final Block TRIAFIA_PLANKS = registerBlock("triafia_planks",
             new Block(FabricBlockSettings.copy(Blocks.OAK_PLANKS)));
-    public static final Block FABIA_LEAVES = registerBlock("fabia_leaves",
+    public static final Block TRIAFIA_LEAVES = registerBlock("triafia_leaves",
             new LeavesBlock(FabricBlockSettings.copy(Blocks.OAK_LEAVES).nonOpaque()));
-    public static final Block FABIA_SAPLING = registerBlock("fabia_sapling",
-            new SaplingBlock(new FabiaSaplingGenerator(), FabricBlockSettings.copy(Blocks.OAK_SAPLING)));
-    public static final Block FABIA_STAIRS = registerBlock("fabia_stairs",
-            new StairsBlock(ModBlocks.FABIA_PLANKS.getDefaultState(),
+    public static final Block TRIAFIA_SAPLING = registerBlock("triafia_sapling",
+            new SaplingBlock(new TriafiaSaplingGenerator(), FabricBlockSettings.copy(Blocks.OAK_SAPLING)));
+    public static final Block TRIAFIA_STAIRS = registerBlock("triafia_stairs",
+            new StairsBlock(ModBlocks.TRIAFIA_PLANKS.getDefaultState(),
                     FabricBlockSettings.copy(Blocks.OAK_STAIRS)));
-    public static final Block FABIA_SLAB = registerBlock("fabia_slab",
+    public static final Block TRIAFIA_SLAB = registerBlock("triafia_slab",
             new SlabBlock(FabricBlockSettings.copy(Blocks.OAK_SLAB)));
-    public static final Block FABIA_BUTTON = registerBlock("fabia_button",
+    public static final Block TRIAFIA_BUTTON = registerBlock("triafia_button",
             new ButtonBlock(FabricBlockSettings.copy(Blocks.OAK_BUTTON), BlockSetType.OAK, 10, true));
-    public static final Block FABIA_PRESSURE_PLATE = registerBlock("fabia_pressure_plate",
+    public static final Block TRIAFIA_PRESSURE_PLATE = registerBlock("triafia_pressure_plate",
             new PressurePlateBlock(PressurePlateBlock.ActivationRule.EVERYTHING,
                     FabricBlockSettings.copy(Blocks.OAK_PRESSURE_PLATE), BlockSetType.OAK));
-    public static final Block FABIA_FENCE = registerBlock("fabia_fence",
+    public static final Block TRIAFIA_FENCE = registerBlock("triafia_fence",
             new FenceBlock(FabricBlockSettings.copy(Blocks.OAK_FENCE)));
-    public static final Block FABIA_FENCE_GATE = registerBlock("fabia_fence_gate",
+    public static final Block TRIAFIA_FENCE_GATE = registerBlock("triafia_fence_gate",
             new FenceGateBlock(FabricBlockSettings.copy(Blocks.OAK_FENCE_GATE), WoodType.OAK));
-    public static final Block FABIA_DOOR = registerBlock("fabia_door",
+    public static final Block TRIAFIA_DOOR = registerBlock("triafia_door",
             new DoorBlock(FabricBlockSettings.copy(Blocks.OAK_DOOR), BlockSetType.OAK));
-    public static final Block FABIA_TRAPDOOR = registerBlock("fabia_trapdoor",
+    public static final Block TRIAFIA_TRAPDOOR = registerBlock("triafia_trapdoor",
             new TrapdoorBlock(FabricBlockSettings.copy(Blocks.OAK_TRAPDOOR), BlockSetType.OAK));
-    public static final Identifier FABIA_SIGN_TEXTURE =
-            new Identifier(ChucksMod.MOD_ID, "entity/signs/fabia");
-    public static final Identifier FABIA_HANGING_SIGN_TEXTURE =
-            new Identifier(ChucksMod.MOD_ID, "entity/signs/hanging/fabia");
-    public static final Identifier FABIA_HANGING_GUI_SIGN_TEXTURE =
-            new Identifier(ChucksMod.MOD_ID, "textures/gui/hanging_signs/fabia");
-    public static final Block STANDING_FABIA_SIGN =
-            Registry.register(Registries.BLOCK, new Identifier(ChucksMod.MOD_ID, "fabia_standing_sign"),
-                    new TerraformSignBlock(FABIA_SIGN_TEXTURE, FabricBlockSettings.copyOf(Blocks.OAK_SIGN)));
-    public static final Block WALL_FABIA_SIGN =
-            Registry.register(Registries.BLOCK, new Identifier(ChucksMod.MOD_ID, "fabia_wall_sign"),
-                    new TerraformWallSignBlock(FABIA_SIGN_TEXTURE,
+    public static final Identifier TRIAFIA_SIGN_TEXTURE =
+            new Identifier(ChucksMod.MOD_ID, "entity/signs/triafia");
+    public static final Identifier TRIAFIA_HANGING_SIGN_TEXTURE =
+            new Identifier(ChucksMod.MOD_ID, "entity/signs/hanging/triafia");
+    public static final Identifier TRIAFIA_HANGING_GUI_SIGN_TEXTURE =
+            new Identifier(ChucksMod.MOD_ID, "textures/gui/hanging_signs/triafia");
+    public static final Block STANDING_TRIAFIA_SIGN =
+            Registry.register(Registries.BLOCK, new Identifier(ChucksMod.MOD_ID, "triafia_standing_sign"),
+                    new TerraformSignBlock(TRIAFIA_SIGN_TEXTURE, FabricBlockSettings.copyOf(Blocks.OAK_SIGN)));
+    public static final Block WALL_TRIAFIA_SIGN =
+            Registry.register(Registries.BLOCK, new Identifier(ChucksMod.MOD_ID, "triafia_wall_sign"),
+                    new TerraformWallSignBlock(TRIAFIA_SIGN_TEXTURE,
                             FabricBlockSettings.copyOf(Blocks.OAK_WALL_SIGN)));
-    public static final Block HANGING_FABIA_SIGN =
-            Registry.register(Registries.BLOCK, new Identifier(ChucksMod.MOD_ID, "fabia_hanging_sign"),
-                    new TerraformHangingSignBlock(FABIA_HANGING_SIGN_TEXTURE, FABIA_HANGING_GUI_SIGN_TEXTURE,
+    public static final Block HANGING_TRIAFIA_SIGN =
+            Registry.register(Registries.BLOCK, new Identifier(ChucksMod.MOD_ID, "triafia_hanging_sign"),
+                    new TerraformHangingSignBlock(TRIAFIA_HANGING_SIGN_TEXTURE, TRIAFIA_HANGING_GUI_SIGN_TEXTURE,
                             FabricBlockSettings.copyOf(Blocks.OAK_HANGING_SIGN)));
-    public static final Block WALL_HANGING_FABIA_SIGN =
-            Registry.register(Registries.BLOCK, new Identifier(ChucksMod.MOD_ID, "fabia_wall_standing_sign"),
-                    new TerraformWallHangingSignBlock(FABIA_HANGING_SIGN_TEXTURE,
-                            FABIA_HANGING_GUI_SIGN_TEXTURE,
+    public static final Block WALL_HANGING_TRIAFIA_SIGN =
+            Registry.register(Registries.BLOCK, new Identifier(ChucksMod.MOD_ID, "triafia_wall_standing_sign"),
+                    new TerraformWallHangingSignBlock(TRIAFIA_HANGING_SIGN_TEXTURE,
+                            TRIAFIA_HANGING_GUI_SIGN_TEXTURE,
                             FabricBlockSettings.copyOf(Blocks.OAK_WALL_HANGING_SIGN)));
-    public static final BlockFamily FABIA_FAMILY = BlockFamilies.register(ModBlocks.FABIA_PLANKS)
-            .sign(ModBlocks.STANDING_FABIA_SIGN, ModBlocks.WALL_FABIA_SIGN)
+    public static final BlockFamily TRIAFIA_FAMILY = BlockFamilies.register(ModBlocks.TRIAFIA_PLANKS)
+            .sign(ModBlocks.STANDING_TRIAFIA_SIGN, ModBlocks.WALL_TRIAFIA_SIGN)
             .group("wooden").unlockCriterionName("has_planks").build();
     
 
-    // Diritonium
-    public static final Block DIRITONIUM_BLOCK = registerBlock("diritonium_block",
+    // Pacsarium
+    public static final Block PACSARIUM_BLOCK = registerBlock("pacsarium_block",
             new Block(FabricBlockSettings.copy(Blocks.GOLD_BLOCK)));
-    public static final Block RAW_DIRITONIUM_BLOCK = registerBlock("raw_diritonium_block",
+    public static final Block RAW_PACSARIUM_BLOCK = registerBlock("raw_pacsarium_block",
             new Block(FabricBlockSettings.copy(Blocks.RAW_GOLD_BLOCK)));
-    public static final Block END_STONE_DIRITONIUM_ORE = registerBlock("endstone_diritonium_ore",
+    public static final Block END_STONE_PACSARIUM_ORE = registerBlock("endstone_pacsarium_ore",
             new Block(FabricBlockSettings.copy(Blocks.GOLD_ORE).strength(5.0f, 9.0f)));
-    public static final Block DEEPSLATE_DIRITONIUM_ORE = registerBlock("deepslate_diritonium_ore",
+    public static final Block DEEPSLATE_PACSARIUM_ORE = registerBlock("deepslate_pacsarium_ore",
             new Block(FabricBlockSettings.copy(Blocks.DEEPSLATE_GOLD_ORE).strength(5.0f, 9.0f)));
-    public static final Block DIRITONIUM_BARS = registerBlock("diritonium_bars",
+    public static final Block PACSARIUM_BARS = registerBlock("pacsarium_bars",
             new PaneBlock(FabricBlockSettings.copy(Blocks.IRON_BARS)));
-    // Diritia blocks
-    public static final Block DIRITIA_PLANT = registerBlock("diritia_plant",
+    // Pacsaria blocks
+    public static final Block PACSARIA_PLANT = registerBlock("pacsaria_plant",
             new PlantBlock(FabricBlockSettings.copy(Blocks.GRASS)));
-    public static final Block DIRITIA_LIGHT_PLANT = registerBlock("diritia_plant_light",
+    public static final Block PACSARIA_LIGHT_PLANT = registerBlock("pacsaria_plant_light",
             new PlantBlock(FabricBlockSettings.copy(Blocks.GRASS).luminance(state -> 15)));
     // Eucalyptus
-    public static final Block DIRITIA_LOG = registerBlock("diritia_log",
+    public static final Block PACSARIA_LOG = registerBlock("pacsaria_log",
             new PillarBlock(FabricBlockSettings.copy(Blocks.OAK_LOG).strength(3.0f)));
-    public static final Block DIRITIA_WOOD = registerBlock("diritia_wood",
+    public static final Block PACSARIA_WOOD = registerBlock("pacsaria_wood",
             new PillarBlock(FabricBlockSettings.copy(Blocks.OAK_WOOD).strength(3.0f)));
-    public static final Block STRIPPED_DIRITIA_LOG = registerBlock("stripped_diritia_log",
+    public static final Block STRIPPED_PACSARIA_LOG = registerBlock("stripped_pacsaria_log",
             new PillarBlock(FabricBlockSettings.copy(Blocks.STRIPPED_OAK_LOG).strength(3.0f)));
-    public static final Block STRIPPED_DIRITIA_WOOD = registerBlock("stripped_diritia_wood",
+    public static final Block STRIPPED_PACSARIA_WOOD = registerBlock("stripped_pacsaria_wood",
             new PillarBlock(FabricBlockSettings.copy(Blocks.STRIPPED_OAK_WOOD).strength(3.0f)));
-    public static final Block DIRITIA_PLANKS = registerBlock("diritia_planks",
+    public static final Block PACSARIA_PLANKS = registerBlock("pacsaria_planks",
             new Block(FabricBlockSettings.copy(Blocks.OAK_PLANKS).strength(3.0f)));
-    public static final Block DIRITIA_LEAVES = registerBlock("diritia_leaves",
+    public static final Block PACSARIA_LEAVES = registerBlock("pacsaria_leaves",
             new LeavesBlock(FabricBlockSettings.copy(Blocks.OAK_LEAVES)));
-    public static final Block DIRITIA_SAPLING = registerBlock("diritia_sapling",
-            new SaplingBlock(new DiritiaSaplingGenerator(),FabricBlockSettings.copy(Blocks.OAK_SAPLING)));
-    public static final Block DIRITIA_STAIRS = registerBlock("diritia_stairs",
-            new StairsBlock(ModBlocks.DIRITIA_PLANKS.getDefaultState(),
+    public static final Block PACSARIA_SAPLING = registerBlock("pacsaria_sapling",
+            new SaplingBlock(new PacsariaSaplingGenerator(),FabricBlockSettings.copy(Blocks.OAK_SAPLING)));
+    public static final Block PACSARIA_STAIRS = registerBlock("pacsaria_stairs",
+            new StairsBlock(ModBlocks.PACSARIA_PLANKS.getDefaultState(),
                     FabricBlockSettings.copy(Blocks.OAK_STAIRS).strength(3.0f)));
-    public static final Block DIRITIA_SLAB = registerBlock("diritia_slab",
+    public static final Block PACSARIA_SLAB = registerBlock("pacsaria_slab",
             new SlabBlock(FabricBlockSettings.copy(Blocks.OAK_SLAB).strength(3.0f)));
-    public static final Block DIRITIA_BUTTON = registerBlock("diritia_button",
+    public static final Block PACSARIA_BUTTON = registerBlock("pacsaria_button",
             new ButtonBlock(FabricBlockSettings.copy(Blocks.OAK_BUTTON).strength(2.0f), BlockSetType.OAK, 10, true));
-    public static final Block DIRITIA_PRESSURE_PLATE = registerBlock("diritia_pressure_plate",
+    public static final Block PACSARIA_PRESSURE_PLATE = registerBlock("pacsaria_pressure_plate",
             new PressurePlateBlock(PressurePlateBlock.ActivationRule.EVERYTHING,
                     FabricBlockSettings.copy(Blocks.OAK_PRESSURE_PLATE).strength(2.0f), BlockSetType.OAK));
-    public static final Block DIRITIA_FENCE = registerBlock("diritia_fence",
+    public static final Block PACSARIA_FENCE = registerBlock("pacsaria_fence",
             new FenceBlock(FabricBlockSettings.copy(Blocks.OAK_FENCE).strength(3.0f)));
-    public static final Block DIRITIA_FENCE_GATE = registerBlock("diritia_fence_gate",
+    public static final Block PACSARIA_FENCE_GATE = registerBlock("pacsaria_fence_gate",
             new FenceGateBlock(FabricBlockSettings.copy(Blocks.OAK_FENCE_GATE).strength(3.0f), WoodType.OAK));
-    public static final Block DIRITIA_DOOR = registerBlock("diritia_door",
+    public static final Block PACSARIA_DOOR = registerBlock("pacsaria_door",
             new DoorBlock(FabricBlockSettings.copy(Blocks.OAK_DOOR).strength(3.0f), BlockSetType.OAK));
-    public static final Block DIRITIA_TRAPDOOR = registerBlock("diritia_trapdoor",
+    public static final Block PACSARIA_TRAPDOOR = registerBlock("pacsaria_trapdoor",
             new TrapdoorBlock(FabricBlockSettings.copy(Blocks.OAK_TRAPDOOR).strength(3.0f), BlockSetType.OAK));
-    public static final Identifier DIRITIA_SIGN_TEXTURE =
-            new Identifier(ChucksMod.MOD_ID, "entity/signs/diritia");
-    public static final Identifier DIRITIA_HANGING_SIGN_TEXTURE =
-            new Identifier(ChucksMod.MOD_ID, "entity/signs/hanging/diritia");
-    public static final Identifier DIRITIA_HANGING_GUI_SIGN_TEXTURE =
-            new Identifier(ChucksMod.MOD_ID, "textures/gui/hanging_signs/diritia");
-    public static final Block STANDING_DIRITIA_SIGN =
-            Registry.register(Registries.BLOCK, new Identifier(ChucksMod.MOD_ID, "diritia_standing_sign"),
-                    new TerraformSignBlock(DIRITIA_SIGN_TEXTURE, FabricBlockSettings.copyOf(Blocks.OAK_SIGN).strength(2.0f)));
-    public static final Block WALL_DIRITIA_SIGN =
-            Registry.register(Registries.BLOCK, new Identifier(ChucksMod.MOD_ID, "diritia_wall_sign"),
-                    new TerraformWallSignBlock(DIRITIA_SIGN_TEXTURE,
+    public static final Identifier PACSARIA_SIGN_TEXTURE =
+            new Identifier(ChucksMod.MOD_ID, "entity/signs/pacsaria");
+    public static final Identifier PACSARIA_HANGING_SIGN_TEXTURE =
+            new Identifier(ChucksMod.MOD_ID, "entity/signs/hanging/pacsaria");
+    public static final Identifier PACSARIA_HANGING_GUI_SIGN_TEXTURE =
+            new Identifier(ChucksMod.MOD_ID, "textures/gui/hanging_signs/pacsaria");
+    public static final Block STANDING_PACSARIA_SIGN =
+            Registry.register(Registries.BLOCK, new Identifier(ChucksMod.MOD_ID, "pacsaria_standing_sign"),
+                    new TerraformSignBlock(PACSARIA_SIGN_TEXTURE, FabricBlockSettings.copyOf(Blocks.OAK_SIGN).strength(2.0f)));
+    public static final Block WALL_PACSARIA_SIGN =
+            Registry.register(Registries.BLOCK, new Identifier(ChucksMod.MOD_ID, "pacsaria_wall_sign"),
+                    new TerraformWallSignBlock(PACSARIA_SIGN_TEXTURE,
                             FabricBlockSettings.copyOf(Blocks.OAK_WALL_SIGN).strength(2.0f)));
-    public static final Block HANGING_DIRITIA_SIGN =
-            Registry.register(Registries.BLOCK, new Identifier(ChucksMod.MOD_ID, "diritia_hanging_sign"),
-                    new TerraformHangingSignBlock(DIRITIA_HANGING_SIGN_TEXTURE, DIRITIA_HANGING_GUI_SIGN_TEXTURE,
+    public static final Block HANGING_PACSARIA_SIGN =
+            Registry.register(Registries.BLOCK, new Identifier(ChucksMod.MOD_ID, "pacsaria_hanging_sign"),
+                    new TerraformHangingSignBlock(PACSARIA_HANGING_SIGN_TEXTURE, PACSARIA_HANGING_GUI_SIGN_TEXTURE,
                             FabricBlockSettings.copyOf(Blocks.OAK_HANGING_SIGN).strength(2.0f)));
-    public static final Block WALL_HANGING_DIRITIA_SIGN =
-            Registry.register(Registries.BLOCK, new Identifier(ChucksMod.MOD_ID, "diritia_wall_standing_sign"),
-                    new TerraformWallHangingSignBlock(DIRITIA_HANGING_SIGN_TEXTURE,
-                            DIRITIA_HANGING_GUI_SIGN_TEXTURE,
+    public static final Block WALL_HANGING_PACSARIA_SIGN =
+            Registry.register(Registries.BLOCK, new Identifier(ChucksMod.MOD_ID, "pacsaria_wall_standing_sign"),
+                    new TerraformWallHangingSignBlock(PACSARIA_HANGING_SIGN_TEXTURE,
+                            PACSARIA_HANGING_GUI_SIGN_TEXTURE,
                             FabricBlockSettings.copyOf(Blocks.OAK_WALL_HANGING_SIGN).strength(2.0f)));
-    public static final BlockFamily DIRITIA_FAMILY = BlockFamilies.register(ModBlocks.DIRITIA_PLANKS)
-            .sign(ModBlocks.STANDING_DIRITIA_SIGN, ModBlocks.WALL_DIRITIA_SIGN)
+    public static final BlockFamily PACSARIA_FAMILY = BlockFamilies.register(ModBlocks.PACSARIA_PLANKS)
+            .sign(ModBlocks.STANDING_PACSARIA_SIGN, ModBlocks.WALL_PACSARIA_SIGN)
             .group("wooden").unlockCriterionName("has_planks").build();
     public static final Block FRANK_ALTAR = registerBlock("frank_altar",
             new FrankAltarBlock(FabricBlockSettings.copy(Blocks.BEDROCK)));

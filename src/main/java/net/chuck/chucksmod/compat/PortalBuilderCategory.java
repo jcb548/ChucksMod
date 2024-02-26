@@ -37,7 +37,7 @@ public class PortalBuilderCategory implements DisplayCategory<BasicDisplay> {
 
     @Override
     public Renderer getIcon() {
-        return EntryStacks.of(ModBlocks.FABIUM_PORTAL_BUILDER.asItem().getDefaultStack());
+        return EntryStacks.of(ModBlocks.TRIAFIUM_PORTAL_BUILDER.asItem().getDefaultStack());
     }
 
     @Override

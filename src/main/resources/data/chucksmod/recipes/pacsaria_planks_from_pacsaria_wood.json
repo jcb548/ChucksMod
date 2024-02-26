@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "pacsaria_planks",
+  "ingredients": [
+    {
+      "item": "chucksmod:pacsaria_wood"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "item": "chucksmod:pacsaria_planks"
+  }
+}

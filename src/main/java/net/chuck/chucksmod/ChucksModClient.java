@@ -70,8 +70,8 @@ public class ChucksModClient implements ClientModInitializer {
         registerFluidRenderers();
 
         TerraformBoatClientHelper.registerModelLayers(ModBoats.EUCALYPTUS_BOAT_ID, false);
-        TerraformBoatClientHelper.registerModelLayers(ModBoats.DIRITIA_BOAT_ID, false);
-        TerraformBoatClientHelper.registerModelLayers(ModBoats.FABIA_BOAT_ID, false);
+        TerraformBoatClientHelper.registerModelLayers(ModBoats.PACSARIA_BOAT_ID, false);
+        TerraformBoatClientHelper.registerModelLayers(ModBoats.TRIAFIA_BOAT_ID, false);
     }
 
     private void registerFluidRenderers() {
@@ -91,16 +91,16 @@ public class ChucksModClient implements ClientModInitializer {
                 ModBlocks.EUCALYPTUS_HANGING_SIGN_TEXTURE));
 
         SpriteIdentifierRegistry.INSTANCE.addIdentifier(new SpriteIdentifier(TexturedRenderLayers.SIGNS_ATLAS_TEXTURE,
-                ModBlocks.DIRITIA_SIGN_TEXTURE));
+                ModBlocks.PACSARIA_SIGN_TEXTURE));
 
         SpriteIdentifierRegistry.INSTANCE.addIdentifier(new SpriteIdentifier(TexturedRenderLayers.SIGNS_ATLAS_TEXTURE,
-                ModBlocks.DIRITIA_HANGING_SIGN_TEXTURE));
+                ModBlocks.PACSARIA_HANGING_SIGN_TEXTURE));
 
         SpriteIdentifierRegistry.INSTANCE.addIdentifier(new SpriteIdentifier(TexturedRenderLayers.SIGNS_ATLAS_TEXTURE,
-                ModBlocks.FABIA_SIGN_TEXTURE));
+                ModBlocks.TRIAFIA_SIGN_TEXTURE));
 
         SpriteIdentifierRegistry.INSTANCE.addIdentifier(new SpriteIdentifier(TexturedRenderLayers.SIGNS_ATLAS_TEXTURE,
-                ModBlocks.FABIA_HANGING_SIGN_TEXTURE));
+                ModBlocks.TRIAFIA_HANGING_SIGN_TEXTURE));
     }
     private void registerEntityRenderers(){
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.WYATT, WyattModel::getTexturedModelData);
@@ -118,46 +118,46 @@ public class ChucksModClient implements ClientModInitializer {
 
     private void registerTintedBlocks(){
         ColorProviderRegistry.BLOCK.register((state, view, pos, tintIndex) -> BiomeColors.getGrassColor(view, pos),
-                ModBlocks.DIRITIA_PLANT);
+                ModBlocks.PACSARIA_PLANT);
         ColorProviderRegistry.BLOCK.register((state, view, pos, tintIndex) -> 0xFE8738,
-                ModBlocks.DIRITIA_LIGHT_PLANT);
+                ModBlocks.PACSARIA_LIGHT_PLANT);
 
         ColorProviderRegistry.BLOCK.register((state, view, pos, tintIndex) -> BiomeColors.getFoliageColor(view, pos),
-                ModBlocks.DIRITIA_LEAVES);
+                ModBlocks.PACSARIA_LEAVES);
         ColorProviderRegistry.BLOCK.register((state, view, pos, tintIndex) -> BiomeColors.getFoliageColor(view, pos),
-                ModBlocks.FABIA_LEAVES);
+                ModBlocks.TRIAFIA_LEAVES);
         ColorProviderRegistry.ITEM.register(((stack, tintIndex) -> 0x51912C),
-                ModBlocks.DIRITIA_LEAVES.asItem());
+                ModBlocks.PACSARIA_LEAVES.asItem());
         ColorProviderRegistry.ITEM.register(((stack, tintIndex) -> 0x51912C),
-                ModBlocks.FABIA_LEAVES.asItem());
+                ModBlocks.TRIAFIA_LEAVES.asItem());
     }
     private void registerCutoutBlocks(){
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.EUCALYPTUS_SAPLING, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.EUCALYPTUS_LEAVES, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.EUCALYPTUS_DOOR, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.EUCALYPTUS_TRAPDOOR, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.DIRITIA_PLANT, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.DIRITIA_LIGHT_PLANT, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.PACSARIA_PLANT, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.PACSARIA_LIGHT_PLANT, RenderLayer.getCutout());
 
-        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.DIRITIA_SAPLING, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.DIRITIA_LEAVES, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.PACSARIA_SAPLING, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.PACSARIA_LEAVES, RenderLayer.getCutout());
 
-        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.DIRITIA_DOOR, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.DIRITIA_TRAPDOOR, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.PACSARIA_DOOR, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.PACSARIA_TRAPDOOR, RenderLayer.getCutout());
 
-        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.FABIA_SAPLING, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.FABIA_LEAVES, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.TRIAFIA_SAPLING, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.TRIAFIA_LEAVES, RenderLayer.getCutout());
 
-        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.FABIA_DOOR, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.FABIA_TRAPDOOR, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.TRIAFIA_DOOR, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.TRIAFIA_TRAPDOOR, RenderLayer.getCutout());
         
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.COPPER_BARS, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.GOLD_BARS, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.BRONZE_BARS, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.TIN_BARS, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.PRISMARINE_BARS, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.DIRITONIUM_BARS, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.FABIUM_BARS, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.PACSARIUM_BARS, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.TRIAFIUM_BARS, RenderLayer.getCutout());
 
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.TOMATO_CROP, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.LETTUCE_CROP, RenderLayer.getCutout());

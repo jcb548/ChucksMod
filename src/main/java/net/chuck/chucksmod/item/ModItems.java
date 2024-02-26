@@ -179,53 +179,53 @@ public class ModItems {
     public static final Item BLAZE_STAR = registerItem("blaze_star", new Item(new FabricItemSettings()));
     public static final Item SOUL_BLAZE_ROD = registerItem("soul_blaze_rod", new Item(new FabricItemSettings()));
 
-    //Fabium
-    public static final Item RAW_FABIUM = registerItem("raw_fabium", new Item(new FabricItemSettings()));
-    public static final Item FABIUM_INGOT = registerItem("fabium_ingot", new Item(new FabricItemSettings()));
-    public static final Item FABIUM_GEAR = registerItem("fabium_gear", new Item(new FabricItemSettings()));
-    public static final Item FABIUM_SWORD = registerItem("fabium_sword",
-            new ModAntiLargeSwordItem(ModToolMaterials.FABIUM, 3, -1.8f, new FabricItemSettings()));
-    public static final Item FABIUM_PICKAXE = registerItem("fabium_pickaxe",
-            new ModAntiLargePickaxeItem(ModToolMaterials.FABIUM, 1, -2.4f, new FabricItemSettings()));
-    public static final Item FABIUM_AXE = registerItem("fabium_axe",
-            new ModAntiLargeAxeItem(ModToolMaterials.FABIUM, 6, -3.2f, new FabricItemSettings()));
-    public static final Item FABIUM_SHOVEL = registerItem("fabium_shovel",
-            new ModAntiLargeShovelItem(ModToolMaterials.FABIUM, 1, -2.0f, new FabricItemSettings()));
-    public static final Item FABIUM_HOE = registerItem("fabium_hoe",
-            new ModAntiLargeHoeItem(ModToolMaterials.FABIUM, -2, -0.4f, new FabricItemSettings()));
-    public static final Item FABIUM_HELMET = registerItem("fabium_helmet",
-            new ArmorItem(ModArmorMaterials.FABIUM, ArmorItem.Type.HELMET, new FabricItemSettings()));
-    public static final Item FABIUM_CHESTPLATE = registerItem("fabium_chestplate",
-            new ArmorItem(ModArmorMaterials.FABIUM, ArmorItem.Type.CHESTPLATE, new FabricItemSettings()));
-    public static final Item FABIUM_LEGGINGS = registerItem("fabium_leggings",
-            new ArmorItem(ModArmorMaterials.FABIUM, ArmorItem.Type.LEGGINGS, new FabricItemSettings()));
-    public static final Item FABIUM_BOOTS = registerItem("fabium_boots",
-            new ArmorItem(ModArmorMaterials.FABIUM, ArmorItem.Type.BOOTS, new FabricItemSettings()));
+    //Triafium
+    public static final Item RAW_TRIAFIUM = registerItem("raw_triafium", new Item(new FabricItemSettings()));
+    public static final Item TRIAFIUM_INGOT = registerItem("triafium_ingot", new Item(new FabricItemSettings()));
+    public static final Item TRIAFIUM_GEAR = registerItem("triafium_gear", new Item(new FabricItemSettings()));
+    public static final Item TRIAFIUM_SWORD = registerItem("triafium_sword",
+            new ModAntiLargeSwordItem(ModToolMaterials.TRIAFIUM, 3, -1.8f, new FabricItemSettings()));
+    public static final Item TRIAFIUM_PICKAXE = registerItem("triafium_pickaxe",
+            new ModAntiLargePickaxeItem(ModToolMaterials.TRIAFIUM, 1, -2.4f, new FabricItemSettings()));
+    public static final Item TRIAFIUM_AXE = registerItem("triafium_axe",
+            new ModAntiLargeAxeItem(ModToolMaterials.TRIAFIUM, 6, -3.2f, new FabricItemSettings()));
+    public static final Item TRIAFIUM_SHOVEL = registerItem("triafium_shovel",
+            new ModAntiLargeShovelItem(ModToolMaterials.TRIAFIUM, 1, -2.0f, new FabricItemSettings()));
+    public static final Item TRIAFIUM_HOE = registerItem("triafium_hoe",
+            new ModAntiLargeHoeItem(ModToolMaterials.TRIAFIUM, -2, -0.4f, new FabricItemSettings()));
+    public static final Item TRIAFIUM_HELMET = registerItem("triafium_helmet",
+            new ArmorItem(ModArmorMaterials.TRIAFIUM, ArmorItem.Type.HELMET, new FabricItemSettings()));
+    public static final Item TRIAFIUM_CHESTPLATE = registerItem("triafium_chestplate",
+            new ArmorItem(ModArmorMaterials.TRIAFIUM, ArmorItem.Type.CHESTPLATE, new FabricItemSettings()));
+    public static final Item TRIAFIUM_LEGGINGS = registerItem("triafium_leggings",
+            new ArmorItem(ModArmorMaterials.TRIAFIUM, ArmorItem.Type.LEGGINGS, new FabricItemSettings()));
+    public static final Item TRIAFIUM_BOOTS = registerItem("triafium_boots",
+            new ArmorItem(ModArmorMaterials.TRIAFIUM, ArmorItem.Type.BOOTS, new FabricItemSettings()));
 
-    // Diritonium
-    public static final Item RAW_DIRITONIUM = registerItem("raw_diritonium", new Item(new FabricItemSettings()));
-    public static final Item DIRITONIUM_INGOT = registerItem("diritonium_ingot",
+    // Pacsarium
+    public static final Item RAW_PACSARIUM = registerItem("raw_pacsarium", new Item(new FabricItemSettings()));
+    public static final Item PACSARIUM_INGOT = registerItem("pacsarium_ingot",
             new Item(new FabricItemSettings()));
-    public static final Item DIRITONIUM_GEAR = registerItem("diritonium_gear",
+    public static final Item PACSARIUM_GEAR = registerItem("pacsarium_gear",
             new Item(new FabricItemSettings()));
-    public static final Item DIRITONIUM_SWORD = registerItem("diritonium_sword",
-            new ModSwordItem(ModToolMaterials.DIRITONIUM, 3, -1.6f, new FabricItemSettings()));
-    public static final Item DIRITONIUM_PICKAXE = registerItem("diritonium_pickaxe",
-            new ModPickaxeItem(ModToolMaterials.DIRITONIUM, 1, -2.2f, new FabricItemSettings()));
-    public static final Item DIRITONIUM_AXE = registerItem("diritonium_axe",
-            new ModAxeItem(ModToolMaterials.DIRITONIUM, 6, -3.0f, new FabricItemSettings()));
-    public static final Item DIRITONIUM_SHOVEL = registerItem("diritonium_shovel",
-            new ModShovelItem(ModToolMaterials.DIRITONIUM, 1, -1.8f, new FabricItemSettings()));
-    public static final Item DIRITONIUM_HOE = registerItem("diritonium_hoe",
-            new ModHoeItem(ModToolMaterials.DIRITONIUM, -2, -1.8f, new FabricItemSettings()));
-    public static final Item DIRITONIUM_HELMET = registerItem("diritonium_helmet",
-            new ArmorItem(ModArmorMaterials.DIRITONIUM, ArmorItem.Type.HELMET, new FabricItemSettings()));
-    public static final Item DIRITONIUM_CHESTPLATE = registerItem("diritonium_chestplate",
-            new ArmorItem(ModArmorMaterials.DIRITONIUM, ArmorItem.Type.CHESTPLATE, new FabricItemSettings()));
-    public static final Item DIRITONIUM_LEGGINGS = registerItem("diritonium_leggings",
-            new ArmorItem(ModArmorMaterials.DIRITONIUM, ArmorItem.Type.LEGGINGS, new FabricItemSettings()));
-    public static final Item DIRITONIUM_BOOTS = registerItem("diritonium_boots",
-            new ArmorItem(ModArmorMaterials.DIRITONIUM, ArmorItem.Type.BOOTS, new FabricItemSettings()));
+    public static final Item PACSARIUM_SWORD = registerItem("pacsarium_sword",
+            new ModSwordItem(ModToolMaterials.PACSARIUM, 3, -1.6f, new FabricItemSettings()));
+    public static final Item PACSARIUM_PICKAXE = registerItem("pacsarium_pickaxe",
+            new ModPickaxeItem(ModToolMaterials.PACSARIUM, 1, -2.2f, new FabricItemSettings()));
+    public static final Item PACSARIUM_AXE = registerItem("pacsarium_axe",
+            new ModAxeItem(ModToolMaterials.PACSARIUM, 6, -3.0f, new FabricItemSettings()));
+    public static final Item PACSARIUM_SHOVEL = registerItem("pacsarium_shovel",
+            new ModShovelItem(ModToolMaterials.PACSARIUM, 1, -1.8f, new FabricItemSettings()));
+    public static final Item PACSARIUM_HOE = registerItem("pacsarium_hoe",
+            new ModHoeItem(ModToolMaterials.PACSARIUM, -2, -1.8f, new FabricItemSettings()));
+    public static final Item PACSARIUM_HELMET = registerItem("pacsarium_helmet",
+            new ArmorItem(ModArmorMaterials.PACSARIUM, ArmorItem.Type.HELMET, new FabricItemSettings()));
+    public static final Item PACSARIUM_CHESTPLATE = registerItem("pacsarium_chestplate",
+            new ArmorItem(ModArmorMaterials.PACSARIUM, ArmorItem.Type.CHESTPLATE, new FabricItemSettings()));
+    public static final Item PACSARIUM_LEGGINGS = registerItem("pacsarium_leggings",
+            new ArmorItem(ModArmorMaterials.PACSARIUM, ArmorItem.Type.LEGGINGS, new FabricItemSettings()));
+    public static final Item PACSARIUM_BOOTS = registerItem("pacsarium_boots",
+            new ArmorItem(ModArmorMaterials.PACSARIUM, ArmorItem.Type.BOOTS, new FabricItemSettings()));
     public static final Item SOUL_BLAZE_SPAWN_EGG = registerItem("soul_blaze_spawn_egg",
             new SpawnEggItem(ModEntities.SOUL_BLAZE_BOSS, 0xD8CCF6, 0x00007B,
                     new FabricItemSettings()));
@@ -235,9 +235,9 @@ public class ModItems {
     public static final Item FRANK_SPAWN_EGG = registerItem("frank_spawn_egg",
             new SpawnEggItem(ModEntities.FRANK_BOSS, 0xEED2FC, 0x000000,
                     new FabricItemSettings()));
-    public static final Item DIRITIA_CRYSTAL = registerItem("diritia_crystal",
+    public static final Item PACSARIA_CRYSTAL = registerItem("pacsaria_crystal",
             new Item(new FabricItemSettings()));
-    public static final Item DIRITIA_CRYSTAL_SHARD = registerItem("diritia_crystal_shard",
+    public static final Item PACSARIA_CRYSTAL_SHARD = registerItem("pacsaria_crystal_shard",
             new Item(new FabricItemSettings()));
 
     public static final Item PORTABLE_ENDERCHEST = registerItem("portable_enderchest",
@@ -255,7 +255,7 @@ public class ModItems {
             new BagItem9x1(new FabricItemSettings()));
     public static final Item BRONZE_BAG = registerItem("bronze_bag",
             new BagItem9x1(new FabricItemSettings()));
-    public static final Item FABIUM_BAG = registerItem("fabium_bag",
+    public static final Item TRIAFIUM_BAG = registerItem("triafium_bag",
             new BagItem7x2(new FabricItemSettings()));
     public static final Item NETHERITE_BAG = registerItem("netherite_bag",
             new BagItem7x2(new FabricItemSettings()));
@@ -271,30 +271,30 @@ public class ModItems {
     public static final Item EUCALYPTUS_CHEST_BOAT =
             TerraformBoatItemHelper.registerBoatItem(ModBoats.EUCALYPTUS_CHEST_BOAT_ID,
                     ModBoats.EUCALYPTUS_BOAT_KEY, true);
-    public static final Item DIRITIA_SIGN = registerItem("diritia_sign",
+    public static final Item PACSARIA_SIGN = registerItem("pacsaria_sign",
             new SignItem(new FabricItemSettings().maxCount(16),
-                    ModBlocks.STANDING_DIRITIA_SIGN, ModBlocks.WALL_DIRITIA_SIGN));
-    public static final Item HANGING_DIRITIA_SIGN = registerItem("diritia_hanging_sign",
-            new HangingSignItem(ModBlocks.HANGING_DIRITIA_SIGN, ModBlocks.WALL_HANGING_DIRITIA_SIGN,
+                    ModBlocks.STANDING_PACSARIA_SIGN, ModBlocks.WALL_PACSARIA_SIGN));
+    public static final Item HANGING_PACSARIA_SIGN = registerItem("pacsaria_hanging_sign",
+            new HangingSignItem(ModBlocks.HANGING_PACSARIA_SIGN, ModBlocks.WALL_HANGING_PACSARIA_SIGN,
                     new FabricItemSettings().maxCount(16)));
-    public static final Item DIRITIA_BOAT =
-            TerraformBoatItemHelper.registerBoatItem(ModBoats.DIRITIA_BOAT_ID,
-                    ModBoats.DIRITIA_BOAT_KEY, false);
-    public static final Item DIRITIA_CHEST_BOAT =
-            TerraformBoatItemHelper.registerBoatItem(ModBoats.DIRITIA_CHEST_BOAT_ID,
-                    ModBoats.DIRITIA_BOAT_KEY, true);
-    public static final Item FABIA_SIGN = registerItem("fabia_sign",
+    public static final Item PACSARIA_BOAT =
+            TerraformBoatItemHelper.registerBoatItem(ModBoats.PACSARIA_BOAT_ID,
+                    ModBoats.PACSARIA_BOAT_KEY, false);
+    public static final Item PACSARIA_CHEST_BOAT =
+            TerraformBoatItemHelper.registerBoatItem(ModBoats.PACSARIA_CHEST_BOAT_ID,
+                    ModBoats.PACSARIA_BOAT_KEY, true);
+    public static final Item TRIAFIA_SIGN = registerItem("triafia_sign",
             new SignItem(new FabricItemSettings().maxCount(16),
-                    ModBlocks.STANDING_FABIA_SIGN, ModBlocks.WALL_FABIA_SIGN));
-    public static final Item HANGING_FABIA_SIGN = registerItem("fabia_hanging_sign",
-            new HangingSignItem(ModBlocks.HANGING_FABIA_SIGN, ModBlocks.WALL_HANGING_FABIA_SIGN,
+                    ModBlocks.STANDING_TRIAFIA_SIGN, ModBlocks.WALL_TRIAFIA_SIGN));
+    public static final Item HANGING_TRIAFIA_SIGN = registerItem("triafia_hanging_sign",
+            new HangingSignItem(ModBlocks.HANGING_TRIAFIA_SIGN, ModBlocks.WALL_HANGING_TRIAFIA_SIGN,
                     new FabricItemSettings().maxCount(16)));
-    public static final Item FABIA_BOAT =
-            TerraformBoatItemHelper.registerBoatItem(ModBoats.FABIA_BOAT_ID,
-                    ModBoats.FABIA_BOAT_KEY, false);
-    public static final Item FABIA_CHEST_BOAT =
-            TerraformBoatItemHelper.registerBoatItem(ModBoats.FABIA_CHEST_BOAT_ID,
-                    ModBoats.FABIA_BOAT_KEY, true);
+    public static final Item TRIAFIA_BOAT =
+            TerraformBoatItemHelper.registerBoatItem(ModBoats.TRIAFIA_BOAT_ID,
+                    ModBoats.TRIAFIA_BOAT_KEY, false);
+    public static final Item TRIAFIA_CHEST_BOAT =
+            TerraformBoatItemHelper.registerBoatItem(ModBoats.TRIAFIA_CHEST_BOAT_ID,
+                    ModBoats.TRIAFIA_BOAT_KEY, true);
 
     private static void addItemsToIngredientGroup(FabricItemGroupEntries entries){
         entries.add(RAW_TIN);

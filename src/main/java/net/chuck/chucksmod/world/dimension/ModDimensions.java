@@ -15,21 +15,21 @@ import net.minecraft.world.dimension.DimensionTypes;
 import java.util.OptionalLong;
 
 public class ModDimensions {
-    public static final RegistryKey<DimensionOptions> FABIA_KEY = RegistryKey.of(RegistryKeys.DIMENSION,
-            new Identifier(ChucksMod.MOD_ID, "fabia"));
-    public static final RegistryKey<World> FABIA_LEVEL_KEY = RegistryKey.of(RegistryKeys.WORLD,
-            new Identifier(ChucksMod.MOD_ID, "fabia"));
-    public static final RegistryKey<DimensionType> FABIA_TYPE = RegistryKey.of(RegistryKeys.DIMENSION_TYPE,
-            new Identifier(ChucksMod.MOD_ID, "fabia_type"));
-    public static final RegistryKey<DimensionOptions> DIRITIA_KEY = RegistryKey.of(RegistryKeys.DIMENSION,
-            new Identifier(ChucksMod.MOD_ID, "diritia"));
-    public static final RegistryKey<World> DIRITIA_LEVEL_KEY = RegistryKey.of(RegistryKeys.WORLD,
-            new Identifier(ChucksMod.MOD_ID, "diritia"));
-    public static final RegistryKey<DimensionType> DIRITIA_TYPE = RegistryKey.of(RegistryKeys.DIMENSION_TYPE,
-            new Identifier(ChucksMod.MOD_ID, "diritia_type"));
+    public static final RegistryKey<DimensionOptions> TRIAFIA_KEY = RegistryKey.of(RegistryKeys.DIMENSION,
+            new Identifier(ChucksMod.MOD_ID, "triafia"));
+    public static final RegistryKey<World> TRIAFIA_LEVEL_KEY = RegistryKey.of(RegistryKeys.WORLD,
+            new Identifier(ChucksMod.MOD_ID, "triafia"));
+    public static final RegistryKey<DimensionType> TRIAFIA_TYPE = RegistryKey.of(RegistryKeys.DIMENSION_TYPE,
+            new Identifier(ChucksMod.MOD_ID, "triafia_type"));
+    public static final RegistryKey<DimensionOptions> PACSARIA_KEY = RegistryKey.of(RegistryKeys.DIMENSION,
+            new Identifier(ChucksMod.MOD_ID, "pacsaria"));
+    public static final RegistryKey<World> PACSARIA_LEVEL_KEY = RegistryKey.of(RegistryKeys.WORLD,
+            new Identifier(ChucksMod.MOD_ID, "pacsaria"));
+    public static final RegistryKey<DimensionType> PACSARIA_TYPE = RegistryKey.of(RegistryKeys.DIMENSION_TYPE,
+            new Identifier(ChucksMod.MOD_ID, "pacsaria_type"));
 
     public static void bootstrapType(Registerable<DimensionType> context){
-        context.register(FABIA_TYPE, new DimensionType(
+        context.register(TRIAFIA_TYPE, new DimensionType(
                 OptionalLong.empty(),     //fixedTime
                 true,       //hasSkylight
                 false,      //hasCeiling
@@ -45,7 +45,7 @@ public class ModDimensions {
                 DimensionTypes.OVERWORLD_ID,     //effectsLocation
                 0.0f,        //ambient light
                 new DimensionType.MonsterSettings(false, false, UniformIntProvider.create(0, 0), 4)));
-        context.register(DIRITIA_TYPE, new DimensionType(
+        context.register(PACSARIA_TYPE, new DimensionType(
                 OptionalLong.of(12000),     //fixedTime
                 true,       //hasSkylight
                 false,      //hasCeiling

@@ -39,14 +39,14 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.PRISMARINE_CHESTPLATE)
                 .add(ModItems.PRISMARINE_LEGGINGS)
                 .add(ModItems.PRISMARINE_BOOTS)
-                .add(ModItems.FABIUM_HELMET)
-                .add(ModItems.FABIUM_CHESTPLATE)
-                .add(ModItems.FABIUM_LEGGINGS)
-                .add(ModItems.FABIUM_BOOTS)
-                .add(ModItems.DIRITONIUM_HELMET)
-                .add(ModItems.DIRITONIUM_CHESTPLATE)
-                .add(ModItems.DIRITONIUM_LEGGINGS)
-                .add(ModItems.DIRITONIUM_BOOTS);
+                .add(ModItems.TRIAFIUM_HELMET)
+                .add(ModItems.TRIAFIUM_CHESTPLATE)
+                .add(ModItems.TRIAFIUM_LEGGINGS)
+                .add(ModItems.TRIAFIUM_BOOTS)
+                .add(ModItems.PACSARIUM_HELMET)
+                .add(ModItems.PACSARIUM_CHESTPLATE)
+                .add(ModItems.PACSARIUM_LEGGINGS)
+                .add(ModItems.PACSARIUM_BOOTS);
 
         getOrCreateTagBuilder(ModItemTags.COOKED_MEAT)
                 .add(Items.COOKED_BEEF)
@@ -77,42 +77,42 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
         getOrCreateTagBuilder(ItemTags.SWORDS)
                 .add(ModItems.BRONZE_SWORD)
-                .add(ModItems.FABIUM_SWORD)
+                .add(ModItems.TRIAFIUM_SWORD)
                 .add(ModItems.WITHER_SWORD)
                 .add(ModItems.PRISMARINE_SWORD)
-                .add(ModItems.DIRITONIUM_SWORD)
+                .add(ModItems.PACSARIUM_SWORD)
                 .add(ModItems.TITANIUM_SWORD);
 
         getOrCreateTagBuilder(ItemTags.PICKAXES)
                 .add(ModItems.BRONZE_PICKAXE)
-                .add(ModItems.FABIUM_PICKAXE)
+                .add(ModItems.TRIAFIUM_PICKAXE)
                 .add(ModItems.WITHER_PICKAXE)
                 .add(ModItems.PRISMARINE_PICKAXE)
-                .add(ModItems.DIRITONIUM_PICKAXE)
+                .add(ModItems.PACSARIUM_PICKAXE)
                 .add(ModItems.TITANIUM_PICKAXE);
 
         getOrCreateTagBuilder(ItemTags.AXES)
                 .add(ModItems.BRONZE_AXE)
-                .add(ModItems.FABIUM_AXE)
+                .add(ModItems.TRIAFIUM_AXE)
                 .add(ModItems.WITHER_AXE)
                 .add(ModItems.PRISMARINE_AXE)
-                .add(ModItems.DIRITONIUM_AXE)
+                .add(ModItems.PACSARIUM_AXE)
                 .add(ModItems.TITANIUM_AXE);
 
         getOrCreateTagBuilder(ItemTags.SHOVELS)
                 .add(ModItems.BRONZE_SHOVEL)
-                .add(ModItems.FABIUM_SHOVEL)
+                .add(ModItems.TRIAFIUM_SHOVEL)
                 .add(ModItems.WITHER_SHOVEL)
                 .add(ModItems.PRISMARINE_SHOVEL)
-                .add(ModItems.DIRITONIUM_SHOVEL)
+                .add(ModItems.PACSARIUM_SHOVEL)
                 .add(ModItems.TITANIUM_SHOVEL);
 
         getOrCreateTagBuilder(ItemTags.HOES)
                 .add(ModItems.BRONZE_HOE)
-                .add(ModItems.FABIUM_HOE)
+                .add(ModItems.TRIAFIUM_HOE)
                 .add(ModItems.WITHER_HOE)
                 .add(ModItems.PRISMARINE_HOE)
-                .add(ModItems.DIRITONIUM_HOE)
+                .add(ModItems.PACSARIUM_HOE)
                 .add(ModItems.TITANIUM_HOE);
 
         getOrCreateTagBuilder(ModItemTags.TIN_INGOTS)
@@ -123,62 +123,62 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
         getOrCreateTagBuilder(ItemTags.PLANKS)
                 .add(ModBlocks.EUCALYPTUS_PLANKS.asItem())
-                .add(ModBlocks.DIRITIA_PLANKS.asItem())
-                .add(ModBlocks.FABIA_PLANKS.asItem());
+                .add(ModBlocks.PACSARIA_PLANKS.asItem())
+                .add(ModBlocks.TRIAFIA_PLANKS.asItem());
 
         getOrCreateTagBuilder(ItemTags.WOODEN_BUTTONS)
                 .add(ModBlocks.EUCALYPTUS_BUTTON.asItem())
-                .add(ModBlocks.DIRITIA_BUTTON.asItem())
-                .add(ModBlocks.FABIA_BUTTON.asItem());
+                .add(ModBlocks.PACSARIA_BUTTON.asItem())
+                .add(ModBlocks.TRIAFIA_BUTTON.asItem());
 
         getOrCreateTagBuilder(ItemTags.WOODEN_DOORS)
                 .add(ModBlocks.EUCALYPTUS_DOOR.asItem())
-                .add(ModBlocks.DIRITIA_DOOR.asItem())
-                .add(ModBlocks.FABIA_DOOR.asItem());
+                .add(ModBlocks.PACSARIA_DOOR.asItem())
+                .add(ModBlocks.TRIAFIA_DOOR.asItem());
 
         getOrCreateTagBuilder(ItemTags.WOODEN_FENCES)
                 .add(ModBlocks.EUCALYPTUS_FENCE.asItem())
-                .add(ModBlocks.DIRITIA_FENCE.asItem())
-                .add(ModBlocks.FABIA_FENCE.asItem());
+                .add(ModBlocks.PACSARIA_FENCE.asItem())
+                .add(ModBlocks.TRIAFIA_FENCE.asItem());
 
         getOrCreateTagBuilder(ItemTags.WOODEN_SLABS)
                 .add(ModBlocks.EUCALYPTUS_SLAB.asItem())
-                .add(ModBlocks.DIRITIA_SLAB.asItem())
-                .add(ModBlocks.FABIA_SLAB.asItem());
+                .add(ModBlocks.PACSARIA_SLAB.asItem())
+                .add(ModBlocks.TRIAFIA_SLAB.asItem());
 
         getOrCreateTagBuilder(ItemTags.WOODEN_STAIRS)
                 .add(ModBlocks.EUCALYPTUS_STAIRS.asItem())
-                .add(ModBlocks.DIRITIA_STAIRS.asItem())
-                .add(ModBlocks.FABIA_STAIRS.asItem());
+                .add(ModBlocks.PACSARIA_STAIRS.asItem())
+                .add(ModBlocks.TRIAFIA_STAIRS.asItem());
 
         getOrCreateTagBuilder(ItemTags.WOODEN_PRESSURE_PLATES)
                 .add(ModBlocks.EUCALYPTUS_PRESSURE_PLATE.asItem())
-                .add(ModBlocks.DIRITIA_PRESSURE_PLATE.asItem())
-                .add(ModBlocks.FABIA_PRESSURE_PLATE.asItem());
+                .add(ModBlocks.PACSARIA_PRESSURE_PLATE.asItem())
+                .add(ModBlocks.TRIAFIA_PRESSURE_PLATE.asItem());
 
         getOrCreateTagBuilder(ItemTags.WOODEN_TRAPDOORS)
                 .add(ModBlocks.EUCALYPTUS_TRAPDOOR.asItem())
-                .add(ModBlocks.DIRITIA_TRAPDOOR.asItem())
-                .add(ModBlocks.FABIA_TRAPDOOR.asItem());
+                .add(ModBlocks.PACSARIA_TRAPDOOR.asItem())
+                .add(ModBlocks.TRIAFIA_TRAPDOOR.asItem());
 
         getOrCreateTagBuilder(ItemTags.FENCE_GATES)
                 .add(ModBlocks.EUCALYPTUS_FENCE_GATE.asItem())
-                .add(ModBlocks.DIRITIA_FENCE_GATE.asItem())
-                .add(ModBlocks.FABIA_FENCE_GATE.asItem());
+                .add(ModBlocks.PACSARIA_FENCE_GATE.asItem())
+                .add(ModBlocks.TRIAFIA_FENCE_GATE.asItem());
 
         getOrCreateTagBuilder(ItemTags.LOGS_THAT_BURN)
                 .add(ModBlocks.EUCALYPTUS_LOG.asItem())
                 .add(ModBlocks.EUCALYPTUS_WOOD.asItem())
                 .add(ModBlocks.STRIPPED_EUCALYPTUS_LOG.asItem())
                 .add(ModBlocks.STRIPPED_EUCALYPTUS_WOOD.asItem())
-                .add(ModBlocks.DIRITIA_LOG.asItem())
-                .add(ModBlocks.DIRITIA_WOOD.asItem())
-                .add(ModBlocks.STRIPPED_DIRITIA_LOG.asItem())
-                .add(ModBlocks.STRIPPED_DIRITIA_WOOD.asItem())
-                .add(ModBlocks.FABIA_LOG.asItem())
-                .add(ModBlocks.FABIA_WOOD.asItem())
-                .add(ModBlocks.STRIPPED_FABIA_LOG.asItem())
-                .add(ModBlocks.STRIPPED_FABIA_WOOD.asItem());
+                .add(ModBlocks.PACSARIA_LOG.asItem())
+                .add(ModBlocks.PACSARIA_WOOD.asItem())
+                .add(ModBlocks.STRIPPED_PACSARIA_LOG.asItem())
+                .add(ModBlocks.STRIPPED_PACSARIA_WOOD.asItem())
+                .add(ModBlocks.TRIAFIA_LOG.asItem())
+                .add(ModBlocks.TRIAFIA_WOOD.asItem())
+                .add(ModBlocks.STRIPPED_TRIAFIA_LOG.asItem())
+                .add(ModBlocks.STRIPPED_TRIAFIA_WOOD.asItem());
 
         getOrCreateTagBuilder(ItemTags.WALLS)
                 .add(ModBlocks.SANDSTONE_BRICK_WALL.asItem());
@@ -204,8 +204,8 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(Items.CHAINMAIL_HELMET)
                 .add(ModItems.PRISMARINE_HELMET)
                 .add(ModItems.BRONZE_HELMET)
-                .add(ModItems.FABIUM_HELMET)
-                .add(ModItems.DIRITONIUM_HELMET)
+                .add(ModItems.TRIAFIUM_HELMET)
+                .add(ModItems.PACSARIUM_HELMET)
                 .add(ModItems.TITANIUM_HELMET);
         getOrCreateTagBuilder(ModItemTags.CHESTPLATES)
                 .add(Items.DIAMOND_CHESTPLATE)
@@ -216,8 +216,8 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(Items.CHAINMAIL_CHESTPLATE)
                 .add(ModItems.PRISMARINE_CHESTPLATE)
                 .add(ModItems.BRONZE_CHESTPLATE)
-                .add(ModItems.FABIUM_CHESTPLATE)
-                .add(ModItems.DIRITONIUM_CHESTPLATE)
+                .add(ModItems.TRIAFIUM_CHESTPLATE)
+                .add(ModItems.PACSARIUM_CHESTPLATE)
                 .add(ModItems.TITANIUM_CHESTPLATE);
         getOrCreateTagBuilder(ModItemTags.LEGGINGS)
                 .add(Items.DIAMOND_LEGGINGS)
@@ -228,8 +228,8 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(Items.CHAINMAIL_LEGGINGS)
                 .add(ModItems.PRISMARINE_LEGGINGS)
                 .add(ModItems.BRONZE_LEGGINGS)
-                .add(ModItems.FABIUM_LEGGINGS)
-                .add(ModItems.DIRITONIUM_LEGGINGS)
+                .add(ModItems.TRIAFIUM_LEGGINGS)
+                .add(ModItems.PACSARIUM_LEGGINGS)
                 .add(ModItems.TITANIUM_LEGGINGS);
         getOrCreateTagBuilder(ModItemTags.BOOTS)
                 .add(Items.DIAMOND_BOOTS)
@@ -240,8 +240,8 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(Items.CHAINMAIL_BOOTS)
                 .add(ModItems.PRISMARINE_BOOTS)
                 .add(ModItems.BRONZE_BOOTS)
-                .add(ModItems.FABIUM_BOOTS)
-                .add(ModItems.DIRITONIUM_BOOTS)
+                .add(ModItems.TRIAFIUM_BOOTS)
+                .add(ModItems.PACSARIUM_BOOTS)
                 .add(ModItems.TITANIUM_BOOTS);
 
         getOrCreateTagBuilder(ModItemTags.ENCHANTABLES)
@@ -264,7 +264,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.LEATHER_BAG)
                 .add(ModItems.BRONZE_BAG)
                 .add(ModItems.COPPER_BAG)
-                .add(ModItems.FABIUM_BAG)
+                .add(ModItems.TRIAFIUM_BAG)
                 .add(ModItems.IRON_BAG)
                 .add(ModItems.NETHERITE_BAG);
         
@@ -294,8 +294,8 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.IRON_GEAR)
                 .add(ModItems.TIN_GEAR)
                 .add(ModItems.TITANIUM_GEAR)
-                .add(ModItems.FABIUM_GEAR)
-                .add(ModItems.DIRITONIUM_GEAR)
+                .add(ModItems.TRIAFIUM_GEAR)
+                .add(ModItems.PACSARIUM_GEAR)
                 .add(ModItems.PRISMARINE_GEAR);
 
         getOrCreateTagBuilder(ModItemTags.CRUSHERS)

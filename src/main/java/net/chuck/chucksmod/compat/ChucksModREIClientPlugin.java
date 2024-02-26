@@ -19,7 +19,7 @@ public class ChucksModREIClientPlugin implements REIClientPlugin {
         registry.addWorkstations(CrusherCategory.CRUSHER, EntryStacks.of(ModBlocks.CRUSHER),
                 EntryStacks.of(ModBlocks.IRON_POWERED_CRUSHER), EntryStacks.of(ModBlocks.TITANIUM_POWERED_CRUSHER));
         registry.add(new PortalBuilderCategory());
-        registry.addWorkstations(PortalBuilderCategory.PORTAL_BUILDER, EntryStacks.of(ModBlocks.FABIUM_PORTAL_BUILDER));
+        registry.addWorkstations(PortalBuilderCategory.PORTAL_BUILDER, EntryStacks.of(ModBlocks.TRIAFIUM_PORTAL_BUILDER));
     }
 
     @Override

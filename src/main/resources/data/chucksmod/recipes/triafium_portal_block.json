@@ -1,0 +1,19 @@
+{
+  "type": "chucksmod:portal_recipe",
+  "ingredients": [
+    {
+      "count": 8,
+      "item": "chucksmod:triafium_block"
+    },
+    {
+      "item": "minecraft:nether_star"
+    },
+    {
+      "item": "chucksmod:soul_blaze_rod"
+    }
+  ],
+  "output": {
+    "item": "chucksmod:triafium_portal_block",
+    "count": 16
+  }
+}
