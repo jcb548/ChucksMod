@@ -253,6 +253,36 @@ public class ModChestLootTableGenerator extends SimpleFabricLootTableProvider {
                     .with(ItemEntry.builder(Blocks.SAND).weight(10))
                         .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(12.0f, 24.0f)))
                 ));
-        exporter.accept(TRIAFIA_CASTLE_LOOT, LootTable.builder());
+        // /setblock ~ ~ ~ minecraft:chest{LootTable:"chucksmod:chests/triafia_castle_loot"}
+        exporter.accept(TRIAFIA_CASTLE_LOOT, LootTable.builder()
+                .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0f))
+                        .with(ItemEntry.builder(ModItems.RAW_TRIAFIUM).weight(10))
+                            .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(2.0f, 6.0f)))
+                        .with(ItemEntry.builder(ModItems.TRIAFIUM_INGOT).weight(5))
+                            .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(2.0f, 4.0f)))
+                        .with(ItemEntry.builder(Items.NAME_TAG).weight(5))
+                            .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(1.0f)))
+                        .with(ItemEntry.builder(Items.GOLDEN_APPLE).weight(10))
+                            .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(1.0f)))
+                        .with(ItemEntry.builder(Items.ENCHANTED_GOLDEN_APPLE).weight(1))
+                            .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(1.0f))))
+                .pool(LootPool.builder().rolls(UniformLootNumberProvider.create(2.0f, 6.0f))
+                        .with(ItemEntry.builder(ModItems.TITANIUM_INGOT).weight(7))
+                            .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(2.0f, 5.0f)))
+                        .with(ItemEntry.builder(Items.DIAMOND_HORSE_ARMOR).weight(3))
+                            .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(1.0f)))
+                        .with(ItemEntry.builder(Items.IRON_HORSE_ARMOR).weight(8))
+                            .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(1.0f)))
+                        .with(ItemEntry.builder(Items.GOLDEN_HORSE_ARMOR).weight(5))
+                            .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(1.0f)))
+                        .with(ItemEntry.builder(Items.DIAMOND).weight(5))
+                            .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 3.0f)))
+                        .with(ItemEntry.builder(Items.FLINT_AND_STEEL).weight(5))
+                            .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(1.0f)))
+                        .with(ItemEntry.builder(ModItems.RAW_TRIAFIUM).weight(10))
+                            .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 2.0f)))
+                        .with(ItemEntry.builder(Items.IRON_INGOT).weight(8))
+                            .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(3.0f, 8.0f)))
+                ));
     }
 }
