@@ -5,7 +5,7 @@
     {
       "weight": 1,
       "element": {
-        "location": "chucksmod:triafia_castle_right_barrel_room",
+        "location": "chucksmod:triafia/castle/right_barrel_room",
         "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
@@ -14,7 +14,7 @@
     {
       "weight": 1,
       "element": {
-        "location": "chucksmod:triafia_castle_right_big_table_room",
+        "location": "chucksmod:triafia/castle/right_big_table_room",
         "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
@@ -23,7 +23,7 @@
     {
       "weight": 2,
       "element": {
-        "location": "chucksmod:triafia_castle_right_couch_room",
+        "location": "chucksmod:triafia/castle/right_couch_room",
         "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
@@ -32,7 +32,7 @@
     {
       "weight": 1,
       "element": {
-        "location": "chucksmod:triafia_castle_right_empty",
+        "location": "chucksmod:triafia/castle/right_empty",
         "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
@@ -41,7 +41,7 @@
     {
       "weight": 1,
       "element": {
-        "location": "chucksmod:triafia_castle_right_flower_room",
+        "location": "chucksmod:triafia/castle/right_flower_room",
         "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
@@ -50,7 +50,7 @@
     {
       "weight": 1,
       "element": {
-        "location": "chucksmod:triafia_castle_right_library",
+        "location": "chucksmod:triafia/castle/right_library",
         "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
@@ -59,7 +59,7 @@
     {
       "weight": 1,
       "element": {
-        "location": "chucksmod:triafia_castle_right_pool_room",
+        "location": "chucksmod:triafia/castle/right_pool_room",
         "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
@@ -68,7 +68,7 @@
     {
       "weight": 2,
       "element": {
-        "location": "chucksmod:triafia_castle_right_small_table_room",
+        "location": "chucksmod:triafia/castle/right_small_table_room",
         "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
@@ -77,7 +77,7 @@
     {
       "weight": 1,
       "element": {
-        "location": "chucksmod:triafia_castle_right_tnt_room",
+        "location": "chucksmod:triafia/castle/right_tnt_room",
         "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"

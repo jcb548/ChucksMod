@@ -4,10 +4,12 @@ import net.chuck.chucksmod.ChucksMod;
 import net.chuck.chucksmod.block.ModBlocks;
 import net.chuck.chucksmod.world.tree.custom.TriafiaFoliagePlacer;
 import net.chuck.chucksmod.world.tree.custom.TriafiaTrunkPlacer;
+import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.registry.Registerable;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
+import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.structure.rule.BlockMatchRuleTest;
 import net.minecraft.structure.rule.RuleTest;
@@ -101,6 +103,10 @@ public class ModConfiguredFeatures {
             registerKey("triafia_eclogite_vein");
     public static final RegistryKey<ConfiguredFeature<?, ?>> TRIAFIA_TUFF_VEIN_KEY =
             registerKey("triafia_tuff_vein");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> TRIAFIA_ECLOGITE_PILE_KEY =
+            registerKey("triafia_eclogite_pile");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> TRIAFIA_PLANT_PATCH_KEY =
+            registerKey("triafia_plant_patch");
 
     // Generation for Pacsaria Islands
     public static final RegistryKey<ConfiguredFeature<?, ?>> PACSARIA_PACSARIUM_ORE_KEY =
@@ -329,6 +335,12 @@ public class ModConfiguredFeatures {
                 BlockStateProvider.of(ModBlocks.TRIAFIA_LEAVES),
                 new TriafiaFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(1), 2),
                 new TwoLayersFeatureSize(1,0,2)).build());
+        // Register New Misc
+        register(context, TRIAFIA_ECLOGITE_PILE_KEY, Feature.BLOCK_PILE,
+                new BlockPileFeatureConfig(BlockStateProvider.of(ModBlocks.ECLOGITE.getDefaultState())));
+        register(context, TRIAFIA_PLANT_PATCH_KEY, Feature.RANDOM_PATCH,
+                ConfiguredFeatures.createRandomPatchFeatureConfig(Feature.SIMPLE_BLOCK,
+                        new SimpleBlockFeatureConfig(BlockStateProvider.of(ModBlocks.TRIAFIA_PLANT))));
 
         // Register Overworld Ores
         register(context, TIN_ORE_KEY, Feature.ORE, new OreFeatureConfig(overworldTinOres, 9));

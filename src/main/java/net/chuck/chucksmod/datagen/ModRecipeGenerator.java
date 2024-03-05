@@ -1,6 +1,5 @@
 package net.chuck.chucksmod.datagen;
 
-import com.sun.jna.platform.unix.X11;
 import net.chuck.chucksmod.block.ModBlocks;
 import net.chuck.chucksmod.item.ModItemTags;
 import net.chuck.chucksmod.item.ModItems;
@@ -13,7 +12,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.book.RecipeCategory;
-import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.registry.tag.TagKey;
 
@@ -42,7 +40,7 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
         generatePrismarineRecipes(exporter);
         generateSoulRecipes(exporter);
         generateTriafiumRecipes(exporter);
-        generateDiritonoumRecipes(exporter);
+        generatePascariumRecipes(exporter);
         generateEucalyptusRecipes(exporter);
         generatePacsariaWoodRecipes(exporter);
         generateSandstoneRecipes(exporter);
@@ -273,8 +271,31 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
         offerBoatRecipe(exporter, ModItems.EUCALYPTUS_BOAT, ModBlocks.EUCALYPTUS_PLANKS);
         offerChestBoatRecipe(exporter, ModItems.EUCALYPTUS_CHEST_BOAT, ModItems.EUCALYPTUS_BOAT);
     }
+    private void generateTriafiumRecipes(RecipeExporter exporter) {
+        offerSmelting(exporter, List.of(ModItems.RAW_TRIAFIUM), RecipeCategory.TOOLS, ModItems.TRIAFIUM_INGOT,
+                1.0f, 200, "triafium_ingot");
+        offerBlasting(exporter, List.of(ModItems.RAW_TRIAFIUM), RecipeCategory.TOOLS, ModItems.TRIAFIUM_INGOT,
+                1.0f, 100, "triafium_ingot");
+        offerReversibleCompactingRecipes(exporter, RecipeCategory.BUILDING_BLOCKS, ModItems.RAW_TRIAFIUM,
+                RecipeCategory.DECORATIONS, ModBlocks.RAW_TRIAFIUM_BLOCK);
+        offerReversibleCompactingRecipes(exporter, RecipeCategory.BUILDING_BLOCKS, ModItems.TRIAFIUM_INGOT,
+                RecipeCategory.DECORATIONS, ModBlocks.TRIAFIUM_BLOCK);
+        offerSwordRecipe(exporter, ModItems.TRIAFIUM_INGOT, ModItems.TRIAFIUM_SWORD);
+        offerPickaxeRecipe(exporter, ModItems.TRIAFIUM_INGOT, ModItems.TRIAFIUM_PICKAXE);
+        offerAxeRecipe(exporter, ModItems.TRIAFIUM_INGOT, ModItems.TRIAFIUM_AXE);
+        offerShovelRecipe(exporter, ModItems.TRIAFIUM_INGOT, ModItems.TRIAFIUM_SHOVEL);
+        offerHoeRecipe(exporter, ModItems.TRIAFIUM_INGOT, ModItems.TRIAFIUM_HOE);
+        offerHelmetRecipe(exporter, ModItems.TRIAFIUM_INGOT, ModItems.TRIAFIUM_HELMET);
+        offerChestplateRecipe(exporter, ModItems.TRIAFIUM_INGOT, ModItems.TRIAFIUM_CHESTPLATE);
+        offerLeggingsRecipe(exporter, ModItems.TRIAFIUM_INGOT, ModItems.TRIAFIUM_LEGGINGS);
+        offerBootsRecipe(exporter, ModItems.TRIAFIUM_INGOT, ModItems.TRIAFIUM_BOOTS);
+        offerGearRecipe(exporter, ModItems.TRIAFIUM_INGOT, ModItems.TRIAFIUM_GEAR);
+        offerStainedGlassPaneRecipe(exporter, ModBlocks.TRIAFIUM_BARS, ModItems.TRIAFIUM_INGOT);
+        offerCompactingRecipe(exporter, RecipeCategory.MISC, ModItems.TRIAFIA_CRYSTAL,
+                ModItems.TRIAFIA_CRYSTAL_SHARD);
+    }
 
-    private void generateDiritonoumRecipes(RecipeExporter exporter) {
+    private void generatePascariumRecipes(RecipeExporter exporter) {
         offerSmelting(exporter, List.of(ModItems.RAW_PACSARIUM), RecipeCategory.TOOLS, ModItems.PACSARIUM_INGOT,
                 1.3f, 200, "pacsarium_ingot");
         offerBlasting(exporter, List.of(ModItems.RAW_PACSARIUM), RecipeCategory.TOOLS, ModItems.PACSARIUM_INGOT,
@@ -296,28 +317,6 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
         offerStainedGlassPaneRecipe(exporter, ModBlocks.PACSARIUM_BARS, ModItems.PACSARIUM_INGOT);
         offerCompactingRecipe(exporter, RecipeCategory.MISC, ModItems.PACSARIA_CRYSTAL,
                 ModItems.PACSARIA_CRYSTAL_SHARD);
-    }
-
-    private void generateTriafiumRecipes(RecipeExporter exporter) {
-        offerSmelting(exporter, List.of(ModItems.RAW_TRIAFIUM), RecipeCategory.TOOLS, ModItems.TRIAFIUM_INGOT,
-                1.0f, 200, "triafium_ingot");
-        offerBlasting(exporter, List.of(ModItems.RAW_TRIAFIUM), RecipeCategory.TOOLS, ModItems.TRIAFIUM_INGOT,
-                1.0f, 100, "triafium_ingot");
-        offerReversibleCompactingRecipes(exporter, RecipeCategory.BUILDING_BLOCKS, ModItems.RAW_TRIAFIUM,
-                RecipeCategory.DECORATIONS, ModBlocks.RAW_TRIAFIUM_BLOCK);
-        offerReversibleCompactingRecipes(exporter, RecipeCategory.BUILDING_BLOCKS, ModItems.TRIAFIUM_INGOT,
-                RecipeCategory.DECORATIONS, ModBlocks.TRIAFIUM_BLOCK);
-        offerSwordRecipe(exporter, ModItems.TRIAFIUM_INGOT, ModItems.TRIAFIUM_SWORD);
-        offerPickaxeRecipe(exporter, ModItems.TRIAFIUM_INGOT, ModItems.TRIAFIUM_PICKAXE);
-        offerAxeRecipe(exporter, ModItems.TRIAFIUM_INGOT, ModItems.TRIAFIUM_AXE);
-        offerShovelRecipe(exporter, ModItems.TRIAFIUM_INGOT, ModItems.TRIAFIUM_SHOVEL);
-        offerHoeRecipe(exporter, ModItems.TRIAFIUM_INGOT, ModItems.TRIAFIUM_HOE);
-        offerHelmetRecipe(exporter, ModItems.TRIAFIUM_INGOT, ModItems.TRIAFIUM_HELMET);
-        offerChestplateRecipe(exporter, ModItems.TRIAFIUM_INGOT, ModItems.TRIAFIUM_CHESTPLATE);
-        offerLeggingsRecipe(exporter, ModItems.TRIAFIUM_INGOT, ModItems.TRIAFIUM_LEGGINGS);
-        offerBootsRecipe(exporter, ModItems.TRIAFIUM_INGOT, ModItems.TRIAFIUM_BOOTS);
-        offerGearRecipe(exporter, ModItems.TRIAFIUM_INGOT, ModItems.TRIAFIUM_GEAR);
-        offerStainedGlassPaneRecipe(exporter, ModBlocks.TRIAFIUM_BARS, ModItems.TRIAFIUM_INGOT);
     }
 
     private void generatePrismarineRecipes(RecipeExporter exporter) {

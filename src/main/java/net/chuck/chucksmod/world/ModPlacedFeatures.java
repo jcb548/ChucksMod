@@ -80,6 +80,10 @@ public class ModPlacedFeatures {
             registerKey("triafia_eclogite_vein_placed");
     public static final RegistryKey<PlacedFeature> TRIAFIA_TUFF_VEIN_PLACED_KEY =
             registerKey("triafia_tuff_vein_placed");
+    public static final RegistryKey<PlacedFeature> TRIAFIA_ECLOGITE_PILE_PLACED_KEY =
+            registerKey("triafia_eclogite_pile_placed");
+    public static final RegistryKey<PlacedFeature> TRIAFIA_PLANT_PATCH_PLACED_KEY =
+            registerKey("triafia_plant_patch_placed");
 
     //Pacsaria
     public static final RegistryKey<PlacedFeature> PACSARIA_PACSARIUM_ORE_PLACED_KEY =
@@ -213,6 +217,12 @@ public class ModPlacedFeatures {
         register(context, TRIAFIA_TUFF_VEIN_PLACED_KEY, configuredFeatureRegistryEntryLookup
                 .getOrThrow(ModConfiguredFeatures.TRIAFIA_TUFF_VEIN_KEY), ModOrePlacement.modifiersWithCount(6,
                 HeightRangePlacementModifier.uniform(YOffset.fixed(-64), YOffset.fixed(128))));
+        register(context, TRIAFIA_ECLOGITE_PILE_PLACED_KEY, configuredFeatureRegistryEntryLookup
+                .getOrThrow(ModConfiguredFeatures.TRIAFIA_ECLOGITE_PILE_KEY),
+                ModOrePlacement.modifiersWithRarity(5, PlacedFeatures.OCEAN_FLOOR_WG_HEIGHTMAP));
+        register(context, TRIAFIA_PLANT_PATCH_PLACED_KEY, configuredFeatureRegistryEntryLookup
+                .getOrThrow(ModConfiguredFeatures.TRIAFIA_PLANT_PATCH_KEY),
+                VegetationPlacedFeatures.modifiers(3));
 
         //Register Pacsaria ores
         register(context, PACSARIA_PACSARIUM_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup

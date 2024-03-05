@@ -264,6 +264,10 @@ public class ModItemGroups {
                         entries.add(ModItems.HANGING_TRIAFIA_SIGN);
                         entries.add(ModItems.TRIAFIA_BOAT);
                         entries.add(ModItems.TRIAFIA_CHEST_BOAT);
+                        entries.add(ModItems.TRIAFIA_CRYSTAL);
+                        entries.add(ModItems.TRIAFIA_CRYSTAL_SHARD);
+                        entries.add(ModItems.TRIAFIA_CRYSTAL_DUST);
+                        entries.add(ModBlocks.TRIAFIA_PLANT);
 
                         entries.add(ModItems.RAW_TRIAFIUM);
                         entries.add(ModItems.TRIAFIUM_INGOT);

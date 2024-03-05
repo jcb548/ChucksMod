@@ -7,8 +7,21 @@ import net.chuck.chucksmod.block.custom.TomatoCropBlock;
 import net.chuck.chucksmod.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
+import net.minecraft.data.server.loottable.BlockLootTableGenerator;
+import net.minecraft.enchantment.Enchantments;
+import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.Items;
+import net.minecraft.loot.LootPool;
+import net.minecraft.loot.LootTable;
 import net.minecraft.loot.condition.BlockStatePropertyLootCondition;
+import net.minecraft.loot.condition.RandomChanceLootCondition;
+import net.minecraft.loot.entry.ItemEntry;
+import net.minecraft.loot.entry.LeafEntry;
+import net.minecraft.loot.entry.LootPoolEntry;
+import net.minecraft.loot.function.ApplyBonusLootFunction;
+import net.minecraft.loot.function.SetCountLootFunction;
+import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
+import net.minecraft.loot.provider.number.UniformLootNumberProvider;
 import net.minecraft.predicate.StatePredicate;
 
 /*
@@ -168,6 +181,30 @@ public class ModBlockLootTableGenerator extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.TRIAFIA_PRESSURE_PLATE);
         addDrop(ModBlocks.TRIAFIA_STAIRS);
         addDrop(ModBlocks.TRIAFIA_SLAB, slabDrops(ModBlocks.TRIAFIA_SLAB));
+        addDrop(ModBlocks.TRIAFIA_PLANT, LootTable.builder()
+                .pool(LootPool.builder()
+                        .rolls(ConstantLootNumberProvider.create(1))
+                        .conditionally(WITH_SILK_TOUCH_OR_SHEARS)
+                        .with(ItemEntry.builder(ModBlocks.TRIAFIA_PLANT))
+                ).pool(LootPool.builder()
+                        .rolls(ConstantLootNumberProvider.create(1))
+                        .conditionally(RandomChanceLootCondition.builder(0.1f))
+                        .conditionally(WITHOUT_SILK_TOUCH_NOR_SHEARS)
+                        .with(ItemEntry.builder(ModItems.LETTUCE_SEEDS))
+                        .apply(ApplyBonusLootFunction.uniformBonusCount(Enchantments.FORTUNE, 2))
+                ).pool(LootPool.builder()
+                        .rolls(ConstantLootNumberProvider.create(1))
+                        .conditionally(RandomChanceLootCondition.builder(0.1f))
+                        .conditionally(WITHOUT_SILK_TOUCH_NOR_SHEARS)
+                        .with(ItemEntry.builder(ModItems.TOMATO_SEEDS))
+                        .apply(ApplyBonusLootFunction.uniformBonusCount(Enchantments.FORTUNE, 2))
+                ).pool(LootPool.builder()
+                        .rolls(ConstantLootNumberProvider.create(1))
+                        .conditionally(RandomChanceLootCondition.builder(0.05f))
+                        .conditionally(WITHOUT_SILK_TOUCH_NOR_SHEARS)
+                        .with(ItemEntry.builder(ModItems.PINEAPPLE_SEEDS))
+                        .apply(ApplyBonusLootFunction.uniformBonusCount(Enchantments.FORTUNE, 2))
+                ));
         
         addDrop(ModBlocks.RAW_TRIAFIUM_BLOCK);
         addDrop(ModBlocks.TRIAFIUM_BLOCK);

@@ -180,6 +180,8 @@ public class ModModelProvider extends FabricModelProvider {
         triafia_pool.family(ModBlocks.TRIAFIA_FAMILY);
         blockStateModelGenerator.registerTintableCross(ModBlocks.TRIAFIA_SAPLING,
                 BlockStateModelGenerator.TintType.NOT_TINTED);
+        blockStateModelGenerator.registerTintableCross(ModBlocks.TRIAFIA_PLANT,
+                BlockStateModelGenerator.TintType.TINTED);
 
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.TRIAFIUM_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RAW_TRIAFIUM_BLOCK);
@@ -365,6 +367,9 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.registerArmor((ArmorItem) ModItems.TRIAFIUM_CHESTPLATE);
         itemModelGenerator.registerArmor((ArmorItem) ModItems.TRIAFIUM_LEGGINGS);
         itemModelGenerator.registerArmor((ArmorItem) ModItems.TRIAFIUM_BOOTS);
+        itemModelGenerator.register(ModItems.TRIAFIA_CRYSTAL, Models.GENERATED);
+        itemModelGenerator.register(ModItems.TRIAFIA_CRYSTAL_SHARD, Models.GENERATED);
+        itemModelGenerator.register(ModItems.TRIAFIA_CRYSTAL_DUST, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.RAW_PACSARIUM, Models.GENERATED);
         itemModelGenerator.register(ModItems.PACSARIUM_INGOT, Models.GENERATED);

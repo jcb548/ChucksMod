@@ -201,6 +201,12 @@ public class ModItems {
             new ArmorItem(ModArmorMaterials.TRIAFIUM, ArmorItem.Type.LEGGINGS, new FabricItemSettings()));
     public static final Item TRIAFIUM_BOOTS = registerItem("triafium_boots",
             new ArmorItem(ModArmorMaterials.TRIAFIUM, ArmorItem.Type.BOOTS, new FabricItemSettings()));
+    public static final Item TRIAFIA_CRYSTAL = registerItem("triafia_crystal",
+            new Item(new FabricItemSettings()));
+    public static final Item TRIAFIA_CRYSTAL_SHARD = registerItem("triafia_crystal_shard",
+            new Item(new FabricItemSettings()));
+    public static final Item TRIAFIA_CRYSTAL_DUST = registerItem("triafia_crystal_dust",
+            new Item(new FabricItemSettings()));
 
     // Pacsarium
     public static final Item RAW_PACSARIUM = registerItem("raw_pacsarium", new Item(new FabricItemSettings()));

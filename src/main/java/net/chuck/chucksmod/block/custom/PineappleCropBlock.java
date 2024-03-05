@@ -30,7 +30,7 @@ public class PineappleCropBlock extends CropBlock {
             Block.createCuboidShape(0.0, 0.0, 0.0, 16.0, 14.0, 16.0),
             Block.createCuboidShape(0.0, 0.0, 0.0, 16.0, 16.0, 16.0),
             Block.createCuboidShape(0.0, 0.0, 0.0, 16.0, 16.0, 16.0)};
-    public static final IntProperty AGE = IntProperty.of("age", 0, 8);
+    public static final IntProperty AGE = IntProperty.of("age", 0, MAX_AGE);
     public PineappleCropBlock(Settings settings) {
         super(settings);
     }
@@ -61,11 +61,13 @@ public class PineappleCropBlock extends CropBlock {
             if(currentAge < this.getMaxAge()){
                 float f = getAvailableMoisture(this, world, pos);
                 if(random.nextInt((int)(25.0f/f)+1)>=0){
-                    if(world.getBlockState(pos.up(1)).isAir()){
-                        world.setBlockState(pos.up(1), this.withAge(currentAge+1), 2);
+                    if(currentAge == FIRST_STAGE_MAX_AGE) {
+                        if (world.getBlockState(pos.up(1)).isAir()) {
+                            world.setBlockState(pos.up(1), this.withAge(currentAge + 1), 2);
+                        }
+                    } else {
+                        world.setBlockState(pos, this.withAge(currentAge + 1), 2);
                     }
-                } else {
-                    world.setBlockState(pos, this.withAge(currentAge+1), 2);
                 }
             }
         }
@@ -88,7 +90,7 @@ public class PineappleCropBlock extends CropBlock {
 
     @Override
     public int getMaxAge() {
-        return FIRST_STAGE_MAX_AGE + SECOND_STAGE_MAX_AGE;
+        return MAX_AGE;
     }
 
     @Override

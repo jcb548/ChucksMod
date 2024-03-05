@@ -400,7 +400,8 @@ public class ModBlocks {
     public static final BlockFamily TRIAFIA_FAMILY = BlockFamilies.register(ModBlocks.TRIAFIA_PLANKS)
             .sign(ModBlocks.STANDING_TRIAFIA_SIGN, ModBlocks.WALL_TRIAFIA_SIGN)
             .group("wooden").unlockCriterionName("has_planks").build();
-    
+    public static final Block TRIAFIA_PLANT = registerBlock("triafia_plant",
+            new PlantBlock(FabricBlockSettings.copy(Blocks.GRASS)));
 
     // Pacsarium
     public static final Block PACSARIUM_BLOCK = registerBlock("pacsarium_block",

@@ -1,14 +1,14 @@
 {
   "structures": [
     {
-      "structure": "chucksmod:triafia_castle",
+      "structure": "chucksmod:triafia_tent",
       "weight": 1
     }
   ],
   "placement": {
-    "salt": 164784327,
-    "spacing": 30,
-    "separation": 10,
+    "salt": 169874877,
+    "spacing": 20,
+    "separation": 6,
     "type": "minecraft:random_spread"
   }
 }

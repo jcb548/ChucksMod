@@ -1,0 +1,11 @@
+{
+  "type": "chucksmod:crusher_recipe",
+  "ingredients": [
+    {
+      "item": "chucksmod:triafia_crystal"
+    }
+  ],
+  "output": {
+    "item": "chucksmod:triafia_crystal_dust"
+  }
+}

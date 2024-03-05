@@ -120,6 +120,10 @@
   "tooltip.chucksmod.portal_builder": "Block which assembles Portal Blocks from resource blocks and boss drops",
   "title.chucksmod.portal_builder": "Portal Block Builder",
   "block.chucksmod.triafium_portal_block": "Triafium Portal Block",
+  "item.chucksmod.triafia_crystal": "Triafia Crystal",
+  "item.chucksmod.triafia_crystal_shard": "Triafia Crystal Shard",
+  "item.chucksmod.triafia_crystal_dust": "Triafia Crystal Dust",
+  "block.chucksmod.triafia_plant": "Triafia Plant",
 
   "biome.chucksmod.triafia_plains": "Triafia Plains",
   "block.chucksmod.triafia_log": "Triafia Log",

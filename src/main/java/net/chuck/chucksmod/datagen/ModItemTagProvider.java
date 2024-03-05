@@ -1,5 +1,6 @@
 package net.chuck.chucksmod.datagen;
 
+import dev.architectury.platform.Mod;
 import net.chuck.chucksmod.block.ModBlocks;
 import net.chuck.chucksmod.item.ModItemTags;
 import net.chuck.chucksmod.item.ModItems;
@@ -181,7 +182,14 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModBlocks.STRIPPED_TRIAFIA_WOOD.asItem());
 
         getOrCreateTagBuilder(ItemTags.WALLS)
-                .add(ModBlocks.SANDSTONE_BRICK_WALL.asItem());
+                .add(ModBlocks.SANDSTONE_BRICK_WALL.asItem())
+                .add(ModBlocks.ECLOGITE_WALL.asItem())
+                .add(ModBlocks.ECLOGITE_BRICK_WALL.asItem())
+                .add(ModBlocks.SERPENTINITE_WALL.asItem())
+                .add(ModBlocks.SERPENTINITE_BRICK_WALL.asItem())
+                .add(ModBlocks.POLISHED_SERPENTINITE_WALL.asItem())
+                .add(ModBlocks.SOUL_STONE_BRICK_WALL.asItem())
+                ;
 
         getOrCreateTagBuilder(ModItemTags.DUSTS)
                 .add(ModItems.BRONZE_DUST)
@@ -192,7 +200,8 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.OBSIDIAN_DUST)
                 .add(ModItems.PRISMARINE_DUST)
                 .add(ModItems.TITANIUM_DUST)
-                .add(ModItems.PRISMARINE_IRON_DUST);
+                .add(ModItems.PRISMARINE_IRON_DUST)
+                .add(ModItems.TRIAFIA_CRYSTAL_DUST);
 
         getOrCreateTagBuilder(ModItemTags.HELMETS)
                 .add(Items.TURTLE_HELMET)
@@ -301,6 +310,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
         getOrCreateTagBuilder(ModItemTags.CRUSHERS)
                 .add(ModBlocks.CRUSHER.asItem())
                 .add(ModBlocks.IRON_POWERED_CRUSHER.asItem());
+
         getOrCreateTagBuilder(ModItemTags.GLASS)
                 .addTag(ModItemTags.HARDENED_GLASS)
                 .add(Items.GLASS)
