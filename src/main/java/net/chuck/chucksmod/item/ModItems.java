@@ -207,6 +207,8 @@ public class ModItems {
             new Item(new FabricItemSettings()));
     public static final Item TRIAFIA_CRYSTAL_DUST = registerItem("triafia_crystal_dust",
             new Item(new FabricItemSettings()));
+    public static final Item FARMABYN_SPAWN_EGG = registerItem("farmabyn_spawn_egg",
+        new SpawnEggItem(ModEntities.FARMABYN, 0xFFE9AE, 0x345E7E, new FabricItemSettings()));
 
     // Pacsarium
     public static final Item RAW_PACSARIUM = registerItem("raw_pacsarium", new Item(new FabricItemSettings()));

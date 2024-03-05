@@ -15,4 +15,6 @@ public class ModModelLayers {
             new EntityModelLayer(new Identifier(ChucksMod.MOD_ID, "soul_blaze"), "main");
     public static final EntityModelLayer SOUL_BLAZE_ROD =
             new EntityModelLayer(new Identifier(ChucksMod.MOD_ID, "soul_blaze_rod"), "main");
+    public static final EntityModelLayer FARMABYN =
+            new EntityModelLayer(new Identifier(ChucksMod.MOD_ID, "farmabyn"), "main");
 }

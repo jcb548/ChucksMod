@@ -288,6 +288,8 @@ public class ModModelProvider extends FabricModelProvider {
                 ModelIds.getMinecraftNamespacedItem("template_spawn_egg"));
         blockStateModelGenerator.registerParentedItemModel(ModItems.FRANK_SPAWN_EGG,
                 ModelIds.getMinecraftNamespacedItem("template_spawn_egg"));
+        blockStateModelGenerator.registerParentedItemModel(ModItems.FARMABYN_SPAWN_EGG,
+                ModelIds.getMinecraftNamespacedItem("template_spawn_egg"));
     }
 
     @Override

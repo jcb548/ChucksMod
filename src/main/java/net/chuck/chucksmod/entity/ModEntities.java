@@ -35,4 +35,8 @@ public class ModEntities {
                     .dimensions(EntityDimensions.fixed(0.5f, 0.5f))
                     .trackRangeBlocks(4).trackedUpdateRate(10)
                     .build());
+    public static final EntityType<FarmabynEntity> FARMABYN = Registry.register(
+            Registries.ENTITY_TYPE, new Identifier(ChucksMod.MOD_ID, "farmabyn"),
+            FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, FarmabynEntity::new)
+                    .dimensions(EntityDimensions.fixed(0.8f, 2.0f)).build());
 }

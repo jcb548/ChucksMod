@@ -268,6 +268,7 @@ public class ModItemGroups {
                         entries.add(ModItems.TRIAFIA_CRYSTAL_SHARD);
                         entries.add(ModItems.TRIAFIA_CRYSTAL_DUST);
                         entries.add(ModBlocks.TRIAFIA_PLANT);
+                        entries.add(ModItems.FARMABYN_SPAWN_EGG);
 
                         entries.add(ModItems.RAW_TRIAFIUM);
                         entries.add(ModItems.TRIAFIUM_INGOT);
