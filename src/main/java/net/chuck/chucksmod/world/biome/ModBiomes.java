@@ -74,6 +74,10 @@ public class ModBiomes{
         biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.EUCALYPTUS_PLACED_KEY);
         biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.TRIAFIA_TREE_PLACED_KEY);
         biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.TRIAFIA_ECLOGITE_PILE_PLACED_KEY);
+        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.TRIAFIA_TUFF_PILE_PLACED_KEY);
+        DefaultBiomeFeatures.addDefaultFlowers(biomeBuilder);
+        DefaultBiomeFeatures.addExtraDefaultFlowers(biomeBuilder);
+        DefaultBiomeFeatures.addMeadowFlowers(biomeBuilder);
 
         return new Biome.Builder()
                 .precipitation(true)

@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "chucksmod:triafia_fountain",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "salt": 17981748,
+    "spacing": 20,
+    "separation": 8,
+    "type": "minecraft:random_spread"
+  }
+}

@@ -7,10 +7,12 @@ import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.intprovider.ConstantIntProvider;
 import net.minecraft.world.gen.YOffset;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.placementmodifier.HeightRangePlacementModifier;
 import net.minecraft.world.gen.placementmodifier.PlacementModifier;
+import net.minecraft.world.gen.placementmodifier.RandomOffsetPlacementModifier;
 
 import java.util.List;
 /*
@@ -82,6 +84,8 @@ public class ModPlacedFeatures {
             registerKey("triafia_tuff_vein_placed");
     public static final RegistryKey<PlacedFeature> TRIAFIA_ECLOGITE_PILE_PLACED_KEY =
             registerKey("triafia_eclogite_pile_placed");
+    public static final RegistryKey<PlacedFeature> TRIAFIA_TUFF_PILE_PLACED_KEY =
+            registerKey("triafia_tuff_pile_placed");
     public static final RegistryKey<PlacedFeature> TRIAFIA_PLANT_PATCH_PLACED_KEY =
             registerKey("triafia_plant_patch_placed");
 
@@ -219,6 +223,9 @@ public class ModPlacedFeatures {
                 HeightRangePlacementModifier.uniform(YOffset.fixed(-64), YOffset.fixed(128))));
         register(context, TRIAFIA_ECLOGITE_PILE_PLACED_KEY, configuredFeatureRegistryEntryLookup
                 .getOrThrow(ModConfiguredFeatures.TRIAFIA_ECLOGITE_PILE_KEY),
+                ModOrePlacement.modifiersWithRarity(5, PlacedFeatures.OCEAN_FLOOR_WG_HEIGHTMAP));
+        register(context, TRIAFIA_TUFF_PILE_PLACED_KEY, configuredFeatureRegistryEntryLookup
+                .getOrThrow(ModConfiguredFeatures.TRIAFIA_TUFF_PILE_KEY),
                 ModOrePlacement.modifiersWithRarity(5, PlacedFeatures.OCEAN_FLOOR_WG_HEIGHTMAP));
         register(context, TRIAFIA_PLANT_PATCH_PLACED_KEY, configuredFeatureRegistryEntryLookup
                 .getOrThrow(ModConfiguredFeatures.TRIAFIA_PLANT_PATCH_KEY),

@@ -105,6 +105,8 @@ public class ModConfiguredFeatures {
             registerKey("triafia_tuff_vein");
     public static final RegistryKey<ConfiguredFeature<?, ?>> TRIAFIA_ECLOGITE_PILE_KEY =
             registerKey("triafia_eclogite_pile");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> TRIAFIA_TUFF_PILE_KEY =
+            registerKey("triafia_tuff_pile");
     public static final RegistryKey<ConfiguredFeature<?, ?>> TRIAFIA_PLANT_PATCH_KEY =
             registerKey("triafia_plant_patch");
 
@@ -338,6 +340,8 @@ public class ModConfiguredFeatures {
         // Register New Misc
         register(context, TRIAFIA_ECLOGITE_PILE_KEY, Feature.BLOCK_PILE,
                 new BlockPileFeatureConfig(BlockStateProvider.of(ModBlocks.ECLOGITE.getDefaultState())));
+        register(context, TRIAFIA_TUFF_PILE_KEY, Feature.BLOCK_PILE,
+                new BlockPileFeatureConfig(BlockStateProvider.of(Blocks.TUFF.getDefaultState())));
         register(context, TRIAFIA_PLANT_PATCH_KEY, Feature.RANDOM_PATCH,
                 ConfiguredFeatures.createRandomPatchFeatureConfig(Feature.SIMPLE_BLOCK,
                         new SimpleBlockFeatureConfig(BlockStateProvider.of(ModBlocks.TRIAFIA_PLANT))));
