@@ -289,6 +289,15 @@ public class ModBlocks {
             new WallBlock(FabricBlockSettings.copy(ECLOGITE)));
     public static final Block CRACKED_ECLOGITE_BRICKS = registerBlock("cracked_eclogite_bricks",
             new Block(FabricBlockSettings.copy(ECLOGITE)));
+    public static final Block POLISHED_ECLOGITE = registerBlock("polished_eclogite",
+            new Block(FabricBlockSettings.copy(ECLOGITE)));
+    public static final Block POLISHED_ECLOGITE_STAIRS = registerBlock("polished_eclogite_stairs",
+            new StairsBlock(ModBlocks.POLISHED_ECLOGITE.getDefaultState(),
+                    FabricBlockSettings.copy(ECLOGITE)));
+    public static final Block POLISHED_ECLOGITE_SLAB = registerBlock("polished_eclogite_slab",
+            new SlabBlock(FabricBlockSettings.copy(ECLOGITE)));
+    public static final Block POLISHED_ECLOGITE_WALL = registerBlock("polished_eclogite_wall",
+            new WallBlock(FabricBlockSettings.copy(ECLOGITE)));
     public static final Block SERPENTINITE = registerBlock("serpentinite",
             new Block(FabricBlockSettings.copy(Blocks.SMOOTH_STONE).strength(3.0f, 7.0f)));
     public static final Block SERPENTINITE_STAIRS = registerBlock("serpentinite_stairs",
@@ -318,6 +327,35 @@ public class ModBlocks {
             new SlabBlock(FabricBlockSettings.copy(SERPENTINITE)));
     public static final Block POLISHED_SERPENTINITE_WALL = registerBlock("polished_serpentinite_wall",
             new WallBlock(FabricBlockSettings.copy(SERPENTINITE)));
+    public static final Block GLAUCONITE = registerBlock("glauconite",
+            new Block(FabricBlockSettings.copy(Blocks.SMOOTH_STONE).strength(3.0f, 7.0f)));
+    public static final Block GLAUCONITE_STAIRS = registerBlock("glauconite_stairs",
+            new StairsBlock(ModBlocks.GLAUCONITE.getDefaultState(),
+                    FabricBlockSettings.copy(GLAUCONITE)));
+    public static final Block GLAUCONITE_SLAB = registerBlock("glauconite_slab",
+            new SlabBlock(FabricBlockSettings.copy(GLAUCONITE)));
+    public static final Block GLAUCONITE_WALL = registerBlock("glauconite_wall",
+            new WallBlock(FabricBlockSettings.copy(GLAUCONITE)));
+    public static final Block GLAUCONITE_BRICKS = registerBlock("glauconite_bricks",
+            new Block(FabricBlockSettings.copy(GLAUCONITE)));
+    public static final Block GLAUCONITE_BRICK_STAIRS = registerBlock("glauconite_brick_stairs",
+            new StairsBlock(ModBlocks.GLAUCONITE_BRICKS.getDefaultState(),
+                    FabricBlockSettings.copy(GLAUCONITE)));
+    public static final Block GLAUCONITE_BRICK_SLAB = registerBlock("glauconite_brick_slab",
+            new SlabBlock(FabricBlockSettings.copy(GLAUCONITE)));
+    public static final Block GLAUCONITE_BRICK_WALL = registerBlock("glauconite_brick_wall",
+            new WallBlock(FabricBlockSettings.copy(GLAUCONITE)));
+    public static final Block CRACKED_GLAUCONITE_BRICKS = registerBlock("cracked_glauconite_bricks",
+            new Block(FabricBlockSettings.copy(GLAUCONITE)));
+    public static final Block POLISHED_GLAUCONITE = registerBlock("polished_glauconite",
+            new Block(FabricBlockSettings.copy(GLAUCONITE)));
+    public static final Block POLISHED_GLAUCONITE_STAIRS = registerBlock("polished_glauconite_stairs",
+            new StairsBlock(ModBlocks.POLISHED_GLAUCONITE.getDefaultState(),
+                    FabricBlockSettings.copy(GLAUCONITE)));
+    public static final Block POLISHED_GLAUCONITE_SLAB = registerBlock("polished_glauconite_slab",
+            new SlabBlock(FabricBlockSettings.copy(GLAUCONITE)));
+    public static final Block POLISHED_GLAUCONITE_WALL = registerBlock("polished_glauconite_wall",
+            new WallBlock(FabricBlockSettings.copy(GLAUCONITE)));
     //Serpentinite Ores
     public static final Block SERPENTINITE_COAL_ORE = registerBlock("serpentinite_coal_ore",
             new Block(FabricBlockSettings.copy(Blocks.GOLD_ORE).strength(5.0f, 9.0f)));

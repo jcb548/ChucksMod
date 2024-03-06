@@ -49,4 +49,10 @@ public class ModItemTags {
             new Identifier("c", "glass"));
     public static final TagKey<Item> WRENCHES = TagKey.of(RegistryKeys.ITEM,
             new Identifier("c", "wrenches"));
+    public static final TagKey<Item> EUCALYPTUS_LOGS = TagKey.of(RegistryKeys.ITEM,
+            new Identifier(ChucksMod.MOD_ID, "eucalyptus_logs"));
+    public static final TagKey<Item> TRIAFIA_LOGS = TagKey.of(RegistryKeys.ITEM,
+            new Identifier(ChucksMod.MOD_ID, "triafia_logs"));
+    public static final TagKey<Item> PACSARIA_LOGS = TagKey.of(RegistryKeys.ITEM,
+            new Identifier(ChucksMod.MOD_ID, "triafia_logs"));
 }

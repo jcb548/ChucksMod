@@ -218,6 +218,10 @@ public class ModItemGroups {
                         entries.add(ModBlocks.ECLOGITE_BRICK_STAIRS);
                         entries.add(ModBlocks.ECLOGITE_BRICK_WALL);
                         entries.add(ModBlocks.CRACKED_ECLOGITE_BRICKS);
+                        entries.add(ModBlocks.POLISHED_ECLOGITE);
+                        entries.add(ModBlocks.POLISHED_ECLOGITE_SLAB);
+                        entries.add(ModBlocks.POLISHED_ECLOGITE_STAIRS);
+                        entries.add(ModBlocks.POLISHED_ECLOGITE_WALL);
 
                         entries.add(ModBlocks.SERPENTINITE);
                         entries.add(ModBlocks.SERPENTINITE_SLAB);
@@ -245,6 +249,20 @@ public class ModItemGroups {
                         entries.add(ModBlocks.SERPENTINITE_TIN_ORE);
                         entries.add(ModBlocks.SERPENTINITE_TITANIUM_ORE);
 
+                        entries.add(ModBlocks.GLAUCONITE);
+                        entries.add(ModBlocks.GLAUCONITE_SLAB);
+                        entries.add(ModBlocks.GLAUCONITE_STAIRS);
+                        entries.add(ModBlocks.GLAUCONITE_WALL);
+                        entries.add(ModBlocks.GLAUCONITE_BRICKS);
+                        entries.add(ModBlocks.GLAUCONITE_BRICK_SLAB);
+                        entries.add(ModBlocks.GLAUCONITE_BRICK_STAIRS);
+                        entries.add(ModBlocks.GLAUCONITE_BRICK_WALL);
+                        entries.add(ModBlocks.CRACKED_GLAUCONITE_BRICKS);
+                        entries.add(ModBlocks.POLISHED_GLAUCONITE);
+                        entries.add(ModBlocks.POLISHED_GLAUCONITE_SLAB);
+                        entries.add(ModBlocks.POLISHED_GLAUCONITE_STAIRS);
+                        entries.add(ModBlocks.POLISHED_GLAUCONITE_WALL);
+                        
                         entries.add(ModBlocks.TRIAFIA_LOG);
                         entries.add(ModBlocks.TRIAFIA_WOOD);
                         entries.add(ModBlocks.STRIPPED_TRIAFIA_LOG);

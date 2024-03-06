@@ -138,6 +138,10 @@ public class ModBlockLootTableGenerator extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.ECLOGITE_BRICK_SLAB, slabDrops(ModBlocks.ECLOGITE_BRICK_SLAB));
         addDrop(ModBlocks.ECLOGITE_BRICK_WALL);
         addDrop(ModBlocks.CRACKED_ECLOGITE_BRICKS);
+        addDrop(ModBlocks.POLISHED_ECLOGITE);
+        addDrop(ModBlocks.POLISHED_ECLOGITE_STAIRS);
+        addDrop(ModBlocks.POLISHED_ECLOGITE_SLAB, slabDrops(ModBlocks.POLISHED_ECLOGITE_SLAB));
+        addDrop(ModBlocks.POLISHED_ECLOGITE_WALL);
 
         addDrop(ModBlocks.SERPENTINITE);
         addDrop(ModBlocks.SERPENTINITE_STAIRS);
@@ -152,6 +156,20 @@ public class ModBlockLootTableGenerator extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.POLISHED_SERPENTINITE_STAIRS);
         addDrop(ModBlocks.POLISHED_SERPENTINITE_SLAB, slabDrops(ModBlocks.POLISHED_SERPENTINITE_SLAB));
         addDrop(ModBlocks.POLISHED_SERPENTINITE_WALL);
+
+        addDrop(ModBlocks.GLAUCONITE);
+        addDrop(ModBlocks.GLAUCONITE_STAIRS);
+        addDrop(ModBlocks.GLAUCONITE_SLAB, slabDrops(ModBlocks.GLAUCONITE_SLAB));
+        addDrop(ModBlocks.GLAUCONITE_WALL);
+        addDrop(ModBlocks.GLAUCONITE_BRICKS);
+        addDrop(ModBlocks.GLAUCONITE_BRICK_STAIRS);
+        addDrop(ModBlocks.GLAUCONITE_BRICK_SLAB, slabDrops(ModBlocks.GLAUCONITE_BRICK_SLAB));
+        addDrop(ModBlocks.GLAUCONITE_BRICK_WALL);
+        addDrop(ModBlocks.CRACKED_GLAUCONITE_BRICKS);
+        addDrop(ModBlocks.POLISHED_GLAUCONITE);
+        addDrop(ModBlocks.POLISHED_GLAUCONITE_STAIRS);
+        addDrop(ModBlocks.POLISHED_GLAUCONITE_SLAB, slabDrops(ModBlocks.POLISHED_GLAUCONITE_SLAB));
+        addDrop(ModBlocks.POLISHED_GLAUCONITE_WALL);
 
         addDrop(ModBlocks.SERPENTINITE_COAL_ORE, oreDrops(ModBlocks.SERPENTINITE_COAL_ORE, Items.COAL));
         addDrop(ModBlocks.SERPENTINITE_COPPER_ORE, copperOreDrops(ModBlocks.SERPENTINITE_COPPER_ORE));

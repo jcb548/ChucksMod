@@ -1,5 +1,7 @@
 package net.chuck.chucksmod.datagen;
 
+import com.sun.jna.platform.unix.X11;
+import dev.architectury.platform.Mod;
 import net.chuck.chucksmod.block.ModBlocks;
 import net.chuck.chucksmod.item.ModItemTags;
 import net.chuck.chucksmod.item.ModItems;
@@ -7,6 +9,7 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.MossBlock;
 import net.minecraft.data.server.recipe.*;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
@@ -40,9 +43,19 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
         generatePrismarineRecipes(exporter);
         generateSoulRecipes(exporter);
         generateTriafiumRecipes(exporter);
+        generateWoodRecipes(exporter, ModItemTags.EUCALYPTUS_LOGS, ModBlocks.EUCALYPTUS_PLANKS, ModBlocks.EUCALYPTUS_SLAB, 
+                ModBlocks.EUCALYPTUS_STAIRS, ModBlocks.EUCALYPTUS_DOOR, ModBlocks.EUCALYPTUS_TRAPDOOR, ModBlocks.EUCALYPTUS_FENCE,
+                ModBlocks.EUCALYPTUS_FENCE_GATE, ModBlocks.EUCALYPTUS_BUTTON, ModItems.EUCALYPTUS_SIGN, 
+                ModItems.HANGING_EUCALYPTUS_SIGN, ModItems.EUCALYPTUS_BOAT, ModItems.EUCALYPTUS_CHEST_BOAT);
+        generateWoodRecipes(exporter, ModItemTags.TRIAFIA_LOGS, ModBlocks.TRIAFIA_PLANKS, ModBlocks.TRIAFIA_SLAB, 
+                ModBlocks.TRIAFIA_STAIRS, ModBlocks.TRIAFIA_DOOR, ModBlocks.TRIAFIA_TRAPDOOR, ModBlocks.TRIAFIA_FENCE,
+                ModBlocks.TRIAFIA_FENCE_GATE, ModBlocks.TRIAFIA_BUTTON, ModItems.TRIAFIA_SIGN, 
+                ModItems.HANGING_TRIAFIA_SIGN, ModItems.TRIAFIA_BOAT, ModItems.TRIAFIA_CHEST_BOAT);
+        generateWoodRecipes(exporter, ModItemTags.PACSARIA_LOGS, ModBlocks.PACSARIA_PLANKS, ModBlocks.PACSARIA_SLAB, 
+                ModBlocks.PACSARIA_STAIRS, ModBlocks.PACSARIA_DOOR, ModBlocks.PACSARIA_TRAPDOOR, ModBlocks.PACSARIA_FENCE,
+                ModBlocks.PACSARIA_FENCE_GATE, ModBlocks.PACSARIA_BUTTON, ModItems.PACSARIA_SIGN, 
+                ModItems.HANGING_PACSARIA_SIGN, ModItems.PACSARIA_BOAT, ModItems.PACSARIA_CHEST_BOAT);
         generatePascariumRecipes(exporter);
-        generateEucalyptusRecipes(exporter);
-        generatePacsariaWoodRecipes(exporter);
         generateSandstoneRecipes(exporter);
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.CRUSHER)
@@ -66,6 +79,18 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
         generateBagRecipes(exporter);
         generateIronMachineRecipes(exporter);
         generateTitaniumRecipes(exporter);
+        generateCustomStoneRecipes(exporter, ModBlocks.ECLOGITE, ModBlocks.ECLOGITE_SLAB, ModBlocks.ECLOGITE_STAIRS,
+                ModBlocks.ECLOGITE_WALL, ModBlocks.ECLOGITE_BRICKS, ModBlocks.ECLOGITE_BRICK_SLAB,
+                ModBlocks.ECLOGITE_BRICK_STAIRS, ModBlocks.ECLOGITE_BRICK_WALL, ModBlocks.POLISHED_ECLOGITE,
+                ModBlocks.POLISHED_ECLOGITE_SLAB, ModBlocks.POLISHED_ECLOGITE_STAIRS, ModBlocks.POLISHED_ECLOGITE_WALL);
+        generateCustomStoneRecipes(exporter, ModBlocks.SERPENTINITE, ModBlocks.SERPENTINITE_SLAB, ModBlocks.SERPENTINITE_STAIRS,
+                ModBlocks.SERPENTINITE_WALL, ModBlocks.SERPENTINITE_BRICKS, ModBlocks.SERPENTINITE_BRICK_SLAB,
+                ModBlocks.SERPENTINITE_BRICK_STAIRS, ModBlocks.SERPENTINITE_BRICK_WALL, ModBlocks.POLISHED_SERPENTINITE,
+                ModBlocks.POLISHED_SERPENTINITE_SLAB, ModBlocks.POLISHED_SERPENTINITE_STAIRS, ModBlocks.POLISHED_SERPENTINITE_WALL);
+        generateCustomStoneRecipes(exporter, ModBlocks.GLAUCONITE, ModBlocks.GLAUCONITE_SLAB, ModBlocks.GLAUCONITE_STAIRS,
+                ModBlocks.GLAUCONITE_WALL, ModBlocks.GLAUCONITE_BRICKS, ModBlocks.GLAUCONITE_BRICK_SLAB,
+                ModBlocks.GLAUCONITE_BRICK_STAIRS, ModBlocks.GLAUCONITE_BRICK_WALL, ModBlocks.POLISHED_GLAUCONITE,
+                ModBlocks.POLISHED_GLAUCONITE_SLAB, ModBlocks.POLISHED_GLAUCONITE_STAIRS, ModBlocks.POLISHED_GLAUCONITE_WALL);
     }
 
     private void generateSandstoneRecipes(RecipeExporter exporter) {
@@ -93,6 +118,44 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
         offerWallRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.SANDSTONE_BRICK_WALL,
                 ModBlocks.SANDSTONE_BRICKS);
         offerPolishedStoneRecipe(exporter, RecipeCategory.BREWING, ModBlocks.SANDSTONE_BRICKS, Blocks.SMOOTH_SANDSTONE);
+    }
+    private void generateCustomStoneRecipes(RecipeExporter exporter, Block base, Block slab, Block stairs, Block wall,
+                                            Block bricks, Block brickSlab, Block brickStairs, Block brickWall,
+                                            Block polished, Block polishedSlab, Block polishedStairs, Block polishedWall) {
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, slab, base, 2);
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, stairs, base);
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, wall, base);
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, bricks, base);
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, brickSlab, base, 2);
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, brickStairs, base);
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, brickWall, base);
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, brickSlab, bricks, 2);
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, brickStairs, bricks);
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, brickWall, bricks);
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, polished, base);
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, polishedSlab, base, 2);
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, polishedStairs, base);
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, polishedWall, base);
+        RecipeProvider.createStairsRecipe(stairs, Ingredient.ofItems(base))
+                .criterion(hasItem(base), conditionsFromItem(base)).offerTo(exporter);
+        RecipeProvider.createStairsRecipe(brickStairs, Ingredient.ofItems(bricks))
+                .criterion(hasItem(bricks), conditionsFromItem(bricks)).offerTo(exporter);
+        RecipeProvider.createStairsRecipe(polishedStairs, Ingredient.ofItems(polished))
+                .criterion(hasItem(polished), conditionsFromItem(polished)).offerTo(exporter);
+        offerSlabRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, slab,
+                base);
+        offerSlabRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, brickSlab,
+                bricks);
+        offerSlabRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, polishedSlab,
+                polished);
+        offerWallRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, wall,
+                base);
+        offerWallRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, brickWall,
+                bricks);
+        offerWallRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, polishedWall,
+                polished);
+        offerPolishedStoneRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, polished, base);
+        offerPolishedStoneRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, bricks, polished);
     }
 
     private void generateSoulRecipes(RecipeExporter exporter) {
@@ -183,94 +246,30 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
     public static String hasTag(TagKey<Item> material) {
         return "has_" + material.id().getPath();
     }
-
-    private void generatePacsariaWoodRecipes(RecipeExporter exporter) {
-        offerShapelessRecipe(exporter, ModBlocks.PACSARIA_PLANKS, ModBlocks.PACSARIA_LOG,
-                "pacsaria_planks", 4);
-        offerShapelessRecipe(exporter, ModBlocks.PACSARIA_PLANKS, ModBlocks.PACSARIA_WOOD,
-                "pacsaria_planks", 4);
-        offerShapelessRecipe(exporter, ModBlocks.PACSARIA_PLANKS, ModBlocks.STRIPPED_PACSARIA_LOG,
-                "pacsaria_planks", 4);
-        offerShapelessRecipe(exporter, ModBlocks.PACSARIA_PLANKS, ModBlocks.STRIPPED_PACSARIA_WOOD,
-                "pacsaria_planks", 4);
-        createDoorRecipe(ModBlocks.PACSARIA_DOOR, Ingredient.ofItems(ModBlocks.PACSARIA_PLANKS))
-                .criterion(hasItem(ModBlocks.PACSARIA_PLANKS), conditionsFromItem(ModBlocks.PACSARIA_PLANKS))
+    private void generateWoodRecipes(RecipeExporter exporter, TagKey<Item> logs, Block planks, Block slab, Block stairs,
+                                     Block door, Block trapdoor, Block fence, Block fenceGate, Block button, Item sign,
+                                     Item hangingSign, Item boat, Item chestBoat) {
+        offerPlanksRecipe(exporter, planks, logs, 4);
+        offerSlabRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, slab, planks);
+        createStairsRecipe(stairs, Ingredient.ofItems(planks)).criterion(hasItem(planks), conditionsFromItem(planks))
                 .offerTo(exporter);
-        createTrapdoorRecipe(ModBlocks.PACSARIA_TRAPDOOR, Ingredient.ofItems(ModBlocks.PACSARIA_PLANKS))
-                .criterion(hasItem(ModBlocks.PACSARIA_PLANKS), conditionsFromItem(ModBlocks.PACSARIA_PLANKS))
+        createDoorRecipe(door, Ingredient.ofItems(planks)).criterion(hasItem(planks), conditionsFromItem(planks))
                 .offerTo(exporter);
-        createFenceRecipe(ModBlocks.PACSARIA_FENCE, Ingredient.ofItems(ModBlocks.PACSARIA_PLANKS))
-                .criterion(hasItem(ModBlocks.PACSARIA_PLANKS), conditionsFromItem(ModBlocks.PACSARIA_PLANKS))
+        createTrapdoorRecipe(trapdoor, Ingredient.ofItems(planks)).criterion(hasItem(planks), conditionsFromItem(planks))
                 .offerTo(exporter);
-        createFenceGateRecipe(ModBlocks.PACSARIA_FENCE_GATE, Ingredient.ofItems(ModBlocks.PACSARIA_PLANKS))
-                .criterion(hasItem(ModBlocks.PACSARIA_PLANKS), conditionsFromItem(ModBlocks.PACSARIA_PLANKS))
+        createFenceRecipe(fence, Ingredient.ofItems(planks)).criterion(hasItem(planks), conditionsFromItem(planks))
                 .offerTo(exporter);
-        createSlabRecipe(RecipeCategory.BUILDING_BLOCKS, ModBlocks.PACSARIA_SLAB,
-                Ingredient.ofItems(ModBlocks.PACSARIA_PLANKS))
-                .criterion(hasItem(ModBlocks.PACSARIA_PLANKS), conditionsFromItem(ModBlocks.PACSARIA_PLANKS))
+        createFenceGateRecipe(fenceGate, Ingredient.ofItems(planks)).criterion(hasItem(planks), conditionsFromItem(planks))
                 .offerTo(exporter);
-        createStairsRecipe(ModBlocks.PACSARIA_STAIRS, Ingredient.ofItems(ModBlocks.PACSARIA_PLANKS))
-                .criterion(hasItem(ModBlocks.PACSARIA_PLANKS), conditionsFromItem(ModBlocks.PACSARIA_PLANKS))
+        offerSingleOutputShapelessRecipe(exporter, button, planks, "button");
+        createSignRecipe(sign, Ingredient.ofItems(planks)).criterion(hasItem(planks), conditionsFromItem(planks))
                 .offerTo(exporter);
-        createSignRecipe(ModItems.PACSARIA_SIGN, Ingredient.ofItems(ModBlocks.PACSARIA_PLANKS))
-                .criterion(hasItem(ModBlocks.PACSARIA_PLANKS), conditionsFromItem(ModBlocks.PACSARIA_PLANKS))
-                .offerTo(exporter);
-        offerHangingSignRecipe(exporter, ModItems.HANGING_PACSARIA_SIGN, ModBlocks.PACSARIA_PLANKS);
-        offerSmelting(exporter,
-                List.of(ModBlocks.PACSARIA_LOG, ModBlocks.STRIPPED_PACSARIA_LOG,
-                        ModBlocks.PACSARIA_WOOD, ModBlocks.STRIPPED_PACSARIA_WOOD),
-                RecipeCategory.MISC,
-                Items.CHARCOAL,
-                2f,
-                100,
-                "charcoal");
-        offerBoatRecipe(exporter, ModItems.PACSARIA_BOAT, ModBlocks.PACSARIA_PLANKS);
-        offerChestBoatRecipe(exporter, ModItems.PACSARIA_CHEST_BOAT, ModItems.PACSARIA_BOAT);
+        offerHangingSignRecipe(exporter, hangingSign, planks);
+        offerBoatRecipe(exporter, boat, planks);
+        offerChestBoatRecipe(exporter, chestBoat, boat);
     }
 
-    private void generateEucalyptusRecipes(RecipeExporter exporter) {
-        offerShapelessRecipe(exporter, ModBlocks.EUCALYPTUS_PLANKS, ModBlocks.EUCALYPTUS_LOG,
-                "eucalyptus_planks", 4);
-        offerShapelessRecipe(exporter, ModBlocks.EUCALYPTUS_PLANKS, ModBlocks.EUCALYPTUS_WOOD,
-                "eucalyptus_planks", 4);
-        offerShapelessRecipe(exporter, ModBlocks.EUCALYPTUS_PLANKS, ModBlocks.STRIPPED_EUCALYPTUS_LOG,
-                "eucalyptus_planks", 4);
-        offerShapelessRecipe(exporter, ModBlocks.EUCALYPTUS_PLANKS, ModBlocks.STRIPPED_EUCALYPTUS_WOOD,
-                "eucalyptus_planks", 4);
-        createDoorRecipe(ModBlocks.EUCALYPTUS_DOOR, Ingredient.ofItems(ModBlocks.EUCALYPTUS_PLANKS))
-                .criterion(hasItem(ModBlocks.EUCALYPTUS_PLANKS), conditionsFromItem(ModBlocks.EUCALYPTUS_PLANKS))
-                .offerTo(exporter);
-        createTrapdoorRecipe(ModBlocks.EUCALYPTUS_TRAPDOOR, Ingredient.ofItems(ModBlocks.EUCALYPTUS_PLANKS))
-                .criterion(hasItem(ModBlocks.EUCALYPTUS_PLANKS), conditionsFromItem(ModBlocks.EUCALYPTUS_PLANKS))
-                .offerTo(exporter);
-        createFenceRecipe(ModBlocks.EUCALYPTUS_FENCE, Ingredient.ofItems(ModBlocks.EUCALYPTUS_PLANKS))
-                .criterion(hasItem(ModBlocks.EUCALYPTUS_PLANKS), conditionsFromItem(ModBlocks.EUCALYPTUS_PLANKS))
-                .offerTo(exporter);
-        createFenceGateRecipe(ModBlocks.EUCALYPTUS_FENCE_GATE, Ingredient.ofItems(ModBlocks.EUCALYPTUS_PLANKS))
-                .criterion(hasItem(ModBlocks.EUCALYPTUS_PLANKS), conditionsFromItem(ModBlocks.EUCALYPTUS_PLANKS))
-                .offerTo(exporter);
-        createSlabRecipe(RecipeCategory.BUILDING_BLOCKS, ModBlocks.EUCALYPTUS_SLAB,
-                Ingredient.ofItems(ModBlocks.EUCALYPTUS_PLANKS))
-                .criterion(hasItem(ModBlocks.EUCALYPTUS_PLANKS), conditionsFromItem(ModBlocks.EUCALYPTUS_PLANKS))
-                .offerTo(exporter);
-        createStairsRecipe(ModBlocks.EUCALYPTUS_STAIRS, Ingredient.ofItems(ModBlocks.EUCALYPTUS_PLANKS))
-                .criterion(hasItem(ModBlocks.EUCALYPTUS_PLANKS), conditionsFromItem(ModBlocks.EUCALYPTUS_PLANKS))
-                .offerTo(exporter);
-        createSignRecipe(ModItems.EUCALYPTUS_SIGN, Ingredient.ofItems(ModBlocks.EUCALYPTUS_PLANKS))
-                .criterion(hasItem(ModBlocks.EUCALYPTUS_PLANKS), conditionsFromItem(ModBlocks.EUCALYPTUS_PLANKS))
-                .offerTo(exporter);
-        offerHangingSignRecipe(exporter, ModItems.HANGING_EUCALYPTUS_SIGN, ModBlocks.EUCALYPTUS_PLANKS);
-        offerSmelting(exporter,
-                List.of(ModBlocks.EUCALYPTUS_LOG, ModBlocks.STRIPPED_EUCALYPTUS_LOG,
-                        ModBlocks.EUCALYPTUS_WOOD, ModBlocks.STRIPPED_EUCALYPTUS_WOOD),
-                RecipeCategory.MISC,
-                Items.CHARCOAL,
-                2f,
-                100,
-                "charcoal");
-        offerBoatRecipe(exporter, ModItems.EUCALYPTUS_BOAT, ModBlocks.EUCALYPTUS_PLANKS);
-        offerChestBoatRecipe(exporter, ModItems.EUCALYPTUS_CHEST_BOAT, ModItems.EUCALYPTUS_BOAT);
-    }
+    
     private void generateTriafiumRecipes(RecipeExporter exporter) {
         offerSmelting(exporter, List.of(ModItems.RAW_TRIAFIUM), RecipeCategory.TOOLS, ModItems.TRIAFIUM_INGOT,
                 1.0f, 200, "triafium_ingot");

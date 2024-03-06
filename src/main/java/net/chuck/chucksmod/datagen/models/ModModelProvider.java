@@ -139,6 +139,11 @@ public class ModModelProvider extends FabricModelProvider {
         eclogite_bricks_pool.slab(ModBlocks.ECLOGITE_BRICK_SLAB);
         eclogite_bricks_pool.wall(ModBlocks.ECLOGITE_BRICK_WALL);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.CRACKED_ECLOGITE_BRICKS);
+        BlockStateModelGenerator.BlockTexturePool polished_eclogite_pool =
+                blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.POLISHED_ECLOGITE);
+        polished_eclogite_pool.stairs(ModBlocks.POLISHED_ECLOGITE_STAIRS);
+        polished_eclogite_pool.slab(ModBlocks.POLISHED_ECLOGITE_SLAB);
+        polished_eclogite_pool.wall(ModBlocks.POLISHED_ECLOGITE_WALL);
 
         BlockStateModelGenerator.BlockTexturePool serpentinite_pool =
                 blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.SERPENTINITE);
@@ -156,6 +161,23 @@ public class ModModelProvider extends FabricModelProvider {
         polished_serpentinite_pool.stairs(ModBlocks.POLISHED_SERPENTINITE_STAIRS);
         polished_serpentinite_pool.slab(ModBlocks.POLISHED_SERPENTINITE_SLAB);
         polished_serpentinite_pool.wall(ModBlocks.POLISHED_SERPENTINITE_WALL);
+
+        BlockStateModelGenerator.BlockTexturePool glauconite_pool =
+                blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.GLAUCONITE);
+        glauconite_pool.stairs(ModBlocks.GLAUCONITE_STAIRS);
+        glauconite_pool.slab(ModBlocks.GLAUCONITE_SLAB);
+        glauconite_pool.wall(ModBlocks.GLAUCONITE_WALL);
+        BlockStateModelGenerator.BlockTexturePool glauconite_bricks_pool =
+                blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.GLAUCONITE_BRICKS);
+        glauconite_bricks_pool.stairs(ModBlocks.GLAUCONITE_BRICK_STAIRS);
+        glauconite_bricks_pool.slab(ModBlocks.GLAUCONITE_BRICK_SLAB);
+        glauconite_bricks_pool.wall(ModBlocks.GLAUCONITE_BRICK_WALL);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.CRACKED_GLAUCONITE_BRICKS);
+        BlockStateModelGenerator.BlockTexturePool polished_glauconite_pool =
+                blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.POLISHED_GLAUCONITE);
+        polished_glauconite_pool.stairs(ModBlocks.POLISHED_GLAUCONITE_STAIRS);
+        polished_glauconite_pool.slab(ModBlocks.POLISHED_GLAUCONITE_SLAB);
+        polished_glauconite_pool.wall(ModBlocks.POLISHED_GLAUCONITE_WALL);
 
         blockStateModelGenerator.registerSingleton(ModBlocks.TRIAFIA_LEAVES, TexturedModel.LEAVES);
         BlockStateModelGenerator.LogTexturePool triafia_log_pool =

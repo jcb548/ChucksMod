@@ -333,5 +333,23 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
         
         getOrCreateTagBuilder(ModItemTags.WRENCHES)
                 .add(ModItems.WRENCH);
+
+        getOrCreateTagBuilder(ModItemTags.EUCALYPTUS_LOGS)
+                .add(ModBlocks.EUCALYPTUS_LOG.asItem())
+                .add(ModBlocks.STRIPPED_EUCALYPTUS_LOG.asItem())
+                .add(ModBlocks.EUCALYPTUS_WOOD.asItem())
+                .add(ModBlocks.STRIPPED_EUCALYPTUS_WOOD.asItem());
+
+        getOrCreateTagBuilder(ModItemTags.TRIAFIA_LOGS)
+                .add(ModBlocks.TRIAFIA_LOG.asItem())
+                .add(ModBlocks.STRIPPED_TRIAFIA_LOG.asItem())
+                .add(ModBlocks.TRIAFIA_WOOD.asItem())
+                .add(ModBlocks.STRIPPED_TRIAFIA_WOOD.asItem());
+
+        getOrCreateTagBuilder(ModItemTags.PACSARIA_LOGS)
+                .add(ModBlocks.PACSARIA_LOG.asItem())
+                .add(ModBlocks.STRIPPED_PACSARIA_LOG.asItem())
+                .add(ModBlocks.PACSARIA_WOOD.asItem())
+                .add(ModBlocks.STRIPPED_PACSARIA_WOOD.asItem());
     }
 }
