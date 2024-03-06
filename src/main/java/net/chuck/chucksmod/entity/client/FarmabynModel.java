@@ -4,20 +4,25 @@ import net.chuck.chucksmod.entity.animation.FarmabynAnimations;
 import net.chuck.chucksmod.entity.custom.FarmabynEntity;
 import net.minecraft.client.model.*;
 import net.minecraft.client.render.VertexConsumer;
+import net.minecraft.client.render.entity.model.ModelWithArms;
 import net.minecraft.client.render.entity.model.SinglePartEntityModel;
 import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.util.Arm;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.RotationAxis;
 
 
 // Made with Blockbench 4.8.3
 // Exported for Minecraft version 1.17+ for Yarn
 // Paste this class into your mod and generate all required imports
-public class FarmabynModel<T extends FarmabynEntity> extends SinglePartEntityModel<T> {
+public class FarmabynModel<T extends FarmabynEntity> extends SinglePartEntityModel<T> implements ModelWithArms {
 	private final ModelPart bone;
 	private final ModelPart head;
+	private final ModelPart rightArm;
 	public FarmabynModel(ModelPart root) {
 		this.bone = root.getChild("bone");
 		this.head = bone.getChild("upper_body").getChild("head");
+		this.rightArm = bone.getChild("upper_body").getChild("body").getChild("arms").getChild("right2");
 	}
 	public static TexturedModelData getTexturedModelData() {
 		ModelData modelData = new ModelData();
@@ -89,11 +94,25 @@ public class FarmabynModel<T extends FarmabynEntity> extends SinglePartEntityMod
 		this.setHeadAngles(headYaw, headPitch);
 		this.animateMovement(FarmabynAnimations.FARMABYAN_WALK, limbAngle, limbDistance, 2f, 2.5f);
 		this.updateAnimation(entity.idleAnimationState, FarmabynAnimations.FARMABYAN_IDLE, animationProgress, 1f);
+		this.updateAnimation(entity.attackAnimationState, FarmabynAnimations.FARMABYAN_ATTACK, animationProgress, 1f);
 	}
 	private void setHeadAngles(float headYaw, float headPitch){
 		headYaw = MathHelper.clamp(headYaw, -30.0f, 30.0f);
 		headPitch = MathHelper.clamp(headPitch, -25.0f, 45.0f);
 		this.head.yaw = headYaw*0.017453292F;
 		this.head.pitch = headPitch*0.017453292F;
+	}
+
+	@Override
+	public void setArmAngle(Arm arm, MatrixStack matrices) {
+		ModelPart modelPart = getArm();
+		modelPart.pivotX += 1.0f;
+		matrices.translate(-0.07f, 1.6f, -0.15);
+		matrices.multiply(RotationAxis.POSITIVE_X.rotationDegrees(-10));
+		modelPart.rotate(matrices);
+		modelPart.pivotX -= 1.0f;
+	}
+	protected ModelPart getArm(){
+		return rightArm;
 	}
 }
