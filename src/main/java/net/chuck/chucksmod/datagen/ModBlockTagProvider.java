@@ -188,6 +188,10 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.SOUL_STONE_BRICK_SLAB)
                 .add(ModBlocks.SOUL_STONE_BRICK_WALL)
                 .add(ModBlocks.CRACKED_SOUL_STONE_BRICKS)
+                
+                .add(ModBlocks.TUFF_STAIRS)
+                .add(ModBlocks.TUFF_SLAB)
+                .add(ModBlocks.TUFF_WALL)
 
                 .add(ModBlocks.ECLOGITE)
                 .add(ModBlocks.ECLOGITE_STAIRS)
@@ -340,6 +344,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
         getOrCreateTagBuilder(BlockTags.WALLS)
                 .add(ModBlocks.SANDSTONE_BRICK_WALL)
+                .add(ModBlocks.TUFF_WALL)
                 .add(ModBlocks.ECLOGITE_WALL)
                 .add(ModBlocks.ECLOGITE_BRICK_WALL)
                 .add(ModBlocks.POLISHED_ECLOGITE_WALL)

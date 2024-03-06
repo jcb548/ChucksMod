@@ -79,6 +79,7 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
         generateBagRecipes(exporter);
         generateIronMachineRecipes(exporter);
         generateTitaniumRecipes(exporter);
+        generateCustomSlabStairWallRecipes(exporter, Blocks.TUFF, ModBlocks.TUFF_SLAB, ModBlocks.TUFF_STAIRS, ModBlocks.TUFF_WALL);
         generateCustomStoneRecipes(exporter, ModBlocks.ECLOGITE, ModBlocks.ECLOGITE_SLAB, ModBlocks.ECLOGITE_STAIRS,
                 ModBlocks.ECLOGITE_WALL, ModBlocks.ECLOGITE_BRICKS, ModBlocks.ECLOGITE_BRICK_SLAB,
                 ModBlocks.ECLOGITE_BRICK_STAIRS, ModBlocks.ECLOGITE_BRICK_WALL, ModBlocks.POLISHED_ECLOGITE,
@@ -156,6 +157,17 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 polished);
         offerPolishedStoneRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, polished, base);
         offerPolishedStoneRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, bricks, polished);
+    }
+    private void generateCustomSlabStairWallRecipes(RecipeExporter exporter, Block base, Block slab, Block stairs, Block wall) {
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, slab, base, 2);
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, stairs, base);
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, wall, base);
+        RecipeProvider.createStairsRecipe(stairs, Ingredient.ofItems(base))
+                .criterion(hasItem(base), conditionsFromItem(base)).offerTo(exporter);
+        offerSlabRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, slab,
+                base);
+        offerWallRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, wall,
+                base);
     }
 
     private void generateSoulRecipes(RecipeExporter exporter) {

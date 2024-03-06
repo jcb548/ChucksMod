@@ -76,6 +76,10 @@
   "block.chucksmod.bronze_dust_block": "Block of Bronze Dust",
   "block.chucksmod.bronze_bars": "Bronze Bars",
 
+  "block.chucksmod.tuff_stairs": "Tuff Stairs",
+  "block.chucksmod.tuff_slab": "Tuff Slab",
+  "block.chucksmod.tuff_wall": "Tuff Wall",
+
   "block.chucksmod.eclogite": "Eclogite",
   "block.chucksmod.eclogite_stairs": "Eclogite Stairs",
   "block.chucksmod.eclogite_slab": "Eclogite Slab",

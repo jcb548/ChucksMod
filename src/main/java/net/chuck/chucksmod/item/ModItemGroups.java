@@ -4,6 +4,7 @@ import net.chuck.chucksmod.ChucksMod;
 import net.chuck.chucksmod.block.ModBlocks;
 import net.chuck.chucksmod.fluid.ModFluids;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
+import net.minecraft.block.Blocks;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -208,6 +209,11 @@ public class ModItemGroups {
                         entries.add(ModItems.BLAZE_STAR);
                         entries.add(ModBlocks.SOUL_BLAZE_ALTAR);
                         entries.add(ModItems.SOUL_BLAZE_ROD);
+
+                        entries.add(Blocks.TUFF);
+                        entries.add(ModBlocks.TUFF_SLAB);
+                        entries.add(ModBlocks.TUFF_STAIRS);
+                        entries.add(ModBlocks.TUFF_WALL);
 
                         entries.add(ModBlocks.ECLOGITE);
                         entries.add(ModBlocks.ECLOGITE_SLAB);

@@ -56,7 +56,6 @@ public class FarmabynEntity extends HostileEntity {
     protected void initEquipment(Random random, LocalDifficulty localDifficulty) {
         super.initEquipment(random, localDifficulty);
         int i = random.nextInt(3);
-        getWorld().getPlayers().get(0).sendMessage(Text.literal(Integer.toString(i)));
         if(i ==0){
             this.equipStack(EquipmentSlot.MAINHAND, new ItemStack(ModItems.TRIAFIUM_HOE));
         } else if(i==1){
@@ -64,12 +63,6 @@ public class FarmabynEntity extends HostileEntity {
         } else {
             this.equipStack(EquipmentSlot.MAINHAND, new ItemStack(ModItems.TRIAFIUM_SHOVEL));
         }
-    }
-
-    @Override
-    public void onDamaged(DamageSource damageSource) {
-        if(damageSource.getSource() instanceof PlayerEntity entity)entity.sendMessage(Text.literal(this.getHandItems().toString()));
-        super.onDamaged(damageSource);
     }
 
     @Override

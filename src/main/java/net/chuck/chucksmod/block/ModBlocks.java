@@ -250,6 +250,16 @@ public class ModBlocks {
     public static final Block SOUL_BLAZE_ALTAR = registerBlock("soul_blaze_altar",
             new SoulBlazeAltarBlock(FabricBlockSettings.copy(Blocks.BEDROCK)));
 
+
+    //tuff
+    public static final Block TUFF_SLAB = registerBlock("tuff_slab",
+            new SlabBlock(FabricBlockSettings.copy(Blocks.TUFF)));
+    public static final Block TUFF_STAIRS = registerBlock("tuff_stairs",
+            new StairsBlock(Blocks.TUFF.getDefaultState(),
+                    FabricBlockSettings.copy(Blocks.TUFF)));
+    public static final Block TUFF_WALL = registerBlock("tuff_wall",
+            new WallBlock(FabricBlockSettings.copy(Blocks.TUFF)));
+
     // Triafium
     public static final Block TRIAFIUM_BLOCK = registerBlock("triafium_block",
             new Block(FabricBlockSettings.copy(Blocks.GOLD_BLOCK)));

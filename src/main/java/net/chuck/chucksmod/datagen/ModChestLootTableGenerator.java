@@ -6,6 +6,7 @@ import net.chuck.chucksmod.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.SimpleFabricLootTableProvider;
 import net.minecraft.block.Blocks;
+import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.loot.LootPool;
 import net.minecraft.loot.LootTable;
@@ -39,6 +40,10 @@ public class ModChestLootTableGenerator extends SimpleFabricLootTableProvider {
             "chests/triafia_castle_loot");
     public static final Identifier TRIAFIA_FARM_HOUSE_LOOT = new Identifier(ChucksMod.MOD_ID,
             "chests/triafia_farm_house_loot");
+    public static final Identifier PIPPIN_DUNGEON = new Identifier(ChucksMod.MOD_ID,
+            "chests/pippin_dungeon");
+    public static final Identifier PIPPIN_DUNGEON_LIBRARY = new Identifier(ChucksMod.MOD_ID,
+            "chests/pippin_dungeon_library");
     public ModChestLootTableGenerator(FabricDataOutput output) {
         super(output, LootContextTypes.CHEST);
     }
@@ -226,6 +231,7 @@ public class ModChestLootTableGenerator extends SimpleFabricLootTableProvider {
                         .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(3, 6)))
                     .with(ItemEntry.builder(ModItems.BRONZE_INGOT).weight(6))
                         .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(4, 8)))));
+
         exporter.accept(CHUCK_HOUSE_BLOCKS, LootTable.builder()
                 .pool(LootPool.builder().rolls(UniformLootNumberProvider.create(4, 16))
                     .with(ItemEntry.builder(Blocks.COBBLESTONE).weight(10))
@@ -318,5 +324,55 @@ public class ModChestLootTableGenerator extends SimpleFabricLootTableProvider {
                         .with(ItemEntry.builder(ModBlocks.TRIAFIA_PLANKS).weight(8))
                             .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(2, 8)))
                 ));
+        exporter.accept(PIPPIN_DUNGEON, LootTable.builder()
+                .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1))
+                        .with(ItemEntry.builder(Items.ENCHANTED_GOLDEN_APPLE).weight(5))
+                        .with(ItemEntry.builder(ModItems.TRIAFIUM_INGOT).weight(10))
+                        .with(ItemEntry.builder(Items.NAME_TAG).weight(20))
+                        .with(ItemEntry.builder(Items.BOOK).weight(30))
+                        .apply(EnchantWithLevelsLootFunction.builder(UniformLootNumberProvider.create(20, 39))))
+                .pool(LootPool.builder().rolls(UniformLootNumberProvider.create(1, 4))
+                        .with(ItemEntry.builder(Items.REDSTONE).weight(15))
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(4, 16)))
+                        .with(ItemEntry.builder(Items.SPLASH_POTION).weight(10))
+                        .apply(SetPotionLootFunction.builder(Potions.STRONG_HEALING))
+                        .with(ItemEntry.builder(Items.POTION).weight(10))
+                        .apply(SetPotionLootFunction.builder(Potions.LONG_FIRE_RESISTANCE))
+                        .with(ItemEntry.builder(Items.POTION).weight(10))
+                        .apply(SetPotionLootFunction.builder(Potions.STRONG_SWIFTNESS))
+                        .with(ItemEntry.builder(Items.POTION).weight(10))
+                        .apply(SetPotionLootFunction.builder(Potions.STRONG_REGENERATION)))
+                .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(3))
+                        .with(ItemEntry.builder(ModItems.TRIAFIA_CRYSTAL_SHARD).weight(20))
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1, 3)))
+                        .with(ItemEntry.builder(ModItems.TOMATO).weight(20))
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1, 4)))
+                        .with(ItemEntry.builder(ModItems.LETTUCE).weight(20))
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1, 4)))
+                        .with(ItemEntry.builder(Items.SADDLE).weight(10))
+                        .with(ItemEntry.builder(Items.COOKED_CHICKEN).weight(15))
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1, 4)))
+                        .with(ItemEntry.builder(ModItems.HAMBURGER).weight(20))
+                        .with(ItemEntry.builder(ModItems.RAW_TRIAFIUM).weight(10))
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1, 8)))
+                        .with(ItemEntry.builder(Items.BONE).weight(10))
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1, 8)))
+                        .with(ItemEntry.builder(Items.GOLDEN_APPLE).weight(10))
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1, 3)))));
+
+        exporter.accept(PIPPIN_DUNGEON_LIBRARY, LootTable.builder()
+                .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(10))
+                        .with(ItemEntry.builder(Items.PAPER).weight(20))
+                            .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(5, 11)))
+                        .with(ItemEntry.builder(Items.BOOK).weight(15))
+                            .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1, 4)))
+                        .with(ItemEntry.builder(Items.BOOK).weight(2))
+                            .apply(EnchantWithLevelsLootFunction.builder(UniformLootNumberProvider.create(1, 25)))
+                        .with(ItemEntry.builder(Blocks.ENCHANTING_TABLE).weight(4))
+                        .with(ItemEntry.builder(Items.WRITABLE_BOOK).weight(10))
+                        .with(ItemEntry.builder(Blocks.BOOKSHELF).weight(10))
+                        .with(ItemEntry.builder(Blocks.CHISELED_BOOKSHELF).weight(3))
+                ));
+
     }
 }

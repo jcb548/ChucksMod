@@ -10,6 +10,7 @@ import net.chuck.chucksmod.fluid.ModFluids;
 import net.chuck.chucksmod.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
+import net.minecraft.block.Blocks;
 import net.minecraft.data.client.*;
 import net.minecraft.item.ArmorItem;
 
@@ -128,6 +129,12 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.CRACKED_SOUL_STONE_BRICKS);
         blockStateModelGenerator.registerSimpleState(ModBlocks.SOUL_BLAZE_ALTAR);
 
+        BlockStateModelGenerator.BlockTexturePool tuff_pool =
+                blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.TUFF);
+        tuff_pool.stairs(ModBlocks.TUFF_STAIRS);
+        tuff_pool.slab(ModBlocks.TUFF_SLAB);
+        tuff_pool.wall(ModBlocks.TUFF_WALL);
+        
         BlockStateModelGenerator.BlockTexturePool eclogite_pool =
                 blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.ECLOGITE);
         eclogite_pool.stairs(ModBlocks.ECLOGITE_STAIRS);
