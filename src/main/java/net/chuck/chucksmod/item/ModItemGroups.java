@@ -254,6 +254,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.SERPENTINITE_REDSTONE_ORE);
                         entries.add(ModBlocks.SERPENTINITE_TIN_ORE);
                         entries.add(ModBlocks.SERPENTINITE_TITANIUM_ORE);
+                        entries.add(ModBlocks.PIPPIN_ALTAR);
 
                         entries.add(ModBlocks.GLAUCONITE);
                         entries.add(ModBlocks.GLAUCONITE_SLAB);

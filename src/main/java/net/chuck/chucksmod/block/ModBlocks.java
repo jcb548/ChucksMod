@@ -7,6 +7,7 @@ import com.terraformersmc.terraform.sign.block.TerraformWallSignBlock;
 import net.chuck.chucksmod.ChucksMod;
 import net.chuck.chucksmod.block.custom.*;
 import net.chuck.chucksmod.block.custom.altar.FrankAltarBlock;
+import net.chuck.chucksmod.block.custom.altar.PippinAltarBlock;
 import net.chuck.chucksmod.block.custom.altar.SoulBlazeAltarBlock;
 import net.chuck.chucksmod.block.custom.copier.TitaniumCopierBlock;
 import net.chuck.chucksmod.block.custom.crusher.CrusherBlock;
@@ -366,6 +367,8 @@ public class ModBlocks {
             new SlabBlock(FabricBlockSettings.copy(GLAUCONITE)));
     public static final Block POLISHED_GLAUCONITE_WALL = registerBlock("polished_glauconite_wall",
             new WallBlock(FabricBlockSettings.copy(GLAUCONITE)));
+    public static final Block PIPPIN_ALTAR = registerBlock("pippin_altar",
+            new PippinAltarBlock(FabricBlockSettings.copy(Blocks.BEDROCK)));
     //Serpentinite Ores
     public static final Block SERPENTINITE_COAL_ORE = registerBlock("serpentinite_coal_ore",
             new Block(FabricBlockSettings.copy(Blocks.GOLD_ORE).strength(5.0f, 9.0f)));

@@ -232,6 +232,7 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SERPENTINITE_REDSTONE_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SERPENTINITE_TIN_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SERPENTINITE_TITANIUM_ORE);
+        blockStateModelGenerator.registerSimpleState(ModBlocks.PIPPIN_ALTAR);
 
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.PACSARIUM_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RAW_PACSARIUM_BLOCK);

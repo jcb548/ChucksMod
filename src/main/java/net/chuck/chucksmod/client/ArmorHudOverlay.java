@@ -22,8 +22,10 @@ public class ArmorHudOverlay implements HudRenderCallback {
             int height = client.getWindow().getScaledHeight();
             x = width/2;
             y = height;
-            context.drawText(client.textRenderer, Text.literal("Armor: " + playerArmor +
-                    " (-" + armorValue + "% Dmg)"), x-90, y-48, 0xFFFFFF, true);
+            int yAboveBottom = 48;
+            if(client.player.isCreative()) yAboveBottom = 32;
+                context.drawText(client.textRenderer, Text.literal("Armor: " + playerArmor +
+                        " (-" + armorValue + "% Dmg)"), x - 90, y - yAboveBottom, 0xFFFFFF, true);
         }
     }
 }

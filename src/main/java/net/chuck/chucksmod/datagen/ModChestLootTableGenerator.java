@@ -44,6 +44,8 @@ public class ModChestLootTableGenerator extends SimpleFabricLootTableProvider {
             "chests/pippin_dungeon");
     public static final Identifier PIPPIN_DUNGEON_LIBRARY = new Identifier(ChucksMod.MOD_ID,
             "chests/pippin_dungeon_library");
+    public static final Identifier PIPPIN_DUNGEON_ARMOURY = new Identifier(ChucksMod.MOD_ID,
+            "chests/pippin_dungeon_armoury");
     public ModChestLootTableGenerator(FabricDataOutput output) {
         super(output, LootContextTypes.CHEST);
     }
@@ -372,6 +374,65 @@ public class ModChestLootTableGenerator extends SimpleFabricLootTableProvider {
                         .with(ItemEntry.builder(Items.WRITABLE_BOOK).weight(10))
                         .with(ItemEntry.builder(Blocks.BOOKSHELF).weight(10))
                         .with(ItemEntry.builder(Blocks.CHISELED_BOOKSHELF).weight(3))
+                ));
+        // /setblock ~ ~ ~ minecraft:chest{LootTable:"chucksmod:chests/pippin_dungeon_armoury"}
+        exporter.accept(PIPPIN_DUNGEON_ARMOURY, LootTable.builder()
+                .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(2))
+                        .with(ItemEntry.builder(ModItems.TRIAFIUM_HELMET).weight(5))
+                            .apply(SetDamageLootFunction.builder(UniformLootNumberProvider.create(0.1f, 0.9f)))
+                        .with(ItemEntry.builder(ModItems.TRIAFIUM_CHESTPLATE).weight(5))
+                            .apply(SetDamageLootFunction.builder(UniformLootNumberProvider.create(0.1f, 0.9f)))
+                        .with(ItemEntry.builder(ModItems.TRIAFIUM_LEGGINGS).weight(5))
+                            .apply(SetDamageLootFunction.builder(UniformLootNumberProvider.create(0.1f, 0.9f)))
+                        .with(ItemEntry.builder(ModItems.TRIAFIUM_BOOTS).weight(5))
+                            .apply(SetDamageLootFunction.builder(UniformLootNumberProvider.create(0.1f, 0.9f)))
+                        .with(ItemEntry.builder(ModItems.TRIAFIUM_SWORD).weight(5))
+                            .apply(SetDamageLootFunction.builder(UniformLootNumberProvider.create(0.1f, 0.9f)))
+                        .with(ItemEntry.builder(ModItems.TRIAFIUM_AXE).weight(5))
+                            .apply(SetDamageLootFunction.builder(UniformLootNumberProvider.create(0.1f, 0.9f)))
+                        .with(ItemEntry.builder(ModItems.TRIAFIUM_PICKAXE).weight(5))
+                            .apply(SetDamageLootFunction.builder(UniformLootNumberProvider.create(0.1f, 0.9f)))
+                        .with(ItemEntry.builder(ModItems.TRIAFIUM_SHOVEL).weight(5))
+                            .apply(SetDamageLootFunction.builder(UniformLootNumberProvider.create(0.1f, 0.9f)))
+                        .with(ItemEntry.builder(ModItems.TRIAFIUM_HOE).weight(5))
+                            .apply(SetDamageLootFunction.builder(UniformLootNumberProvider.create(0.1f, 0.9f)))
+                        .with(ItemEntry.builder(Items.NETHERITE_HELMET).weight(3))
+                            .apply(SetDamageLootFunction.builder(UniformLootNumberProvider.create(0.1f, 0.9f)))
+                        .with(ItemEntry.builder(Items.NETHERITE_CHESTPLATE).weight(3))
+                            .apply(SetDamageLootFunction.builder(UniformLootNumberProvider.create(0.1f, 0.9f)))
+                        .with(ItemEntry.builder(Items.NETHERITE_LEGGINGS).weight(3))
+                            .apply(SetDamageLootFunction.builder(UniformLootNumberProvider.create(0.1f, 0.9f)))
+                        .with(ItemEntry.builder(Items.NETHERITE_BOOTS).weight(3))
+                            .apply(SetDamageLootFunction.builder(UniformLootNumberProvider.create(0.1f, 0.9f)))
+                        .with(ItemEntry.builder(Items.NETHERITE_SWORD).weight(3))
+                            .apply(SetDamageLootFunction.builder(UniformLootNumberProvider.create(0.1f, 0.9f)))
+                        .with(ItemEntry.builder(Items.NETHERITE_AXE).weight(3))
+                            .apply(SetDamageLootFunction.builder(UniformLootNumberProvider.create(0.1f, 0.9f)))
+                        .with(ItemEntry.builder(Items.NETHERITE_PICKAXE).weight(3))
+                            .apply(SetDamageLootFunction.builder(UniformLootNumberProvider.create(0.1f, 0.9f)))
+                        .with(ItemEntry.builder(Items.NETHERITE_SHOVEL).weight(3))
+                            .apply(SetDamageLootFunction.builder(UniformLootNumberProvider.create(0.1f, 0.9f)))
+                        .with(ItemEntry.builder(Items.NETHERITE_HOE).weight(3))
+                            .apply(SetDamageLootFunction.builder(UniformLootNumberProvider.create(0.1f, 0.9f)))
+                ).pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(3))
+                        .with(ItemEntry.builder(ModItems.TITANIUM_HELMET).weight(5))
+                            .apply(SetDamageLootFunction.builder(UniformLootNumberProvider.create(0.1f, 0.9f)))
+                        .with(ItemEntry.builder(ModItems.TITANIUM_CHESTPLATE).weight(5))
+                            .apply(SetDamageLootFunction.builder(UniformLootNumberProvider.create(0.1f, 0.9f)))
+                        .with(ItemEntry.builder(ModItems.TITANIUM_LEGGINGS).weight(5))
+                            .apply(SetDamageLootFunction.builder(UniformLootNumberProvider.create(0.1f, 0.9f)))
+                        .with(ItemEntry.builder(ModItems.TITANIUM_BOOTS).weight(5))
+                            .apply(SetDamageLootFunction.builder(UniformLootNumberProvider.create(0.1f, 0.9f)))
+                        .with(ItemEntry.builder(ModItems.TITANIUM_SWORD).weight(5))
+                            .apply(SetDamageLootFunction.builder(UniformLootNumberProvider.create(0.1f, 0.9f)))
+                        .with(ItemEntry.builder(ModItems.TITANIUM_AXE).weight(5))
+                            .apply(SetDamageLootFunction.builder(UniformLootNumberProvider.create(0.1f, 0.9f)))
+                        .with(ItemEntry.builder(ModItems.TITANIUM_PICKAXE).weight(5))
+                            .apply(SetDamageLootFunction.builder(UniformLootNumberProvider.create(0.1f, 0.9f)))
+                        .with(ItemEntry.builder(ModItems.TITANIUM_SHOVEL).weight(5))
+                            .apply(SetDamageLootFunction.builder(UniformLootNumberProvider.create(0.1f, 0.9f)))
+                        .with(ItemEntry.builder(ModItems.TITANIUM_HOE).weight(5))
+                            .apply(SetDamageLootFunction.builder(UniformLootNumberProvider.create(0.1f, 0.9f)))
                 ));
 
     }
