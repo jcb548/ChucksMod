@@ -17,4 +17,6 @@ public class ModModelLayers {
             new EntityModelLayer(new Identifier(ChucksMod.MOD_ID, "soul_blaze_rod"), "main");
     public static final EntityModelLayer FARMABYN =
             new EntityModelLayer(new Identifier(ChucksMod.MOD_ID, "farmabyn"), "main");
+    public static final EntityModelLayer TRIAFIAN_PIG =
+            new EntityModelLayer(new Identifier(ChucksMod.MOD_ID, "triafian_pig"), "main");
 }

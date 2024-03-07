@@ -4,10 +4,7 @@ import net.chuck.chucksmod.block.ModBlocks;
 import net.chuck.chucksmod.block.entity.ModBlockEntities;
 import net.chuck.chucksmod.entity.ModBoats;
 import net.chuck.chucksmod.entity.ModEntities;
-import net.chuck.chucksmod.entity.custom.FarmabynEntity;
-import net.chuck.chucksmod.entity.custom.FrankBoss;
-import net.chuck.chucksmod.entity.custom.SoulBlazeBoss;
-import net.chuck.chucksmod.entity.custom.WyattEntity;
+import net.chuck.chucksmod.entity.custom.*;
 import net.chuck.chucksmod.fluid.ModFluids;
 import net.chuck.chucksmod.item.ModItemGroups;
 import net.chuck.chucksmod.item.ModItems;
@@ -79,6 +76,7 @@ public class ChucksMod implements ModInitializer {
 		FabricDefaultAttributeRegistry.register(ModEntities.FRANK_BOSS, FrankBoss.setAttributes());
 		FabricDefaultAttributeRegistry.register(ModEntities.SOUL_BLAZE_BOSS, SoulBlazeBoss.createSoulBlazeAttributes());
 		FabricDefaultAttributeRegistry.register(ModEntities.FARMABYN, FarmabynEntity.createFarmabynAttributes());
+		FabricDefaultAttributeRegistry.register(ModEntities.TRIAFIAN_PIG, TriafianPigEntity.setAttributes());
 		ModMessages.registerC2SPackets();
 	}
 }

@@ -115,6 +115,8 @@ public class ChucksModClient implements ClientModInitializer {
         EntityRendererRegistry.register(ModEntities.SOUL_BLAZE_ROD, SoulBlazeRodRenderer::new);
         EntityModelLayerRegistry.registerModelLayer((ModModelLayers.FARMABYN), FarmabynModel::getTexturedModelData);
         EntityRendererRegistry.register(ModEntities.FARMABYN, FarmabynRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer((ModModelLayers.TRIAFIAN_PIG), TriafianPigModel::getTexturedModelData);
+        EntityRendererRegistry.register(ModEntities.TRIAFIAN_PIG, TriafianPigRenderer::new);
 
     }
 
