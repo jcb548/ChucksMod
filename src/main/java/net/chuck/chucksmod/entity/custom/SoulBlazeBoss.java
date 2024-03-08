@@ -135,11 +135,6 @@ public class SoulBlazeBoss extends HostileEntity implements RangedAttackMob{
     }
 
     @Override
-    protected void updateLimbs(float posDelta) {
-        super.updateLimbs(posDelta);
-    }
-
-    @Override
     public void tick() {
         super.tick();
         if(this.getWorld().isClient){
