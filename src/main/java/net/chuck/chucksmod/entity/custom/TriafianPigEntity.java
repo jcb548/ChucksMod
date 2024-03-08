@@ -1,8 +1,8 @@
 package net.chuck.chucksmod.entity.custom;
 
 import net.chuck.chucksmod.entity.ModEntities;
-import net.chuck.chucksmod.entity.ai.FarmabynAttackGoal;
 import net.chuck.chucksmod.entity.ai.TriafianPigAttackGoal;
+import net.chuck.chucksmod.item.ModItems;
 import net.minecraft.entity.AnimationState;
 import net.minecraft.entity.EntityPose;
 import net.minecraft.entity.EntityType;
@@ -16,6 +16,9 @@ import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.PassiveEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
+import net.minecraft.recipe.Ingredient;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
@@ -23,10 +26,12 @@ import org.jetbrains.annotations.Nullable;
 public class TriafianPigEntity extends AnimalEntity {
     public static final int ANIMATION_LENGTH = 11;
     public static final int ATTACK_WINDUP = 8;
+    public static final int ATTACK_COOLDOWN = 15;
     public final AnimationState idleAnimationState = new AnimationState();
     private int idleAnimationCooldown = 0;
     public final AnimationState attackAnimationState = new AnimationState();
     public int attackAnimationCooldown = 0;
+    private static final Ingredient BREEDING_INGREDIENT = Ingredient.ofItems(Items.CARROT, ModItems.TOMATO);
     private static final TrackedData<Boolean> ATTACKING =
             DataTracker.registerData(TriafianPigEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
     public TriafianPigEntity(EntityType<? extends AnimalEntity> entityType, World world) {
@@ -45,16 +50,25 @@ public class TriafianPigEntity extends AnimalEntity {
     public PassiveEntity createChild(ServerWorld world, PassiveEntity entity) {
         return ModEntities.TRIAFIAN_PIG.create(world);
     }
+
+    @Override
+    public boolean isBreedingItem(ItemStack stack) {
+        return BREEDING_INGREDIENT.test(stack);
+    }
+
     @Override
     protected void initGoals() {
         this.goalSelector.add(0, new SwimGoal(this));
-        this.goalSelector.add(2, new TriafianPigAttackGoal(this, 1.0d, true));
-        this.goalSelector.add(3, new WanderAroundFarGoal(this, 0.8f, 5));
-        this.goalSelector.add(4, new LookAtEntityGoal(this, PlayerEntity.class, 64));
-        this.goalSelector.add(5, new LookAroundGoal(this));
+        this.goalSelector.add(2, new TriafianPigAttackGoal(this, 0.8f, true));
+        this.goalSelector.add(3, new AnimalMateGoal(this, 1.0f));
+        this.goalSelector.add(3, new TemptGoal(this, 1.2f, BREEDING_INGREDIENT, false));
+        this.goalSelector.add(4, new FollowParentGoal(this, 0.8f));
+        this.goalSelector.add(5, new WanderAroundFarGoal(this, 0.8f, 5));
+        this.goalSelector.add(6, new LookAtEntityGoal(this, PlayerEntity.class, 64));
+        this.goalSelector.add(7, new LookAroundGoal(this));
 
         this.targetSelector.add(1, new RevengeGoal(this, new Class[0]));
-        this.targetSelector.add(2, new ActiveTargetGoal<>(this, PlayerEntity.class, true));
+        //this.targetSelector.add(2, new ActiveTargetGoal<>(this, PlayerEntity.class, true));
     }
 
     @Override
@@ -98,5 +112,9 @@ public class TriafianPigEntity extends AnimalEntity {
         if(this.getWorld().isClient()){
             updateAnimations();
         }
+    }
+    @Override
+    public int getXpToDrop() {
+        return 2 + this.getWorld().random.nextInt(5);
     }
 }

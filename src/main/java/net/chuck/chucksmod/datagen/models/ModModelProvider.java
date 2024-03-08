@@ -404,6 +404,8 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.TRIAFIA_CRYSTAL, Models.GENERATED);
         itemModelGenerator.register(ModItems.TRIAFIA_CRYSTAL_SHARD, Models.GENERATED);
         itemModelGenerator.register(ModItems.TRIAFIA_CRYSTAL_DUST, Models.GENERATED);
+        itemModelGenerator.register(ModItems.TRIAFIAN_PORKCHOP, Models.GENERATED);
+        itemModelGenerator.register(ModItems.COOKED_TRIAFIAN_PORKCHOP, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.RAW_PACSARIUM, Models.GENERATED);
         itemModelGenerator.register(ModItems.PACSARIUM_INGOT, Models.GENERATED);

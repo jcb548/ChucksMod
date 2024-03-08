@@ -14,6 +14,7 @@ import net.minecraft.data.server.recipe.*;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
+import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.registry.tag.TagKey;
@@ -55,6 +56,7 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 ModBlocks.PACSARIA_STAIRS, ModBlocks.PACSARIA_DOOR, ModBlocks.PACSARIA_TRAPDOOR, ModBlocks.PACSARIA_FENCE,
                 ModBlocks.PACSARIA_FENCE_GATE, ModBlocks.PACSARIA_BUTTON, ModItems.PACSARIA_SIGN, 
                 ModItems.HANGING_PACSARIA_SIGN, ModItems.PACSARIA_BOAT, ModItems.PACSARIA_CHEST_BOAT);
+        generateTriafiaRecipes(exporter);
         generatePascariumRecipes(exporter);
         generateSandstoneRecipes(exporter);
 
@@ -302,8 +304,14 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
         offerBootsRecipe(exporter, ModItems.TRIAFIUM_INGOT, ModItems.TRIAFIUM_BOOTS);
         offerGearRecipe(exporter, ModItems.TRIAFIUM_INGOT, ModItems.TRIAFIUM_GEAR);
         offerStainedGlassPaneRecipe(exporter, ModBlocks.TRIAFIUM_BARS, ModItems.TRIAFIUM_INGOT);
+    }
+    private void generateTriafiaRecipes(RecipeExporter exporter) {
         offerCompactingRecipe(exporter, RecipeCategory.MISC, ModItems.TRIAFIA_CRYSTAL,
                 ModItems.TRIAFIA_CRYSTAL_SHARD);
+        offerSmelting(exporter, List.of(ModItems.TRIAFIAN_PORKCHOP), RecipeCategory.FOOD, ModItems.COOKED_TRIAFIAN_PORKCHOP,
+                0.5f, 200, "triafian_porkchop");
+        offerFoodCookingRecipe(exporter, "smoking", RecipeSerializer.SMOKING, 100,
+                ModItems.TRIAFIAN_PORKCHOP, ModItems.COOKED_TRIAFIAN_PORKCHOP, 0.5f);
     }
 
     private void generatePascariumRecipes(RecipeExporter exporter) {

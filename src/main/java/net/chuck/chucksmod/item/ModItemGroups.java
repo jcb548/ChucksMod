@@ -295,6 +295,8 @@ public class ModItemGroups {
                         entries.add(ModBlocks.TRIAFIA_PLANT);
                         entries.add(ModItems.FARMABYN_SPAWN_EGG);
                         entries.add(ModItems.TRIAFIAN_PIG_SPAWN_EGG);
+                        entries.add(ModItems.TRIAFIAN_PORKCHOP);
+                        entries.add(ModItems.COOKED_TRIAFIAN_PORKCHOP);
 
                         entries.add(ModItems.RAW_TRIAFIUM);
                         entries.add(ModItems.TRIAFIUM_INGOT);

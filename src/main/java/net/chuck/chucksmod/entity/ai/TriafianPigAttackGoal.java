@@ -8,8 +8,8 @@ import net.minecraft.util.Hand;
 
 public class TriafianPigAttackGoal extends MeleeAttackGoal {
     private final TriafianPigEntity entity;
-    private int attackDelay = TriafianPigEntity.ATTACK_WINDUP;
-    private int ticksUntilNextAttack = TriafianPigEntity.ATTACK_WINDUP;
+    private int ticksUntilNextAttack = TriafianPigEntity.ATTACK_COOLDOWN - TriafianPigEntity.ANIMATION_LENGTH
+            + TriafianPigEntity.ATTACK_WINDUP;
     private boolean shouldCountUntilNextAttack = false;
     public TriafianPigAttackGoal(PathAwareEntity mob, double speed, boolean pauseWhenMobIdle) {
         super(mob, speed, pauseWhenMobIdle);
@@ -19,8 +19,7 @@ public class TriafianPigAttackGoal extends MeleeAttackGoal {
     @Override
     public void start() {
         super.start();
-        attackDelay = TriafianPigEntity.ATTACK_WINDUP;
-        ticksUntilNextAttack = TriafianPigEntity.ATTACK_WINDUP;
+        ticksUntilNextAttack = TriafianPigEntity.ATTACK_COOLDOWN;
     }
 
     @Override
@@ -39,8 +38,8 @@ public class TriafianPigAttackGoal extends MeleeAttackGoal {
     private boolean isEnemyWithinAttackDistance(LivingEntity pEnemy){
         return entity.distanceTo(pEnemy) <= 3f;
     }
-    private void resetAttackCooldown(){ticksUntilNextAttack = getTickCount(TriafianPigEntity.ANIMATION_LENGTH);}
-    private boolean isTimeToStartAttackAnimation(){return ticksUntilNextAttack <= attackDelay;}
+    private void resetAttackCooldown(){ticksUntilNextAttack = getTickCount(TriafianPigEntity.ATTACK_COOLDOWN);}
+    private boolean isTimeToStartAttackAnimation(){return ticksUntilNextAttack <= TriafianPigEntity.ATTACK_WINDUP;}
     private boolean isTimeToAttack(){return ticksUntilNextAttack <= 0;}
     private void performAttack(LivingEntity pEnemy){
         resetAttackCooldown();
@@ -52,9 +51,7 @@ public class TriafianPigAttackGoal extends MeleeAttackGoal {
     protected void attack(LivingEntity target) {
         if(isEnemyWithinAttackDistance(target)){
             shouldCountUntilNextAttack = true;
-            if(isTimeToStartAttackAnimation()){
-                entity.setAttacking(true);
-            }
+            entity.setAttacking(isTimeToStartAttackAnimation());
             if(isTimeToAttack()){
                 this.entity.getLookControl().lookAt(target.getX(), target.getEyeY(), target.getZ());
                 performAttack(target);
