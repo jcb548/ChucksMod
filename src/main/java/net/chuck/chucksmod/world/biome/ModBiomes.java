@@ -1,6 +1,7 @@
 package net.chuck.chucksmod.world.biome;
 
 import net.chuck.chucksmod.ChucksMod;
+import net.chuck.chucksmod.entity.ModEntities;
 import net.chuck.chucksmod.world.ModPlacedFeatures;
 import net.minecraft.client.sound.MusicType;
 import net.minecraft.entity.EntityType;
@@ -37,8 +38,9 @@ public class ModBiomes{
     public static Biome triafiaPlains(Registerable<Biome> context){
         SpawnSettings.Builder spawnBuilder = new SpawnSettings.Builder();
         spawnBuilder.spawn(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(EntityType.ZOMBIE, 4, 1, 5));
-        
-        spawnBuilder.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(EntityType.PIG, 10, 1, 3));
+        spawnBuilder.spawn(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(EntityType.WITHER_SKELETON, 4, 1, 5));
+
+        spawnBuilder.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(ModEntities.TRIAFIAN_PIG, 10, 1, 4));
         spawnBuilder.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(EntityType.COW, 10, 1, 3));
         spawnBuilder.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(EntityType.PANDA, 4, 1, 2));
         spawnBuilder.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(EntityType.CHICKEN, 8, 2, 5));

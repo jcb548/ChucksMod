@@ -40,8 +40,7 @@ public class TriafianPigEntity extends AnimalEntity {
     public static DefaultAttributeContainer.Builder setAttributes(){
         return MobEntity.createMobAttributes()
                 .add(EntityAttributes.GENERIC_MAX_HEALTH, 15)
-                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.4f)
-                .add(EntityAttributes.GENERIC_ARMOR, 0)
+                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.33f)
                 .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 6);
     }
 
@@ -59,16 +58,16 @@ public class TriafianPigEntity extends AnimalEntity {
     @Override
     protected void initGoals() {
         this.goalSelector.add(0, new SwimGoal(this));
+        this.goalSelector.add(1, new EscapeDangerGoal(this, 1.25f));
         this.goalSelector.add(2, new TriafianPigAttackGoal(this, 0.8f, true));
         this.goalSelector.add(3, new AnimalMateGoal(this, 1.0f));
         this.goalSelector.add(3, new TemptGoal(this, 1.2f, BREEDING_INGREDIENT, false));
-        this.goalSelector.add(4, new FollowParentGoal(this, 0.8f));
+        this.goalSelector.add(4, new FollowParentGoal(this, 1.1f));
         this.goalSelector.add(5, new WanderAroundFarGoal(this, 0.8f, 5));
-        this.goalSelector.add(6, new LookAtEntityGoal(this, PlayerEntity.class, 64));
+        this.goalSelector.add(6, new LookAtEntityGoal(this, PlayerEntity.class, 6));
         this.goalSelector.add(7, new LookAroundGoal(this));
 
         this.targetSelector.add(1, new RevengeGoal(this, new Class[0]));
-        //this.targetSelector.add(2, new ActiveTargetGoal<>(this, PlayerEntity.class, true));
     }
 
     @Override

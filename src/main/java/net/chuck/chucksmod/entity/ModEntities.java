@@ -42,5 +42,5 @@ public class ModEntities {
     public static final EntityType<TriafianPigEntity> TRIAFIAN_PIG = Registry.register(
             Registries.ENTITY_TYPE, new Identifier(ChucksMod.MOD_ID, "triafian_pig"),
             FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, TriafianPigEntity::new)
-                    .dimensions(EntityDimensions.fixed(0.8f, 1f)).build());
+                    .dimensions(EntityDimensions.fixed(0.9f, 0.9f)).build());
 }
