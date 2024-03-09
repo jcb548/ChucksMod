@@ -5,11 +5,11 @@ import net.chuck.chucksmod.entity.custom.PippinBoss;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.entity.mob.PathAwareEntity;
+import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
 
 public class PippinAttackGoal extends MeleeAttackGoal {
     private final PippinBoss entity;
-    private int attackDelay = PippinBoss.ATTACK_WINDUP;
     private int ticksUntilNextAttack = PippinBoss.ATTACK_WINDUP;
     private boolean shouldCountUntilNextAttack = false;
     public PippinAttackGoal(PathAwareEntity mob, double speed, boolean pauseWhenMobIdle) {
@@ -20,8 +20,7 @@ public class PippinAttackGoal extends MeleeAttackGoal {
     @Override
     public void start() {
         super.start();
-        attackDelay = FarmabynEntity.ATTACK_WINDUP;
-        ticksUntilNextAttack = FarmabynEntity.ATTACK_WINDUP;
+        ticksUntilNextAttack = PippinBoss.ATTACK_WINDUP;
     }
 
     @Override
@@ -33,6 +32,7 @@ public class PippinAttackGoal extends MeleeAttackGoal {
     @Override
     public void tick() {
         super.tick();
+        entity.getWorld().getPlayers().get(0).sendMessage(Text.literal(ticksUntilNextAttack + ""));
         if(shouldCountUntilNextAttack){
             this.ticksUntilNextAttack = Math.max(this.ticksUntilNextAttack-1, 0);
         }
@@ -40,13 +40,13 @@ public class PippinAttackGoal extends MeleeAttackGoal {
     private boolean isEnemyWithinAttackDistance(LivingEntity pEnemy){
         return entity.distanceTo(pEnemy) <= 3f;
     }
-    private void resetAttackCooldown(){ticksUntilNextAttack = getTickCount(FarmabynEntity.ANIMATION_LENGTH);}
-    private boolean isTimeToStartAttackAnimation(){return ticksUntilNextAttack <= attackDelay;}
+    private void resetAttackCooldown(){ticksUntilNextAttack = getTickCount(PippinBoss.ATTACK_ANIMATION_LENGTH);}
+    private boolean isTimeToStartAttackAnimation(){return ticksUntilNextAttack <= PippinBoss.ATTACK_WINDUP;}
     private boolean isTimeToAttack(){return ticksUntilNextAttack <= 0;}
     private void performAttack(LivingEntity pEnemy){
-        resetAttackCooldown();
         entity.swingHand(Hand.MAIN_HAND);
         entity.tryAttack(pEnemy);
+        resetAttackCooldown();
     }
 
     @Override

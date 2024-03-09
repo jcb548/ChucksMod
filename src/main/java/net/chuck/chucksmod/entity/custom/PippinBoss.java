@@ -1,11 +1,14 @@
 package net.chuck.chucksmod.entity.custom;
 
 import net.chuck.chucksmod.entity.ai.PippinAttackGoal;
+import net.chuck.chucksmod.entity.ai.PippinGoToHealGoal;
 import net.chuck.chucksmod.item.ModItems;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
+import net.minecraft.entity.boss.BossBar;
+import net.minecraft.entity.boss.ServerBossBar;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
@@ -14,22 +17,27 @@ import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.Arm;
 import net.minecraft.util.math.random.Random;
+import net.minecraft.world.Difficulty;
 import net.minecraft.world.LocalDifficulty;
 import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
 public class PippinBoss extends HostileEntity {
-    public static final int ATTACK_ANIMATION_LENGTH = 19;
-    public static final int ATTACK_WINDUP = 7;
+    public static final int LANTERN_RANGE = 32;
+    public static final int ATTACK_ANIMATION_LENGTH = 18;
+    public static final int ATTACK_WINDUP = 5;
     private static final TrackedData<Boolean> ATTACKING =
             DataTracker.registerData(FarmabynEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
     public final AnimationState idleAnimationState = new AnimationState();
     private int idleAnimationCooldown = 0;
     public final AnimationState attackAnimationState = new AnimationState();
     public int attackAnimationCooldown = 0;
+    private final ServerBossBar bossBar = (ServerBossBar)new ServerBossBar(this.getDisplayName(), BossBar.Color.PURPLE,
+            BossBar.Style.PROGRESS).setDarkenSky(false);
     public PippinBoss(EntityType<? extends HostileEntity> entityType, World world) {
         super(entityType, world);
     }
@@ -55,6 +63,7 @@ public class PippinBoss extends HostileEntity {
     @Override
     protected void initGoals() {
         this.goalSelector.add(0, new SwimGoal(this));
+        this.goalSelector.add(1, new PippinGoToHealGoal(this, 1.0f));
         this.goalSelector.add(2, new PippinAttackGoal(this, 1.0f, true));
         this.goalSelector.add(3, new WanderAroundFarGoal(this, 0.5f, 1));
         this.goalSelector.add(4, new LookAtEntityGoal(this, PlayerEntity.class, 64));
@@ -100,12 +109,38 @@ public class PippinBoss extends HostileEntity {
     @Override
     public void tick() {
         super.tick();
+        setPositionTarget(getBlockPos(), -1);
         if(this.getWorld().isClient()){
             updateAnimations();
         }
     }
     @Override
+    public void checkDespawn() {
+        if (this.getWorld().getDifficulty() == Difficulty.PEACEFUL && this.isDisallowedInPeaceful()) {
+            this.discard();
+            return;
+        }
+        this.despawnCounter = 0;
+    }
+    @Override
+    public void onStartedTrackingBy(ServerPlayerEntity player) {
+        super.onStartedTrackingBy(player);
+        this.bossBar.addPlayer(player);
+    }
+
+    @Override
+    public void onStoppedTrackingBy(ServerPlayerEntity player) {
+        super.onStoppedTrackingBy(player);
+        this.bossBar.removePlayer(player);
+    }
+    @Override
     public Arm getMainArm() {
         return Arm.RIGHT;
+    }
+
+    @Override
+    protected void mobTick() {
+        super.mobTick();
+        this.bossBar.setPercent(this.getHealth() / this.getMaxHealth());
     }
 }
