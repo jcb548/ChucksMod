@@ -32,7 +32,6 @@ public class PippinAttackGoal extends MeleeAttackGoal {
     @Override
     public void tick() {
         super.tick();
-        entity.getWorld().getPlayers().get(0).sendMessage(Text.literal(ticksUntilNextAttack + ""));
         if(shouldCountUntilNextAttack){
             this.ticksUntilNextAttack = Math.max(this.ticksUntilNextAttack-1, 0);
         }

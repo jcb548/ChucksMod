@@ -42,7 +42,7 @@ public class FarmabynEntity extends HostileEntity {
                 .add(EntityAttributes.GENERIC_ARMOR, 5)
                 .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 10);
     }
-
+    canI
     @Nullable
     @Override
     public EntityData initialize(ServerWorldAccess world, LocalDifficulty difficulty, SpawnReason spawnReason, @Nullable EntityData entityData, @Nullable NbtCompound entityNbt) {

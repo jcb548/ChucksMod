@@ -17,6 +17,7 @@ public class ModMessages {
     public static final Identifier ENERGY_SYNC = new Identifier(ChucksMod.MOD_ID, "energy_sync");
     public static final Identifier FLUID_SYNC = new Identifier(ChucksMod.MOD_ID, "fluid_sync");
     public static final Identifier TELEPORT_PARTICLE = new Identifier(ChucksMod.MOD_ID, "teleport_particle");
+    public static final Identifier PIPPIN_HEAL_PARTICLE = new Identifier(ChucksMod.MOD_ID, "pippin_heal_particle");
     public static final Identifier ENERGY_STORAGE_BLOCK_SYNC =
             new Identifier(ChucksMod.MOD_ID, "energy_storage_sync");
     public static final Identifier RESET_QUARRY_SYNC = new Identifier(ChucksMod.MOD_ID, "quarry_reset_sync");
@@ -29,6 +30,7 @@ public class ModMessages {
         ClientPlayNetworking.registerGlobalReceiver(ENERGY_SYNC, EnergySyncS2CPacket::receive);
         ClientPlayNetworking.registerGlobalReceiver(FLUID_SYNC, FluidSyncS2CPacket::receive);
         ClientPlayNetworking.registerGlobalReceiver(TELEPORT_PARTICLE, TeleportParticleS2CPacket::receive);
+        ClientPlayNetworking.registerGlobalReceiver(PIPPIN_HEAL_PARTICLE, PippinHealParticleS2CPacket::receive);
     }
     public static void registerC2SPackets(){
         ServerPlayNetworking.registerGlobalReceiver(ENERGY_STORAGE_BLOCK_SYNC, EnergyStorageBlockSyncC2SPacket::receive);

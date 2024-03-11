@@ -3,6 +3,11 @@ package net.chuck.chucksmod.entity.custom;
 import net.chuck.chucksmod.entity.ai.PippinAttackGoal;
 import net.chuck.chucksmod.entity.ai.PippinGoToHealGoal;
 import net.chuck.chucksmod.item.ModItems;
+import net.chuck.chucksmod.networking.ModMessages;
+import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
+import net.fabricmc.fabric.api.networking.v1.PlayerLookup;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
+import net.minecraft.block.Blocks;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
@@ -17,25 +22,29 @@ import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.network.PacketByteBuf;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.Arm;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Vec3i;
 import net.minecraft.util.math.random.Random;
-import net.minecraft.world.Difficulty;
-import net.minecraft.world.LocalDifficulty;
-import net.minecraft.world.ServerWorldAccess;
-import net.minecraft.world.World;
+import net.minecraft.world.*;
 import org.jetbrains.annotations.Nullable;
 
 public class PippinBoss extends HostileEntity {
     public static final int LANTERN_RANGE = 32;
     public static final int ATTACK_ANIMATION_LENGTH = 18;
     public static final int ATTACK_WINDUP = 5;
+    private static final int TICKS_BETWEEN_HEAL = 12;
     private static final TrackedData<Boolean> ATTACKING =
-            DataTracker.registerData(FarmabynEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
+            DataTracker.registerData(PippinBoss.class, TrackedDataHandlerRegistry.BOOLEAN);
     public final AnimationState idleAnimationState = new AnimationState();
     private int idleAnimationCooldown = 0;
     public final AnimationState attackAnimationState = new AnimationState();
     public int attackAnimationCooldown = 0;
+    private int healTickCounter = 5;
+    private BlockPos healingLanternPos = null;
     private final ServerBossBar bossBar = (ServerBossBar)new ServerBossBar(this.getDisplayName(), BossBar.Color.PURPLE,
             BossBar.Style.PROGRESS).setDarkenSky(false);
     public PippinBoss(EntityType<? extends HostileEntity> entityType, World world) {
@@ -56,17 +65,17 @@ public class PippinBoss extends HostileEntity {
     }
 
     @Override
-    protected void initEquipment(Random random, LocalDifficulty localDifficulty) {
+    public void initEquipment(Random random, LocalDifficulty localDifficulty) {
         super.initEquipment(random, localDifficulty);
         this.equipStack(EquipmentSlot.MAINHAND, new ItemStack(ModItems.TRIAFIUM_SWORD));
     }
     @Override
     protected void initGoals() {
         this.goalSelector.add(0, new SwimGoal(this));
-        this.goalSelector.add(1, new PippinGoToHealGoal(this, 1.0f));
+        this.goalSelector.add(1, new PippinGoToHealGoal(this, 0.7f));
         this.goalSelector.add(2, new PippinAttackGoal(this, 1.0f, true));
         this.goalSelector.add(3, new WanderAroundFarGoal(this, 0.5f, 1));
-        this.goalSelector.add(4, new LookAtEntityGoal(this, PlayerEntity.class, 64));
+        this.goalSelector.add(4, new LookAtEntityGoal(this, PlayerEntity.class, 40));
         this.goalSelector.add(5, new LookAroundGoal(this));
 
         this.targetSelector.add(1, new RevengeGoal(this, new Class[0]));
@@ -112,6 +121,21 @@ public class PippinBoss extends HostileEntity {
         setPositionTarget(getBlockPos(), -1);
         if(this.getWorld().isClient()){
             updateAnimations();
+        } else {
+            if(nearLantern()) {
+               if(healTickCounter <=0) {
+                   heal(1);
+                   healTickCounter = TICKS_BETWEEN_HEAL;
+                   if(healingLanternPos != null){
+                       PacketByteBuf data = PacketByteBufs.create();
+                       data.writeInt(getId());
+                       data.writeBlockPos(healingLanternPos);
+                       for(ServerPlayerEntity player : PlayerLookup.tracking(this)){
+                           ServerPlayNetworking.send(player, ModMessages.PIPPIN_HEAL_PARTICLE, data);
+                       }
+                   }
+               } else healTickCounter--;
+            }
         }
     }
     @Override
@@ -142,5 +166,25 @@ public class PippinBoss extends HostileEntity {
     protected void mobTick() {
         super.mobTick();
         this.bossBar.setPercent(this.getHealth() / this.getMaxHealth());
+    }
+    private boolean nearLantern(){
+        int range = 2;
+        BlockPos pos = getBlockPos();
+        BlockPos.Mutable mutable = new BlockPos.Mutable();
+        for(int x = -range; x < range; x++) {
+            for(int y = -range; y < range;y++) {
+                for(int z = -range;z < range; z++) {
+                    if(BlockPos.ORIGIN.isWithinDistance(new Vec3i(x, y, z), range)){
+                        mutable.set(pos, x, y, z);
+                        if(getWorld().getBlockState(mutable).isOf(Blocks.LANTERN)){
+                            healingLanternPos = mutable.mutableCopy();
+                            return true;
+                        }
+                    }
+                }
+            }
+        }
+        healingLanternPos = null;
+        return false;
     }
 }
