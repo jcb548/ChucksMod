@@ -1,27 +1,25 @@
 package net.chuck.chucksmod.datagen;
 
 import net.chuck.chucksmod.block.ModBlocks;
-import net.chuck.chucksmod.block.custom.LettuceCropBlock;
-import net.chuck.chucksmod.block.custom.PineappleCropBlock;
-import net.chuck.chucksmod.block.custom.TomatoCropBlock;
+import net.chuck.chucksmod.block.custom.crop.LettuceCropBlock;
+import net.chuck.chucksmod.block.custom.crop.NetherCrystalCropBlock;
+import net.chuck.chucksmod.block.custom.crop.PineappleCropBlock;
+import net.chuck.chucksmod.block.custom.crop.TomatoCropBlock;
 import net.chuck.chucksmod.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
-import net.minecraft.data.server.loottable.BlockLootTableGenerator;
+import net.minecraft.block.Block;
 import net.minecraft.enchantment.Enchantments;
-import net.minecraft.item.ItemConvertible;
+import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.loot.LootPool;
 import net.minecraft.loot.LootTable;
 import net.minecraft.loot.condition.BlockStatePropertyLootCondition;
+import net.minecraft.loot.condition.LootCondition;
 import net.minecraft.loot.condition.RandomChanceLootCondition;
 import net.minecraft.loot.entry.ItemEntry;
-import net.minecraft.loot.entry.LeafEntry;
-import net.minecraft.loot.entry.LootPoolEntry;
 import net.minecraft.loot.function.ApplyBonusLootFunction;
-import net.minecraft.loot.function.SetCountLootFunction;
 import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
-import net.minecraft.loot.provider.number.UniformLootNumberProvider;
 import net.minecraft.predicate.StatePredicate;
 
 /*
@@ -119,6 +117,12 @@ public class ModBlockLootTableGenerator extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.TITANIUM_PUMP);
         addDrop(ModBlocks.TITANIUM_STEAM_GENERATOR);
         addDrop(ModBlocks.TITANIUM_LAVA_GENERATOR);
+
+        BlockStatePropertyLootCondition.Builder netherCrystalCropBuilder = BlockStatePropertyLootCondition.builder
+                (ModBlocks.NETHER_CRYSTAL_CROP).properties(StatePredicate.Builder.create()
+                .exactMatch(NetherCrystalCropBlock.AGE, NetherCrystalCropBlock.MAX_AGE));
+        addDrop(ModBlocks.NETHER_CRYSTAL_CROP, magicCropDrops(ModBlocks.NETHER_CRYSTAL_CROP, ModItems.NETHER_CRYSTAL_SHARD,
+                ModItems.NETHER_CRYSTAL_SEEDS, netherCrystalCropBuilder, 0.025f, 1));
 
         addDrop(ModBlocks.SOUL_STONE);
         addDrop(ModBlocks.SOUL_STONE_STAIRS);
@@ -311,5 +315,15 @@ public class ModBlockLootTableGenerator extends FabricBlockLootTableProvider {
                 .exactMatch(PineappleCropBlock.AGE, PineappleCropBlock.MAX_AGE));
         addDrop(ModBlocks.PINEAPPLE_CROP, cropDrops(ModBlocks.PINEAPPLE_CROP, ModItems.PINEAPPLE, ModItems.PINEAPPLE_SEEDS,
                 pineappleCropBuilder));
+    }
+    public LootTable.Builder magicCropDrops(Block crop, Item product, Item seeds, LootCondition.Builder condition,
+                                                   float probability, int extra) {
+        return this.applyExplosionDecay(crop,
+                LootTable.builder().pool(LootPool.builder()
+                        .with((ItemEntry.builder(product).conditionally(condition))
+                                .alternatively(ItemEntry.builder(seeds))))
+                        .pool(LootPool.builder()
+                                .conditionally(condition)
+                                .with((ItemEntry.builder(seeds).apply(ApplyBonusLootFunction.binomialWithBonusCount(Enchantments.FORTUNE, probability, extra))))));
     }
 }

@@ -5,11 +5,14 @@ import com.terraformersmc.terraform.sign.block.TerraformSignBlock;
 import com.terraformersmc.terraform.sign.block.TerraformWallHangingSignBlock;
 import com.terraformersmc.terraform.sign.block.TerraformWallSignBlock;
 import net.chuck.chucksmod.ChucksMod;
-import net.chuck.chucksmod.block.custom.*;
 import net.chuck.chucksmod.block.custom.altar.FrankAltarBlock;
 import net.chuck.chucksmod.block.custom.altar.PippinAltarBlock;
 import net.chuck.chucksmod.block.custom.altar.SoulBlazeAltarBlock;
 import net.chuck.chucksmod.block.custom.copier.TitaniumCopierBlock;
+import net.chuck.chucksmod.block.custom.crop.LettuceCropBlock;
+import net.chuck.chucksmod.block.custom.crop.NetherCrystalCropBlock;
+import net.chuck.chucksmod.block.custom.crop.PineappleCropBlock;
+import net.chuck.chucksmod.block.custom.crop.TomatoCropBlock;
 import net.chuck.chucksmod.block.custom.crusher.CrusherBlock;
 import net.chuck.chucksmod.block.custom.crusher.IronPoweredCrusherBlock;
 import net.chuck.chucksmod.block.custom.crusher.TitaniumPoweredCrusherBlock;
@@ -227,6 +230,10 @@ public class ModBlocks {
             new TitaniumSteamGeneratorBlock(FabricBlockSettings.copy(ModBlocks.TITANIUM_BLOCK)));
     public static final Block TITANIUM_LAVA_GENERATOR = registerBlock("titanium_lava_generator",
             new TitaniumLavaGeneratorBlock(FabricBlockSettings.copy(ModBlocks.TITANIUM_BLOCK)));
+    // Nether
+    public static final Block NETHER_CRYSTAL_CROP =
+            Registry.register(Registries.BLOCK, new Identifier(ChucksMod.MOD_ID, "nether_crystal_crop"),
+                    new NetherCrystalCropBlock(FabricBlockSettings.copy(Blocks.WHEAT)));
     // Soul Blocks
     public static final Block SOUL_GRAVEL = registerBlock("soul_gravel",
             new FallingBlock(FabricBlockSettings.copy(Blocks.SAND)));

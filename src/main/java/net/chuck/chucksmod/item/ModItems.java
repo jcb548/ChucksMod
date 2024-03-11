@@ -45,6 +45,9 @@ public class ModItems {
     // Crushed Vanilla Resources
     public static final Item STONE_DUST = registerItem("stone_dust",
             new Item(new FabricItemSettings()));
+    public static final Item COAL_DUST = registerItem("coal_dust",
+            new Item(new FabricItemSettings()));
+
     public static final Item IRON_DUST = registerItem("iron_dust",
             new Item(new FabricItemSettings()));
     public static final Item COPPER_DUST = registerItem("copper_dust",
@@ -161,7 +164,17 @@ public class ModItems {
             new ArmorItem(ModArmorMaterials.TITANIUM, ArmorItem.Type.LEGGINGS, new FabricItemSettings()));
     public static final Item TITANIUM_BOOTS = registerItem("titanium_boots",
             new ArmorItem(ModArmorMaterials.TITANIUM, ArmorItem.Type.BOOTS, new FabricItemSettings()));
-
+    // Nether
+    public static final Item NETHER_QUARTZ_DUST = registerItem("nether_quartz_dust",
+            new Item(new FabricItemSettings()));
+    public static final Item NETHER_CRYSTAL = registerItem("nether_crystal",
+            new Item(new FabricItemSettings()));
+    public static final Item NETHER_CRYSTAL_SHARD = registerItem("nether_crystal_shard",
+            new Item(new FabricItemSettings()));
+    public static final Item NETHER_CRYSTAL_DUST = registerItem("nether_crystal_dust",
+            new Item(new FabricItemSettings()));
+    public static final Item NETHER_CRYSTAL_SEEDS = registerItem("nether_crystal_seeds",
+            new AliasedBlockItem(ModBlocks.NETHER_CRYSTAL_CROP, new FabricItemSettings()));
 
     // Wither items
     public static final Item WITHER_BONE = registerItem("wither_bone", new Item(new FabricItemSettings()));

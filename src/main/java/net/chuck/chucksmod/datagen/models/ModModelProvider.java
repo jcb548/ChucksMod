@@ -1,11 +1,11 @@
 package net.chuck.chucksmod.datagen.models;
 
-import com.ibm.icu.text.Normalizer2;
 import dev.architectury.platform.Mod;
 import net.chuck.chucksmod.block.ModBlocks;
-import net.chuck.chucksmod.block.custom.LettuceCropBlock;
-import net.chuck.chucksmod.block.custom.PineappleCropBlock;
-import net.chuck.chucksmod.block.custom.TomatoCropBlock;
+import net.chuck.chucksmod.block.custom.crop.LettuceCropBlock;
+import net.chuck.chucksmod.block.custom.crop.NetherCrystalCropBlock;
+import net.chuck.chucksmod.block.custom.crop.PineappleCropBlock;
+import net.chuck.chucksmod.block.custom.crop.TomatoCropBlock;
 import net.chuck.chucksmod.fluid.ModFluids;
 import net.chuck.chucksmod.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
@@ -13,8 +13,6 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.block.Blocks;
 import net.minecraft.data.client.*;
 import net.minecraft.item.ArmorItem;
-
-import static net.chuck.chucksmod.datagen.models.ModModelGenerator.registerVerticalColumn;
 
 /*
  *  Code inspired by or copied from
@@ -115,6 +113,9 @@ public class ModModelProvider extends FabricModelProvider {
         ModModelGenerator.registerPipe(blockStateModelGenerator, ModBlocks.TITANIUM_FLUID_PIPE);
         blockStateModelGenerator.registerCooker(ModBlocks.TITANIUM_STEAM_GENERATOR, TexturedModel.ORIENTABLE);
         blockStateModelGenerator.registerCooker(ModBlocks.TITANIUM_LAVA_GENERATOR, TexturedModel.ORIENTABLE);
+
+        blockStateModelGenerator.registerTintableCrossBlockStateWithStages(ModBlocks.NETHER_CRYSTAL_CROP, BlockStateModelGenerator.TintType.NOT_TINTED,
+                NetherCrystalCropBlock.AGE, 0, 1, 2, 3, 4, 5);
 
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SOUL_GRAVEL);
         BlockStateModelGenerator.BlockTexturePool soul_stone_pool =
@@ -442,6 +443,11 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.registerArmor((ArmorItem) ModItems.PRISMARINE_CHESTPLATE);
         itemModelGenerator.registerArmor((ArmorItem) ModItems.PRISMARINE_LEGGINGS);
         itemModelGenerator.registerArmor((ArmorItem) ModItems.PRISMARINE_BOOTS);
+
+        itemModelGenerator.register(ModItems.NETHER_QUARTZ_DUST, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.NETHER_CRYSTAL, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.NETHER_CRYSTAL_SHARD, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.NETHER_CRYSTAL_DUST, Models.HANDHELD);
 
         itemModelGenerator.register(ModItems.WITHER_BONE, Models.GENERATED);
         itemModelGenerator.register(ModItems.WITHER_SWORD, Models.HANDHELD);

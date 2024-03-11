@@ -59,6 +59,7 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
         generateTriafiaRecipes(exporter);
         generatePascariumRecipes(exporter);
         generateSandstoneRecipes(exporter);
+        generateMagicCropRecipes(exporter);
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.CRUSHER)
                 .pattern("CPC")
@@ -94,6 +95,11 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 ModBlocks.GLAUCONITE_WALL, ModBlocks.GLAUCONITE_BRICKS, ModBlocks.GLAUCONITE_BRICK_SLAB,
                 ModBlocks.GLAUCONITE_BRICK_STAIRS, ModBlocks.GLAUCONITE_BRICK_WALL, ModBlocks.POLISHED_GLAUCONITE,
                 ModBlocks.POLISHED_GLAUCONITE_SLAB, ModBlocks.POLISHED_GLAUCONITE_STAIRS, ModBlocks.POLISHED_GLAUCONITE_WALL);
+    }
+
+    private void generateMagicCropRecipes(RecipeExporter exporter) {
+        offerCompactingRecipe(exporter, RecipeCategory.MISC, ModItems.NETHER_CRYSTAL,
+                ModItems.NETHER_CRYSTAL_SHARD);
     }
 
     private void generateSandstoneRecipes(RecipeExporter exporter) {

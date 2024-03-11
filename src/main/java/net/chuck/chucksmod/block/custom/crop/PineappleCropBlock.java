@@ -1,4 +1,4 @@
-package net.chuck.chucksmod.block.custom;
+package net.chuck.chucksmod.block.custom.crop;
 
 import net.chuck.chucksmod.item.ModItems;
 import net.minecraft.block.Block;

@@ -1,0 +1,11 @@
+{
+  "type": "chucksmod:crusher_recipe",
+  "ingredients": [
+    {
+      "item": "chucksmod:nether_crystal"
+    }
+  ],
+  "output": {
+    "item": "chucksmod:nether_crystal_dust"
+  }
+}

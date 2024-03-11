@@ -197,6 +197,12 @@ public class ModItemGroups {
                         entries.add(ModBlocks.TITANIUM_PUMP);
                         entries.add(ModBlocks.TITANIUM_FLUID_PIPE);
 
+                        entries.add(ModItems.NETHER_QUARTZ_DUST);
+                        entries.add(ModItems.NETHER_CRYSTAL);
+                        entries.add(ModItems.NETHER_CRYSTAL_SHARD);
+                        entries.add(ModItems.NETHER_CRYSTAL_DUST);
+                        entries.add(ModItems.NETHER_CRYSTAL_SEEDS);
+
                         entries.add(ModItems.SOUL_DUST);
                         entries.add(ModBlocks.SOUL_GRAVEL);
                         entries.add(ModBlocks.SOUL_STONE);
