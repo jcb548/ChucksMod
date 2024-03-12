@@ -41,6 +41,22 @@ public class ModModelProvider extends FabricModelProvider {
                 AbstractMagicalCropBlock.AGE, 0, 1, 2, 3, 4, 5);
         blockStateModelGenerator.registerTintableCrossBlockStateWithStages(ModBlocks.IRON_CROP, BlockStateModelGenerator.TintType.NOT_TINTED,
                 AbstractMagicalCropBlock.AGE, 0, 1, 2, 3, 4, 5);
+        blockStateModelGenerator.registerTintableCrossBlockStateWithStages(ModBlocks.COPPER_CROP, BlockStateModelGenerator.TintType.NOT_TINTED,
+                AbstractMagicalCropBlock.AGE, 0, 1, 2, 3, 4, 5);
+        blockStateModelGenerator.registerTintableCrossBlockStateWithStages(ModBlocks.GOLD_CROP, BlockStateModelGenerator.TintType.NOT_TINTED,
+                AbstractMagicalCropBlock.AGE, 0, 1, 2, 3, 4, 5);
+        blockStateModelGenerator.registerTintableCrossBlockStateWithStages(ModBlocks.TIN_CROP, BlockStateModelGenerator.TintType.NOT_TINTED,
+                AbstractMagicalCropBlock.AGE, 0, 1, 2, 3, 4, 5);
+        blockStateModelGenerator.registerTintableCrossBlockStateWithStages(ModBlocks.LAPIS_CROP, BlockStateModelGenerator.TintType.NOT_TINTED,
+                AbstractMagicalCropBlock.AGE, 0, 1, 2, 3, 4, 5);
+        blockStateModelGenerator.registerTintableCrossBlockStateWithStages(ModBlocks.REDSTONE_CROP, BlockStateModelGenerator.TintType.NOT_TINTED,
+                AbstractMagicalCropBlock.AGE, 0, 1, 2, 3, 4, 5);
+        blockStateModelGenerator.registerTintableCrossBlockStateWithStages(ModBlocks.DIAMOND_CROP, BlockStateModelGenerator.TintType.NOT_TINTED,
+                AbstractMagicalCropBlock.AGE, 0, 1, 2, 3, 4, 5);
+        blockStateModelGenerator.registerTintableCrossBlockStateWithStages(ModBlocks.TITANIUM_CROP, BlockStateModelGenerator.TintType.NOT_TINTED,
+                AbstractMagicalCropBlock.AGE, 0, 1, 2, 3, 4, 5);
+        blockStateModelGenerator.registerTintableCrossBlockStateWithStages(ModBlocks.EMERALD_CROP, BlockStateModelGenerator.TintType.NOT_TINTED,
+                AbstractMagicalCropBlock.AGE, 0, 1, 2, 3, 4, 5);
 
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.GOLD_DUST_BLOCK);
         ModModelGenerator.registerBars(blockStateModelGenerator, ModBlocks.GOLD_BARS);
@@ -50,6 +66,8 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.PRISMARINE_IRON_DUST_BLOCK);
         ModModelGenerator.registerBars(blockStateModelGenerator, ModBlocks.PRISMARINE_BARS);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.OBSIDIAN_SAND);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DIAMOND_DUST_BLOCK);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.EMERALD_DUST_BLOCK);
 
         blockStateModelGenerator.registerGlassPane(ModBlocks.HARDENED_GLASS, ModBlocks.HARDENED_GLASS_PANE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.HARDENED_TINTED_GLASS);
@@ -348,18 +366,21 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModBlocks.IRON_FLUID_PIPE.asItem(), Models.GENERATED);
 
         itemModelGenerator.register(ModItems.COPPER_DUST, Models.GENERATED);
+        itemModelGenerator.register(ModItems.COPPER_ESSENCE, Models.GENERATED);
         itemModelGenerator.register(ModItems.COPPER_GEAR, Models.GENERATED);
         itemModelGenerator.register(ModItems.COPPER_POWER_CIRCUIT, Models.GENERATED);
         itemModelGenerator.register(ModItems.COPPER_COIL, Models.GENERATED);
         itemModelGenerator.register(ModBlocks.COPPER_WIRE.asItem(), Models.GENERATED);
 
         itemModelGenerator.register(ModItems.GOLD_DUST, Models.GENERATED);
+        itemModelGenerator.register(ModItems.GOLD_ESSENCE, Models.GENERATED);
         itemModelGenerator.register(ModItems.GOLD_GEAR, Models.GENERATED);
         itemModelGenerator.register(ModItems.GOLD_POWER_CIRCUIT, Models.GENERATED);
         itemModelGenerator.register(ModItems.GOLD_COIL, Models.GENERATED);
         itemModelGenerator.register(ModBlocks.GOLD_WIRE.asItem(), Models.GENERATED);
 
         itemModelGenerator.register(ModItems.TIN_DUST, Models.GENERATED);
+        itemModelGenerator.register(ModItems.TIN_ESSENCE, Models.GENERATED);
         itemModelGenerator.register(ModItems.RAW_TIN, Models.GENERATED);
         itemModelGenerator.register(ModItems.TIN_INGOT, Models.GENERATED);
         itemModelGenerator.register(ModItems.TIN_GEAR, Models.GENERATED);
@@ -390,6 +411,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.registerArmor((ArmorItem) ModItems.TITANIUM_LEGGINGS);
         itemModelGenerator.registerArmor((ArmorItem) ModItems.TITANIUM_BOOTS);
         itemModelGenerator.register(ModItems.TITANIUM_DUST, Models.GENERATED);
+        itemModelGenerator.register(ModItems.TITANIUM_ESSENCE, Models.GENERATED);
         itemModelGenerator.register(ModItems.TITANIUM_GEAR, Models.GENERATED);
         itemModelGenerator.register(ModItems.TITANIUM_ENERGY_CORE, Models.GENERATED);
         itemModelGenerator.register(ModItems.TITANIUM_AXLE, Models.GENERATED);
@@ -464,7 +486,17 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.WITHER_SHOVEL, Models.HANDHELD);
         itemModelGenerator.register(ModItems.WITHER_HOE, Models.HANDHELD);
 
+        itemModelGenerator.register(ModItems.LAPIS_ESSENCE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.REDSTONE_ESSENCE, Models.GENERATED);
+
+        itemModelGenerator.register(ModItems.DIAMOND_DUST, Models.GENERATED);
+        itemModelGenerator.register(ModItems.DIAMOND_ESSENCE, Models.GENERATED);
+
+        itemModelGenerator.register(ModItems.EMERALD_DUST, Models.GENERATED);
+        itemModelGenerator.register(ModItems.EMERALD_ESSENCE, Models.GENERATED);
+
         itemModelGenerator.register(ModItems.OBSIDIAN_DUST, Models.GENERATED);
+
         itemModelGenerator.register(ModItems.PORTABLE_ENDERCHEST, Models.GENERATED);
         itemModelGenerator.register(ModItems.STRING_STRAP, Models.GENERATED);
         itemModelGenerator.register(ModItems.LEATHER_STRAP, Models.GENERATED);

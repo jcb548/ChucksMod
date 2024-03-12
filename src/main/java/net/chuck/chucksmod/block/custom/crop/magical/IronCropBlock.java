@@ -20,6 +20,6 @@ public class IronCropBlock extends AbstractMagicalCropBlock {
     @Override
     protected boolean canPlantOnTop(BlockState floor, BlockView world, BlockPos pos) {
         return floor.isIn(BlockTags.IRON_ORES) || floor.isOf(Blocks.IRON_BLOCK) ||
-                floor.isOf(ModBlocks.IRON_DUST_BLOCK);
+                floor.isOf(ModBlocks.IRON_DUST_BLOCK) || floor.isOf(Blocks.RAW_IRON_BLOCK);
     }
 }

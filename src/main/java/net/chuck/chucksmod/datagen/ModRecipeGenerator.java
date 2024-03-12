@@ -104,6 +104,22 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
         offerEssenceToMaterialRecipe(exporter, Items.COAL, ModItems.COAL_ESSENCE, 4);
         offerMagicalSeedsRecipe(exporter, ModItems.IRON_SEEDS, ModItems.IRON_DUST, ModItems.NETHER_CRYSTAL_DUST);
         offerEssenceToMaterialRecipe(exporter, Items.IRON_INGOT, ModItems.IRON_ESSENCE, 2);
+        offerMagicalSeedsRecipe(exporter, ModItems.COPPER_SEEDS, ModItems.COPPER_DUST, ModItems.NETHER_CRYSTAL_DUST);
+        offerEssenceToMaterialRecipe(exporter, Items.COPPER_INGOT, ModItems.COPPER_ESSENCE, 4);
+        offerMagicalSeedsRecipe(exporter, ModItems.GOLD_SEEDS, ModItems.GOLD_DUST, ModItems.NETHER_CRYSTAL_DUST);
+        offerEssenceToMaterialRecipe(exporter, Items.GOLD_INGOT, ModItems.GOLD_ESSENCE, 1);
+        offerMagicalSeedsRecipe(exporter, ModItems.TIN_SEEDS, ModItems.TIN_DUST, ModItems.NETHER_CRYSTAL_DUST);
+        offerEssenceToMaterialRecipe(exporter, ModItems.TIN_INGOT, ModItems.TIN_ESSENCE, 3);
+        offerMagicalSeedsRecipe(exporter, ModItems.LAPIS_SEEDS, Items.LAPIS_LAZULI, ModItems.NETHER_CRYSTAL_DUST);
+        offerEssenceToMaterialRecipe(exporter, Items.LAPIS_LAZULI, ModItems.LAPIS_ESSENCE, 4);
+        offerMagicalSeedsRecipe(exporter, ModItems.REDSTONE_SEEDS, Items.REDSTONE, ModItems.NETHER_CRYSTAL_DUST);
+        offerEssenceToMaterialRecipe(exporter, Items.REDSTONE, ModItems.REDSTONE_ESSENCE, 4);
+        offerMagicalSeedsRecipe(exporter, ModItems.DIAMOND_SEEDS, ModItems.DIAMOND_DUST, ModItems.NETHER_CRYSTAL_DUST);
+        offerEssenceToMaterialRecipe(exporter, Items.DIAMOND, ModItems.DIAMOND_ESSENCE, 1);
+        offerMagicalSeedsRecipe(exporter, ModItems.TITANIUM_SEEDS, ModItems.TITANIUM_DUST, ModItems.NETHER_CRYSTAL_DUST);
+        offerEssenceToMaterialRecipe(exporter, ModItems.TITANIUM_INGOT, ModItems.TITANIUM_ESSENCE, 1);
+        offerMagicalSeedsRecipe(exporter, ModItems.EMERALD_SEEDS, ModItems.EMERALD_DUST, ModItems.NETHER_CRYSTAL_DUST);
+        offerEssenceToMaterialRecipe(exporter, Items.EMERALD, ModItems.EMERALD_ESSENCE, 2);
     }
 
     private void generateSandstoneRecipes(RecipeExporter exporter) {
@@ -533,6 +549,10 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
         offerReversibleCompactingRecipes(exporter, RecipeCategory.DECORATIONS, ModItems.GOLD_DUST,
                 RecipeCategory.DECORATIONS, ModBlocks.GOLD_DUST_BLOCK);
         offerStainedGlassPaneRecipe(exporter, ModBlocks.GOLD_BARS, Items.GOLD_INGOT);
+        offerReversibleCompactingRecipes(exporter, RecipeCategory.DECORATIONS, ModItems.DIAMOND_DUST,
+                RecipeCategory.DECORATIONS, ModBlocks.DIAMOND_DUST_BLOCK);
+        offerReversibleCompactingRecipes(exporter, RecipeCategory.DECORATIONS, ModItems.EMERALD_DUST,
+                RecipeCategory.DECORATIONS, ModBlocks.EMERALD_DUST_BLOCK);
     }
 
     private void generateCopperRecipes(RecipeExporter exporter) {
@@ -1312,12 +1332,13 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
     }
     public static void offerEssenceToMaterialRecipe(RecipeExporter exporter, Item material, Item essence, int count){
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, material, count)
+                .group("essence")
                 .pattern(" EE")
                 .pattern("EEE")
                 .pattern("EE ")
                 .input('E', essence)
                 .criterion(hasItem(essence), conditionsFromItem(essence))
-                .offerTo(exporter);
+                .offerTo(exporter, RecipeProvider.convertBetween(material, essence));
     }
     public static void offerMagicalSeedsRecipe(RecipeExporter exporter, Item seeds, Item materialDust,
                                                Item crystalDust){

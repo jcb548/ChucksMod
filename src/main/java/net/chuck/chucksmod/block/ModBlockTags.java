@@ -35,6 +35,7 @@ public class ModBlockTags {
     public static final TagKey<Block> GENERATORS = ModBlockTags.of("generators");
     public static final TagKey<Block> MACHINE_BASES = ModBlockTags.of("machine_bases");
     public static final TagKey<Block> TRIAFIA_BASE_STONE = ModBlockTags.of("triafia_base_stone");
+    public static final TagKey<Block> COPPER_PLANTABLE = ModBlockTags.of("copper_plantable");
 
     private static TagKey<Block> of(String id) {
         return TagKey.of(RegistryKeys.BLOCK, new Identifier(ChucksMod.MOD_ID, id));

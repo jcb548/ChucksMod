@@ -495,6 +495,9 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         getOrCreateTagBuilder(BlockTags.DIAMOND_ORES)
                 .add(ModBlocks.SERPENTINITE_DIAMOND_ORE);
 
+        getOrCreateTagBuilder(BlockTags.EMERALD_ORES)
+                .add(ModBlocks.SERPENTINITE_EMERALD_ORE);
+
         getOrCreateTagBuilder(BlockTags.LAPIS_ORES)
                 .add(ModBlocks.SERPENTINITE_LAPIS_ORE);
 
@@ -503,5 +506,23 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
         getOrCreateTagBuilder(BlockTags.REDSTONE_ORES)
                 .add(ModBlocks.SERPENTINITE_REDSTONE_ORE);
+
+        getOrCreateTagBuilder(ModBlockTags.COPPER_PLANTABLE)
+                .add(Blocks.COPPER_BLOCK)
+                .add(Blocks.CUT_COPPER)
+                .add(Blocks.EXPOSED_COPPER)
+                .add(Blocks.EXPOSED_CUT_COPPER)
+                .add(Blocks.OXIDIZED_COPPER)
+                .add(Blocks.OXIDIZED_CUT_COPPER)
+                .add(Blocks.WEATHERED_COPPER)
+                .add(Blocks.WEATHERED_CUT_COPPER)
+                .add(Blocks.WAXED_COPPER_BLOCK)
+                .add(Blocks.WAXED_CUT_COPPER)
+                .add(Blocks.WAXED_EXPOSED_COPPER)
+                .add(Blocks.WAXED_EXPOSED_CUT_COPPER)
+                .add(Blocks.WAXED_OXIDIZED_COPPER)
+                .add(Blocks.WAXED_OXIDIZED_CUT_COPPER)
+                .add(Blocks.WAXED_WEATHERED_COPPER)
+                .add(Blocks.WAXED_WEATHERED_CUT_COPPER);
     }
 }

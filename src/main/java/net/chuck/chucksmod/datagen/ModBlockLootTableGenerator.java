@@ -54,11 +54,60 @@ public class ModBlockLootTableGenerator extends FabricBlockLootTableProvider {
                 .exactMatch(AbstractMagicalCropBlock.AGE, AbstractMagicalCropBlock.MAX_AGE));
         addDrop(ModBlocks.COAL_CROP, magicCropDrops(ModBlocks.COAL_CROP, ModItems.COAL_ESSENCE,
                 ModItems.COAL_SEEDS, coalCropBuilder, 0.1f, 1));
+        
         BlockStatePropertyLootCondition.Builder ironCropBuilder = BlockStatePropertyLootCondition.builder
                 (ModBlocks.IRON_CROP).properties(StatePredicate.Builder.create()
                 .exactMatch(AbstractMagicalCropBlock.AGE, AbstractMagicalCropBlock.MAX_AGE));
         addDrop(ModBlocks.IRON_CROP, magicCropDrops(ModBlocks.IRON_CROP, ModItems.IRON_ESSENCE,
                 ModItems.IRON_SEEDS, ironCropBuilder, 0.075f, 1));
+        
+        BlockStatePropertyLootCondition.Builder copperCropBuilder = BlockStatePropertyLootCondition.builder
+                (ModBlocks.COPPER_CROP).properties(StatePredicate.Builder.create()
+                .exactMatch(AbstractMagicalCropBlock.AGE, AbstractMagicalCropBlock.MAX_AGE));
+        addDrop(ModBlocks.COPPER_CROP, magicCropDrops(ModBlocks.COPPER_CROP, ModItems.COPPER_ESSENCE,
+                ModItems.COPPER_SEEDS, copperCropBuilder, 0.1f, 1));
+        
+        BlockStatePropertyLootCondition.Builder goldCropBuilder = BlockStatePropertyLootCondition.builder
+                (ModBlocks.GOLD_CROP).properties(StatePredicate.Builder.create()
+                .exactMatch(AbstractMagicalCropBlock.AGE, AbstractMagicalCropBlock.MAX_AGE));
+        addDrop(ModBlocks.GOLD_CROP, magicCropDrops(ModBlocks.GOLD_CROP, ModItems.GOLD_ESSENCE,
+                ModItems.GOLD_SEEDS, goldCropBuilder, 0.05f, 1));
+        
+        BlockStatePropertyLootCondition.Builder tinCropBuilder = BlockStatePropertyLootCondition.builder
+                (ModBlocks.TIN_CROP).properties(StatePredicate.Builder.create()
+                .exactMatch(AbstractMagicalCropBlock.AGE, AbstractMagicalCropBlock.MAX_AGE));
+        addDrop(ModBlocks.TIN_CROP, magicCropDrops(ModBlocks.TIN_CROP, ModItems.TIN_ESSENCE,
+                ModItems.TIN_SEEDS, tinCropBuilder, 0.075f, 1));
+        
+        BlockStatePropertyLootCondition.Builder lapisCropBuilder = BlockStatePropertyLootCondition.builder
+                (ModBlocks.LAPIS_CROP).properties(StatePredicate.Builder.create()
+                .exactMatch(AbstractMagicalCropBlock.AGE, AbstractMagicalCropBlock.MAX_AGE));
+        addDrop(ModBlocks.LAPIS_CROP, magicCropDrops(ModBlocks.LAPIS_CROP, ModItems.LAPIS_ESSENCE,
+                ModItems.LAPIS_SEEDS, lapisCropBuilder, 0.1f, 1));
+        
+        BlockStatePropertyLootCondition.Builder redstoneCropBuilder = BlockStatePropertyLootCondition.builder
+                (ModBlocks.REDSTONE_CROP).properties(StatePredicate.Builder.create()
+                .exactMatch(AbstractMagicalCropBlock.AGE, AbstractMagicalCropBlock.MAX_AGE));
+        addDrop(ModBlocks.REDSTONE_CROP, magicCropDrops(ModBlocks.REDSTONE_CROP, ModItems.REDSTONE_ESSENCE,
+                ModItems.REDSTONE_SEEDS, redstoneCropBuilder, 0.1f, 1));
+        
+        BlockStatePropertyLootCondition.Builder diamondCropBuilder = BlockStatePropertyLootCondition.builder
+                (ModBlocks.DIAMOND_CROP).properties(StatePredicate.Builder.create()
+                .exactMatch(AbstractMagicalCropBlock.AGE, AbstractMagicalCropBlock.MAX_AGE));
+        addDrop(ModBlocks.DIAMOND_CROP, magicCropDrops(ModBlocks.DIAMOND_CROP, ModItems.DIAMOND_ESSENCE,
+                ModItems.DIAMOND_SEEDS, diamondCropBuilder, 0.025f, 1));
+        
+        BlockStatePropertyLootCondition.Builder titaniumCropBuilder = BlockStatePropertyLootCondition.builder
+                (ModBlocks.TITANIUM_CROP).properties(StatePredicate.Builder.create()
+                .exactMatch(AbstractMagicalCropBlock.AGE, AbstractMagicalCropBlock.MAX_AGE));
+        addDrop(ModBlocks.TITANIUM_CROP, magicCropDrops(ModBlocks.TITANIUM_CROP, ModItems.TITANIUM_ESSENCE,
+                ModItems.TITANIUM_SEEDS, titaniumCropBuilder, 0.025f, 1));
+        
+        BlockStatePropertyLootCondition.Builder emeraldCropBuilder = BlockStatePropertyLootCondition.builder
+                (ModBlocks.EMERALD_CROP).properties(StatePredicate.Builder.create()
+                .exactMatch(AbstractMagicalCropBlock.AGE, AbstractMagicalCropBlock.MAX_AGE));
+        addDrop(ModBlocks.EMERALD_CROP, magicCropDrops(ModBlocks.EMERALD_CROP, ModItems.EMERALD_ESSENCE,
+                ModItems.EMERALD_SEEDS, emeraldCropBuilder, 0.05f, 1));
 
         addDrop(ModBlocks.HARDENED_GLASS);
         addDrop(ModBlocks.HARDENED_GLASS_PANE);

@@ -1,0 +1,11 @@
+{
+  "type": "chucksmod:crusher_recipe",
+  "ingredients": [
+    {
+      "item": "minecraft:emerald"
+    }
+  ],
+  "output": {
+    "item": "chucksmod:emerald_dust"
+  }
+}

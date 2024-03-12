@@ -13,5 +13,6 @@ public class ModWorldGeneration {
         ModOreGeneration.generateOres();
         ModTreeGeneration.generateTrees();
         ModEntityGeneration.addSpawns();
+        ModOtherFeatureGeneration.generate();
     }
 }

@@ -10,9 +10,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.math.intprovider.ConstantIntProvider;
 import net.minecraft.world.gen.YOffset;
 import net.minecraft.world.gen.feature.*;
-import net.minecraft.world.gen.placementmodifier.HeightRangePlacementModifier;
-import net.minecraft.world.gen.placementmodifier.PlacementModifier;
-import net.minecraft.world.gen.placementmodifier.RandomOffsetPlacementModifier;
+import net.minecraft.world.gen.placementmodifier.*;
 
 import java.util.List;
 /*
@@ -40,6 +38,8 @@ public class ModPlacedFeatures {
     public static final RegistryKey<PlacedFeature> NEW_QUARTZ_PLACED_KEY = registerKey("new_quartz_ore_placed");
     public static final RegistryKey<PlacedFeature> NEW_ANCIENT_DEBRIS_PLACED_KEY =
             registerKey("new_ancient_debris_placed");
+    public static final RegistryKey<PlacedFeature> NETHER_CRYSTAL_CROP_PLACED_KEY =
+            registerKey("nether_crystal_crop");
     // End
     public static final RegistryKey<PlacedFeature> END_TRIAFIUM_ORE_PLACED_KEY =
             registerKey("end_triafium_ore_placed");
@@ -168,6 +168,9 @@ public class ModPlacedFeatures {
         register(context, NEW_ANCIENT_DEBRIS_PLACED_KEY, configuredFeatureRegistryEntryLookup
                         .getOrThrow(ModConfiguredFeatures.NEW_ANCIENT_DEBRIS_KEY), ModOrePlacement.modifiersWithCount(30,
                         HeightRangePlacementModifier.uniform(YOffset.fixed( 0), YOffset.fixed(128))));
+        register(context, NETHER_CRYSTAL_CROP_PLACED_KEY, configuredFeatureRegistryEntryLookup
+                        .getOrThrow(ModConfiguredFeatures.NETHER_CRYSTAL_PLANT_KEY),
+                ModOrePlacement.modifiersWithRarity(5, CountMultilayerPlacementModifier.of(1)));
         // Register End ores
         register(context, END_TRIAFIUM_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup
                 .getOrThrow(ModConfiguredFeatures.END_TRIAFIUM_ORE_KEY), ModOrePlacement.modifiersWithCount(32,

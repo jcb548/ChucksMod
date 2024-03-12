@@ -10,9 +10,7 @@ import net.chuck.chucksmod.block.custom.altar.PippinAltarBlock;
 import net.chuck.chucksmod.block.custom.altar.SoulBlazeAltarBlock;
 import net.chuck.chucksmod.block.custom.copier.TitaniumCopierBlock;
 import net.chuck.chucksmod.block.custom.crop.*;
-import net.chuck.chucksmod.block.custom.crop.magical.CoalCropBlock;
-import net.chuck.chucksmod.block.custom.crop.magical.IronCropBlock;
-import net.chuck.chucksmod.block.custom.crop.magical.NetherCrystalCropBlock;
+import net.chuck.chucksmod.block.custom.crop.magical.*;
 import net.chuck.chucksmod.block.custom.crusher.CrusherBlock;
 import net.chuck.chucksmod.block.custom.crusher.IronPoweredCrusherBlock;
 import net.chuck.chucksmod.block.custom.crusher.TitaniumPoweredCrusherBlock;
@@ -75,16 +73,25 @@ public class ModBlocks {
             new Block(FabricBlockSettings.copy(Blocks.IRON_BLOCK).nonOpaque().strength(5.0f, 6.0f)));
     public static final Block COPPER_DUST_BLOCK = registerBlock("copper_dust_block",
             new FallingBlock(FabricBlockSettings.copy(Blocks.SAND).mapColor(MapColor.ORANGE)));
+    public static final Block COPPER_CROP =
+            Registry.register(Registries.BLOCK, new Identifier(ChucksMod.MOD_ID, "copper_crop"),
+                    new CopperCropBlock(FabricBlockSettings.copy(Blocks.WHEAT).mapColor(MapColor.ORANGE)));
     public static final Block OBSIDIAN_SAND = registerBlock("obsidian_sand",
-            new FallingBlock(FabricBlockSettings.copy(Blocks.SAND).resistance(1200.0f).requiresTool().mapColor(MapColor.PALE_PURPLE)));
+            new FallingBlock(FabricBlockSettings.copy(Blocks.SAND).resistance(1200.0f).requiresTool()
+                    .mapColor(MapColor.PALE_PURPLE)));
     public static final Block COPPER_BARS = registerBlock("copper_bars",
-            new PaneBlock(FabricBlockSettings.copy(Blocks.IRON_BARS).strength(3.0f, 6.0f).mapColor(MapColor.ORANGE)));
+            new PaneBlock(FabricBlockSettings.copy(Blocks.IRON_BARS).strength(3.0f, 6.0f)
+                    .mapColor(MapColor.ORANGE)));
     public static final Block COPPER_WIRE = registerBlock("copper_wire",
             new CopperWireBlock(FabricBlockSettings.copy(Blocks.COPPER_BLOCK).mapColor(MapColor.ORANGE)));
     public static final Block GOLD_DUST_BLOCK = registerBlock("gold_dust_block",
             new FallingBlock(FabricBlockSettings.copy(Blocks.SAND).mapColor(MapColor.GOLD)));
     public static final Block GOLD_BARS = registerBlock("gold_bars",
-            new PaneBlock(FabricBlockSettings.copy(Blocks.IRON_BARS).strength(3.0f, 6.0f).mapColor(MapColor.GOLD)));
+            new PaneBlock(FabricBlockSettings.copy(Blocks.IRON_BARS).strength(3.0f, 6.0f)
+                    .mapColor(MapColor.GOLD)));
+    public static final Block GOLD_CROP =
+            Registry.register(Registries.BLOCK, new Identifier(ChucksMod.MOD_ID, "gold_crop"),
+                    new GoldCropBlock(FabricBlockSettings.copy(Blocks.WHEAT).mapColor(MapColor.GOLD)));
     public static final Block GOLD_WIRE = registerBlock("gold_wire",
             new GoldWireBlock(FabricBlockSettings.copy(Blocks.GOLD_BLOCK).mapColor(MapColor.GOLD)));
     public static final Block PRISMARINE_DUST_BLOCK = registerBlock("prismarine_dust_block",
@@ -99,6 +106,9 @@ public class ModBlocks {
             new Block(FabricBlockSettings.copy(ModBlocks.TIN_BLOCK).mapColor(MapColor.LIGHT_BLUE_GRAY)));
     public static final Block TIN_DUST_BLOCK = registerBlock("tin_dust_block",
             new FallingBlock(FabricBlockSettings.copy(Blocks.SAND).mapColor(MapColor.LIGHT_BLUE_GRAY)));
+    public static final Block TIN_CROP =
+            Registry.register(Registries.BLOCK, new Identifier(ChucksMod.MOD_ID, "tin_crop"),
+                    new TinCropBlock(FabricBlockSettings.copy(Blocks.WHEAT).mapColor(MapColor.LIGHT_BLUE_GRAY)));
     public static final Block TIN_ORE = registerBlock("tin_ore",
             new Block(FabricBlockSettings.copy(Blocks.IRON_ORE)));
     public static final Block DEEPSLATE_TIN_ORE = registerBlock("deepslate_tin_ore",
@@ -112,6 +122,23 @@ public class ModBlocks {
             new FallingBlock(FabricBlockSettings.copy(Blocks.SAND).mapColor(MapColor.BROWN)));
     public static final Block BRONZE_BARS = registerBlock("bronze_bars",
             new PaneBlock(FabricBlockSettings.copy(Blocks.IRON_BARS).mapColor(MapColor.BROWN)));
+
+    public static final Block LAPIS_CROP =
+            Registry.register(Registries.BLOCK, new Identifier(ChucksMod.MOD_ID, "lapis_crop"),
+                    new LapisCropBlock(FabricBlockSettings.copy(Blocks.WHEAT).mapColor(MapColor.LAPIS_BLUE)));
+    public static final Block REDSTONE_CROP =
+            Registry.register(Registries.BLOCK, new Identifier(ChucksMod.MOD_ID, "redstone_crop"),
+                    new RedstoneCropBlock(FabricBlockSettings.copy(Blocks.WHEAT).mapColor(MapColor.RED)));
+    public static final Block DIAMOND_DUST_BLOCK = registerBlock("diamond_dust_block",
+            new FallingBlock(FabricBlockSettings.copy(Blocks.SAND).mapColor(MapColor.DIAMOND_BLUE)));
+    public static final Block DIAMOND_CROP =
+            Registry.register(Registries.BLOCK, new Identifier(ChucksMod.MOD_ID, "diamond_crop"),
+                    new DiamondCropBlock(FabricBlockSettings.copy(Blocks.WHEAT).mapColor(MapColor.DIAMOND_BLUE)));
+    public static final Block EMERALD_DUST_BLOCK = registerBlock("emerald_dust_block",
+            new FallingBlock(FabricBlockSettings.copy(Blocks.SAND).mapColor(MapColor.EMERALD_GREEN)));
+    public static final Block EMERALD_CROP =
+            Registry.register(Registries.BLOCK, new Identifier(ChucksMod.MOD_ID, "emerald_crop"),
+                    new EmeraldCropBlock(FabricBlockSettings.copy(Blocks.WHEAT).mapColor(MapColor.EMERALD_GREEN)));
 
     // Eucalyptus
     public static final Block EUCALYPTUS_LOG = registerBlock("eucalyptus_log",
@@ -238,10 +265,14 @@ public class ModBlocks {
             new TitaniumSteamGeneratorBlock(FabricBlockSettings.copy(ModBlocks.TITANIUM_BLOCK)));
     public static final Block TITANIUM_LAVA_GENERATOR = registerBlock("titanium_lava_generator",
             new TitaniumLavaGeneratorBlock(FabricBlockSettings.copy(ModBlocks.TITANIUM_BLOCK)));
+    public static final Block TITANIUM_CROP =
+            Registry.register(Registries.BLOCK, new Identifier(ChucksMod.MOD_ID, "titanium_crop"),
+                    new TitaniumCropBlock(FabricBlockSettings.copy(Blocks.WHEAT).mapColor(MapColor.PALE_YELLOW)));
     // Nether
     public static final Block NETHER_CRYSTAL_CROP =
             Registry.register(Registries.BLOCK, new Identifier(ChucksMod.MOD_ID, "nether_crystal_crop"),
-                    new NetherCrystalCropBlock(FabricBlockSettings.copy(Blocks.WHEAT).mapColor(MapColor.ORANGE)));
+                    new NetherCrystalCropBlock(FabricBlockSettings.copy(Blocks.WHEAT).mapColor(MapColor.ORANGE)
+                            .luminance(state -> 12)));
     // Soul Blocks
     public static final Block SOUL_GRAVEL = registerBlock("soul_gravel",
             new FallingBlock(FabricBlockSettings.copy(Blocks.SAND).mapColor(MapColor.BROWN)));

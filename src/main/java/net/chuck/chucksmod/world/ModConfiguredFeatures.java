@@ -2,8 +2,10 @@ package net.chuck.chucksmod.world;
 
 import net.chuck.chucksmod.ChucksMod;
 import net.chuck.chucksmod.block.ModBlocks;
+import net.chuck.chucksmod.block.custom.crop.magical.AbstractMagicalCropBlock;
 import net.chuck.chucksmod.world.tree.custom.TriafiaFoliagePlacer;
 import net.chuck.chucksmod.world.tree.custom.TriafiaTrunkPlacer;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.registry.Registerable;
@@ -15,12 +17,15 @@ import net.minecraft.structure.rule.BlockMatchRuleTest;
 import net.minecraft.structure.rule.RuleTest;
 import net.minecraft.structure.rule.TagMatchRuleTest;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.collection.DataPool;
 import net.minecraft.util.math.intprovider.ConstantIntProvider;
+import net.minecraft.world.gen.blockpredicate.BlockPredicate;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.feature.size.TwoLayersFeatureSize;
 import net.minecraft.world.gen.foliage.BlobFoliagePlacer;
 import net.minecraft.world.gen.foliage.JungleFoliagePlacer;
 import net.minecraft.world.gen.stateprovider.BlockStateProvider;
+import net.minecraft.world.gen.stateprovider.WeightedBlockStateProvider;
 import net.minecraft.world.gen.trunk.ForkingTrunkPlacer;
 import net.minecraft.world.gen.trunk.StraightTrunkPlacer;
 import java.util.List;
@@ -61,6 +66,8 @@ public class ModConfiguredFeatures {
             registerKey("nether_triafium_ore");
     public static final RegistryKey<ConfiguredFeature<?, ?>> NETHER_TITANIUM_ORE_KEY =
             registerKey("nether_titanium_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> NETHER_CRYSTAL_PLANT_KEY =
+            registerKey("nether_crystal_plant");
     // End
     public static final RegistryKey<ConfiguredFeature<?, ?>> END_TRIAFIUM_ORE_KEY =
             registerKey("end_triafium_ore");
@@ -345,6 +352,17 @@ public class ModConfiguredFeatures {
         register(context, TRIAFIA_PLANT_PATCH_KEY, Feature.RANDOM_PATCH,
                 ConfiguredFeatures.createRandomPatchFeatureConfig(Feature.SIMPLE_BLOCK,
                         new SimpleBlockFeatureConfig(BlockStateProvider.of(ModBlocks.TRIAFIA_PLANT))));
+        DataPool states = DataPool.builder()
+                .add(ModBlocks.NETHER_CRYSTAL_CROP.getDefaultState().with(AbstractMagicalCropBlock.AGE, 0), 1)
+                .add(ModBlocks.NETHER_CRYSTAL_CROP.getDefaultState().with(AbstractMagicalCropBlock.AGE, 1), 1)
+                .add(ModBlocks.NETHER_CRYSTAL_CROP.getDefaultState().with(AbstractMagicalCropBlock.AGE, 2), 1)
+                .add(ModBlocks.NETHER_CRYSTAL_CROP.getDefaultState().with(AbstractMagicalCropBlock.AGE, 3), 1)
+                .add(ModBlocks.NETHER_CRYSTAL_CROP.getDefaultState().with(AbstractMagicalCropBlock.AGE, 4), 1)
+                .add(ModBlocks.NETHER_CRYSTAL_CROP.getDefaultState().with(AbstractMagicalCropBlock.AGE, 5), 1)
+                .build();
+        register(context, NETHER_CRYSTAL_PLANT_KEY, Feature.RANDOM_PATCH,
+                createRandomPatchFeatureConfig(Feature.SIMPLE_BLOCK,
+                        new SimpleBlockFeatureConfig(new WeightedBlockStateProvider(states)),0, 3, 1));
 
         // Register Overworld Ores
         register(context, TIN_ORE_KEY, Feature.ORE, new OreFeatureConfig(overworldTinOres, 9));
@@ -401,5 +419,12 @@ public class ModConfiguredFeatures {
         register(Registerable<ConfiguredFeature<?, ?>> context, RegistryKey<ConfiguredFeature<?, ?>> key,
                  F feature, FC configuration){
         context.register(key, new ConfiguredFeature<>(feature, configuration));
+    }
+    public static <FC extends FeatureConfig, F extends Feature<FC>> RandomPatchFeatureConfig createRandomPatchFeatureConfig(F feature, FC config, int xz, int y, int tries) {
+        return ModConfiguredFeatures.createRandomPatchFeatureConfig(tries, xz, y, PlacedFeatures.createEntry(feature, config, BlockPredicate.matchingBlocks(Blocks.AIR)));
+    }
+    public static RandomPatchFeatureConfig createRandomPatchFeatureConfig(int tries, int xz, int y,
+                                                                          RegistryEntry<PlacedFeature> feature) {
+        return new RandomPatchFeatureConfig(tries, xz, y, feature);
     }
 }

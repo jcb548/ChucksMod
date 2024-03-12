@@ -50,19 +50,31 @@ public class ModItems {
     public static final Item COAL_DUST = registerItem("coal_dust",
             new Item(new FabricItemSettings()));
     public static final Item COAL_SEEDS = registerItem("coal_seeds",
-            new MagicalAliasedBlockItem(ModBlocks.COAL_CROP, new FabricItemSettings(), Text.translatable("tooltip.chucksmod.coal_seeds")));
+            new MagicalAliasedBlockItem(ModBlocks.COAL_CROP, new FabricItemSettings(),
+                    Text.translatable("tooltip.chucksmod.coal_seeds")));
     public static final Item COAL_ESSENCE = registerItem("coal_essence",
             new NetherStarItem(new FabricItemSettings()));
     public static final Item IRON_DUST = registerItem("iron_dust",
             new Item(new FabricItemSettings()));
     public static final Item IRON_SEEDS = registerItem("iron_seeds",
-            new MagicalAliasedBlockItem(ModBlocks.IRON_CROP, new FabricItemSettings(), Text.translatable("tooltip.chucksmod.iron_seeds")));
+            new MagicalAliasedBlockItem(ModBlocks.IRON_CROP, new FabricItemSettings(),
+                    Text.translatable("tooltip.chucksmod.iron_seeds")));
     public static final Item IRON_ESSENCE = registerItem("iron_essence",
             new NetherStarItem(new FabricItemSettings()));
     public static final Item COPPER_DUST = registerItem("copper_dust",
             new Item(new FabricItemSettings()));
+    public static final Item COPPER_SEEDS = registerItem("copper_seeds",
+            new MagicalAliasedBlockItem(ModBlocks.COPPER_CROP, new FabricItemSettings(),
+                    Text.translatable("tooltip.chucksmod.copper_seeds")));
+    public static final Item COPPER_ESSENCE = registerItem("copper_essence",
+            new NetherStarItem(new FabricItemSettings()));
     public static final Item GOLD_DUST = registerItem("gold_dust",
             new Item(new FabricItemSettings()));
+    public static final Item GOLD_SEEDS = registerItem("gold_seeds",
+            new MagicalAliasedBlockItem(ModBlocks.GOLD_CROP, new FabricItemSettings(),
+                    Text.translatable("tooltip.chucksmod.gold_seeds")));
+    public static final Item GOLD_ESSENCE = registerItem("gold_essence",
+            new NetherStarItem(new FabricItemSettings()));
 
     //Vanilla gears
     public static final Item WRENCH = registerItem("wrench",
@@ -109,6 +121,11 @@ public class ModItems {
     // Tin
     public static final Item RAW_TIN = registerItem("raw_tin", new Item(new FabricItemSettings()));
     public static final Item TIN_DUST = registerItem("tin_dust", new Item(new FabricItemSettings()));
+    public static final Item TIN_SEEDS = registerItem("tin_seeds",
+            new MagicalAliasedBlockItem(ModBlocks.TIN_CROP, new FabricItemSettings(),
+                    Text.translatable("tooltip.chucksmod.tin_seeds")));
+    public static final Item TIN_ESSENCE = registerItem("tin_essence",
+            new NetherStarItem(new FabricItemSettings()));
     public static final Item TIN_INGOT = registerItem("tin_ingot", new Item(new FabricItemSettings()));
     public static final Item TIN_GEAR = registerItem("tin_gear", new Item(new FabricItemSettings()));
 
@@ -143,12 +160,42 @@ public class ModItems {
             new Item(new FabricItemSettings()));
     public static final Item GOLD_COIL = registerItem("gold_coil",
             new Item(new FabricItemSettings()));
+    public static final Item LAPIS_SEEDS = registerItem("lapis_seeds",
+            new MagicalAliasedBlockItem(ModBlocks.LAPIS_CROP, new FabricItemSettings(),
+                    Text.translatable("tooltip.chucksmod.lapis_seeds")));
+    public static final Item LAPIS_ESSENCE = registerItem("lapis_essence",
+            new NetherStarItem(new FabricItemSettings()));
+    public static final Item REDSTONE_SEEDS = registerItem("redstone_seeds",
+            new MagicalAliasedBlockItem(ModBlocks.REDSTONE_CROP, new FabricItemSettings(),
+                    Text.translatable("tooltip.chucksmod.redstone_seeds")));
+    public static final Item REDSTONE_ESSENCE = registerItem("redstone_essence",
+            new NetherStarItem(new FabricItemSettings()));
+    public static final Item DIAMOND_DUST = registerItem("diamond_dust",
+            new Item(new FabricItemSettings()));
+    public static final Item DIAMOND_SEEDS = registerItem("diamond_seeds",
+            new MagicalAliasedBlockItem(ModBlocks.DIAMOND_CROP, new FabricItemSettings(),
+                    Text.translatable("tooltip.chucksmod.diamond_seeds")));
+    public static final Item DIAMOND_ESSENCE = registerItem("diamond_essence",
+            new NetherStarItem(new FabricItemSettings()));
+    public static final Item EMERALD_DUST = registerItem("emerald_dust",
+            new Item(new FabricItemSettings()));
+    public static final Item EMERALD_SEEDS = registerItem("emerald_seeds",
+            new MagicalAliasedBlockItem(ModBlocks.EMERALD_CROP, new FabricItemSettings(),
+                    Text.translatable("tooltip.chucksmod.emerald_seeds")));
+    public static final Item EMERALD_ESSENCE = registerItem("emerald_essence",
+            new NetherStarItem(new FabricItemSettings()));
     // Obsidian
     public static final Item OBSIDIAN_DUST = registerItem("obsidian_dust",
             new Item(new FabricItemSettings()));
     // Titanium
     public static final Item RAW_TITANIUM = registerItem("raw_titanium", new Item(new FabricItemSettings()));
     public static final Item TITANIUM_DUST = registerItem("titanium_dust", new Item(new FabricItemSettings()));
+
+    public static final Item TITANIUM_SEEDS = registerItem("titanium_seeds",
+            new MagicalAliasedBlockItem(ModBlocks.TITANIUM_CROP, new FabricItemSettings(),
+                    Text.translatable("tooltip.chucksmod.titanium_seeds")));
+    public static final Item TITANIUM_ESSENCE = registerItem("titanium_essence",
+            new NetherStarItem(new FabricItemSettings()));
     public static final Item TITANIUM_INGOT = registerItem("titanium_ingot", new Item(new FabricItemSettings()));
     public static final Item TITANIUM_GEAR = registerItem("titanium_gear", new Item(new FabricItemSettings()));
     public static final Item TITANIUM_ENERGY_CORE = registerItem("titanium_energy_core",

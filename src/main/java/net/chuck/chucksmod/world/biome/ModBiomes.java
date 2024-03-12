@@ -79,7 +79,7 @@ public class ModBiomes{
         biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.TRIAFIA_TUFF_PILE_PLACED_KEY);
         DefaultBiomeFeatures.addDefaultFlowers(biomeBuilder);
         DefaultBiomeFeatures.addExtraDefaultFlowers(biomeBuilder);
-        DefaultBiomeFeatures.addMeadowFlowers(biomeBuilder);
+        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, VegetationPlacedFeatures.FLOWER_MEADOW);
 
         return new Biome.Builder()
                 .precipitation(true)

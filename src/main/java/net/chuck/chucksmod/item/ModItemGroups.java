@@ -68,6 +68,8 @@ public class ModItemGroups {
 
                         entries.add(ModItems.COPPER_DUST);
                         entries.add(ModBlocks.COPPER_DUST_BLOCK);
+                        entries.add(ModItems.COPPER_SEEDS);
+                        entries.add(ModItems.COPPER_ESSENCE);
                         entries.add(ModBlocks.COPPER_BARS);
                         entries.add(ModBlocks.COPPER_WIRE);
                         entries.add(ModItems.COPPER_GEAR);
@@ -76,11 +78,27 @@ public class ModItemGroups {
 
                         entries.add(ModItems.GOLD_DUST);
                         entries.add(ModBlocks.GOLD_DUST_BLOCK);
+                        entries.add(ModItems.GOLD_SEEDS);
+                        entries.add(ModItems.GOLD_ESSENCE);
                         entries.add(ModBlocks.GOLD_BARS);
                         entries.add(ModItems.GOLD_GEAR);
                         entries.add(ModBlocks.GOLD_WIRE);
                         entries.add(ModItems.GOLD_POWER_CIRCUIT);
                         entries.add(ModItems.GOLD_COIL);
+
+                        entries.add(ModItems.LAPIS_SEEDS);
+                        entries.add(ModItems.LAPIS_ESSENCE);
+
+                        entries.add(ModItems.REDSTONE_SEEDS);
+                        entries.add(ModItems.REDSTONE_ESSENCE);
+
+                        entries.add(ModItems.DIAMOND_DUST);
+                        entries.add(ModItems.DIAMOND_SEEDS);
+                        entries.add(ModItems.DIAMOND_ESSENCE);
+
+                        entries.add(ModItems.EMERALD_DUST);
+                        entries.add(ModItems.EMERALD_SEEDS);
+                        entries.add(ModItems.EMERALD_ESSENCE);
 
                         entries.add(ModItems.OBSIDIAN_DUST);
                         entries.add(ModBlocks.OBSIDIAN_SAND);
@@ -141,6 +159,8 @@ public class ModItemGroups {
 
                         entries.add(ModItems.RAW_TIN);
                         entries.add(ModItems.TIN_DUST);
+                        entries.add(ModItems.TIN_SEEDS);
+                        entries.add(ModItems.TIN_ESSENCE);
                         entries.add(ModItems.TIN_INGOT);
                         entries.add(ModItems.TIN_GEAR);
                         entries.add(ModBlocks.TIN_WIRE);
@@ -187,6 +207,8 @@ public class ModItemGroups {
                         entries.add(ModItems.TITANIUM_BOOTS);
                         entries.add(ModItems.TITANIUM_DUST);
                         entries.add(ModBlocks.TITANIUM_DUST_BLOCK);
+                        entries.add(ModItems.TITANIUM_SEEDS);
+                        entries.add(ModItems.TITANIUM_ESSENCE);
                         entries.add(ModItems.TITANIUM_GEAR);
                         entries.add(ModItems.TITANIUM_ENERGY_CORE);
                         entries.add(ModItems.TITANIUM_AXLE);
