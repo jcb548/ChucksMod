@@ -1,11 +1,8 @@
 package net.chuck.chucksmod.datagen.models;
 
-import dev.architectury.platform.Mod;
 import net.chuck.chucksmod.block.ModBlocks;
-import net.chuck.chucksmod.block.custom.crop.LettuceCropBlock;
-import net.chuck.chucksmod.block.custom.crop.NetherCrystalCropBlock;
-import net.chuck.chucksmod.block.custom.crop.PineappleCropBlock;
-import net.chuck.chucksmod.block.custom.crop.TomatoCropBlock;
+import net.chuck.chucksmod.block.custom.crop.*;
+import net.chuck.chucksmod.block.custom.crop.magical.AbstractMagicalCropBlock;
 import net.chuck.chucksmod.fluid.ModFluids;
 import net.chuck.chucksmod.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
@@ -34,10 +31,16 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerCrop(ModBlocks.PINEAPPLE_CROP, PineappleCropBlock.AGE,
                 0, 1, 2, 3, 4, 5, 6, 7, 8);
 
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.COAL_DUST_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.IRON_DUST_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.COPPER_DUST_BLOCK);
         ModModelGenerator.registerBars(blockStateModelGenerator, ModBlocks.COPPER_BARS);
         ModModelGenerator.registerWire(blockStateModelGenerator, ModBlocks.COPPER_WIRE);
+
+        blockStateModelGenerator.registerTintableCrossBlockStateWithStages(ModBlocks.COAL_CROP, BlockStateModelGenerator.TintType.NOT_TINTED,
+                AbstractMagicalCropBlock.AGE, 0, 1, 2, 3, 4, 5);
+        blockStateModelGenerator.registerTintableCrossBlockStateWithStages(ModBlocks.IRON_CROP, BlockStateModelGenerator.TintType.NOT_TINTED,
+                AbstractMagicalCropBlock.AGE, 0, 1, 2, 3, 4, 5);
 
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.GOLD_DUST_BLOCK);
         ModModelGenerator.registerBars(blockStateModelGenerator, ModBlocks.GOLD_BARS);
@@ -115,7 +118,7 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerCooker(ModBlocks.TITANIUM_LAVA_GENERATOR, TexturedModel.ORIENTABLE);
 
         blockStateModelGenerator.registerTintableCrossBlockStateWithStages(ModBlocks.NETHER_CRYSTAL_CROP, BlockStateModelGenerator.TintType.NOT_TINTED,
-                NetherCrystalCropBlock.AGE, 0, 1, 2, 3, 4, 5);
+                AbstractMagicalCropBlock.AGE, 0, 1, 2, 3, 4, 5);
 
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SOUL_GRAVEL);
         BlockStateModelGenerator.BlockTexturePool soul_stone_pool =
@@ -332,7 +335,12 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.WRENCH, Models.HANDHELD);
         itemModelGenerator.register(ModItems.STONE_DUST, Models.GENERATED);
 
+        itemModelGenerator.register(ModItems.COAL_DUST, Models.GENERATED);
+        itemModelGenerator.register(ModItems.COAL_ESSENCE, Models.GENERATED);
+
         itemModelGenerator.register(ModItems.IRON_DUST, Models.GENERATED);
+        itemModelGenerator.register(ModItems.IRON_ESSENCE, Models.GENERATED);
+
         itemModelGenerator.register(ModItems.IRON_GEAR, Models.GENERATED);
         itemModelGenerator.register(ModItems.IRON_ENERGY_CORE, Models.GENERATED);
         itemModelGenerator.register(ModItems.IRON_AXLE, Models.GENERATED);

@@ -3,6 +3,7 @@ package net.chuck.chucksmod.item;
 import com.terraformersmc.terraform.boat.api.item.TerraformBoatItemHelper;
 import net.chuck.chucksmod.ChucksMod;
 import net.chuck.chucksmod.block.ModBlocks;
+import net.chuck.chucksmod.block.custom.MagicalAliasedBlockItem;
 import net.chuck.chucksmod.entity.ModBoats;
 import net.chuck.chucksmod.entity.ModEntities;
 import net.chuck.chucksmod.item.custom.*;
@@ -17,6 +18,7 @@ import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 /*
  *  Code inspired by or copied from
@@ -47,9 +49,16 @@ public class ModItems {
             new Item(new FabricItemSettings()));
     public static final Item COAL_DUST = registerItem("coal_dust",
             new Item(new FabricItemSettings()));
-
+    public static final Item COAL_SEEDS = registerItem("coal_seeds",
+            new MagicalAliasedBlockItem(ModBlocks.COAL_CROP, new FabricItemSettings(), Text.translatable("tooltip.chucksmod.coal_seeds")));
+    public static final Item COAL_ESSENCE = registerItem("coal_essence",
+            new NetherStarItem(new FabricItemSettings()));
     public static final Item IRON_DUST = registerItem("iron_dust",
             new Item(new FabricItemSettings()));
+    public static final Item IRON_SEEDS = registerItem("iron_seeds",
+            new MagicalAliasedBlockItem(ModBlocks.IRON_CROP, new FabricItemSettings(), Text.translatable("tooltip.chucksmod.iron_seeds")));
+    public static final Item IRON_ESSENCE = registerItem("iron_essence",
+            new NetherStarItem(new FabricItemSettings()));
     public static final Item COPPER_DUST = registerItem("copper_dust",
             new Item(new FabricItemSettings()));
     public static final Item GOLD_DUST = registerItem("gold_dust",
@@ -168,13 +177,13 @@ public class ModItems {
     public static final Item NETHER_QUARTZ_DUST = registerItem("nether_quartz_dust",
             new Item(new FabricItemSettings()));
     public static final Item NETHER_CRYSTAL = registerItem("nether_crystal",
-            new Item(new FabricItemSettings()));
+            new NetherStarItem(new FabricItemSettings()));
     public static final Item NETHER_CRYSTAL_SHARD = registerItem("nether_crystal_shard",
-            new Item(new FabricItemSettings()));
+            new NetherStarItem(new FabricItemSettings()));
     public static final Item NETHER_CRYSTAL_DUST = registerItem("nether_crystal_dust",
-            new Item(new FabricItemSettings()));
+            new NetherStarItem(new FabricItemSettings()));
     public static final Item NETHER_CRYSTAL_SEEDS = registerItem("nether_crystal_seeds",
-            new AliasedBlockItem(ModBlocks.NETHER_CRYSTAL_CROP, new FabricItemSettings()));
+            new MagicalAliasedBlockItem(ModBlocks.NETHER_CRYSTAL_CROP, new FabricItemSettings(), Text.translatable("tooltip.chucksmod.nether_crystal_seeds")));
 
     // Wither items
     public static final Item WITHER_BONE = registerItem("wither_bone", new Item(new FabricItemSettings()));
@@ -215,7 +224,7 @@ public class ModItems {
     public static final Item TRIAFIUM_BOOTS = registerItem("triafium_boots",
             new ArmorItem(ModArmorMaterials.TRIAFIUM, ArmorItem.Type.BOOTS, new FabricItemSettings()));
     public static final Item TRIAFIA_CRYSTAL = registerItem("triafia_crystal",
-            new Item(new FabricItemSettings()));
+            new NetherStarItem(new FabricItemSettings()));
     public static final Item TRIAFIA_CRYSTAL_SHARD = registerItem("triafia_crystal_shard",
             new Item(new FabricItemSettings()));
     public static final Item TRIAFIA_CRYSTAL_DUST = registerItem("triafia_crystal_dust",
@@ -265,7 +274,7 @@ public class ModItems {
             new SpawnEggItem(ModEntities.FRANK_BOSS, 0xEED2FC, 0x000000,
                     new FabricItemSettings()));
     public static final Item PACSARIA_CRYSTAL = registerItem("pacsaria_crystal",
-            new Item(new FabricItemSettings()));
+            new NetherStarItem(new FabricItemSettings()));
     public static final Item PACSARIA_CRYSTAL_SHARD = registerItem("pacsaria_crystal_shard",
             new Item(new FabricItemSettings()));
 

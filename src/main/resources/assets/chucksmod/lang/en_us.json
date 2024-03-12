@@ -9,7 +9,16 @@
   "item.chucksmod.pineapple_seeds": "Pineapple Seeds",
 
   "item.chucksmod.stone_dust": "Stone Dust",
+  "item.chucksmod.coal_dust": "Coal Dust",
+  "item.chucksmod.coal_seeds": "Coal Seeds",
+  "tooltip.chucksmod.coal_seeds": "Plant on Coal Ores, Blocks or Dust Blocks",
+  "item.chucksmod.coal_essence": "Coal Essence",
+
   "item.chucksmod.iron_dust": "Iron Dust",
+  "item.chucksmod.iron_seeds": "Iron Seeds",
+  "tooltip.chucksmod.iron_seeds": "Plant on Iron Ores, Blocks or Dust Blocks",
+  "item.chucksmod.iron_essence": "Iron Essence",
+  
   "block.chucksmod.iron_machine_base": "Iron Machine Base",
   "item.chucksmod.iron_gear": "Iron Gear",
   "block.chucksmod.iron_dust_block": "Block of Iron Dust",
@@ -268,6 +277,7 @@
   "item.chucksmod.nether_crystal_shard": "Nether Crystal Shard",
   "item.chucksmod.nether_crystal_dust": "Nether Crystal Dust",
   "item.chucksmod.nether_crystal_seeds": "Nether Crystal Seeds",
+  "tooltip.chucksmod.nether_crystal_seeds": "Plant on Netherrack, Basalt, Blackstone, Soul Sand or Soul Soil",
 
   "item.chucksmod.soul_dust": "Soul Dust",
   "block.chucksmod.soul_gravel": "Soul Gravel",

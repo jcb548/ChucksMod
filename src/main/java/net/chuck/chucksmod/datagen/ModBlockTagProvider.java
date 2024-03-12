@@ -4,6 +4,7 @@ import net.chuck.chucksmod.block.ModBlocks;
 import net.chuck.chucksmod.block.ModBlockTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
+import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
@@ -265,6 +266,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.OBSIDIAN_SAND);
 
         getOrCreateTagBuilder(ModBlockTags.DUST_BLOCKS)
+                .add(ModBlocks.COAL_DUST_BLOCK)
                 .add(ModBlocks.IRON_DUST_BLOCK)
                 .add(ModBlocks.COPPER_DUST_BLOCK)
                 .add(ModBlocks.GOLD_DUST_BLOCK)
@@ -462,6 +464,11 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.IRON_MACHINE_BASE)
                 .add(ModBlocks.TITANIUM_MACHINE_BASE);
 
+        getOrCreateTagBuilder(ModBlockTags.TRIAFIA_BASE_STONE)
+                .add(ModBlocks.SERPENTINITE)
+                .add(ModBlocks.GLAUCONITE)
+                .add(ModBlocks.ECLOGITE);
+
         getOrCreateTagBuilder(BlockTags.SOUL_FIRE_BASE_BLOCKS)
                 .add(ModBlocks.SOUL_GRAVEL)
                 .add(ModBlocks.SOUL_STONE)
@@ -475,5 +482,26 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         getOrCreateTagBuilder(BlockTags.WITHER_IMMUNE)
                 .add(ModBlocks.FRANK_ALTAR)
                 .add(ModBlocks.SOUL_BLAZE_ALTAR);
+
+        getOrCreateTagBuilder(BlockTags.COAL_ORES)
+                .add(ModBlocks.SERPENTINITE_COAL_ORE);
+
+        getOrCreateTagBuilder(BlockTags.IRON_ORES)
+                .add(ModBlocks.SERPENTINITE_IRON_ORE);
+
+        getOrCreateTagBuilder(BlockTags.GOLD_ORES)
+                .add(ModBlocks.SERPENTINITE_GOLD_ORE);
+
+        getOrCreateTagBuilder(BlockTags.DIAMOND_ORES)
+                .add(ModBlocks.SERPENTINITE_DIAMOND_ORE);
+
+        getOrCreateTagBuilder(BlockTags.LAPIS_ORES)
+                .add(ModBlocks.SERPENTINITE_LAPIS_ORE);
+
+        getOrCreateTagBuilder(BlockTags.COPPER_ORES)
+                .add(ModBlocks.SERPENTINITE_COPPER_ORE);
+
+        getOrCreateTagBuilder(BlockTags.REDSTONE_ORES)
+                .add(ModBlocks.SERPENTINITE_REDSTONE_ORE);
     }
 }

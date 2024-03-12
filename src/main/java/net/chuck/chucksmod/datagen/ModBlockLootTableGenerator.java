@@ -1,10 +1,8 @@
 package net.chuck.chucksmod.datagen;
 
 import net.chuck.chucksmod.block.ModBlocks;
-import net.chuck.chucksmod.block.custom.crop.LettuceCropBlock;
-import net.chuck.chucksmod.block.custom.crop.NetherCrystalCropBlock;
-import net.chuck.chucksmod.block.custom.crop.PineappleCropBlock;
-import net.chuck.chucksmod.block.custom.crop.TomatoCropBlock;
+import net.chuck.chucksmod.block.custom.crop.*;
+import net.chuck.chucksmod.block.custom.crop.magical.AbstractMagicalCropBlock;
 import net.chuck.chucksmod.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
@@ -43,12 +41,24 @@ public class ModBlockLootTableGenerator extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.SANDSTONE_BRICKS);
         addDrop(ModBlocks.CRACKED_SANDSTONE_BRICKS);
 
+        addDrop(ModBlocks.COAL_DUST_BLOCK);
         addDrop(ModBlocks.IRON_DUST_BLOCK);
         addDrop(ModBlocks.COPPER_DUST_BLOCK);
         addDrop(ModBlocks.GOLD_DUST_BLOCK);
         addDrop(ModBlocks.PRISMARINE_DUST_BLOCK);
         addDrop(ModBlocks.PRISMARINE_IRON_DUST_BLOCK);
         addDrop(ModBlocks.OBSIDIAN_SAND);
+        
+        BlockStatePropertyLootCondition.Builder coalCropBuilder = BlockStatePropertyLootCondition.builder
+                (ModBlocks.COAL_CROP).properties(StatePredicate.Builder.create()
+                .exactMatch(AbstractMagicalCropBlock.AGE, AbstractMagicalCropBlock.MAX_AGE));
+        addDrop(ModBlocks.COAL_CROP, magicCropDrops(ModBlocks.COAL_CROP, ModItems.COAL_ESSENCE,
+                ModItems.COAL_SEEDS, coalCropBuilder, 0.1f, 1));
+        BlockStatePropertyLootCondition.Builder ironCropBuilder = BlockStatePropertyLootCondition.builder
+                (ModBlocks.IRON_CROP).properties(StatePredicate.Builder.create()
+                .exactMatch(AbstractMagicalCropBlock.AGE, AbstractMagicalCropBlock.MAX_AGE));
+        addDrop(ModBlocks.IRON_CROP, magicCropDrops(ModBlocks.IRON_CROP, ModItems.IRON_ESSENCE,
+                ModItems.IRON_SEEDS, ironCropBuilder, 0.075f, 1));
 
         addDrop(ModBlocks.HARDENED_GLASS);
         addDrop(ModBlocks.HARDENED_GLASS_PANE);
@@ -120,7 +130,7 @@ public class ModBlockLootTableGenerator extends FabricBlockLootTableProvider {
 
         BlockStatePropertyLootCondition.Builder netherCrystalCropBuilder = BlockStatePropertyLootCondition.builder
                 (ModBlocks.NETHER_CRYSTAL_CROP).properties(StatePredicate.Builder.create()
-                .exactMatch(NetherCrystalCropBlock.AGE, NetherCrystalCropBlock.MAX_AGE));
+                .exactMatch(AbstractMagicalCropBlock.AGE, AbstractMagicalCropBlock.MAX_AGE));
         addDrop(ModBlocks.NETHER_CRYSTAL_CROP, magicCropDrops(ModBlocks.NETHER_CRYSTAL_CROP, ModItems.NETHER_CRYSTAL_SHARD,
                 ModItems.NETHER_CRYSTAL_SEEDS, netherCrystalCropBuilder, 0.025f, 1));
 

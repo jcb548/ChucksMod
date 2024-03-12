@@ -41,9 +41,16 @@ public class ModItemGroups {
                         entries.add(ModBlocks.CRACKED_SANDSTONE_BRICKS);
 
                         entries.add(ModItems.STONE_DUST);
+                        entries.add(ModItems.COAL_DUST);
+                        entries.add(ModBlocks.COAL_DUST_BLOCK);
+                        entries.add(ModItems.COAL_SEEDS);
+                        entries.add(ModItems.COAL_ESSENCE);
 
                         entries.add(ModItems.IRON_DUST);
                         entries.add(ModBlocks.IRON_DUST_BLOCK);
+                        entries.add(ModItems.IRON_SEEDS);
+                        entries.add(ModItems.IRON_ESSENCE);
+
                         entries.add(ModItems.IRON_GEAR);
                         entries.add(ModItems.IRON_ENERGY_CORE);
                         entries.add(ModBlocks.IRON_MACHINE_BASE);

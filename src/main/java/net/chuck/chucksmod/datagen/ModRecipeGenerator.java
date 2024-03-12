@@ -100,6 +100,10 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
     private void generateMagicCropRecipes(RecipeExporter exporter) {
         offerCompactingRecipe(exporter, RecipeCategory.MISC, ModItems.NETHER_CRYSTAL,
                 ModItems.NETHER_CRYSTAL_SHARD);
+        offerMagicalSeedsRecipe(exporter, ModItems.COAL_SEEDS, ModItems.COAL_DUST, ModItems.NETHER_CRYSTAL_DUST);
+        offerEssenceToMaterialRecipe(exporter, Items.COAL, ModItems.COAL_ESSENCE, 4);
+        offerMagicalSeedsRecipe(exporter, ModItems.IRON_SEEDS, ModItems.IRON_DUST, ModItems.NETHER_CRYSTAL_DUST);
+        offerEssenceToMaterialRecipe(exporter, Items.IRON_INGOT, ModItems.IRON_ESSENCE, 2);
     }
 
     private void generateSandstoneRecipes(RecipeExporter exporter) {
@@ -1304,6 +1308,29 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .input('C', Items.COPPER_INGOT)
                 .criterion(hasTag(material), conditionsFromTag(material))
                 .criterion(hasItem(Items.COPPER_INGOT), conditionsFromItem(Items.COPPER_INGOT))
+                .offerTo(exporter);
+    }
+    public static void offerEssenceToMaterialRecipe(RecipeExporter exporter, Item material, Item essence, int count){
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, material, count)
+                .pattern(" EE")
+                .pattern("EEE")
+                .pattern("EE ")
+                .input('E', essence)
+                .criterion(hasItem(essence), conditionsFromItem(essence))
+                .offerTo(exporter);
+    }
+    public static void offerMagicalSeedsRecipe(RecipeExporter exporter, Item seeds, Item materialDust,
+                                               Item crystalDust){
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, seeds)
+                .pattern("MCM")
+                .pattern("CSC")
+                .pattern("MCM")
+                .input('M', materialDust)
+                .input('C', crystalDust)
+                .input('S', ModItemTags.SEEDS)
+                .criterion(hasItem(materialDust), conditionsFromItem(materialDust))
+                .criterion(hasItem(crystalDust), conditionsFromItem(crystalDust))
+                .criterion(hasTag(ModItemTags.SEEDS), conditionsFromTag(ModItemTags.SEEDS))
                 .offerTo(exporter);
     }
 }

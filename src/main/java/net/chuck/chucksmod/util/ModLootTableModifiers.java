@@ -9,6 +9,7 @@ import net.minecraft.loot.condition.KilledByPlayerLootCondition;
 import net.minecraft.loot.condition.RandomChanceLootCondition;
 import net.minecraft.loot.condition.RandomChanceWithLootingLootCondition;
 import net.minecraft.loot.entry.ItemEntry;
+import net.minecraft.loot.function.SetContentsLootFunction;
 import net.minecraft.loot.function.SetCountLootFunction;
 import net.minecraft.loot.function.SetEnchantmentsLootFunction;
 import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
@@ -31,6 +32,11 @@ public class ModLootTableModifiers {
     private static final Identifier ENDER_DRAGON_ID = new Identifier("entities/ender_dragon");
     private static final Identifier MINESHAFT_ID =
              new Identifier("minecraft", "chests/abandoned_mineshaft");
+    private static final Identifier NETHER_BRIDGE_ID = new Identifier("chests/nether_bridge");
+    private static final Identifier BASTION_BRIDGE_ID = new Identifier("chests/bastion_bridge");
+    private static final Identifier BASTION_HOGLIN_ID = new Identifier("chests/bastion_hoglin_stable");
+    private static final Identifier BASTION_OTHER_ID = new Identifier("chests/bastion_other");
+    private static final Identifier BASTION_TREASURE_ID = new Identifier("chests/bastion_treasure");
 
     public static void modifyLootTables() {
         LootTableEvents.MODIFY.register(((resourceManager, lootManager, id, tableBuilder, source) -> {
@@ -100,6 +106,17 @@ public class ModLootTableModifiers {
                         .with(ItemEntry.builder(Items.ENCHANTED_BOOK)
                             .apply(new SetEnchantmentsLootFunction.Builder(true)
                                     .enchantment(ModEnchantments.ENDER, ConstantLootNumberProvider.create(1))).build());
+                tableBuilder.pool(poolBuilder.build());
+            }
+            if(NETHER_BRIDGE_ID.equals(id) || BASTION_BRIDGE_ID.equals(id) || BASTION_HOGLIN_ID.equals(id) ||
+                BASTION_OTHER_ID.equals(id) || BASTION_TREASURE_ID.equals(id)){
+                LootPool.Builder poolBuilder = LootPool.builder()
+                        .rolls(ConstantLootNumberProvider.create(1))
+                        .conditionally(RandomChanceLootCondition.builder(0.5f))
+                        .with(ItemEntry.builder(ModItems.NETHER_CRYSTAL_SHARD))
+                            .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1, 4)))
+                        .with(ItemEntry.builder(ModItems.NETHER_CRYSTAL_SEEDS))
+                            .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(1)).build());
                 tableBuilder.pool(poolBuilder.build());
             }
         }));
