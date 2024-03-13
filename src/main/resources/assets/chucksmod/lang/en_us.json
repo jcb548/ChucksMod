@@ -874,8 +874,20 @@
   "advancements.chucksmod.nether.raw_triafium.title": "Raw Triafium",
   "advancements.chucksmod.nether.raw_triafium.desc": "Find and mine Triafium ore to obtain raw triafium",
 
+  "advancements.chucksmod.nether.triafium.title": "Triafium Ingot",
+  "advancements.chucksmod.nether.triafium.desc": "Smelt Raw Triafium to create a Triafium Ingot, a material as strong as Netherite",
+
   "advancements.chucksmod.nether.ancient_debris.title": "Ancient Debris",
   "advancements.chucksmod.nether.ancient_debris.desc": "Find and mine ancient debris to unlock netherite tier items",
+
+  "advancements.chucksmod.nether.netherite_scrap.title": "Netherite Scrap",
+  "advancements.chucksmod.nether.netherite_scrap.desc": "Obtain Netherite Scrap from smelting Ancient Debris or from a Bastion chest",
+
+  "advancements.chucksmod.nether.netherite_ingot.title": "Netherite Ingot",
+  "advancements.chucksmod.nether.netherite_ingot.desc": "Craft a Netherite Ingot from 4 Netherite Scrap and 4 Gold Ingots",
+
+  "advancements.chucksmod.nether.netherite_tool.title": "Netherite Tool",
+  "advancements.chucksmod.nether.netherite_tool.desc": "Use a Netherite Upgrade Smithing Template and Netherite Ingot to upgrade a Diamond tool to a Netherite Tool",
 
   "advancements.chucksmod.nether.quartz.title": "Nether Quartz",
   "advancements.chucksmod.nether.quartz.desc": "Mine Quartz ore to obtain quartz, a great source of experience",
@@ -894,6 +906,30 @@
 
   "advancements.chucksmod.nether.wither_skeleton.title": "Kill a Wither Skeleton",
   "advancements.chucksmod.nether.wither_skeleton.desc": "Kill a Wither Skeleton for coal, and Wither Skeleton skulls, which can be used to summon the wither",
+
+  "advancements.chucksmod.nether.enter_bastion.title": "Enter Bastion",
+  "advancements.chucksmod.nether.enter_bastion.desc": "Enter a bastion, a place of residence for Piglins, Hoglins and Piglin Brutes, as well as lots of gold, Magma Cube spawners, and Netherite items",
+
+  "advancements.chucksmod.nether.netherite_upgrade.title": "Netherite Upgrade",
+  "advancements.chucksmod.nether.netherite_upgrade.desc": "Loot a Netherite Upgrade Smithing Template from a bastion chest, would recommend duplicating",
+
+  "advancements.chucksmod.nether.soul_sand.title": "Soul Sand or Soil",
+  "advancements.chucksmod.nether.soul_sand.desc": "Collect Soul Sand or Soil, which can be used to summon the Wither, and craft Soul Items",
+
+  "advancements.chucksmod.nether.soul_torch.title": "Soul Torch",
+  "advancements.chucksmod.nether.soul_torch.desc": "Craft a Soul Torch, very similar to a normal torch, but with blue flame",
+
+  "advancements.chucksmod.nether.soul_lantern.title": "Soul Lantern",
+  "advancements.chucksmod.nether.soul_lantern.desc": "Craft a Soul Lantern, a blue burning lantern, which can be used to craft a blaze star",
+
+  "advancements.chucksmod.nether.blaze_star.title": "Blaze Star",
+  "advancements.chucksmod.nether.blaze_star.desc": "Craft a Blaze Star, which can be used to summon the Soul Blaze",
+
+  "advancements.chucksmod.nether.soul_blaze_altar.title": "Soul Blaze Altar",
+  "advancements.chucksmod.nether.soul_blaze_altar.desc": "Locate a Soul Blaze Altar, which can be right clicked with a Blaze Star to summon the Soul Blaze",
+
+  "advancements.chucksmod.nether.summon_soul_blaze.title": "Summon Soul Blaze",
+  "advancements.chucksmod.nether.summon_soul_blaze.desc": "Summon the Soul Blaze, to defeat for loot",
 
 
 

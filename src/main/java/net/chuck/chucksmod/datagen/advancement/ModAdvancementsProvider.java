@@ -46,4 +46,10 @@ public class ModAdvancementsProvider extends FabricAdvancementProvider {
         Bosses.generateAdvancements(consumer);
         NetherAdvancements.generateAdvancements(consumer);
     }
+    public static AdvancementEntry buildAdvancement(Advancement.Builder advancementBuilder, Consumer<AdvancementEntry> exporter,
+                                             String id){
+        AdvancementEntry advancementEntry = advancementBuilder.build(new Identifier(ChucksMod.MOD_ID, id));
+        exporter.accept(advancementEntry);
+        return advancementEntry;
+    }
 }

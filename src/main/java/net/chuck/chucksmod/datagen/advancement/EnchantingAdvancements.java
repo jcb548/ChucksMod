@@ -25,7 +25,7 @@ import java.util.function.Consumer;
 
 public class EnchantingAdvancements {
     public static void generateAdvancements(Consumer<AdvancementEntry> consumer){
-        AdvancementEntry root = Advancement.Builder.create()
+        AdvancementEntry root = ModAdvancementsProvider.buildAdvancement(Advancement.Builder.create()
                 .display(Blocks.ENCHANTING_TABLE,
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".enchanting.enchanting_table.title"),
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".enchanting.enchanting_table.desc"),
@@ -33,17 +33,17 @@ public class EnchantingAdvancements {
                         , AdvancementFrame.TASK, true, true, false)
                 .criterion("get_enchanting_table", InventoryChangedCriterion.Conditions.items
                         (Blocks.ENCHANTING_TABLE))
-                .build(consumer, ChucksMod.MOD_ID + "/enchanting/enchanting_table");
+                , consumer, "enchanting/enchanting_table");
 
-        AdvancementEntry enchantItem = Advancement.Builder.create().display(Items.ENCHANTED_BOOK,
+        AdvancementEntry enchantItem = ModAdvancementsProvider.buildAdvancement(Advancement.Builder.create().display(Items.ENCHANTED_BOOK,
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".enchanting.enchant_item.title"),
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".enchanting.enchant_item.desc"),
                         null, AdvancementFrame.TASK, true, true, false)
                 .criterion("enchant_item", EnchantedItemCriterion.Conditions.any())
                 .parent(root)
-                .build(consumer, ChucksMod.MOD_ID + "/enchanting/enchant_item");
+                , consumer, "enchanting/enchant_item");
 
-        AdvancementEntry unbreaking = Advancement.Builder.create().display(Items.DIAMOND,
+        AdvancementEntry unbreaking = ModAdvancementsProvider.buildAdvancement(Advancement.Builder.create().display(Items.DIAMOND,
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".enchanting.unbreaking.title"),
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".enchanting.unbreaking.desc"),
                         null, AdvancementFrame.TASK, true, true, false)
@@ -52,9 +52,9 @@ public class EnchantingAdvancements {
                         .enchantment(new EnchantmentPredicate(Enchantments.UNBREAKING,
                                 NumberRange.IntRange.atLeast(3))).build()))
                 .parent(enchantItem)
-                .build(consumer, ChucksMod.MOD_ID + "/enchanting/unbreaking");
+                , consumer, "enchanting/unbreaking");
 
-        AdvancementEntry enchantSword = Advancement.Builder.create().display(Items.GOLDEN_SWORD,
+        AdvancementEntry enchantSword = ModAdvancementsProvider.buildAdvancement(Advancement.Builder.create().display(Items.GOLDEN_SWORD,
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".enchanting.enchant_sword.title"),
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".enchanting.enchant_sword.desc"),
                         null, AdvancementFrame.TASK, true, true, false)
@@ -65,9 +65,9 @@ public class EnchantingAdvancements {
                                                 .tag(ItemTags.SWORDS).build()),
                                         NumberRange.IntRange.ANY)))
                 .parent(enchantItem)
-                .build(consumer, ChucksMod.MOD_ID + "/enchanting/enchant_sword");
+                , consumer, "enchanting/enchant_sword");
 
-        AdvancementEntry sharpness = Advancement.Builder.create().display(Items.DIAMOND_SWORD,
+        AdvancementEntry sharpness = ModAdvancementsProvider.buildAdvancement(Advancement.Builder.create().display(Items.DIAMOND_SWORD,
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".enchanting.sharpness.title"),
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".enchanting.sharpness.desc"),
                         null, AdvancementFrame.TASK, true, true, false)
@@ -76,9 +76,9 @@ public class EnchantingAdvancements {
                         .enchantment(new EnchantmentPredicate(Enchantments.SHARPNESS,
                                 NumberRange.IntRange.atLeast(3))).build()))
                 .parent(enchantSword)
-                .build(consumer, ChucksMod.MOD_ID + "/enchanting/sharpness");
+                , consumer, "enchanting/sharpness");
 
-        AdvancementEntry smite = Advancement.Builder.create().display(Items.IRON_SWORD,
+        AdvancementEntry smite = ModAdvancementsProvider.buildAdvancement(Advancement.Builder.create().display(Items.IRON_SWORD,
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".enchanting.smite.title"),
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".enchanting.smite.desc"),
                         null, AdvancementFrame.TASK, true, true, false)
@@ -87,9 +87,9 @@ public class EnchantingAdvancements {
                         .enchantment(new EnchantmentPredicate(Enchantments.SMITE,
                                 NumberRange.IntRange.atLeast(3))).build()))
                 .parent(enchantSword)
-                .build(consumer, ChucksMod.MOD_ID + "/enchanting/smite");
+                , consumer, "enchanting/smite");
 
-        AdvancementEntry bane_of_arthropods = Advancement.Builder.create().display(Items.STONE_SWORD,
+        AdvancementEntry bane_of_arthropods = ModAdvancementsProvider.buildAdvancement(Advancement.Builder.create().display(Items.STONE_SWORD,
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".enchanting.bane_of_arthropods.title"),
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".enchanting.bane_of_arthropods.desc"),
                         null, AdvancementFrame.TASK, true, true, false)
@@ -98,9 +98,9 @@ public class EnchantingAdvancements {
                         .enchantment(new EnchantmentPredicate(Enchantments.BANE_OF_ARTHROPODS,
                                 NumberRange.IntRange.atLeast(3))).build()))
                 .parent(enchantSword)
-                .build(consumer, ChucksMod.MOD_ID + "/enchanting/bane_of_arthropods");
+                , consumer, "enchanting/bane_of_arthropods");
 
-        AdvancementEntry looting = Advancement.Builder.create().display(ModItems.TITANIUM_SWORD,
+        AdvancementEntry looting = ModAdvancementsProvider.buildAdvancement(Advancement.Builder.create().display(ModItems.TITANIUM_SWORD,
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".enchanting.looting.title"),
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".enchanting.looting.desc"),
                         null, AdvancementFrame.TASK, true, true, false)
@@ -109,9 +109,9 @@ public class EnchantingAdvancements {
                         .enchantment(new EnchantmentPredicate(Enchantments.LOOTING,
                                 NumberRange.IntRange.atLeast(3))).build()))
                 .parent(enchantSword)
-                .build(consumer, ChucksMod.MOD_ID + "/enchanting/looting");
+                , consumer, "enchanting/looting");
 
-        AdvancementEntry sweeping = Advancement.Builder.create().display(ModItems.BRONZE_SWORD,
+        AdvancementEntry sweeping = ModAdvancementsProvider.buildAdvancement(Advancement.Builder.create().display(ModItems.BRONZE_SWORD,
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".enchanting.sweeping.title"),
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".enchanting.sweeping.desc"),
                         null, AdvancementFrame.TASK, true, true, false)
@@ -120,9 +120,9 @@ public class EnchantingAdvancements {
                         .enchantment(new EnchantmentPredicate(Enchantments.SWEEPING,
                                 NumberRange.IntRange.atLeast(3))).build()))
                 .parent(enchantSword)
-                .build(consumer, ChucksMod.MOD_ID + "/enchanting/sweeping");
+                , consumer, "enchanting/sweeping");
 
-        AdvancementEntry fire_aspect = Advancement.Builder.create().display(Items.NETHERITE_SWORD,
+        AdvancementEntry fire_aspect = ModAdvancementsProvider.buildAdvancement(Advancement.Builder.create().display(Items.NETHERITE_SWORD,
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".enchanting.fire_aspect.title"),
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".enchanting.fire_aspect.desc"),
                         null, AdvancementFrame.TASK, true, true, false)
@@ -131,9 +131,9 @@ public class EnchantingAdvancements {
                         .enchantment(new EnchantmentPredicate(Enchantments.FIRE_ASPECT,
                                 NumberRange.IntRange.ANY)).build()))
                 .parent(enchantSword)
-                .build(consumer, ChucksMod.MOD_ID + "/enchanting/fire_aspect");
+                , consumer, "enchanting/fire_aspect");
 
-        AdvancementEntry knockback = Advancement.Builder.create().display(Items.WOODEN_SWORD,
+        AdvancementEntry knockback = ModAdvancementsProvider.buildAdvancement(Advancement.Builder.create().display(Items.WOODEN_SWORD,
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".enchanting.knockback.title"),
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".enchanting.knockback.desc"),
                         null, AdvancementFrame.TASK, true, true, false)
@@ -142,9 +142,9 @@ public class EnchantingAdvancements {
                         .enchantment(new EnchantmentPredicate(Enchantments.KNOCKBACK,
                                 NumberRange.IntRange.ANY)).build()))
                 .parent(enchantSword)
-                .build(consumer, ChucksMod.MOD_ID + "/enchanting/knockback");
+                , consumer, "enchanting/knockback");
 
-        AdvancementEntry alacrity = Advancement.Builder.create().display(ModItems.TRIAFIUM_SWORD,
+        AdvancementEntry alacrity = ModAdvancementsProvider.buildAdvancement(Advancement.Builder.create().display(ModItems.TRIAFIUM_SWORD,
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".enchanting.alacrity.title"),
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".enchanting.alacrity.desc"),
                         null, AdvancementFrame.TASK, true, true, false)
@@ -153,9 +153,9 @@ public class EnchantingAdvancements {
                         .enchantment(new EnchantmentPredicate(ModEnchantments.ALACRITY,
                                 NumberRange.IntRange.ANY)).build()))
                 .parent(enchantSword)
-                .build(consumer, ChucksMod.MOD_ID + "/enchanting/alacrity");
+                , consumer, "enchanting/alacrity");
 
-        AdvancementEntry enchantTool = Advancement.Builder.create().display(Items.GOLDEN_SHOVEL,
+        AdvancementEntry enchantTool = ModAdvancementsProvider.buildAdvancement(Advancement.Builder.create().display(Items.GOLDEN_SHOVEL,
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".enchanting.enchant_tool.title"),
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".enchanting.enchant_tool.desc"),
                         null, AdvancementFrame.TASK, true, true, false)
@@ -166,9 +166,9 @@ public class EnchantingAdvancements {
                                                 .tag(ItemTags.TOOLS).build()),
                                         NumberRange.IntRange.ANY)))
                 .parent(enchantItem)
-                .build(consumer, ChucksMod.MOD_ID + "/enchanting/enchant_tool");
+                , consumer, "enchanting/enchant_tool");
 
-        AdvancementEntry efficiency = Advancement.Builder.create().display(Items.GOLDEN_PICKAXE,
+        AdvancementEntry efficiency = ModAdvancementsProvider.buildAdvancement(Advancement.Builder.create().display(Items.GOLDEN_PICKAXE,
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".enchanting.efficiency.title"),
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".enchanting.efficiency.desc"),
                         null, AdvancementFrame.TASK, true, true, false)
@@ -177,9 +177,9 @@ public class EnchantingAdvancements {
                         .enchantment(new EnchantmentPredicate(Enchantments.EFFICIENCY,
                                 NumberRange.IntRange.atLeast(3))).build()))
                 .parent(enchantTool)
-                .build(consumer, ChucksMod.MOD_ID + "/enchanting/efficiency");
+                , consumer, "enchanting/efficiency");
 
-        AdvancementEntry silk = Advancement.Builder.create().display(Items.DIAMOND_HOE,
+        AdvancementEntry silk = ModAdvancementsProvider.buildAdvancement(Advancement.Builder.create().display(Items.DIAMOND_HOE,
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".enchanting.silk.title"),
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".enchanting.silk.desc"),
                         null, AdvancementFrame.TASK, true, true, false)
@@ -188,9 +188,9 @@ public class EnchantingAdvancements {
                         .enchantment(new EnchantmentPredicate(Enchantments.SILK_TOUCH,
                                 NumberRange.IntRange.ANY)).build()))
                 .parent(enchantTool)
-                .build(consumer, ChucksMod.MOD_ID + "/enchanting/silk");
+                , consumer, "enchanting/silk");
 
-        AdvancementEntry fortune = Advancement.Builder.create().display(Items.DIAMOND_PICKAXE,
+        AdvancementEntry fortune = ModAdvancementsProvider.buildAdvancement(Advancement.Builder.create().display(Items.DIAMOND_PICKAXE,
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".enchanting.fortune.title"),
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".enchanting.fortune.desc"),
                         null, AdvancementFrame.TASK, true, true, false)
@@ -199,9 +199,9 @@ public class EnchantingAdvancements {
                         .enchantment(new EnchantmentPredicate(Enchantments.FORTUNE,
                                 NumberRange.IntRange.atLeast(3))).build()))
                 .parent(enchantTool)
-                .build(consumer, ChucksMod.MOD_ID + "/enchanting/fortune");
+                , consumer, "enchanting/fortune");
 
-        AdvancementEntry enchantArmor = Advancement.Builder.create().display(Items.GOLDEN_CHESTPLATE,
+        AdvancementEntry enchantArmor = ModAdvancementsProvider.buildAdvancement(Advancement.Builder.create().display(Items.GOLDEN_CHESTPLATE,
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".enchanting.enchant_armor.title"),
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".enchanting.enchant_armor.desc"),
                         null, AdvancementFrame.TASK, true, true, false)
@@ -212,9 +212,9 @@ public class EnchantingAdvancements {
                                                 .tag(ItemTags.TRIMMABLE_ARMOR).build()),
                                         NumberRange.IntRange.ANY)))
                 .parent(enchantItem)
-                .build(consumer, ChucksMod.MOD_ID + "/enchanting/enchant_armor");
+                , consumer, "enchanting/enchant_armor");
 
-        AdvancementEntry protection = Advancement.Builder.create().display(Items.DIAMOND_CHESTPLATE,
+        AdvancementEntry protection = ModAdvancementsProvider.buildAdvancement(Advancement.Builder.create().display(Items.DIAMOND_CHESTPLATE,
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".enchanting.protection.title"),
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".enchanting.protection.desc"),
                         null, AdvancementFrame.TASK, true, true, false)
@@ -223,9 +223,9 @@ public class EnchantingAdvancements {
                         .enchantment(new EnchantmentPredicate(Enchantments.PROTECTION,
                                 NumberRange.IntRange.atLeast(3))).build()))
                 .parent(enchantArmor)
-                .build(consumer, ChucksMod.MOD_ID + "/enchanting/protection");
+                , consumer, "enchanting/protection");
 
-        AdvancementEntry fire_protection = Advancement.Builder.create().display(Items.NETHERITE_CHESTPLATE,
+        AdvancementEntry fire_protection = ModAdvancementsProvider.buildAdvancement(Advancement.Builder.create().display(Items.NETHERITE_CHESTPLATE,
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".enchanting.fire_protection.title"),
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".enchanting.fire_protection.desc"),
                         null, AdvancementFrame.TASK, true, true, false)
@@ -234,9 +234,9 @@ public class EnchantingAdvancements {
                         .enchantment(new EnchantmentPredicate(Enchantments.FIRE_PROTECTION,
                                 NumberRange.IntRange.atLeast(3))).build()))
                 .parent(enchantArmor)
-                .build(consumer, ChucksMod.MOD_ID + "/enchanting/fire_protection");
+                , consumer, "enchanting/fire_protection");
 
-        AdvancementEntry blast_protection = Advancement.Builder.create().display(Items.IRON_CHESTPLATE,
+        AdvancementEntry blast_protection = ModAdvancementsProvider.buildAdvancement(Advancement.Builder.create().display(Items.IRON_CHESTPLATE,
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".enchanting.blast_protection.title"),
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".enchanting.blast_protection.desc"),
                         null, AdvancementFrame.TASK, true, true, false)
@@ -245,9 +245,9 @@ public class EnchantingAdvancements {
                         .enchantment(new EnchantmentPredicate(Enchantments.BLAST_PROTECTION,
                                 NumberRange.IntRange.atLeast(3))).build()))
                 .parent(enchantArmor)
-                .build(consumer, ChucksMod.MOD_ID + "/enchanting/blast_protection");
+                , consumer, "enchanting/blast_protection");
 
-        AdvancementEntry thorns = Advancement.Builder.create().display(Items.CACTUS,
+        AdvancementEntry thorns = ModAdvancementsProvider.buildAdvancement(Advancement.Builder.create().display(Items.CACTUS,
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".enchanting.thorns.title"),
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".enchanting.thorns.desc"),
                         null, AdvancementFrame.TASK, true, true, false)
@@ -256,9 +256,9 @@ public class EnchantingAdvancements {
                         .enchantment(new EnchantmentPredicate(Enchantments.THORNS,
                                 NumberRange.IntRange.atLeast(2))).build()))
                 .parent(enchantArmor)
-                .build(consumer, ChucksMod.MOD_ID + "/enchanting/thorns");
+                , consumer, "enchanting/thorns");
 
-        AdvancementEntry enchantHelmet = Advancement.Builder.create().display(Items.GOLDEN_HELMET,
+        AdvancementEntry enchantHelmet = ModAdvancementsProvider.buildAdvancement(Advancement.Builder.create().display(Items.GOLDEN_HELMET,
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".enchanting.enchant_helmet.title"),
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".enchanting.enchant_helmet.desc"),
                         null, AdvancementFrame.TASK, true, true, false)
@@ -269,9 +269,9 @@ public class EnchantingAdvancements {
                                                 .tag(ModItemTags.HELMETS).build()),
                                         NumberRange.IntRange.ANY)))
                 .parent(enchantArmor)
-                .build(consumer, ChucksMod.MOD_ID + "/enchanting/enchant_helmet");
+                , consumer, "enchanting/enchant_helmet");
 
-        AdvancementEntry respiration = Advancement.Builder.create().display(Items.TURTLE_HELMET,
+        AdvancementEntry respiration = ModAdvancementsProvider.buildAdvancement(Advancement.Builder.create().display(Items.TURTLE_HELMET,
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".enchanting.respiration.title"),
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".enchanting.respiration.desc"),
                         null, AdvancementFrame.TASK, true, true, false)
@@ -280,9 +280,9 @@ public class EnchantingAdvancements {
                         .enchantment(new EnchantmentPredicate(Enchantments.RESPIRATION,
                                 NumberRange.IntRange.atLeast(3))).build()))
                 .parent(enchantHelmet)
-                .build(consumer, ChucksMod.MOD_ID + "/enchanting/respiration");
+                , consumer, "enchanting/respiration");
 
-        AdvancementEntry aqua_affinity = Advancement.Builder.create().display(Items.IRON_PICKAXE,
+        AdvancementEntry aqua_affinity = ModAdvancementsProvider.buildAdvancement(Advancement.Builder.create().display(Items.IRON_PICKAXE,
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".enchanting.aqua_affinity.title"),
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".enchanting.aqua_affinity.desc"),
                         null, AdvancementFrame.TASK, true, true, false)
@@ -291,9 +291,9 @@ public class EnchantingAdvancements {
                         .enchantment(new EnchantmentPredicate(Enchantments.AQUA_AFFINITY,
                                 NumberRange.IntRange.ANY)).build()))
                 .parent(enchantHelmet)
-                .build(consumer, ChucksMod.MOD_ID + "/enchanting/aqua_affinity");
+                , consumer, "enchanting/aqua_affinity");
 
-        AdvancementEntry enchantBoots = Advancement.Builder.create().display(Items.GOLDEN_BOOTS,
+        AdvancementEntry enchantBoots = ModAdvancementsProvider.buildAdvancement(Advancement.Builder.create().display(Items.GOLDEN_BOOTS,
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".enchanting.enchant_boots.title"),
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".enchanting.enchant_boots.desc"),
                         null, AdvancementFrame.TASK, true, true, false)
@@ -304,9 +304,9 @@ public class EnchantingAdvancements {
                                                 .tag(ModItemTags.BOOTS).build()),
                                         NumberRange.IntRange.ANY)))
                 .parent(enchantArmor)
-                .build(consumer, ChucksMod.MOD_ID + "/enchanting/enchant_boots");
+                , consumer, "enchanting/enchant_boots");
 
-        AdvancementEntry feather_falling = Advancement.Builder.create().display(Items.FEATHER,
+        AdvancementEntry feather_falling = ModAdvancementsProvider.buildAdvancement(Advancement.Builder.create().display(Items.FEATHER,
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".enchanting.feather_falling.title"),
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".enchanting.feather_falling.desc"),
                         null, AdvancementFrame.TASK, true, true, false)
@@ -315,9 +315,9 @@ public class EnchantingAdvancements {
                         .enchantment(new EnchantmentPredicate(Enchantments.FEATHER_FALLING,
                                 NumberRange.IntRange.atLeast(3))).build()))
                 .parent(enchantBoots)
-                .build(consumer, ChucksMod.MOD_ID + "/enchanting/feather_falling");
+                , consumer, "enchanting/feather_falling");
 
-        AdvancementEntry depth_strider = Advancement.Builder.create().display(Items.IRON_BOOTS,
+        AdvancementEntry depth_strider = ModAdvancementsProvider.buildAdvancement(Advancement.Builder.create().display(Items.IRON_BOOTS,
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".enchanting.depth_strider.title"),
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".enchanting.depth_strider.desc"),
                         null, AdvancementFrame.TASK, true, true, false)
@@ -326,9 +326,9 @@ public class EnchantingAdvancements {
                         .enchantment(new EnchantmentPredicate(Enchantments.DEPTH_STRIDER,
                                 NumberRange.IntRange.atLeast(3))).build()))
                 .parent(enchantBoots)
-                .build(consumer, ChucksMod.MOD_ID + "/enchanting/depth_strider");
+                , consumer, "enchanting/depth_strider");
 
-        AdvancementEntry enchantBow = Advancement.Builder.create().display(Items.BOW,
+        AdvancementEntry enchantBow = ModAdvancementsProvider.buildAdvancement(Advancement.Builder.create().display(Items.BOW,
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".enchanting.enchant_bow.title"),
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".enchanting.enchant_bow.desc"),
                         null, AdvancementFrame.TASK, true, true, false)
@@ -338,9 +338,9 @@ public class EnchantingAdvancements {
                                         Optional.of(ItemPredicate.Builder.create().items(Items.BOW).build()),
                                         NumberRange.IntRange.ANY)))
                 .parent(enchantItem)
-                .build(consumer, ChucksMod.MOD_ID + "/enchanting/enchant_bow");
+                , consumer, "enchanting/enchant_bow");
 
-        AdvancementEntry power = Advancement.Builder.create().display(Items.ARROW,
+        AdvancementEntry power = ModAdvancementsProvider.buildAdvancement(Advancement.Builder.create().display(Items.ARROW,
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".enchanting.power.title"),
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".enchanting.power.desc"),
                         null, AdvancementFrame.TASK, true, true, false)
@@ -349,9 +349,9 @@ public class EnchantingAdvancements {
                         .enchantment(new EnchantmentPredicate(Enchantments.POWER,
                                 NumberRange.IntRange.atLeast(3))).build()))
                 .parent(enchantBow)
-                .build(consumer, ChucksMod.MOD_ID + "/enchanting/power");
+                , consumer, "enchanting/power");
 
-        AdvancementEntry infinity = Advancement.Builder.create().display(Items.SKELETON_SKULL,
+        AdvancementEntry infinity = ModAdvancementsProvider.buildAdvancement(Advancement.Builder.create().display(Items.SKELETON_SKULL,
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".enchanting.infinity.title"),
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".enchanting.infinity.desc"),
                         null, AdvancementFrame.TASK, true, true, false)
@@ -360,9 +360,9 @@ public class EnchantingAdvancements {
                         .enchantment(new EnchantmentPredicate(Enchantments.INFINITY,
                                 NumberRange.IntRange.ANY)).build()))
                 .parent(enchantBow)
-                .build(consumer, ChucksMod.MOD_ID + "/enchanting/infinity");
+                , consumer, "enchanting/infinity");
 
-        AdvancementEntry flame = Advancement.Builder.create().display(Items.BLAZE_POWDER,
+        AdvancementEntry flame = ModAdvancementsProvider.buildAdvancement(Advancement.Builder.create().display(Items.BLAZE_POWDER,
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".enchanting.flame.title"),
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".enchanting.flame.desc"),
                         null, AdvancementFrame.TASK, true, true, false)
@@ -371,9 +371,9 @@ public class EnchantingAdvancements {
                         .enchantment(new EnchantmentPredicate(Enchantments.FLAME,
                                 NumberRange.IntRange.ANY)).build()))
                 .parent(enchantBow)
-                .build(consumer, ChucksMod.MOD_ID + "/enchanting/flame");
+                , consumer, "enchanting/flame");
 
-        AdvancementEntry punch = Advancement.Builder.create().display(Items.WOODEN_SWORD,
+        AdvancementEntry punch = ModAdvancementsProvider.buildAdvancement(Advancement.Builder.create().display(Items.WOODEN_SWORD,
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".enchanting.punch.title"),
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".enchanting.punch.desc"),
                         null, AdvancementFrame.TASK, true, true, false)
@@ -382,25 +382,25 @@ public class EnchantingAdvancements {
                         .enchantment(new EnchantmentPredicate(Enchantments.PUNCH,
                                 NumberRange.IntRange.ANY)).build()))
                 .parent(enchantBow)
-                .build(consumer, ChucksMod.MOD_ID + "/enchanting/punch");
+                , consumer, "enchanting/punch");
 
-        AdvancementEntry bookshelf = Advancement.Builder.create().display(Blocks.BOOKSHELF,
+        AdvancementEntry bookshelf = ModAdvancementsProvider.buildAdvancement(Advancement.Builder.create().display(Blocks.BOOKSHELF,
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".enchanting.bookshelf.title"),
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".enchanting.bookshelf.desc"),
                         null, AdvancementFrame.TASK, true, true, false)
                 .criterion("enchant_item", InventoryChangedCriterion.Conditions.items(Blocks.BOOKSHELF))
                 .parent(root)
-                .build(consumer, ChucksMod.MOD_ID + "/enchanting/bookshelf");
-        AdvancementEntry anvil = Advancement.Builder.create()
+                , consumer, "enchanting/bookshelf");
+        AdvancementEntry anvil = ModAdvancementsProvider.buildAdvancement(Advancement.Builder.create()
                 .display(Items.ANVIL,
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".enchanting.anvil.title"),
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".enchanting.anvil.desc"),
                         null, AdvancementFrame.TASK, true, true, false)
                 .criterion("anvil", InventoryChangedCriterion.Conditions.items(Items.ANVIL))
                 .parent(root)
-                .build(consumer, ChucksMod.MOD_ID + "/enchanting/anvil");
+                , consumer, "enchanting/anvil");
 
-        AdvancementEntry mending = Advancement.Builder.create().display(Items.MOSS_BLOCK,
+        AdvancementEntry mending = ModAdvancementsProvider.buildAdvancement(Advancement.Builder.create().display(Items.MOSS_BLOCK,
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".enchanting.mending.title"),
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".enchanting.mending.desc"),
                         null, AdvancementFrame.TASK, true, true, false)
@@ -409,6 +409,6 @@ public class EnchantingAdvancements {
                         .enchantment(new EnchantmentPredicate(Enchantments.MENDING,
                                 NumberRange.IntRange.ANY)).build()))
                 .parent(anvil)
-                .build(consumer, ChucksMod.MOD_ID + "/enchanting/mending");
+                , consumer, "enchanting/mending");
     }
 }

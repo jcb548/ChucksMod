@@ -15,7 +15,7 @@ import java.util.function.Consumer;
 
 public class Bosses {
     public static void generateAdvancements(Consumer<AdvancementEntry> consumer) {
-        AdvancementEntry root = Advancement.Builder.create()
+        AdvancementEntry root = ModAdvancementsProvider.buildAdvancement(Advancement.Builder.create()
                 .display(ModItems.TITANIUM_SWORD, // The display icon
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".bosses.root.title"),
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".bosses.root.desc"), // The description
@@ -23,6 +23,6 @@ public class Bosses {
                         AdvancementFrame.TASK, true, true, false)
                 .criterion("got_sword", InventoryChangedCriterion.Conditions.items(ItemPredicate.Builder.create()
                         .tag(ItemTags.SWORDS).build()))
-                .build(consumer, ChucksMod.MOD_ID + "/bosses/root");
+                , consumer, "bosses/root");
     }
 }

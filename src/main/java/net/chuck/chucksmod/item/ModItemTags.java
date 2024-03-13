@@ -55,4 +55,6 @@ public class ModItemTags {
             new Identifier(ChucksMod.MOD_ID, "triafia_logs"));
     public static final TagKey<Item> PACSARIA_LOGS = TagKey.of(RegistryKeys.ITEM,
             new Identifier(ChucksMod.MOD_ID, "triafia_logs"));
+    public static final TagKey<Item> NETHERITE_TOOLS_ARMOR = TagKey.of(RegistryKeys.ITEM,
+            new Identifier(ChucksMod.MOD_ID, "netherite_tools_armor"));
 }

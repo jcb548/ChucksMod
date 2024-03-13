@@ -3,12 +3,16 @@ package net.chuck.chucksmod.block.custom.altar;
 import net.chuck.chucksmod.entity.ModEntities;
 import net.chuck.chucksmod.entity.custom.SoulBlazeBoss;
 import net.chuck.chucksmod.item.ModItems;
+import net.fabricmc.fabric.api.networking.v1.PlayerLookup;
+import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.ShapeContext;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
@@ -39,14 +43,19 @@ public class SoulBlazeAltarBlock extends Block {
             SoulBlazeBoss entity = new SoulBlazeBoss(ModEntities.SOUL_BLAZE_BOSS, world);
             entity.setPos(pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5);
             world.spawnEntity(entity);
+            if(!world.isClient)
+                for (ServerPlayerEntity serverPlayerEntity : PlayerLookup.around((ServerWorld) world, entity.getPos(), 10)) {
+                    Criteria.SUMMONED_ENTITY.trigger(serverPlayerEntity, entity);
+                }
             world.setBlockState(pos, Blocks.AIR.getDefaultState(), Block.NOTIFY_ALL | Block.REDRAW_ON_MAIN_THREAD );
             int count = heldItem.getCount();
-            if(count > 1){
-                heldItem.setCount(count-1);
-                player.setStackInHand(hand, heldItem);
-            } else {
-                player.setStackInHand(hand, ItemStack.EMPTY);
-            }
+            if(!player.isCreative())
+                if(count > 1){
+                    heldItem.setCount(count-1);
+                    player.setStackInHand(hand, heldItem);
+                } else {
+                    player.setStackInHand(hand, ItemStack.EMPTY);
+                }
             return ActionResult.success(world.isClient);
         }
         return super.onUse(state, world, pos, player, hand, hit);

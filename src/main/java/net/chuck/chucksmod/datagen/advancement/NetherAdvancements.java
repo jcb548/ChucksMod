@@ -1,16 +1,23 @@
 package net.chuck.chucksmod.datagen.advancement;
 
 import net.chuck.chucksmod.ChucksMod;
+import net.chuck.chucksmod.block.ModBlocks;
+import net.chuck.chucksmod.entity.ModEntities;
+import net.chuck.chucksmod.item.ModItemTags;
 import net.chuck.chucksmod.item.ModItems;
+import net.chuck.chucksmod.world.gen.ModStructureKeys;
 import net.minecraft.advancement.Advancement;
 import net.minecraft.advancement.AdvancementEntry;
 import net.minecraft.advancement.AdvancementFrame;
+import net.minecraft.advancement.AdvancementRequirements;
 import net.minecraft.advancement.criterion.*;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.Items;
 import net.minecraft.predicate.entity.EntityPredicate;
 import net.minecraft.predicate.entity.LocationPredicate;
+import net.minecraft.predicate.item.ItemPredicate;
+import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
@@ -20,50 +27,82 @@ import java.util.function.Consumer;
 
 public class NetherAdvancements {
     public static void generateAdvancements(Consumer<AdvancementEntry> consumer) {
-        AdvancementEntry root = Advancement.Builder.create()
+        AdvancementEntry root = ModAdvancementsProvider.buildAdvancement(Advancement.Builder.create()
                 .display(Items.NETHERRACK, // The display icon
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".nether.root.title"),
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".nether.root.desc"), // The description
                         new Identifier("minecraft", "textures/block/nether_bricks.png"), // Background image used
                         AdvancementFrame.TASK, true, true, false
                 )
-                .criterion("enter_nether", ChangedDimensionCriterion.Conditions.to(World.NETHER))
-                .build(consumer, ChucksMod.MOD_ID + "/nether/root");
+                .criterion("enter_nether", ChangedDimensionCriterion.Conditions.to(World.NETHER)), consumer, "nether/root");
 
-        AdvancementEntry rawTriafium = Advancement.Builder.create().display(ModItems.RAW_TRIAFIUM,
+        AdvancementEntry rawTriafium = ModAdvancementsProvider.buildAdvancement(Advancement.Builder.create().display(ModItems.RAW_TRIAFIUM,
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".nether.raw_triafium.title"),
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".nether.raw_triafium.desc"),
                         null, AdvancementFrame.TASK, true, true, false)
                 .criterion("raw_triafium", InventoryChangedCriterion.Conditions.items(ModItems.RAW_TRIAFIUM))
                 .parent(root)
-                .build(consumer, ChucksMod.MOD_ID + "/nether/raw_triafium");
+                , consumer, "nether/raw_triafium");
 
-        AdvancementEntry ancientDebris = Advancement.Builder.create().display(Blocks.ANCIENT_DEBRIS,
+        AdvancementEntry triafium = ModAdvancementsProvider.buildAdvancement(Advancement.Builder.create().display(ModItems.TRIAFIUM_INGOT,
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".nether.triafium.title"),
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".nether.triafium.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("triafium", InventoryChangedCriterion.Conditions.items(ModItems.TRIAFIUM_INGOT))
+                .parent(rawTriafium)
+                , consumer, "nether/triafium");
+
+        AdvancementEntry ancientDebris = ModAdvancementsProvider.buildAdvancement(Advancement.Builder.create().display(Blocks.ANCIENT_DEBRIS,
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".nether.ancient_debris.title"),
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".nether.ancient_debris.desc"),
                         null, AdvancementFrame.TASK, true, true, false)
                 .criterion("ancient_debris", InventoryChangedCriterion.Conditions.items(Blocks.ANCIENT_DEBRIS))
                 .parent(root)
-                .build(consumer, ChucksMod.MOD_ID + "/nether/ancient_debris");
+                , consumer, "nether/ancient_debris");
 
-        AdvancementEntry quartz = Advancement.Builder.create().display(Items.QUARTZ,
+        AdvancementEntry netheriteScrap = ModAdvancementsProvider.buildAdvancement(Advancement.Builder.create().display(Items.NETHERITE_SCRAP,
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".nether.netherite_scrap.title"),
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".nether.netherite_scrap.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("netherite_scrap", InventoryChangedCriterion.Conditions.items(Items.NETHERITE_SCRAP))
+                .parent(ancientDebris)
+                , consumer, "nether/netherite_scrap");
+
+        AdvancementEntry netheriteIngot = ModAdvancementsProvider.buildAdvancement(Advancement.Builder.create().display(Items.NETHERITE_INGOT,
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".nether.netherite_ingot.title"),
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".nether.netherite_ingot.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("netherite_ingot", InventoryChangedCriterion.Conditions.items(Items.NETHERITE_INGOT))
+                .parent(netheriteScrap)
+                , consumer, "nether/netherite_ingot");
+
+        AdvancementEntry netheriteTool = ModAdvancementsProvider.buildAdvancement(Advancement.Builder.create().display(Items.NETHERITE_PICKAXE,
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".nether.netherite_tool.title"),
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".nether.netherite_tool.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("netherite_tool", InventoryChangedCriterion.Conditions.items(ItemPredicate.Builder.create()
+                        .tag(ModItemTags.NETHERITE_TOOLS_ARMOR)))
+                .parent(netheriteScrap)
+                , consumer, "nether/netherite_tool");
+
+        AdvancementEntry quartz = ModAdvancementsProvider.buildAdvancement(Advancement.Builder.create().display(Items.QUARTZ,
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".nether.quartz.title"),
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".nether.quartz.desc"),
                         null, AdvancementFrame.TASK, true, true, false)
                 .criterion("quartz", InventoryChangedCriterion.Conditions.items(Items.QUARTZ))
                 .parent(root)
-                .build(consumer, ChucksMod.MOD_ID + "/nether/quartz");
+                , consumer, "nether/quartz");
 
-        AdvancementEntry zombifiedPiglin = Advancement.Builder.create().display(Items.GOLD_NUGGET,
-                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.zombified_piglin.title"),
-                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.zombified_piglin.desc"),
+        AdvancementEntry zombifiedPiglin = ModAdvancementsProvider.buildAdvancement(Advancement.Builder.create().display(Items.GOLD_NUGGET,
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".nether.zombified_piglin.title"),
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".nether.zombified_piglin.desc"),
                         null, AdvancementFrame.TASK, true, true, false)
                 .criterion("killed_zombified_piglin",
                         OnKilledCriterion.Conditions.createPlayerKilledEntity(EntityPredicate.Builder.create().type(EntityType.ZOMBIFIED_PIGLIN)))
                 .parent(root)
-                .build(consumer, ChucksMod.MOD_ID + "/nether/zombified_piglin");
+                , consumer, "nether/zombified_piglin");
         
-        AdvancementEntry enterFortress = Advancement.Builder.create().display(Blocks.NETHER_BRICKS,
+        AdvancementEntry enterFortress = ModAdvancementsProvider.buildAdvancement(Advancement.Builder.create().display(Blocks.NETHER_BRICKS,
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".nether.enter_fortress.title"),
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".nether.enter_fortress.desc"),
                         null, AdvancementFrame.TASK, true, true, false)
@@ -71,35 +110,112 @@ public class NetherAdvancements {
                         TickCriterion.Conditions.createLocation(LocationPredicate.Builder
                                 .createStructure(StructureKeys.FORTRESS)))
                 .parent(root)
-                .build(consumer, ChucksMod.MOD_ID + "/nether/fortress");
+                , consumer, "nether/fortress");
 
-        AdvancementEntry blaze = Advancement.Builder.create().display(Items.BLAZE_ROD,
-                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.blaze.title"),
-                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.blaze.desc"),
+        AdvancementEntry blaze = ModAdvancementsProvider.buildAdvancement(Advancement.Builder.create().display(Items.BLAZE_ROD,
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".nether.blaze.title"),
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".nether.blaze.desc"),
                         null, AdvancementFrame.TASK, true, true, false)
                 .criterion("killed_blaze",
                         OnKilledCriterion.Conditions.createPlayerKilledEntity(EntityPredicate.Builder.create()
                                 .type(EntityType.BLAZE)))
                 .parent(enterFortress)
-                .build(consumer, ChucksMod.MOD_ID + "/nether/blaze");
+                , consumer, "nether/blaze");
 
-        AdvancementEntry blazePowder = Advancement.Builder.create().display(Items.BLAZE_POWDER,
-                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.blaze_powder.title"),
-                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.blaze_powder.desc"),
+        AdvancementEntry blazePowder = ModAdvancementsProvider.buildAdvancement(Advancement.Builder.create().display(Items.BLAZE_POWDER,
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".nether.blaze_powder.title"),
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".nether.blaze_powder.desc"),
                         null, AdvancementFrame.TASK, true, true, false)
                 .criterion("blaze_powder",
                         InventoryChangedCriterion.Conditions.items(Items.BLAZE_POWDER))
                 .parent(blaze)
-                .build(consumer, ChucksMod.MOD_ID + "/nether/blaze_powder");
+                , consumer, "nether/blaze_powder");
 
-        AdvancementEntry wither_skeleton = Advancement.Builder.create().display(Blocks.WITHER_SKELETON_SKULL,
-                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.wither_skeleton.title"),
-                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.wither_skeleton.desc"),
+        AdvancementEntry wither_skeleton = ModAdvancementsProvider.buildAdvancement(Advancement.Builder.create().display(Blocks.WITHER_SKELETON_SKULL,
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".nether.wither_skeleton.title"),
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".nether.wither_skeleton.desc"),
                         null, AdvancementFrame.TASK, true, true, false)
                 .criterion("killed_wither_skeleton",
                         OnKilledCriterion.Conditions.createPlayerKilledEntity(EntityPredicate.Builder.create()
                                 .type(EntityType.WITHER_SKELETON)))
                 .parent(enterFortress)
-                .build(consumer, ChucksMod.MOD_ID + "/nether/wither_skeleton");
+                , consumer, "nether/wither_skeleton");
+
+        AdvancementEntry enterBastion = ModAdvancementsProvider.buildAdvancement(Advancement.Builder.create().display(Blocks.POLISHED_BLACKSTONE_BRICKS,
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".nether.enter_bastion.title"),
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".nether.enter_bastion.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("enter_bastion",
+                        TickCriterion.Conditions.createLocation(LocationPredicate.Builder
+                                .createStructure(StructureKeys.BASTION_REMNANT)))
+                .parent(root)
+                , consumer, "nether/bastion");
+
+        AdvancementEntry netheriteUpgrade = ModAdvancementsProvider.buildAdvancement(Advancement.Builder.create().display(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE,
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".nether.netherite_upgrade.title"),
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".nether.netherite_upgrade.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("netherite_upgrade", InventoryChangedCriterion.Conditions.items
+                        (Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE))
+                .parent(enterBastion)
+                , consumer, "nether/netherite_upgrade");
+
+        AdvancementEntry soulSand = ModAdvancementsProvider.buildAdvancement(Advancement.Builder.create().display(Blocks.SOUL_SAND,
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".nether.soul_sand.title"),
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".nether.soul_sand.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criteriaMerger(AdvancementRequirements.CriterionMerger.OR)
+                .criterion("soul_sand", InventoryChangedCriterion.Conditions.items
+                        (Blocks.SOUL_SAND))
+                .criterion("soul_soil", InventoryChangedCriterion.Conditions.items
+                        (Blocks.SOUL_SOIL))
+                .parent(root)
+                , consumer, "nether/soul_sand");
+
+        AdvancementEntry soulTorch = ModAdvancementsProvider.buildAdvancement(Advancement.Builder.create().display(Blocks.SOUL_TORCH,
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".nether.soul_torch.title"),
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".nether.soul_torch.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("soul_torch", InventoryChangedCriterion.Conditions.items
+                        (Blocks.SOUL_TORCH))
+                .parent(soulSand)
+                , consumer, "nether/soul_torch");
+
+        AdvancementEntry soulLantern = ModAdvancementsProvider.buildAdvancement(Advancement.Builder.create().display(Blocks.SOUL_LANTERN,
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".nether.soul_lantern.title"),
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".nether.soul_lantern.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("soul_lantern", InventoryChangedCriterion.Conditions.items
+                        (Blocks.SOUL_LANTERN))
+                .parent(soulSand)
+                , consumer, "nether/soul_lantern");
+
+        AdvancementEntry blazeStar = ModAdvancementsProvider.buildAdvancement(Advancement.Builder.create().display(ModItems.BLAZE_STAR,
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".nether.blaze_star.title"),
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".nether.blaze_star.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("blaze_star", InventoryChangedCriterion.Conditions.items
+                        (ModItems.BLAZE_STAR))
+                .parent(blaze)
+                , consumer, "nether/blaze_star");
+
+        AdvancementEntry locateSoulBlazeAltar = ModAdvancementsProvider.buildAdvancement(Advancement.Builder.create().display(ModBlocks.SOUL_BLAZE_ALTAR,
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".nether.soul_blaze_altar.title"),
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".nether.soul_blaze_altar.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("find_soul_blaze_altar",
+                        TickCriterion.Conditions.createLocation(LocationPredicate.Builder
+                                .createStructure(ModStructureKeys.SOUL_BLAZE_ALTAR)))
+                .parent(blazeStar)
+                , consumer, "nether/soul_blaze_altar");
+
+        AdvancementEntry summonSoulBlaze = ModAdvancementsProvider.buildAdvancement(Advancement.Builder.create().display(ModItems.SOUL_BLAZE_ROD,
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".nether.summon_soul_blaze.title"),
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".nether.summon_soul_blaze.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("summon_soul_blaze",
+                        SummonedEntityCriterion.Conditions.create(EntityPredicate.Builder.create().type(ModEntities.SOUL_BLAZE_BOSS)))
+                .parent(locateSoulBlazeAltar)
+                , consumer, "nether/summon_soul_blaze");
     }
 }

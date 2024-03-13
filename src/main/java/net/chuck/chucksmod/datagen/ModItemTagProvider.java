@@ -351,5 +351,15 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModBlocks.STRIPPED_PACSARIA_LOG.asItem())
                 .add(ModBlocks.PACSARIA_WOOD.asItem())
                 .add(ModBlocks.STRIPPED_PACSARIA_WOOD.asItem());
+        getOrCreateTagBuilder(ModItemTags.NETHERITE_TOOLS_ARMOR)
+                .add(Items.NETHERITE_HELMET)
+                .add(Items.NETHERITE_CHESTPLATE)
+                .add(Items.NETHERITE_LEGGINGS)
+                .add(Items.NETHERITE_BOOTS)
+                .add(Items.NETHERITE_SWORD)
+                .add(Items.NETHERITE_PICKAXE)
+                .add(Items.NETHERITE_AXE)
+                .add(Items.NETHERITE_SHOVEL)
+                .add(Items.NETHERITE_HOE);
     }
 }
