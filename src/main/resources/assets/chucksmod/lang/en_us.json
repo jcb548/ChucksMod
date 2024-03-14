@@ -887,7 +887,10 @@
   "advancements.chucksmod.nether.netherite_ingot.desc": "Craft a Netherite Ingot from 4 Netherite Scrap and 4 Gold Ingots",
 
   "advancements.chucksmod.nether.netherite_tool.title": "Netherite Tool",
-  "advancements.chucksmod.nether.netherite_tool.desc": "Use a Netherite Upgrade Smithing Template and Netherite Ingot to upgrade a Diamond tool to a Netherite Tool",
+  "advancements.chucksmod.nether.netherite_tool.desc": "Use a Netherite Upgrade Smithing Template (Found in Bastion Chests) and Netherite Ingot to upgrade a Diamond tool to a Netherite Tool",
+
+  "advancements.chucksmod.nether.full_netherite.title": "Full Netherite",
+  "advancements.chucksmod.nether.full_netherite.desc": "Obtain a full set of Netherite tools and armor (Sword, Pickaxe, Axe, Shovel, Hoe, Helmet, Chestplate, Leggings, Boots)",
 
   "advancements.chucksmod.nether.quartz.title": "Nether Quartz",
   "advancements.chucksmod.nether.quartz.desc": "Mine Quartz ore to obtain quartz, a great source of experience",
@@ -906,6 +909,9 @@
 
   "advancements.chucksmod.nether.wither_skeleton.title": "Kill a Wither Skeleton",
   "advancements.chucksmod.nether.wither_skeleton.desc": "Kill a Wither Skeleton for coal, and Wither Skeleton skulls, which can be used to summon the wither",
+
+  "advancements.chucksmod.nether.summon_wither.title": "Summon Wither",
+  "advancements.chucksmod.nether.summon_wither.desc": "Summon the Wither, Full Netherite or Triafium Gear is recommended for this fight",
 
   "advancements.chucksmod.nether.wither.title": "Summon Wither",
   "advancements.chucksmod.nether.wither.desc": "By placing 3 Wither Skeleton Skulls on top of a T of 4 Soul Sand blocks, summon the Wither. Full Triafium armor is recommended for this fight",
@@ -932,7 +938,7 @@
   "advancements.chucksmod.nether.soul_blaze_altar.desc": "Locate a Soul Blaze Altar, which can be right clicked with a Blaze Star to summon the Soul Blaze",
 
   "advancements.chucksmod.nether.summon_soul_blaze.title": "Summon Soul Blaze",
-  "advancements.chucksmod.nether.summon_soul_blaze.desc": "Summon the Soul Blaze, Full Triafium Armor is recommended for this fight",
+  "advancements.chucksmod.nether.summon_soul_blaze.desc": "Summon the Soul Blaze, Full Netherite or Triafium Gear is recommended for this fight",
 
   "advancements.chucksmod.nether.crystal_seeds.title": "Nether Crystal Seeds",
   "advancements.chucksmod.nether.crystal_seeds.desc": "Locate and break a rare Nether Crystal plant, to obtain its seeds",
@@ -951,8 +957,14 @@
 
 
   "advancements.chucksmod.bosses.root.title": "Bosses",
-  "advancements.chucksmod.bosses.root.desc": "Here are the list of Bosses to be killed, in recommended order",
+  "advancements.chucksmod.bosses.root.desc": "Here are the list of Bosses to be killed, sorted by dimension",
+
+  "advancements.chucksmod.bosses.nether.title": "Bosses",
+  "advancements.chucksmod.bosses.nether.desc": "Bosses to be slain in the Nether",
 
   "advancements.chucksmod.bosses.wither.title": "Wither",
-  "advancements.chucksmod.bosses.wither.desc": "Slay the wither, to gain access to the Withering enchantment, and obtain a nether star"
+  "advancements.chucksmod.bosses.wither.desc": "Slay the Wither, to gain access to the Withering enchantment, and obtain a nether star, which can be used for Beacons, which give effects in an area around the placed beacon",
+
+  "advancements.chucksmod.bosses.soul_blaze.title": "Soul Blaze",
+  "advancements.chucksmod.bosses.soul_blaze.desc": "Slay the Soul Blaze, to gain access to the Lifesteal enchantment, and obtain Soul Blaze Rods, which are used in the recipe for Triafia Portal Blocks"
 }

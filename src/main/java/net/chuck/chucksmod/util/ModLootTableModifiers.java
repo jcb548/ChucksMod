@@ -28,7 +28,6 @@ public class ModLootTableModifiers {
             = new Identifier("minecraft", "blocks/grass");
     private static final Identifier WITHER_SKELETON_ID =
             new Identifier("minecraft", "entities/wither_skeleton");
-    private static final Identifier WITHER_ID = new Identifier("entities/wither");
     private static final Identifier ENDER_DRAGON_ID = new Identifier("entities/ender_dragon");
     private static final Identifier MINESHAFT_ID =
              new Identifier("minecraft", "chests/abandoned_mineshaft");
@@ -88,15 +87,6 @@ public class ModLootTableModifiers {
                         .conditionally(RandomChanceLootCondition.builder(0.4f)) // found 40% of the time
                         .with(ItemEntry.builder(ModItems.PINEAPPLE_SEEDS))
                         .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 4.0f)).build());
-                tableBuilder.pool(poolBuilder.build());
-            }
-            if(WITHER_ID.equals(id)){
-                LootPool.Builder poolBuilder = LootPool.builder()
-                        .rolls(ConstantLootNumberProvider.create(1))
-                        .conditionally(RandomChanceLootCondition.builder(1))
-                        .with(ItemEntry.builder(Items.ENCHANTED_BOOK)
-                            .apply(new SetEnchantmentsLootFunction.Builder(true)
-                                    .enchantment(ModEnchantments.WITHERING, ConstantLootNumberProvider.create(1))).build());
                 tableBuilder.pool(poolBuilder.build());
             }
             if(ENDER_DRAGON_ID.equals(id)){

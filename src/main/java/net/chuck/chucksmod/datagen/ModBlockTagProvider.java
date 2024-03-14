@@ -524,5 +524,12 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(Blocks.WAXED_OXIDIZED_CUT_COPPER)
                 .add(Blocks.WAXED_WEATHERED_COPPER)
                 .add(Blocks.WAXED_WEATHERED_CUT_COPPER);
+
+        getOrCreateTagBuilder(BlockTags.BEACON_BASE_BLOCKS)
+                .add(ModBlocks.TIN_BLOCK)
+                .add(ModBlocks.TITANIUM_BLOCK)
+                .add(ModBlocks.TRIAFIUM_BLOCK)
+                .add(ModBlocks.PACSARIUM_BLOCK)
+                .add(ModBlocks.BRONZE_BLOCK);
     }
 }

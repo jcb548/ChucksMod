@@ -1,4 +1,4 @@
-package net.chuck.chucksmod.datagen;
+package net.chuck.chucksmod.datagen.loot_table;
 
 import net.chuck.chucksmod.entity.ModEntities;
 import net.chuck.chucksmod.item.ModItems;
@@ -6,6 +6,7 @@ import net.chuck.chucksmod.item.enchantment.ModEnchantments;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.SimpleFabricLootTableProvider;
 import net.minecraft.enchantment.Enchantments;
+import net.minecraft.entity.EntityType;
 import net.minecraft.item.Items;
 import net.minecraft.loot.LootPool;
 import net.minecraft.loot.LootTable;
@@ -26,6 +27,7 @@ import java.util.function.BiConsumer;
 public class ModEntityLootTableGenerator extends SimpleFabricLootTableProvider {
     private static final Identifier SOUL_BLAZE = ModEntities.SOUL_BLAZE_BOSS.getLootTableId();
     private static final Identifier TRIAFIAN_PIG = ModEntities.TRIAFIAN_PIG.getLootTableId();
+    private static final Identifier WITHER = EntityType.WITHER.getLootTableId();
     public ModEntityLootTableGenerator(FabricDataOutput output) {
         super(output, LootContextTypes.ENTITY);
     }
@@ -46,8 +48,14 @@ public class ModEntityLootTableGenerator extends SimpleFabricLootTableProvider {
                         .apply(FurnaceSmeltLootFunction.builder().conditionally(
                                 EntityPropertiesLootCondition.builder(LootContext.EntityTarget.THIS, EntityPredicate
                                         .Builder.create().flags(EntityFlagsPredicate.Builder.create().onFire(true)))))
-                        .apply(LootingEnchantLootFunction.builder(UniformLootNumberProvider.create(0.0f, 1.0f))))
-        );
+                        .apply(LootingEnchantLootFunction.builder(UniformLootNumberProvider.create(0.0f, 1.0f)))));
+        exporter.accept(WITHER, LootTable.builder()
+                .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1))
+                        .with(ItemEntry.builder(Items.NETHER_STAR)))
+                .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1))
+                        .with(ItemEntry.builder(Items.ENCHANTED_BOOK)
+                                .apply(new SetEnchantmentsLootFunction.Builder(true)
+                                        .enchantment(ModEnchantments.WITHERING, ConstantLootNumberProvider.create(1))).build())));
     }
 
 }

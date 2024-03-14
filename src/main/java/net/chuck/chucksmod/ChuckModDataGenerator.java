@@ -2,6 +2,9 @@ package net.chuck.chucksmod;
 
 import net.chuck.chucksmod.datagen.*;
 import net.chuck.chucksmod.datagen.advancement.ModAdvancementsProvider;
+import net.chuck.chucksmod.datagen.loot_table.ModBlockLootTableGenerator;
+import net.chuck.chucksmod.datagen.loot_table.ModChestLootTableGenerator;
+import net.chuck.chucksmod.datagen.loot_table.ModEntityLootTableGenerator;
 import net.chuck.chucksmod.datagen.models.ModModelProvider;
 import net.chuck.chucksmod.world.ModConfiguredFeatures;
 import net.chuck.chucksmod.world.ModPlacedFeatures;

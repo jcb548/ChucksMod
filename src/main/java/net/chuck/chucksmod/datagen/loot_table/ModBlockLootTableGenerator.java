@@ -1,4 +1,4 @@
-package net.chuck.chucksmod.datagen;
+package net.chuck.chucksmod.datagen.loot_table;
 
 import net.chuck.chucksmod.block.ModBlocks;
 import net.chuck.chucksmod.block.custom.crop.*;

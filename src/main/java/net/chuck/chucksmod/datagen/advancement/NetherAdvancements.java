@@ -82,8 +82,20 @@ public class NetherAdvancements {
                         null, AdvancementFrame.TASK, true, true, false)
                 .criterion("netherite_tool", InventoryChangedCriterion.Conditions.items(ItemPredicate.Builder.create()
                         .tag(ModItemTags.NETHERITE_TOOLS_ARMOR)))
-                .parent(netheriteScrap)
+                .parent(netheriteIngot)
                 , consumer, "nether/netherite_tool");
+
+        AdvancementEntry fullNetherite = ModAdvancementsProvider.buildAdvancement(Advancement.Builder.create().display(
+                Items.NETHERITE_CHESTPLATE,
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".nether.full_netherite.title"),
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".nether.full_netherite.desc"),
+                        null, AdvancementFrame.CHALLENGE, true, true, false)
+                .criterion("full_netherite", InventoryChangedCriterion.Conditions.items(ItemPredicate.Builder.create()
+                        .items(Items.NETHERITE_PICKAXE, Items.NETHERITE_AXE, Items.NETHERITE_SHOVEL, Items.NETHERITE_HOE,
+                                Items.NETHERITE_SWORD, Items.NETHERITE_HELMET, Items.NETHERITE_CHESTPLATE,
+                                Items.NETHERITE_LEGGINGS, Items.NETHERITE_BOOTS)))
+                .parent(netheriteTool)
+                , consumer, "nether/full_netherite");
 
         AdvancementEntry quartz = ModAdvancementsProvider.buildAdvancement(Advancement.Builder.create().display(Items.QUARTZ,
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".nether.quartz.title"),
@@ -99,8 +111,7 @@ public class NetherAdvancements {
                         null, AdvancementFrame.TASK, true, true, false)
                 .criterion("killed_zombified_piglin",
                         OnKilledCriterion.Conditions.createPlayerKilledEntity(EntityPredicate.Builder.create().type(EntityType.ZOMBIFIED_PIGLIN)))
-                .parent(root)
-                , consumer, "nether/zombified_piglin");
+                .parent(root), consumer, "nether/zombified_piglin");
         
         AdvancementEntry enterFortress = ModAdvancementsProvider.buildAdvancement(Advancement.Builder.create().display(Blocks.NETHER_BRICKS,
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".nether.enter_fortress.title"),
