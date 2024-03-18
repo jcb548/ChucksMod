@@ -1,10 +1,16 @@
 package net.chuck.chucksmod.item;
 
+import dev.architectury.event.events.common.ExplosionEvent;
 import net.chuck.chucksmod.ChucksMod;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.predicate.item.ItemPredicate;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.Identifier;
+
+import java.util.function.Predicate;
+import java.util.stream.Stream;
 
 public class ModItemTags {
     public static final TagKey<Item> RAW_MEAT = TagKey.of(RegistryKeys.ITEM,

@@ -269,6 +269,8 @@
   "block.chucksmod.titanium_steam_generator": "Titanium Steam Generator",
   "block.chucksmod.titanium_lava_generator": "Titanium Lava Generator",
   "tooltip.chucksmod.lava_generator": "Generates energy from lava",
+  "block.chucksmod.titanium_harvester": "Titanium Harvester",
+  "tooltip.chucksmod.titanium_harvester": "Harvests crops in a 9x9 area in front of Harvester",
 
   "item.chucksmod.raw_pacsarium": "Raw Pacsarium",
   "item.chucksmod.pacsarium_ingot": "Pacsarium Ingot",
@@ -372,7 +374,7 @@
   "item.chucksmod.iron_motor": "Iron Motor",
   "block.chucksmod.iron_fluid_pipe": "Iron Fluid Pipe",
   "block.chucksmod.iron_steam_generator": "Iron Steam Generator",
-  "tooltip.chucksmod.steam_generator": "Generates Energy from steam created from burning furnace fuels, twice as efficient as a Fuel Generator",
+  "tooltip.chucksmod.steam_generator": "Generates Energy from steam created from \nburning furnace fuels, twice as efficient as a \nFuel Generator",
 
   "block.chucksmod.slated_dirt": "Slated Dirt",
   "block.chucksmod.slated_grass": "Slated Grass",

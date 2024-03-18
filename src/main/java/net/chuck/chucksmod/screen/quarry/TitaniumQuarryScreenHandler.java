@@ -1,10 +1,12 @@
 package net.chuck.chucksmod.screen.quarry;
 
+import net.chuck.chucksmod.block.entity.harvester.AbstractHarvesterBlockEntity;
 import net.chuck.chucksmod.block.entity.quarry.AbstractQuarryBlockEntity;
 import net.chuck.chucksmod.block.entity.quarry.TitaniumQuarryBlockEntity;
 import net.chuck.chucksmod.screen.ModScreenHandlers;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.screen.ArrayPropertyDelegate;
@@ -12,12 +14,17 @@ import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.slot.Slot;
 
 public class TitaniumQuarryScreenHandler extends IronQuarryScreenHandler {
+    protected TitaniumQuarryBlockEntity quarry = null;
+    protected Inventory miningBookInventory;
     private static final int LAST_QUARRY_INV_SLOT = 51;
     private static final int INV_ROWS = 2;
     public TitaniumQuarryScreenHandler(int syncId, PlayerInventory playerInventory, BlockEntity entity,
                                        PropertyDelegate delegate) {
         super(syncId, playerInventory, entity, delegate, ModScreenHandlers.TITANIUM_QUARRY_SCREEN_HANDLER,
                 TitaniumQuarryBlockEntity.QUARRY_INV_SIZE);
+        if(entity instanceof TitaniumQuarryBlockEntity quarryBlockEntity) quarry = quarryBlockEntity;
+        checkSize(quarry.getMiningBookInventory(),1);
+        miningBookInventory = quarry.getMiningBookInventory();
         addQuarryInventory();
     }
     public TitaniumQuarryScreenHandler(int syncId, PlayerInventory inventory, PacketByteBuf buf){
@@ -36,7 +43,7 @@ public class TitaniumQuarryScreenHandler extends IronQuarryScreenHandler {
                         26+i*18));
             }
         }
-        this.addSlot(new MiningBookSlot(inventory, INV_ROWS*INV_ROW_SIZE, 98, 64));
+        this.addSlot(new MiningBookSlot(miningBookInventory, 0, 98, 64));
     }
 
     @Override

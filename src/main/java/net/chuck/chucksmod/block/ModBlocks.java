@@ -27,6 +27,7 @@ import net.chuck.chucksmod.block.custom.generator.lava.TitaniumLavaGeneratorBloc
 import net.chuck.chucksmod.block.custom.generator.steam.IronSteamGeneratorBlock;
 import net.chuck.chucksmod.block.custom.generator.heat.TitaniumHeatGeneratorBlock;
 import net.chuck.chucksmod.block.custom.generator.steam.TitaniumSteamGeneratorBlock;
+import net.chuck.chucksmod.block.custom.harvester.TitaniumHarvesterBlock;
 import net.chuck.chucksmod.block.custom.portal_builder.TriafiumPortalBuilderBlock;
 import net.chuck.chucksmod.block.custom.pump.IronPumpBlock;
 import net.chuck.chucksmod.block.custom.pump.TitaniumPumpBlock;
@@ -265,6 +266,8 @@ public class ModBlocks {
             new TitaniumSteamGeneratorBlock(FabricBlockSettings.copy(ModBlocks.TITANIUM_BLOCK)));
     public static final Block TITANIUM_LAVA_GENERATOR = registerBlock("titanium_lava_generator",
             new TitaniumLavaGeneratorBlock(FabricBlockSettings.copy(ModBlocks.TITANIUM_BLOCK)));
+    public static final Block TITANIUM_HARVESTER = registerBlock("titanium_harvester",
+            new TitaniumHarvesterBlock(FabricBlockSettings.copy(TITANIUM_BLOCK)));
     public static final Block TITANIUM_CROP =
             Registry.register(Registries.BLOCK, new Identifier(ChucksMod.MOD_ID, "titanium_crop"),
                     new TitaniumCropBlock(FabricBlockSettings.copy(Blocks.WHEAT).mapColor(MapColor.PALE_YELLOW)));

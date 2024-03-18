@@ -1,6 +1,8 @@
 package net.chuck.chucksmod.block.entity;
 
+import dev.architectury.platform.Mod;
 import net.chuck.chucksmod.networking.ModMessages;
+import net.chuck.chucksmod.util.ModNbt;
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
 import net.fabricmc.fabric.api.networking.v1.PlayerLookup;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
@@ -12,6 +14,8 @@ import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;
+import net.minecraft.inventory.Inventory;
+import net.minecraft.inventory.InventoryChangedListener;
 import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
@@ -25,7 +29,7 @@ import org.jetbrains.annotations.Nullable;
 import team.reborn.energy.api.base.SimpleEnergyStorage;
 
 public abstract class AbstractEnergyUsingBlockEntity extends BlockEntity implements ExtendedScreenHandlerFactory,
-        ImplementedInventory, EnergyStoring {
+        ImplementedInventory, EnergyStoring, InventoryChangedListener {
     public static final int INPUT_SLOT = 0;
     public final SimpleEnergyStorage energyStorage;
     protected final SimpleInventory inventory;
@@ -33,6 +37,7 @@ public abstract class AbstractEnergyUsingBlockEntity extends BlockEntity impleme
                                           int invSize, int energyStorageSize, int maxInsertExtract) {
         super(type, pos, state);
         this.inventory = new SimpleInventory(invSize);
+        inventory.addListener(this);
         energyStorage = new SimpleEnergyStorage(energyStorageSize, maxInsertExtract, maxInsertExtract){
             @Override
             protected void onFinalCommit() {
@@ -77,14 +82,14 @@ public abstract class AbstractEnergyUsingBlockEntity extends BlockEntity impleme
     }
     @Override
     protected void writeNbt(NbtCompound nbt) {
-        Inventories.writeNbt(nbt, inventory.stacks);
+        ModNbt.writeNbt(nbt, "Items",inventory.stacks);
         super.writeNbt(nbt);
         nbt.putLong("energy_block.energy", energyStorage.amount);
     }
 
     @Override
     public void readNbt(NbtCompound nbt) {
-        Inventories.readNbt(nbt, inventory.stacks);
+        ModNbt.readNbt(nbt, "Items", inventory.stacks);
         super.readNbt(nbt);
         energyStorage.amount= nbt.getLong("energy_block.energy");
     }
@@ -96,5 +101,13 @@ public abstract class AbstractEnergyUsingBlockEntity extends BlockEntity impleme
     @Override
     public SimpleEnergyStorage getEnergyStorage() {
         return energyStorage;
+    }
+    public Inventory getInventory() {
+        return inventory;
+    }
+
+    @Override
+    public void onInventoryChanged(Inventory sender) {
+        markDirty();
     }
 }

@@ -4,11 +4,13 @@ import net.chuck.chucksmod.block.custom.AbstractEnergyUsingBlock;
 import net.chuck.chucksmod.block.entity.AbstractMiningBlockEntity;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
@@ -45,9 +47,11 @@ public abstract class AbstractQuarryBlockEntity extends AbstractMiningBlockEntit
                         }
                     }
                     world.breakBlock(nextBlockPos, false);
+                    this.resetProgress();
+                } else {
+                    this.noMineResetProgress();
                 }
                 incrementBlockPos();
-                this.resetProgress();
             }
         }
         blockState = blockState.with(AbstractEnergyUsingBlock.LIT, shouldTryMine);

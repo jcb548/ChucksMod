@@ -134,6 +134,7 @@ public class ModModelProvider extends FabricModelProvider {
         ModModelGenerator.registerPipe(blockStateModelGenerator, ModBlocks.TITANIUM_FLUID_PIPE);
         blockStateModelGenerator.registerCooker(ModBlocks.TITANIUM_STEAM_GENERATOR, TexturedModel.ORIENTABLE);
         blockStateModelGenerator.registerCooker(ModBlocks.TITANIUM_LAVA_GENERATOR, TexturedModel.ORIENTABLE);
+        blockStateModelGenerator.registerCooker(ModBlocks.TITANIUM_HARVESTER, TexturedModel.ORIENTABLE);
 
         blockStateModelGenerator.registerTintableCrossBlockStateWithStages(ModBlocks.NETHER_CRYSTAL_CROP, BlockStateModelGenerator.TintType.NOT_TINTED,
                 AbstractMagicalCropBlock.AGE, 0, 1, 2, 3, 4, 5);

@@ -19,6 +19,7 @@ import net.chuck.chucksmod.block.entity.generator.lava.TitaniumLavaGeneratorBloc
 import net.chuck.chucksmod.block.entity.generator.steam.IronSteamGeneratorBlockEntity;
 import net.chuck.chucksmod.block.entity.generator.heat.TitaniumHeatGeneratorBlockEntity;
 import net.chuck.chucksmod.block.entity.generator.steam.TitaniumSteamGeneratorBlockEntity;
+import net.chuck.chucksmod.block.entity.harvester.TitaniumHarvesterBlockEntity;
 import net.chuck.chucksmod.block.entity.portal_builder.TriafiumPortalBuilderBlockEntity;
 import net.chuck.chucksmod.block.entity.pump.IronPumpBlockEntity;
 import net.chuck.chucksmod.block.entity.pump.TitaniumPumpBlockEntity;
@@ -67,6 +68,7 @@ public class ModBlockEntities {
     public static BlockEntityType<TitaniumFluidPipeBlockEntity> TITANIUM_FLUID_PIPE;
     public static BlockEntityType<TitaniumSteamGeneratorBlockEntity> TITANIUM_STEAM_GENERATOR;
     public static BlockEntityType<TitaniumLavaGeneratorBlockEntity> TITANIUM_LAVA_GENERATOR;
+    public static BlockEntityType<TitaniumHarvesterBlockEntity> TITANIUM_HARVESTER;
     
     public static BlockEntityType<TriafiumPortalBuilderBlockEntity> TRIAFIUM_PORTAL_BUILDER;
     public static void registerBlockEntities() {
@@ -222,6 +224,12 @@ public class ModBlockEntities {
                 TITANIUM_LAVA_GENERATOR);
         FluidStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.fluidStorage,
                 TITANIUM_LAVA_GENERATOR);
+        TITANIUM_HARVESTER = Registry.register(Registries.BLOCK_ENTITY_TYPE,
+                new Identifier(ChucksMod.MOD_ID, "titanium_harvester"),
+                FabricBlockEntityTypeBuilder.create(TitaniumHarvesterBlockEntity::new,
+                        ModBlocks.TITANIUM_HARVESTER).build());
+        EnergyStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.energyStorage,
+                TITANIUM_HARVESTER);
         // Fluid Pipes
         IRON_FLUID_PIPE = Registry.register(Registries.BLOCK_ENTITY_TYPE,
                 new Identifier(ChucksMod.MOD_ID, "iron_fluid_pipe"),

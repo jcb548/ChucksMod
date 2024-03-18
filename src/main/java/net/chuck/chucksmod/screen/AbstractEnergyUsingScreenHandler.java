@@ -19,9 +19,9 @@ public abstract class AbstractEnergyUsingScreenHandler extends AbstractModScreen
     protected AbstractEnergyUsingScreenHandler(int syncId, PlayerInventory playerInventory, BlockEntity entity,
                                                PropertyDelegate delegate, ScreenHandlerType type, int invSize) {
         super(type, syncId);
-        checkSize(((Inventory) entity), invSize);
-        this.inventory = (Inventory) entity;
         this.blockEntity = (AbstractEnergyUsingBlockEntity) entity;
+        checkSize(blockEntity.getInventory(), invSize);
+        this.inventory = blockEntity.getInventory();
         inventory.onOpen(playerInventory.player);
         this.propertyDelegate = delegate;
         addPlayerHotbar(playerInventory, 142);

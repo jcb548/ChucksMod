@@ -220,6 +220,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.TITANIUM_HEAT_GENERATOR);
                         entries.add(ModBlocks.TITANIUM_STEAM_GENERATOR);
                         entries.add(ModBlocks.TITANIUM_LAVA_GENERATOR);
+                        entries.add(ModBlocks.TITANIUM_HARVESTER);
                         entries.add(ModBlocks.TITANIUM_QUARRY);
                         entries.add(ModBlocks.TITANIUM_COPIER);
                         entries.add(ModBlocks.TITANIUM_FLUID_TANK);

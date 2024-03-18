@@ -79,6 +79,9 @@ public abstract class AbstractMiningBlockEntity extends AbstractEnergyUsingBlock
     protected void resetProgress(){
         progress = 0;
     }
+    protected void noMineResetProgress(){
+        progress = (maxProgress*3)/4;
+    }
     /*
      * Facing:
      * west: -x

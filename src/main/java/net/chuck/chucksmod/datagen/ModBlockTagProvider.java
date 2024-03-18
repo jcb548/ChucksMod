@@ -75,6 +75,8 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.TITANIUM_FLUID_PIPE)
                 .add(ModBlocks.TITANIUM_STEAM_GENERATOR)
                 .add(ModBlocks.TITANIUM_LAVA_GENERATOR)
+                .add(ModBlocks.TITANIUM_HARVESTER)
+
                 .add(ModBlocks.ECLOGITE)
                 .add(ModBlocks.ECLOGITE_STAIRS)
                 .add(ModBlocks.ECLOGITE_SLAB)
@@ -180,6 +182,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.TITANIUM_FLUID_PIPE)
                 .add(ModBlocks.TITANIUM_STEAM_GENERATOR)
                 .add(ModBlocks.TITANIUM_LAVA_GENERATOR)
+                .add(ModBlocks.TITANIUM_HARVESTER)
 
                 .add(ModBlocks.SOUL_STONE)
                 .add(ModBlocks.SOUL_STONE_STAIRS)
