@@ -19,6 +19,7 @@ import net.chuck.chucksmod.block.entity.generator.lava.TitaniumLavaGeneratorBloc
 import net.chuck.chucksmod.block.entity.generator.steam.IronSteamGeneratorBlockEntity;
 import net.chuck.chucksmod.block.entity.generator.heat.TitaniumHeatGeneratorBlockEntity;
 import net.chuck.chucksmod.block.entity.generator.steam.TitaniumSteamGeneratorBlockEntity;
+import net.chuck.chucksmod.block.entity.harvester.IronHarvesterBlockEntity;
 import net.chuck.chucksmod.block.entity.harvester.TitaniumHarvesterBlockEntity;
 import net.chuck.chucksmod.block.entity.portal_builder.TriafiumPortalBuilderBlockEntity;
 import net.chuck.chucksmod.block.entity.pump.IronPumpBlockEntity;
@@ -54,6 +55,7 @@ public class ModBlockEntities {
     public static BlockEntityType<IronPumpBlockEntity> IRON_PUMP;
     public static BlockEntityType<IronFluidPipeBlockEntity> IRON_FLUID_PIPE;
     public static BlockEntityType<IronSteamGeneratorBlockEntity> IRON_STEAM_GENERATOR;
+    public static BlockEntityType<IronHarvesterBlockEntity> IRON_HARVESTER;
     public static BlockEntityType<TinWireBlockEntity> TIN_WIRE;
     public static BlockEntityType<CopperWireBlockEntity> COPPER_WIRE;
     public static BlockEntityType<GoldWireBlockEntity> GOLD_WIRE;
@@ -131,6 +133,13 @@ public class ModBlockEntities {
                 IRON_STEAM_GENERATOR);
         FluidStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.fluidStorage,
                 IRON_STEAM_GENERATOR);
+        
+        IRON_HARVESTER = Registry.register(Registries.BLOCK_ENTITY_TYPE,
+                new Identifier(ChucksMod.MOD_ID, "iron_harvester"),
+                FabricBlockEntityTypeBuilder.create(IronHarvesterBlockEntity::new,
+                        ModBlocks.IRON_HARVESTER).build());
+        EnergyStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.energyStorage,
+                IRON_HARVESTER);
 
         // Wires
         TIN_WIRE = Registry.register(Registries.BLOCK_ENTITY_TYPE,
@@ -224,6 +233,7 @@ public class ModBlockEntities {
                 TITANIUM_LAVA_GENERATOR);
         FluidStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.fluidStorage,
                 TITANIUM_LAVA_GENERATOR);
+        
         TITANIUM_HARVESTER = Registry.register(Registries.BLOCK_ENTITY_TYPE,
                 new Identifier(ChucksMod.MOD_ID, "titanium_harvester"),
                 FabricBlockEntityTypeBuilder.create(TitaniumHarvesterBlockEntity::new,

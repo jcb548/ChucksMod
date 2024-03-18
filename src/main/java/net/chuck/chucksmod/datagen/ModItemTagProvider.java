@@ -281,6 +281,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.LEATHER_BAG)
                 .add(ModItems.BRONZE_BAG)
                 .add(ModItems.COPPER_BAG)
+                .add(ModItems.TITANIUM_BAG)
                 .add(ModItems.TRIAFIUM_BAG)
                 .add(ModItems.IRON_BAG)
                 .add(ModItems.NETHERITE_BAG);

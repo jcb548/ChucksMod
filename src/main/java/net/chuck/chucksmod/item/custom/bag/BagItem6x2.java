@@ -1,7 +1,7 @@
 package net.chuck.chucksmod.item.custom.bag;
 
-import net.chuck.chucksmod.screen.bag.BagScreenHandlerFactory5x1;
-import net.chuck.chucksmod.screen.bag.BagScreenHandlerFactory7x1;
+import net.chuck.chucksmod.screen.bag.BagScreenHandlerFactory6x2;
+import net.chuck.chucksmod.screen.bag.BagScreenHandlerFactory7x2;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -14,9 +14,11 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class BagItem7x1 extends AbstractBagItem{
-    public static final int INV_SIZE = 7;
-    public BagItem7x1(Settings settings) {
+public class BagItem6x2 extends AbstractBagItem{
+    public static final int INV_WIDTH = 6;
+    public static final int INV_HEIGHT = 2;
+    public static final int INV_SIZE = INV_HEIGHT*INV_WIDTH;
+    public BagItem6x2(Settings settings) {
         super(settings);
     }
 
@@ -26,13 +28,13 @@ public class BagItem7x1 extends AbstractBagItem{
         if (world.isClient) {
             return TypedActionResult.success(itemStack);
         }
-        NamedScreenHandlerFactory screenHandlerFactory = new BagScreenHandlerFactory7x1(itemStack);
+        NamedScreenHandlerFactory screenHandlerFactory = new BagScreenHandlerFactory6x2(itemStack);
         user.openHandledScreen(screenHandlerFactory);
         return TypedActionResult.consume(itemStack);
     }
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        tooltip.add(Text.translatable("tooltip.chucksmod.7x1bag.tooltip"));
+        tooltip.add(Text.translatable("tooltip.chucksmod.6x2bag.tooltip"));
         super.appendTooltip(stack, world, tooltip, context);
     }
 

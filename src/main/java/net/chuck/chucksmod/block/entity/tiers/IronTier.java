@@ -20,4 +20,6 @@ public interface IronTier {
     int PUMP_SPEED = SPEED/15;
     int MACHINE_BUCKET_STORAGE = 2;
     int FLUID_PIPE_TRANSFER_RATE = 100;
+    int HARVESTER_SEEDS_INV_SIZE = 2;
+    int HARVESTER_CROPS_INV_SIZE = 5;
 }

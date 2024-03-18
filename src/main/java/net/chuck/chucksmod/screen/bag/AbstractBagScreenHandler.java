@@ -1,5 +1,6 @@
 package net.chuck.chucksmod.screen.bag;
 
+import net.chuck.chucksmod.item.custom.bag.AbstractBagItem;
 import net.chuck.chucksmod.item.custom.bag.BagItem5x1;
 import net.chuck.chucksmod.screen.AbstractModScreenHandler;
 import net.chuck.chucksmod.screen.ModScreenHandlers;
@@ -21,11 +22,13 @@ import net.minecraft.screen.slot.Slot;
 public abstract class AbstractBagScreenHandler extends AbstractModScreenHandler implements InventoryChangedListener {
     protected SimpleInventory inventory;
     protected ItemStack bagItemStack;
+    private int invSize = 0;
     public AbstractBagScreenHandler(ScreenHandlerType<?> type, int syncId){
         super(type, syncId);
     }
     protected void init(PlayerInventory playerInventory, ItemStack itemStack){
         bagItemStack = itemStack;
+        if(bagItemStack.getItem() instanceof AbstractBagItem bagItem) invSize = bagItem.getInvSize();
         if(bagItemStack.getNbt() != null) {
             Inventories.readNbt(bagItemStack.getNbt(), inventory.stacks);
         } else {
@@ -43,19 +46,19 @@ public abstract class AbstractBagScreenHandler extends AbstractModScreenHandler 
     @Override
     public ItemStack quickMove(PlayerEntity player, int slot) {
         ItemStack itemStack = ItemStack.EMPTY;
-        Slot slot2 = this.slots.get(slot);
-        if (slot2 != null && slot2.hasStack()) {
-            ItemStack itemStack2 = slot2.getStack();
+        Slot originalSlot = this.slots.get(slot);
+        if (originalSlot.hasStack()) {
+            ItemStack itemStack2 = originalSlot.getStack();
             itemStack = itemStack2.copy();
-            if (slot < BagItem5x1.INV_SIZE ?
-                    !this.insertItem(itemStack2, BagItem5x1.INV_SIZE, this.slots.size(), true)
-                    : !this.insertItem(itemStack2, 0, BagItem5x1.INV_SIZE, false)) {
+            if (slot <= PLAYER_INVENTORY_END_IDX ?
+                    !this.insertItem(itemStack2, PLAYER_INVENTORY_END_IDX+1, PLAYER_INVENTORY_END_IDX+invSize+1, false) :
+                    !this.insertItem(itemStack2, PLAYER_INVENTORY_START_IDX, PLAYER_INVENTORY_END_IDX+1, false)) {
                 return ItemStack.EMPTY;
             }
             if (itemStack2.isEmpty()) {
-                slot2.setStack(ItemStack.EMPTY);
+                originalSlot.setStack(ItemStack.EMPTY);
             } else {
-                slot2.markDirty();
+                originalSlot.markDirty();
             }
         }
         return itemStack;

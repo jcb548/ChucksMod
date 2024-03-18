@@ -55,7 +55,7 @@ public abstract class AbstractHarvesterBlockEntity extends AbstractMiningBlockEn
                 BlockState nextBlockState = world.getBlockState(nextBlockPos);
                 if(isGrownCrop(nextBlockState)){
                     List<ItemStack> drops = Block.getDroppedStacks(nextBlockState, serverWorld, nextBlockPos,
-                            serverWorld.getBlockEntity(nextBlockPos), null, getTool());
+                            serverWorld.getBlockEntity(nextBlockPos), null, ItemStack.EMPTY);
                     for (int i = 0; i < drops.size(); i++) {
                         ItemStack stack = drops.get(i);
                         ItemStack excess;
@@ -104,10 +104,9 @@ public abstract class AbstractHarvesterBlockEntity extends AbstractMiningBlockEn
             }
         }
     }
-    private boolean isGrownCrop(BlockState state){
+    private boolean isGrownCrop(BlockState state) {
         return state.getBlock() instanceof CropBlock block && block.getAge(state) == block.getMaxAge();
     }
-    public abstract ItemStack getTool();
     public Inventory getCropInventory(){
         return cropsInventory;
     }

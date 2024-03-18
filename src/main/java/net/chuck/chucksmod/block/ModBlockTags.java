@@ -34,6 +34,10 @@ public class ModBlockTags {
     public static final TagKey<Block> CRUSHERS = ModBlockTags.of("crushers");
     public static final TagKey<Block> GENERATORS = ModBlockTags.of("generators");
     public static final TagKey<Block> MACHINE_BASES = ModBlockTags.of("machine_bases");
+    public static final TagKey<Block> MACHINES = ModBlockTags.of("machines");
+    public static final TagKey<Block> IRON_TIER = ModBlockTags.of("iron_tier");
+    public static final TagKey<Block> TITANIUM_TIER = ModBlockTags.of("titanium_machines");
+    public static final TagKey<Block> TRIAFIUM_TIER = ModBlockTags.of("triafium_machines");
     public static final TagKey<Block> TRIAFIA_BASE_STONE = ModBlockTags.of("triafia_base_stone");
     public static final TagKey<Block> COPPER_PLANTABLE = ModBlockTags.of("copper_plantable");
 

@@ -27,6 +27,7 @@ import net.chuck.chucksmod.block.custom.generator.lava.TitaniumLavaGeneratorBloc
 import net.chuck.chucksmod.block.custom.generator.steam.IronSteamGeneratorBlock;
 import net.chuck.chucksmod.block.custom.generator.heat.TitaniumHeatGeneratorBlock;
 import net.chuck.chucksmod.block.custom.generator.steam.TitaniumSteamGeneratorBlock;
+import net.chuck.chucksmod.block.custom.harvester.IronHarvesterBlock;
 import net.chuck.chucksmod.block.custom.harvester.TitaniumHarvesterBlock;
 import net.chuck.chucksmod.block.custom.portal_builder.TriafiumPortalBuilderBlock;
 import net.chuck.chucksmod.block.custom.pump.IronPumpBlock;
@@ -219,6 +220,8 @@ public class ModBlocks {
             new IronPumpBlock(FabricBlockSettings.copy(Blocks.IRON_BLOCK)));
     public static final Block IRON_STEAM_GENERATOR = registerBlock("iron_steam_generator",
             new IronSteamGeneratorBlock(FabricBlockSettings.copy(Blocks.IRON_BLOCK)));
+    public static final Block IRON_HARVESTER = registerBlock("iron_harvester",
+            new IronHarvesterBlock(FabricBlockSettings.copy(Blocks.IRON_BLOCK)));
     public static final Block IRON_FLUID_PIPE = registerBlock("iron_fluid_pipe",
             new IronFluidPipeBlock(FabricBlockSettings.copy(Blocks.IRON_BLOCK)));
 

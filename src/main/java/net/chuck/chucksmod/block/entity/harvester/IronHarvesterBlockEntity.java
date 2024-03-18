@@ -1,13 +1,10 @@
 package net.chuck.chucksmod.block.entity.harvester;
 
 import net.chuck.chucksmod.block.entity.ModBlockEntities;
-import net.chuck.chucksmod.block.entity.tiers.TitaniumTier;
+import net.chuck.chucksmod.block.entity.tiers.IronTier;
 import net.chuck.chucksmod.item.ModItems;
-import net.chuck.chucksmod.screen.furnace.PoweredFurnaceScreenHandler;
-import net.chuck.chucksmod.screen.harvester.TitaniumHarvesterScreenHandler;
+import net.chuck.chucksmod.screen.harvester.IronHarvesterScreenHandler;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.entity.BlockEntityType;
-import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.item.ItemStack;
@@ -16,9 +13,9 @@ import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
 import org.jetbrains.annotations.Nullable;
 
-public class TitaniumHarvesterBlockEntity extends AbstractHarvesterBlockEntity implements TitaniumTier {
-    public TitaniumHarvesterBlockEntity(BlockPos pos, BlockState state) {
-        super(ModBlockEntities.TITANIUM_HARVESTER, pos, state, HARVESTER_SEEDS_INV_SIZE, HARVESTER_CROPS_INV_SIZE,
+public class IronHarvesterBlockEntity extends AbstractHarvesterBlockEntity implements IronTier {
+    public IronHarvesterBlockEntity(BlockPos pos, BlockState state) {
+        super(ModBlockEntities.IRON_HARVESTER, pos, state, HARVESTER_SEEDS_INV_SIZE, HARVESTER_CROPS_INV_SIZE,
                 MACHINE_ENERGY_STORAGE, QUARRY_SPEED, MAX_INSERT_EXTRACT);
     }
 
@@ -34,7 +31,7 @@ public class TitaniumHarvesterBlockEntity extends AbstractHarvesterBlockEntity i
 
     @Override
     public Text getDisplayName() {
-        return Text.translatable("block.chucksmod.titanium_harvester");
+        return Text.translatable("block.chucksmod.iron_harvester");
     }
 
     @Nullable
@@ -42,6 +39,6 @@ public class TitaniumHarvesterBlockEntity extends AbstractHarvesterBlockEntity i
     public ScreenHandler createMenu(int syncId, PlayerInventory playerInventory, PlayerEntity player) {
         this.markDirty();
         sendEnergyPacket();
-        return new TitaniumHarvesterScreenHandler(syncId, playerInventory, this, propertyDelegate);
+        return new IronHarvesterScreenHandler(syncId, playerInventory, this, propertyDelegate);
     }
 }

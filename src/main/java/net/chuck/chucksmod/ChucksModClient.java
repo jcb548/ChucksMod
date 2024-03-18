@@ -15,6 +15,7 @@ import net.chuck.chucksmod.screen.bag.BagScreen3x1;
 import net.chuck.chucksmod.screen.bag.BagScreen5x1;
 import net.chuck.chucksmod.screen.bag.BagScreen7x1;
 import net.chuck.chucksmod.screen.bag.BagScreen9x1;
+import net.chuck.chucksmod.screen.bag.BagScreen6x2;
 import net.chuck.chucksmod.screen.bag.BagScreen7x2;
 import net.chuck.chucksmod.screen.copier.CopierScreen;
 import net.chuck.chucksmod.screen.crusher.CrusherScreen;
@@ -24,6 +25,7 @@ import net.chuck.chucksmod.screen.generator.heat.HeatGeneratorScreen;
 import net.chuck.chucksmod.screen.energy_storage.EnergyStorageScreen;
 import net.chuck.chucksmod.screen.generator.steam.SteamGeneratorScreen;
 import net.chuck.chucksmod.screen.generator.lava.LavaGeneratorScreen;
+import net.chuck.chucksmod.screen.harvester.IronHarvesterScreen;
 import net.chuck.chucksmod.screen.harvester.TitaniumHarvesterScreen;
 import net.chuck.chucksmod.screen.portal_builder.PortalBuilderScreen;
 import net.chuck.chucksmod.screen.pump.PumpScreen;
@@ -246,6 +248,7 @@ public class ChucksModClient implements ClientModInitializer {
         HandledScreens.register(ModScreenHandlers.PUMP_SCREEN_HANDLER, PumpScreen::new);
         HandledScreens.register(ModScreenHandlers.STEAM_GENERATOR_SCREEN_HANDLER, SteamGeneratorScreen::new);
         HandledScreens.register(ModScreenHandlers.LAVA_GENERATOR_SCREEN_HANDLER, LavaGeneratorScreen::new);
+        HandledScreens.register(ModScreenHandlers.IRON_HARVESTER_SCREEN_HANDLER, IronHarvesterScreen::new);
         HandledScreens.register(ModScreenHandlers.IRON_QUARRY_SCREEN_HANDLER, IronQuarryScreen::new);
         HandledScreens.register(ModScreenHandlers.TITANIUM_QUARRY_SCREEN_HANDLER, TitaniumQuarryScreen::new);
         HandledScreens.register(ModScreenHandlers.TITANIUM_HARVESTER_SCREEN_HANDLER, TitaniumHarvesterScreen::new);
@@ -254,6 +257,7 @@ public class ChucksModClient implements ClientModInitializer {
         HandledScreens.register(ModScreenHandlers.BAG_5X1_SCREEN_HANDLER, BagScreen5x1::new);
         HandledScreens.register(ModScreenHandlers.BAG_7X1_SCREEN_HANDLER, BagScreen7x1::new);
         HandledScreens.register(ModScreenHandlers.BAG_9X1_SCREEN_HANDLER, BagScreen9x1::new);
+        HandledScreens.register(ModScreenHandlers.BAG_6X2_SCREEN_HANDLER, BagScreen6x2::new);
         HandledScreens.register(ModScreenHandlers.BAG_7X2_SCREEN_HANDLER, BagScreen7x2::new);
     }
 }

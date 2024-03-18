@@ -34,4 +34,9 @@ public class BagItem3x1 extends AbstractBagItem{
         tooltip.add(Text.translatable("tooltip.chucksmod.3x1bag.tooltip"));
         super.appendTooltip(stack, world, tooltip, context);
     }
+
+    @Override
+    public int getInvSize() {
+        return INV_SIZE;
+    }
 }

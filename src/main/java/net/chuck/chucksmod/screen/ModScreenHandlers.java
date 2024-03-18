@@ -1,11 +1,7 @@
 package net.chuck.chucksmod.screen;
 
 import net.chuck.chucksmod.ChucksMod;
-import net.chuck.chucksmod.screen.bag.BagScreenHandler3x1;
-import net.chuck.chucksmod.screen.bag.BagScreenHandler5x1;
-import net.chuck.chucksmod.screen.bag.BagScreenHandler7x1;
-import net.chuck.chucksmod.screen.bag.BagScreenHandler9x1;
-import net.chuck.chucksmod.screen.bag.BagScreenHandler7x2;
+import net.chuck.chucksmod.screen.bag.*;
 import net.chuck.chucksmod.screen.copier.CopierScreenHandler;
 import net.chuck.chucksmod.screen.crusher.CrusherScreenHandler;
 import net.chuck.chucksmod.screen.crusher.PoweredCrusherScreenHandler;
@@ -14,6 +10,7 @@ import net.chuck.chucksmod.screen.energy_storage.EnergyStorageScreenHandler;
 import net.chuck.chucksmod.screen.generator.GeneratorScreenHandler;
 import net.chuck.chucksmod.screen.generator.lava.LavaGeneratorScreenHandler;
 import net.chuck.chucksmod.screen.generator.steam.SteamGeneratorScreenHandler;
+import net.chuck.chucksmod.screen.harvester.IronHarvesterScreenHandler;
 import net.chuck.chucksmod.screen.harvester.TitaniumHarvesterScreenHandler;
 import net.chuck.chucksmod.screen.portal_builder.PortalBuilderScreenHandler;
 import net.chuck.chucksmod.screen.pump.PumpScreenHandler;
@@ -50,6 +47,8 @@ public class ModScreenHandlers {
             new ExtendedScreenHandlerType<>(EnergyStorageScreenHandler::new);
     public static ScreenHandlerType<IronQuarryScreenHandler> IRON_QUARRY_SCREEN_HANDLER =
             new ExtendedScreenHandlerType<>(IronQuarryScreenHandler::new);
+    public static ScreenHandlerType<IronHarvesterScreenHandler> IRON_HARVESTER_SCREEN_HANDLER =
+            new ExtendedScreenHandlerType<>(IronHarvesterScreenHandler::new);
     public static ScreenHandlerType<PumpScreenHandler> PUMP_SCREEN_HANDLER =
             new ExtendedScreenHandlerType<>(PumpScreenHandler::new);
     public static ScreenHandlerType<SteamGeneratorScreenHandler> STEAM_GENERATOR_SCREEN_HANDLER =
@@ -72,6 +71,8 @@ public class ModScreenHandlers {
             new ExtendedScreenHandlerType<>(BagScreenHandler7x1::new);
     public static ScreenHandlerType<BagScreenHandler9x1> BAG_9X1_SCREEN_HANDLER =
             new ExtendedScreenHandlerType<>(BagScreenHandler9x1::new);
+    public static ScreenHandlerType<BagScreenHandler6x2> BAG_6X2_SCREEN_HANDLER =
+            new ExtendedScreenHandlerType<>(BagScreenHandler6x2::new);
     public static ScreenHandlerType<BagScreenHandler7x2> BAG_7X2_SCREEN_HANDLER =
             new ExtendedScreenHandlerType<>(BagScreenHandler7x2::new);
 
@@ -97,6 +98,8 @@ public class ModScreenHandlers {
         Registry.register(Registries.SCREEN_HANDLER, new Identifier(ChucksMod.MOD_ID, "titanium_quarry"),
                 TITANIUM_QUARRY_SCREEN_HANDLER);
 
+        Registry.register(Registries.SCREEN_HANDLER, new Identifier(ChucksMod.MOD_ID, "iron_harvester"),
+                IRON_HARVESTER_SCREEN_HANDLER);
         Registry.register(Registries.SCREEN_HANDLER, new Identifier(ChucksMod.MOD_ID, "titanium_harvester"),
                 TITANIUM_HARVESTER_SCREEN_HANDLER);
 
@@ -115,6 +118,8 @@ public class ModScreenHandlers {
                 BAG_7X1_SCREEN_HANDLER);
         Registry.register(Registries.SCREEN_HANDLER, new Identifier(ChucksMod.MOD_ID, "bag_9x1"),
                 BAG_9X1_SCREEN_HANDLER);
+        Registry.register(Registries.SCREEN_HANDLER, new Identifier(ChucksMod.MOD_ID, "bag_6x2"),
+                BAG_6X2_SCREEN_HANDLER);
         Registry.register(Registries.SCREEN_HANDLER, new Identifier(ChucksMod.MOD_ID, "bag_7x2"),
                 BAG_7X2_SCREEN_HANDLER);
     }

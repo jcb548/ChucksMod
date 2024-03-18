@@ -60,6 +60,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.IRON_POWERED_CRUSHER);
                         entries.add(ModBlocks.IRON_POWERED_FURNACE);
                         entries.add(ModBlocks.IRON_HEAT_GENERATOR);
+                        entries.add(ModBlocks.IRON_HARVESTER);
                         entries.add(ModBlocks.IRON_QUARRY);
                         entries.add(ModBlocks.IRON_FLUID_TANK);
                         entries.add(ModBlocks.IRON_PUMP);
@@ -437,6 +438,11 @@ public class ModItemGroups {
                         entries.add(ModItems.WOOL_BAG);
                         entries.add(ModItems.LEATHER_BAG);
                         entries.add(ModItems.COPPER_BAG);
+                        entries.add(ModItems.BRONZE_BAG);
+                        entries.add(ModItems.IRON_BAG);
+                        entries.add(ModItems.TITANIUM_BAG);
+                        entries.add(ModItems.NETHERITE_BAG);
+                        entries.add(ModItems.TRIAFIUM_BAG);
 
                         entries.add(ModFluids.LIQUID_XP_BUCKET);
                     }).build());

@@ -331,7 +331,8 @@ public class ModItems {
     public static final Item STRING_STRAP = registerItem("string_strap", new Item(new FabricItemSettings()));
     public static final Item LEATHER_STRAP = registerItem("leather_strap", new Item(new FabricItemSettings()));
 
-    public static final Item WOOL_BAG = registerItem("wool_bag", new BagItem3x1(new FabricItemSettings()));
+    public static final Item WOOL_BAG = registerItem("wool_bag",
+            new BagItem3x1(new FabricItemSettings()));
     public static final Item LEATHER_BAG = registerItem("leather_bag",
             new BagItem5x1(new FabricItemSettings()));
     public static final Item COPPER_BAG = registerItem("copper_bag",
@@ -340,6 +341,8 @@ public class ModItems {
             new BagItem9x1(new FabricItemSettings()));
     public static final Item BRONZE_BAG = registerItem("bronze_bag",
             new BagItem9x1(new FabricItemSettings()));
+    public static final Item TITANIUM_BAG = registerItem("titanium_bag",
+            new BagItem6x2(new FabricItemSettings()));
     public static final Item TRIAFIUM_BAG = registerItem("triafium_bag",
             new BagItem7x2(new FabricItemSettings()));
     public static final Item NETHERITE_BAG = registerItem("netherite_bag",

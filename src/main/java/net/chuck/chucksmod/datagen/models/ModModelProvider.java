@@ -319,6 +319,7 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerCooker(ModBlocks.IRON_POWERED_CRUSHER, ModTexturedModel.ORIENTABLE_MACHINE);
         blockStateModelGenerator.registerCooker(ModBlocks.IRON_POWERED_FURNACE, ModTexturedModel.ORIENTABLE_MACHINE);
         blockStateModelGenerator.registerCooker(ModBlocks.IRON_HEAT_GENERATOR, ModTexturedModel.ORIENTABLE_MACHINE);
+        blockStateModelGenerator.registerCooker(ModBlocks.IRON_HARVESTER, ModTexturedModel.ORIENTABLE_MACHINE);
         blockStateModelGenerator.registerCooker(ModBlocks.IRON_QUARRY, ModTexturedModel.ORIENTABLE_MACHINE);
         ModModelGenerator.registerVerticalColumn(blockStateModelGenerator, ModBlocks.IRON_FLUID_TANK);
         blockStateModelGenerator.registerCooker(ModBlocks.IRON_PUMP, ModTexturedModel.ORIENTABLE_MACHINE);
@@ -506,6 +507,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.COPPER_BAG, Models.GENERATED);
         itemModelGenerator.register(ModItems.IRON_BAG, Models.GENERATED);
         itemModelGenerator.register(ModItems.BRONZE_BAG, Models.GENERATED);
+        itemModelGenerator.register(ModItems.TITANIUM_BAG, Models.GENERATED);
         itemModelGenerator.register(ModItems.NETHERITE_BAG, Models.GENERATED);
         itemModelGenerator.register(ModItems.TRIAFIUM_BAG, Models.GENERATED);
 

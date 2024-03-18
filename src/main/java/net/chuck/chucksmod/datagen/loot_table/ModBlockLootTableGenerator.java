@@ -170,6 +170,7 @@ public class ModBlockLootTableGenerator extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.TITANIUM_POWERED_FURNACE);
         addDrop(ModBlocks.TITANIUM_POWERED_CRUSHER);
         addDrop(ModBlocks.TITANIUM_HEAT_GENERATOR);
+        addDrop(ModBlocks.TITANIUM_HARVESTER);
         addDrop(ModBlocks.TITANIUM_QUARRY);
         addDrop(ModBlocks.TITANIUM_COPIER);
         addDrop(ModBlocks.TITANIUM_FLUID_TANK);
@@ -347,6 +348,7 @@ public class ModBlockLootTableGenerator extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.IRON_POWERED_CRUSHER);
         addDrop(ModBlocks.IRON_POWERED_FURNACE);
         addDrop(ModBlocks.IRON_HEAT_GENERATOR);
+        addDrop(ModBlocks.IRON_HARVESTER);
         addDrop(ModBlocks.IRON_QUARRY);
         addDrop(ModBlocks.IRON_ENERGY_STORAGE);
         addDrop(ModBlocks.IRON_FLUID_TANK);

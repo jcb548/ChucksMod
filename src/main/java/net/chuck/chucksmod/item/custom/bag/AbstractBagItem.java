@@ -18,4 +18,5 @@ public abstract class AbstractBagItem extends Item{
     public boolean canBeNested() {
         return false;
     }
+    public abstract int getInvSize();
 }

@@ -932,6 +932,7 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
         offerBagRecipe(exporter, Items.COPPER_INGOT, ModItems.COPPER_BAG);
         offerBagRecipe(exporter, Items.IRON_INGOT, ModItems.IRON_BAG);
         offerBagRecipe(exporter, ModItemTags.BRONZE_INGOTS, ModItems.BRONZE_BAG);
+        offerBagRecipe(exporter, ModItems.TITANIUM_INGOT, ModItems.TITANIUM_BAG);
         offerBagRecipe(exporter, ModItems.TRIAFIUM_INGOT, ModItems.TRIAFIUM_BAG);
         offerBagRecipe(exporter, Items.NETHERITE_INGOT, ModItems.NETHERITE_BAG);
     }

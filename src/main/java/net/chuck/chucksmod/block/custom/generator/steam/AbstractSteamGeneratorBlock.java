@@ -17,6 +17,8 @@ public abstract class AbstractSteamGeneratorBlock extends AbstractEnergyUsingBlo
     @Override
     public void appendTooltip(ItemStack stack, @Nullable BlockView world, List<Text> tooltip, TooltipContext options) {
         super.appendTooltip(stack, world, tooltip, options);
-        tooltip.add(Text.translatable("tooltip.chucksmod.steam_generator"));
+        tooltip.add(Text.translatable("tooltip.chucksmod.steam_generator.1"));
+        tooltip.add(Text.translatable("tooltip.chucksmod.steam_generator.2"));
+        tooltip.add(Text.translatable("tooltip.chucksmod.steam_generator.3"));
     }
 }
