@@ -124,17 +124,17 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.END_STONE_TITANIUM_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_TITANIUM_ORE);
         ModModelGenerator.registerBars(blockStateModelGenerator, ModBlocks.TITANIUM_BARS);
-        blockStateModelGenerator.registerCooker(ModBlocks.TITANIUM_POWERED_CRUSHER, TexturedModel.ORIENTABLE);
-        blockStateModelGenerator.registerCooker(ModBlocks.TITANIUM_POWERED_FURNACE, TexturedModel.ORIENTABLE);
-        blockStateModelGenerator.registerCooker(ModBlocks.TITANIUM_HEAT_GENERATOR, TexturedModel.ORIENTABLE);
-        blockStateModelGenerator.registerCooker(ModBlocks.TITANIUM_QUARRY, TexturedModel.ORIENTABLE);
-        blockStateModelGenerator.registerCooker(ModBlocks.TITANIUM_COPIER, TexturedModel.ORIENTABLE);
+        blockStateModelGenerator.registerCooker(ModBlocks.TITANIUM_POWERED_CRUSHER, ModTexturedModel.ORIENTABLE_MACHINE);
+        blockStateModelGenerator.registerCooker(ModBlocks.TITANIUM_POWERED_FURNACE, ModTexturedModel.ORIENTABLE_MACHINE);
+        blockStateModelGenerator.registerCooker(ModBlocks.TITANIUM_HEAT_GENERATOR, ModTexturedModel.ORIENTABLE_MACHINE);
+        blockStateModelGenerator.registerCooker(ModBlocks.TITANIUM_QUARRY, ModTexturedModel.ORIENTABLE_MACHINE);
+        blockStateModelGenerator.registerCooker(ModBlocks.TITANIUM_COPIER, ModTexturedModel.ORIENTABLE_MACHINE);
         ModModelGenerator.registerVerticalColumn(blockStateModelGenerator, ModBlocks.TITANIUM_FLUID_TANK);
-        blockStateModelGenerator.registerCooker(ModBlocks.TITANIUM_PUMP, TexturedModel.ORIENTABLE);
+        blockStateModelGenerator.registerCooker(ModBlocks.TITANIUM_PUMP, ModTexturedModel.ORIENTABLE_MACHINE);
         ModModelGenerator.registerPipe(blockStateModelGenerator, ModBlocks.TITANIUM_FLUID_PIPE);
-        blockStateModelGenerator.registerCooker(ModBlocks.TITANIUM_STEAM_GENERATOR, TexturedModel.ORIENTABLE);
-        blockStateModelGenerator.registerCooker(ModBlocks.TITANIUM_LAVA_GENERATOR, TexturedModel.ORIENTABLE);
-        blockStateModelGenerator.registerCooker(ModBlocks.TITANIUM_HARVESTER, TexturedModel.ORIENTABLE);
+        blockStateModelGenerator.registerCooker(ModBlocks.TITANIUM_STEAM_GENERATOR, ModTexturedModel.ORIENTABLE_MACHINE);
+        blockStateModelGenerator.registerCooker(ModBlocks.TITANIUM_LAVA_GENERATOR, ModTexturedModel.ORIENTABLE_MACHINE);
+        blockStateModelGenerator.registerCooker(ModBlocks.TITANIUM_HARVESTER, ModTexturedModel.ORIENTABLE_MACHINE);
 
         blockStateModelGenerator.registerTintableCrossBlockStateWithStages(ModBlocks.NETHER_CRYSTAL_CROP, BlockStateModelGenerator.TintType.NOT_TINTED,
                 AbstractMagicalCropBlock.AGE, 0, 1, 2, 3, 4, 5);
@@ -316,14 +316,14 @@ public class ModModelProvider extends FabricModelProvider {
         pacsaria_pool.family(ModBlocks.PACSARIA_FAMILY);
 
         blockStateModelGenerator.registerCooker(ModBlocks.CRUSHER, TexturedModel.ORIENTABLE);
-        blockStateModelGenerator.registerCooker(ModBlocks.IRON_POWERED_CRUSHER, TexturedModel.ORIENTABLE);
-        blockStateModelGenerator.registerCooker(ModBlocks.IRON_POWERED_FURNACE, TexturedModel.ORIENTABLE);
-        blockStateModelGenerator.registerCooker(ModBlocks.IRON_HEAT_GENERATOR, TexturedModel.ORIENTABLE);
-        blockStateModelGenerator.registerCooker(ModBlocks.IRON_QUARRY, TexturedModel.ORIENTABLE);
+        blockStateModelGenerator.registerCooker(ModBlocks.IRON_POWERED_CRUSHER, ModTexturedModel.ORIENTABLE_MACHINE);
+        blockStateModelGenerator.registerCooker(ModBlocks.IRON_POWERED_FURNACE, ModTexturedModel.ORIENTABLE_MACHINE);
+        blockStateModelGenerator.registerCooker(ModBlocks.IRON_HEAT_GENERATOR, ModTexturedModel.ORIENTABLE_MACHINE);
+        blockStateModelGenerator.registerCooker(ModBlocks.IRON_QUARRY, ModTexturedModel.ORIENTABLE_MACHINE);
         ModModelGenerator.registerVerticalColumn(blockStateModelGenerator, ModBlocks.IRON_FLUID_TANK);
-        blockStateModelGenerator.registerCooker(ModBlocks.IRON_PUMP, TexturedModel.ORIENTABLE);
+        blockStateModelGenerator.registerCooker(ModBlocks.IRON_PUMP, ModTexturedModel.ORIENTABLE_MACHINE);
         ModModelGenerator.registerPipe(blockStateModelGenerator, ModBlocks.IRON_FLUID_PIPE);
-        blockStateModelGenerator.registerCooker(ModBlocks.IRON_STEAM_GENERATOR, TexturedModel.ORIENTABLE);
+        blockStateModelGenerator.registerCooker(ModBlocks.IRON_STEAM_GENERATOR, ModTexturedModel.ORIENTABLE_MACHINE);
 
 
         BlockStateModelGenerator.BlockTexturePool sandstone_bricks_pool =

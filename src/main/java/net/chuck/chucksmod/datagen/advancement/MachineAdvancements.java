@@ -20,7 +20,7 @@ public class MachineAdvancements {
                 .display(ModItems.BRONZE_GEAR, // The display icon
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".machines.root.title"),
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".machines.root.desc"), // The description
-                        new Identifier(ChucksMod.MOD_ID, "textures/block/iron_powered_crusher_top.png"), // Background image used
+                        new Identifier(ChucksMod.MOD_ID, "textures/block/iron_machine_top.png"), // Background image used
                         AdvancementFrame.TASK, true, true, false
                 )
                 .criterion("got_gear", InventoryChangedCriterion.Conditions.items(ItemPredicate.Builder.create()
