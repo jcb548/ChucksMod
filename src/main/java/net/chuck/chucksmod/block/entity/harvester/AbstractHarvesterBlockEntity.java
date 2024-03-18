@@ -78,11 +78,12 @@ public abstract class AbstractHarvesterBlockEntity extends AbstractMiningBlockEn
                     while (inventory.getStack(firstEmpty).isEmpty()) {
                         firstEmpty++;
                     }
-                    if (inventory.getStack(firstEmpty).getItem() instanceof AliasedBlockItem item){
+                    if (inventory.getStack(firstEmpty).getItem() instanceof AliasedBlockItem item &&
+                            item.getBlock().canPlaceAt(item.getBlock().getDefaultState(), world, nextBlockPos)){
                         world.setBlockState(nextBlockPos, item.getBlock().getDefaultState());
                         inventory.removeStack(firstEmpty, 1);
+                        didAction = true;
                     }
-                    didAction = true;
                 }
                 if(didAction){
                     this.resetProgress();
