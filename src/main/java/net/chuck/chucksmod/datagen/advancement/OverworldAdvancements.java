@@ -10,10 +10,7 @@ import net.minecraft.advancement.criterion.*;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.Items;
-import net.minecraft.loot.condition.BlockStatePropertyLootCondition;
-import net.minecraft.loot.condition.LootCondition;
 import net.minecraft.predicate.BlockPredicate;
-import net.minecraft.predicate.block.BlockStatePredicate;
 import net.minecraft.predicate.entity.EntityPredicate;
 import net.minecraft.predicate.entity.LocationPredicate;
 import net.minecraft.predicate.item.ItemPredicate;
@@ -118,8 +115,11 @@ public class OverworldAdvancements {
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.seeds.title"),
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.seeds.desc"),
                         null, AdvancementFrame.TASK, true, true, false)
+                        .criteriaMerger(AdvancementRequirements.CriterionMerger.OR)
                 .criterion("get_seeds", InventoryChangedCriterion.Conditions.items(ItemPredicate.Builder.create()
                         .tag(ModItemTags.SEEDS).build()))
+                        .criterion("get_carrot_or_potato", 
+                                InventoryChangedCriterion.Conditions.items(Items.CARROT, Items.POTATO))
                 .parent(stoneTools)
                 , consumer, "overworld/seeds");
 
@@ -206,6 +206,38 @@ public class OverworldAdvancements {
                 .parent(plant_lettuce)
                 , consumer, "overworld/lettuce");
 
+        AdvancementEntry plantCarrot = ModAdvancementsProvider.buildAdvancement(Advancement.Builder.create().display(Items.CARROT,
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.plant_carrot.title"),
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.plant_carrot.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("plant_carrot", ItemCriterion.Conditions.createPlacedBlock(Blocks.CARROTS))
+                .parent(farmland)
+                , consumer, "overworld/plant_carrot");
+
+        AdvancementEntry goldenCarrot = ModAdvancementsProvider.buildAdvancement(Advancement.Builder.create().display(Items.GOLDEN_CARROT,
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.golden_carrot.title"),
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.golden_carrot.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("golden_carrot", InventoryChangedCriterion.Conditions.items(Items.GOLDEN_CARROT))
+                .parent(plantCarrot)
+                , consumer, "overworld/golden_carrot");
+
+        AdvancementEntry plantPotato = ModAdvancementsProvider.buildAdvancement(Advancement.Builder.create().display(Items.POTATO,
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.plant_potato.title"),
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.plant_potato.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("plant_potato", ItemCriterion.Conditions.createPlacedBlock(Blocks.POTATOES))
+                .parent(farmland)
+                , consumer, "overworld/plant_potato");
+
+        AdvancementEntry bakedPotato = ModAdvancementsProvider.buildAdvancement(Advancement.Builder.create().display(Items.BAKED_POTATO,
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.baked_potato.title"),
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.baked_potato.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("baked_potato", InventoryChangedCriterion.Conditions.items(Items.BAKED_POTATO))
+                .parent(plantPotato)
+                , consumer, "overworld/baked_potato");
+
         AdvancementEntry raw_iron = ModAdvancementsProvider.buildAdvancement(Advancement.Builder.create().display(Items.RAW_IRON,
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.raw_iron.title"),
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.raw_iron.desc"),
@@ -239,8 +271,15 @@ public class OverworldAdvancements {
                         null, AdvancementFrame.TASK, true, true, false)
                 .criterion("get_iron_armor", InventoryChangedCriterion.Conditions.items(Items.IRON_HELMET,
                         Items.IRON_CHESTPLATE, Items.IRON_LEGGINGS, Items.IRON_BOOTS))
-                .parent(iron)
-                , consumer, "overworld/iron_armor");
+                .parent(iron), consumer, "overworld/iron_armor");
+
+        AdvancementEntry ironBag = ModAdvancementsProvider.buildAdvancement(Advancement.Builder.create()
+                .display(ModItems.IRON_BAG,
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.iron_bag.title"),
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.iron_bag.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("get_iron_bag", InventoryChangedCriterion.Conditions.items(ModItems.IRON_BAG))
+                .parent(iron), consumer, "overworld/iron_bag");
 
         AdvancementEntry diamonds = ModAdvancementsProvider.buildAdvancement(Advancement.Builder.create()
                 .display(Items.DIAMOND,
@@ -317,6 +356,52 @@ public class OverworldAdvancements {
                         .tag(ModItemTags.DUSTS).build()))
                 .parent(crusher)
                 , consumer, "overworld/dust");
+
+        AdvancementEntry bronzeDust = ModAdvancementsProvider.buildAdvancement(Advancement.Builder.create()
+                .display(ModItems.BRONZE_DUST,
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.bronze_dust.title"),
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.bronze_dust.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("get_bronze_dust", InventoryChangedCriterion.Conditions.items(ModItems.BRONZE_DUST))
+                .parent(dust), consumer, "overworld/bronze_dust");
+
+        AdvancementEntry bronze = ModAdvancementsProvider.buildAdvancement(Advancement.Builder.create()
+                .display(ModItems.BRONZE_INGOT,
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.bronze_ingot.title"),
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.bronze_ingot.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("get_bronze", InventoryChangedCriterion.Conditions.items(ModItems.BRONZE_INGOT))
+                .parent(bronzeDust), consumer, "overworld/bronze_ingot");
+
+
+        AdvancementEntry bronzeTools = ModAdvancementsProvider.buildAdvancement(Advancement.Builder.create()
+                        .display(ModItems.BRONZE_PICKAXE,
+                                Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.bronze_tools.title"),
+                                Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.bronze_tools.desc"),
+                                null, AdvancementFrame.TASK, true, true, false)
+                        .criterion("get_bronze_tools", InventoryChangedCriterion.Conditions.items(ModItems.BRONZE_SWORD,
+                                ModItems.BRONZE_PICKAXE, ModItems.BRONZE_AXE, ModItems.BRONZE_SHOVEL, ModItems.BRONZE_HOE))
+                        .parent(bronze)
+                , consumer, "overworld/bronze_tools");
+
+        AdvancementEntry bronzeArmor = ModAdvancementsProvider.buildAdvancement(Advancement.Builder.create()
+                        .display(ModItems.BRONZE_CHESTPLATE,
+                                Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.bronze_armor.title"),
+                                Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.bronze_armor.desc"),
+                                null, AdvancementFrame.TASK, true, true, false)
+                        .criterion("get_bronze_armor", InventoryChangedCriterion.Conditions.items(ModItems.BRONZE_HELMET,
+                                ModItems.BRONZE_CHESTPLATE, ModItems.BRONZE_LEGGINGS, ModItems.BRONZE_BOOTS))
+                        .parent(bronze)
+                , consumer, "overworld/bronze_armor");
+
+        AdvancementEntry bronzeBag = ModAdvancementsProvider.buildAdvancement(Advancement.Builder.create()
+                        .display(ModItems.BRONZE_BAG,
+                                Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.bronze_bag.title"),
+                                Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.bronze_bag.desc"),
+                                null, AdvancementFrame.TASK, true, true, false)
+                        .criterion("get_bronze_bag", InventoryChangedCriterion.Conditions.items(ModItems.BRONZE_BAG))
+                        .parent(bronze)
+                , consumer, "overworld/bronze_bag");
 
         AdvancementEntry obsidian = ModAdvancementsProvider.buildAdvancement(Advancement.Builder.create()
                 .display(Blocks.OBSIDIAN,
@@ -625,7 +710,7 @@ public class OverworldAdvancements {
                 , consumer, "overworld/gunpowder");
 
         AdvancementEntry bucket = ModAdvancementsProvider.buildAdvancement(Advancement.Builder.create()
-                .display(Items.WATER_BUCKET,
+                .display(Items.BUCKET,
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.bucket.title"),
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.bucket.desc"),
                         null, AdvancementFrame.TASK, true, true, false)
@@ -687,6 +772,42 @@ public class OverworldAdvancements {
                 .parent(copper)
                 , consumer, "overworld/copper_wire");
 
+        AdvancementEntry rawTin = ModAdvancementsProvider.buildAdvancement(Advancement.Builder.create()
+                        .display(ModItems.RAW_TIN,
+                                Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.raw_tin.title"),
+                                Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.raw_tin.desc"),
+                                null, AdvancementFrame.TASK, true, true, false)
+                        .criterion("raw_tin", InventoryChangedCriterion.Conditions.items(ModItems.RAW_TIN))
+                        .parent(stoneTools)
+                , consumer, "overworld/raw_tin");
+
+        AdvancementEntry tin = ModAdvancementsProvider.buildAdvancement(Advancement.Builder.create()
+                        .display(ModItems.TIN_INGOT ,
+                                Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.tin.title"),
+                                Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.tin.desc"),
+                                null, AdvancementFrame.TASK, true, true, false)
+                        .criterion("tin", InventoryChangedCriterion.Conditions.items(ModItems.TIN_INGOT))
+                        .parent(rawTin)
+                , consumer, "overworld/tin");
+
+        AdvancementEntry tinWire = ModAdvancementsProvider.buildAdvancement(Advancement.Builder.create()
+                        .display(ModBlocks.TIN_WIRE ,
+                                Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.tin_wire.title"),
+                                Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.tin_wire.desc"),
+                                null, AdvancementFrame.TASK, true, true, false)
+                        .criterion("get_tin_wire", InventoryChangedCriterion.Conditions.items(ModBlocks.TIN_WIRE))
+                        .parent(tin)
+                , consumer, "overworld/tin_wire");
+        
+        AdvancementEntry copperBag = ModAdvancementsProvider.buildAdvancement(Advancement.Builder.create()
+                        .display(ModItems.COPPER_BAG,
+                                Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.copper_bag.title"),
+                                Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.copper_bag.desc"),
+                                null, AdvancementFrame.TASK, true, true, false)
+                        .criterion("copper_bag", InventoryChangedCriterion.Conditions.items(ModItems.COPPER_BAG))
+                        .parent(copper)
+                , consumer, "overworld/copper_bag");
+
         AdvancementEntry rawTitanium = ModAdvancementsProvider.buildAdvancement(Advancement.Builder.create()
                 .display(ModItems.RAW_TITANIUM,
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.raw_titanium.title"),
@@ -725,6 +846,15 @@ public class OverworldAdvancements {
                 .parent(titanium)
                 , consumer, "overworld/titanium_armor");
 
+        AdvancementEntry titaniumBag = ModAdvancementsProvider.buildAdvancement(Advancement.Builder.create()
+                .display(ModItems.TITANIUM_BAG,
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.titanium_bag.title"),
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.titanium_bag.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("get_titanium_bag", InventoryChangedCriterion.Conditions.items(ModItems.TITANIUM_BAG))
+                .parent(titanium)
+                , consumer, "overworld/titanium_bag");
+
         AdvancementEntry enderman = ModAdvancementsProvider.buildAdvancement(Advancement.Builder.create().display(Items.ENDER_PEARL,
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.enderman.title"),
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.enderman.desc"),
@@ -741,8 +871,14 @@ public class OverworldAdvancements {
                         null, AdvancementFrame.TASK, true, true, false)
                 .criterion("eye_of_ender",
                         InventoryChangedCriterion.Conditions.items(Items.ENDER_EYE))
-                .parent(enderman)
-                , consumer, "overworld/eye_of_ender");
+                .parent(enderman), consumer, "overworld/eye_of_ender");
+
+        AdvancementEntry enderChest = ModAdvancementsProvider.buildAdvancement(Advancement.Builder.create().display(Items.ENDER_EYE,
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.ender_chest.title"),
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.ender_chest.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("ender_chest", InventoryChangedCriterion.Conditions.items(Items.ENDER_CHEST))
+                .parent(eyeOfEnder), consumer, "overworld/ender_chest");
 
         AdvancementEntry stronghold = ModAdvancementsProvider.buildAdvancement(Advancement.Builder.create().display(Blocks.STONE_BRICKS,
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".overworld.stronghold.title"),

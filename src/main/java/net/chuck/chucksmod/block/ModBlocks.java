@@ -49,6 +49,7 @@ import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.DyeColor;
 import net.minecraft.util.Identifier;
 
@@ -154,7 +155,7 @@ public class ModBlocks {
     public static final Block EUCALYPTUS_PLANKS = registerBlock("eucalyptus_planks",
             new Block(FabricBlockSettings.copy(Blocks.OAK_PLANKS)));
     public static final Block EUCALYPTUS_LEAVES = registerBlock("eucalyptus_leaves",
-            new LeavesBlock(FabricBlockSettings.copy(Blocks.OAK_LEAVES)));
+            Blocks.createLeavesBlock(BlockSoundGroup.GRASS));
     public static final Block EUCALYPTUS_SAPLING = registerBlock("eucalyptus_sapling",
             new SaplingBlock(new EucalyptusSaplingGenerator(),FabricBlockSettings.copy(Blocks.OAK_SAPLING)));
     public static final Block EUCALYPTUS_STAIRS = registerBlock("eucalyptus_stairs",
@@ -457,7 +458,7 @@ public class ModBlocks {
     public static final Block TRIAFIA_PLANKS = registerBlock("triafia_planks",
             new Block(FabricBlockSettings.copy(Blocks.OAK_PLANKS).mapColor(MapColor.DARK_GREEN)));
     public static final Block TRIAFIA_LEAVES = registerBlock("triafia_leaves",
-            new LeavesBlock(FabricBlockSettings.copy(Blocks.OAK_LEAVES).nonOpaque().mapColor(MapColor.DARK_GREEN)));
+            Blocks.createLeavesBlock(BlockSoundGroup.GRASS));
     public static final Block TRIAFIA_SAPLING = registerBlock("triafia_sapling",
             new SaplingBlock(new TriafiaSaplingGenerator(), FabricBlockSettings.copy(Blocks.OAK_SAPLING).mapColor(MapColor.DARK_GREEN)));
     public static final Block TRIAFIA_STAIRS = registerBlock("triafia_stairs",
@@ -534,7 +535,7 @@ public class ModBlocks {
     public static final Block PACSARIA_PLANKS = registerBlock("pacsaria_planks",
             new Block(FabricBlockSettings.copy(Blocks.OAK_PLANKS).strength(3.0f).mapColor(MapColor.PALE_PURPLE)));
     public static final Block PACSARIA_LEAVES = registerBlock("pacsaria_leaves",
-            new LeavesBlock(FabricBlockSettings.copy(Blocks.OAK_LEAVES)));
+            Blocks.createLeavesBlock(BlockSoundGroup.GRASS));
     public static final Block PACSARIA_SAPLING = registerBlock("pacsaria_sapling", new SaplingBlock(new
             PacsariaSaplingGenerator(),FabricBlockSettings.copy(Blocks.OAK_SAPLING).mapColor(MapColor.PALE_PURPLE)));
     public static final Block PACSARIA_STAIRS = registerBlock("pacsaria_stairs",

@@ -17,7 +17,6 @@ import net.minecraft.item.Items;
 import net.minecraft.predicate.entity.EntityPredicate;
 import net.minecraft.predicate.entity.LocationPredicate;
 import net.minecraft.predicate.item.ItemPredicate;
-import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
@@ -49,8 +48,25 @@ public class NetherAdvancements {
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".nether.triafium.desc"),
                         null, AdvancementFrame.TASK, true, true, false)
                 .criterion("triafium", InventoryChangedCriterion.Conditions.items(ModItems.TRIAFIUM_INGOT))
-                .parent(rawTriafium)
-                , consumer, "nether/triafium");
+                .parent(rawTriafium), consumer, "nether/triafium");
+        
+        AdvancementEntry triafiumTools = ModAdvancementsProvider.buildAdvancement(Advancement.Builder.create().display(ModItems.TRIAFIUM_PICKAXE,
+                                Text.translatable("advancements." + ChucksMod.MOD_ID + ".nether.triafium_tools.title"),
+                                Text.translatable("advancements." + ChucksMod.MOD_ID + ".nether.triafium_tools.desc"),
+                                null, AdvancementFrame.TASK, true, true, false)
+                        .criterion("triafium_tools", InventoryChangedCriterion.Conditions.items(ModItems.TRIAFIUM_PICKAXE,
+                                ModItems.TRIAFIUM_AXE, ModItems.TRIAFIUM_SHOVEL, ModItems.TRIAFIUM_HOE, ModItems.TRIAFIUM_SWORD))
+                        .parent(triafium), consumer, "nether/triafium_tools");
+
+        AdvancementEntry fullTriafium = ModAdvancementsProvider.buildAdvancement(Advancement.Builder.create().display(
+                                ModItems.TRIAFIUM_CHESTPLATE,
+                                Text.translatable("advancements." + ChucksMod.MOD_ID + ".nether.full_triafium.title"),
+                                Text.translatable("advancements." + ChucksMod.MOD_ID + ".nether.full_triafium.desc"),
+                                null, AdvancementFrame.TASK, true, true, false)
+                        .criterion("full_triafium", InventoryChangedCriterion.Conditions.items(ItemPredicate.Builder.create()
+                                .items(ModItems.TRIAFIUM_HELMET, ModItems.TRIAFIUM_CHESTPLATE,
+                                        ModItems.TRIAFIUM_LEGGINGS, ModItems.TRIAFIUM_BOOTS)))
+                        .parent(triafium), consumer, "nether/full_triafium");
 
         AdvancementEntry ancientDebris = ModAdvancementsProvider.buildAdvancement(Advancement.Builder.create().display(Blocks.ANCIENT_DEBRIS,
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".nether.ancient_debris.title"),
@@ -152,8 +168,8 @@ public class NetherAdvancements {
                 .parent(enterFortress), consumer, "nether/wither_skeleton");
 
         AdvancementEntry wither = ModAdvancementsProvider.buildAdvancement(Advancement.Builder.create().display(Items.NETHER_STAR,
-                        Text.translatable("advancements." + ChucksMod.MOD_ID + "nether.summon_wither.title"),
-                        Text.translatable("advancements." + ChucksMod.MOD_ID + "nether.summon_wither.desc"),
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".nether.summon_wither.title"),
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".nether.summon_wither.desc"),
                         null, AdvancementFrame.TASK, true, true, false)
                 .criterion("summon_wither", SummonedEntityCriterion.Conditions.create(EntityPredicate.Builder.create().type(EntityType.WITHER)))
                 .parent(wither_skeleton), consumer, "nether/summon_wither");

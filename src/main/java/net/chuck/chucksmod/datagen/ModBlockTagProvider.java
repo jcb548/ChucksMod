@@ -4,7 +4,6 @@ import net.chuck.chucksmod.block.ModBlocks;
 import net.chuck.chucksmod.block.ModBlockTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
-import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
@@ -524,5 +523,10 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
         getOrCreateTagBuilder(ModBlockTags.TRIAFIUM_TIER)
                 .add(ModBlocks.TRIAFIUM_PORTAL_BUILDER);
+
+        getOrCreateTagBuilder(BlockTags.LEAVES)
+                .add(ModBlocks.EUCALYPTUS_LEAVES)
+                .add(ModBlocks.TRIAFIA_LEAVES)
+                .add(ModBlocks.PACSARIA_LEAVES);
     }
 }

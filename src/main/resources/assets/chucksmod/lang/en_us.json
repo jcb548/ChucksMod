@@ -507,7 +507,7 @@
   "advancements.chucksmod.overworld.cooked_meat.desc": "Cook raw meat from an animal for a good food source",
 
   "advancements.chucksmod.overworld.seeds.title": "Seeds",
-  "advancements.chucksmod.overworld.seeds.desc": "Break tall grass for Wheat or Beetroot seeds",
+  "advancements.chucksmod.overworld.seeds.desc": "Break tall grass for Wheat, Tomato, Lettuce or Beetroot seeds, or harvest Potatoes or Carrots from a village or Zombie",
 
   "advancements.chucksmod.overworld.farmland.title": "Farmland",
   "advancements.chucksmod.overworld.farmland.desc": "Use a hoe on dirt or grass within 4 blocks of water to create saturated farmland",
@@ -539,6 +539,18 @@
   "advancements.chucksmod.overworld.lettuce.title": "Lettuce",
   "advancements.chucksmod.overworld.lettuce.desc": "Harvest fully grown lettuce crops",
 
+  "advancements.chucksmod.overworld.plant_potato.title": "Plant Potato",
+  "advancements.chucksmod.overworld.plant_potato.desc": "Plant Potato crops on farmland",
+
+  "advancements.chucksmod.overworld.baked_potato.title": "Baked Potato",
+  "advancements.chucksmod.overworld.baked_potato.desc": "Cook a Potato in a furnace for a good source of food",
+
+  "advancements.chucksmod.overworld.plant_carrot.title": "Plant Carrot",
+  "advancements.chucksmod.overworld.plant_carrot.desc": "Plant Carrot crops on farmland",
+
+  "advancements.chucksmod.overworld.golden_carrot.title": "Golden Carrot",
+  "advancements.chucksmod.overworld.golden_carrot.desc": "Craft a Golden Carrot by surrounding a carrot with Golden Nuggets for a good food source",
+
   "advancements.chucksmod.overworld.raw_iron.title": "Raw Iron",
   "advancements.chucksmod.overworld.raw_iron.desc": "Mine and collect some Raw Iron",
 
@@ -550,6 +562,9 @@
 
   "advancements.chucksmod.overworld.iron_armor.title": "Iron Armor",
   "advancements.chucksmod.overworld.iron_armor.desc": "Craft a set of iron armor (helmet, chestplate, leggings, boots)",
+
+  "advancements.chucksmod.overworld.iron_bag.title": "Iron Bag",
+  "advancements.chucksmod.overworld.iron_bag.desc": "Craft an Iron Bag to store 9 item stacks",
   
   "advancements.chucksmod.overworld.diamonds.title": "Diamonds",
   "advancements.chucksmod.overworld.diamonds.desc": "Obtain diamonds from a chest or by mining diamond ore",
@@ -574,6 +589,21 @@
 
   "advancements.chucksmod.overworld.dust.title": "Crush material into dust",
   "advancements.chucksmod.overworld.dust.desc": "Crush a material into dust",
+
+  "advancements.chucksmod.overworld.bronze_dust.title": "Bronze Dust",
+  "advancements.chucksmod.overworld.bronze_dust.desc": "Craft Bronze Dust from Copper and Tin dust",
+
+  "advancements.chucksmod.overworld.bronze.title": "Bronze",
+  "advancements.chucksmod.overworld.bronze.desc": "Smelt Bronze from Bronze Ingots",
+
+  "advancements.chucksmod.overworld.bronze_tools.title": "Bronze Tools",
+  "advancements.chucksmod.overworld.bronze_tools.desc": "Craft a set of Bronze tools (sword, pickaxe, axe, shovel, hoe), which are slightly more durable than Iron",
+
+  "advancements.chucksmod.overworld.bronze_armor.title": "Bronze Armor",
+  "advancements.chucksmod.overworld.bronze_armor.desc": "Craft a set of Bronze armor (helmet, chestplate, leggings, boots), which are slightly more durable than Iron",
+
+  "advancements.chucksmod.overworld.bronze_bag.title": "Bronze Bag",
+  "advancements.chucksmod.overworld.bronze_bag.desc": "Craft a Bronze Bag to store 9 item stacks",
 
   "advancements.chucksmod.overworld.obsidian.title": "Obsidian",
   "advancements.chucksmod.overworld.obsidian.desc": "Mine Obsidian, which is created when water touches lava",
@@ -686,6 +716,18 @@
   "advancements.chucksmod.overworld.copper_wire.title": "Copper Wire",
   "advancements.chucksmod.overworld.copper_wire.desc": "Craft Copper Wires from copper ingots, to start transferring power",
 
+  "advancements.chucksmod.overworld.raw_tin.title": "Raw Tin",
+  "advancements.chucksmod.overworld.raw_tin.desc": "Mine and collect some Raw Tin",
+
+  "advancements.chucksmod.overworld.tin.title": "Tin",
+  "advancements.chucksmod.overworld.tin.desc": "Smelt Raw Tin into Tin Ingots",
+
+  "advancements.chucksmod.overworld.tin_wire.title": "Tin Wire",
+  "advancements.chucksmod.overworld.tin_wire.desc": "Craft Tin Wires from tin ingots, to start transferring power",
+
+  "advancements.chucksmod.overworld.copper_bag.title": "Copper Bag",
+  "advancements.chucksmod.overworld.copper_bag.desc": "Craft a Copper Bag to store 7 item stacks",
+
   "advancements.chucksmod.overworld.raw_titanium.title": "Raw Titanium",
   "advancements.chucksmod.overworld.raw_titanium.desc": "Mine and collect some Raw Titanium",
 
@@ -693,10 +735,13 @@
   "advancements.chucksmod.overworld.titanium.desc": "Smelt Raw Titanium into Titanium Ingots",
 
   "advancements.chucksmod.overworld.titanium_tools.title": "Titanium Tools",
-  "advancements.chucksmod.overworld.titanium_tools.desc": "Craft a set of titanium tools (as strong as diamond) (sword, pickaxe, axe, shovel, hoe)",
+  "advancements.chucksmod.overworld.titanium_tools.desc": "Craft a set of Titanium tools (as strong as diamond) (sword, pickaxe, axe, shovel, hoe)",
 
   "advancements.chucksmod.overworld.titanium_armor.title": "Titanium Armor",
-  "advancements.chucksmod.overworld.titanium_armor.desc": "Craft a set of titanium armor (as strong as diamond) (helmet, chestplate, leggings, boots)",
+  "advancements.chucksmod.overworld.titanium_armor.desc": "Craft a set of Titanium armor (as strong as diamond) (helmet, chestplate, leggings, boots)",
+
+  "advancements.chucksmod.overworld.titanium_bag.title": "Titanium Bag",
+  "advancements.chucksmod.overworld.titanium_bag.desc": "Craft a Titanium Bag to store 12 item stacks",
 
   "advancements.chucksmod.overworld.enderman.title": "Slay an Enderman",
   "advancements.chucksmod.overworld.enderman.desc": "Kill an Enderman, to obtain Ender pearls, which allow you to teleport, and are an ingredient for reaching the end",
@@ -706,6 +751,9 @@
 
   "advancements.chucksmod.overworld.stronghold.title": "Stronghold",
   "advancements.chucksmod.overworld.stronghold.desc": "Locate and enter a Stronghold. Strongholds can be located by right-clicking Eyes of Ender",
+
+  "advancements.chucksmod.overworld.end_portal.title": "End Portal",
+  "advancements.chucksmod.overworld.end_portal.desc": "Place Eyes of Ender in end portal frames, to create a portal to the End",
 
   "advancements.chucksmod.overworld.ender_chest.title": "Ender Chest",
   "advancements.chucksmod.overworld.ender_chest.desc": "Craft an Ender Chest from Obsidian and an Eye of Ender. Ender Chests are unique to each player, and can be accessed by opening one anywhere.",
@@ -855,6 +903,9 @@
   "advancements.chucksmod.machines.iron_quarry.title": "Iron Quarry",
   "advancements.chucksmod.machines.iron_quarry.desc": "Craft an Iron Quarry to mine any blocks that can be mined with an Iron Pickaxe",
 
+  "advancements.chucksmod.machines.iron_harvester.title": "Iron Harvester",
+  "advancements.chucksmod.machines.iron_harvester.desc": "Craft an Iron Harvester to farm crops automatically",
+
   "advancements.chucksmod.machines.tin_wire.title": "Tin Wire",
   "advancements.chucksmod.machines.tin_wire.desc": "Craft Tin Wire to transfer energy between energy blocks slowly",
 
@@ -870,8 +921,8 @@
   "advancements.chucksmod.machines.gold_wire.title": "Gold Wire",
   "advancements.chucksmod.machines.gold_wire.desc": "Craft Gold Wire to transfer energy at the rate of Titanium tier machines",
 
-  "advancements.chucksmod.machines.titanium_copier.title": "Gold Wire",
-  "advancements.chucksmod.machines.titanium_copier.desc": "Craft Gold Wire to transfer energy at the rate of Titanium tier machines",
+  "advancements.chucksmod.machines.titanium_copier.title": "Titanium Copier",
+  "advancements.chucksmod.machines.titanium_copier.desc": "Craft a Titanium Copier to copy Enchanted Books at a cost of liquid experience",
 
 
 
@@ -884,6 +935,12 @@
 
   "advancements.chucksmod.nether.triafium.title": "Triafium Ingot",
   "advancements.chucksmod.nether.triafium.desc": "Smelt Raw Triafium to create a Triafium Ingot, a material as strong as Netherite",
+
+  "advancements.chucksmod.overworld.triafium_tools.title": "Triafium Tools",
+  "advancements.chucksmod.overworld.triafium_tools.desc": "Craft a set of triafium tools (sword, pickaxe, axe, shovel, hoe)",
+
+  "advancements.chucksmod.overworld.full_triafium.title": "Triafium Armor",
+  "advancements.chucksmod.overworld.full_triafium.desc": "Craft a set of triafium armor (helmet, chestplate, leggings, boots)",
 
   "advancements.chucksmod.nether.ancient_debris.title": "Ancient Debris",
   "advancements.chucksmod.nether.ancient_debris.desc": "Find and mine ancient debris to unlock netherite tier items",

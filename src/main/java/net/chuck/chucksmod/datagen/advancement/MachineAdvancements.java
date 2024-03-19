@@ -109,6 +109,15 @@ public class MachineAdvancements {
                 .parent(ironMachineBase)
                 , consumer, "machines/iron_quarry");
 
+        AdvancementEntry ironHarvester = ModAdvancementsProvider.buildAdvancement(Advancement.Builder.create()
+                .display(ModBlocks.IRON_HARVESTER,
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".machines.iron_harvester.title"),
+                        Text.translatable("advancements." + ChucksMod.MOD_ID + ".machines.iron_harvester.desc"),
+                        null, AdvancementFrame.TASK, true, true, false)
+                .criterion("get_iron_harvester", InventoryChangedCriterion.Conditions.items(ModBlocks.IRON_HARVESTER))
+                .parent(ironMachineBase)
+                , consumer, "machines/iron_harvester");
+
         AdvancementEntry ironFluidPipe = ModAdvancementsProvider.buildAdvancement(Advancement.Builder.create()
                 .display(ModBlocks.IRON_FLUID_PIPE,
                         Text.translatable("advancements." + ChucksMod.MOD_ID + ".machines.iron_fluid_pipe.title"),

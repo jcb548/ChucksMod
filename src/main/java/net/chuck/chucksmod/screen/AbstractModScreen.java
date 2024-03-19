@@ -25,10 +25,16 @@ public abstract class AbstractModScreen<T extends AbstractModScreenHandler> exte
         super.render(context, mouseX, mouseY, delta);
         drawMouseoverTooltip(context, mouseX, mouseY);
     }
+
+    @Override
+    public void renderInGameBackground(DrawContext context) {
+        context.fillGradient(0, 0, this.width, this.height, -0x7FEFEFF0, -0x6FEFEFF0);
+    }
+
     public abstract Identifier getTexture();
     @Override
     protected void drawBackground(DrawContext context, float delta, int mouseX, int mouseY) {
-        RenderSystem.setShaderColor(1.0f, 1.0f, 1.0f, 1.0f);
+        RenderSystem.setShaderColor(1f, 1f, 1f, 1.0f);
         context.drawTexture(getTexture(), getX(), getY(), 0, 0, backgroundWidth, backgroundHeight);
     }
     protected boolean isMouseAboveArea(int pMouseX, int pMouseY, int x, int y, int offsetX, int offsetY,
