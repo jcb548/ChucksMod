@@ -219,14 +219,14 @@ public class ModItemGroups {
                         entries.add(ModBlocks.TITANIUM_POWERED_CRUSHER);
                         entries.add(ModBlocks.TITANIUM_POWERED_FURNACE);
                         entries.add(ModBlocks.TITANIUM_HEAT_GENERATOR);
-                        entries.add(ModBlocks.TITANIUM_STEAM_GENERATOR);
-                        entries.add(ModBlocks.TITANIUM_LAVA_GENERATOR);
-                        entries.add(ModBlocks.TITANIUM_HARVESTER);
-                        entries.add(ModBlocks.TITANIUM_QUARRY);
-                        entries.add(ModBlocks.TITANIUM_COPIER);
-                        entries.add(ModBlocks.TITANIUM_FLUID_TANK);
                         entries.add(ModBlocks.TITANIUM_PUMP);
                         entries.add(ModBlocks.TITANIUM_FLUID_PIPE);
+                        entries.add(ModBlocks.TITANIUM_FLUID_TANK);
+                        entries.add(ModBlocks.TITANIUM_STEAM_GENERATOR);
+                        entries.add(ModBlocks.TITANIUM_HARVESTER);
+                        entries.add(ModBlocks.TITANIUM_QUARRY);
+                        entries.add(ModBlocks.TITANIUM_LAVA_GENERATOR);
+                        entries.add(ModBlocks.TITANIUM_COPIER);
 
                         entries.add(ModItems.NETHER_QUARTZ_DUST);
                         entries.add(ModItems.NETHER_CRYSTAL);
@@ -246,6 +246,39 @@ public class ModItemGroups {
                         entries.add(ModItems.BLAZE_STAR);
                         entries.add(ModBlocks.SOUL_BLAZE_ALTAR);
                         entries.add(ModItems.SOUL_BLAZE_ROD);
+                        entries.add(ModItems.SOUL_BLAZE_SPAWN_EGG);
+
+                        entries.add(ModItems.RAW_TRIAFIUM);
+                        entries.add(ModItems.TRIAFIUM_INGOT);
+                        entries.add(ModBlocks.RAW_TRIAFIUM_BLOCK);
+                        entries.add(ModBlocks.TRIAFIUM_BLOCK);
+                        entries.add(ModBlocks.TRIAFIUM_BARS);
+                        entries.add(ModBlocks.NETHER_TRIAFIUM_ORE);
+                        entries.add(ModBlocks.END_STONE_TRIAFIUM_ORE);
+                        entries.add(ModBlocks.DEEPSLATE_TRIAFIUM_ORE);
+                        entries.add(ModItems.TRIAFIUM_SWORD);
+                        entries.add(ModItems.TRIAFIUM_PICKAXE);
+                        entries.add(ModItems.TRIAFIUM_AXE);
+                        entries.add(ModItems.TRIAFIUM_SHOVEL);
+                        entries.add(ModItems.TRIAFIUM_HOE);
+                        entries.add(ModItems.TRIAFIUM_HELMET);
+                        entries.add(ModItems.TRIAFIUM_CHESTPLATE);
+                        entries.add(ModItems.TRIAFIUM_LEGGINGS);
+                        entries.add(ModItems.TRIAFIUM_BOOTS);
+                        entries.add(ModItems.TRIAFIUM_DUST);
+                        entries.add(ModBlocks.TRIAFIUM_DUST_BLOCK);
+                        entries.add(ModItems.TRIAFIUM_SEEDS);
+                        entries.add(ModItems.TRIAFIUM_ESSENCE);
+                        entries.add(ModBlocks.TRIAFIUM_PORTAL_BLOCK);
+                        entries.add(ModItems.TRIAFIUM_GEAR);
+                        entries.add(ModItems.TRIAFIUM_ENERGY_CORE);
+                        entries.add(ModItems.TRIAFIUM_AXLE);
+                        entries.add(ModItems.TRIAFIUM_MOTOR);
+                        entries.add(ModBlocks.TRIAFIUM_MACHINE_BASE);
+                        entries.add(ModBlocks.TRIAFIUM_ENERGY_STORAGE);
+                        entries.add(ModBlocks.TRIAFIUM_POWERED_CRUSHER);
+                        entries.add(ModBlocks.TRIAFIUM_POWERED_FURNACE);
+                        entries.add(ModBlocks.TRIAFIUM_PORTAL_BUILDER);
 
                         entries.add(Blocks.TUFF);
                         entries.add(ModBlocks.TUFF_SLAB);
@@ -335,27 +368,6 @@ public class ModItemGroups {
                         entries.add(ModItems.TRIAFIAN_PORKCHOP);
                         entries.add(ModItems.COOKED_TRIAFIAN_PORKCHOP);
                         entries.add(ModItems.PIPPIN_SPAWN_EGG);
-
-                        entries.add(ModItems.RAW_TRIAFIUM);
-                        entries.add(ModItems.TRIAFIUM_INGOT);
-                        entries.add(ModItems.TRIAFIUM_GEAR);
-                        entries.add(ModBlocks.RAW_TRIAFIUM_BLOCK);
-                        entries.add(ModBlocks.TRIAFIUM_BLOCK);
-                        entries.add(ModBlocks.TRIAFIUM_BARS);
-                        entries.add(ModBlocks.NETHER_TRIAFIUM_ORE);
-                        entries.add(ModBlocks.END_STONE_TRIAFIUM_ORE);
-                        entries.add(ModBlocks.DEEPSLATE_TRIAFIUM_ORE);
-                        entries.add(ModItems.TRIAFIUM_SWORD);
-                        entries.add(ModItems.TRIAFIUM_PICKAXE);
-                        entries.add(ModItems.TRIAFIUM_AXE);
-                        entries.add(ModItems.TRIAFIUM_SHOVEL);
-                        entries.add(ModItems.TRIAFIUM_HOE);
-                        entries.add(ModItems.TRIAFIUM_HELMET);
-                        entries.add(ModItems.TRIAFIUM_CHESTPLATE);
-                        entries.add(ModItems.TRIAFIUM_LEGGINGS);
-                        entries.add(ModItems.TRIAFIUM_BOOTS);
-                        entries.add(ModItems.SOUL_BLAZE_SPAWN_EGG);
-                        entries.add(ModBlocks.TRIAFIUM_PORTAL_BLOCK);
 
                         entries.add(ModItems.RAW_PACSARIUM);
                         entries.add(ModItems.PACSARIUM_INGOT);

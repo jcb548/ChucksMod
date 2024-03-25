@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "chucksmod:block/hardened_blue_stained_glass"
-  }
-}

@@ -82,7 +82,8 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.DIAMOND_SEEDS)
                 .add(ModItems.LAPIS_SEEDS)
                 .add(ModItems.TITANIUM_SEEDS)
-                .add(ModItems.COAL_SEEDS);
+                .add(ModItems.COAL_SEEDS)
+                .add(ModItems.TRIAFIUM_SEEDS);
 
         getOrCreateTagBuilder(ItemTags.SWORDS)
                 .add(ModItems.BRONZE_SWORD)
@@ -126,6 +127,11 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
         getOrCreateTagBuilder(ModItemTags.TIN_INGOTS)
                 .add(ModItems.TIN_INGOT);
+
+        getOrCreateTagBuilder(ModItemTags.TIN_ORES)
+                .add(ModBlocks.TIN_ORE.asItem())
+                .add(ModBlocks.DEEPSLATE_TIN_ORE.asItem())
+                .add(ModBlocks.SERPENTINITE_TIN_ORE.asItem());
 
         getOrCreateTagBuilder(ModItemTags.BRONZE_INGOTS)
                 .add(ModItems.BRONZE_INGOT);
@@ -208,6 +214,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.OBSIDIAN_DUST)
                 .add(ModItems.PRISMARINE_DUST)
                 .add(ModItems.TITANIUM_DUST)
+                .add(ModItems.TRIAFIUM_DUST)
                 .add(ModItems.PRISMARINE_IRON_DUST)
                 .add(ModItems.TRIAFIA_CRYSTAL_DUST);
 
@@ -236,6 +243,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.TRIAFIUM_CHESTPLATE)
                 .add(ModItems.PACSARIUM_CHESTPLATE)
                 .add(ModItems.TITANIUM_CHESTPLATE);
+
         getOrCreateTagBuilder(ModItemTags.LEGGINGS)
                 .add(Items.DIAMOND_LEGGINGS)
                 .add(Items.IRON_LEGGINGS)
@@ -248,6 +256,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.TRIAFIUM_LEGGINGS)
                 .add(ModItems.PACSARIUM_LEGGINGS)
                 .add(ModItems.TITANIUM_LEGGINGS);
+
         getOrCreateTagBuilder(ModItemTags.BOOTS)
                 .add(Items.DIAMOND_BOOTS)
                 .add(Items.IRON_BOOTS)
@@ -360,6 +369,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModBlocks.STRIPPED_PACSARIA_LOG.asItem())
                 .add(ModBlocks.PACSARIA_WOOD.asItem())
                 .add(ModBlocks.STRIPPED_PACSARIA_WOOD.asItem());
+
         getOrCreateTagBuilder(ModItemTags.NETHERITE_TOOLS_ARMOR)
                 .add(Items.NETHERITE_HELMET)
                 .add(Items.NETHERITE_CHESTPLATE)
@@ -370,5 +380,25 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(Items.NETHERITE_AXE)
                 .add(Items.NETHERITE_SHOVEL)
                 .add(Items.NETHERITE_HOE);
+
+        getOrCreateTagBuilder(ModItemTags.TITANIUM_INGOTS)
+                .add(ModItems.TITANIUM_INGOT);
+
+        getOrCreateTagBuilder(ModItemTags.RAW_TITANIUM)
+                .add(ModItems.RAW_TITANIUM);
+
+        getOrCreateTagBuilder(ModItemTags.TITANIUM_ORES)
+                .add(ModBlocks.TITANIUM_ORE.asItem())
+                .add(ModBlocks.DEEPSLATE_TITANIUM_ORE.asItem())
+                .add(ModBlocks.SERPENTINITE_TITANIUM_ORE.asItem());
+
+        getOrCreateTagBuilder(ModItemTags.BRONZE_BLOCKS)
+                .add(ModBlocks.BRONZE_BLOCK.asItem());
+
+        getOrCreateTagBuilder(ModItemTags.TRIAFIUM_ORES)
+                .add(ModBlocks.DEEPSLATE_TRIAFIUM_ORE.asItem())
+                .add(ModBlocks.NETHER_TRIAFIUM_ORE.asItem())
+                .add(ModBlocks.END_STONE_TRIAFIUM_ORE.asItem())
+                .add(ModBlocks.SERPENTINITE_TRIAFIUM_ORE.asItem());
     }
 }

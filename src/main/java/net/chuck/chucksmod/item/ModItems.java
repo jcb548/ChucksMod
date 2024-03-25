@@ -251,7 +251,6 @@ public class ModItems {
     //Triafium
     public static final Item RAW_TRIAFIUM = registerItem("raw_triafium", new Item(new FabricItemSettings()));
     public static final Item TRIAFIUM_INGOT = registerItem("triafium_ingot", new Item(new FabricItemSettings()));
-    public static final Item TRIAFIUM_GEAR = registerItem("triafium_gear", new Item(new FabricItemSettings()));
     public static final Item TRIAFIUM_SWORD = registerItem("triafium_sword",
             new ModAntiLargeSwordItem(ModToolMaterials.TRIAFIUM, 3, -1.8f, new FabricItemSettings()));
     public static final Item TRIAFIUM_PICKAXE = registerItem("triafium_pickaxe",
@@ -270,6 +269,18 @@ public class ModItems {
             new ArmorItem(ModArmorMaterials.TRIAFIUM, ArmorItem.Type.LEGGINGS, new FabricItemSettings()));
     public static final Item TRIAFIUM_BOOTS = registerItem("triafium_boots",
             new ArmorItem(ModArmorMaterials.TRIAFIUM, ArmorItem.Type.BOOTS, new FabricItemSettings()));
+    public static final Item TRIAFIUM_DUST = registerItem("triafium_dust", new Item(new FabricItemSettings()));
+    public static final Item TRIAFIUM_SEEDS = registerItem("triafium_seeds",
+            new MagicalAliasedBlockItem(ModBlocks.TRIAFIUM_CROP, new FabricItemSettings(),
+                    Text.translatable("tooltip.chucksmod.triafium_seeds")));
+    public static final Item TRIAFIUM_ESSENCE = registerItem("triafium_essence",
+            new NetherStarItem(new FabricItemSettings()));
+    public static final Item TRIAFIUM_GEAR = registerItem("triafium_gear", new Item(new FabricItemSettings()));
+    public static final Item TRIAFIUM_ENERGY_CORE = registerItem("triafium_energy_core",
+            new Item(new FabricItemSettings()));
+    public static final Item TRIAFIUM_AXLE = registerItem("triafium_axle", new Item(new FabricItemSettings()));
+    public static final Item TRIAFIUM_MOTOR = registerItem("triafium_motor", new Item(new FabricItemSettings()));
+
     public static final Item TRIAFIA_CRYSTAL = registerItem("triafia_crystal",
             new NetherStarItem(new FabricItemSettings()));
     public static final Item TRIAFIA_CRYSTAL_SHARD = registerItem("triafia_crystal_shard",

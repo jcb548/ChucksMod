@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/template_single_face",
-  "textures": {
-    "texture": "chucksmod:block/titanium_energy_storage"
-  }
-}

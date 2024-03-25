@@ -38,6 +38,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.TRIAFIUM_BLOCK)
                 .add(ModBlocks.RAW_TRIAFIUM_BLOCK)
                 .addTag(ModBlockTags.TRIAFIUM_ORES)
+                .add(ModBlocks.TRIAFIUM_DUST_BLOCK)
                 .add(ModBlocks.TRIAFIUM_PORTAL_BLOCK)
                 .add(ModBlocks.TRIAFIUM_PORTAL_BUILDER)
 
@@ -218,8 +219,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
 
         getOrCreateTagBuilder(BlockTags.SHOVEL_MINEABLE)
-                .addTag(ModBlockTags.DUST_BLOCKS)
-                .add(ModBlocks.OBSIDIAN_SAND);
+                .addTag(ModBlockTags.DUST_BLOCKS);
 
         getOrCreateTagBuilder(ModBlockTags.DUST_BLOCKS)
                 .add(ModBlocks.COAL_DUST_BLOCK)
@@ -231,7 +231,9 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.TIN_DUST_BLOCK)
                 .add(ModBlocks.BRONZE_DUST_BLOCK)
                 .add(ModBlocks.TITANIUM_DUST_BLOCK)
-                .add(ModBlocks.SOUL_GRAVEL);
+                .add(ModBlocks.OBSIDIAN_SAND)
+                .add(ModBlocks.SOUL_GRAVEL)
+                .add(ModBlocks.TRIAFIUM_DUST_BLOCK);
 
         getOrCreateTagBuilder(BlockTags.PLANKS)
                 .add(ModBlocks.EUCALYPTUS_PLANKS)
@@ -508,20 +510,23 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         
         getOrCreateTagBuilder(ModBlockTags.TITANIUM_TIER)
                 .add(ModBlocks.TITANIUM_MACHINE_BASE)
-                .add(ModBlocks.TITANIUM_HEAT_GENERATOR)
+                .add(ModBlocks.TITANIUM_ENERGY_STORAGE)
                 .add(ModBlocks.TITANIUM_POWERED_CRUSHER)
                 .add(ModBlocks.TITANIUM_POWERED_FURNACE)
-                .add(ModBlocks.TITANIUM_ENERGY_STORAGE)
-                .add(ModBlocks.TITANIUM_QUARRY)
-                .add(ModBlocks.TITANIUM_COPIER)
-                .add(ModBlocks.TITANIUM_FLUID_TANK)
+                .add(ModBlocks.TITANIUM_HEAT_GENERATOR)
                 .add(ModBlocks.TITANIUM_PUMP)
                 .add(ModBlocks.TITANIUM_FLUID_PIPE)
+                .add(ModBlocks.TITANIUM_FLUID_TANK)
                 .add(ModBlocks.TITANIUM_STEAM_GENERATOR)
+                .add(ModBlocks.TITANIUM_HARVESTER)
+                .add(ModBlocks.TITANIUM_QUARRY)
                 .add(ModBlocks.TITANIUM_LAVA_GENERATOR)
-                .add(ModBlocks.TITANIUM_HARVESTER);
+                .add(ModBlocks.TITANIUM_COPIER);
 
         getOrCreateTagBuilder(ModBlockTags.TRIAFIUM_TIER)
+                .add(ModBlocks.TRIAFIUM_ENERGY_STORAGE)
+                .add(ModBlocks.TRIAFIUM_POWERED_CRUSHER)
+                .add(ModBlocks.TRIAFIUM_POWERED_FURNACE)
                 .add(ModBlocks.TRIAFIUM_PORTAL_BUILDER);
 
         getOrCreateTagBuilder(BlockTags.LEAVES)

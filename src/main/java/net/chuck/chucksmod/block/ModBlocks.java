@@ -14,8 +14,10 @@ import net.chuck.chucksmod.block.custom.crop.magical.*;
 import net.chuck.chucksmod.block.custom.crusher.CrusherBlock;
 import net.chuck.chucksmod.block.custom.crusher.IronPoweredCrusherBlock;
 import net.chuck.chucksmod.block.custom.crusher.TitaniumPoweredCrusherBlock;
+import net.chuck.chucksmod.block.custom.crusher.TriafiumPoweredCrusherBlock;
 import net.chuck.chucksmod.block.custom.energy_storage.IronEnergyStorageBlock;
 import net.chuck.chucksmod.block.custom.energy_storage.TitaniumEnergyStorageBlock;
+import net.chuck.chucksmod.block.custom.energy_storage.TriafiumEnergyStorageBlock;
 import net.chuck.chucksmod.block.custom.fluid_pipe.IronFluidPipeBlock;
 import net.chuck.chucksmod.block.custom.fluid_pipe.TitaniumFluidPipeBlock;
 import net.chuck.chucksmod.block.custom.fluid_tank.IronFluidTankBlock;
@@ -73,7 +75,8 @@ public class ModBlocks {
             Registry.register(Registries.BLOCK, new Identifier(ChucksMod.MOD_ID, "iron_crop"),
                     new IronCropBlock(FabricBlockSettings.copy(Blocks.WHEAT).mapColor(MapColor.IRON_GRAY)));
     public static final Block IRON_MACHINE_BASE = registerBlock("iron_machine_base",
-            new Block(FabricBlockSettings.copy(Blocks.IRON_BLOCK).nonOpaque().strength(5.0f, 6.0f)));
+            new Block(FabricBlockSettings.copy(Blocks.IRON_BLOCK).nonOpaque()
+                    .strength(5.0f, 6.0f)));
     public static final Block COPPER_DUST_BLOCK = registerBlock("copper_dust_block",
             new FallingBlock(FabricBlockSettings.copy(Blocks.SAND).mapColor(MapColor.ORANGE)));
     public static final Block COPPER_CROP =
@@ -315,22 +318,37 @@ public class ModBlocks {
             new WallBlock(FabricBlockSettings.copy(Blocks.TUFF)));
 
     // Triafium
-    public static final Block TRIAFIUM_BLOCK = registerBlock("triafium_block",
-            new Block(FabricBlockSettings.copy(Blocks.GOLD_BLOCK).mapColor(MapColor.DARK_GREEN)));
     public static final Block RAW_TRIAFIUM_BLOCK = registerBlock("raw_triafium_block",
-            new Block(FabricBlockSettings.copy(Blocks.RAW_GOLD_BLOCK).mapColor(MapColor.DARK_GREEN)));
+            new Block(FabricBlockSettings.copy(Blocks.RAW_GOLD_BLOCK).strength(6.0f, 8.0f).mapColor(MapColor.DARK_GREEN)));
+    public static final Block TRIAFIUM_BLOCK = registerBlock("triafium_block",
+            new Block(FabricBlockSettings.copy(Blocks.GOLD_BLOCK).strength(6.0f, 8.0f).mapColor(MapColor.DARK_GREEN)));
+    public static final Block TRIAFIUM_BARS = registerBlock("triafium_bars",
+            new PaneBlock(FabricBlockSettings.copy(Blocks.IRON_BARS).mapColor(MapColor.DARK_GREEN)));
     public static final Block NETHER_TRIAFIUM_ORE = registerBlock("nether_triafium_ore",
             new Block(FabricBlockSettings.copy(Blocks.NETHER_QUARTZ_ORE)));
     public static final Block END_STONE_TRIAFIUM_ORE = registerBlock("endstone_triafium_ore",
             new Block(FabricBlockSettings.copy(Blocks.NETHER_QUARTZ_ORE)));
     public static final Block DEEPSLATE_TRIAFIUM_ORE = registerBlock("deepslate_triafium_ore",
             new Block(FabricBlockSettings.copy(Blocks.DEEPSLATE_DIAMOND_ORE)));
-    public static final Block TRIAFIUM_BARS = registerBlock("triafium_bars",
-            new PaneBlock(FabricBlockSettings.copy(Blocks.IRON_BARS).mapColor(MapColor.DARK_GREEN)));
+    public static final Block TRIAFIUM_DUST_BLOCK = registerBlock("triafium_dust_block",
+            new FallingBlock(FabricBlockSettings.copy(ModBlocks.TITANIUM_DUST_BLOCK)
+                    .mapColor(MapColor.DARK_GREEN)));
+    public static final Block TRIAFIUM_CROP =
+            Registry.register(Registries.BLOCK, new Identifier(ChucksMod.MOD_ID, "triafium_crop"),
+                    new TriafiumCropBlock(FabricBlockSettings.copy(Blocks.WHEAT).mapColor(MapColor.DARK_GREEN)));
     public static final Block TRIAFIUM_PORTAL_BLOCK = registerBlock("triafium_portal_block",
-            new Block(FabricBlockSettings.copy(ModBlocks.TRIAFIUM_BLOCK).mapColor(MapColor.DARK_GREEN)));
+            new Block(FabricBlockSettings.copy(ModBlocks.TRIAFIUM_BLOCK)));
+    public static final Block TRIAFIUM_MACHINE_BASE = registerBlock("triafium_machine_base",
+            new Block(FabricBlockSettings.copy(ModBlocks.TRIAFIUM_BLOCK).nonOpaque()
+                    .strength(7.0f, 9.0f)));
+    public static final Block TRIAFIUM_ENERGY_STORAGE = registerBlock("triafium_energy_storage",
+            new TriafiumEnergyStorageBlock(FabricBlockSettings.copy(ModBlocks.TRIAFIUM_BLOCK)));
+    public static final Block TRIAFIUM_POWERED_CRUSHER = registerBlock("triafium_powered_crusher",
+            new TriafiumPoweredCrusherBlock(FabricBlockSettings.copy(ModBlocks.TRIAFIUM_BLOCK)));
+    public static final Block TRIAFIUM_POWERED_FURNACE = registerBlock("triafium_powered_furnace",
+            new TriafiumPoweredCrusherBlock(FabricBlockSettings.copy(ModBlocks.TRIAFIUM_BLOCK)));
     public static final Block TRIAFIUM_PORTAL_BUILDER = registerBlock("triafium_portal_builder",
-            new TriafiumPortalBuilderBlock(FabricBlockSettings.copy(ModBlocks.TRIAFIUM_BLOCK).mapColor(MapColor.DARK_GREEN)));
+            new TriafiumPortalBuilderBlock(FabricBlockSettings.copy(ModBlocks.TRIAFIUM_BLOCK)));
     
     //Triafia
     public static final Block ECLOGITE = registerBlock("eclogite",

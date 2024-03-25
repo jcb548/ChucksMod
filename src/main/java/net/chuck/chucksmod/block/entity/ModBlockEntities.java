@@ -6,14 +6,17 @@ import net.chuck.chucksmod.block.entity.copier.TitaniumCopierBlockEntity;
 import net.chuck.chucksmod.block.entity.crusher.CrusherBlockEntity;
 import net.chuck.chucksmod.block.entity.crusher.IronPoweredCrusherBlockEntity;
 import net.chuck.chucksmod.block.entity.crusher.TitaniumPoweredCrusherBlockEntity;
+import net.chuck.chucksmod.block.entity.crusher.TriafiumPoweredCrusherBlockEntity;
 import net.chuck.chucksmod.block.entity.energy_storage.IronEnergyStorageBlockEntity;
 import net.chuck.chucksmod.block.entity.energy_storage.TitaniumEnergyStorageBlockEntity;
+import net.chuck.chucksmod.block.entity.energy_storage.TriafiumEnergyStorageBlockEntity;
 import net.chuck.chucksmod.block.entity.fluid_pipe.IronFluidPipeBlockEntity;
 import net.chuck.chucksmod.block.entity.fluid_pipe.TitaniumFluidPipeBlockEntity;
 import net.chuck.chucksmod.block.entity.fluid_tank.IronFluidTankBlockEntity;
 import net.chuck.chucksmod.block.entity.fluid_tank.TitaniumFluidTankBlockEntity;
 import net.chuck.chucksmod.block.entity.furnace.IronPoweredFurnaceBlockEntity;
 import net.chuck.chucksmod.block.entity.furnace.TitaniumPoweredFurnaceBlockEntity;
+import net.chuck.chucksmod.block.entity.furnace.TriafiumPoweredFurnaceBlockEntity;
 import net.chuck.chucksmod.block.entity.generator.heat.IronHeatGeneratorBlockEntity;
 import net.chuck.chucksmod.block.entity.generator.lava.TitaniumLavaGeneratorBlockEntity;
 import net.chuck.chucksmod.block.entity.generator.steam.IronSteamGeneratorBlockEntity;
@@ -71,7 +74,9 @@ public class ModBlockEntities {
     public static BlockEntityType<TitaniumSteamGeneratorBlockEntity> TITANIUM_STEAM_GENERATOR;
     public static BlockEntityType<TitaniumLavaGeneratorBlockEntity> TITANIUM_LAVA_GENERATOR;
     public static BlockEntityType<TitaniumHarvesterBlockEntity> TITANIUM_HARVESTER;
-    
+    public static BlockEntityType<TriafiumEnergyStorageBlockEntity> TRIAFIUM_ENERGY_STORAGE;
+    public static BlockEntityType<TriafiumPoweredCrusherBlockEntity> TRIAFIUM_POWERED_CRUSHER;
+    public static BlockEntityType<TriafiumPoweredFurnaceBlockEntity> TRIAFIUM_POWERED_FURNACE;
     public static BlockEntityType<TriafiumPortalBuilderBlockEntity> TRIAFIUM_PORTAL_BUILDER;
     public static void registerBlockEntities() {
         CRUSHER = Registry.register(Registries.BLOCK_ENTITY_TYPE,
@@ -253,6 +258,26 @@ public class ModBlockEntities {
                 TITANIUM_FLUID_PIPE);
         
         //triafium
+        TRIAFIUM_ENERGY_STORAGE = Registry.register(Registries.BLOCK_ENTITY_TYPE,
+                new Identifier(ChucksMod.MOD_ID, "triafium_energy_storage"),
+                FabricBlockEntityTypeBuilder.create(TriafiumEnergyStorageBlockEntity::new,
+                        ModBlocks.TRIAFIUM_ENERGY_STORAGE).build());
+        EnergyStorage.SIDED.registerForBlockEntity((blockEntity, direction) ->
+                blockEntity.energyStorage.getSideStorage(direction), TRIAFIUM_ENERGY_STORAGE);
+        TRIAFIUM_POWERED_CRUSHER = Registry.register(Registries.BLOCK_ENTITY_TYPE,
+                new Identifier(ChucksMod.MOD_ID, "triafium_powered_crusher"),
+                FabricBlockEntityTypeBuilder.create(TriafiumPoweredCrusherBlockEntity::new,
+                        ModBlocks.TRIAFIUM_POWERED_CRUSHER).build());
+        EnergyStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.energyStorage,
+                TRIAFIUM_POWERED_CRUSHER);
+        
+        TRIAFIUM_POWERED_FURNACE = Registry.register(Registries.BLOCK_ENTITY_TYPE,
+                new Identifier(ChucksMod.MOD_ID, "triafium_powered_furnace"),
+                FabricBlockEntityTypeBuilder.create(TriafiumPoweredFurnaceBlockEntity::new,
+                        ModBlocks.TRIAFIUM_POWERED_FURNACE).build());
+        EnergyStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.energyStorage,
+                TRIAFIUM_POWERED_FURNACE);
+        
         TRIAFIUM_PORTAL_BUILDER = Registry.register(Registries.BLOCK_ENTITY_TYPE,
                 new Identifier(ChucksMod.MOD_ID, "triafium_portal_builder"),
                 FabricBlockEntityTypeBuilder.create(TriafiumPortalBuilderBlockEntity::new,

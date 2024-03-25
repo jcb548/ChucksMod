@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/template_single_face",
-  "textures": {
-    "texture": "chucksmod:block/iron_energy_storage_front_out"
-  }
-}

@@ -1,10 +1,12 @@
 package net.chuck.chucksmod.datagen.models;
 
+import net.chuck.chucksmod.block.custom.energy_storage.AbstractEnergyStorageBlock;
 import net.chuck.chucksmod.util.DirectionIOProperty;
 import net.minecraft.block.Block;
 import net.minecraft.data.client.*;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.Direction;
 
 public class ModModelGenerator {
     public static void registerVerticalColumn(BlockStateModelGenerator blockStateModelGenerator, Block block){
@@ -122,5 +124,116 @@ public class ModModelGenerator {
                         BlockStateVariant.create().put(VariantSettings.MODEL, extract)
                                 .put(VariantSettings.X, VariantSettings.Rotation.R90))
         );
+    }
+    public static void registerEnergyStorage(BlockStateModelGenerator blockStateModelGenerator, Block storage) {
+        TextureMap inventoryMap = new TextureMap().put(TextureKey.FRONT, TextureMap.getSubId(storage, "_front"))
+                .put(TextureKey.SIDE, TextureMap.getId(storage))
+                .put(TextureKey.TOP, TextureMap.getId(storage));
+        Identifier disabled = Models.TEMPLATE_SINGLE_FACE.upload(storage,
+                new TextureMap().put(TextureKey.TEXTURE, TextureMap.getId(storage)),
+                blockStateModelGenerator.modelCollector);
+        Identifier in = Models.TEMPLATE_SINGLE_FACE.upload(storage, "_in",
+                new TextureMap().put(TextureKey.TEXTURE, TextureMap.getSubId(storage, "_in")),
+                blockStateModelGenerator.modelCollector);
+        Identifier out = Models.TEMPLATE_SINGLE_FACE.upload(storage, "_out",
+                new TextureMap().put(TextureKey.TEXTURE, TextureMap.getSubId(storage, "_out")),
+                blockStateModelGenerator.modelCollector);
+        Identifier front = Models.TEMPLATE_SINGLE_FACE.upload(storage, "_front",
+                new TextureMap().put(TextureKey.TEXTURE, TextureMap.getSubId(storage, "_front")),
+                blockStateModelGenerator.modelCollector);
+        Identifier frontIn = Models.TEMPLATE_SINGLE_FACE.upload(storage, "_front_in",
+                new TextureMap().put(TextureKey.TEXTURE, TextureMap.getSubId(storage, "_front_in")),
+                blockStateModelGenerator.modelCollector);
+        Identifier frontOut = Models.TEMPLATE_SINGLE_FACE.upload(storage, "_front_out",
+                new TextureMap().put(TextureKey.TEXTURE, TextureMap.getSubId(storage, "_front_out")),
+                blockStateModelGenerator.modelCollector);
+        Identifier inventory = Models.ORIENTABLE.upload(storage, "_inventory", inventoryMap,
+                blockStateModelGenerator.modelCollector);
+        blockStateModelGenerator.blockStateCollector.accept(MultipartBlockStateSupplier.create(storage)
+                .with(When.create().set(AbstractEnergyStorageBlock.DOWN, DirectionIOProperty.DISABLED),
+                        BlockStateVariant.create().put(VariantSettings.MODEL, disabled).put(VariantSettings.X, VariantSettings.Rotation.R90))
+                .with(When.create().set(AbstractEnergyStorageBlock.DOWN, DirectionIOProperty.INSERT),
+                        BlockStateVariant.create().put(VariantSettings.MODEL, in).put(VariantSettings.X, VariantSettings.Rotation.R90))
+                .with(When.create().set(AbstractEnergyStorageBlock.DOWN, DirectionIOProperty.EXTRACT),
+                        BlockStateVariant.create().put(VariantSettings.MODEL, out).put(VariantSettings.X, VariantSettings.Rotation.R90))
+                
+                .with(When.create().set(AbstractEnergyStorageBlock.UP, DirectionIOProperty.DISABLED),
+                        BlockStateVariant.create().put(VariantSettings.MODEL, disabled).put(VariantSettings.X, VariantSettings.Rotation.R270))
+                .with(When.create().set(AbstractEnergyStorageBlock.UP, DirectionIOProperty.INSERT),
+                        BlockStateVariant.create().put(VariantSettings.MODEL, in).put(VariantSettings.X, VariantSettings.Rotation.R270))
+                .with(When.create().set(AbstractEnergyStorageBlock.UP, DirectionIOProperty.EXTRACT),
+                        BlockStateVariant.create().put(VariantSettings.MODEL, out).put(VariantSettings.X, VariantSettings.Rotation.R270))
+                
+                .with(When.create().set(AbstractEnergyStorageBlock.NORTH, DirectionIOProperty.DISABLED),
+                        BlockStateVariant.create().put(VariantSettings.MODEL, disabled))
+                .with(When.create().set(AbstractEnergyStorageBlock.NORTH, DirectionIOProperty.INSERT),
+                        BlockStateVariant.create().put(VariantSettings.MODEL, in))
+                .with(When.create().set(AbstractEnergyStorageBlock.NORTH, DirectionIOProperty.EXTRACT),
+                        BlockStateVariant.create().put(VariantSettings.MODEL, out))
+                .with(When.create().set(AbstractEnergyStorageBlock.NORTH, DirectionIOProperty.DISABLED)
+                                .set(Properties.HORIZONTAL_FACING, Direction.NORTH),
+                        BlockStateVariant.create().put(VariantSettings.MODEL, front))
+                .with(When.create().set(AbstractEnergyStorageBlock.NORTH, DirectionIOProperty.INSERT)
+                                .set(Properties.HORIZONTAL_FACING, Direction.NORTH),
+                        BlockStateVariant.create().put(VariantSettings.MODEL, frontIn))
+                .with(When.create().set(AbstractEnergyStorageBlock.NORTH, DirectionIOProperty.EXTRACT)
+                                .set(Properties.HORIZONTAL_FACING, Direction.NORTH),
+                        BlockStateVariant.create().put(VariantSettings.MODEL, frontOut))
+                
+                .with(When.create().set(AbstractEnergyStorageBlock.SOUTH, DirectionIOProperty.DISABLED),
+                        BlockStateVariant.create().put(VariantSettings.MODEL, disabled).put(VariantSettings.Y, VariantSettings.Rotation.R180))
+                .with(When.create().set(AbstractEnergyStorageBlock.SOUTH, DirectionIOProperty.INSERT),
+                        BlockStateVariant.create().put(VariantSettings.MODEL, in).put(VariantSettings.Y, VariantSettings.Rotation.R180))
+                .with(When.create().set(AbstractEnergyStorageBlock.SOUTH, DirectionIOProperty.EXTRACT),
+                        BlockStateVariant.create().put(VariantSettings.MODEL, out).put(VariantSettings.Y, VariantSettings.Rotation.R180))
+                .with(When.create().set(AbstractEnergyStorageBlock.SOUTH, DirectionIOProperty.DISABLED)
+                                .set(Properties.HORIZONTAL_FACING, Direction.SOUTH),
+                        BlockStateVariant.create().put(VariantSettings.MODEL, front).put(VariantSettings.Y, VariantSettings.Rotation.R180))
+                .with(When.create().set(AbstractEnergyStorageBlock.SOUTH, DirectionIOProperty.INSERT)
+                                .set(Properties.HORIZONTAL_FACING, Direction.SOUTH),
+                        BlockStateVariant.create().put(VariantSettings.MODEL, frontIn).put(VariantSettings.Y, VariantSettings.Rotation.R180))
+                .with(When.create().set(AbstractEnergyStorageBlock.SOUTH, DirectionIOProperty.EXTRACT)
+                                .set(Properties.HORIZONTAL_FACING, Direction.SOUTH),
+                        BlockStateVariant.create().put(VariantSettings.MODEL, frontOut).put(VariantSettings.Y, VariantSettings.Rotation.R180))
+                
+                .with(When.create().set(AbstractEnergyStorageBlock.EAST, DirectionIOProperty.DISABLED),
+                        BlockStateVariant.create().put(VariantSettings.MODEL, disabled).put(VariantSettings.Y, VariantSettings.Rotation.R90))
+                .with(When.create().set(AbstractEnergyStorageBlock.EAST, DirectionIOProperty.INSERT),
+                        BlockStateVariant.create().put(VariantSettings.MODEL, in).put(VariantSettings.Y, VariantSettings.Rotation.R90))
+                .with(When.create().set(AbstractEnergyStorageBlock.EAST, DirectionIOProperty.EXTRACT),
+                        BlockStateVariant.create().put(VariantSettings.MODEL, out).put(VariantSettings.Y, VariantSettings.Rotation.R90))
+                .with(When.create().set(AbstractEnergyStorageBlock.EAST, DirectionIOProperty.DISABLED)
+                                .set(Properties.HORIZONTAL_FACING, Direction.EAST),
+                        BlockStateVariant.create().put(VariantSettings.MODEL, front).put(VariantSettings.Y, VariantSettings.Rotation.R90))
+                .with(When.create().set(AbstractEnergyStorageBlock.EAST, DirectionIOProperty.INSERT)
+                                .set(Properties.HORIZONTAL_FACING, Direction.EAST),
+                        BlockStateVariant.create().put(VariantSettings.MODEL, frontIn).put(VariantSettings.Y, VariantSettings.Rotation.R90))
+                .with(When.create().set(AbstractEnergyStorageBlock.EAST, DirectionIOProperty.EXTRACT)
+                                .set(Properties.HORIZONTAL_FACING, Direction.EAST),
+                        BlockStateVariant.create().put(VariantSettings.MODEL, frontOut).put(VariantSettings.Y, VariantSettings.Rotation.R90))
+                
+                .with(When.create().set(AbstractEnergyStorageBlock.WEST, DirectionIOProperty.DISABLED),
+                        BlockStateVariant.create().put(VariantSettings.MODEL, disabled).put(VariantSettings.Y, VariantSettings.Rotation.R270))
+                .with(When.create().set(AbstractEnergyStorageBlock.WEST, DirectionIOProperty.INSERT),
+                        BlockStateVariant.create().put(VariantSettings.MODEL, in).put(VariantSettings.Y, VariantSettings.Rotation.R270))
+                .with(When.create().set(AbstractEnergyStorageBlock.WEST, DirectionIOProperty.EXTRACT),
+                        BlockStateVariant.create().put(VariantSettings.MODEL, out).put(VariantSettings.Y, VariantSettings.Rotation.R270))
+                .with(When.create().set(AbstractEnergyStorageBlock.WEST, DirectionIOProperty.DISABLED)
+                                .set(Properties.HORIZONTAL_FACING, Direction.WEST),
+                        BlockStateVariant.create().put(VariantSettings.MODEL, front).put(VariantSettings.Y, VariantSettings.Rotation.R270))
+                .with(When.create().set(AbstractEnergyStorageBlock.WEST, DirectionIOProperty.INSERT)
+                                .set(Properties.HORIZONTAL_FACING, Direction.WEST),
+                        BlockStateVariant.create().put(VariantSettings.MODEL, frontIn).put(VariantSettings.Y, VariantSettings.Rotation.R270))
+                .with(When.create().set(AbstractEnergyStorageBlock.WEST, DirectionIOProperty.EXTRACT)
+                                .set(Properties.HORIZONTAL_FACING, Direction.WEST),
+                        BlockStateVariant.create().put(VariantSettings.MODEL, frontOut).put(VariantSettings.Y, VariantSettings.Rotation.R270))
+        );
+        blockStateModelGenerator.registerParentedItemModel(storage, inventory);
+    }
+    public static void registerMachineBase(BlockStateModelGenerator blockStateModelGenerator, Block machineBase) {
+        TextureMap textureMap = new TextureMap().put(TextureKey.TEXTURE, TextureMap.getId(machineBase));
+        Identifier id = ModModels.MACHINE_BASE.upload(machineBase, textureMap, blockStateModelGenerator.modelCollector);
+        blockStateModelGenerator.blockStateCollector.accept(VariantsBlockStateSupplier.create(machineBase,
+                BlockStateVariant.create().put(VariantSettings.MODEL, id)));
     }
 }

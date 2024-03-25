@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab_top",
-  "textures": {
-    "bottom": "chucksmod:block/eucalyptus_planks",
-    "side": "chucksmod:block/eucalyptus_planks",
-    "top": "chucksmod:block/eucalyptus_planks"
-  }
-}

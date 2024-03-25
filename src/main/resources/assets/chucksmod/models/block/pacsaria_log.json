@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/cube_column",
-  "textures": {
-    "end": "chucksmod:block/pacsaria_log_top",
-    "side": "chucksmod:block/pacsaria_log"
-  }
-}

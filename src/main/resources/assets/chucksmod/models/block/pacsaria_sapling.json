@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/cross",
-  "textures": {
-    "cross": "chucksmod:block/pacsaria_sapling"
-  }
-}

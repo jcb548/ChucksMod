@@ -45,6 +45,7 @@ import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.TexturedRenderLayers;
 import net.minecraft.client.util.SpriteIdentifier;
+import net.minecraft.data.client.BlockStateVariant;
 import net.minecraft.util.Identifier;
 
 /*
@@ -194,6 +195,7 @@ public class ChucksModClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.DIAMOND_CROP, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.TITANIUM_CROP, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.EMERALD_CROP, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.TRIAFIUM_CROP, RenderLayer.getCutout());
 
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.NETHER_CRYSTAL_CROP, RenderLayer.getCutout());
     }
@@ -237,6 +239,10 @@ public class ChucksModClient implements ClientModInitializer {
 
         BlockRenderLayerMap.INSTANCE.putFluids(RenderLayer.getTranslucent(), ModFluids.STILL_LIQUID_XP,
                 ModFluids.FLOWING_LIQUID_XP);
+
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.IRON_MACHINE_BASE, RenderLayer.getTranslucent());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.TITANIUM_MACHINE_BASE, RenderLayer.getTranslucent());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.TRIAFIUM_MACHINE_BASE, RenderLayer.getTranslucent());
     }
     private void registerHandledScreens(){
         HandledScreens.register(ModScreenHandlers.CRUSHER_SCREEN_HANDLER, CrusherScreen::new);

@@ -103,6 +103,18 @@ public class ModModelProvider extends FabricModelProvider {
                 ModBlocks.HARDENED_WHITE_GLASS_PANE);
         blockStateModelGenerator.registerGlassPane(ModBlocks.HARDENED_YELLOW_GLASS, 
                 ModBlocks.HARDENED_YELLOW_GLASS_PANE);
+
+        ModModelGenerator.registerMachineBase(blockStateModelGenerator, ModBlocks.IRON_MACHINE_BASE);
+        ModModelGenerator.registerEnergyStorage(blockStateModelGenerator, ModBlocks.IRON_ENERGY_STORAGE);
+        blockStateModelGenerator.registerCooker(ModBlocks.IRON_POWERED_CRUSHER, ModTexturedModel.ORIENTABLE_MACHINE);
+        blockStateModelGenerator.registerCooker(ModBlocks.IRON_POWERED_FURNACE, ModTexturedModel.ORIENTABLE_MACHINE);
+        blockStateModelGenerator.registerCooker(ModBlocks.IRON_HEAT_GENERATOR, ModTexturedModel.ORIENTABLE_MACHINE);
+        blockStateModelGenerator.registerCooker(ModBlocks.IRON_HARVESTER, ModTexturedModel.ORIENTABLE_MACHINE);
+        blockStateModelGenerator.registerCooker(ModBlocks.IRON_QUARRY, ModTexturedModel.ORIENTABLE_MACHINE);
+        ModModelGenerator.registerVerticalColumn(blockStateModelGenerator, ModBlocks.IRON_FLUID_TANK);
+        blockStateModelGenerator.registerCooker(ModBlocks.IRON_PUMP, ModTexturedModel.ORIENTABLE_MACHINE);
+        ModModelGenerator.registerPipe(blockStateModelGenerator, ModBlocks.IRON_FLUID_PIPE);
+        blockStateModelGenerator.registerCooker(ModBlocks.IRON_STEAM_GENERATOR, ModTexturedModel.ORIENTABLE_MACHINE);
         
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.TIN_DUST_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.TIN_BLOCK);
@@ -124,6 +136,9 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.END_STONE_TITANIUM_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_TITANIUM_ORE);
         ModModelGenerator.registerBars(blockStateModelGenerator, ModBlocks.TITANIUM_BARS);
+
+        ModModelGenerator.registerMachineBase(blockStateModelGenerator, ModBlocks.TITANIUM_MACHINE_BASE);
+        ModModelGenerator.registerEnergyStorage(blockStateModelGenerator, ModBlocks.TITANIUM_ENERGY_STORAGE);
         blockStateModelGenerator.registerCooker(ModBlocks.TITANIUM_POWERED_CRUSHER, ModTexturedModel.ORIENTABLE_MACHINE);
         blockStateModelGenerator.registerCooker(ModBlocks.TITANIUM_POWERED_FURNACE, ModTexturedModel.ORIENTABLE_MACHINE);
         blockStateModelGenerator.registerCooker(ModBlocks.TITANIUM_HEAT_GENERATOR, ModTexturedModel.ORIENTABLE_MACHINE);
@@ -241,8 +256,17 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.END_STONE_TRIAFIUM_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_TRIAFIUM_ORE);
         ModModelGenerator.registerBars(blockStateModelGenerator, ModBlocks.TRIAFIUM_BARS);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.TRIAFIUM_DUST_BLOCK);
+        blockStateModelGenerator.registerTintableCrossBlockStateWithStages(ModBlocks.TRIAFIUM_CROP, BlockStateModelGenerator.TintType.NOT_TINTED,
+                AbstractMagicalCropBlock.AGE, 0, 1, 2, 3, 4, 5);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.TRIAFIUM_PORTAL_BLOCK);
-        blockStateModelGenerator.registerCooker(ModBlocks.TRIAFIUM_PORTAL_BUILDER, TexturedModel.ORIENTABLE);
+
+        ModModelGenerator.registerMachineBase(blockStateModelGenerator, ModBlocks.TRIAFIUM_MACHINE_BASE);
+        ModModelGenerator.registerEnergyStorage(blockStateModelGenerator, ModBlocks.TRIAFIUM_ENERGY_STORAGE);
+        blockStateModelGenerator.registerCooker(ModBlocks.TRIAFIUM_POWERED_CRUSHER, ModTexturedModel.ORIENTABLE_MACHINE);
+        blockStateModelGenerator.registerCooker(ModBlocks.TRIAFIUM_POWERED_FURNACE, ModTexturedModel.ORIENTABLE_MACHINE);
+        blockStateModelGenerator.registerCooker(ModBlocks.TRIAFIUM_PORTAL_BUILDER, ModTexturedModel.ORIENTABLE_MACHINE);
+
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SERPENTINITE_COAL_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SERPENTINITE_COPPER_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SERPENTINITE_DIAMOND_ORE);
@@ -316,15 +340,8 @@ public class ModModelProvider extends FabricModelProvider {
         pacsaria_pool.family(ModBlocks.PACSARIA_FAMILY);
 
         blockStateModelGenerator.registerCooker(ModBlocks.CRUSHER, TexturedModel.ORIENTABLE);
-        blockStateModelGenerator.registerCooker(ModBlocks.IRON_POWERED_CRUSHER, ModTexturedModel.ORIENTABLE_MACHINE);
-        blockStateModelGenerator.registerCooker(ModBlocks.IRON_POWERED_FURNACE, ModTexturedModel.ORIENTABLE_MACHINE);
-        blockStateModelGenerator.registerCooker(ModBlocks.IRON_HEAT_GENERATOR, ModTexturedModel.ORIENTABLE_MACHINE);
-        blockStateModelGenerator.registerCooker(ModBlocks.IRON_HARVESTER, ModTexturedModel.ORIENTABLE_MACHINE);
-        blockStateModelGenerator.registerCooker(ModBlocks.IRON_QUARRY, ModTexturedModel.ORIENTABLE_MACHINE);
-        ModModelGenerator.registerVerticalColumn(blockStateModelGenerator, ModBlocks.IRON_FLUID_TANK);
-        blockStateModelGenerator.registerCooker(ModBlocks.IRON_PUMP, ModTexturedModel.ORIENTABLE_MACHINE);
-        ModModelGenerator.registerPipe(blockStateModelGenerator, ModBlocks.IRON_FLUID_PIPE);
-        blockStateModelGenerator.registerCooker(ModBlocks.IRON_STEAM_GENERATOR, ModTexturedModel.ORIENTABLE_MACHINE);
+
+
 
 
         BlockStateModelGenerator.BlockTexturePool sandstone_bricks_pool =
@@ -436,6 +453,12 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.registerArmor((ArmorItem) ModItems.TRIAFIUM_CHESTPLATE);
         itemModelGenerator.registerArmor((ArmorItem) ModItems.TRIAFIUM_LEGGINGS);
         itemModelGenerator.registerArmor((ArmorItem) ModItems.TRIAFIUM_BOOTS);
+        itemModelGenerator.register(ModItems.TRIAFIUM_DUST, Models.GENERATED);
+        itemModelGenerator.register(ModItems.TRIAFIUM_ESSENCE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.TRIAFIUM_ENERGY_CORE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.TRIAFIUM_AXLE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.TRIAFIUM_MOTOR, Models.GENERATED);
+
         itemModelGenerator.register(ModItems.TRIAFIA_CRYSTAL, Models.GENERATED);
         itemModelGenerator.register(ModItems.TRIAFIA_CRYSTAL_SHARD, Models.GENERATED);
         itemModelGenerator.register(ModItems.TRIAFIA_CRYSTAL_DUST, Models.GENERATED);

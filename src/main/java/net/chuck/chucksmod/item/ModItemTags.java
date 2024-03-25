@@ -21,6 +21,8 @@ public class ModItemTags {
             new Identifier("c", "seeds"));
     public static final TagKey<Item> TIN_INGOTS = TagKey.of(RegistryKeys.ITEM,
             new Identifier("c", "tin_ingots"));
+    public static final TagKey<Item> TIN_ORES = TagKey.of(RegistryKeys.ITEM,
+            new Identifier("c", "tin_ingots"));
     public static final TagKey<Item> BRONZE_INGOTS = TagKey.of(RegistryKeys.ITEM,
             new Identifier("c", "bronze_ingots"));
     public static final TagKey<Item> DUSTS = TagKey.of(RegistryKeys.ITEM,
@@ -45,6 +47,8 @@ public class ModItemTags {
             new Identifier(ChucksMod.MOD_ID, "gears"));
     public static final TagKey<Item> RAW_TITANIUM = TagKey.of(RegistryKeys.ITEM,
             new Identifier("c", "raw_titanium_ores"));
+    public static final TagKey<Item> TITANIUM_ORES = TagKey.of(RegistryKeys.ITEM,
+            new Identifier("c", "raw_titanium_ores"));
     public static final TagKey<Item> TITANIUM_INGOTS = TagKey.of(RegistryKeys.ITEM,
             new Identifier("c", "titanium_ingots"));
     public static final TagKey<Item> TITANIUM_DUSTS = TagKey.of(RegistryKeys.ITEM,
@@ -60,7 +64,11 @@ public class ModItemTags {
     public static final TagKey<Item> TRIAFIA_LOGS = TagKey.of(RegistryKeys.ITEM,
             new Identifier(ChucksMod.MOD_ID, "triafia_logs"));
     public static final TagKey<Item> PACSARIA_LOGS = TagKey.of(RegistryKeys.ITEM,
-            new Identifier(ChucksMod.MOD_ID, "triafia_logs"));
+            new Identifier(ChucksMod.MOD_ID, "pacsaria_logs"));
     public static final TagKey<Item> NETHERITE_TOOLS_ARMOR = TagKey.of(RegistryKeys.ITEM,
             new Identifier(ChucksMod.MOD_ID, "netherite_tools_armor"));
+    public static final TagKey<Item> BRONZE_BLOCKS = TagKey.of(RegistryKeys.ITEM,
+            new Identifier("c", "bronze_blocks"));
+    public static final TagKey<Item> TRIAFIUM_ORES = TagKey.of(RegistryKeys.ITEM,
+            new Identifier(ChucksMod.MOD_ID, "triafium_blocks"));
 }

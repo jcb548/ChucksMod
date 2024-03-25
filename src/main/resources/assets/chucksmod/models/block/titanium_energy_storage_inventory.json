@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/orientable",
-  "textures": {
-    "front": "chucksmod:block/titanium_energy_storage_front",
-    "side": "chucksmod:block/titanium_energy_storage",
-    "top": "chucksmod:block/titanium_energy_storage"
-  }
-}

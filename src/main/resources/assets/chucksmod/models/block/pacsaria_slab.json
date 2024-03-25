@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab",
-  "textures": {
-    "bottom": "chucksmod:block/pacsaria_planks",
-    "side": "chucksmod:block/pacsaria_planks",
-    "top": "chucksmod:block/pacsaria_planks"
-  }
-}

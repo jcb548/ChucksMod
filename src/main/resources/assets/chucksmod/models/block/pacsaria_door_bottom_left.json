@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/door_bottom_left",
-  "textures": {
-    "bottom": "chucksmod:block/pacsaria_door_bottom",
-    "top": "chucksmod:block/pacsaria_door_top"
-  }
-}
