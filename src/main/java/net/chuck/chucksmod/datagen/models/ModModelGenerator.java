@@ -1,5 +1,6 @@
 package net.chuck.chucksmod.datagen.models;
 
+import net.chuck.chucksmod.block.ModBlocks;
 import net.chuck.chucksmod.block.custom.energy_storage.AbstractEnergyStorageBlock;
 import net.chuck.chucksmod.util.DirectionIOProperty;
 import net.minecraft.block.Block;
@@ -77,6 +78,8 @@ public class ModModelGenerator {
                         BlockStateVariant.create().put(VariantSettings.MODEL, side)
                                 .put(VariantSettings.X, VariantSettings.Rotation.R90))
         );
+        Models.GENERATED.upload(ModelIds.getItemModelId(wire.asItem()), TextureMap.layer0(wire.asItem()),
+                blockStateModelGenerator.modelCollector);
     }
     public static void registerPipe(BlockStateModelGenerator blockStateModelGenerator, Block pipe){
         TextureMap textureMap = new TextureMap().put(ModTextureKeys.CABLE, TextureMap.getId(pipe));
@@ -124,6 +127,8 @@ public class ModModelGenerator {
                         BlockStateVariant.create().put(VariantSettings.MODEL, extract)
                                 .put(VariantSettings.X, VariantSettings.Rotation.R90))
         );
+        Models.GENERATED.upload(ModelIds.getItemModelId(pipe.asItem()), TextureMap.layer0(pipe.asItem()),
+                blockStateModelGenerator.modelCollector);
     }
     public static void registerEnergyStorage(BlockStateModelGenerator blockStateModelGenerator, Block storage) {
         TextureMap inventoryMap = new TextureMap().put(TextureKey.FRONT, TextureMap.getSubId(storage, "_front"))

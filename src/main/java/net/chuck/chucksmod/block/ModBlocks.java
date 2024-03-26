@@ -20,24 +20,31 @@ import net.chuck.chucksmod.block.custom.energy_storage.TitaniumEnergyStorageBloc
 import net.chuck.chucksmod.block.custom.energy_storage.TriafiumEnergyStorageBlock;
 import net.chuck.chucksmod.block.custom.fluid_pipe.IronFluidPipeBlock;
 import net.chuck.chucksmod.block.custom.fluid_pipe.TitaniumFluidPipeBlock;
+import net.chuck.chucksmod.block.custom.fluid_pipe.TriafiumFluidPipeBlock;
 import net.chuck.chucksmod.block.custom.fluid_tank.IronFluidTankBlock;
 import net.chuck.chucksmod.block.custom.fluid_tank.TitaniumFluidTankBlock;
+import net.chuck.chucksmod.block.custom.fluid_tank.TriafiumFluidTankBlock;
 import net.chuck.chucksmod.block.custom.furnace.IronPoweredFurnaceBlock;
 import net.chuck.chucksmod.block.custom.furnace.TitaniumPoweredFurnaceBlock;
+import net.chuck.chucksmod.block.custom.furnace.TriafiumPoweredFurnaceBlock;
 import net.chuck.chucksmod.block.custom.generator.heat.IronHeatGeneratorBlock;
+import net.chuck.chucksmod.block.custom.generator.heat.TriafiumHeatGeneratorBlock;
 import net.chuck.chucksmod.block.custom.generator.lava.TitaniumLavaGeneratorBlock;
 import net.chuck.chucksmod.block.custom.generator.steam.IronSteamGeneratorBlock;
 import net.chuck.chucksmod.block.custom.generator.heat.TitaniumHeatGeneratorBlock;
 import net.chuck.chucksmod.block.custom.generator.steam.TitaniumSteamGeneratorBlock;
+import net.chuck.chucksmod.block.custom.generator.steam.TriafiumSteamGeneratorBlock;
 import net.chuck.chucksmod.block.custom.harvester.IronHarvesterBlock;
 import net.chuck.chucksmod.block.custom.harvester.TitaniumHarvesterBlock;
 import net.chuck.chucksmod.block.custom.portal_builder.TriafiumPortalBuilderBlock;
 import net.chuck.chucksmod.block.custom.pump.IronPumpBlock;
 import net.chuck.chucksmod.block.custom.pump.TitaniumPumpBlock;
+import net.chuck.chucksmod.block.custom.pump.TriafiumPumpBlock;
 import net.chuck.chucksmod.block.custom.quarry.IronQuarryBlock;
 import net.chuck.chucksmod.block.custom.quarry.TitaniumQuarryBlock;
 import net.chuck.chucksmod.block.custom.wire.CopperWireBlock;
 import net.chuck.chucksmod.block.custom.wire.GoldWireBlock;
+import net.chuck.chucksmod.block.custom.wire.NetheriteWireBlock;
 import net.chuck.chucksmod.block.custom.wire.TinWireBlock;
 import net.chuck.chucksmod.world.tree.PacsariaSaplingGenerator;
 import net.chuck.chucksmod.world.tree.EucalyptusSaplingGenerator;
@@ -283,6 +290,8 @@ public class ModBlocks {
             Registry.register(Registries.BLOCK, new Identifier(ChucksMod.MOD_ID, "nether_crystal_crop"),
                     new NetherCrystalCropBlock(FabricBlockSettings.copy(Blocks.WHEAT).mapColor(MapColor.ORANGE)
                             .luminance(state -> 12)));
+    public static final Block NETHERITE_WIRE = registerBlock("netherite_wire",
+            new NetheriteWireBlock(FabricBlockSettings.copy(Blocks.NETHERITE_BLOCK)));
     // Soul Blocks
     public static final Block SOUL_GRAVEL = registerBlock("soul_gravel",
             new FallingBlock(FabricBlockSettings.copy(Blocks.SAND).mapColor(MapColor.BROWN)));
@@ -306,8 +315,7 @@ public class ModBlocks {
             new Block(FabricBlockSettings.copy(Blocks.STONE).mapColor(MapColor.BROWN)));
     public static final Block SOUL_BLAZE_ALTAR = registerBlock("soul_blaze_altar",
             new SoulBlazeAltarBlock(FabricBlockSettings.copy(Blocks.BEDROCK).mapColor(MapColor.BROWN)));
-
-
+    
     //tuff
     public static final Block TUFF_SLAB = registerBlock("tuff_slab",
             new SlabBlock(FabricBlockSettings.copy(Blocks.TUFF)));
@@ -346,7 +354,17 @@ public class ModBlocks {
     public static final Block TRIAFIUM_POWERED_CRUSHER = registerBlock("triafium_powered_crusher",
             new TriafiumPoweredCrusherBlock(FabricBlockSettings.copy(ModBlocks.TRIAFIUM_BLOCK)));
     public static final Block TRIAFIUM_POWERED_FURNACE = registerBlock("triafium_powered_furnace",
-            new TriafiumPoweredCrusherBlock(FabricBlockSettings.copy(ModBlocks.TRIAFIUM_BLOCK)));
+            new TriafiumPoweredFurnaceBlock(FabricBlockSettings.copy(ModBlocks.TRIAFIUM_BLOCK)));
+    public static final Block TRIAFIUM_HEAT_GENERATOR = registerBlock("triafium_heat_generator",
+            new TriafiumHeatGeneratorBlock(FabricBlockSettings.copy(ModBlocks.TRIAFIUM_BLOCK)));
+    public static final Block TRIAFIUM_PUMP = registerBlock("triafium_pump",
+            new TriafiumPumpBlock(FabricBlockSettings.copy(ModBlocks.TRIAFIUM_BLOCK)));
+    public static final Block TRIAFIUM_FLUID_PIPE = registerBlock("triafium_fluid_pipe",
+            new TriafiumFluidPipeBlock(FabricBlockSettings.copy(ModBlocks.TRIAFIUM_BLOCK)));
+    public static final Block TRIAFIUM_FLUID_TANK = registerBlock("triafium_fluid_tank",
+            new TriafiumFluidTankBlock(FabricBlockSettings.copy(ModBlocks.TRIAFIUM_BLOCK)));
+    public static final Block TRIAFIUM_STEAM_GENERATOR = registerBlock("triafium_steam_generator",
+            new TriafiumSteamGeneratorBlock(FabricBlockSettings.copy(ModBlocks.TRIAFIUM_BLOCK)));
     public static final Block TRIAFIUM_PORTAL_BUILDER = registerBlock("triafium_portal_builder",
             new TriafiumPortalBuilderBlock(FabricBlockSettings.copy(ModBlocks.TRIAFIUM_BLOCK)));
     

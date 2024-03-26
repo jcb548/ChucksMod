@@ -46,7 +46,7 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
         generateTinRecipes(exporter);
         generateBronzeRecipes(exporter);
         generatePrismarineRecipes(exporter);
-        generateSoulRecipes(exporter);
+        generateNetherRecipes(exporter);
         generateTriafiumRecipes(exporter);
         generateWoodRecipes(exporter, ModItemTags.EUCALYPTUS_LOGS, ModBlocks.EUCALYPTUS_LOG, ModBlocks.EUCALYPTUS_WOOD, 
                 ModBlocks.STRIPPED_EUCALYPTUS_LOG, ModBlocks.STRIPPED_EUCALYPTUS_WOOD,ModBlocks.EUCALYPTUS_PLANKS, ModBlocks.EUCALYPTUS_SLAB, 
@@ -105,16 +105,16 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
     }
 
     private void generateStoneRecipes(RecipeExporter exporter) {
-        offerCrusherRecipe(exporter, Items.STONE, ModItems.STONE_DUST, 9);
-        offerCrusherRecipe(exporter, Items.COBBLESTONE, ModItems.STONE_DUST, 9);
-        offerCrusherRecipe(exporter, Items.GRAVEL, ModItems.STONE_DUST, 9);
-        offerCrusherRecipe(exporter, ItemTags.STONE_BRICKS, ModItems.STONE_DUST, 9);
+        offerCrushingRecipe(exporter, Items.STONE, ModItems.STONE_DUST, 9);
+        offerCrushingRecipe(exporter, Items.COBBLESTONE, ModItems.STONE_DUST, 9);
+        offerCrushingRecipe(exporter, Items.GRAVEL, ModItems.STONE_DUST, 9);
+        offerCrushingRecipe(exporter, ItemTags.STONE_BRICKS, ModItems.STONE_DUST, 9);
     }
 
     private void generateMagicCropRecipes(RecipeExporter exporter) {
         offerCompactingRecipe(exporter, RecipeCategory.MISC, ModItems.NETHER_CRYSTAL,
                 ModItems.NETHER_CRYSTAL_SHARD);
-        offerCrusherRecipe(exporter, ModItems.NETHER_CRYSTAL, ModItems.NETHER_CRYSTAL_DUST);
+        offerCrushingRecipe(exporter, ModItems.NETHER_CRYSTAL, ModItems.NETHER_CRYSTAL_DUST);
         offerMagicalSeedsRecipe(exporter, ModItems.COAL_SEEDS, ModItems.COAL_DUST, ModItems.NETHER_CRYSTAL_DUST);
         offerEssenceToMaterialRecipe(exporter, Items.COAL, ModItems.COAL_ESSENCE, 4);
         offerMagicalSeedsRecipe(exporter, ModItems.IRON_SEEDS, ModItems.IRON_DUST, ModItems.NETHER_CRYSTAL_DUST);
@@ -215,9 +215,9 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 base);
     }
 
-    private void generateSoulRecipes(RecipeExporter exporter) {
-        offerCrusherRecipe(exporter, Items.SOUL_SAND, ModItems.SOUL_DUST, 4);
-        offerCrusherRecipe(exporter, Items.SOUL_SOIL, ModItems.SOUL_DUST, 4);
+    private void generateNetherRecipes(RecipeExporter exporter) {
+        offerCrushingRecipe(exporter, Items.SOUL_SAND, ModItems.SOUL_DUST, 4);
+        offerCrushingRecipe(exporter, Items.SOUL_SOIL, ModItems.SOUL_DUST, 4);
         ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.SOUL_GRAVEL)
                 .pattern("#S#")
                 .pattern("S#S")
@@ -270,14 +270,16 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
         offerWallRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.SOUL_STONE_BRICK_WALL,
                 ModBlocks.SOUL_STONE_BRICKS);
         offerPolishedStoneRecipe(exporter, RecipeCategory.BREWING, ModBlocks.SOUL_STONE_BRICKS, ModBlocks.SOUL_STONE);
+        offerCoilRecipe(exporter, ModBlocks.NETHERITE_WIRE, ModItems.NETHERITE_COIL);
+        offerPowerCircuitRecipe(exporter, ModBlocks.NETHERITE_WIRE, ModItems.NETHERITE_POWER_CIRCUIT);
     }
 
     private void generateIronRecipes(RecipeExporter exporter) {
-        offerCrusherRecipe(exporter, Items.RAW_IRON, ModItems.IRON_DUST);
-        offerCrusherRecipe(exporter, Items.IRON_INGOT, ModItems.IRON_DUST);
-        offerCrusherRecipe(exporter, ItemTags.IRON_ORES, ModItems.IRON_DUST, 2);
-        offerCrusherRecipe(exporter, Items.RAW_IRON_BLOCK, ModBlocks.IRON_DUST_BLOCK);
-        offerCrusherRecipe(exporter, Items.IRON_BLOCK, ModBlocks.IRON_DUST_BLOCK);
+        offerCrushingRecipe(exporter, Items.RAW_IRON, ModItems.IRON_DUST);
+        offerCrushingRecipe(exporter, Items.IRON_INGOT, ModItems.IRON_DUST);
+        offerCrushingRecipe(exporter, ItemTags.IRON_ORES, ModItems.IRON_DUST, 2);
+        offerCrushingRecipe(exporter, Items.RAW_IRON_BLOCK, ModBlocks.IRON_DUST_BLOCK);
+        offerCrushingRecipe(exporter, Items.IRON_BLOCK, ModBlocks.IRON_DUST_BLOCK);
         offerSmelting(exporter, List.of(ModItems.IRON_DUST), RecipeCategory.MISC, Items.IRON_INGOT,
                 0.7f, 200, "iron_ingot");
         offerBlasting(exporter, List.of(ModItems.IRON_DUST), RecipeCategory.MISC, Items.IRON_INGOT,
@@ -366,6 +368,7 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 RecipeCategory.DECORATIONS, ModBlocks.TRIAFIUM_BLOCK);
         offerReversibleCompactingRecipes(exporter, RecipeCategory.BUILDING_BLOCKS, ModItems.TRIAFIUM_DUST,
                 RecipeCategory.DECORATIONS, ModBlocks.TRIAFIUM_DUST_BLOCK);
+        offerStainedGlassPaneRecipe(exporter, ModBlocks.TRIAFIUM_BARS, ModItems.TRIAFIUM_INGOT);
         offerSwordRecipe(exporter, ModItems.TRIAFIUM_INGOT, ModItems.TRIAFIUM_SWORD);
         offerPickaxeRecipe(exporter, ModItems.TRIAFIUM_INGOT, ModItems.TRIAFIUM_PICKAXE);
         offerAxeRecipe(exporter, ModItems.TRIAFIUM_INGOT, ModItems.TRIAFIUM_AXE);
@@ -375,14 +378,34 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
         offerChestplateRecipe(exporter, ModItems.TRIAFIUM_INGOT, ModItems.TRIAFIUM_CHESTPLATE);
         offerLeggingsRecipe(exporter, ModItems.TRIAFIUM_INGOT, ModItems.TRIAFIUM_LEGGINGS);
         offerBootsRecipe(exporter, ModItems.TRIAFIUM_INGOT, ModItems.TRIAFIUM_BOOTS);
+        offerCrushingRecipe(exporter, ModItems.TRIAFIUM_INGOT, ModItems.TRIAFIUM_DUST);
+        offerCrushingRecipe(exporter, ModItems.RAW_TRIAFIUM, ModItems.TRIAFIUM_DUST);
+        offerCrushingRecipe(exporter, ModBlocks.RAW_TRIAFIUM_BLOCK, ModBlocks.TRIAFIUM_DUST_BLOCK);
+        offerCrushingRecipe(exporter, ModBlocks.TRIAFIUM_BLOCK, ModBlocks.TRIAFIUM_DUST_BLOCK);
         offerGearRecipe(exporter, ModItems.TRIAFIUM_INGOT, ModItems.TRIAFIUM_GEAR);
-        offerStainedGlassPaneRecipe(exporter, ModBlocks.TRIAFIUM_BARS, ModItems.TRIAFIUM_INGOT);
-        offerCrusherRecipe(exporter, ModItems.TRIAFIUM_INGOT, ModItems.TRIAFIUM_DUST);
-        offerCrusherRecipe(exporter, ModItems.RAW_TRIAFIUM, ModItems.TRIAFIUM_DUST);
-        offerCrusherRecipe(exporter, ModItemTags.TRIAFIUM_ORES, ModItems.TRIAFIUM_DUST, 2);
-        offerCrusherRecipe(exporter, ModBlocks.RAW_TRIAFIUM_BLOCK, ModBlocks.TRIAFIUM_DUST_BLOCK);
-        offerCrusherRecipe(exporter, ModBlocks.TRIAFIUM_BLOCK, ModBlocks.TRIAFIUM_DUST_BLOCK);
-    }
+        offerEnergyCoreRecipe(exporter, ModItems.TRIAFIUM_ENERGY_CORE, ModItems.TRIAFIUM_INGOT);
+        offerAxleRecipe(exporter, ModItems.TRIAFIUM_AXLE, ModItems.TRIAFIUM_INGOT);
+        offerMotorRecipe(exporter, ModItems.TRIAFIUM_MOTOR, ModItems.TRIAFIUM_INGOT, ModItems.TRIAFIUM_AXLE,
+                ModBlocks.NETHERITE_WIRE);
+        offerCrushingRecipe(exporter, ModItemTags.TRIAFIUM_ORES, ModItems.TRIAFIUM_DUST, 2);
+        offerMachineBaseRecipe(exporter, ModItems.TRIAFIUM_INGOT, ModItems.TRIAFIUM_GEAR, 
+                ModBlocks.TRIAFIUM_MACHINE_BASE);
+        offerEnergyStorageRecipe(exporter, ModBlocks.TRIAFIUM_ENERGY_STORAGE, ModItems.NETHERITE_POWER_CIRCUIT, 
+                ModBlocks.NETHERITE_WIRE, ModBlocks.TRIAFIUM_MACHINE_BASE, ModItems.TRIAFIUM_ENERGY_CORE);
+        offerPoweredCrusherRecipe(exporter, ModBlocks.TRIAFIUM_POWERED_CRUSHER, ModItems.NETHERITE_POWER_CIRCUIT,
+                ModBlocks.TRIAFIUM_MACHINE_BASE, ModBlocks.NETHERITE_WIRE, ModItems.TRIAFIUM_GEAR,
+                ModItems.TRIAFIUM_MOTOR);
+        offerPoweredFurnaceRecipe(exporter, ModBlocks.TRIAFIUM_POWERED_FURNACE, ModItems.NETHERITE_POWER_CIRCUIT,
+                ModBlocks.NETHERITE_WIRE, ModBlocks.TRIAFIUM_MACHINE_BASE);
+        offerHeatGeneratorRecipe(exporter, ModBlocks.TRIAFIUM_HEAT_GENERATOR, ModItems.NETHERITE_COIL,
+                ModItems.NETHERITE_POWER_CIRCUIT, ModBlocks.NETHERITE_WIRE, ModBlocks.TRIAFIUM_MACHINE_BASE);
+        offerPumpRecipe(exporter, ModBlocks.TRIAFIUM_PUMP, ModBlocks.TRIAFIUM_MACHINE_BASE, ModItems.NETHERITE_POWER_CIRCUIT,
+                ModItems.TRIAFIUM_MOTOR, ModItems.TRIAFIUM_GEAR, ModBlocks.TRIAFIUM_FLUID_TANK, ModBlocks.NETHERITE_WIRE);
+        offerFluidPipeRecipe(exporter, ModBlocks.TRIAFIUM_FLUID_PIPE, ModItems.TRIAFIUM_INGOT);
+        offerTankRecipe(exporter, ModBlocks.TRIAFIUM_FLUID_TANK, ModItems.TRIAFIUM_INGOT);
+        offerSteamGeneratorRecipe(exporter, ModBlocks.TRIAFIUM_STEAM_GENERATOR, ModItems.NETHERITE_COIL, ModItems.NETHERITE_POWER_CIRCUIT,
+                ModBlocks.NETHERITE_WIRE, ModBlocks.TRIAFIUM_MACHINE_BASE, ModBlocks.TRIAFIUM_FLUID_TANK);
+        }
     private void generateTriafiaRecipes(RecipeExporter exporter) {
         offerCompactingRecipe(exporter, RecipeCategory.MISC, ModItems.TRIAFIA_CRYSTAL,
                 ModItems.TRIAFIA_CRYSTAL_SHARD);
@@ -390,7 +413,7 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 0.5f, 200, "triafian_porkchop");
         offerFoodCookingRecipe(exporter, "smoking", RecipeSerializer.SMOKING, 100,
                 ModItems.TRIAFIAN_PORKCHOP, ModItems.COOKED_TRIAFIAN_PORKCHOP, 0.5f);
-        offerCrusherRecipe(exporter, ModItems.TRIAFIA_CRYSTAL, ModItems.TRIAFIA_CRYSTAL_DUST);
+        offerCrushingRecipe(exporter, ModItems.TRIAFIA_CRYSTAL, ModItems.TRIAFIA_CRYSTAL_DUST);
     }
 
     private void generatePascariumRecipes(RecipeExporter exporter) {
@@ -460,14 +483,14 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
         offerLeggingsRecipe(exporter, ModItems.PRISMARINE_INGOT, ModItems.PRISMARINE_LEGGINGS);
         offerBootsRecipe(exporter, ModItems.PRISMARINE_INGOT, ModItems.PRISMARINE_BOOTS);
         offerStainedGlassPaneRecipe(exporter, ModBlocks.PRISMARINE_BARS, ModItems.PRISMARINE_INGOT);
-        offerCrusherRecipe(exporter, Items.PRISMARINE_SHARD, ModItems.PRISMARINE_DUST);
-        offerCrusherRecipe(exporter, Items.PRISMARINE_BRICKS, ModBlocks.PRISMARINE_DUST_BLOCK);
-        offerCrusherRecipe(exporter, Items.SEA_LANTERN, ModBlocks.PRISMARINE_DUST_BLOCK);
+        offerCrushingRecipe(exporter, Items.PRISMARINE_SHARD, ModItems.PRISMARINE_DUST);
+        offerCrushingRecipe(exporter, Items.PRISMARINE_BRICKS, ModBlocks.PRISMARINE_DUST_BLOCK);
+        offerCrushingRecipe(exporter, Items.SEA_LANTERN, ModBlocks.PRISMARINE_DUST_BLOCK);
     }
 
     private void generateBronzeRecipes(RecipeExporter exporter) {
-        offerCrusherRecipe(exporter, ModItemTags.BRONZE_INGOTS, ModItems.BRONZE_DUST);
-        offerCrusherRecipe(exporter, ModItemTags.BRONZE_BLOCKS, ModBlocks.BRONZE_DUST_BLOCK);
+        offerCrushingRecipe(exporter, ModItemTags.BRONZE_INGOTS, ModItems.BRONZE_DUST);
+        offerCrushingRecipe(exporter, ModItemTags.BRONZE_BLOCKS, ModBlocks.BRONZE_DUST_BLOCK);
         offerReversibleCompactingRecipes(exporter,
                 RecipeCategory.DECORATIONS,
                 ModItems.BRONZE_DUST,
@@ -514,11 +537,11 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
     }
 
     private void generateTitaniumRecipes(RecipeExporter exporter) {
-        offerCrusherRecipe(exporter, ModItems.RAW_TITANIUM, ModItems.TITANIUM_DUST);
-        offerCrusherRecipe(exporter, ModItems.TITANIUM_INGOT, ModItems.TITANIUM_DUST);
-        offerCrusherRecipe(exporter, ModItemTags.TITANIUM_ORES, ModItems.TITANIUM_DUST, 2);
-        offerCrusherRecipe(exporter, ModBlocks.RAW_TITANIUM_BLOCK, ModBlocks.TITANIUM_DUST_BLOCK);
-        offerCrusherRecipe(exporter, ModBlocks.TITANIUM_BLOCK, ModBlocks.TITANIUM_DUST_BLOCK);
+        offerCrushingRecipe(exporter, ModItems.RAW_TITANIUM, ModItems.TITANIUM_DUST);
+        offerCrushingRecipe(exporter, ModItems.TITANIUM_INGOT, ModItems.TITANIUM_DUST);
+        offerCrushingRecipe(exporter, ModItemTags.TITANIUM_ORES, ModItems.TITANIUM_DUST, 2);
+        offerCrushingRecipe(exporter, ModBlocks.RAW_TITANIUM_BLOCK, ModBlocks.TITANIUM_DUST_BLOCK);
+        offerCrushingRecipe(exporter, ModBlocks.TITANIUM_BLOCK, ModBlocks.TITANIUM_DUST_BLOCK);
         offerReversibleCompactingRecipes(exporter,
                 RecipeCategory.DECORATIONS,
                 ModItems.TITANIUM_DUST,
@@ -594,13 +617,13 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
         offerReversibleCompactingRecipes(exporter, RecipeCategory.DECORATIONS, ModItems.EMERALD_DUST,
                 RecipeCategory.DECORATIONS, ModBlocks.EMERALD_DUST_BLOCK);
         
-        offerCrusherRecipe(exporter, Items.DIAMOND, ModItems.DIAMOND_DUST);
-        offerCrusherRecipe(exporter, Items.DIAMOND_BLOCK, ModBlocks.DIAMOND_DUST_BLOCK);
-        offerCrusherRecipe(exporter, ItemTags.DIAMOND_ORES, ModItems.DIAMOND_DUST, 2);
+        offerCrushingRecipe(exporter, Items.DIAMOND, ModItems.DIAMOND_DUST);
+        offerCrushingRecipe(exporter, Items.DIAMOND_BLOCK, ModBlocks.DIAMOND_DUST_BLOCK);
+        offerCrushingRecipe(exporter, ItemTags.DIAMOND_ORES, ModItems.DIAMOND_DUST, 2);
         
-        offerCrusherRecipe(exporter, Items.EMERALD, ModItems.EMERALD_DUST);
-        offerCrusherRecipe(exporter, Items.EMERALD_BLOCK, ModBlocks.EMERALD_DUST_BLOCK);
-        offerCrusherRecipe(exporter, ItemTags.EMERALD_ORES, ModItems.EMERALD_DUST, 2);
+        offerCrushingRecipe(exporter, Items.EMERALD, ModItems.EMERALD_DUST);
+        offerCrushingRecipe(exporter, Items.EMERALD_BLOCK, ModBlocks.EMERALD_DUST_BLOCK);
+        offerCrushingRecipe(exporter, ItemTags.EMERALD_ORES, ModItems.EMERALD_DUST, 2);
     }
 
     private void generateCopperRecipes(RecipeExporter exporter) {
@@ -608,11 +631,11 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 0.7f, 200, "copper_ingot");
         offerBlasting(exporter, List.of(ModItems.COPPER_DUST), RecipeCategory.MISC, Items.COPPER_INGOT,
                 0.7f, 100, "copper_ingot");
-        offerCrusherRecipe(exporter, Items.RAW_COPPER, ModItems.COPPER_DUST);
-        offerCrusherRecipe(exporter, Items.COPPER_INGOT, ModItems.COPPER_DUST);
-        offerCrusherRecipe(exporter, ItemTags.COPPER_ORES, ModItems.COPPER_DUST, 2);
-        offerCrusherRecipe(exporter, Items.RAW_COPPER_BLOCK, ModBlocks.COPPER_DUST_BLOCK);
-        offerCrusherRecipe(exporter, Items.COPPER_BLOCK, ModBlocks.COPPER_DUST_BLOCK);
+        offerCrushingRecipe(exporter, Items.RAW_COPPER, ModItems.COPPER_DUST);
+        offerCrushingRecipe(exporter, Items.COPPER_INGOT, ModItems.COPPER_DUST);
+        offerCrushingRecipe(exporter, ItemTags.COPPER_ORES, ModItems.COPPER_DUST, 2);
+        offerCrushingRecipe(exporter, Items.RAW_COPPER_BLOCK, ModBlocks.COPPER_DUST_BLOCK);
+        offerCrushingRecipe(exporter, Items.COPPER_BLOCK, ModBlocks.COPPER_DUST_BLOCK);
         offerReversibleCompactingRecipes(exporter, RecipeCategory.DECORATIONS, ModItems.COPPER_DUST,
                 RecipeCategory.DECORATIONS, ModBlocks.COPPER_DUST_BLOCK);
         offerGearRecipe(exporter, Items.COPPER_INGOT, ModItems.COPPER_GEAR);
@@ -629,11 +652,11 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 0.7f, 100, "gold_ingot");
         offerReversibleCompactingRecipes(exporter, RecipeCategory.DECORATIONS, ModItems.GOLD_DUST,
                 RecipeCategory.DECORATIONS, ModBlocks.GOLD_DUST_BLOCK);
-        offerCrusherRecipe(exporter, Items.RAW_GOLD, ModItems.GOLD_DUST);
-        offerCrusherRecipe(exporter, Items.GOLD_INGOT, ModItems.GOLD_DUST);
-        offerCrusherRecipe(exporter, ItemTags.GOLD_ORES, ModItems.GOLD_DUST, 2);
-        offerCrusherRecipe(exporter, Items.RAW_GOLD_BLOCK, ModBlocks.GOLD_DUST_BLOCK);
-        offerCrusherRecipe(exporter, Items.GOLD_BLOCK, ModBlocks.GOLD_DUST_BLOCK);
+        offerCrushingRecipe(exporter, Items.RAW_GOLD, ModItems.GOLD_DUST);
+        offerCrushingRecipe(exporter, Items.GOLD_INGOT, ModItems.GOLD_DUST);
+        offerCrushingRecipe(exporter, ItemTags.GOLD_ORES, ModItems.GOLD_DUST, 2);
+        offerCrushingRecipe(exporter, Items.RAW_GOLD_BLOCK, ModBlocks.GOLD_DUST_BLOCK);
+        offerCrushingRecipe(exporter, Items.GOLD_BLOCK, ModBlocks.GOLD_DUST_BLOCK);
         offerStainedGlassPaneRecipe(exporter, ModBlocks.GOLD_BARS, Items.GOLD_INGOT);
         offerGearRecipe(exporter, Items.GOLD_INGOT, ModItems.GOLD_GEAR);
         offerWireRecipe(exporter, Items.GOLD_INGOT, ModBlocks.GOLD_WIRE);
@@ -642,11 +665,11 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
     }
 
     private void generateTinRecipes(RecipeExporter exporter) {
-        offerCrusherRecipe(exporter, ModItems.RAW_TIN, ModItems.TIN_DUST);
-        offerCrusherRecipe(exporter, ModItems.TIN_INGOT, ModItems.TIN_DUST);
-        offerCrusherRecipe(exporter, ModItemTags.TIN_ORES, ModItems.TIN_DUST, 2);
-        offerCrusherRecipe(exporter, ModBlocks.RAW_TIN_BLOCK, ModBlocks.TIN_DUST_BLOCK);
-        offerCrusherRecipe(exporter, ModBlocks.TIN_BLOCK, ModBlocks.TIN_DUST_BLOCK);
+        offerCrushingRecipe(exporter, ModItems.RAW_TIN, ModItems.TIN_DUST);
+        offerCrushingRecipe(exporter, ModItems.TIN_INGOT, ModItems.TIN_DUST);
+        offerCrushingRecipe(exporter, ModItemTags.TIN_ORES, ModItems.TIN_DUST, 2);
+        offerCrushingRecipe(exporter, ModBlocks.RAW_TIN_BLOCK, ModBlocks.TIN_DUST_BLOCK);
+        offerCrushingRecipe(exporter, ModBlocks.TIN_BLOCK, ModBlocks.TIN_DUST_BLOCK);
         offerSmelting(exporter, List.of(ModItems.RAW_TIN), RecipeCategory.TOOLS, ModItems.TIN_INGOT,
                 0.7f, 200, "tin_ingot");
         offerBlasting(exporter, List.of(ModItems.RAW_TIN), RecipeCategory.TOOLS, ModItems.TIN_INGOT,
@@ -665,8 +688,8 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
     }
 
     private void generateHardenedGlassRecipes(RecipeExporter exporter) {
-        offerCrusherRecipe(exporter, Items.OBSIDIAN, ModItems.OBSIDIAN_DUST, 4);
-        offerCrusherRecipe(exporter, Items.CRYING_OBSIDIAN, ModItems.OBSIDIAN_DUST, 4);                               
+        offerCrushingRecipe(exporter, Items.OBSIDIAN, ModItems.OBSIDIAN_DUST, 4);
+        offerCrushingRecipe(exporter, Items.CRYING_OBSIDIAN, ModItems.OBSIDIAN_DUST, 4);                               
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.OBSIDIAN_SAND, 2)
                 .pattern(" D ")
                 .pattern("DSD")
@@ -1426,18 +1449,18 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .criterion(hasTag(ModItemTags.SEEDS), conditionsFromTag(ModItemTags.SEEDS))
                 .offerTo(exporter);
     }
-    public static void offerCrusherRecipe(RecipeExporter exporter, ItemConvertible input, ItemConvertible output){
-        offerCrusherRecipe(exporter, input, output, 1);
+    public static void offerCrushingRecipe(RecipeExporter exporter, ItemConvertible input, ItemConvertible output){
+        offerCrushingRecipe(exporter, input, output, 1);
     }
-    public static void offerCrusherRecipe(RecipeExporter exporter, ItemConvertible input, ItemConvertible output, int count){
+    public static void offerCrushingRecipe(RecipeExporter exporter, ItemConvertible input, ItemConvertible output, int count){
         CrusherRecipeJsonBuilder.create(Ingredient.ofItems(input), RecipeCategory.TOOLS, output, count,"crusher")
                 .criterion(hasItem(input), conditionsFromItem(input))
                 .offerTo(exporter, RecipeProvider.getItemPath(output) + "_from_crushing_"+RecipeProvider.getItemPath(input));
     }
-    public static void offerCrusherRecipe(RecipeExporter exporter, TagKey<Item> input, ItemConvertible output){
-        offerCrusherRecipe(exporter, input, output, 1);
+    public static void offerCrushingRecipe(RecipeExporter exporter, TagKey<Item> input, ItemConvertible output){
+        offerCrushingRecipe(exporter, input, output, 1);
     }
-    public static void offerCrusherRecipe(RecipeExporter exporter, TagKey<Item> input, ItemConvertible output, int count){
+    public static void offerCrushingRecipe(RecipeExporter exporter, TagKey<Item> input, ItemConvertible output, int count){
         CrusherRecipeJsonBuilder.create(Ingredient.fromTag(input), RecipeCategory.TOOLS, output, count,"crusher")
                 .criterion(hasTag(input), conditionsFromTag(input))
                 .offerTo(exporter, RecipeProvider.getItemPath(output) + "_from_crushing_"+input.id().getPath());

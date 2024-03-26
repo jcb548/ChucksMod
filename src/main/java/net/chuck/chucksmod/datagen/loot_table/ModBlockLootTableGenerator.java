@@ -298,7 +298,21 @@ public class ModBlockLootTableGenerator extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.NETHER_TRIAFIUM_ORE, oreDrops(ModBlocks.NETHER_TRIAFIUM_ORE, ModItems.RAW_TRIAFIUM));
         addDrop(ModBlocks.END_STONE_TRIAFIUM_ORE, oreDrops(ModBlocks.END_STONE_TRIAFIUM_ORE, ModItems.RAW_TRIAFIUM));
         addDrop(ModBlocks.DEEPSLATE_TRIAFIUM_ORE, oreDrops(ModBlocks.DEEPSLATE_TRIAFIUM_ORE, ModItems.RAW_TRIAFIUM));
+        BlockStatePropertyLootCondition.Builder triafiumCropBuilder = BlockStatePropertyLootCondition.builder
+                (ModBlocks.TRIAFIUM_CROP).properties(StatePredicate.Builder.create()
+                .exactMatch(AbstractMagicalCropBlock.AGE, AbstractMagicalCropBlock.MAX_AGE));
+        addDrop(ModBlocks.TRIAFIUM_CROP, magicCropDrops(ModBlocks.TRIAFIUM_CROP, ModItems.TRIAFIUM_ESSENCE,
+                ModItems.TRIAFIUM_SEEDS, triafiumCropBuilder, 0.025f, 1));
         addDrop(ModBlocks.TRIAFIUM_PORTAL_BLOCK);
+        addDrop(ModBlocks.TRIAFIUM_MACHINE_BASE);
+        addDrop(ModBlocks.TRIAFIUM_ENERGY_STORAGE);
+        addDrop(ModBlocks.TRIAFIUM_POWERED_CRUSHER);
+        addDrop(ModBlocks.TRIAFIUM_POWERED_FURNACE);
+        addDrop(ModBlocks.TRIAFIUM_HEAT_GENERATOR);
+        addDrop(ModBlocks.TRIAFIUM_PUMP);
+        addDrop(ModBlocks.TRIAFIUM_FLUID_PIPE);
+        addDrop(ModBlocks.TRIAFIUM_FLUID_TANK);
+        addDrop(ModBlocks.TRIAFIUM_STEAM_GENERATOR);
         addDrop(ModBlocks.TRIAFIUM_PORTAL_BUILDER);
 
         addDrop(ModBlocks.RAW_PACSARIUM_BLOCK);

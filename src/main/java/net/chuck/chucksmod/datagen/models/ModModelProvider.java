@@ -63,6 +63,8 @@ public class ModModelProvider extends FabricModelProvider {
         ModModelGenerator.registerWire(blockStateModelGenerator, ModBlocks.GOLD_WIRE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.PRISMARINE_DUST_BLOCK);
 
+        ModModelGenerator.registerWire(blockStateModelGenerator, ModBlocks.NETHERITE_WIRE);
+
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.PRISMARINE_IRON_DUST_BLOCK);
         ModModelGenerator.registerBars(blockStateModelGenerator, ModBlocks.PRISMARINE_BARS);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.OBSIDIAN_SAND);
@@ -265,6 +267,11 @@ public class ModModelProvider extends FabricModelProvider {
         ModModelGenerator.registerEnergyStorage(blockStateModelGenerator, ModBlocks.TRIAFIUM_ENERGY_STORAGE);
         blockStateModelGenerator.registerCooker(ModBlocks.TRIAFIUM_POWERED_CRUSHER, ModTexturedModel.ORIENTABLE_MACHINE);
         blockStateModelGenerator.registerCooker(ModBlocks.TRIAFIUM_POWERED_FURNACE, ModTexturedModel.ORIENTABLE_MACHINE);
+        blockStateModelGenerator.registerCooker(ModBlocks.TRIAFIUM_HEAT_GENERATOR, ModTexturedModel.ORIENTABLE_MACHINE);
+        blockStateModelGenerator.registerCooker(ModBlocks.TRIAFIUM_PUMP, ModTexturedModel.ORIENTABLE_MACHINE);
+        ModModelGenerator.registerPipe(blockStateModelGenerator, ModBlocks.TRIAFIUM_FLUID_PIPE);
+        ModModelGenerator.registerVerticalColumn(blockStateModelGenerator, ModBlocks.TRIAFIUM_FLUID_TANK);
+        blockStateModelGenerator.registerCooker(ModBlocks.TRIAFIUM_STEAM_GENERATOR, ModTexturedModel.ORIENTABLE_MACHINE);
         blockStateModelGenerator.registerCooker(ModBlocks.TRIAFIUM_PORTAL_BUILDER, ModTexturedModel.ORIENTABLE_MACHINE);
 
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SERPENTINITE_COAL_ORE);
@@ -382,28 +389,27 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.IRON_ENERGY_CORE, Models.GENERATED);
         itemModelGenerator.register(ModItems.IRON_AXLE, Models.GENERATED);
         itemModelGenerator.register(ModItems.IRON_MOTOR, Models.GENERATED);
-        itemModelGenerator.register(ModBlocks.IRON_FLUID_PIPE.asItem(), Models.GENERATED);
 
         itemModelGenerator.register(ModItems.COPPER_DUST, Models.GENERATED);
         itemModelGenerator.register(ModItems.COPPER_ESSENCE, Models.GENERATED);
         itemModelGenerator.register(ModItems.COPPER_GEAR, Models.GENERATED);
         itemModelGenerator.register(ModItems.COPPER_POWER_CIRCUIT, Models.GENERATED);
         itemModelGenerator.register(ModItems.COPPER_COIL, Models.GENERATED);
-        itemModelGenerator.register(ModBlocks.COPPER_WIRE.asItem(), Models.GENERATED);
 
         itemModelGenerator.register(ModItems.GOLD_DUST, Models.GENERATED);
         itemModelGenerator.register(ModItems.GOLD_ESSENCE, Models.GENERATED);
         itemModelGenerator.register(ModItems.GOLD_GEAR, Models.GENERATED);
         itemModelGenerator.register(ModItems.GOLD_POWER_CIRCUIT, Models.GENERATED);
         itemModelGenerator.register(ModItems.GOLD_COIL, Models.GENERATED);
-        itemModelGenerator.register(ModBlocks.GOLD_WIRE.asItem(), Models.GENERATED);
+        
+        itemModelGenerator.register(ModItems.NETHERITE_POWER_CIRCUIT, Models.GENERATED);
+        itemModelGenerator.register(ModItems.NETHERITE_COIL, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.TIN_DUST, Models.GENERATED);
         itemModelGenerator.register(ModItems.TIN_ESSENCE, Models.GENERATED);
         itemModelGenerator.register(ModItems.RAW_TIN, Models.GENERATED);
         itemModelGenerator.register(ModItems.TIN_INGOT, Models.GENERATED);
         itemModelGenerator.register(ModItems.TIN_GEAR, Models.GENERATED);
-        itemModelGenerator.register(ModBlocks.TIN_WIRE.asItem(), Models.GENERATED);
 
         itemModelGenerator.register(ModItems.BRONZE_INGOT, Models.GENERATED);
         itemModelGenerator.register(ModItems.BRONZE_DUST, Models.GENERATED);
@@ -435,7 +441,6 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.TITANIUM_ENERGY_CORE, Models.GENERATED);
         itemModelGenerator.register(ModItems.TITANIUM_AXLE, Models.GENERATED);
         itemModelGenerator.register(ModItems.TITANIUM_MOTOR, Models.GENERATED);
-        itemModelGenerator.register(ModBlocks.TITANIUM_FLUID_PIPE.asItem(), Models.GENERATED);
 
         itemModelGenerator.register(ModItems.SOUL_DUST, Models.GENERATED);
         itemModelGenerator.register(ModItems.BLAZE_STAR, Models.GENERATED);

@@ -527,6 +527,11 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.TRIAFIUM_ENERGY_STORAGE)
                 .add(ModBlocks.TRIAFIUM_POWERED_CRUSHER)
                 .add(ModBlocks.TRIAFIUM_POWERED_FURNACE)
+                .add(ModBlocks.TRIAFIUM_HEAT_GENERATOR)
+                .add(ModBlocks.TRIAFIUM_PUMP)
+                .add(ModBlocks.TRIAFIUM_FLUID_PIPE)
+                .add(ModBlocks.TRIAFIUM_FLUID_TANK)
+
                 .add(ModBlocks.TRIAFIUM_PORTAL_BUILDER);
 
         getOrCreateTagBuilder(BlockTags.LEAVES)

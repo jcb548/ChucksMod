@@ -86,6 +86,10 @@ public class ModItemGroups {
                         entries.add(ModBlocks.GOLD_WIRE);
                         entries.add(ModItems.GOLD_POWER_CIRCUIT);
                         entries.add(ModItems.GOLD_COIL);
+                        
+                        entries.add(ModBlocks.NETHERITE_WIRE);
+                        entries.add(ModItems.NETHERITE_POWER_CIRCUIT);
+                        entries.add(ModItems.NETHERITE_COIL);
 
                         entries.add(ModItems.LAPIS_SEEDS);
                         entries.add(ModItems.LAPIS_ESSENCE);
@@ -278,6 +282,12 @@ public class ModItemGroups {
                         entries.add(ModBlocks.TRIAFIUM_ENERGY_STORAGE);
                         entries.add(ModBlocks.TRIAFIUM_POWERED_CRUSHER);
                         entries.add(ModBlocks.TRIAFIUM_POWERED_FURNACE);
+                        entries.add(ModBlocks.TRIAFIUM_HEAT_GENERATOR);
+                        entries.add(ModBlocks.TRIAFIUM_PUMP);
+                        entries.add(ModBlocks.TRIAFIUM_FLUID_PIPE);
+                        entries.add(ModBlocks.TRIAFIUM_FLUID_TANK);
+                        entries.add(ModBlocks.TRIAFIUM_STEAM_GENERATOR);
+
                         entries.add(ModBlocks.TRIAFIUM_PORTAL_BUILDER);
 
                         entries.add(Blocks.TUFF);

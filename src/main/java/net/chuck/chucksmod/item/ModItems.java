@@ -160,6 +160,10 @@ public class ModItems {
             new Item(new FabricItemSettings()));
     public static final Item GOLD_COIL = registerItem("gold_coil",
             new Item(new FabricItemSettings()));
+    public static final Item NETHERITE_POWER_CIRCUIT = registerItem("netherite_power_circuit",
+            new Item(new FabricItemSettings()));
+    public static final Item NETHERITE_COIL = registerItem("netherite_coil",
+            new Item(new FabricItemSettings()));
     public static final Item LAPIS_SEEDS = registerItem("lapis_seeds",
             new MagicalAliasedBlockItem(ModBlocks.LAPIS_CROP, new FabricItemSettings(),
                     Text.translatable("tooltip.chucksmod.lapis_seeds")));
@@ -280,7 +284,6 @@ public class ModItems {
             new Item(new FabricItemSettings()));
     public static final Item TRIAFIUM_AXLE = registerItem("triafium_axle", new Item(new FabricItemSettings()));
     public static final Item TRIAFIUM_MOTOR = registerItem("triafium_motor", new Item(new FabricItemSettings()));
-
     public static final Item TRIAFIA_CRYSTAL = registerItem("triafia_crystal",
             new NetherStarItem(new FabricItemSettings()));
     public static final Item TRIAFIA_CRYSTAL_SHARD = registerItem("triafia_crystal_shard",
