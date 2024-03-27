@@ -21,4 +21,6 @@ public interface TriafiumTier {
     int PUMP_SIZE = 2*QUARRY_SIZE-1;
     int PUMP_SPEED = SPEED/15;
     int FLUID_PIPE_TRANSFER_RATE = 400;
+    int HARVESTER_SEEDS_INV_SIZE = 6;
+    int HARVESTER_CROPS_INV_SIZE = 15;
 }

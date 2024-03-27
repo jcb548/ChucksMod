@@ -315,6 +315,8 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
         offerFluidPipeRecipe(exporter, ModBlocks.IRON_FLUID_PIPE, Items.IRON_INGOT);
         offerSteamGeneratorRecipe(exporter, ModBlocks.IRON_STEAM_GENERATOR, ModItems.COPPER_COIL, 
                 ModItems.COPPER_POWER_CIRCUIT, ModBlocks.COPPER_WIRE, ModBlocks.IRON_MACHINE_BASE, ModBlocks.IRON_FLUID_TANK);
+        offerHarvesterRecipe(exporter, ModBlocks.IRON_HARVESTER, ModBlocks.IRON_MACHINE_BASE, Items.IRON_HOE,
+                ModItems.COPPER_POWER_CIRCUIT, ModItems.IRON_MOTOR, ModBlocks.COPPER_WIRE);
     }
 
     public static String hasTag(TagKey<Item> material) {
@@ -405,6 +407,10 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
         offerTankRecipe(exporter, ModBlocks.TRIAFIUM_FLUID_TANK, ModItems.TRIAFIUM_INGOT);
         offerSteamGeneratorRecipe(exporter, ModBlocks.TRIAFIUM_STEAM_GENERATOR, ModItems.NETHERITE_COIL, ModItems.NETHERITE_POWER_CIRCUIT,
                 ModBlocks.NETHERITE_WIRE, ModBlocks.TRIAFIUM_MACHINE_BASE, ModBlocks.TRIAFIUM_FLUID_TANK);
+        offerHarvesterRecipe(exporter, ModBlocks.TRIAFIUM_HARVESTER, ModBlocks.TRIAFIUM_MACHINE_BASE, ModItems.TRIAFIUM_HOE,
+                ModItems.NETHERITE_POWER_CIRCUIT, ModItems.TRIAFIUM_MOTOR, ModBlocks.NETHERITE_WIRE);
+        offerQuarryRecipe(exporter, ModBlocks.TRIAFIUM_QUARRY, ModBlocks.TRIAFIUM_MACHINE_BASE, ModItems.TRIAFIUM_PICKAXE,
+                ModItems.TRIAFIUM_SHOVEL, ModItems.NETHERITE_POWER_CIRCUIT, ModItems.TRIAFIUM_MOTOR, ModBlocks.NETHERITE_WIRE);
         }
     private void generateTriafiaRecipes(RecipeExporter exporter) {
         offerCompactingRecipe(exporter, RecipeCategory.MISC, ModItems.TRIAFIA_CRYSTAL,
@@ -608,6 +614,8 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
         offerSteamGeneratorRecipe(exporter, ModBlocks.TITANIUM_STEAM_GENERATOR, ModItems.GOLD_COIL,
                 ModItems.GOLD_POWER_CIRCUIT, ModBlocks.GOLD_WIRE, ModBlocks.TITANIUM_MACHINE_BASE,
                 ModBlocks.TITANIUM_FLUID_TANK);
+        offerHarvesterRecipe(exporter, ModBlocks.TITANIUM_HARVESTER, ModBlocks.TITANIUM_MACHINE_BASE,
+                ModItems.TITANIUM_HOE, ModItems.GOLD_POWER_CIRCUIT, ModItems.TITANIUM_MOTOR, ModBlocks.GOLD_WIRE);
     }
 
     private void generateVanillaDustSmeltingAndBlockRecipes(RecipeExporter exporter) {
@@ -1464,5 +1472,25 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
         CrusherRecipeJsonBuilder.create(Ingredient.fromTag(input), RecipeCategory.TOOLS, output, count,"crusher")
                 .criterion(hasTag(input), conditionsFromTag(input))
                 .offerTo(exporter, RecipeProvider.getItemPath(output) + "_from_crushing_"+input.id().getPath());
+    }
+    public static void offerHarvesterRecipe(RecipeExporter exporter, Block harvester, Block machineBase, ItemConvertible hoe,
+                                            ItemConvertible powerCircuit, ItemConvertible motor, Block wire) {
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, harvester)
+                .pattern("MCM")
+                .pattern("WBW")
+                .pattern("H #")
+                .input('M', motor)
+                .input('C', powerCircuit)
+                .input('W', wire)
+                .input('B', machineBase)
+                .input('H', hoe)
+                .input('#', Blocks.CHEST)
+                .criterion(hasItem(motor), conditionsFromItem(motor))
+                .criterion(hasItem(powerCircuit), conditionsFromItem(powerCircuit))
+                .criterion(hasItem(wire), conditionsFromItem(wire))
+                .criterion(hasItem(machineBase), conditionsFromItem(machineBase))
+                .criterion(hasItem(hoe), conditionsFromItem(hoe))
+                .criterion(hasItem(Blocks.CHEST), conditionsFromItem(Blocks.CHEST))
+                .offerTo(exporter);
     }
 }

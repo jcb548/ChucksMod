@@ -12,10 +12,12 @@ import net.chuck.chucksmod.screen.generator.lava.LavaGeneratorScreenHandler;
 import net.chuck.chucksmod.screen.generator.steam.SteamGeneratorScreenHandler;
 import net.chuck.chucksmod.screen.harvester.IronHarvesterScreenHandler;
 import net.chuck.chucksmod.screen.harvester.TitaniumHarvesterScreenHandler;
+import net.chuck.chucksmod.screen.harvester.TriafiumHarvesterScreenHandler;
 import net.chuck.chucksmod.screen.portal_builder.PortalBuilderScreenHandler;
 import net.chuck.chucksmod.screen.pump.PumpScreenHandler;
 import net.chuck.chucksmod.screen.quarry.IronQuarryScreenHandler;
 import net.chuck.chucksmod.screen.quarry.TitaniumQuarryScreenHandler;
+import net.chuck.chucksmod.screen.quarry.TriafiumQuarryScreenHandler;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -57,8 +59,12 @@ public class ModScreenHandlers {
             new ExtendedScreenHandlerType<>(LavaGeneratorScreenHandler::new);
     public static ScreenHandlerType<TitaniumQuarryScreenHandler> TITANIUM_QUARRY_SCREEN_HANDLER =
             new ExtendedScreenHandlerType<>(TitaniumQuarryScreenHandler::new);
+    public static ScreenHandlerType<TriafiumQuarryScreenHandler> TRIAFIUM_QUARRY_SCREEN_HANDLER =
+            new ExtendedScreenHandlerType<>(TriafiumQuarryScreenHandler::new);
     public static ScreenHandlerType<TitaniumHarvesterScreenHandler> TITANIUM_HARVESTER_SCREEN_HANDLER =
             new ExtendedScreenHandlerType<>(TitaniumHarvesterScreenHandler::new);
+    public static ScreenHandlerType<TriafiumHarvesterScreenHandler> TRIAFIUM_HARVESTER_SCREEN_HANDLER =
+            new ExtendedScreenHandlerType<>(TriafiumHarvesterScreenHandler::new);
     public static ScreenHandlerType<PortalBuilderScreenHandler> PORTAL_BUILDER_SCREEN_HANDLER =
             new ExtendedScreenHandlerType<>(PortalBuilderScreenHandler::new);
     public static ScreenHandlerType<CopierScreenHandler> COPIER_SCREEN_HANDLER =
@@ -97,11 +103,15 @@ public class ModScreenHandlers {
                 IRON_QUARRY_SCREEN_HANDLER);
         Registry.register(Registries.SCREEN_HANDLER, new Identifier(ChucksMod.MOD_ID, "titanium_quarry"),
                 TITANIUM_QUARRY_SCREEN_HANDLER);
+        Registry.register(Registries.SCREEN_HANDLER, new Identifier(ChucksMod.MOD_ID, "triafium_quarry"),
+                TRIAFIUM_QUARRY_SCREEN_HANDLER);
 
         Registry.register(Registries.SCREEN_HANDLER, new Identifier(ChucksMod.MOD_ID, "iron_harvester"),
                 IRON_HARVESTER_SCREEN_HANDLER);
         Registry.register(Registries.SCREEN_HANDLER, new Identifier(ChucksMod.MOD_ID, "titanium_harvester"),
                 TITANIUM_HARVESTER_SCREEN_HANDLER);
+        Registry.register(Registries.SCREEN_HANDLER, new Identifier(ChucksMod.MOD_ID, "triafium_harvester"),
+                TRIAFIUM_HARVESTER_SCREEN_HANDLER);
 
         Registry.register(Registries.SCREEN_HANDLER, new Identifier(ChucksMod.MOD_ID, "copier"),
                 COPIER_SCREEN_HANDLER);

@@ -28,12 +28,14 @@ import net.chuck.chucksmod.block.entity.generator.steam.TitaniumSteamGeneratorBl
 import net.chuck.chucksmod.block.entity.generator.steam.TriafiumSteamGeneratorBlockEntity;
 import net.chuck.chucksmod.block.entity.harvester.IronHarvesterBlockEntity;
 import net.chuck.chucksmod.block.entity.harvester.TitaniumHarvesterBlockEntity;
+import net.chuck.chucksmod.block.entity.harvester.TriafiumHarvesterBlockEntity;
 import net.chuck.chucksmod.block.entity.portal_builder.TriafiumPortalBuilderBlockEntity;
 import net.chuck.chucksmod.block.entity.pump.IronPumpBlockEntity;
 import net.chuck.chucksmod.block.entity.pump.TitaniumPumpBlockEntity;
 import net.chuck.chucksmod.block.entity.pump.TriafiumPumpBlockEntity;
 import net.chuck.chucksmod.block.entity.quarry.IronQuarryBlockEntity;
 import net.chuck.chucksmod.block.entity.quarry.TitaniumQuarryBlockEntity;
+import net.chuck.chucksmod.block.entity.quarry.TriafiumQuarryBlockEntity;
 import net.chuck.chucksmod.block.entity.wire.CopperWireBlockEntity;
 import net.chuck.chucksmod.block.entity.wire.GoldWireBlockEntity;
 import net.chuck.chucksmod.block.entity.wire.NetheriteWireBlockEntity;
@@ -89,6 +91,8 @@ public class ModBlockEntities {
     public static BlockEntityType<TriafiumFluidPipeBlockEntity> TRIAFIUM_FLUID_PIPE;
     public static BlockEntityType<TriafiumFluidTankBlockEntity> TRIAFIUM_FLUID_TANK;
     public static BlockEntityType<TriafiumSteamGeneratorBlockEntity> TRIAFIUM_STEAM_GENERATOR;
+    public static BlockEntityType<TriafiumHarvesterBlockEntity> TRIAFIUM_HARVESTER;
+    public static BlockEntityType<TriafiumQuarryBlockEntity> TRIAFIUM_QUARRY;
     public static BlockEntityType<TriafiumPortalBuilderBlockEntity> TRIAFIUM_PORTAL_BUILDER;
     public static void registerBlockEntities() {
         CRUSHER = Registry.register(Registries.BLOCK_ENTITY_TYPE,
@@ -315,12 +319,14 @@ public class ModBlockEntities {
                 TRIAFIUM_PUMP);
         FluidStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.fluidStorage,
                 TRIAFIUM_PUMP);
+        
         TRIAFIUM_FLUID_TANK = Registry.register(Registries.BLOCK_ENTITY_TYPE,
                 new Identifier(ChucksMod.MOD_ID, "triafium_fluid_tank"),
                 FabricBlockEntityTypeBuilder.create(TriafiumFluidTankBlockEntity::new,
                         ModBlocks.TRIAFIUM_FLUID_TANK).build());
         FluidStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.fluidStorage,
                 TRIAFIUM_FLUID_TANK);
+        
         TRIAFIUM_STEAM_GENERATOR = Registry.register(Registries.BLOCK_ENTITY_TYPE,
                 new Identifier(ChucksMod.MOD_ID, "triafium_steam_generator"),
                 FabricBlockEntityTypeBuilder.create(TriafiumSteamGeneratorBlockEntity::new,
@@ -329,6 +335,20 @@ public class ModBlockEntities {
                 TRIAFIUM_STEAM_GENERATOR);
         FluidStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.fluidStorage,
                 TRIAFIUM_STEAM_GENERATOR);
+
+        TRIAFIUM_HARVESTER = Registry.register(Registries.BLOCK_ENTITY_TYPE,
+                new Identifier(ChucksMod.MOD_ID, "triafium_harvester"),
+                FabricBlockEntityTypeBuilder.create(TriafiumHarvesterBlockEntity::new,
+                        ModBlocks.TRIAFIUM_HARVESTER).build());
+        EnergyStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.energyStorage,
+                TRIAFIUM_HARVESTER);
+
+        TRIAFIUM_QUARRY = Registry.register(Registries.BLOCK_ENTITY_TYPE,
+                new Identifier(ChucksMod.MOD_ID, "triafium_quarry"),
+                FabricBlockEntityTypeBuilder.create(TriafiumQuarryBlockEntity::new,
+                        ModBlocks.TRIAFIUM_QUARRY).build());
+        EnergyStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.energyStorage,
+                TRIAFIUM_QUARRY);
         
         TRIAFIUM_PORTAL_BUILDER = Registry.register(Registries.BLOCK_ENTITY_TYPE,
                 new Identifier(ChucksMod.MOD_ID, "triafium_portal_builder"),

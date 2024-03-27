@@ -1,13 +1,10 @@
 package net.chuck.chucksmod.screen.energy_storage;
 
-import com.mojang.blaze3d.systems.RenderSystem;
 import net.chuck.chucksmod.ChucksMod;
 import net.chuck.chucksmod.screen.AbstractModScreen;
 import net.chuck.chucksmod.screen.renderer.EnergyInfoArea;
 import net.chuck.chucksmod.util.DirectionIOProperty;
-import net.chuck.chucksmod.util.MouseUtil;
 import net.minecraft.client.gui.DrawContext;
-import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.text.Text;

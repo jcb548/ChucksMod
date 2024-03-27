@@ -24,8 +24,8 @@ public abstract class AbstractEnergyUsingScreenHandler extends AbstractModScreen
         this.inventory = blockEntity.getInventory();
         inventory.onOpen(playerInventory.player);
         this.propertyDelegate = delegate;
-        addPlayerHotbar(playerInventory, 142);
-        addPlayerInventory(playerInventory, 84);
+        addPlayerHotbar(playerInventory);
+        addPlayerInventory(playerInventory);
         addProperties(delegate);
         world = playerInventory.player.getWorld();
     }

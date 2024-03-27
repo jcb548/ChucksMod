@@ -36,12 +36,14 @@ import net.chuck.chucksmod.block.custom.generator.steam.TitaniumSteamGeneratorBl
 import net.chuck.chucksmod.block.custom.generator.steam.TriafiumSteamGeneratorBlock;
 import net.chuck.chucksmod.block.custom.harvester.IronHarvesterBlock;
 import net.chuck.chucksmod.block.custom.harvester.TitaniumHarvesterBlock;
+import net.chuck.chucksmod.block.custom.harvester.TriafiumHarvesterBlock;
 import net.chuck.chucksmod.block.custom.portal_builder.TriafiumPortalBuilderBlock;
 import net.chuck.chucksmod.block.custom.pump.IronPumpBlock;
 import net.chuck.chucksmod.block.custom.pump.TitaniumPumpBlock;
 import net.chuck.chucksmod.block.custom.pump.TriafiumPumpBlock;
 import net.chuck.chucksmod.block.custom.quarry.IronQuarryBlock;
 import net.chuck.chucksmod.block.custom.quarry.TitaniumQuarryBlock;
+import net.chuck.chucksmod.block.custom.quarry.TriafiumQuarryBlock;
 import net.chuck.chucksmod.block.custom.wire.CopperWireBlock;
 import net.chuck.chucksmod.block.custom.wire.GoldWireBlock;
 import net.chuck.chucksmod.block.custom.wire.NetheriteWireBlock;
@@ -365,6 +367,10 @@ public class ModBlocks {
             new TriafiumFluidTankBlock(FabricBlockSettings.copy(ModBlocks.TRIAFIUM_BLOCK)));
     public static final Block TRIAFIUM_STEAM_GENERATOR = registerBlock("triafium_steam_generator",
             new TriafiumSteamGeneratorBlock(FabricBlockSettings.copy(ModBlocks.TRIAFIUM_BLOCK)));
+    public static final Block TRIAFIUM_HARVESTER = registerBlock("triafium_harvester",
+            new TriafiumHarvesterBlock(FabricBlockSettings.copy(ModBlocks.TRIAFIUM_BLOCK)));
+    public static final Block TRIAFIUM_QUARRY = registerBlock("triafium_quarry",
+            new TriafiumQuarryBlock(FabricBlockSettings.copy(ModBlocks.TRIAFIUM_BLOCK)));
     public static final Block TRIAFIUM_PORTAL_BUILDER = registerBlock("triafium_portal_builder",
             new TriafiumPortalBuilderBlock(FabricBlockSettings.copy(ModBlocks.TRIAFIUM_BLOCK)));
     

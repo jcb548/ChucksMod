@@ -272,6 +272,8 @@ public class ModModelProvider extends FabricModelProvider {
         ModModelGenerator.registerPipe(blockStateModelGenerator, ModBlocks.TRIAFIUM_FLUID_PIPE);
         ModModelGenerator.registerVerticalColumn(blockStateModelGenerator, ModBlocks.TRIAFIUM_FLUID_TANK);
         blockStateModelGenerator.registerCooker(ModBlocks.TRIAFIUM_STEAM_GENERATOR, ModTexturedModel.ORIENTABLE_MACHINE);
+        blockStateModelGenerator.registerCooker(ModBlocks.TRIAFIUM_HARVESTER, ModTexturedModel.ORIENTABLE_MACHINE);
+        blockStateModelGenerator.registerCooker(ModBlocks.TRIAFIUM_QUARRY, ModTexturedModel.ORIENTABLE_MACHINE);
         blockStateModelGenerator.registerCooker(ModBlocks.TRIAFIUM_PORTAL_BUILDER, ModTexturedModel.ORIENTABLE_MACHINE);
 
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SERPENTINITE_COAL_ORE);

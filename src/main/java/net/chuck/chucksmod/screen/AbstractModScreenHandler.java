@@ -24,9 +24,15 @@ public abstract class AbstractModScreenHandler extends ScreenHandler {
             }
         }
     }
+    public void addPlayerInventory(PlayerInventory playerInventory){
+        addPlayerInventory(playerInventory, 84);
+    }
     public void addPlayerHotbar(PlayerInventory playerInventory, int y){
         for(int i=0;i<9;++i) {
             this.addSlot(new Slot(playerInventory, i, 8 + i*18, y));
         }
+    }
+    public void addPlayerHotbar(PlayerInventory playerInventory){
+        addPlayerHotbar(playerInventory, 142);
     }
 }

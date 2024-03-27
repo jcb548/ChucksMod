@@ -531,6 +531,9 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.TRIAFIUM_PUMP)
                 .add(ModBlocks.TRIAFIUM_FLUID_PIPE)
                 .add(ModBlocks.TRIAFIUM_FLUID_TANK)
+                .add(ModBlocks.TRIAFIUM_STEAM_GENERATOR)
+                .add(ModBlocks.TRIAFIUM_HARVESTER)
+                .add(ModBlocks.TRIAFIUM_QUARRY)
 
                 .add(ModBlocks.TRIAFIUM_PORTAL_BUILDER);
 

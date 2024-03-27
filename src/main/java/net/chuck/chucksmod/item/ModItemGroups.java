@@ -287,6 +287,8 @@ public class ModItemGroups {
                         entries.add(ModBlocks.TRIAFIUM_FLUID_PIPE);
                         entries.add(ModBlocks.TRIAFIUM_FLUID_TANK);
                         entries.add(ModBlocks.TRIAFIUM_STEAM_GENERATOR);
+                        entries.add(ModBlocks.TRIAFIUM_HARVESTER);
+                        entries.add(ModBlocks.TRIAFIUM_QUARRY);
 
                         entries.add(ModBlocks.TRIAFIUM_PORTAL_BUILDER);
 
