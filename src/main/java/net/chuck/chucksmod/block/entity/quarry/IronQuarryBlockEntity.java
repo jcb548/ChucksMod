@@ -47,6 +47,11 @@ public class IronQuarryBlockEntity extends AbstractQuarryBlockEntity implements 
 
     @Override
     public ItemStack getTool() {
+        return getBaseTool();
+    }
+
+    @Override
+    public ItemStack getBaseTool() {
         return new ItemStack(Items.IRON_PICKAXE);
     }
 }

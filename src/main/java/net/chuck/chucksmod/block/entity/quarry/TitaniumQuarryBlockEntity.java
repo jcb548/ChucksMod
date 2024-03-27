@@ -25,17 +25,10 @@ import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
 import org.jetbrains.annotations.Nullable;
 
-public class TitaniumQuarryBlockEntity extends AbstractQuarryBlockEntity implements TitaniumTier {
-    protected SimpleInventory miningBookInventory;
-
-    public static final int MINING_BOOK_SLOT = 16;
+public class TitaniumQuarryBlockEntity extends AbstractBookSlotQuarryBlockEntity implements TitaniumTier {
     public TitaniumQuarryBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.TITANIUM_QUARRY, pos, state, QUARRY_INV_SIZE, MACHINE_ENERGY_STORAGE,
                 QUARRY_SPEED, MAX_INSERT_EXTRACT);
-        miningBookInventory = new SimpleInventory(1);
-    }
-    public Inventory getMiningBookInventory(){
-        return miningBookInventory;
     }
     @Override
     protected int getEnergyUsage() {
@@ -59,24 +52,7 @@ public class TitaniumQuarryBlockEntity extends AbstractQuarryBlockEntity impleme
     }
 
     @Override
-    public ItemStack getTool() {
-        ItemStack tool = new ItemStack(ModItems.TITANIUM_PICKAXE);
-        ItemStack miningBook = miningBookInventory.getStack(0);
-        if(!miningBook.isEmpty()){
-            EnchantmentHelper.set(EnchantmentHelper.get(miningBook), tool);
-        }
-        return tool;
-    }
-
-    @Override
-    public void readNbt(NbtCompound nbt) {
-        super.readNbt(nbt);
-        ModNbt.readNbt(nbt, "Mining_Book", miningBookInventory.stacks);
-    }
-
-    @Override
-    protected void writeNbt(NbtCompound nbt) {
-        super.writeNbt(nbt);
-        ModNbt.writeNbt(nbt, "Mining_Book", miningBookInventory.stacks);
+    public ItemStack getBaseTool() {
+        return new ItemStack(ModItems.TITANIUM_PICKAXE);
     }
 }

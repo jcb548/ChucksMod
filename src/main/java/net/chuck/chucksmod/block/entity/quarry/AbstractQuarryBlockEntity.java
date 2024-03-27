@@ -63,6 +63,7 @@ public abstract class AbstractQuarryBlockEntity extends AbstractMiningBlockEntit
     }
 
     public abstract ItemStack getTool();
+    public abstract ItemStack getBaseTool();
 
     protected boolean canBreak(BlockState state) {
         return !state.isToolRequired() || state.isIn(BlockTags.PICKAXE_MINEABLE) && getTool().isSuitableFor(state);
