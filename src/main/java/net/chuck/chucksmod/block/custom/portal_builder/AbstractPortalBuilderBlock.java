@@ -16,7 +16,8 @@ public abstract class AbstractPortalBuilderBlock extends AbstractEnergyUsingBloc
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable BlockView world, List<Text> tooltip, TooltipContext options) {
-        tooltip.add(Text.translatable("tooltip.chucksmod.portal_builder"));
+        tooltip.add(Text.translatable("tooltip.chucksmod.portal_builder.1"));
+        tooltip.add(Text.translatable("tooltip.chucksmod.portal_builder.2"));
         super.appendTooltip(stack, world, tooltip, options);
     }
 }

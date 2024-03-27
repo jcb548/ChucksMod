@@ -358,7 +358,6 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
         offerChestBoatRecipe(exporter, chestBoat, boat);
     }
 
-    
     private void generateTriafiumRecipes(RecipeExporter exporter) {
         offerSmelting(exporter, List.of(ModItems.RAW_TRIAFIUM), RecipeCategory.TOOLS, ModItems.TRIAFIUM_INGOT,
                 1.0f, 200, "triafium_ingot");
@@ -411,6 +410,10 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 ModItems.NETHERITE_POWER_CIRCUIT, ModItems.TRIAFIUM_MOTOR, ModBlocks.NETHERITE_WIRE);
         offerQuarryRecipe(exporter, ModBlocks.TRIAFIUM_QUARRY, ModBlocks.TRIAFIUM_MACHINE_BASE, ModItems.TRIAFIUM_PICKAXE,
                 ModItems.TRIAFIUM_SHOVEL, ModItems.NETHERITE_POWER_CIRCUIT, ModItems.TRIAFIUM_MOTOR, ModBlocks.NETHERITE_WIRE);
+        offerLavaGeneratorRecipe(exporter, ModBlocks.TRIAFIUM_LAVA_GENERATOR, ModItems.NETHERITE_COIL, ModItems.NETHERITE_POWER_CIRCUIT,
+                ModBlocks.NETHERITE_WIRE, ModBlocks.TRIAFIUM_MACHINE_BASE, ModBlocks.TRIAFIUM_LAVA_GENERATOR);
+        offerCopierRecipe(exporter, ModBlocks.TRIAFIUM_COPIER, ModBlocks.TRIAFIUM_MACHINE_BASE, ModBlocks.TRIAFIUM_FLUID_TANK,
+                ModItems.NETHERITE_POWER_CIRCUIT, ModBlocks.NETHERITE_WIRE);
         }
     private void generateTriafiaRecipes(RecipeExporter exporter) {
         offerCompactingRecipe(exporter, RecipeCategory.MISC, ModItems.TRIAFIA_CRYSTAL,
@@ -608,14 +611,17 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
         offerTankRecipe(exporter, ModBlocks.TITANIUM_FLUID_TANK, ModItemTags.TITANIUM_INGOTS);
         offerPumpRecipe(exporter, ModBlocks.TITANIUM_PUMP, ModBlocks.TITANIUM_MACHINE_BASE, ModItems.GOLD_POWER_CIRCUIT,
                 ModItems.TITANIUM_MOTOR, ModItems.TITANIUM_GEAR, ModBlocks.TITANIUM_FLUID_TANK, ModBlocks.GOLD_WIRE);
-        offerCopierRecipe(exporter, ModBlocks.TITANIUM_COPIER, ModBlocks.TITANIUM_MACHINE_BASE,
-                ModItems.GOLD_POWER_CIRCUIT, ModBlocks.TITANIUM_FLUID_TANK, ModBlocks.GOLD_WIRE);
         offerFluidPipeRecipe(exporter, ModBlocks.TITANIUM_FLUID_PIPE, ModItemTags.TITANIUM_INGOTS);
         offerSteamGeneratorRecipe(exporter, ModBlocks.TITANIUM_STEAM_GENERATOR, ModItems.GOLD_COIL,
                 ModItems.GOLD_POWER_CIRCUIT, ModBlocks.GOLD_WIRE, ModBlocks.TITANIUM_MACHINE_BASE,
                 ModBlocks.TITANIUM_FLUID_TANK);
         offerHarvesterRecipe(exporter, ModBlocks.TITANIUM_HARVESTER, ModBlocks.TITANIUM_MACHINE_BASE,
                 ModItems.TITANIUM_HOE, ModItems.GOLD_POWER_CIRCUIT, ModItems.TITANIUM_MOTOR, ModBlocks.GOLD_WIRE);
+        offerLavaGeneratorRecipe(exporter, ModBlocks.TITANIUM_LAVA_GENERATOR, ModItems.GOLD_COIL,
+                ModItems.GOLD_POWER_CIRCUIT, ModBlocks.GOLD_WIRE, ModBlocks.TITANIUM_MACHINE_BASE,
+                ModBlocks.TITANIUM_FLUID_TANK);
+        offerCopierRecipe(exporter, ModBlocks.TITANIUM_COPIER, ModBlocks.TITANIUM_MACHINE_BASE, ModBlocks.TITANIUM_FLUID_TANK,
+                ModItems.GOLD_POWER_CIRCUIT, ModBlocks.GOLD_WIRE);
     }
 
     private void generateVanillaDustSmeltingAndBlockRecipes(RecipeExporter exporter) {
@@ -1174,6 +1180,43 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .criterion(hasTag(ModItemTags.GLASS), conditionsFromTag(ModItemTags.GLASS))
                 .offerTo(exporter);
     }
+    public static void offerLavaGeneratorRecipe(RecipeExporter exporter, Block generator, ItemConvertible coil, ItemConvertible powerCircuit,
+                                                Block wire, Block machineBase, Block tank) {
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, generator)
+                .pattern("OPO")
+                .pattern("WMW")
+                .pattern("CTC")
+                .input('C', coil)
+                .input('P', powerCircuit)
+                .input('W', wire)
+                .input('M', machineBase)
+                .input('O', Blocks.OBSIDIAN)
+                .input('T', tank)
+                .criterion(hasItem(coil), conditionsFromItem(coil))
+                .criterion(hasItem(powerCircuit), conditionsFromItem(powerCircuit))
+                .criterion(hasItem(wire), conditionsFromItem(wire))
+                .criterion(hasItem(machineBase), conditionsFromItem(machineBase))
+                .criterion(hasItem(Blocks.OBSIDIAN), conditionsFromItem(Blocks.OBSIDIAN))
+                .criterion(hasItem(tank), conditionsFromItem(tank))
+                .offerTo(exporter, RecipeProvider.getItemPath(generator) + "_from_obsidian");
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, generator)
+                .pattern("OPO")
+                .pattern("WMW")
+                .pattern("CTC")
+                .input('C', coil)
+                .input('P', powerCircuit)
+                .input('W', wire)
+                .input('M', machineBase)
+                .input('O', Blocks.CRYING_OBSIDIAN)
+                .input('T', tank)
+                .criterion(hasItem(coil), conditionsFromItem(coil))
+                .criterion(hasItem(powerCircuit), conditionsFromItem(powerCircuit))
+                .criterion(hasItem(wire), conditionsFromItem(wire))
+                .criterion(hasItem(machineBase), conditionsFromItem(machineBase))
+                .criterion(hasItem(Blocks.CRYING_OBSIDIAN), conditionsFromItem(Blocks.CRYING_OBSIDIAN))
+                .criterion(hasItem(tank), conditionsFromItem(tank))
+                .offerTo(exporter, RecipeProvider.getItemPath(generator) + "_from_crying_obsidian");
+    }
 
     public static void offerPoweredFurnaceRecipe(RecipeExporter exporter, Block furnace, ItemConvertible powerCircuit,
                                                  Block wire, Block machineBase) {
@@ -1368,27 +1411,6 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .criterion(hasItem(tank), conditionsFromItem(tank))
                 .offerTo(exporter);
     }
-
-    public static void offerCopierRecipe(RecipeExporter exporter, Block copier, Block machineBase, ItemConvertible powerCircuit,
-                                         Block tank, Block wire){
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, copier)
-                .pattern(" C ")
-                .pattern("WMW")
-                .pattern("ABT")
-                .input('C', powerCircuit)
-                .input('W', wire)
-                .input('M', machineBase)
-                .input('T', tank)
-                .input('A', Blocks.ANVIL)
-                .input('B', Items.ENCHANTED_BOOK)
-                .criterion(hasItem(powerCircuit), conditionsFromItem(powerCircuit))
-                .criterion(hasItem(wire), conditionsFromItem(wire))
-                .criterion(hasItem(machineBase), conditionsFromItem(machineBase))
-                .criterion(hasItem(tank), conditionsFromItem(tank))
-                .criterion(hasItem(Blocks.ANVIL), conditionsFromItem(Blocks.ANVIL))
-                .criterion(hasItem(Items.ENCHANTED_BOOK), conditionsFromItem(Items.ENCHANTED_BOOK))
-                .offerTo(exporter);
-    }
     public static void offerItemPipeRecipe(RecipeExporter exporter, Block itemPipe, ItemConvertible material){
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, itemPipe, 8)
                 .pattern("MMM")
@@ -1491,6 +1513,28 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .criterion(hasItem(machineBase), conditionsFromItem(machineBase))
                 .criterion(hasItem(hoe), conditionsFromItem(hoe))
                 .criterion(hasItem(Blocks.CHEST), conditionsFromItem(Blocks.CHEST))
+                .offerTo(exporter);
+    }
+    public static void offerCopierRecipe(RecipeExporter exporter, Block copier, Block machineBase, Block tank,
+            ItemConvertible powerCircuit, Block wire){
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, copier)
+                .pattern("BPB")
+                .pattern("WMW")
+                .pattern("ATE")
+                .input('B', Items.EXPERIENCE_BOTTLE)
+                .input('P', powerCircuit)
+                .input('W', wire)
+                .input('M', machineBase)
+                .input('A', ItemTags.ANVIL)
+                .input('T', tank)
+                .input('E', Blocks.ENCHANTING_TABLE)
+                .criterion(hasItem(Items.EXPERIENCE_BOTTLE), conditionsFromItem(Items.EXPERIENCE_BOTTLE))
+                .criterion(hasItem(powerCircuit), conditionsFromItem(powerCircuit))
+                .criterion(hasItem(wire), conditionsFromItem(wire))
+                .criterion(hasItem(machineBase), conditionsFromItem(machineBase))
+                .criterion(hasTag(ItemTags.ANVIL), conditionsFromTag(ItemTags.ANVIL))
+                .criterion(hasItem(tank), conditionsFromItem(tank))
+                .criterion(hasItem(Items.ENCHANTING_TABLE), conditionsFromItem(Items.ENCHANTING_TABLE))
                 .offerTo(exporter);
     }
 }

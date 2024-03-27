@@ -9,6 +9,7 @@ import net.chuck.chucksmod.block.custom.altar.FrankAltarBlock;
 import net.chuck.chucksmod.block.custom.altar.PippinAltarBlock;
 import net.chuck.chucksmod.block.custom.altar.SoulBlazeAltarBlock;
 import net.chuck.chucksmod.block.custom.copier.TitaniumCopierBlock;
+import net.chuck.chucksmod.block.custom.copier.TriafiumCopierBlock;
 import net.chuck.chucksmod.block.custom.crop.*;
 import net.chuck.chucksmod.block.custom.crop.magical.*;
 import net.chuck.chucksmod.block.custom.crusher.CrusherBlock;
@@ -30,6 +31,7 @@ import net.chuck.chucksmod.block.custom.furnace.TriafiumPoweredFurnaceBlock;
 import net.chuck.chucksmod.block.custom.generator.heat.IronHeatGeneratorBlock;
 import net.chuck.chucksmod.block.custom.generator.heat.TriafiumHeatGeneratorBlock;
 import net.chuck.chucksmod.block.custom.generator.lava.TitaniumLavaGeneratorBlock;
+import net.chuck.chucksmod.block.custom.generator.lava.TriafiumLavaGeneratorBlock;
 import net.chuck.chucksmod.block.custom.generator.steam.IronSteamGeneratorBlock;
 import net.chuck.chucksmod.block.custom.generator.heat.TitaniumHeatGeneratorBlock;
 import net.chuck.chucksmod.block.custom.generator.steam.TitaniumSteamGeneratorBlock;
@@ -371,6 +373,10 @@ public class ModBlocks {
             new TriafiumHarvesterBlock(FabricBlockSettings.copy(ModBlocks.TRIAFIUM_BLOCK)));
     public static final Block TRIAFIUM_QUARRY = registerBlock("triafium_quarry",
             new TriafiumQuarryBlock(FabricBlockSettings.copy(ModBlocks.TRIAFIUM_BLOCK)));
+    public static final Block TRIAFIUM_LAVA_GENERATOR = registerBlock("triafium_lava_generator",
+            new TriafiumLavaGeneratorBlock(FabricBlockSettings.copy(ModBlocks.TRIAFIUM_BLOCK)));
+    public static final Block TRIAFIUM_COPIER = registerBlock("triafium_copier",
+            new TriafiumCopierBlock(FabricBlockSettings.copy(ModBlocks.TRIAFIUM_BLOCK)));
     public static final Block TRIAFIUM_PORTAL_BUILDER = registerBlock("triafium_portal_builder",
             new TriafiumPortalBuilderBlock(FabricBlockSettings.copy(ModBlocks.TRIAFIUM_BLOCK)));
     

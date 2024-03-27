@@ -289,7 +289,8 @@ public class ModItemGroups {
                         entries.add(ModBlocks.TRIAFIUM_STEAM_GENERATOR);
                         entries.add(ModBlocks.TRIAFIUM_HARVESTER);
                         entries.add(ModBlocks.TRIAFIUM_QUARRY);
-
+                        entries.add(ModBlocks.TRIAFIUM_LAVA_GENERATOR);
+                        entries.add(ModBlocks.TRIAFIUM_COPIER);
                         entries.add(ModBlocks.TRIAFIUM_PORTAL_BUILDER);
 
                         entries.add(Blocks.TUFF);

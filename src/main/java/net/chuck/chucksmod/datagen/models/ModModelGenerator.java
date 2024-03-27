@@ -78,7 +78,7 @@ public class ModModelGenerator {
                         BlockStateVariant.create().put(VariantSettings.MODEL, side)
                                 .put(VariantSettings.X, VariantSettings.Rotation.R90))
         );
-        Models.GENERATED.upload(ModelIds.getItemModelId(wire.asItem()), TextureMap.layer0(wire.asItem()),
+        Models.HANDHELD.upload(ModelIds.getItemModelId(wire.asItem()), TextureMap.layer0(wire.asItem()),
                 blockStateModelGenerator.modelCollector);
     }
     public static void registerPipe(BlockStateModelGenerator blockStateModelGenerator, Block pipe){

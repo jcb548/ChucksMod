@@ -18,4 +18,7 @@ public class ModModels {
     public static final Model MACHINE_BASE =
             new Model(Optional.of(new Identifier(ChucksMod.MOD_ID, "block/template/machine_base_template")),
                     Optional.empty(), TextureKey.TEXTURE);
+    public static final Model HANDHELD_WIRE =
+            new Model(Optional.of(new Identifier(ChucksMod.MOD_ID, "item/template/handheld_wire")),
+                    Optional.empty(), TextureKey.LAYER0);
 }

@@ -3,6 +3,7 @@ package net.chuck.chucksmod.block.entity;
 import net.chuck.chucksmod.ChucksMod;
 import net.chuck.chucksmod.block.ModBlocks;
 import net.chuck.chucksmod.block.entity.copier.TitaniumCopierBlockEntity;
+import net.chuck.chucksmod.block.entity.copier.TriafiumCopierBlockEntity;
 import net.chuck.chucksmod.block.entity.crusher.CrusherBlockEntity;
 import net.chuck.chucksmod.block.entity.crusher.IronPoweredCrusherBlockEntity;
 import net.chuck.chucksmod.block.entity.crusher.TitaniumPoweredCrusherBlockEntity;
@@ -22,6 +23,7 @@ import net.chuck.chucksmod.block.entity.furnace.TriafiumPoweredFurnaceBlockEntit
 import net.chuck.chucksmod.block.entity.generator.heat.IronHeatGeneratorBlockEntity;
 import net.chuck.chucksmod.block.entity.generator.heat.TriafiumHeatGeneratorBlockEntity;
 import net.chuck.chucksmod.block.entity.generator.lava.TitaniumLavaGeneratorBlockEntity;
+import net.chuck.chucksmod.block.entity.generator.lava.TriafiumLavaGeneratorBlockEntity;
 import net.chuck.chucksmod.block.entity.generator.steam.IronSteamGeneratorBlockEntity;
 import net.chuck.chucksmod.block.entity.generator.heat.TitaniumHeatGeneratorBlockEntity;
 import net.chuck.chucksmod.block.entity.generator.steam.TitaniumSteamGeneratorBlockEntity;
@@ -93,6 +95,8 @@ public class ModBlockEntities {
     public static BlockEntityType<TriafiumSteamGeneratorBlockEntity> TRIAFIUM_STEAM_GENERATOR;
     public static BlockEntityType<TriafiumHarvesterBlockEntity> TRIAFIUM_HARVESTER;
     public static BlockEntityType<TriafiumQuarryBlockEntity> TRIAFIUM_QUARRY;
+    public static BlockEntityType<TriafiumLavaGeneratorBlockEntity> TRIAFIUM_LAVA_GENERATOR;
+    public static BlockEntityType<TriafiumCopierBlockEntity> TRIAFIUM_COPIER;
     public static BlockEntityType<TriafiumPortalBuilderBlockEntity> TRIAFIUM_PORTAL_BUILDER;
     public static void registerBlockEntities() {
         CRUSHER = Registry.register(Registries.BLOCK_ENTITY_TYPE,
@@ -349,6 +353,24 @@ public class ModBlockEntities {
                         ModBlocks.TRIAFIUM_QUARRY).build());
         EnergyStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.energyStorage,
                 TRIAFIUM_QUARRY);
+        
+        TRIAFIUM_LAVA_GENERATOR = Registry.register(Registries.BLOCK_ENTITY_TYPE,
+                new Identifier(ChucksMod.MOD_ID, "triafium_lava_generator"),
+                FabricBlockEntityTypeBuilder.create(TriafiumLavaGeneratorBlockEntity::new,
+                        ModBlocks.TRIAFIUM_LAVA_GENERATOR).build());
+        EnergyStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.energyStorage,
+                TRIAFIUM_LAVA_GENERATOR);
+        FluidStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.fluidStorage,
+                TRIAFIUM_LAVA_GENERATOR);
+
+        TRIAFIUM_COPIER = Registry.register(Registries.BLOCK_ENTITY_TYPE,
+                new Identifier(ChucksMod.MOD_ID, "triafium_copier"),
+                FabricBlockEntityTypeBuilder.create(TriafiumCopierBlockEntity::new,
+                        ModBlocks.TRIAFIUM_COPIER).build());
+        EnergyStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.energyStorage,
+                TRIAFIUM_COPIER);
+        FluidStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.fluidStorage,
+                TRIAFIUM_COPIER);
         
         TRIAFIUM_PORTAL_BUILDER = Registry.register(Registries.BLOCK_ENTITY_TYPE,
                 new Identifier(ChucksMod.MOD_ID, "triafium_portal_builder"),
