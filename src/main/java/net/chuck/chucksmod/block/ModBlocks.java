@@ -294,6 +294,11 @@ public class ModBlocks {
             Registry.register(Registries.BLOCK, new Identifier(ChucksMod.MOD_ID, "nether_crystal_crop"),
                     new NetherCrystalCropBlock(FabricBlockSettings.copy(Blocks.WHEAT).mapColor(MapColor.ORANGE)
                             .luminance(state -> 12)));
+    public static final Block NETHERITE_DUST_BLOCK = registerBlock("netherite_dust_block",
+            new FallingBlock(FabricBlockSettings.copy(ModBlocks.TITANIUM_DUST_BLOCK).mapColor(MapColor.BLACK)));
+    public static final Block NETHERITE_CROP =
+            Registry.register(Registries.BLOCK, new Identifier(ChucksMod.MOD_ID, "netherite_crop"),
+                    new NetheriteCropBlock(FabricBlockSettings.copy(Blocks.WHEAT).mapColor(MapColor.BLACK)));
     public static final Block NETHERITE_WIRE = registerBlock("netherite_wire",
             new NetheriteWireBlock(FabricBlockSettings.copy(Blocks.NETHERITE_BLOCK)));
     // Soul Blocks
@@ -411,7 +416,8 @@ public class ModBlocks {
     public static final Block POLISHED_ECLOGITE_WALL = registerBlock("polished_eclogite_wall",
             new WallBlock(FabricBlockSettings.copy(ECLOGITE)));
     public static final Block SERPENTINITE = registerBlock("serpentinite",
-            new Block(FabricBlockSettings.copy(Blocks.SMOOTH_STONE).strength(3.0f, 7.0f).mapColor(MapColor.LICHEN_GREEN)));
+            new Block(FabricBlockSettings.copy(Blocks.SMOOTH_STONE).strength(3.0f, 7.0f)
+                    .mapColor(MapColor.LICHEN_GREEN)));
     public static final Block SERPENTINITE_STAIRS = registerBlock("serpentinite_stairs",
             new StairsBlock(ModBlocks.SERPENTINITE.getDefaultState(),
                     FabricBlockSettings.copy(SERPENTINITE)));
@@ -440,12 +446,13 @@ public class ModBlocks {
     public static final Block POLISHED_SERPENTINITE_WALL = registerBlock("polished_serpentinite_wall",
             new WallBlock(FabricBlockSettings.copy(SERPENTINITE)));
     public static final Block GLAUCONITE = registerBlock("glauconite",
-            new Block(FabricBlockSettings.copy(Blocks.SMOOTH_STONE).strength(3.0f, 7.0f)));
+            new Block(FabricBlockSettings.copy(Blocks.SMOOTH_STONE).strength(3.0f, 7.0f)
+                    .mapColor(MapColor.TERRACOTTA_GREEN)));
     public static final Block GLAUCONITE_STAIRS = registerBlock("glauconite_stairs",
             new StairsBlock(ModBlocks.GLAUCONITE.getDefaultState(),
                     FabricBlockSettings.copy(GLAUCONITE)));
     public static final Block GLAUCONITE_SLAB = registerBlock("glauconite_slab",
-            new SlabBlock(FabricBlockSettings.copy(GLAUCONITE).mapColor(MapColor.TERRACOTTA_GREEN)));
+            new SlabBlock(FabricBlockSettings.copy(GLAUCONITE)));
     public static final Block GLAUCONITE_WALL = registerBlock("glauconite_wall",
             new WallBlock(FabricBlockSettings.copy(GLAUCONITE)));
     public static final Block GLAUCONITE_BRICKS = registerBlock("glauconite_bricks",
@@ -468,6 +475,10 @@ public class ModBlocks {
             new SlabBlock(FabricBlockSettings.copy(GLAUCONITE)));
     public static final Block POLISHED_GLAUCONITE_WALL = registerBlock("polished_glauconite_wall",
             new WallBlock(FabricBlockSettings.copy(GLAUCONITE)));
+    public static final Block TRIAFIA_CRYSTAL_CROP =
+            Registry.register(Registries.BLOCK, new Identifier(ChucksMod.MOD_ID, "triafia_crystal_crop"),
+                    new TriafiaCrystalCropBlock(FabricBlockSettings.copy(Blocks.WHEAT).mapColor(MapColor.DARK_GREEN)
+                            .luminance(state -> 5)));
     public static final Block PIPPIN_ALTAR = registerBlock("pippin_altar",
             new PippinAltarBlock(FabricBlockSettings.copy(Blocks.BEDROCK)));
     //Serpentinite Ores

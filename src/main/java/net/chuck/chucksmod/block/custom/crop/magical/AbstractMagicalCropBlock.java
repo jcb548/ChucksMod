@@ -8,7 +8,9 @@ import net.minecraft.state.StateManager;
 import net.minecraft.state.property.IntProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.random.Random;
+import net.minecraft.world.World;
 
 public class AbstractMagicalCropBlock extends CropBlock {
     public static final int MAX_AGE = 5;
@@ -34,5 +36,9 @@ public class AbstractMagicalCropBlock extends CropBlock {
         if (world.getBaseLightLevel(pos, 0) >= 9 && (i = this.getAge(state)) < this.getMaxAge() && random.nextInt(16) == 0) {
             world.setBlockState(pos, this.withAge(i + 1), Block.NOTIFY_LISTENERS);
         }
+    }
+    @Override
+    protected int getGrowthAmount(World world) {
+        return MathHelper.nextInt(world.random, 1, 3);
     }
 }

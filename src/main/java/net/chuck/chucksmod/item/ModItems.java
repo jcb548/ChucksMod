@@ -234,7 +234,15 @@ public class ModItems {
     public static final Item NETHER_CRYSTAL_DUST = registerItem("nether_crystal_dust",
             new NetherStarItem(new FabricItemSettings()));
     public static final Item NETHER_CRYSTAL_SEEDS = registerItem("nether_crystal_seeds",
-            new MagicalAliasedBlockItem(ModBlocks.NETHER_CRYSTAL_CROP, new FabricItemSettings(), Text.translatable("tooltip.chucksmod.nether_crystal_seeds")));
+            new MagicalAliasedBlockItem(ModBlocks.NETHER_CRYSTAL_CROP, new FabricItemSettings(),
+                    Text.translatable("tooltip.chucksmod.nether_crystal_seeds")));
+    public static final Item NETHERITE_DUST = registerItem("netherite_dust",
+            new Item(new FabricItemSettings()));
+    public static final Item NETHERITE_SEEDS = registerItem("netherite_seeds",
+            new MagicalAliasedBlockItem(ModBlocks.NETHERITE_CROP, new FabricItemSettings(),
+                    Text.translatable("tooltip.chucksmod.netherite_seeds")));
+    public static final Item NETHERITE_ESSENCE = registerItem("netherite_essence",
+            new NetherStarItem(new FabricItemSettings()));
 
     // Wither items
     public static final Item WITHER_BONE = registerItem("wither_bone", new Item(new FabricItemSettings()));
@@ -290,6 +298,9 @@ public class ModItems {
             new Item(new FabricItemSettings()));
     public static final Item TRIAFIA_CRYSTAL_DUST = registerItem("triafia_crystal_dust",
             new Item(new FabricItemSettings()));
+    public static final Item TRIAFIA_CRYSTAL_SEEDS = registerItem("triafia_crystal_seeds",
+            new MagicalAliasedBlockItem(ModBlocks.TRIAFIA_CRYSTAL_CROP, new FabricItemSettings(),
+                    Text.translatable("tooltip.chucksmod.triafia_crystal_seeds")));
     public static final Item FARMABYN_SPAWN_EGG = registerItem("farmabyn_spawn_egg",
         new SpawnEggItem(ModEntities.FARMABYN, 0xFFE9AE, 0x345E7E, new FabricItemSettings()));
     public static final Item TRIAFIAN_PIG_SPAWN_EGG = registerItem("triafian_pig_spawn_egg",

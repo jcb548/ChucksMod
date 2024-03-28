@@ -542,5 +542,29 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.EUCALYPTUS_LEAVES)
                 .add(ModBlocks.TRIAFIA_LEAVES)
                 .add(ModBlocks.PACSARIA_LEAVES);
+        
+        getOrCreateTagBuilder(ModBlockTags.SERPENTINITE)
+                .add(ModBlocks.SERPENTINITE)
+                .add(ModBlocks.SERPENTINITE_BRICKS)
+                .add(ModBlocks.CRACKED_SERPENTINITE_BRICKS)
+                .add(ModBlocks.POLISHED_SERPENTINITE);
+        
+        getOrCreateTagBuilder(ModBlockTags.ECLOGITE)
+                .add(ModBlocks.ECLOGITE)
+                .add(ModBlocks.ECLOGITE_BRICKS)
+                .add(ModBlocks.CRACKED_ECLOGITE_BRICKS)
+                .add(ModBlocks.POLISHED_ECLOGITE);
+
+        getOrCreateTagBuilder(ModBlockTags.GLAUCONITE)
+                .add(ModBlocks.GLAUCONITE)
+                .add(ModBlocks.GLAUCONITE_BRICKS)
+                .add(ModBlocks.CRACKED_GLAUCONITE_BRICKS)
+                .add(ModBlocks.POLISHED_GLAUCONITE);
+
+        getOrCreateTagBuilder(ModBlockTags.TRIAFIA_CRYSTAL_PLANTABLE)
+                .forceAddTag(BlockTags.DIRT)
+                .addTag(ModBlockTags.SERPENTINITE)
+                .addTag(ModBlockTags.ECLOGITE)
+                .addTag(ModBlockTags.GLAUCONITE);
     }
 }

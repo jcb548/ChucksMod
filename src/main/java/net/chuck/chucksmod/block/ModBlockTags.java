@@ -39,6 +39,10 @@ public class ModBlockTags {
     public static final TagKey<Block> TITANIUM_TIER = ModBlockTags.of("titanium_machines");
     public static final TagKey<Block> TRIAFIUM_TIER = ModBlockTags.of("triafium_machines");
     public static final TagKey<Block> TRIAFIA_BASE_STONE = ModBlockTags.of("triafia_base_stone");
+    public static final TagKey<Block> SERPENTINITE = ModBlockTags.of("serpentinite");
+    public static final TagKey<Block> ECLOGITE = ModBlockTags.of("eclogite");
+    public static final TagKey<Block> GLAUCONITE = ModBlockTags.of("glauconite");
+    public static final TagKey<Block> TRIAFIA_CRYSTAL_PLANTABLE = ModBlockTags.of("triafia_crystal_plantable");
     public static final TagKey<Block> COPPER_PLANTABLE = ModBlockTags.of("copper_plantable");
 
     private static TagKey<Block> of(String id) {

@@ -1,5 +1,6 @@
 package net.chuck.chucksmod.datagen.models;
 
+import dev.architectury.platform.Mod;
 import net.chuck.chucksmod.block.ModBlocks;
 import net.chuck.chucksmod.block.custom.crop.*;
 import net.chuck.chucksmod.block.custom.crop.magical.AbstractMagicalCropBlock;
@@ -64,6 +65,9 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.PRISMARINE_DUST_BLOCK);
 
         ModModelGenerator.registerWire(blockStateModelGenerator, ModBlocks.NETHERITE_WIRE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.NETHERITE_DUST_BLOCK);
+        blockStateModelGenerator.registerTintableCrossBlockStateWithStages(ModBlocks.NETHERITE_CROP, BlockStateModelGenerator.TintType.NOT_TINTED,
+                AbstractMagicalCropBlock.AGE, 0, 1, 2, 3, 4, 5);
 
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.PRISMARINE_IRON_DUST_BLOCK);
         ModModelGenerator.registerBars(blockStateModelGenerator, ModBlocks.PRISMARINE_BARS);
@@ -251,6 +255,8 @@ public class ModModelProvider extends FabricModelProvider {
                 BlockStateModelGenerator.TintType.NOT_TINTED);
         blockStateModelGenerator.registerTintableCross(ModBlocks.TRIAFIA_PLANT,
                 BlockStateModelGenerator.TintType.TINTED);
+        blockStateModelGenerator.registerTintableCrossBlockStateWithStages(ModBlocks.TRIAFIA_CRYSTAL_CROP, BlockStateModelGenerator.TintType.NOT_TINTED,
+                AbstractMagicalCropBlock.AGE, 0, 1, 2, 3, 4, 5);
 
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.TRIAFIUM_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RAW_TRIAFIUM_BLOCK);
@@ -329,6 +335,7 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerTintableCross(ModBlocks.PACSARIA_SAPLING,
                 BlockStateModelGenerator.TintType.NOT_TINTED);
 
+        blockStateModelGenerator.registerSingleton(ModBlocks.PACSARIA_LEAVES, TexturedModel.LEAVES);
         BlockStateModelGenerator.LogTexturePool pacsaria_log_pool =
                 blockStateModelGenerator.registerLog(ModBlocks.PACSARIA_LOG);
         pacsaria_log_pool.log(ModBlocks.PACSARIA_LOG);
@@ -405,7 +412,9 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.GOLD_GEAR, Models.GENERATED);
         itemModelGenerator.register(ModItems.GOLD_POWER_CIRCUIT, Models.GENERATED);
         itemModelGenerator.register(ModItems.GOLD_COIL, Models.GENERATED);
-        
+
+        itemModelGenerator.register(ModItems.NETHERITE_DUST, Models.GENERATED);
+        itemModelGenerator.register(ModItems.NETHERITE_ESSENCE, Models.GENERATED);
         itemModelGenerator.register(ModItems.NETHERITE_POWER_CIRCUIT, Models.GENERATED);
         itemModelGenerator.register(ModItems.NETHERITE_COIL, Models.GENERATED);
 

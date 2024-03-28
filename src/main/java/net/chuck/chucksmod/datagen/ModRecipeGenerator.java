@@ -135,7 +135,9 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
         offerEssenceToMaterialRecipe(exporter, ModItems.TITANIUM_INGOT, ModItems.TITANIUM_ESSENCE, 1);
         offerMagicalSeedsRecipe(exporter, ModItems.EMERALD_SEEDS, ModItems.EMERALD_DUST, ModItems.NETHER_CRYSTAL_DUST);
         offerEssenceToMaterialRecipe(exporter, Items.EMERALD, ModItems.EMERALD_ESSENCE, 2);
-
+        offerMagicalSeedsRecipe(exporter, ModItems.NETHERITE_SEEDS, ModItems.NETHERITE_DUST, ModItems.TRIAFIA_CRYSTAL_DUST);
+        offerEssenceToMaterialRecipe(exporter, Items.NETHERITE_INGOT, ModItems.NETHERITE_ESSENCE, 1);
+        offerMagicalSeedsRecipe(exporter, ModItems.TRIAFIUM_SEEDS, ModItems.TRIAFIUM_DUST, ModItems.TRIAFIA_CRYSTAL_DUST);
         offerEssenceToMaterialRecipe(exporter, ModItems.TRIAFIUM_INGOT, ModItems.TRIAFIUM_ESSENCE, 1);
     }
 
@@ -270,8 +272,32 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
         offerWallRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.SOUL_STONE_BRICK_WALL,
                 ModBlocks.SOUL_STONE_BRICKS);
         offerPolishedStoneRecipe(exporter, RecipeCategory.BREWING, ModBlocks.SOUL_STONE_BRICKS, ModBlocks.SOUL_STONE);
+        offerWireRecipe(exporter, Items.NETHERITE_INGOT, ModBlocks.NETHERITE_WIRE);
         offerCoilRecipe(exporter, ModBlocks.NETHERITE_WIRE, ModItems.NETHERITE_COIL);
         offerPowerCircuitRecipe(exporter, ModBlocks.NETHERITE_WIRE, ModItems.NETHERITE_POWER_CIRCUIT);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, Blocks.BEACON)
+                .pattern("GGG")
+                .pattern("GRG")
+                .pattern("OOO")
+                .input('G', Blocks.GLASS)
+                .input('R', ModItems.SOUL_BLAZE_ROD)
+                .input('O', Blocks.OBSIDIAN)
+                .criterion(hasItem(Blocks.GLASS), conditionsFromItem(Blocks.GLASS))
+                .criterion(hasItem(ModItems.SOUL_BLAZE_ROD), conditionsFromItem(ModItems.SOUL_BLAZE_ROD))
+                .criterion(hasItem(Blocks.OBSIDIAN), conditionsFromItem(Blocks.OBSIDIAN))
+                .offerTo(exporter, RecipeProvider.getItemPath(Blocks.BEACON) + "_from_" +
+                        RecipeProvider.getItemPath(ModItems.SOUL_BLAZE_ROD));
+        offerCrushingRecipe(exporter, Items.ANCIENT_DEBRIS, ModItems.NETHERITE_DUST);
+        offerSmelting(exporter, List.of(ModItems.NETHERITE_DUST), RecipeCategory.TOOLS, Items.NETHERITE_INGOT,
+                1.0f, 200, "netherite");
+        offerCrushingRecipe(exporter, Items.NETHERITE_INGOT, ModItems.NETHERITE_DUST);
+        offerCrushingRecipe(exporter, Items.NETHERITE_BLOCK, ModBlocks.NETHERITE_DUST_BLOCK);
+        offerSmelting(exporter, List.of(ModBlocks.NETHERITE_DUST_BLOCK), RecipeCategory.TOOLS, Items.NETHERITE_BLOCK,
+                1.0f, 200, "netherite");
+        offerBlasting(exporter, List.of(ModBlocks.NETHERITE_DUST_BLOCK), RecipeCategory.TOOLS, Items.NETHERITE_BLOCK,
+                1.0f, 100, "netherite");
+        offerReversibleCompactingRecipes(exporter, RecipeCategory.TOOLS, ModItems.NETHERITE_DUST, RecipeCategory.TOOLS,
+                ModBlocks.NETHERITE_DUST_BLOCK);
     }
 
     private void generateIronRecipes(RecipeExporter exporter) {
@@ -383,6 +409,10 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
         offerCrushingRecipe(exporter, ModItems.RAW_TRIAFIUM, ModItems.TRIAFIUM_DUST);
         offerCrushingRecipe(exporter, ModBlocks.RAW_TRIAFIUM_BLOCK, ModBlocks.TRIAFIUM_DUST_BLOCK);
         offerCrushingRecipe(exporter, ModBlocks.TRIAFIUM_BLOCK, ModBlocks.TRIAFIUM_DUST_BLOCK);
+        offerSmelting(exporter, List.of(ModBlocks.TRIAFIUM_DUST_BLOCK), RecipeCategory.TOOLS, ModBlocks.TRIAFIUM_BLOCK,
+                1.0f, 200, "triafium");
+        offerBlasting(exporter, List.of(ModBlocks.TRIAFIUM_DUST_BLOCK), RecipeCategory.TOOLS, ModBlocks.TRIAFIUM_BLOCK,
+                1.0f, 100, "triafium");
         offerGearRecipe(exporter, ModItems.TRIAFIUM_INGOT, ModItems.TRIAFIUM_GEAR);
         offerEnergyCoreRecipe(exporter, ModItems.TRIAFIUM_ENERGY_CORE, ModItems.TRIAFIUM_INGOT);
         offerAxleRecipe(exporter, ModItems.TRIAFIUM_AXLE, ModItems.TRIAFIUM_INGOT);

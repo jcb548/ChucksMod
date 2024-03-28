@@ -83,7 +83,10 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.LAPIS_SEEDS)
                 .add(ModItems.TITANIUM_SEEDS)
                 .add(ModItems.COAL_SEEDS)
-                .add(ModItems.TRIAFIUM_SEEDS);
+                .add(ModItems.TRIAFIUM_SEEDS)
+                .add(ModItems.NETHERITE_SEEDS)
+                .add(ModItems.NETHER_CRYSTAL_SEEDS)
+                .add(ModItems.TRIAFIA_CRYSTAL_SEEDS);
 
         getOrCreateTagBuilder(ItemTags.SWORDS)
                 .add(ModItems.BRONZE_SWORD)

@@ -178,6 +178,12 @@ public class ModBlockLootTableGenerator extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.TITANIUM_STEAM_GENERATOR);
         addDrop(ModBlocks.TITANIUM_LAVA_GENERATOR);
 
+        BlockStatePropertyLootCondition.Builder netheriteCropBuilder = BlockStatePropertyLootCondition.builder
+                (ModBlocks.NETHERITE_CROP).properties(StatePredicate.Builder.create()
+                .exactMatch(AbstractMagicalCropBlock.AGE, AbstractMagicalCropBlock.MAX_AGE));
+        addDrop(ModBlocks.NETHERITE_CROP, magicCropDrops(ModBlocks.NETHERITE_CROP, ModItems.NETHERITE_ESSENCE,
+                ModItems.NETHERITE_SEEDS, netheriteCropBuilder, 0.025f, 1));
+
         BlockStatePropertyLootCondition.Builder netherCrystalCropBuilder = BlockStatePropertyLootCondition.builder
                 (ModBlocks.NETHER_CRYSTAL_CROP).properties(StatePredicate.Builder.create()
                 .exactMatch(AbstractMagicalCropBlock.AGE, AbstractMagicalCropBlock.MAX_AGE));
@@ -192,6 +198,12 @@ public class ModBlockLootTableGenerator extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.SOUL_STONE_BRICK_SLAB, slabDrops(ModBlocks.SOUL_STONE_BRICK_SLAB));
         addDrop(ModBlocks.SOUL_STONE_BRICKS);
         addDrop(ModBlocks.CRACKED_SOUL_STONE_BRICKS);
+
+        BlockStatePropertyLootCondition.Builder triafiaCrystalCropBuilder = BlockStatePropertyLootCondition.builder
+                (ModBlocks.TRIAFIA_CRYSTAL_CROP).properties(StatePredicate.Builder.create()
+                .exactMatch(AbstractMagicalCropBlock.AGE, AbstractMagicalCropBlock.MAX_AGE));
+        addDrop(ModBlocks.TRIAFIA_CRYSTAL_CROP, magicCropDrops(ModBlocks.TRIAFIA_CRYSTAL_CROP, ModItems.TRIAFIA_CRYSTAL_SHARD,
+                ModItems.TRIAFIA_CRYSTAL_SEEDS, triafiaCrystalCropBuilder, 0.025f, 1));
 
         addDrop(ModBlocks.TUFF_STAIRS);
         addDrop(ModBlocks.TUFF_SLAB, slabDrops(ModBlocks.TUFF_SLAB));

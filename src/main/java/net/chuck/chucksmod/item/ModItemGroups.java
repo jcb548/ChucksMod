@@ -98,10 +98,12 @@ public class ModItemGroups {
                         entries.add(ModItems.REDSTONE_ESSENCE);
 
                         entries.add(ModItems.DIAMOND_DUST);
+                        entries.add(ModBlocks.DIAMOND_DUST_BLOCK);
                         entries.add(ModItems.DIAMOND_SEEDS);
                         entries.add(ModItems.DIAMOND_ESSENCE);
 
                         entries.add(ModItems.EMERALD_DUST);
+                        entries.add(ModBlocks.EMERALD_DUST_BLOCK);
                         entries.add(ModItems.EMERALD_SEEDS);
                         entries.add(ModItems.EMERALD_ESSENCE);
 
@@ -231,6 +233,11 @@ public class ModItemGroups {
                         entries.add(ModBlocks.TITANIUM_QUARRY);
                         entries.add(ModBlocks.TITANIUM_LAVA_GENERATOR);
                         entries.add(ModBlocks.TITANIUM_COPIER);
+
+                        entries.add(ModItems.NETHERITE_DUST);
+                        entries.add(ModBlocks.NETHERITE_DUST_BLOCK);
+                        entries.add(ModItems.NETHERITE_SEEDS);
+                        entries.add(ModItems.NETHERITE_ESSENCE);
 
                         entries.add(ModItems.NETHER_QUARTZ_DUST);
                         entries.add(ModItems.NETHER_CRYSTAL);
@@ -376,6 +383,7 @@ public class ModItemGroups {
                         entries.add(ModItems.TRIAFIA_CRYSTAL_SHARD);
                         entries.add(ModItems.TRIAFIA_CRYSTAL_DUST);
                         entries.add(ModBlocks.TRIAFIA_PLANT);
+                        entries.add(ModItems.TRIAFIA_CRYSTAL_SEEDS);
                         entries.add(ModItems.FARMABYN_SPAWN_EGG);
                         entries.add(ModItems.TRIAFIAN_PIG_SPAWN_EGG);
                         entries.add(ModItems.TRIAFIAN_PORKCHOP);
