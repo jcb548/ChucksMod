@@ -235,6 +235,8 @@
   "item.chucksmod.cooked_triafian_porkchop": "Cooked Triafian Porkchop",
   "entity.chucksmod.pippin": "Pippin",
   "item.chucksmod.pippin_spawn_egg": "Pippin Spawn Egg",
+  "entity.chucksmod.big_tall": "Big Tall",
+  "item.chucksmod.big_tall_spawn_egg": "Big Tall Spawn Egg",
 
   "biome.chucksmod.triafia_plains": "Triafia Plains",
   "block.chucksmod.triafia_log": "Triafia Log",

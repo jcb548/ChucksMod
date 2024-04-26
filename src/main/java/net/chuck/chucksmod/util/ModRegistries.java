@@ -1,9 +1,16 @@
 package net.chuck.chucksmod.util;
 
 import net.chuck.chucksmod.block.ModBlocks;
+import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
+import net.minecraft.server.command.CommandManager;
+import net.minecraft.server.command.ServerCommandSource;
+import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.text.Text;
+import net.minecraft.world.GameMode;
+import net.minecraft.world.GameRules;
 
 /*
  *  Code inspired by or copied from
@@ -18,6 +25,7 @@ public class ModRegistries {
         registerFlammableBlocks();
         registerStrippables();
         registerFuels();
+        registerCommands();
     }
     private static void registerFlammableBlocks() {
         FlammableBlockRegistry instance = FlammableBlockRegistry.getDefaultInstance();
@@ -67,5 +75,49 @@ public class ModRegistries {
         FuelRegistry.INSTANCE.add(ModBlocks.STRIPPED_TRIAFIA_LOG,300);
         FuelRegistry.INSTANCE.add(ModBlocks.STRIPPED_TRIAFIA_WOOD,300);
         FuelRegistry.INSTANCE.add(ModBlocks.TRIAFIA_PLANKS,300);
+    }
+
+    private static void registerCommands(){
+        CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> dispatcher.register(CommandManager.literal("gmc")
+                        .requires(source -> source.hasPermissionLevel(2))
+                        .requires(ServerCommandSource::isExecutedByPlayer)
+                .executes(context -> {
+                    ServerCommandSource source = context.getSource();
+                    ServerPlayerEntity player = source.getPlayer();
+                    if(player == null || !player.changeGameMode(GameMode.CREATIVE)) return 0;
+                    if (source.getEntity() == player) {
+                        source.sendFeedback(() -> Text.translatable("commands.gamemode.success.self",
+                                Text.translatable("gameMode." + GameMode.CREATIVE.getName())), true);
+                    }
+                    return 1;
+                        })));
+
+        CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> dispatcher.register(CommandManager.literal("gms")
+                        .requires(source -> source.hasPermissionLevel(2))
+                        .requires(ServerCommandSource::isExecutedByPlayer)
+                .executes(context -> {
+                    ServerCommandSource source = context.getSource();
+                    ServerPlayerEntity player = source.getPlayer();
+                    if(player == null || !player.changeGameMode(GameMode.SURVIVAL)) return 0;
+                    if (source.getEntity() == player) {
+                        source.sendFeedback(() -> Text.translatable("commands.gamemode.success.self",
+                                Text.translatable("gameMode." + GameMode.SURVIVAL.getName())), true);
+                    }
+                    return 1;
+                        })));
+
+        CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> dispatcher.register(CommandManager.literal("gmsp")
+                        .requires(source -> source.hasPermissionLevel(2))
+                        .requires(ServerCommandSource::isExecutedByPlayer)
+                .executes(context -> {
+                    ServerCommandSource source = context.getSource();
+                    ServerPlayerEntity player = source.getPlayer();
+                    if(player == null || !player.changeGameMode(GameMode.SPECTATOR)) return 0;
+                    if (source.getEntity() == player) {
+                        source.sendFeedback(() -> Text.translatable("commands.gamemode.success.self",
+                                Text.translatable("gameMode." + GameMode.SPECTATOR.getName())), true);
+                    }
+                    return 1;
+                        })));
     }
 }

@@ -311,6 +311,8 @@ public class ModItems {
             new Item(new FabricItemSettings().food(ModFoodComponents.COOKED_TRIAFIAN_PORKCHOP)));
     public static final Item PIPPIN_SPAWN_EGG = registerItem("pippin_spawn_egg",
             new SpawnEggItem(ModEntities.PIPPIN, 0x221708, 0xfee3b9, new FabricItemSettings()));
+    public static final Item BIG_TALL_SPAWN_EGG = registerItem("big_tall_spawn_egg",
+            new SpawnEggItem(ModEntities.BIG_TALL, 0x010101, 0x60DB00, new FabricItemSettings()));
 
     // Pacsarium
     public static final Item RAW_PACSARIUM = registerItem("raw_pacsarium", new Item(new FabricItemSettings()));

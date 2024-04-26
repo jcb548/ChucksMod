@@ -23,11 +23,6 @@ public class PippinGoToHealGoal extends MoveToTargetPosGoal {
     }
 
     @Override
-    public boolean canStart() {
-        return super.canStart();
-    }
-
-    @Override
     public void stop() {
         super.stop();
         mob.getNavigation().stop();

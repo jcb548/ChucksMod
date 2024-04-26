@@ -72,12 +72,14 @@ public class ChucksMod implements ModInitializer {
 				.destDimID(new Identifier(MOD_ID, "pacsaria"))
 				.tintColor(211, 185, 255).registerPortal();
 		//ServerTickEvents.START_SERVER_TICK.register(new PlayerTickHandler());
+
 		FabricDefaultAttributeRegistry.register(ModEntities.WYATT, WyattEntity.setAttributes());
 		FabricDefaultAttributeRegistry.register(ModEntities.FRANK_BOSS, FrankBoss.setAttributes());
 		FabricDefaultAttributeRegistry.register(ModEntities.SOUL_BLAZE_BOSS, SoulBlazeBoss.createSoulBlazeAttributes());
 		FabricDefaultAttributeRegistry.register(ModEntities.FARMABYN, FarmabynEntity.createFarmabynAttributes());
 		FabricDefaultAttributeRegistry.register(ModEntities.TRIAFIAN_PIG, TriafianPigEntity.setAttributes());
 		FabricDefaultAttributeRegistry.register(ModEntities.PIPPIN, PippinBoss.setAttributes());
+		FabricDefaultAttributeRegistry.register(ModEntities.BIG_TALL, BigTallBoss.setAttributes());
 		ModMessages.registerC2SPackets();
 	}
 }
