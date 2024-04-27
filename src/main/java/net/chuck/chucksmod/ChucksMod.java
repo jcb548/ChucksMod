@@ -12,6 +12,7 @@ import net.chuck.chucksmod.item.enchantment.ModEnchantments;
 import net.chuck.chucksmod.networking.ModMessages;
 import net.chuck.chucksmod.recipe.ModRecipes;
 import net.chuck.chucksmod.screen.ModScreenHandlers;
+import net.chuck.chucksmod.sounds.ModSounds;
 import net.chuck.chucksmod.util.ModCustomTrades;
 import net.chuck.chucksmod.util.ModLootTableModifiers;
 import net.chuck.chucksmod.util.ModRegistries;
@@ -44,6 +45,7 @@ public class ChucksMod implements ModInitializer {
 	public void onInitialize() {
 		ModItemGroups.registerItemGroups();
 		ModItems.registerModItems();
+		ModSounds.registerSounds();
 
 		ModWorldGeneration.generateModWorldGen();
 		ModBlocks.registerModBlocks();

@@ -3,9 +3,12 @@ package net.chuck.chucksmod.entity.ai;
 import net.chuck.chucksmod.entity.animation.BigTallAnimations;
 import net.chuck.chucksmod.entity.custom.BigTallBoss;
 import net.chuck.chucksmod.entity.custom.BigTallBoss;
+import net.chuck.chucksmod.sounds.ModSounds;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.entity.mob.PathAwareEntity;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
 
 public class BigTallBasicAttackGoal extends MeleeAttackGoal {
@@ -19,7 +22,7 @@ public class BigTallBasicAttackGoal extends MeleeAttackGoal {
 
     @Override
     public boolean canStart() {
-        return super.canStart() && !(boss.isRunning() || boss.isSpinning());
+        return super.canStart() && !boss.isSpinning();
     }
 
     @Override
@@ -45,6 +48,8 @@ public class BigTallBasicAttackGoal extends MeleeAttackGoal {
         resetAttackCooldown();
         boss.swingHand(Hand.MAIN_HAND);
         boss.tryAttack(pEnemy);
+        boss.getWorld().playSound(null, pEnemy.getBlockPos(), ModSounds.BIGTAL_SWING_STAFF,
+                SoundCategory.HOSTILE, 1f, 1f);
     }
 
     @Override

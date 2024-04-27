@@ -1,0 +1,38 @@
+{
+  "bigtal_swing_staff": {
+    "subtitle": "sounds.chucksmod.bigtal_swing_staff",
+    "sounds": [
+      "chucksmod:bigtal_swing_staff"
+    ]
+  },
+  "bigtal_ambient": {
+    "subtitle": "sounds.chucksmod.bigtal_ambient",
+    "sounds": [
+      "chucksmod:bigtal_ambient"
+    ]
+  },
+  "bigtal_hurt": {
+    "subtitle": "sounds.chucksmod.bigtal_hurt",
+    "sounds": [
+      "chucksmod:bigtal_hurt"
+    ]
+  },
+  "bigtal_death": {
+    "subtitle": "sounds.chucksmod.bigtal_death",
+    "sounds": [
+      "chucksmod:bigtal_death"
+    ]
+  },
+  "bigtal_small_fall": {
+    "subtitle": "sounds.chucksmod.bigtal_small_fall",
+    "sounds": [
+      "chucksmod:bigtal_death"
+    ]
+  },
+  "bigtal_big_fall": {
+    "subtitle": "sounds.chucksmod.bigtal_big_fall",
+    "sounds": [
+      "chucksmod:bigtal_big_fall"
+    ]
+  }
+}
