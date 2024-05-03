@@ -1,6 +1,6 @@
 package net.chuck.chucksmod.entity.custom;
 
-import net.chuck.chucksmod.entity.ai.PippinAttackGoal;
+import net.chuck.chucksmod.entity.ai.CustomMeleeAttackGoal;
 import net.chuck.chucksmod.entity.ai.PippinGoToHealGoal;
 import net.chuck.chucksmod.item.ModItems;
 import net.chuck.chucksmod.networking.ModMessages;
@@ -19,12 +19,12 @@ import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.mob.MobEntity;
+import net.minecraft.entity.mob.PathAwareEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.Arm;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3i;
@@ -32,7 +32,7 @@ import net.minecraft.util.math.random.Random;
 import net.minecraft.world.*;
 import org.jetbrains.annotations.Nullable;
 
-public class PippinBoss extends HostileEntity {
+public class PippinBoss extends HostileEntity implements MeleeAttackMob{
     public static final int LANTERN_RANGE = 32;
     public static final int ATTACK_ANIMATION_LENGTH = 18;
     public static final int ATTACK_WINDUP = 5;
@@ -73,7 +73,8 @@ public class PippinBoss extends HostileEntity {
     protected void initGoals() {
         this.goalSelector.add(0, new SwimGoal(this));
         this.goalSelector.add(1, new PippinGoToHealGoal(this, 0.7f));
-        this.goalSelector.add(2, new PippinAttackGoal(this, 1.0f, true));
+        this.goalSelector.add(2, new CustomMeleeAttackGoal(this, 1.0f, true,
+                ATTACK_WINDUP, ATTACK_ANIMATION_LENGTH, 3f));
         this.goalSelector.add(3, new WanderAroundFarGoal(this, 0.5f, 1));
         this.goalSelector.add(4, new LookAtEntityGoal(this, PlayerEntity.class, 40));
         this.goalSelector.add(5, new LookAroundGoal(this));
@@ -186,5 +187,20 @@ public class PippinBoss extends HostileEntity {
         }
         healingLanternPos = null;
         return false;
+    }
+
+    @Override
+    public PathAwareEntity getPathAwareEntity() {
+        return this;
+    }
+
+    @Override
+    public void setAttackAnimationCooldown(int cooldown) {
+        attackAnimationCooldown = cooldown;
+    }
+
+    @Override
+    public int getAttackAnimationCooldown() {
+        return attackAnimationCooldown;
     }
 }

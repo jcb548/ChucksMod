@@ -20,6 +20,7 @@ import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.mob.MobEntity;
+import net.minecraft.entity.mob.PathAwareEntity;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.IronGolemEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -36,7 +37,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldEvents;
 import org.jetbrains.annotations.Nullable;
 
-public class SoulBlazeBoss extends HostileEntity implements RangedAttackMob{
+public class SoulBlazeBoss extends HostileEntity implements RangedAttackMob, MeleeAttackMob{
     private static final TrackedData<Boolean> ATTACKING =
             DataTracker.registerData(SoulBlazeBoss.class, TrackedDataHandlerRegistry.BOOLEAN);
     private static final TrackedData<Integer> INVUL = DataTracker.registerData(SoulBlazeBoss.class,
@@ -59,7 +60,6 @@ public class SoulBlazeBoss extends HostileEntity implements RangedAttackMob{
     public int shootAnimationTimeout = 0;
     private int shootAnimationTicksRemaining = 0;
     public static final int SPECIAL_ATTACK_FREQ = 4;
-    public LivingEntity enemy;
     private final ServerBossBar bossBar = (ServerBossBar)new ServerBossBar(this.getDisplayName(), BossBar.Color.BLUE,
             BossBar.Style.PROGRESS).setDarkenSky(false);
     public SoulBlazeBoss(EntityType<? extends HostileEntity> entityType, World world) {
@@ -108,7 +108,7 @@ public class SoulBlazeBoss extends HostileEntity implements RangedAttackMob{
     protected void initGoals() {
         this.goalSelector.add(0, new SwimGoal(this));
         this.goalSelector.add(1, new SoulBlazeAttackGoal(this, 1.0, 30, 32f, false));
-        //this.goalSelector.add(1, new ProjectileAttackGoal(this, 1.0, 30, 32f));
+
         this.goalSelector.add(1, new FlyGoal(this, 1));
         this.goalSelector.add(3, new LookAtEntityGoal(this, PlayerEntity.class, 32f));
         this.goalSelector.add(4, new LookAroundGoal(this));
@@ -254,7 +254,7 @@ public class SoulBlazeBoss extends HostileEntity implements RangedAttackMob{
                 shootAnimationTicksRemaining = ANIMATION_LENGTH;
             }
             if (ticksUntilShoot == 0) {
-                if (enemy != null) shootAt(enemy, 1);
+                if (getTarget() != null) shootAt(getTarget(), 1);
             }
         }
         if (shootAnimationTicksRemaining > 0){
@@ -325,5 +325,20 @@ public class SoulBlazeBoss extends HostileEntity implements RangedAttackMob{
             return false;
         }
         return super.damage(source, amount);
+    }
+
+    @Override
+    public PathAwareEntity getPathAwareEntity() {
+        return this;
+    }
+
+    @Override
+    public void setAttackAnimationCooldown(int cooldown) {
+        attackAnimationTimeout = cooldown;
+    }
+
+    @Override
+    public int getAttackAnimationCooldown() {
+        return attackAnimationTimeout;
     }
 }

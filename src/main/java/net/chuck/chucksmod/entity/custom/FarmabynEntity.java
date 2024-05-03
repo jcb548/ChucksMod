@@ -1,21 +1,17 @@
 package net.chuck.chucksmod.entity.custom;
 
-import net.chuck.chucksmod.entity.ai.FarmabynAttackGoal;
+import net.chuck.chucksmod.entity.ai.CustomMeleeAttackGoal;
 import net.chuck.chucksmod.item.ModItems;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
-import net.minecraft.entity.damage.DamageSource;
-import net.minecraft.entity.data.DataTracker;
-import net.minecraft.entity.data.TrackedData;
-import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.mob.MobEntity;
+import net.minecraft.entity.mob.PathAwareEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
-import net.minecraft.text.Text;
 import net.minecraft.util.Arm;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.LocalDifficulty;
@@ -23,11 +19,9 @@ import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-public class FarmabynEntity extends HostileEntity {
+public class FarmabynEntity extends HostileEntity implements MeleeAttackMob{
     public static final int ANIMATION_LENGTH = 15;
     public static final int ATTACK_WINDUP = 13;
-    private static final TrackedData<Boolean> ATTACKING =
-            DataTracker.registerData(FarmabynEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
     public final AnimationState idleAnimationState = new AnimationState();
     private int idleAnimationCooldown = 0;
     public final AnimationState attackAnimationState = new AnimationState();
@@ -67,7 +61,8 @@ public class FarmabynEntity extends HostileEntity {
     @Override
     protected void initGoals() {
         this.goalSelector.add(0, new SwimGoal(this));
-        this.goalSelector.add(2, new FarmabynAttackGoal(this, 1.0d, true));
+        this.goalSelector.add(2, new CustomMeleeAttackGoal(this, 1.0d, true,
+                ATTACK_WINDUP, ANIMATION_LENGTH, 3f));
         this.goalSelector.add(3, new WanderAroundFarGoal(this, 0.8f, 5));
         this.goalSelector.add(4, new LookAtEntityGoal(this, PlayerEntity.class, 64));
         this.goalSelector.add(5, new LookAroundGoal(this));
@@ -79,13 +74,21 @@ public class FarmabynEntity extends HostileEntity {
     @Override
     protected void initDataTracker() {
         super.initDataTracker();
-        this.dataTracker.startTracking(ATTACKING, false);
     }
-    public void setAttacking(boolean attacking){
-        this.dataTracker.set(ATTACKING, attacking);
+
+    @Override
+    public PathAwareEntity getPathAwareEntity() {
+        return this;
     }
-    public boolean isAttacking(){
-        return this.dataTracker.get(ATTACKING);
+
+    @Override
+    public void setAttackAnimationCooldown(int cooldown) {
+        attackAnimationCooldown = cooldown;
+    }
+
+    @Override
+    public int getAttackAnimationCooldown() {
+        return attackAnimationCooldown;
     }
 
     @Override

@@ -56,7 +56,7 @@ public class TriafianPigAnimations {
                                     Transformation.Interpolations.LINEAR),
                             new Keyframe(1f, AnimationHelper.createRotationalVector(0f, 0f, 0f),
                                     Transformation.Interpolations.LINEAR))).build();
-    public static final Animation BITE = Animation.Builder.create(0.5416766f)
+    public static final Animation BITE = Animation.Builder.create(0.5416766f).looping()
             .addBoneAnimation("head",
                     new Transformation(Transformation.Targets.TRANSLATE,
                             new Keyframe(0.125f, AnimationHelper.createTranslationalVector(0f, 0f, 0f),

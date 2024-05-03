@@ -18,6 +18,7 @@ import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.mob.MobEntity;
+import net.minecraft.entity.mob.PathAwareEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.registry.tag.DamageTypeTags;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -27,9 +28,9 @@ import net.minecraft.world.Difficulty;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-public class BigTallBoss extends HostileEntity {
+public class BigTallBoss extends HostileEntity implements MeleeAttackMob{
     public static final int RUN_AT_RANGE = 32;
-    public static final int ATTACK_ANIMATION_LENGTH = 17;
+    public static final int ATTACK_ANIMATION_LENGTH = 18;
     public static final int SPINNING_ANIMATION_LENGTH = 27;
     public static final int ATTACK_WINDUP = 5;
     private static final TrackedData<Boolean> ATTACKING =
@@ -37,7 +38,6 @@ public class BigTallBoss extends HostileEntity {
     private static final TrackedData<Boolean> SPINNING =
             DataTracker.registerData(BigTallBoss.class, TrackedDataHandlerRegistry.BOOLEAN);
     public final AnimationState idleAnimationState = new AnimationState();
-    
     private int idleAnimationCooldown = 0;
     public final AnimationState attackAnimationState = new AnimationState();
     public int attackAnimationCooldown = 0;
@@ -74,12 +74,29 @@ public class BigTallBoss extends HostileEntity {
         this.dataTracker.startTracking(ATTACKING, false);
         this.dataTracker.startTracking(SPINNING, false);
     }
+
+    @Override
+    public PathAwareEntity getPathAwareEntity() {
+        return this;
+    }
+
     public void setAttacking(boolean attacking){
         this.dataTracker.set(ATTACKING, attacking);
     }
     public boolean isAttacking(){
         return this.dataTracker.get(ATTACKING);
     }
+
+    @Override
+    public void setAttackAnimationCooldown(int cooldown) {
+        attackAnimationCooldown = cooldown;
+    }
+
+    @Override
+    public int getAttackAnimationCooldown() {
+        return attackAnimationCooldown;
+    }
+
     public void setSpinning(boolean spinning){
         this.dataTracker.set(SPINNING, spinning);
     }

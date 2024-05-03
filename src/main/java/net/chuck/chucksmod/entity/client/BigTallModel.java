@@ -87,12 +87,7 @@ public class BigTallModel<T extends BigTallBoss> extends SinglePartEntityModel<T
 	public void setAngles(BigTallBoss entity, float limbSwing, float limbSwingAmount, float ageInTicks, float headYaw, float headPitch) {
 		this.getPart().traverse().forEach(ModelPart::resetTransform);
 		this.setHeadAngles(headYaw, headPitch);
-
-		if(entity.isRunning())
-			this.animateMovement(BigTallAnimations.RUN, limbSwing, limbSwingAmount, 2.0f, 2.5f);
-		else
-			this.animateMovement(BigTallAnimations.WALK, limbSwing, limbSwingAmount, 2.0f, 2.5f);
-
+		this.animateMovement(BigTallAnimations.WALK, limbSwing, limbSwingAmount, 2.0f, 2.5f);
 		this.updateAnimation(entity.idleAnimationState, BigTallAnimations.IDLE, ageInTicks, 1f);
 		this.updateAnimation(entity.attackAnimationState, BigTallAnimations.ATTACK, ageInTicks, 1f);
 		this.updateAnimation(entity.spinAnimationState, BigTallAnimations.SPIN, ageInTicks, 1f);

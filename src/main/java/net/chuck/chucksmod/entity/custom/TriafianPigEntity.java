@@ -1,7 +1,7 @@
 package net.chuck.chucksmod.entity.custom;
 
 import net.chuck.chucksmod.entity.ModEntities;
-import net.chuck.chucksmod.entity.ai.TriafianPigAttackGoal;
+import net.chuck.chucksmod.entity.ai.CustomMeleeAttackGoal;
 import net.chuck.chucksmod.item.ModItems;
 import net.minecraft.entity.AnimationState;
 import net.minecraft.entity.EntityPose;
@@ -13,6 +13,7 @@ import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.mob.MobEntity;
+import net.minecraft.entity.mob.PathAwareEntity;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.PassiveEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -20,13 +21,13 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.text.Text;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-public class TriafianPigEntity extends AnimalEntity {
+public class TriafianPigEntity extends AnimalEntity implements MeleeAttackMob{
     public static final int ANIMATION_LENGTH = 11;
     public static final int ATTACK_WINDUP = 8;
-    public static final int ATTACK_COOLDOWN = 15;
     public final AnimationState idleAnimationState = new AnimationState();
     private int idleAnimationCooldown = 0;
     public final AnimationState attackAnimationState = new AnimationState();
@@ -58,8 +59,9 @@ public class TriafianPigEntity extends AnimalEntity {
     @Override
     protected void initGoals() {
         this.goalSelector.add(0, new SwimGoal(this));
-        this.goalSelector.add(1, new EscapeDangerGoal(this, 1.25f));
-        this.goalSelector.add(2, new TriafianPigAttackGoal(this, 0.8f, true));
+        //this.goalSelector.add(1, new EscapeDangerGoal(this, 1.25f));
+        this.goalSelector.add(2, new CustomMeleeAttackGoal(this, 0.8f, false,
+                ATTACK_WINDUP, ANIMATION_LENGTH, 2f));
         this.goalSelector.add(3, new AnimalMateGoal(this, 1.0f));
         this.goalSelector.add(3, new TemptGoal(this, 1.2f, BREEDING_INGREDIENT, false));
         this.goalSelector.add(4, new FollowParentGoal(this, 1.1f));
@@ -95,7 +97,7 @@ public class TriafianPigEntity extends AnimalEntity {
             --this.idleAnimationCooldown;
         }
         if(isAttacking() && attackAnimationCooldown <=0){
-            attackAnimationCooldown = 15;
+            attackAnimationCooldown = ANIMATION_LENGTH;
             attackAnimationState.start(age);
         } else {
             --attackAnimationCooldown;
@@ -115,5 +117,20 @@ public class TriafianPigEntity extends AnimalEntity {
     @Override
     public int getXpToDrop() {
         return 2 + this.getWorld().random.nextInt(5);
+    }
+
+    @Override
+    public PathAwareEntity getPathAwareEntity() {
+        return this;
+    }
+
+    @Override
+    public void setAttackAnimationCooldown(int cooldown) {
+        attackAnimationCooldown = cooldown;
+    }
+
+    @Override
+    public int getAttackAnimationCooldown() {
+        return attackAnimationCooldown;
     }
 }
