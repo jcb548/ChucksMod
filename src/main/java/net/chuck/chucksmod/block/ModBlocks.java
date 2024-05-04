@@ -325,6 +325,119 @@ public class ModBlocks {
     public static final Block SOUL_BLAZE_ALTAR = registerBlock("soul_blaze_altar",
             new SoulBlazeAltarBlock(FabricBlockSettings.copy(Blocks.BEDROCK).mapColor(MapColor.BROWN)));
     
+    //Concrete
+    public static final Block WHITE_CONCRETE_SLAB = registerBlock("white_concrete_slab",
+            new SlabBlock(FabricBlockSettings.copy(Blocks.WHITE_CONCRETE)));
+    public static final Block WHITE_CONCRETE_STAIRS = registerBlock("white_concrete_stairs",
+            new StairsBlock(Blocks.WHITE_CONCRETE.getDefaultState(),
+                    FabricBlockSettings.copy(Blocks.WHITE_CONCRETE)));
+    public static final Block WHITE_CONCRETE_WALL = registerBlock("white_concrete_wall",
+            new WallBlock(FabricBlockSettings.copy(Blocks.WHITE_CONCRETE)));
+    public static final Block LIGHT_GRAY_CONCRETE_SLAB = registerBlock("light_gray_concrete_slab",
+            new SlabBlock(FabricBlockSettings.copy(Blocks.LIGHT_GRAY_CONCRETE)));
+    public static final Block LIGHT_GRAY_CONCRETE_STAIRS = registerBlock("light_gray_concrete_stairs",
+            new StairsBlock(Blocks.LIGHT_GRAY_CONCRETE.getDefaultState(),
+                    FabricBlockSettings.copy(Blocks.LIGHT_GRAY_CONCRETE)));
+    public static final Block LIGHT_GRAY_CONCRETE_WALL = registerBlock("light_gray_concrete_wall",
+            new WallBlock(FabricBlockSettings.copy(Blocks.LIGHT_GRAY_CONCRETE)));
+    public static final Block GRAY_CONCRETE_SLAB = registerBlock("gray_concrete_slab",
+            new SlabBlock(FabricBlockSettings.copy(Blocks.GRAY_CONCRETE)));
+    public static final Block GRAY_CONCRETE_STAIRS = registerBlock("gray_concrete_stairs",
+            new StairsBlock(Blocks.GRAY_CONCRETE.getDefaultState(),
+                    FabricBlockSettings.copy(Blocks.GRAY_CONCRETE)));
+    public static final Block GRAY_CONCRETE_WALL = registerBlock("gray_concrete_wall",
+            new WallBlock(FabricBlockSettings.copy(Blocks.GRAY_CONCRETE)));
+    public static final Block BLACK_CONCRETE_SLAB = registerBlock("black_concrete_slab",
+            new SlabBlock(FabricBlockSettings.copy(Blocks.BLACK_CONCRETE)));
+    public static final Block BLACK_CONCRETE_STAIRS = registerBlock("black_concrete_stairs",
+            new StairsBlock(Blocks.BLACK_CONCRETE.getDefaultState(),
+                    FabricBlockSettings.copy(Blocks.BLACK_CONCRETE)));
+    public static final Block BLACK_CONCRETE_WALL = registerBlock("black_concrete_wall",
+            new WallBlock(FabricBlockSettings.copy(Blocks.BLACK_CONCRETE)));
+    public static final Block BROWN_CONCRETE_SLAB = registerBlock("brown_concrete_slab",
+            new SlabBlock(FabricBlockSettings.copy(Blocks.BROWN_CONCRETE)));
+    public static final Block BROWN_CONCRETE_STAIRS = registerBlock("brown_concrete_stairs",
+            new StairsBlock(Blocks.BROWN_CONCRETE.getDefaultState(),
+                    FabricBlockSettings.copy(Blocks.BROWN_CONCRETE)));
+    public static final Block BROWN_CONCRETE_WALL = registerBlock("brown_concrete_wall",
+            new WallBlock(FabricBlockSettings.copy(Blocks.BROWN_CONCRETE)));
+    public static final Block RED_CONCRETE_SLAB = registerBlock("red_concrete_slab",
+            new SlabBlock(FabricBlockSettings.copy(Blocks.RED_CONCRETE)));
+    public static final Block RED_CONCRETE_STAIRS = registerBlock("red_concrete_stairs",
+            new StairsBlock(Blocks.RED_CONCRETE.getDefaultState(),
+                    FabricBlockSettings.copy(Blocks.RED_CONCRETE)));
+    public static final Block RED_CONCRETE_WALL = registerBlock("red_concrete_wall",
+            new WallBlock(FabricBlockSettings.copy(Blocks.RED_CONCRETE)));
+    public static final Block ORANGE_CONCRETE_SLAB = registerBlock("orange_concrete_slab",
+            new SlabBlock(FabricBlockSettings.copy(Blocks.ORANGE_CONCRETE)));
+    public static final Block ORANGE_CONCRETE_STAIRS = registerBlock("orange_concrete_stairs",
+            new StairsBlock(Blocks.ORANGE_CONCRETE.getDefaultState(),
+                    FabricBlockSettings.copy(Blocks.ORANGE_CONCRETE)));
+    public static final Block ORANGE_CONCRETE_WALL = registerBlock("orange_concrete_wall",
+            new WallBlock(FabricBlockSettings.copy(Blocks.ORANGE_CONCRETE)));
+    public static final Block YELLOW_CONCRETE_SLAB = registerBlock("yellow_concrete_slab",
+            new SlabBlock(FabricBlockSettings.copy(Blocks.YELLOW_CONCRETE)));
+    public static final Block YELLOW_CONCRETE_STAIRS = registerBlock("yellow_concrete_stairs",
+            new StairsBlock(Blocks.YELLOW_CONCRETE.getDefaultState(),
+                    FabricBlockSettings.copy(Blocks.YELLOW_CONCRETE)));
+    public static final Block YELLOW_CONCRETE_WALL = registerBlock("yellow_concrete_wall",
+            new WallBlock(FabricBlockSettings.copy(Blocks.YELLOW_CONCRETE)));
+    public static final Block LIME_CONCRETE_SLAB = registerBlock("lime_concrete_slab",
+            new SlabBlock(FabricBlockSettings.copy(Blocks.LIME_CONCRETE)));
+    public static final Block LIME_CONCRETE_STAIRS = registerBlock("lime_concrete_stairs",
+            new StairsBlock(Blocks.LIME_CONCRETE.getDefaultState(),
+                    FabricBlockSettings.copy(Blocks.LIME_CONCRETE)));
+    public static final Block LIME_CONCRETE_WALL = registerBlock("lime_concrete_wall",
+            new WallBlock(FabricBlockSettings.copy(Blocks.LIME_CONCRETE)));
+    public static final Block GREEN_CONCRETE_SLAB = registerBlock("green_concrete_slab",
+            new SlabBlock(FabricBlockSettings.copy(Blocks.GREEN_CONCRETE)));
+    public static final Block GREEN_CONCRETE_STAIRS = registerBlock("green_concrete_stairs",
+            new StairsBlock(Blocks.GREEN_CONCRETE.getDefaultState(),
+                    FabricBlockSettings.copy(Blocks.GREEN_CONCRETE)));
+    public static final Block GREEN_CONCRETE_WALL = registerBlock("green_concrete_wall",
+            new WallBlock(FabricBlockSettings.copy(Blocks.GREEN_CONCRETE)));
+    public static final Block CYAN_CONCRETE_SLAB = registerBlock("cyan_concrete_slab",
+            new SlabBlock(FabricBlockSettings.copy(Blocks.CYAN_CONCRETE)));
+    public static final Block CYAN_CONCRETE_STAIRS = registerBlock("cyan_concrete_stairs",
+            new StairsBlock(Blocks.CYAN_CONCRETE.getDefaultState(),
+                    FabricBlockSettings.copy(Blocks.CYAN_CONCRETE)));
+    public static final Block CYAN_CONCRETE_WALL = registerBlock("cyan_concrete_wall",
+            new WallBlock(FabricBlockSettings.copy(Blocks.CYAN_CONCRETE)));
+    public static final Block LIGHT_BLUE_CONCRETE_SLAB = registerBlock("light_blue_concrete_slab",
+            new SlabBlock(FabricBlockSettings.copy(Blocks.LIGHT_BLUE_CONCRETE)));
+    public static final Block LIGHT_BLUE_CONCRETE_STAIRS = registerBlock("light_blue_concrete_stairs",
+            new StairsBlock(Blocks.LIGHT_BLUE_CONCRETE.getDefaultState(),
+                    FabricBlockSettings.copy(Blocks.LIGHT_BLUE_CONCRETE)));
+    public static final Block LIGHT_BLUE_CONCRETE_WALL = registerBlock("light_blue_concrete_wall",
+            new WallBlock(FabricBlockSettings.copy(Blocks.LIGHT_BLUE_CONCRETE)));
+    public static final Block BLUE_CONCRETE_SLAB = registerBlock("blue_concrete_slab",
+            new SlabBlock(FabricBlockSettings.copy(Blocks.BLUE_CONCRETE)));
+    public static final Block BLUE_CONCRETE_STAIRS = registerBlock("blue_concrete_stairs",
+            new StairsBlock(Blocks.BLUE_CONCRETE.getDefaultState(),
+                    FabricBlockSettings.copy(Blocks.BLUE_CONCRETE)));
+    public static final Block BLUE_CONCRETE_WALL = registerBlock("blue_concrete_wall",
+            new WallBlock(FabricBlockSettings.copy(Blocks.BLUE_CONCRETE)));
+    public static final Block PURPLE_CONCRETE_SLAB = registerBlock("purple_concrete_slab",
+            new SlabBlock(FabricBlockSettings.copy(Blocks.PURPLE_CONCRETE)));
+    public static final Block PURPLE_CONCRETE_STAIRS = registerBlock("purple_concrete_stairs",
+            new StairsBlock(Blocks.PURPLE_CONCRETE.getDefaultState(),
+                    FabricBlockSettings.copy(Blocks.PURPLE_CONCRETE)));
+    public static final Block PURPLE_CONCRETE_WALL = registerBlock("purple_concrete_wall",
+            new WallBlock(FabricBlockSettings.copy(Blocks.PURPLE_CONCRETE)));
+    public static final Block MAGENTA_CONCRETE_SLAB = registerBlock("magenta_concrete_slab",
+            new SlabBlock(FabricBlockSettings.copy(Blocks.MAGENTA_CONCRETE)));
+    public static final Block MAGENTA_CONCRETE_STAIRS = registerBlock("magenta_concrete_stairs",
+            new StairsBlock(Blocks.MAGENTA_CONCRETE.getDefaultState(),
+                    FabricBlockSettings.copy(Blocks.MAGENTA_CONCRETE)));
+    public static final Block MAGENTA_CONCRETE_WALL = registerBlock("magenta_concrete_wall",
+            new WallBlock(FabricBlockSettings.copy(Blocks.MAGENTA_CONCRETE)));
+    public static final Block PINK_CONCRETE_SLAB = registerBlock("pink_concrete_slab",
+            new SlabBlock(FabricBlockSettings.copy(Blocks.PINK_CONCRETE)));
+    public static final Block PINK_CONCRETE_STAIRS = registerBlock("pink_concrete_stairs",
+            new StairsBlock(Blocks.PINK_CONCRETE.getDefaultState(),
+                    FabricBlockSettings.copy(Blocks.PINK_CONCRETE)));
+    public static final Block PINK_CONCRETE_WALL = registerBlock("pink_concrete_wall",
+            new WallBlock(FabricBlockSettings.copy(Blocks.PINK_CONCRETE)));
     //tuff
     public static final Block TUFF_SLAB = registerBlock("tuff_slab",
             new SlabBlock(FabricBlockSettings.copy(Blocks.TUFF)));
@@ -505,6 +618,8 @@ public class ModBlocks {
     public static final Block SERPENTINITE_TIN_ORE = registerBlock("serpentinite_tin_ore",
             new Block(FabricBlockSettings.copy(ModBlocks.SERPENTINITE_COAL_ORE)));
     public static final Block SERPENTINITE_TITANIUM_ORE = registerBlock("serpentinite_titanium_ore",
+            new Block(FabricBlockSettings.copy(ModBlocks.SERPENTINITE_COAL_ORE)));
+    public static final Block SERPENTINITE_QUARTZ_ORE = registerBlock("serpentinite_quartz_ore",
             new Block(FabricBlockSettings.copy(ModBlocks.SERPENTINITE_COAL_ORE)));
     public static final Block TRIAFIA_LOG = registerBlock("triafia_log",
             new PillarBlock(FabricBlockSettings.copy(Blocks.OAK_LOG).mapColor(MapColor.DARK_GREEN)));

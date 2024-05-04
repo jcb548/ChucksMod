@@ -44,6 +44,11 @@ public class ModBlockTags {
     public static final TagKey<Block> GLAUCONITE = ModBlockTags.of("glauconite");
     public static final TagKey<Block> TRIAFIA_CRYSTAL_PLANTABLE = ModBlockTags.of("triafia_crystal_plantable");
     public static final TagKey<Block> COPPER_PLANTABLE = ModBlockTags.of("copper_plantable");
+    public static final TagKey<Block> QUARTZ_ORES = ModBlockTags.commonOf("quartz_ores");
+    public static final TagKey<Block> CONCRETE = ModBlockTags.commonOf("concrete");
+    public static final TagKey<Block> CONCRETE_SLABS = ModBlockTags.commonOf("concrete_slabs");
+    public static final TagKey<Block> CONCRETE_STAIRS = ModBlockTags.commonOf("concrete_stairs");
+    public static final TagKey<Block> CONCRETE_WALLS = ModBlockTags.commonOf("concrete_walls");
 
     private static TagKey<Block> of(String id) {
         return TagKey.of(RegistryKeys.BLOCK, new Identifier(ChucksMod.MOD_ID, id));

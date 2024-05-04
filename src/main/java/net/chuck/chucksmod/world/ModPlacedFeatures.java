@@ -78,6 +78,8 @@ public class ModPlacedFeatures {
             registerKey("triafia_tin_ore_placed");
     public static final RegistryKey<PlacedFeature> TRIAFIA_TITANIUM_ORE_PLACED_KEY =
             registerKey("triafia_titanium_ore_placed");
+    public static final RegistryKey<PlacedFeature> TRIAFIA_QUARTZ_ORE_PLACED_KEY =
+            registerKey("triafia_quartz_ore_placed");
     public static final RegistryKey<PlacedFeature> TRIAFIA_ECLOGITE_VEIN_PLACED_KEY =
             registerKey("triafia_eclogite_vein_placed");
     public static final RegistryKey<PlacedFeature> TRIAFIA_TUFF_VEIN_PLACED_KEY =
@@ -218,6 +220,9 @@ public class ModPlacedFeatures {
         register(context, TRIAFIA_TITANIUM_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup
                 .getOrThrow(ModConfiguredFeatures.TRIAFIA_TITANIUM_ORE_KEY), ModOrePlacement.modifiersWithCount(10,
                 HeightRangePlacementModifier.uniform(YOffset.fixed(-64), YOffset.fixed(16))));
+        register(context, TRIAFIA_QUARTZ_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup
+                .getOrThrow(ModConfiguredFeatures.TRIAFIA_QUARTZ_ORE_KEY), ModOrePlacement.modifiersWithCount(28,
+                HeightRangePlacementModifier.uniform(YOffset.fixed(-64), YOffset.fixed(96))));
         register(context, TRIAFIA_ECLOGITE_VEIN_PLACED_KEY, configuredFeatureRegistryEntryLookup
                 .getOrThrow(ModConfiguredFeatures.TRIAFIA_ECLOGITE_VEIN_KEY), ModOrePlacement.modifiersWithCount(6,
                 HeightRangePlacementModifier.uniform(YOffset.fixed(-64), YOffset.fixed(128))));

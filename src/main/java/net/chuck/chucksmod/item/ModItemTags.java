@@ -2,6 +2,8 @@ package net.chuck.chucksmod.item;
 
 import dev.architectury.event.events.common.ExplosionEvent;
 import net.chuck.chucksmod.ChucksMod;
+import net.chuck.chucksmod.block.ModBlockTags;
+import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.predicate.item.ItemPredicate;
@@ -71,4 +73,14 @@ public class ModItemTags {
             new Identifier("c", "bronze_blocks"));
     public static final TagKey<Item> TRIAFIUM_ORES = TagKey.of(RegistryKeys.ITEM,
             new Identifier(ChucksMod.MOD_ID, "triafium_blocks"));
+    public static final TagKey<Item> QUARTZ_ORES = TagKey.of(RegistryKeys.ITEM,
+            new Identifier("c", "quartz_ores"));
+    public static final TagKey<Item> CONCRETE = TagKey.of(RegistryKeys.ITEM,
+            new Identifier("c", "concrete"));
+    public static final TagKey<Item> CONCRETE_SLABS = TagKey.of(RegistryKeys.ITEM,
+            new Identifier("c", "concrete_slabs"));
+    public static final TagKey<Item> CONCRETE_STAIRS = TagKey.of(RegistryKeys.ITEM,
+            new Identifier("c", "concrete_stairs"));
+    public static final TagKey<Item> CONCRETE_WALLS = TagKey.of(RegistryKeys.ITEM,
+            new Identifier("c", "concrete_walls"));
 }

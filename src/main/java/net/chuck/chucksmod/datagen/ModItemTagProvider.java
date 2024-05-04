@@ -1,6 +1,7 @@
 package net.chuck.chucksmod.datagen;
 
 import dev.architectury.platform.Mod;
+import net.chuck.chucksmod.block.ModBlockTags;
 import net.chuck.chucksmod.block.ModBlocks;
 import net.chuck.chucksmod.item.ModItemTags;
 import net.chuck.chucksmod.item.ModItems;
@@ -403,5 +404,81 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModBlocks.NETHER_TRIAFIUM_ORE.asItem())
                 .add(ModBlocks.END_STONE_TRIAFIUM_ORE.asItem())
                 .add(ModBlocks.SERPENTINITE_TRIAFIUM_ORE.asItem());
+
+        getOrCreateTagBuilder(ModItemTags.QUARTZ_ORES)
+                .add(Items.NETHER_QUARTZ_ORE)
+                .add(ModBlocks.SERPENTINITE_QUARTZ_ORE.asItem());
+
+        getOrCreateTagBuilder(ModItemTags.CONCRETE)
+                .add(Items.WHITE_CONCRETE)
+                .add(Items.LIGHT_GRAY_CONCRETE)
+                .add(Items.GRAY_CONCRETE)
+                .add(Items.BLACK_CONCRETE)
+                .add(Items.BROWN_CONCRETE)
+                .add(Items.RED_CONCRETE)
+                .add(Items.ORANGE_CONCRETE)
+                .add(Items.YELLOW_CONCRETE)
+                .add(Items.LIME_CONCRETE)
+                .add(Items.GREEN_CONCRETE)
+                .add(Items.CYAN_CONCRETE)
+                .add(Items.LIGHT_BLUE_CONCRETE)
+                .add(Items.BLUE_CONCRETE)
+                .add(Items.PURPLE_CONCRETE)
+                .add(Items.MAGENTA_CONCRETE)
+                .add(Items.PINK_CONCRETE);
+
+        getOrCreateTagBuilder(ModItemTags.CONCRETE_SLABS)
+                .add(ModBlocks.WHITE_CONCRETE_SLAB.asItem())
+                .add(ModBlocks.LIGHT_GRAY_CONCRETE_SLAB.asItem())
+                .add(ModBlocks.GRAY_CONCRETE_SLAB.asItem())
+                .add(ModBlocks.BLACK_CONCRETE_SLAB.asItem())
+                .add(ModBlocks.BROWN_CONCRETE_SLAB.asItem())
+                .add(ModBlocks.RED_CONCRETE_SLAB.asItem())
+                .add(ModBlocks.ORANGE_CONCRETE_SLAB.asItem())
+                .add(ModBlocks.YELLOW_CONCRETE_SLAB.asItem())
+                .add(ModBlocks.LIME_CONCRETE_SLAB.asItem())
+                .add(ModBlocks.GREEN_CONCRETE_SLAB.asItem())
+                .add(ModBlocks.CYAN_CONCRETE_SLAB.asItem())
+                .add(ModBlocks.LIGHT_BLUE_CONCRETE_SLAB.asItem())
+                .add(ModBlocks.BLUE_CONCRETE_SLAB.asItem())
+                .add(ModBlocks.PURPLE_CONCRETE_SLAB.asItem())
+                .add(ModBlocks.MAGENTA_CONCRETE_SLAB.asItem())
+                .add(ModBlocks.PINK_CONCRETE_SLAB.asItem());
+
+        getOrCreateTagBuilder(ModItemTags.CONCRETE_STAIRS)
+                .add(ModBlocks.WHITE_CONCRETE_STAIRS.asItem())
+                .add(ModBlocks.LIGHT_GRAY_CONCRETE_STAIRS.asItem())
+                .add(ModBlocks.GRAY_CONCRETE_STAIRS.asItem())
+                .add(ModBlocks.BLACK_CONCRETE_STAIRS.asItem())
+                .add(ModBlocks.BROWN_CONCRETE_STAIRS.asItem())
+                .add(ModBlocks.RED_CONCRETE_STAIRS.asItem())
+                .add(ModBlocks.ORANGE_CONCRETE_STAIRS.asItem())
+                .add(ModBlocks.YELLOW_CONCRETE_STAIRS.asItem())
+                .add(ModBlocks.LIME_CONCRETE_STAIRS.asItem())
+                .add(ModBlocks.GREEN_CONCRETE_STAIRS.asItem())
+                .add(ModBlocks.CYAN_CONCRETE_STAIRS.asItem())
+                .add(ModBlocks.LIGHT_BLUE_CONCRETE_STAIRS.asItem())
+                .add(ModBlocks.BLUE_CONCRETE_STAIRS.asItem())
+                .add(ModBlocks.PURPLE_CONCRETE_STAIRS.asItem())
+                .add(ModBlocks.MAGENTA_CONCRETE_STAIRS.asItem())
+                .add(ModBlocks.PINK_CONCRETE_STAIRS.asItem());
+
+        getOrCreateTagBuilder(ModItemTags.CONCRETE_WALLS)
+                .add(ModBlocks.WHITE_CONCRETE_WALL.asItem())
+                .add(ModBlocks.LIGHT_GRAY_CONCRETE_WALL.asItem())
+                .add(ModBlocks.GRAY_CONCRETE_WALL.asItem())
+                .add(ModBlocks.BLACK_CONCRETE_WALL.asItem())
+                .add(ModBlocks.BROWN_CONCRETE_WALL.asItem())
+                .add(ModBlocks.RED_CONCRETE_WALL.asItem())
+                .add(ModBlocks.ORANGE_CONCRETE_WALL.asItem())
+                .add(ModBlocks.YELLOW_CONCRETE_WALL.asItem())
+                .add(ModBlocks.LIME_CONCRETE_WALL.asItem())
+                .add(ModBlocks.GREEN_CONCRETE_WALL.asItem())
+                .add(ModBlocks.CYAN_CONCRETE_WALL.asItem())
+                .add(ModBlocks.LIGHT_BLUE_CONCRETE_WALL.asItem())
+                .add(ModBlocks.BLUE_CONCRETE_WALL.asItem())
+                .add(ModBlocks.PURPLE_CONCRETE_WALL.asItem())
+                .add(ModBlocks.MAGENTA_CONCRETE_WALL.asItem())
+                .add(ModBlocks.PINK_CONCRETE_WALL.asItem());
     }
 }

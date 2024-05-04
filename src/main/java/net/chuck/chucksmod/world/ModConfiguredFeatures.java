@@ -106,6 +106,8 @@ public class ModConfiguredFeatures {
             registerKey("triafia_tin_ore");
     public static final RegistryKey<ConfiguredFeature<?, ?>> TRIAFIA_TITANIUM_ORE_KEY =
             registerKey("triafia_titanium_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> TRIAFIA_QUARTZ_ORE_KEY =
+            registerKey("triafia_quartz_ore");
     public static final RegistryKey<ConfiguredFeature<?, ?>> TRIAFIA_ECLOGITE_VEIN_KEY =
             registerKey("triafia_eclogite_vein");
     public static final RegistryKey<ConfiguredFeature<?, ?>> TRIAFIA_TUFF_VEIN_KEY =
@@ -273,6 +275,9 @@ public class ModConfiguredFeatures {
         List<OreFeatureConfig.Target> triafiaTitaniumOre =
                 List.of(OreFeatureConfig.createTarget(serpentiniteReplaceables,
                         ModBlocks.SERPENTINITE_TITANIUM_ORE.getDefaultState()));
+        List<OreFeatureConfig.Target> triafiaQuartzOre =
+                List.of(OreFeatureConfig.createTarget(serpentiniteReplaceables,
+                        ModBlocks.SERPENTINITE_QUARTZ_ORE.getDefaultState()));
         List<OreFeatureConfig.Target> triafiaEclogiteVein =
                 List.of(OreFeatureConfig.createTarget(serpentiniteReplaceables,
                         ModBlocks.ECLOGITE.getDefaultState()));
@@ -397,6 +402,7 @@ public class ModConfiguredFeatures {
         register(context, TRIAFIA_REDSTONE_ORE_KEY, Feature.ORE, new OreFeatureConfig(triafiaRedstoneOre, 12));
         register(context, TRIAFIA_TIN_ORE_KEY, Feature.ORE, new OreFeatureConfig(triafiaTinOre, 6));
         register(context, TRIAFIA_TITANIUM_ORE_KEY, Feature.ORE, new OreFeatureConfig(triafiaTitaniumOre, 9));
+        register(context, TRIAFIA_QUARTZ_ORE_KEY, Feature.ORE, new OreFeatureConfig(triafiaQuartzOre, 9));
         register(context, TRIAFIA_ECLOGITE_VEIN_KEY, Feature.ORE, new OreFeatureConfig(triafiaEclogiteVein, 64));
         register(context, TRIAFIA_TUFF_VEIN_KEY, Feature.ORE, new OreFeatureConfig(triafiaTuffVein, 64));
         // Register Pacsaria Ores

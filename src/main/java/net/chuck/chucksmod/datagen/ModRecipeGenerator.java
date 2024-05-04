@@ -21,6 +21,7 @@ import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.registry.tag.TagKey;
+import net.minecraft.util.Identifier;
 
 import java.util.List;
 
@@ -89,7 +90,9 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
         generateHardenedGlassRecipes(exporter);
         generateBagRecipes(exporter);
         generateTitaniumRecipes(exporter);
-        generateCustomSlabStairWallRecipes(exporter, Blocks.TUFF, ModBlocks.TUFF_SLAB, ModBlocks.TUFF_STAIRS, ModBlocks.TUFF_WALL);
+
+        generateVanillaBlockSlabStairWallRecipes(exporter);
+
         generateCustomStoneRecipes(exporter, ModBlocks.ECLOGITE, ModBlocks.ECLOGITE_SLAB, ModBlocks.ECLOGITE_STAIRS,
                 ModBlocks.ECLOGITE_WALL, ModBlocks.ECLOGITE_BRICKS, ModBlocks.ECLOGITE_BRICK_SLAB,
                 ModBlocks.ECLOGITE_BRICK_STAIRS, ModBlocks.ECLOGITE_BRICK_WALL, ModBlocks.POLISHED_ECLOGITE,
@@ -109,6 +112,106 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
         offerCrushingRecipe(exporter, Items.COBBLESTONE, ModItems.STONE_DUST, 9);
         offerCrushingRecipe(exporter, Items.GRAVEL, ModItems.STONE_DUST, 9);
         offerCrushingRecipe(exporter, ItemTags.STONE_BRICKS, ModItems.STONE_DUST, 9);
+    }
+    private void generateVanillaBlockSlabStairWallRecipes(RecipeExporter exporter){
+        generateCustomSlabStairWallRecipes(exporter, Blocks.TUFF, ModBlocks.TUFF_SLAB, ModBlocks.TUFF_STAIRS, ModBlocks.TUFF_WALL);
+        generateCustomSlabStairWallRecipes(exporter, Blocks.WHITE_CONCRETE, ModBlocks.WHITE_CONCRETE_SLAB, 
+                ModBlocks.WHITE_CONCRETE_STAIRS, ModBlocks.WHITE_CONCRETE_WALL);
+        offerDyeingRecipe(exporter, ModItemTags.CONCRETE, Items.WHITE_DYE, Blocks.WHITE_CONCRETE);
+        offerDyeingRecipe(exporter, ModItemTags.CONCRETE_SLABS, Items.WHITE_DYE, ModBlocks.WHITE_CONCRETE_SLAB);
+        offerDyeingRecipe(exporter, ModItemTags.CONCRETE_STAIRS, Items.WHITE_DYE, ModBlocks.WHITE_CONCRETE_STAIRS);
+        offerDyeingRecipe(exporter, ModItemTags.CONCRETE_WALLS, Items.WHITE_DYE, ModBlocks.WHITE_CONCRETE_WALL);
+        
+        offerDyeingRecipe(exporter, ModItemTags.CONCRETE, Items.LIGHT_GRAY_DYE, Blocks.LIGHT_GRAY_CONCRETE);
+        offerDyeingRecipe(exporter, ModItemTags.CONCRETE_SLABS, Items.LIGHT_GRAY_DYE, ModBlocks.LIGHT_GRAY_CONCRETE_SLAB);
+        offerDyeingRecipe(exporter, ModItemTags.CONCRETE_STAIRS, Items.LIGHT_GRAY_DYE, ModBlocks.LIGHT_GRAY_CONCRETE_STAIRS);
+        offerDyeingRecipe(exporter, ModItemTags.CONCRETE_WALLS, Items.LIGHT_GRAY_DYE, ModBlocks.LIGHT_GRAY_CONCRETE_WALL);
+        generateCustomSlabStairWallRecipes(exporter, Blocks.LIGHT_GRAY_CONCRETE, ModBlocks.LIGHT_GRAY_CONCRETE_SLAB, 
+                ModBlocks.LIGHT_GRAY_CONCRETE_STAIRS, ModBlocks.LIGHT_GRAY_CONCRETE_WALL);
+        offerDyeingRecipe(exporter, ModItemTags.CONCRETE, Items.GRAY_DYE, Blocks.GRAY_CONCRETE);
+        offerDyeingRecipe(exporter, ModItemTags.CONCRETE_SLABS, Items.GRAY_DYE, ModBlocks.GRAY_CONCRETE_SLAB);
+        offerDyeingRecipe(exporter, ModItemTags.CONCRETE_STAIRS, Items.GRAY_DYE, ModBlocks.GRAY_CONCRETE_STAIRS);
+        offerDyeingRecipe(exporter, ModItemTags.CONCRETE_WALLS, Items.GRAY_DYE, ModBlocks.GRAY_CONCRETE_WALL);
+        generateCustomSlabStairWallRecipes(exporter, Blocks.GRAY_CONCRETE, ModBlocks.GRAY_CONCRETE_SLAB, 
+                ModBlocks.GRAY_CONCRETE_STAIRS, ModBlocks.GRAY_CONCRETE_WALL);
+        offerDyeingRecipe(exporter, ModItemTags.CONCRETE, Items.BLACK_DYE, Blocks.BLACK_CONCRETE);
+        offerDyeingRecipe(exporter, ModItemTags.CONCRETE_SLABS, Items.BLACK_DYE, ModBlocks.BLACK_CONCRETE_SLAB);
+        offerDyeingRecipe(exporter, ModItemTags.CONCRETE_STAIRS, Items.BLACK_DYE, ModBlocks.BLACK_CONCRETE_STAIRS);
+        offerDyeingRecipe(exporter, ModItemTags.CONCRETE_WALLS, Items.BLACK_DYE, ModBlocks.BLACK_CONCRETE_WALL);
+        generateCustomSlabStairWallRecipes(exporter, Blocks.BLACK_CONCRETE, ModBlocks.BLACK_CONCRETE_SLAB, 
+                ModBlocks.BLACK_CONCRETE_STAIRS, ModBlocks.BLACK_CONCRETE_WALL);
+        offerDyeingRecipe(exporter, ModItemTags.CONCRETE, Items.BROWN_DYE, Blocks.BROWN_CONCRETE);
+        offerDyeingRecipe(exporter, ModItemTags.CONCRETE_SLABS, Items.BROWN_DYE, ModBlocks.BROWN_CONCRETE_SLAB);
+        offerDyeingRecipe(exporter, ModItemTags.CONCRETE_STAIRS, Items.BROWN_DYE, ModBlocks.BROWN_CONCRETE_STAIRS);
+        offerDyeingRecipe(exporter, ModItemTags.CONCRETE_WALLS, Items.BROWN_DYE, ModBlocks.BROWN_CONCRETE_WALL);
+        generateCustomSlabStairWallRecipes(exporter, Blocks.BROWN_CONCRETE, ModBlocks.BROWN_CONCRETE_SLAB, 
+                ModBlocks.BROWN_CONCRETE_STAIRS, ModBlocks.BROWN_CONCRETE_WALL);
+        offerDyeingRecipe(exporter, ModItemTags.CONCRETE, Items.RED_DYE, Blocks.RED_CONCRETE);
+        offerDyeingRecipe(exporter, ModItemTags.CONCRETE_SLABS, Items.RED_DYE, ModBlocks.RED_CONCRETE_SLAB);
+        offerDyeingRecipe(exporter, ModItemTags.CONCRETE_STAIRS, Items.RED_DYE, ModBlocks.RED_CONCRETE_STAIRS);
+        offerDyeingRecipe(exporter, ModItemTags.CONCRETE_WALLS, Items.RED_DYE, ModBlocks.RED_CONCRETE_WALL);
+        generateCustomSlabStairWallRecipes(exporter, Blocks.RED_CONCRETE, ModBlocks.RED_CONCRETE_SLAB, 
+                ModBlocks.RED_CONCRETE_STAIRS, ModBlocks.RED_CONCRETE_WALL);
+        offerDyeingRecipe(exporter, ModItemTags.CONCRETE, Items.ORANGE_DYE, Blocks.ORANGE_CONCRETE);
+        offerDyeingRecipe(exporter, ModItemTags.CONCRETE_SLABS, Items.ORANGE_DYE, ModBlocks.ORANGE_CONCRETE_SLAB);
+        offerDyeingRecipe(exporter, ModItemTags.CONCRETE_STAIRS, Items.ORANGE_DYE, ModBlocks.ORANGE_CONCRETE_STAIRS);
+        offerDyeingRecipe(exporter, ModItemTags.CONCRETE_WALLS, Items.ORANGE_DYE, ModBlocks.ORANGE_CONCRETE_WALL);
+        generateCustomSlabStairWallRecipes(exporter, Blocks.ORANGE_CONCRETE, ModBlocks.ORANGE_CONCRETE_SLAB, 
+                ModBlocks.ORANGE_CONCRETE_STAIRS, ModBlocks.ORANGE_CONCRETE_WALL);
+        offerDyeingRecipe(exporter, ModItemTags.CONCRETE, Items.YELLOW_DYE, Blocks.YELLOW_CONCRETE);
+        offerDyeingRecipe(exporter, ModItemTags.CONCRETE_SLABS, Items.YELLOW_DYE, ModBlocks.YELLOW_CONCRETE_SLAB);
+        offerDyeingRecipe(exporter, ModItemTags.CONCRETE_STAIRS, Items.YELLOW_DYE, ModBlocks.YELLOW_CONCRETE_STAIRS);
+        offerDyeingRecipe(exporter, ModItemTags.CONCRETE_WALLS, Items.YELLOW_DYE, ModBlocks.YELLOW_CONCRETE_WALL);
+        generateCustomSlabStairWallRecipes(exporter, Blocks.YELLOW_CONCRETE, ModBlocks.YELLOW_CONCRETE_SLAB, 
+                ModBlocks.YELLOW_CONCRETE_STAIRS, ModBlocks.YELLOW_CONCRETE_WALL);
+        offerDyeingRecipe(exporter, ModItemTags.CONCRETE, Items.LIME_DYE, Blocks.LIME_CONCRETE);
+        offerDyeingRecipe(exporter, ModItemTags.CONCRETE_SLABS, Items.LIME_DYE, ModBlocks.LIME_CONCRETE_SLAB);
+        offerDyeingRecipe(exporter, ModItemTags.CONCRETE_STAIRS, Items.LIME_DYE, ModBlocks.LIME_CONCRETE_STAIRS);
+        offerDyeingRecipe(exporter, ModItemTags.CONCRETE_WALLS, Items.LIME_DYE, ModBlocks.LIME_CONCRETE_WALL);
+        generateCustomSlabStairWallRecipes(exporter, Blocks.LIME_CONCRETE, ModBlocks.LIME_CONCRETE_SLAB, 
+                ModBlocks.LIME_CONCRETE_STAIRS, ModBlocks.LIME_CONCRETE_WALL);
+        offerDyeingRecipe(exporter, ModItemTags.CONCRETE, Items.GREEN_DYE, Blocks.GREEN_CONCRETE);
+        offerDyeingRecipe(exporter, ModItemTags.CONCRETE_SLABS, Items.GREEN_DYE, ModBlocks.GREEN_CONCRETE_SLAB);
+        offerDyeingRecipe(exporter, ModItemTags.CONCRETE_STAIRS, Items.GREEN_DYE, ModBlocks.GREEN_CONCRETE_STAIRS);
+        offerDyeingRecipe(exporter, ModItemTags.CONCRETE_WALLS, Items.GREEN_DYE, ModBlocks.GREEN_CONCRETE_WALL);
+        generateCustomSlabStairWallRecipes(exporter, Blocks.GREEN_CONCRETE, ModBlocks.GREEN_CONCRETE_SLAB, 
+                ModBlocks.GREEN_CONCRETE_STAIRS, ModBlocks.GREEN_CONCRETE_WALL);
+        offerDyeingRecipe(exporter, ModItemTags.CONCRETE, Items.CYAN_DYE, Blocks.CYAN_CONCRETE);
+        offerDyeingRecipe(exporter, ModItemTags.CONCRETE_SLABS, Items.CYAN_DYE, ModBlocks.CYAN_CONCRETE_SLAB);
+        offerDyeingRecipe(exporter, ModItemTags.CONCRETE_STAIRS, Items.CYAN_DYE, ModBlocks.CYAN_CONCRETE_STAIRS);
+        offerDyeingRecipe(exporter, ModItemTags.CONCRETE_WALLS, Items.CYAN_DYE, ModBlocks.CYAN_CONCRETE_WALL);
+        generateCustomSlabStairWallRecipes(exporter, Blocks.CYAN_CONCRETE, ModBlocks.CYAN_CONCRETE_SLAB, 
+                ModBlocks.CYAN_CONCRETE_STAIRS, ModBlocks.CYAN_CONCRETE_WALL);
+        offerDyeingRecipe(exporter, ModItemTags.CONCRETE, Items.LIGHT_BLUE_DYE, Blocks.LIGHT_BLUE_CONCRETE);
+        offerDyeingRecipe(exporter, ModItemTags.CONCRETE_SLABS, Items.LIGHT_BLUE_DYE, ModBlocks.LIGHT_BLUE_CONCRETE_SLAB);
+        offerDyeingRecipe(exporter, ModItemTags.CONCRETE_STAIRS, Items.LIGHT_BLUE_DYE, ModBlocks.LIGHT_BLUE_CONCRETE_STAIRS);
+        offerDyeingRecipe(exporter, ModItemTags.CONCRETE_WALLS, Items.LIGHT_BLUE_DYE, ModBlocks.LIGHT_BLUE_CONCRETE_WALL);
+        generateCustomSlabStairWallRecipes(exporter, Blocks.LIGHT_BLUE_CONCRETE, ModBlocks.LIGHT_BLUE_CONCRETE_SLAB, 
+                ModBlocks.LIGHT_BLUE_CONCRETE_STAIRS, ModBlocks.LIGHT_BLUE_CONCRETE_WALL);
+        offerDyeingRecipe(exporter, ModItemTags.CONCRETE, Items.BLUE_DYE, Blocks.BLUE_CONCRETE);
+        offerDyeingRecipe(exporter, ModItemTags.CONCRETE_SLABS, Items.BLUE_DYE, ModBlocks.BLUE_CONCRETE_SLAB);
+        offerDyeingRecipe(exporter, ModItemTags.CONCRETE_STAIRS, Items.BLUE_DYE, ModBlocks.BLUE_CONCRETE_STAIRS);
+        offerDyeingRecipe(exporter, ModItemTags.CONCRETE_WALLS, Items.BLUE_DYE, ModBlocks.BLUE_CONCRETE_WALL);
+        generateCustomSlabStairWallRecipes(exporter, Blocks.BLUE_CONCRETE, ModBlocks.BLUE_CONCRETE_SLAB, 
+                ModBlocks.BLUE_CONCRETE_STAIRS, ModBlocks.BLUE_CONCRETE_WALL);
+        offerDyeingRecipe(exporter, ModItemTags.CONCRETE, Items.PURPLE_DYE, Blocks.PURPLE_CONCRETE);
+        offerDyeingRecipe(exporter, ModItemTags.CONCRETE_SLABS, Items.PURPLE_DYE, ModBlocks.PURPLE_CONCRETE_SLAB);
+        offerDyeingRecipe(exporter, ModItemTags.CONCRETE_STAIRS, Items.PURPLE_DYE, ModBlocks.PURPLE_CONCRETE_STAIRS);
+        offerDyeingRecipe(exporter, ModItemTags.CONCRETE_WALLS, Items.PURPLE_DYE, ModBlocks.PURPLE_CONCRETE_WALL);
+        generateCustomSlabStairWallRecipes(exporter, Blocks.PURPLE_CONCRETE, ModBlocks.PURPLE_CONCRETE_SLAB, 
+                ModBlocks.PURPLE_CONCRETE_STAIRS, ModBlocks.PURPLE_CONCRETE_WALL);
+        offerDyeingRecipe(exporter, ModItemTags.CONCRETE, Items.MAGENTA_DYE, Blocks.MAGENTA_CONCRETE);
+        offerDyeingRecipe(exporter, ModItemTags.CONCRETE_SLABS, Items.MAGENTA_DYE, ModBlocks.MAGENTA_CONCRETE_SLAB);
+        offerDyeingRecipe(exporter, ModItemTags.CONCRETE_STAIRS, Items.MAGENTA_DYE, ModBlocks.MAGENTA_CONCRETE_STAIRS);
+        offerDyeingRecipe(exporter, ModItemTags.CONCRETE_WALLS, Items.MAGENTA_DYE, ModBlocks.MAGENTA_CONCRETE_WALL);
+        generateCustomSlabStairWallRecipes(exporter, Blocks.MAGENTA_CONCRETE, ModBlocks.MAGENTA_CONCRETE_SLAB, 
+                ModBlocks.MAGENTA_CONCRETE_STAIRS, ModBlocks.MAGENTA_CONCRETE_WALL);
+        offerDyeingRecipe(exporter, ModItemTags.CONCRETE, Items.PINK_DYE, Blocks.PINK_CONCRETE);
+        offerDyeingRecipe(exporter, ModItemTags.CONCRETE_SLABS, Items.PINK_DYE, ModBlocks.PINK_CONCRETE_SLAB);
+        offerDyeingRecipe(exporter, ModItemTags.CONCRETE_STAIRS, Items.PINK_DYE, ModBlocks.PINK_CONCRETE_STAIRS);
+        offerDyeingRecipe(exporter, ModItemTags.CONCRETE_WALLS, Items.PINK_DYE, ModBlocks.PINK_CONCRETE_WALL);
+        generateCustomSlabStairWallRecipes(exporter, Blocks.PINK_CONCRETE, ModBlocks.PINK_CONCRETE_SLAB,
+                ModBlocks.PINK_CONCRETE_STAIRS, ModBlocks.PINK_CONCRETE_WALL);
     }
 
     private void generateMagicCropRecipes(RecipeExporter exporter) {
@@ -1025,7 +1128,8 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .input('D', dye)
                 .criterion(hasItem(dye), conditionsFromItem(dye))
                 .criterion(hasTag(input), conditionsFromTag(input))
-                .offerTo(exporter);
+                .offerTo(exporter, RecipeProvider.getItemPath(output) + "_from_"
+                        + RecipeProvider.getItemPath(dye));
     }
 
     public static void offerDyeingRecipe(RecipeExporter exporter, ItemConvertible input, ItemConvertible dye, Block output) {

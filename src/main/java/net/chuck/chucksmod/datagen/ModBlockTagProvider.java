@@ -120,6 +120,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.CRUSHER);
 
         getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
+                .addTag(ModBlockTags.QUARTZ_ORES)
                 .addTag(ModBlockTags.BARS)
                 .addTag(ModBlockTags.WIRES)
                 .addTag(ModBlockTags.TIN_ORES)
@@ -150,6 +151,10 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.TUFF_STAIRS)
                 .add(ModBlocks.TUFF_SLAB)
                 .add(ModBlocks.TUFF_WALL)
+
+                .addTag(ModBlockTags.CONCRETE_SLABS)
+                .addTag(ModBlockTags.CONCRETE_STAIRS)
+                .addTag(ModBlockTags.CONCRETE_WALLS)
 
                 .add(ModBlocks.ECLOGITE)
                 .add(ModBlocks.ECLOGITE_STAIRS)
@@ -303,6 +308,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.STRIPPED_TRIAFIA_WOOD);
 
         getOrCreateTagBuilder(BlockTags.WALLS)
+                .addTag(ModBlockTags.CONCRETE_WALLS)
                 .add(ModBlocks.SANDSTONE_BRICK_WALL)
                 .add(ModBlocks.TUFF_WALL)
                 .add(ModBlocks.ECLOGITE_WALL)
@@ -566,5 +572,81 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .addTag(ModBlockTags.SERPENTINITE)
                 .addTag(ModBlockTags.ECLOGITE)
                 .addTag(ModBlockTags.GLAUCONITE);
+
+        getOrCreateTagBuilder(ModBlockTags.QUARTZ_ORES)
+                .add(Blocks.NETHER_QUARTZ_ORE)
+                .add(ModBlocks.SERPENTINITE_QUARTZ_ORE);
+        
+        getOrCreateTagBuilder(ModBlockTags.CONCRETE)
+                .add(Blocks.WHITE_CONCRETE)
+                .add(Blocks.LIGHT_GRAY_CONCRETE)
+                .add(Blocks.GRAY_CONCRETE)
+                .add(Blocks.BLACK_CONCRETE)
+                .add(Blocks.BROWN_CONCRETE)
+                .add(Blocks.RED_CONCRETE)
+                .add(Blocks.ORANGE_CONCRETE)
+                .add(Blocks.YELLOW_CONCRETE)
+                .add(Blocks.LIME_CONCRETE)
+                .add(Blocks.GREEN_CONCRETE)
+                .add(Blocks.CYAN_CONCRETE)
+                .add(Blocks.LIGHT_BLUE_CONCRETE)
+                .add(Blocks.BLUE_CONCRETE)
+                .add(Blocks.PURPLE_CONCRETE)
+                .add(Blocks.MAGENTA_CONCRETE)
+                .add(Blocks.PINK_CONCRETE);
+        
+        getOrCreateTagBuilder(ModBlockTags.CONCRETE_SLABS)
+                .add(ModBlocks.WHITE_CONCRETE_SLAB)
+                .add(ModBlocks.LIGHT_GRAY_CONCRETE_SLAB)
+                .add(ModBlocks.GRAY_CONCRETE_SLAB)
+                .add(ModBlocks.BLACK_CONCRETE_SLAB)
+                .add(ModBlocks.BROWN_CONCRETE_SLAB)
+                .add(ModBlocks.RED_CONCRETE_SLAB)
+                .add(ModBlocks.ORANGE_CONCRETE_SLAB)
+                .add(ModBlocks.YELLOW_CONCRETE_SLAB)
+                .add(ModBlocks.LIME_CONCRETE_SLAB)
+                .add(ModBlocks.GREEN_CONCRETE_SLAB)
+                .add(ModBlocks.CYAN_CONCRETE_SLAB)
+                .add(ModBlocks.LIGHT_BLUE_CONCRETE_SLAB)
+                .add(ModBlocks.BLUE_CONCRETE_SLAB)
+                .add(ModBlocks.PURPLE_CONCRETE_SLAB)
+                .add(ModBlocks.MAGENTA_CONCRETE_SLAB)
+                .add(ModBlocks.PINK_CONCRETE_SLAB);
+        
+        getOrCreateTagBuilder(ModBlockTags.CONCRETE_STAIRS)
+                .add(ModBlocks.WHITE_CONCRETE_STAIRS)
+                .add(ModBlocks.LIGHT_GRAY_CONCRETE_STAIRS)
+                .add(ModBlocks.GRAY_CONCRETE_STAIRS)
+                .add(ModBlocks.BLACK_CONCRETE_STAIRS)
+                .add(ModBlocks.BROWN_CONCRETE_STAIRS)
+                .add(ModBlocks.RED_CONCRETE_STAIRS)
+                .add(ModBlocks.ORANGE_CONCRETE_STAIRS)
+                .add(ModBlocks.YELLOW_CONCRETE_STAIRS)
+                .add(ModBlocks.LIME_CONCRETE_STAIRS)
+                .add(ModBlocks.GREEN_CONCRETE_STAIRS)
+                .add(ModBlocks.CYAN_CONCRETE_STAIRS)
+                .add(ModBlocks.LIGHT_BLUE_CONCRETE_STAIRS)
+                .add(ModBlocks.BLUE_CONCRETE_STAIRS)
+                .add(ModBlocks.PURPLE_CONCRETE_STAIRS)
+                .add(ModBlocks.MAGENTA_CONCRETE_STAIRS)
+                .add(ModBlocks.PINK_CONCRETE_STAIRS);
+
+        getOrCreateTagBuilder(ModBlockTags.CONCRETE_WALLS)
+                .add(ModBlocks.WHITE_CONCRETE_WALL)
+                .add(ModBlocks.LIGHT_GRAY_CONCRETE_WALL)
+                .add(ModBlocks.GRAY_CONCRETE_WALL)
+                .add(ModBlocks.BLACK_CONCRETE_WALL)
+                .add(ModBlocks.BROWN_CONCRETE_WALL)
+                .add(ModBlocks.RED_CONCRETE_WALL)
+                .add(ModBlocks.ORANGE_CONCRETE_WALL)
+                .add(ModBlocks.YELLOW_CONCRETE_WALL)
+                .add(ModBlocks.LIME_CONCRETE_WALL)
+                .add(ModBlocks.GREEN_CONCRETE_WALL)
+                .add(ModBlocks.CYAN_CONCRETE_WALL)
+                .add(ModBlocks.LIGHT_BLUE_CONCRETE_WALL)
+                .add(ModBlocks.BLUE_CONCRETE_WALL)
+                .add(ModBlocks.PURPLE_CONCRETE_WALL)
+                .add(ModBlocks.MAGENTA_CONCRETE_WALL)
+                .add(ModBlocks.PINK_CONCRETE_WALL);
     }
 }
