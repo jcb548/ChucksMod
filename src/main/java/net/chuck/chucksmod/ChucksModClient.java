@@ -139,18 +139,23 @@ public class ChucksModClient implements ClientModInitializer {
         ColorProviderRegistry.BLOCK.register((state, view, pos, tintIndex) -> BiomeColors.getGrassColor(view, pos),
                 ModBlocks.TRIAFIA_PLANT);
 
+        ColorProviderRegistry.BLOCK.register((state, view, pos, tintIndex) -> BiomeColors.getGrassColor(view, pos),
+                ModBlocks.TRIAFIAN_VINE);
+
         ColorProviderRegistry.BLOCK.register((state, view, pos, tintIndex) -> BiomeColors.getFoliageColor(view, pos),
                 ModBlocks.PACSARIA_LEAVES);
         ColorProviderRegistry.BLOCK.register((state, view, pos, tintIndex) -> BiomeColors.getFoliageColor(view, pos),
                 ModBlocks.TRIAFIA_LEAVES);
 
-        ColorProviderRegistry.ITEM.register(((stack, tintIndex) -> 0x51912C),
-                ModBlocks.PACSARIA_LEAVES.asItem());
         ColorProviderRegistry.ITEM.register(((stack, tintIndex) -> 0x328009),
                 ModBlocks.TRIAFIA_LEAVES.asItem());
-
         ColorProviderRegistry.ITEM.register(((stack, tintIndex) -> 0x328009),
                 ModBlocks.TRIAFIA_PLANT.asItem());
+        ColorProviderRegistry.ITEM.register(((stack, tintIndex) -> 0x328009),
+                ModBlocks.TRIAFIAN_VINE.asItem());
+
+        ColorProviderRegistry.ITEM.register(((stack, tintIndex) -> 0x51912C),
+                ModBlocks.PACSARIA_LEAVES.asItem());
         ColorProviderRegistry.ITEM.register(((stack, tintIndex) -> 0x51912C),
                 ModBlocks.PACSARIA_PLANT.asItem());
     }
@@ -170,6 +175,7 @@ public class ChucksModClient implements ClientModInitializer {
 
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.TRIAFIA_SAPLING, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.TRIAFIA_PLANT, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.TRIAFIAN_VINE, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.TRIAFIA_CRYSTAL_CROP, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.TRIAFIA_LEAVES, RenderLayer.getCutout());
 

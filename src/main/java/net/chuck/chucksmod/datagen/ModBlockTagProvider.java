@@ -648,5 +648,8 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.PURPLE_CONCRETE_WALL)
                 .add(ModBlocks.MAGENTA_CONCRETE_WALL)
                 .add(ModBlocks.PINK_CONCRETE_WALL);
+
+        getOrCreateTagBuilder(BlockTags.CLIMBABLE)
+                .add(ModBlocks.TRIAFIAN_VINE);
     }
 }

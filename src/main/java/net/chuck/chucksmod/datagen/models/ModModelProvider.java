@@ -336,6 +336,7 @@ public class ModModelProvider extends FabricModelProvider {
                 BlockStateModelGenerator.TintType.NOT_TINTED);
         blockStateModelGenerator.registerTintableCross(ModBlocks.TRIAFIA_PLANT,
                 BlockStateModelGenerator.TintType.TINTED);
+        ModModelGenerator.registerWallPlant(blockStateModelGenerator, ModBlocks.TRIAFIAN_VINE);
         blockStateModelGenerator.registerTintableCrossBlockStateWithStages(ModBlocks.TRIAFIA_CRYSTAL_CROP, BlockStateModelGenerator.TintType.NOT_TINTED,
                 AbstractMagicalCropBlock.AGE, 0, 1, 2, 3, 4, 5);
 

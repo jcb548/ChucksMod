@@ -21,4 +21,7 @@ public class ModModels {
     public static final Model HANDHELD_WIRE =
             new Model(Optional.of(new Identifier(ChucksMod.MOD_ID, "item/template/handheld_wire")),
                     Optional.empty(), TextureKey.LAYER0);
+    public static final Model VINE =
+            new Model(Optional.of(new Identifier(ChucksMod.MOD_ID, "block/template/vine_template")),
+                    Optional.empty(), TextureKey.TEXTURE);
 }

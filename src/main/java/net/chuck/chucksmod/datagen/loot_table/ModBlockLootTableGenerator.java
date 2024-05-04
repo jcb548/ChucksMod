@@ -7,6 +7,7 @@ import net.chuck.chucksmod.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 import net.minecraft.block.Block;
+import net.minecraft.data.client.BlockStateModelGenerator;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
@@ -353,6 +354,7 @@ public class ModBlockLootTableGenerator extends FabricBlockLootTableProvider {
                         .with(ItemEntry.builder(ModItems.PINEAPPLE_SEEDS))
                         .apply(ApplyBonusLootFunction.uniformBonusCount(Enchantments.FORTUNE, 2))
                 ));
+        addDrop(ModBlocks.TRIAFIAN_VINE, dropsWithShears(ModBlocks.TRIAFIAN_VINE));
         
         addDrop(ModBlocks.RAW_TRIAFIUM_BLOCK);
         addDrop(ModBlocks.TRIAFIUM_BLOCK);

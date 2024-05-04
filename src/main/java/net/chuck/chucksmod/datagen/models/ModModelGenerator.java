@@ -241,4 +241,9 @@ public class ModModelGenerator {
         blockStateModelGenerator.blockStateCollector.accept(VariantsBlockStateSupplier.create(machineBase,
                 BlockStateVariant.create().put(VariantSettings.MODEL, id)));
     }
+    public static void registerWallPlant(BlockStateModelGenerator blockStateModelGenerator, Block block){
+        TextureMap textureMap = new TextureMap().put(TextureKey.TEXTURE, TextureMap.getId(block));
+        blockStateModelGenerator.registerWallPlant(block);
+        ModModels.VINE.upload(block, textureMap, blockStateModelGenerator.modelCollector);
+    }
 }

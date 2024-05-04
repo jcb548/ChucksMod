@@ -680,6 +680,8 @@ public class ModBlocks {
             .group("wooden").unlockCriterionName("has_planks").build();
     public static final Block TRIAFIA_PLANT = registerBlock("triafia_plant",
             new PlantBlock(FabricBlockSettings.copy(Blocks.GRASS).mapColor(MapColor.DARK_GREEN)));
+    public static final Block TRIAFIAN_VINE = registerBlock("triafian_vine",
+            new VineBlock(FabricBlockSettings.copy(Blocks.VINE)));
 
     // Pacsarium
     public static final Block PACSARIUM_BLOCK = registerBlock("pacsarium_block",
