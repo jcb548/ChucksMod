@@ -1,12 +1,12 @@
 package net.chuck.chucksmod.world;
 
+import com.google.common.collect.ImmutableList;
 import net.chuck.chucksmod.ChucksMod;
 import net.chuck.chucksmod.block.ModBlocks;
 import net.chuck.chucksmod.block.custom.crop.magical.AbstractMagicalCropBlock;
+import net.chuck.chucksmod.world.tree.custom.TriafianLeavesVineTreeDecorator;
 import net.chuck.chucksmod.world.tree.custom.TriafiaFoliagePlacer;
 import net.chuck.chucksmod.world.tree.custom.TriafiaTrunkPlacer;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.registry.Registerable;
 import net.minecraft.registry.RegistryKey;
@@ -118,6 +118,8 @@ public class ModConfiguredFeatures {
             registerKey("triafia_tuff_pile");
     public static final RegistryKey<ConfiguredFeature<?, ?>> TRIAFIA_PLANT_PATCH_KEY =
             registerKey("triafia_plant_patch");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> TRIAFIAN_VINES_KEY =
+            registerKey("triafian_vines");
 
     // Generation for Pacsaria Islands
     public static final RegistryKey<ConfiguredFeature<?, ?>> PACSARIA_PACSARIUM_ORE_KEY =
@@ -348,7 +350,7 @@ public class ModConfiguredFeatures {
                 new TriafiaTrunkPlacer(6, 1, 2),
                 BlockStateProvider.of(ModBlocks.TRIAFIA_LEAVES),
                 new TriafiaFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(1), 2),
-                new TwoLayersFeatureSize(1,0,2)).build());
+                new TwoLayersFeatureSize(1,0,2)).decorators(ImmutableList.of(new TriafianLeavesVineTreeDecorator(0.2f))).build());
         // Register New Misc
         register(context, TRIAFIA_ECLOGITE_PILE_KEY, Feature.BLOCK_PILE,
                 new BlockPileFeatureConfig(BlockStateProvider.of(ModBlocks.ECLOGITE.getDefaultState())));
@@ -357,6 +359,8 @@ public class ModConfiguredFeatures {
         register(context, TRIAFIA_PLANT_PATCH_KEY, Feature.RANDOM_PATCH,
                 ConfiguredFeatures.createRandomPatchFeatureConfig(Feature.SIMPLE_BLOCK,
                         new SimpleBlockFeatureConfig(BlockStateProvider.of(ModBlocks.TRIAFIA_PLANT))));
+        register(context, TRIAFIAN_VINES_KEY, ModFeatures.TRIAFIAN_VINES, FeatureConfig.DEFAULT);
+
         DataPool states = DataPool.builder()
                 .add(ModBlocks.NETHER_CRYSTAL_CROP.getDefaultState().with(AbstractMagicalCropBlock.AGE, 0), 1)
                 .add(ModBlocks.NETHER_CRYSTAL_CROP.getDefaultState().with(AbstractMagicalCropBlock.AGE, 1), 1)
