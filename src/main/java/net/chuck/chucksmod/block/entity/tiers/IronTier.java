@@ -22,4 +22,5 @@ public interface IronTier {
     int FLUID_PIPE_TRANSFER_RATE = 100;
     int HARVESTER_SEEDS_INV_SIZE = 2;
     int HARVESTER_CROPS_INV_SIZE = 5;
+    int XP_DRAIN_RATE = 20;
 }

@@ -19,6 +19,7 @@ import net.chuck.chucksmod.block.custom.crusher.TriafiumPoweredCrusherBlock;
 import net.chuck.chucksmod.block.custom.energy_storage.IronEnergyStorageBlock;
 import net.chuck.chucksmod.block.custom.energy_storage.TitaniumEnergyStorageBlock;
 import net.chuck.chucksmod.block.custom.energy_storage.TriafiumEnergyStorageBlock;
+import net.chuck.chucksmod.block.custom.experience_drain.IronExperienceDrainBlock;
 import net.chuck.chucksmod.block.custom.fluid_pipe.IronFluidPipeBlock;
 import net.chuck.chucksmod.block.custom.fluid_pipe.TitaniumFluidPipeBlock;
 import net.chuck.chucksmod.block.custom.fluid_pipe.TriafiumFluidPipeBlock;
@@ -239,6 +240,8 @@ public class ModBlocks {
             new IronHarvesterBlock(FabricBlockSettings.copy(Blocks.IRON_BLOCK)));
     public static final Block IRON_FLUID_PIPE = registerBlock("iron_fluid_pipe",
             new IronFluidPipeBlock(FabricBlockSettings.copy(Blocks.IRON_BLOCK)));
+    public static final Block IRON_EXPERIENCE_DRAIN = registerBlock("iron_experience_drain",
+            new IronExperienceDrainBlock(FabricBlockSettings.copy(Blocks.IRON_BLOCK)));
 
     public static final Block TIN_WIRE = registerBlock("tin_wire",
             new TinWireBlock(FabricBlockSettings.copy(ModBlocks.TIN_BLOCK).mapColor(MapColor.LIGHT_GRAY)));

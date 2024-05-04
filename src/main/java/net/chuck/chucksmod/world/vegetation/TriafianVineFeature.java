@@ -3,8 +3,6 @@ package net.chuck.chucksmod.world.vegetation;
 import com.mojang.serialization.Codec;
 import net.chuck.chucksmod.block.ModBlocks;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
 import net.minecraft.block.VineBlock;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;

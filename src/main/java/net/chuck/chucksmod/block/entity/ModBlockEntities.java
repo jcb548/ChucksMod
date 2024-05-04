@@ -2,6 +2,7 @@ package net.chuck.chucksmod.block.entity;
 
 import net.chuck.chucksmod.ChucksMod;
 import net.chuck.chucksmod.block.ModBlocks;
+import net.chuck.chucksmod.block.custom.experience_drain.IronExperienceDrainBlock;
 import net.chuck.chucksmod.block.entity.copier.TitaniumCopierBlockEntity;
 import net.chuck.chucksmod.block.entity.copier.TriafiumCopierBlockEntity;
 import net.chuck.chucksmod.block.entity.crusher.CrusherBlockEntity;
@@ -11,6 +12,7 @@ import net.chuck.chucksmod.block.entity.crusher.TriafiumPoweredCrusherBlockEntit
 import net.chuck.chucksmod.block.entity.energy_storage.IronEnergyStorageBlockEntity;
 import net.chuck.chucksmod.block.entity.energy_storage.TitaniumEnergyStorageBlockEntity;
 import net.chuck.chucksmod.block.entity.energy_storage.TriafiumEnergyStorageBlockEntity;
+import net.chuck.chucksmod.block.entity.experience_drain.IronExperienceDrainBlockEntity;
 import net.chuck.chucksmod.block.entity.fluid_pipe.IronFluidPipeBlockEntity;
 import net.chuck.chucksmod.block.entity.fluid_pipe.TitaniumFluidPipeBlockEntity;
 import net.chuck.chucksmod.block.entity.fluid_pipe.TriafiumFluidPipeBlockEntity;
@@ -67,9 +69,12 @@ public class ModBlockEntities {
     public static BlockEntityType<IronFluidTankBlockEntity> IRON_FLUID_TANK;
     public static BlockEntityType<IronPumpBlockEntity> IRON_PUMP;
     public static BlockEntityType<IronFluidPipeBlockEntity> IRON_FLUID_PIPE;
+    public static BlockEntityType<IronExperienceDrainBlockEntity> IRON_EXPERIENCE_DRAIN;
     public static BlockEntityType<IronSteamGeneratorBlockEntity> IRON_STEAM_GENERATOR;
     public static BlockEntityType<IronHarvesterBlockEntity> IRON_HARVESTER;
+
     public static BlockEntityType<TinWireBlockEntity> TIN_WIRE;
+
     public static BlockEntityType<CopperWireBlockEntity> COPPER_WIRE;
     public static BlockEntityType<GoldWireBlockEntity> GOLD_WIRE;
     public static BlockEntityType<NetheriteWireBlockEntity> NETHERITE_WIRE;
@@ -142,6 +147,11 @@ public class ModBlockEntities {
         FluidStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.fluidStorage,
                 IRON_FLUID_TANK);
 
+        IRON_EXPERIENCE_DRAIN = Registry.register(Registries.BLOCK_ENTITY_TYPE,
+                new Identifier(ChucksMod.MOD_ID, "iron_experience_drain"),
+                FabricBlockEntityTypeBuilder.create(IronExperienceDrainBlockEntity::new,
+                        ModBlocks.IRON_EXPERIENCE_DRAIN).build());
+
         IRON_PUMP = Registry.register(Registries.BLOCK_ENTITY_TYPE,
                 new Identifier(ChucksMod.MOD_ID, "iron_pump"),
                 FabricBlockEntityTypeBuilder.create(IronPumpBlockEntity::new,
@@ -150,6 +160,7 @@ public class ModBlockEntities {
                 IRON_PUMP);
         FluidStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.fluidStorage,
                 IRON_PUMP);
+
         IRON_STEAM_GENERATOR = Registry.register(Registries.BLOCK_ENTITY_TYPE,
                 new Identifier(ChucksMod.MOD_ID, "iron_steam_generator"),
                 FabricBlockEntityTypeBuilder.create(IronSteamGeneratorBlockEntity::new,
