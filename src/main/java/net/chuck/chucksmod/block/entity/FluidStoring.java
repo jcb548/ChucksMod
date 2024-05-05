@@ -16,8 +16,12 @@ import net.minecraft.item.BucketItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.network.PacketByteBuf;
+import net.minecraft.registry.tag.FluidTags;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvent;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -47,6 +51,7 @@ public interface FluidStoring {
             if(bucketItem.fluid == Fluids.EMPTY){
                 if(getFluidStorage().amount >= FluidStack.BUCKET_MB){
                     try(Transaction transaction = Transaction.openOuter()){
+                        Fluid fluid = getFluidStorage().variant.getFluid();
                         ItemStack filledBucket = new ItemStack(getFluidStorage().variant.getFluid().getBucketItem());
                         this.getFluidStorage().extract(getFluidStorage().variant,
                                 FluidStack.convertDropletsToMb(FluidConstants.BUCKET), transaction);
@@ -58,6 +63,8 @@ public interface FluidStoring {
                                 player.getWorld().spawnEntity(bucket);
                             }
                         } else if(!player.isCreative()) player.setStackInHand(hand, filledBucket);
+                        SoundEvent soundEvent = fluid.isIn(FluidTags.LAVA) ? SoundEvents.ITEM_BUCKET_EMPTY_LAVA : SoundEvents.ITEM_BUCKET_EMPTY;
+                        getWorld().playSound(null, getPos(), soundEvent, SoundCategory.BLOCKS, 1.0f, 1.0f);
                     }
                 }
             } else {
@@ -71,6 +78,7 @@ public interface FluidStoring {
                                 FluidStack.convertDropletsToMb(FluidConstants.BUCKET), transaction);
                         transaction.commit();
                         if(!player.isCreative()) player.setStackInHand(hand, new ItemStack(Items.BUCKET));
+                        bucketItem.fluid.getBucketFillSound().ifPresent(sound -> getWorld().playSound(null, getPos(), sound, SoundCategory.BLOCKS, 1.0f, 1.0f));
                     }
                 }
             }

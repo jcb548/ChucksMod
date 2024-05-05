@@ -1,8 +1,11 @@
 package net.chuck.chucksmod.block.custom.copier;
 
 import net.chuck.chucksmod.block.custom.AbstractEnergyUsingBlock;
+import net.chuck.chucksmod.block.entity.ExperienceInteractingFluidStoring;
 import net.chuck.chucksmod.block.entity.copier.AbstractCopierBlockEntity;
 import net.chuck.chucksmod.block.entity.copier.TitaniumCopierBlockEntity;
+import net.chuck.chucksmod.fluid.ModFluids;
+import net.fabricmc.fabric.api.transfer.v1.fluid.FluidVariant;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
@@ -36,6 +39,12 @@ public abstract class AbstractCopierBlock extends AbstractEnergyUsingBlock {
             if(player.getStackInHand(hand).getItem() instanceof BucketItem && world.getBlockEntity(pos) instanceof
             AbstractCopierBlockEntity entity){
                 entity.interactBucket(player, hand);
+            } else if(player.isSneaking()) {
+                if(world.getBlockEntity(pos) instanceof ExperienceInteractingFluidStoring fluidTank){
+                    if(fluidTank.getFluidStorage().variant.equals(FluidVariant.of(ModFluids.STILL_LIQUID_XP))){
+                        fluidTank.interactExperience(player);
+                    }
+                }
             } else {
                 NamedScreenHandlerFactory screenHandlerFactory = ((AbstractCopierBlockEntity) world.getBlockEntity(pos));
                 if (screenHandlerFactory != null) {

@@ -118,6 +118,7 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerCooker(ModBlocks.IRON_HARVESTER, ModTexturedModel.ORIENTABLE_MACHINE);
         blockStateModelGenerator.registerCooker(ModBlocks.IRON_QUARRY, ModTexturedModel.ORIENTABLE_MACHINE);
         ModModelGenerator.registerVerticalColumn(blockStateModelGenerator, ModBlocks.IRON_FLUID_TANK);
+        blockStateModelGenerator.registerSimpleState(ModBlocks.IRON_EXPERIENCE_DRAIN);
         blockStateModelGenerator.registerCooker(ModBlocks.IRON_PUMP, ModTexturedModel.ORIENTABLE_MACHINE);
         ModModelGenerator.registerPipe(blockStateModelGenerator, ModBlocks.IRON_FLUID_PIPE);
         blockStateModelGenerator.registerCooker(ModBlocks.IRON_STEAM_GENERATOR, ModTexturedModel.ORIENTABLE_MACHINE);

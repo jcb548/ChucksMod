@@ -436,6 +436,7 @@ public class ModBlockLootTableGenerator extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.IRON_FLUID_TANK);
         addDrop(ModBlocks.IRON_PUMP);
         addDrop(ModBlocks.IRON_FLUID_PIPE);
+        addDrop(ModBlocks.IRON_EXPERIENCE_DRAIN);
         addDrop(ModBlocks.IRON_STEAM_GENERATOR);
 
         addDrop(ModBlocks.COPPER_WIRE);

@@ -14,4 +14,9 @@ public class TitaniumFluidTankBlockEntity extends AbstractFluidTankBlockEntity i
     public int getBucketCapacity() {
         return FLUID_TANK_BUCKETS;
     }
+
+    @Override
+    public int getXpDrainRate() {
+        return XP_DRAIN_RATE;
+    }
 }

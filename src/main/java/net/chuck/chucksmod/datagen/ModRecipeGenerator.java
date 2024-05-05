@@ -442,6 +442,7 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
         offerPumpRecipe(exporter, ModBlocks.IRON_PUMP, ModBlocks.IRON_MACHINE_BASE, ModItems.COPPER_POWER_CIRCUIT,
                 ModItems.IRON_MOTOR, ModItems.IRON_GEAR, ModBlocks.IRON_FLUID_TANK, ModBlocks.COPPER_WIRE);
         offerFluidPipeRecipe(exporter, ModBlocks.IRON_FLUID_PIPE, Items.IRON_INGOT);
+        offerExperienceDrainRecipe(exporter, ModBlocks.IRON_EXPERIENCE_DRAIN, Items.IRON_INGOT);
         offerSteamGeneratorRecipe(exporter, ModBlocks.IRON_STEAM_GENERATOR, ModItems.COPPER_COIL, 
                 ModItems.COPPER_POWER_CIRCUIT, ModBlocks.COPPER_WIRE, ModBlocks.IRON_MACHINE_BASE, ModBlocks.IRON_FLUID_TANK);
         offerHarvesterRecipe(exporter, ModBlocks.IRON_HARVESTER, ModBlocks.IRON_MACHINE_BASE, Items.IRON_HOE,
@@ -1669,6 +1670,32 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .criterion(hasTag(ItemTags.ANVIL), conditionsFromTag(ItemTags.ANVIL))
                 .criterion(hasItem(tank), conditionsFromItem(tank))
                 .criterion(hasItem(Items.ENCHANTING_TABLE), conditionsFromItem(Items.ENCHANTING_TABLE))
+                .offerTo(exporter);
+    }
+    public static void offerExperienceDrainRecipe(RecipeExporter exporter, Block drain, ItemConvertible material){
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, drain)
+                .pattern("MGM")
+                .pattern("MBM")
+                .pattern("MGM")
+                .input('M', material)
+                .input('G', ModItemTags.GLASS)
+                .input('B', Items.ENCHANTED_BOOK)
+                .criterion(hasItem(material), conditionsFromItem(material))
+                .criterion(hasTag(ModItemTags.GLASS), conditionsFromTag(ModItemTags.GLASS))
+                .criterion(hasItem(Items.ENCHANTED_BOOK), conditionsFromItem(Items.ENCHANTED_BOOK))
+                .offerTo(exporter);
+    }
+    public static void offerExperienceDrainRecipe(RecipeExporter exporter, Block drain, TagKey<Item> material){
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, drain)
+                .pattern("MGM")
+                .pattern("MBM")
+                .pattern("MGM")
+                .input('M', material)
+                .input('G', ModItemTags.GLASS)
+                .input('B', Items.ENCHANTED_BOOK)
+                .criterion(hasTag(material), conditionsFromTag(material))
+                .criterion(hasTag(ModItemTags.GLASS), conditionsFromTag(ModItemTags.GLASS))
+                .criterion(hasItem(Items.ENCHANTED_BOOK), conditionsFromItem(Items.ENCHANTED_BOOK))
                 .offerTo(exporter);
     }
 }

@@ -476,6 +476,8 @@
   "item.chucksmod.iron_axle": "Iron Axle",
   "item.chucksmod.iron_motor": "Iron Motor",
   "block.chucksmod.iron_fluid_pipe": "Iron Fluid Pipe",
+  "block.chucksmod.iron_experience_drain": "Iron Experience Drain",
+  "tooltip.chucksmod.iron_experience_drain": "Drains Experience at 200xp/t",
   "block.chucksmod.iron_steam_generator": "Iron Steam Generator",
   "tooltip.chucksmod.steam_generator.1": "Generates Energy from steam created from",
   "tooltip.chucksmod.steam_generator.2": "burning furnace fuels, twice as efficient as a",

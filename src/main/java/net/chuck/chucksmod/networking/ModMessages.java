@@ -35,7 +35,6 @@ public class ModMessages {
     public static void registerC2SPackets(){
         ServerPlayNetworking.registerGlobalReceiver(ENERGY_STORAGE_BLOCK_SYNC, EnergyStorageBlockSyncC2SPacket::receive);
         ServerPlayNetworking.registerGlobalReceiver(RESET_QUARRY_SYNC, ResetQuarryC2SPacket::receive);
-        ServerPlayNetworking.registerGlobalReceiver(COPIER_XP_DRAIN, CopierDrainXpC2SPacket::receive);
         ServerPlayNetworking.registerGlobalReceiver(LOOKING_AT_ENERGY_STORAGE, LookingAtEnergyStorageC2SPacket::receive);
         ServerPlayNetworking.registerGlobalReceiver(LOOKING_AT_FLUID_STORAGE, LookingAtFluidStorageC2SPacket::receive);
     }

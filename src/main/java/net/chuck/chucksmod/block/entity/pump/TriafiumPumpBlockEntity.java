@@ -27,6 +27,11 @@ public class TriafiumPumpBlockEntity extends AbstractPumpBlockEntity implements 
     }
 
     @Override
+    public int getXpDrainRate() {
+        return XP_DRAIN_RATE;
+    }
+
+    @Override
     public Text getDisplayName() {
         return Text.translatable("block.chucksmod.triafium_pump");
     }

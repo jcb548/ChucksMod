@@ -238,8 +238,7 @@ public class ModModelGenerator {
     public static void registerMachineBase(BlockStateModelGenerator blockStateModelGenerator, Block machineBase) {
         TextureMap textureMap = new TextureMap().put(TextureKey.TEXTURE, TextureMap.getId(machineBase));
         Identifier id = ModModels.MACHINE_BASE.upload(machineBase, textureMap, blockStateModelGenerator.modelCollector);
-        blockStateModelGenerator.blockStateCollector.accept(VariantsBlockStateSupplier.create(machineBase,
-                BlockStateVariant.create().put(VariantSettings.MODEL, id)));
+        blockStateModelGenerator.registerSimpleState(machineBase);
     }
     public static void registerWallPlant(BlockStateModelGenerator blockStateModelGenerator, Block block){
         TextureMap textureMap = new TextureMap().put(TextureKey.TEXTURE, TextureMap.getId(block));

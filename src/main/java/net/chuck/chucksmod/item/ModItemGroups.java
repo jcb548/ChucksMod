@@ -65,6 +65,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.IRON_FLUID_TANK);
                         entries.add(ModBlocks.IRON_PUMP);
                         entries.add(ModBlocks.IRON_FLUID_PIPE);
+                        entries.add(ModBlocks.IRON_EXPERIENCE_DRAIN);
                         entries.add(ModBlocks.IRON_STEAM_GENERATOR);
 
                         entries.add(ModItems.COPPER_DUST);

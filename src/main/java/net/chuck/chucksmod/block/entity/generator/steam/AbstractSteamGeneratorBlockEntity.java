@@ -12,6 +12,8 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.fluid.Fluid;
+import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.screen.ScreenHandler;
@@ -82,5 +84,10 @@ public abstract class AbstractSteamGeneratorBlockEntity extends AbstractHeatGene
     }
     public boolean isGenerating() {
         return this.burnTime > 0 && hasLiquid();
+    }
+
+    @Override
+    public Fluid getAllowedFluid() {
+        return Fluids.WATER;
     }
 }

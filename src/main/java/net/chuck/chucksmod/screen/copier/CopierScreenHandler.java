@@ -118,13 +118,6 @@ public class CopierScreenHandler extends AbstractEnergyCookerScreenHandler imple
         return maxProgress != 0 && progress != 0 ? progress * progressArrowSize / maxProgress : 0;
     }
 
-    public void onButtonPress(UUID playerUuid){
-        PacketByteBuf buf = PacketByteBufs.create();
-        buf.writeBlockPos(blockEntity.getPos());
-        buf.writeUuid(playerUuid);
-        ClientPlayNetworking.send(ModMessages.COPIER_XP_DRAIN, buf);
-    }
-
     public void setFluidStack(FluidStack stack) {
         fluidStack = stack;
     }

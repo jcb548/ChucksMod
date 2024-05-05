@@ -1,9 +1,8 @@
 package net.chuck.chucksmod.block.entity.pump;
 
 import net.chuck.chucksmod.block.custom.AbstractEnergyUsingBlock;
-import net.chuck.chucksmod.block.entity.AbstractEnergyUsingBlockEntity;
 import net.chuck.chucksmod.block.entity.AbstractMiningBlockEntity;
-import net.chuck.chucksmod.block.entity.FluidStoring;
+import net.chuck.chucksmod.block.entity.ExperienceInteractingFluidStoring;
 import net.chuck.chucksmod.screen.pump.PumpScreenHandler;
 import net.chuck.chucksmod.util.FluidStack;
 import net.fabricmc.fabric.api.transfer.v1.fluid.FluidConstants;
@@ -17,14 +16,9 @@ import net.minecraft.block.FluidBlock;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.fluid.Fluid;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.nbt.NbtCompound;
-import net.minecraft.network.PacketByteBuf;
-import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
-import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.property.Properties;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
@@ -32,7 +26,7 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-public abstract class AbstractPumpBlockEntity extends AbstractMiningBlockEntity implements FluidStoring {
+public abstract class AbstractPumpBlockEntity extends AbstractMiningBlockEntity implements ExperienceInteractingFluidStoring {
     public SingleVariantStorage<FluidVariant> fluidStorage = new SingleVariantStorage<FluidVariant>() {
         @Override
         protected FluidVariant getBlankVariant() {

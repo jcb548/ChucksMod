@@ -241,7 +241,7 @@ public class ModBlocks {
     public static final Block IRON_FLUID_PIPE = registerBlock("iron_fluid_pipe",
             new IronFluidPipeBlock(FabricBlockSettings.copy(Blocks.IRON_BLOCK)));
     public static final Block IRON_EXPERIENCE_DRAIN = registerBlock("iron_experience_drain",
-            new IronExperienceDrainBlock(FabricBlockSettings.copy(Blocks.IRON_BLOCK)));
+            new IronExperienceDrainBlock(FabricBlockSettings.copy(Blocks.IRON_BLOCK).nonOpaque()));
 
     public static final Block TIN_WIRE = registerBlock("tin_wire",
             new TinWireBlock(FabricBlockSettings.copy(ModBlocks.TIN_BLOCK).mapColor(MapColor.LIGHT_GRAY)));

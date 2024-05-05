@@ -1,7 +1,10 @@
 package net.chuck.chucksmod.block.custom.pump;
 
 import net.chuck.chucksmod.block.custom.AbstractEnergyUsingBlock;
+import net.chuck.chucksmod.block.entity.ExperienceInteractingFluidStoring;
 import net.chuck.chucksmod.block.entity.pump.AbstractPumpBlockEntity;
+import net.chuck.chucksmod.fluid.ModFluids;
+import net.fabricmc.fabric.api.transfer.v1.fluid.FluidVariant;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.BucketItem;
@@ -30,6 +33,12 @@ public abstract class AbstractPumpBlock extends AbstractEnergyUsingBlock {
             if(player.getStackInHand(hand).getItem() instanceof BucketItem && world.getBlockEntity(pos) instanceof
                     AbstractPumpBlockEntity entity){
                 entity.interactBucket(player, hand);
+            } else if(player.isSneaking()) {
+                if(world.getBlockEntity(pos) instanceof ExperienceInteractingFluidStoring fluidTank){
+                    if(fluidTank.getFluidStorage().variant.equals(FluidVariant.of(ModFluids.STILL_LIQUID_XP))){
+                        fluidTank.interactExperience(player);
+                    }
+                }
             } else {
                 NamedScreenHandlerFactory screenHandlerFactory = ((AbstractPumpBlockEntity) world.getBlockEntity(pos));
                 if (screenHandlerFactory != null) {

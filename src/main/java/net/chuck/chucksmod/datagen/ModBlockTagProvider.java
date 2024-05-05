@@ -107,6 +107,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
         getOrCreateTagBuilder(BlockTags.NEEDS_STONE_TOOL)
                 .addTag(ModBlockTags.IRON_TIER)
+                .add(ModBlocks.IRON_EXPERIENCE_DRAIN)
                 .add(ModBlocks.TIN_BLOCK)
                 .add(ModBlocks.TIN_ORE)
                 .add(ModBlocks.DEEPSLATE_TIN_ORE)
@@ -130,6 +131,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .addTag(ModBlockTags.TITANIUM_BLOCKS)
                 .addTag(ModBlockTags.RAW_TITANIUM_BLOCKS)
                 .addTag(ModBlockTags.MACHINES)
+                .addTag(ModBlockTags.EXPERIENCE_DRAINS)
 
                 .add(ModBlocks.CRUSHER)
 
@@ -651,5 +653,8 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
         getOrCreateTagBuilder(BlockTags.CLIMBABLE)
                 .add(ModBlocks.TRIAFIAN_VINE);
+
+        getOrCreateTagBuilder(ModBlockTags.EXPERIENCE_DRAINS)
+                .add(ModBlocks.IRON_EXPERIENCE_DRAIN);
     }
 }

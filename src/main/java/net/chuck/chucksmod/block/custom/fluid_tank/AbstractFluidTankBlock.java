@@ -1,8 +1,11 @@
 package net.chuck.chucksmod.block.custom.fluid_tank;
 
+import net.chuck.chucksmod.block.entity.ExperienceInteractingFluidStoring;
 import net.chuck.chucksmod.block.entity.FluidStoring;
 import net.chuck.chucksmod.block.entity.ModBlockEntities;
 import net.chuck.chucksmod.block.entity.fluid_tank.AbstractFluidTankBlockEntity;
+import net.chuck.chucksmod.fluid.ModFluids;
+import net.fabricmc.fabric.api.transfer.v1.fluid.FluidVariant;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.BlockState;
@@ -43,6 +46,11 @@ public abstract class AbstractFluidTankBlock extends BlockWithEntity {
             if (blockEntity instanceof FluidStoring fluidTank) {
                 if (player.getStackInHand(hand).getItem() instanceof BucketItem) {
                     fluidTank.interactBucket(player, hand);
+                }
+            }
+            if(player.isSneaking() && blockEntity instanceof ExperienceInteractingFluidStoring fluidTank){
+                if(fluidTank.getFluidStorage().variant.equals(FluidVariant.of(ModFluids.STILL_LIQUID_XP))){
+                    fluidTank.interactExperience(player);
                 }
             }
         }

@@ -18,7 +18,6 @@ import java.util.Optional;
 
 public class CopierScreen extends AbstractEnergyUsingScreen<CopierScreenHandler> {
     private FluidStackRenderer fluidStackRenderer;
-    protected ButtonWidget drainXp;
     public CopierScreen(CopierScreenHandler handler, PlayerInventory inventory, Text title) {
         super(handler, inventory, title);
     }
@@ -49,10 +48,6 @@ public class CopierScreen extends AbstractEnergyUsingScreen<CopierScreenHandler>
     @Override
     protected void init() {
         super.init();
-        drainXp = ButtonWidget.builder(Text.translatable("tooltip.chucksmod.drain_xp"), button -> {
-            handler.onButtonPress(this.client.player.getUuid());
-        }).dimensions(getX() + 46, getY() + 16, 48, 16).build();
-        this.addDrawableChild(drainXp);
         assignFluidStackRenderer();
     }
 

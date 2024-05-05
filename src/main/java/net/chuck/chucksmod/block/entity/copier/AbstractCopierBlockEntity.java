@@ -1,15 +1,11 @@
 package net.chuck.chucksmod.block.entity.copier;
 
 import net.chuck.chucksmod.block.entity.AbstractEnergyCookerBlockEntity;
-import net.chuck.chucksmod.block.entity.FluidStoring;
+import net.chuck.chucksmod.block.entity.ExperienceInteractingFluidStoring;
 import net.chuck.chucksmod.fluid.ModFluids;
-import net.chuck.chucksmod.networking.ModMessages;
 import net.chuck.chucksmod.screen.copier.CopierScreenHandler;
 import net.chuck.chucksmod.util.FluidStack;
 import net.chuck.chucksmod.util.ModExperienceUtil;
-import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
-import net.fabricmc.fabric.api.networking.v1.PlayerLookup;
-import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.fabricmc.fabric.api.transfer.v1.fluid.FluidConstants;
 import net.fabricmc.fabric.api.transfer.v1.fluid.FluidVariant;
 import net.fabricmc.fabric.api.transfer.v1.storage.base.SingleVariantStorage;
@@ -25,18 +21,14 @@ import net.minecraft.item.EnchantedBookItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
-import net.minecraft.network.PacketByteBuf;
 import net.minecraft.screen.ScreenHandler;
-import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.server.world.ServerWorld;
-import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Map;
 
-public abstract class AbstractCopierBlockEntity extends AbstractEnergyCookerBlockEntity implements FluidStoring {
+public abstract class AbstractCopierBlockEntity extends AbstractEnergyCookerBlockEntity implements ExperienceInteractingFluidStoring {
     public static final int INV_SIZE = 4;
     public static final int BOOK_SLOT = 2;
     public static final int XP_BUCKET_SLOT = 3;
@@ -123,8 +115,6 @@ public abstract class AbstractCopierBlockEntity extends AbstractEnergyCookerBloc
         return this.fluidStorage.amount >= getXpCost(); // mb amount
     }
 
-    public abstract int getXpDrainRate();
-
     @Override
     public void tick(World world, BlockPos blockPos, BlockState blockState) {
         super.tick(world, blockPos, blockState);
@@ -139,14 +129,6 @@ public abstract class AbstractCopierBlockEntity extends AbstractEnergyCookerBloc
                     FluidStack.convertDropletsToMb(FluidConstants.BUCKET), transaction);
             transaction.commit();
             setStack(XP_BUCKET_SLOT, new ItemStack(Items.BUCKET));
-        }
-    }
-
-    public void drainPlayerXp(long amount){
-        try(Transaction transaction = Transaction.openOuter()){
-            this.fluidStorage.insert(FluidVariant.of(ModFluids.STILL_LIQUID_XP),
-                    amount, transaction);
-            transaction.commit();
         }
     }
 
