@@ -118,7 +118,7 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerCooker(ModBlocks.IRON_HARVESTER, ModTexturedModel.ORIENTABLE_MACHINE);
         blockStateModelGenerator.registerCooker(ModBlocks.IRON_QUARRY, ModTexturedModel.ORIENTABLE_MACHINE);
         ModModelGenerator.registerVerticalColumn(blockStateModelGenerator, ModBlocks.IRON_FLUID_TANK);
-        blockStateModelGenerator.registerSimpleState(ModBlocks.IRON_EXPERIENCE_DRAIN);
+        ModModelGenerator.registerExperienceDrain(blockStateModelGenerator, ModBlocks.IRON_EXPERIENCE_DRAIN);
         blockStateModelGenerator.registerCooker(ModBlocks.IRON_PUMP, ModTexturedModel.ORIENTABLE_MACHINE);
         ModModelGenerator.registerPipe(blockStateModelGenerator, ModBlocks.IRON_FLUID_PIPE);
         blockStateModelGenerator.registerCooker(ModBlocks.IRON_STEAM_GENERATOR, ModTexturedModel.ORIENTABLE_MACHINE);
@@ -154,6 +154,7 @@ public class ModModelProvider extends FabricModelProvider {
         ModModelGenerator.registerVerticalColumn(blockStateModelGenerator, ModBlocks.TITANIUM_FLUID_TANK);
         blockStateModelGenerator.registerCooker(ModBlocks.TITANIUM_PUMP, ModTexturedModel.ORIENTABLE_MACHINE);
         ModModelGenerator.registerPipe(blockStateModelGenerator, ModBlocks.TITANIUM_FLUID_PIPE);
+        ModModelGenerator.registerExperienceDrain(blockStateModelGenerator, ModBlocks.TITANIUM_EXPERIENCE_DRAIN);
         blockStateModelGenerator.registerCooker(ModBlocks.TITANIUM_STEAM_GENERATOR, ModTexturedModel.ORIENTABLE_MACHINE);
         blockStateModelGenerator.registerCooker(ModBlocks.TITANIUM_LAVA_GENERATOR, ModTexturedModel.ORIENTABLE_MACHINE);
         blockStateModelGenerator.registerCooker(ModBlocks.TITANIUM_HARVESTER, ModTexturedModel.ORIENTABLE_MACHINE);
@@ -358,6 +359,7 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerCooker(ModBlocks.TRIAFIUM_POWERED_FURNACE, ModTexturedModel.ORIENTABLE_MACHINE);
         blockStateModelGenerator.registerCooker(ModBlocks.TRIAFIUM_HEAT_GENERATOR, ModTexturedModel.ORIENTABLE_MACHINE);
         blockStateModelGenerator.registerCooker(ModBlocks.TRIAFIUM_PUMP, ModTexturedModel.ORIENTABLE_MACHINE);
+        ModModelGenerator.registerExperienceDrain(blockStateModelGenerator, ModBlocks.TRIAFIUM_EXPERIENCE_DRAIN);
         ModModelGenerator.registerPipe(blockStateModelGenerator, ModBlocks.TRIAFIUM_FLUID_PIPE);
         ModModelGenerator.registerVerticalColumn(blockStateModelGenerator, ModBlocks.TRIAFIUM_FLUID_TANK);
         blockStateModelGenerator.registerCooker(ModBlocks.TRIAFIUM_STEAM_GENERATOR, ModTexturedModel.ORIENTABLE_MACHINE);

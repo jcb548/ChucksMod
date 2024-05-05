@@ -245,4 +245,9 @@ public class ModModelGenerator {
         blockStateModelGenerator.registerWallPlant(block);
         ModModels.VINE.upload(block, textureMap, blockStateModelGenerator.modelCollector);
     }
+    public static void registerExperienceDrain(BlockStateModelGenerator blockStateModelGenerator, Block drain) {
+        TextureMap textureMap = new TextureMap().put(TextureKey.TEXTURE, TextureMap.getId(drain));
+        Identifier id = ModModels.EXPERIENCE_DRAIN.upload(drain, textureMap, blockStateModelGenerator.modelCollector);
+        blockStateModelGenerator.registerSimpleState(drain);
+    }
 }

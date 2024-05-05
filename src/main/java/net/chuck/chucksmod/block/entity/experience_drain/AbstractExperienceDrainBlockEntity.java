@@ -42,13 +42,15 @@ public abstract class AbstractExperienceDrainBlockEntity extends BlockEntity {
                         if (player.totalExperience < transferAmount) {
                             transferAmount = player.totalExperience;
                         }
-                        try (Transaction tx = Transaction.openOuter()) {
-                            storage.insert(FluidVariant.of(ModFluids.STILL_LIQUID_XP), transferAmount, tx);
-                            tx.commit();
+                        if(transferAmount > 0){
+                            try (Transaction tx = Transaction.openOuter()) {
+                                storage.insert(FluidVariant.of(ModFluids.STILL_LIQUID_XP), transferAmount, tx);
+                                tx.commit();
+                            }
+                            player.addExperience((int) -transferAmount);
+                            world.playSound(null, pos, SoundEvents.ENTITY_EXPERIENCE_ORB_PICKUP, SoundCategory.BLOCKS,
+                                    1f, 0.5f + 0.5f * world.getRandom().nextFloat());
                         }
-                        player.addExperience((int) -transferAmount);
-                        world.playSound(null, pos, SoundEvents.ENTITY_EXPERIENCE_ORB_PICKUP, SoundCategory.BLOCKS,
-                                1f, 0.5f + 0.5f*world.getRandom().nextFloat());
                     }
                 }
             }

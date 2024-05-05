@@ -537,6 +537,7 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
         offerPumpRecipe(exporter, ModBlocks.TRIAFIUM_PUMP, ModBlocks.TRIAFIUM_MACHINE_BASE, ModItems.NETHERITE_POWER_CIRCUIT,
                 ModItems.TRIAFIUM_MOTOR, ModItems.TRIAFIUM_GEAR, ModBlocks.TRIAFIUM_FLUID_TANK, ModBlocks.NETHERITE_WIRE);
         offerFluidPipeRecipe(exporter, ModBlocks.TRIAFIUM_FLUID_PIPE, ModItems.TRIAFIUM_INGOT);
+        offerExperienceDrainRecipe(exporter, ModBlocks.TRIAFIUM_EXPERIENCE_DRAIN, ModItems.TRIAFIUM_INGOT);
         offerTankRecipe(exporter, ModBlocks.TRIAFIUM_FLUID_TANK, ModItems.TRIAFIUM_INGOT);
         offerSteamGeneratorRecipe(exporter, ModBlocks.TRIAFIUM_STEAM_GENERATOR, ModItems.NETHERITE_COIL, ModItems.NETHERITE_POWER_CIRCUIT,
                 ModBlocks.NETHERITE_WIRE, ModBlocks.TRIAFIUM_MACHINE_BASE, ModBlocks.TRIAFIUM_FLUID_TANK);
@@ -746,6 +747,7 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
         offerPumpRecipe(exporter, ModBlocks.TITANIUM_PUMP, ModBlocks.TITANIUM_MACHINE_BASE, ModItems.GOLD_POWER_CIRCUIT,
                 ModItems.TITANIUM_MOTOR, ModItems.TITANIUM_GEAR, ModBlocks.TITANIUM_FLUID_TANK, ModBlocks.GOLD_WIRE);
         offerFluidPipeRecipe(exporter, ModBlocks.TITANIUM_FLUID_PIPE, ModItemTags.TITANIUM_INGOTS);
+        offerExperienceDrainRecipe(exporter, ModBlocks.TITANIUM_EXPERIENCE_DRAIN, ModItemTags.TITANIUM_INGOTS);
         offerSteamGeneratorRecipe(exporter, ModBlocks.TITANIUM_STEAM_GENERATOR, ModItems.GOLD_COIL,
                 ModItems.GOLD_POWER_CIRCUIT, ModBlocks.GOLD_WIRE, ModBlocks.TITANIUM_MACHINE_BASE,
                 ModBlocks.TITANIUM_FLUID_TANK);

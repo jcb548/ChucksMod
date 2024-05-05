@@ -228,6 +228,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.TITANIUM_HEAT_GENERATOR);
                         entries.add(ModBlocks.TITANIUM_PUMP);
                         entries.add(ModBlocks.TITANIUM_FLUID_PIPE);
+                        entries.add(ModBlocks.TITANIUM_EXPERIENCE_DRAIN);
                         entries.add(ModBlocks.TITANIUM_FLUID_TANK);
                         entries.add(ModBlocks.TITANIUM_STEAM_GENERATOR);
                         entries.add(ModBlocks.TITANIUM_HARVESTER);
@@ -293,6 +294,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.TRIAFIUM_HEAT_GENERATOR);
                         entries.add(ModBlocks.TRIAFIUM_PUMP);
                         entries.add(ModBlocks.TRIAFIUM_FLUID_PIPE);
+                        entries.add(ModBlocks.TRIAFIUM_EXPERIENCE_DRAIN);
                         entries.add(ModBlocks.TRIAFIUM_FLUID_TANK);
                         entries.add(ModBlocks.TRIAFIUM_STEAM_GENERATOR);
                         entries.add(ModBlocks.TRIAFIUM_HARVESTER);

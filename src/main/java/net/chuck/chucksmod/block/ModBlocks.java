@@ -20,6 +20,8 @@ import net.chuck.chucksmod.block.custom.energy_storage.IronEnergyStorageBlock;
 import net.chuck.chucksmod.block.custom.energy_storage.TitaniumEnergyStorageBlock;
 import net.chuck.chucksmod.block.custom.energy_storage.TriafiumEnergyStorageBlock;
 import net.chuck.chucksmod.block.custom.experience_drain.IronExperienceDrainBlock;
+import net.chuck.chucksmod.block.custom.experience_drain.TitaniumExperienceDrainBlock;
+import net.chuck.chucksmod.block.custom.experience_drain.TriafiumExperienceDrainBlock;
 import net.chuck.chucksmod.block.custom.fluid_pipe.IronFluidPipeBlock;
 import net.chuck.chucksmod.block.custom.fluid_pipe.TitaniumFluidPipeBlock;
 import net.chuck.chucksmod.block.custom.fluid_pipe.TriafiumFluidPipeBlock;
@@ -283,6 +285,8 @@ public class ModBlocks {
             new TitaniumPumpBlock(FabricBlockSettings.copy(ModBlocks.TITANIUM_BLOCK)));
     public static final Block TITANIUM_FLUID_PIPE = registerBlock("titanium_fluid_pipe",
             new TitaniumFluidPipeBlock(FabricBlockSettings.copy(ModBlocks.TITANIUM_BLOCK)));
+    public static final Block TITANIUM_EXPERIENCE_DRAIN = registerBlock("titanium_experience_drain",
+            new TitaniumExperienceDrainBlock(FabricBlockSettings.copy(ModBlocks.TITANIUM_BLOCK).nonOpaque()));
     public static final Block TITANIUM_STEAM_GENERATOR = registerBlock("titanium_steam_generator",
             new TitaniumSteamGeneratorBlock(FabricBlockSettings.copy(ModBlocks.TITANIUM_BLOCK)));
     public static final Block TITANIUM_LAVA_GENERATOR = registerBlock("titanium_lava_generator",
@@ -486,6 +490,8 @@ public class ModBlocks {
             new TriafiumPumpBlock(FabricBlockSettings.copy(ModBlocks.TRIAFIUM_BLOCK)));
     public static final Block TRIAFIUM_FLUID_PIPE = registerBlock("triafium_fluid_pipe",
             new TriafiumFluidPipeBlock(FabricBlockSettings.copy(ModBlocks.TRIAFIUM_BLOCK)));
+    public static final Block TRIAFIUM_EXPERIENCE_DRAIN = registerBlock("triafium_experience_drain",
+            new TriafiumExperienceDrainBlock(FabricBlockSettings.copy(ModBlocks.TRIAFIUM_BLOCK).nonOpaque()));
     public static final Block TRIAFIUM_FLUID_TANK = registerBlock("triafium_fluid_tank",
             new TriafiumFluidTankBlock(FabricBlockSettings.copy(ModBlocks.TRIAFIUM_BLOCK)));
     public static final Block TRIAFIUM_STEAM_GENERATOR = registerBlock("triafium_steam_generator",

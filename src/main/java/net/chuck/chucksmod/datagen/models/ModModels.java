@@ -24,4 +24,7 @@ public class ModModels {
     public static final Model VINE =
             new Model(Optional.of(new Identifier(ChucksMod.MOD_ID, "block/template/vine_template")),
                     Optional.empty(), TextureKey.TEXTURE);
+    public static final Model EXPERIENCE_DRAIN =
+            new Model(Optional.of(new Identifier(ChucksMod.MOD_ID, "block/template/experience_drain_template")),
+                    Optional.empty(), TextureKey.TEXTURE);
 }

@@ -524,6 +524,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.TITANIUM_HEAT_GENERATOR)
                 .add(ModBlocks.TITANIUM_PUMP)
                 .add(ModBlocks.TITANIUM_FLUID_PIPE)
+                .add(ModBlocks.TITANIUM_EXPERIENCE_DRAIN)
                 .add(ModBlocks.TITANIUM_FLUID_TANK)
                 .add(ModBlocks.TITANIUM_STEAM_GENERATOR)
                 .add(ModBlocks.TITANIUM_HARVESTER)
@@ -538,6 +539,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.TRIAFIUM_HEAT_GENERATOR)
                 .add(ModBlocks.TRIAFIUM_PUMP)
                 .add(ModBlocks.TRIAFIUM_FLUID_PIPE)
+                .add(ModBlocks.TRIAFIUM_EXPERIENCE_DRAIN)
                 .add(ModBlocks.TRIAFIUM_FLUID_TANK)
                 .add(ModBlocks.TRIAFIUM_STEAM_GENERATOR)
                 .add(ModBlocks.TRIAFIUM_HARVESTER)
@@ -655,6 +657,8 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.TRIAFIAN_VINE);
 
         getOrCreateTagBuilder(ModBlockTags.EXPERIENCE_DRAINS)
-                .add(ModBlocks.IRON_EXPERIENCE_DRAIN);
+                .add(ModBlocks.IRON_EXPERIENCE_DRAIN)
+                .add(ModBlocks.TITANIUM_EXPERIENCE_DRAIN)
+                .add(ModBlocks.TRIAFIUM_EXPERIENCE_DRAIN);
     }
 }

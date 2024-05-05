@@ -13,6 +13,8 @@ import net.chuck.chucksmod.block.entity.energy_storage.IronEnergyStorageBlockEnt
 import net.chuck.chucksmod.block.entity.energy_storage.TitaniumEnergyStorageBlockEntity;
 import net.chuck.chucksmod.block.entity.energy_storage.TriafiumEnergyStorageBlockEntity;
 import net.chuck.chucksmod.block.entity.experience_drain.IronExperienceDrainBlockEntity;
+import net.chuck.chucksmod.block.entity.experience_drain.TitaniumExperienceDrainBlockEntity;
+import net.chuck.chucksmod.block.entity.experience_drain.TriafiumExperienceDrainBlockEntity;
 import net.chuck.chucksmod.block.entity.fluid_pipe.IronFluidPipeBlockEntity;
 import net.chuck.chucksmod.block.entity.fluid_pipe.TitaniumFluidPipeBlockEntity;
 import net.chuck.chucksmod.block.entity.fluid_pipe.TriafiumFluidPipeBlockEntity;
@@ -87,6 +89,7 @@ public class ModBlockEntities {
     public static BlockEntityType<TitaniumFluidTankBlockEntity> TITANIUM_FLUID_TANK;
     public static BlockEntityType<TitaniumPumpBlockEntity> TITANIUM_PUMP;
     public static BlockEntityType<TitaniumFluidPipeBlockEntity> TITANIUM_FLUID_PIPE;
+    public static BlockEntityType<TitaniumExperienceDrainBlockEntity> TITANIUM_EXPERIENCE_DRAIN;
     public static BlockEntityType<TitaniumSteamGeneratorBlockEntity> TITANIUM_STEAM_GENERATOR;
     public static BlockEntityType<TitaniumLavaGeneratorBlockEntity> TITANIUM_LAVA_GENERATOR;
     public static BlockEntityType<TitaniumHarvesterBlockEntity> TITANIUM_HARVESTER;
@@ -97,6 +100,7 @@ public class ModBlockEntities {
     public static BlockEntityType<TriafiumPumpBlockEntity> TRIAFIUM_PUMP;
     public static BlockEntityType<TriafiumFluidPipeBlockEntity> TRIAFIUM_FLUID_PIPE;
     public static BlockEntityType<TriafiumFluidTankBlockEntity> TRIAFIUM_FLUID_TANK;
+    public static BlockEntityType<TriafiumExperienceDrainBlockEntity> TRIAFIUM_EXPERIENCE_DRAIN;
     public static BlockEntityType<TriafiumSteamGeneratorBlockEntity> TRIAFIUM_STEAM_GENERATOR;
     public static BlockEntityType<TriafiumHarvesterBlockEntity> TRIAFIUM_HARVESTER;
     public static BlockEntityType<TriafiumQuarryBlockEntity> TRIAFIUM_QUARRY;
@@ -169,7 +173,7 @@ public class ModBlockEntities {
                 IRON_STEAM_GENERATOR);
         FluidStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.fluidStorage,
                 IRON_STEAM_GENERATOR);
-        
+
         IRON_HARVESTER = Registry.register(Registries.BLOCK_ENTITY_TYPE,
                 new Identifier(ChucksMod.MOD_ID, "iron_harvester"),
                 FabricBlockEntityTypeBuilder.create(IronHarvesterBlockEntity::new,
@@ -249,6 +253,11 @@ public class ModBlockEntities {
         FluidStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.fluidStorage,
                 TITANIUM_FLUID_TANK);
 
+        TITANIUM_EXPERIENCE_DRAIN = Registry.register(Registries.BLOCK_ENTITY_TYPE,
+                new Identifier(ChucksMod.MOD_ID, "titanium_experience_drain"),
+                FabricBlockEntityTypeBuilder.create(TitaniumExperienceDrainBlockEntity::new,
+                        ModBlocks.TITANIUM_EXPERIENCE_DRAIN).build());
+
         TITANIUM_PUMP = Registry.register(Registries.BLOCK_ENTITY_TYPE,
                 new Identifier(ChucksMod.MOD_ID, "titanium_pump"),
                 FabricBlockEntityTypeBuilder.create(TitaniumPumpBlockEntity::new,
@@ -275,7 +284,7 @@ public class ModBlockEntities {
                 TITANIUM_LAVA_GENERATOR);
         FluidStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.fluidStorage,
                 TITANIUM_LAVA_GENERATOR);
-        
+
         TITANIUM_HARVESTER = Registry.register(Registries.BLOCK_ENTITY_TYPE,
                 new Identifier(ChucksMod.MOD_ID, "titanium_harvester"),
                 FabricBlockEntityTypeBuilder.create(TitaniumHarvesterBlockEntity::new,
@@ -341,6 +350,11 @@ public class ModBlockEntities {
                         ModBlocks.TRIAFIUM_FLUID_TANK).build());
         FluidStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.fluidStorage,
                 TRIAFIUM_FLUID_TANK);
+
+        TRIAFIUM_EXPERIENCE_DRAIN = Registry.register(Registries.BLOCK_ENTITY_TYPE,
+                new Identifier(ChucksMod.MOD_ID, "triafium_experience_drain"),
+                FabricBlockEntityTypeBuilder.create(TriafiumExperienceDrainBlockEntity::new,
+                        ModBlocks.TRIAFIUM_EXPERIENCE_DRAIN).build());
         
         TRIAFIUM_STEAM_GENERATOR = Registry.register(Registries.BLOCK_ENTITY_TYPE,
                 new Identifier(ChucksMod.MOD_ID, "triafium_steam_generator"),
