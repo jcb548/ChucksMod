@@ -235,6 +235,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.TITANIUM_QUARRY);
                         entries.add(ModBlocks.TITANIUM_LAVA_GENERATOR);
                         entries.add(ModBlocks.TITANIUM_COPIER);
+                        entries.add(ModBlocks.TITANIUM_CLEANSER);
 
                         entries.add(ModItems.NETHERITE_DUST);
                         entries.add(ModBlocks.NETHERITE_DUST_BLOCK);

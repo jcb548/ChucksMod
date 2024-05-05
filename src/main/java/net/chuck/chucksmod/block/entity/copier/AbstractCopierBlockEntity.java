@@ -55,7 +55,6 @@ public abstract class AbstractCopierBlockEntity extends AbstractEnergyCookerBloc
     public AbstractCopierBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state,
                                      int energyStorageSize, int maxProgress, int maxInsertExtract) {
         super(type, pos, state, INV_SIZE, energyStorageSize, maxProgress, maxInsertExtract);
-        this.maxProgress = maxProgress;
     }
 
     @Override

@@ -530,7 +530,8 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.TITANIUM_HARVESTER)
                 .add(ModBlocks.TITANIUM_QUARRY)
                 .add(ModBlocks.TITANIUM_LAVA_GENERATOR)
-                .add(ModBlocks.TITANIUM_COPIER);
+                .add(ModBlocks.TITANIUM_COPIER)
+                .add(ModBlocks.TITANIUM_CLEANSER);
 
         getOrCreateTagBuilder(ModBlockTags.TRIAFIUM_TIER)
                 .add(ModBlocks.TRIAFIUM_ENERGY_STORAGE)

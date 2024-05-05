@@ -2,6 +2,7 @@ package net.chuck.chucksmod.screen;
 
 import net.chuck.chucksmod.ChucksMod;
 import net.chuck.chucksmod.screen.bag.*;
+import net.chuck.chucksmod.screen.cleanser.CleanserScreenHandler;
 import net.chuck.chucksmod.screen.copier.CopierScreenHandler;
 import net.chuck.chucksmod.screen.crusher.CrusherScreenHandler;
 import net.chuck.chucksmod.screen.crusher.PoweredCrusherScreenHandler;
@@ -69,6 +70,8 @@ public class ModScreenHandlers {
             new ExtendedScreenHandlerType<>(PortalBuilderScreenHandler::new);
     public static ScreenHandlerType<CopierScreenHandler> COPIER_SCREEN_HANDLER =
             new ExtendedScreenHandlerType<>(CopierScreenHandler::new);
+    public static ScreenHandlerType<CleanserScreenHandler> CLEANSER_SCREEN_HANDLER =
+            new ExtendedScreenHandlerType<>(CleanserScreenHandler::new);
     public static ScreenHandlerType<BagScreenHandler3x1> BAG_3X1_SCREEN_HANDLER =
             new ExtendedScreenHandlerType<>(BagScreenHandler3x1::new);
     public static ScreenHandlerType<BagScreenHandler5x1> BAG_5X1_SCREEN_HANDLER =
@@ -115,6 +118,8 @@ public class ModScreenHandlers {
 
         Registry.register(Registries.SCREEN_HANDLER, new Identifier(ChucksMod.MOD_ID, "copier"),
                 COPIER_SCREEN_HANDLER);
+        Registry.register(Registries.SCREEN_HANDLER, new Identifier(ChucksMod.MOD_ID, "cleanser"),
+                CLEANSER_SCREEN_HANDLER);
         Registry.register(Registries.SCREEN_HANDLER, new Identifier(ChucksMod.MOD_ID, "pump"),
                 PUMP_SCREEN_HANDLER);
         Registry.register(Registries.SCREEN_HANDLER, new Identifier(ChucksMod.MOD_ID, "portal_builder"),

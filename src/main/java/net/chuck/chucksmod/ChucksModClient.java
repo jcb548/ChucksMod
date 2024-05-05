@@ -18,6 +18,7 @@ import net.chuck.chucksmod.screen.bag.BagScreen9x1;
 import net.chuck.chucksmod.screen.bag.BagScreen6x2;
 import net.chuck.chucksmod.screen.bag.BagScreen7x2;
 import net.chuck.chucksmod.screen.copier.CopierScreen;
+import net.chuck.chucksmod.screen.cleanser.CleanserScreen;
 import net.chuck.chucksmod.screen.crusher.CrusherScreen;
 import net.chuck.chucksmod.screen.crusher.PoweredCrusherScreen;
 import net.chuck.chucksmod.screen.furnace.PoweredFurnaceScreen;
@@ -41,13 +42,11 @@ import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
-import net.minecraft.client.color.item.ItemColorProvider;
 import net.minecraft.client.color.world.BiomeColors;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.TexturedRenderLayers;
 import net.minecraft.client.util.SpriteIdentifier;
-import net.minecraft.data.client.BlockStateVariant;
 import net.minecraft.util.Identifier;
 
 /*
@@ -265,6 +264,7 @@ public class ChucksModClient implements ClientModInitializer {
         HandledScreens.register(ModScreenHandlers.GENERATOR_SCREEN_HANDLER, HeatGeneratorScreen::new);
         HandledScreens.register(ModScreenHandlers.ENERGY_STORAGE_SCREEN_HANDLER, EnergyStorageScreen::new);
         HandledScreens.register(ModScreenHandlers.COPIER_SCREEN_HANDLER, CopierScreen::new);
+        HandledScreens.register(ModScreenHandlers.CLEANSER_SCREEN_HANDLER, CleanserScreen::new);
         HandledScreens.register(ModScreenHandlers.PUMP_SCREEN_HANDLER, PumpScreen::new);
         HandledScreens.register(ModScreenHandlers.STEAM_GENERATOR_SCREEN_HANDLER, SteamGeneratorScreen::new);
         HandledScreens.register(ModScreenHandlers.LAVA_GENERATOR_SCREEN_HANDLER, LavaGeneratorScreen::new);

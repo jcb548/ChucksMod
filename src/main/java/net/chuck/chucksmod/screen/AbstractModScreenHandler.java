@@ -1,5 +1,7 @@
 package net.chuck.chucksmod.screen;
 
+import net.chuck.chucksmod.block.entity.FluidStoring;
+import net.chuck.chucksmod.util.FluidStack;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.screen.ScreenHandler;
@@ -8,6 +10,8 @@ import net.minecraft.screen.slot.Slot;
 import org.jetbrains.annotations.Nullable;
 
 public abstract class AbstractModScreenHandler extends ScreenHandler {
+    public FluidStack fluidStack = null;
+    public FluidStoring fluidStoring = null;
     protected final static int PLAYER_INVENTORY_START_IDX = 0;
     protected final static int PLAYER_INVENTORY_END_IDX = 35;
     protected AbstractModScreenHandler(@Nullable ScreenHandlerType<?> type, int syncId) {
@@ -34,5 +38,12 @@ public abstract class AbstractModScreenHandler extends ScreenHandler {
     }
     public void addPlayerHotbar(PlayerInventory playerInventory){
         addPlayerHotbar(playerInventory, 142);
+    }
+    public FluidStoring getFluidStoring() {
+        return fluidStoring;
+    }
+
+    public void setFluidStack(FluidStack fluidStack) {
+        this.fluidStack = fluidStack;
     }
 }

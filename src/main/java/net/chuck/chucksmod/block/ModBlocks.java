@@ -8,6 +8,7 @@ import net.chuck.chucksmod.ChucksMod;
 import net.chuck.chucksmod.block.custom.altar.FrankAltarBlock;
 import net.chuck.chucksmod.block.custom.altar.PippinAltarBlock;
 import net.chuck.chucksmod.block.custom.altar.SoulBlazeAltarBlock;
+import net.chuck.chucksmod.block.custom.cleanser.TitaniumCleanserBlock;
 import net.chuck.chucksmod.block.custom.copier.TitaniumCopierBlock;
 import net.chuck.chucksmod.block.custom.copier.TriafiumCopierBlock;
 import net.chuck.chucksmod.block.custom.crop.*;
@@ -279,6 +280,8 @@ public class ModBlocks {
             new TitaniumQuarryBlock(FabricBlockSettings.copy(TITANIUM_BLOCK)));
     public static final Block TITANIUM_COPIER = registerBlock("titanium_copier",
             new TitaniumCopierBlock(FabricBlockSettings.copy(TITANIUM_BLOCK)));
+    public static final Block TITANIUM_CLEANSER = registerBlock("titanium_cleanser",
+            new TitaniumCleanserBlock(FabricBlockSettings.copy(TITANIUM_BLOCK)));
     public static final Block TITANIUM_FLUID_TANK = registerBlock("titanium_fluid_tank",
             new TitaniumFluidTankBlock(FabricBlockSettings.copy(ModBlocks.TITANIUM_BLOCK)));
     public static final Block TITANIUM_PUMP = registerBlock("titanium_pump",

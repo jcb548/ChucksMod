@@ -366,6 +366,8 @@
   "tooltip.chucksmod.titanium_quarry": "Mines blocks in a 9x9 area in front of Quarry",
   "block.chucksmod.titanium_copier": "Titanium Copier",
   "tooltip.chucksmod.copier": "Copies enchantments from books, at a cost of experience",
+  "block.chucksmod.titanium_cleanser": "Titanium Cleanser",
+  "tooltip.chucksmod.cleanser": "Resets Cost of Item in an Anvil",
   "tooltip.chucksmod.drain_xp": "Drain Xp",
   "block.chucksmod.titanium_fluid_tank": "Titanium Fluid Tank",
   "block.chucksmod.titanium_pump": "Titanium Pump",

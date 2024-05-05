@@ -151,6 +151,7 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerCooker(ModBlocks.TITANIUM_HEAT_GENERATOR, ModTexturedModel.ORIENTABLE_MACHINE);
         blockStateModelGenerator.registerCooker(ModBlocks.TITANIUM_QUARRY, ModTexturedModel.ORIENTABLE_MACHINE);
         blockStateModelGenerator.registerCooker(ModBlocks.TITANIUM_COPIER, ModTexturedModel.ORIENTABLE_MACHINE);
+        blockStateModelGenerator.registerCooker(ModBlocks.TITANIUM_CLEANSER, ModTexturedModel.ORIENTABLE_MACHINE);
         ModModelGenerator.registerVerticalColumn(blockStateModelGenerator, ModBlocks.TITANIUM_FLUID_TANK);
         blockStateModelGenerator.registerCooker(ModBlocks.TITANIUM_PUMP, ModTexturedModel.ORIENTABLE_MACHINE);
         ModModelGenerator.registerPipe(blockStateModelGenerator, ModBlocks.TITANIUM_FLUID_PIPE);
