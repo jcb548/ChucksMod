@@ -3,7 +3,7 @@ package net.chuck.chucksmod.screen.generator.lava;
 import net.chuck.chucksmod.block.entity.AbstractEnergyCookerBlockEntity;
 import net.chuck.chucksmod.block.entity.FluidStoring;
 import net.chuck.chucksmod.block.entity.generator.lava.AbstractLavaGeneratorBlockEntity;
-import net.chuck.chucksmod.screen.FluidStoringScreenHandler;
+import net.chuck.chucksmod.screen.FluidDisplayingScreenHandler;
 import net.chuck.chucksmod.screen.ModScreenHandlers;
 import net.chuck.chucksmod.screen.generator.GeneratorScreenHandler;
 import net.chuck.chucksmod.util.FluidStack;
@@ -13,8 +13,7 @@ import net.minecraft.network.PacketByteBuf;
 import net.minecraft.screen.ArrayPropertyDelegate;
 import net.minecraft.screen.PropertyDelegate;
 
-public class LavaGeneratorScreenHandler extends GeneratorScreenHandler implements FluidStoringScreenHandler {
-    public FluidStack fluidStack;
+public class LavaGeneratorScreenHandler extends GeneratorScreenHandler implements FluidDisplayingScreenHandler {
     public AbstractLavaGeneratorBlockEntity lavaGenerator;
     public LavaGeneratorScreenHandler(int syncId, PlayerInventory playerInventory, BlockEntity entity,
                                       PropertyDelegate delegate) {
@@ -32,11 +31,6 @@ public class LavaGeneratorScreenHandler extends GeneratorScreenHandler implement
     @Override
     public FluidStoring getFluidStoring() {
         return lavaGenerator;
-    }
-
-    @Override
-    public void setFluidStack(FluidStack fluidStack) {
-        this.fluidStack = fluidStack;
     }
 
     @Override

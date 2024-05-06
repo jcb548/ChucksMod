@@ -3,15 +3,12 @@ package net.chuck.chucksmod.screen.copier;
 import net.chuck.chucksmod.block.entity.AbstractEnergyCookerBlockEntity;
 import net.chuck.chucksmod.block.entity.FluidStoring;
 import net.chuck.chucksmod.block.entity.copier.AbstractCopierBlockEntity;
-import net.chuck.chucksmod.networking.ModMessages;
 import net.chuck.chucksmod.screen.AbstractEnergyCookerScreenHandler;
-import net.chuck.chucksmod.screen.FluidStoringScreenHandler;
+import net.chuck.chucksmod.screen.FluidDisplayingScreenHandler;
 import net.chuck.chucksmod.screen.ModScreenHandlers;
 import net.chuck.chucksmod.screen.slot.BucketSlot;
 import net.chuck.chucksmod.screen.slot.SingleItemFilterSlot;
 import net.chuck.chucksmod.util.FluidStack;
-import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
-import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
@@ -24,12 +21,9 @@ import net.minecraft.screen.ArrayPropertyDelegate;
 import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.slot.Slot;
 
-import java.util.UUID;
-
-public class CopierScreenHandler extends AbstractEnergyCookerScreenHandler {
+public class CopierScreenHandler extends AbstractEnergyCookerScreenHandler implements FluidDisplayingScreenHandler {
     protected final static int BOOK_SCREEN_SLOT_IDX = 38;
     protected final static int XP_BUCKET_SLOT_IDX = 39;
-    public FluidStack fluidStack;
     public AbstractCopierBlockEntity copier;
     public CopierScreenHandler(int syncId, PlayerInventory playerInventory, BlockEntity entity,
                                   PropertyDelegate delegate) {
@@ -44,7 +38,7 @@ public class CopierScreenHandler extends AbstractEnergyCookerScreenHandler {
         if(this.blockEntity instanceof AbstractCopierBlockEntity) {
             copier = (AbstractCopierBlockEntity) blockEntity;
         }
-        this.fluidStack = new FluidStack(copier.fluidStorage.variant, copier.fluidStorage.amount);
+        setFluidStack(new FluidStack(copier.fluidStorage.variant, copier.fluidStorage.amount));
 
     }
     public CopierScreenHandler(int syncId, PlayerInventory inventory, PacketByteBuf buf){

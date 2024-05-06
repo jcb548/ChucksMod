@@ -4,7 +4,7 @@ import net.chuck.chucksmod.block.entity.AbstractEnergyCookerBlockEntity;
 import net.chuck.chucksmod.block.entity.FluidStoring;
 import net.chuck.chucksmod.block.entity.cleanser.AbstractCleanserBlockEntity;
 import net.chuck.chucksmod.screen.AbstractEnergyCookerScreenHandler;
-import net.chuck.chucksmod.screen.FluidStoringScreenHandler;
+import net.chuck.chucksmod.screen.FluidDisplayingScreenHandler;
 import net.chuck.chucksmod.screen.ModScreenHandlers;
 import net.chuck.chucksmod.util.FluidStack;
 import net.minecraft.block.entity.BlockEntity;
@@ -14,13 +14,13 @@ import net.minecraft.network.PacketByteBuf;
 import net.minecraft.screen.ArrayPropertyDelegate;
 import net.minecraft.screen.PropertyDelegate;
 
-public class CleanserScreenHandler extends AbstractEnergyCookerScreenHandler {
+public class CleanserScreenHandler extends AbstractEnergyCookerScreenHandler implements FluidDisplayingScreenHandler {
     public AbstractCleanserBlockEntity cleanser;
     public CleanserScreenHandler(int syncId, PlayerInventory playerInventory, BlockEntity entity,
                                     PropertyDelegate delegate) {
         super(syncId, playerInventory, entity, delegate, ModScreenHandlers.CLEANSER_SCREEN_HANDLER);
         if(this.blockEntity instanceof AbstractCleanserBlockEntity)cleanser = (AbstractCleanserBlockEntity) blockEntity;
-        this.fluidStack = new FluidStack(cleanser.fluidStorage.variant, cleanser.fluidStorage.amount);
+        setFluidStack(new FluidStack(cleanser.fluidStorage.variant, cleanser.fluidStorage.amount));
     }
     public CleanserScreenHandler(int syncId, PlayerInventory inventory, PacketByteBuf buf){
         this(syncId, inventory, inventory.player.getWorld().getBlockEntity(buf.readBlockPos()),

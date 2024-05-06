@@ -89,7 +89,7 @@ public abstract class AbstractCleanserBlockEntity extends AbstractEnergyCookerBl
         for(Enchantment key : enchantments.keySet()){
             levels += key.getMaxPower(enchantments.get(key));
         }
-        return ModExperienceUtil.convertLevelToXp(levels/3);
+        return ModExperienceUtil.convertLevelToXp(levels/10);
     }
     private boolean hasEnoughXp(){
         return this.fluidStorage.amount >= getXpCost(); // mb amount

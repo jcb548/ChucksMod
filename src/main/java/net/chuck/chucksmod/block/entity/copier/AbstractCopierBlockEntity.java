@@ -98,7 +98,7 @@ public abstract class AbstractCopierBlockEntity extends AbstractEnergyCookerBloc
         for(Enchantment key : enchantments.keySet()){
             levels += key.getMaxPower(enchantments.get(key));
         }
-        return ModExperienceUtil.convertLevelToXp(levels/3);
+        return ModExperienceUtil.convertLevelToXp(levels/10);
     }
 
     @Nullable
@@ -142,7 +142,6 @@ public abstract class AbstractCopierBlockEntity extends AbstractEnergyCookerBloc
             transaction.commit();
         }
     }
-
     @Override
     public SingleVariantStorage<FluidVariant> getFluidStorage() {
         return fluidStorage;

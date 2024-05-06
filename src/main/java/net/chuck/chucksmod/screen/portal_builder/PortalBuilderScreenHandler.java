@@ -29,7 +29,6 @@ public class PortalBuilderScreenHandler extends AbstractEnergyCookerScreenHandle
         this(syncId, playerInventory, playerInventory.player.getWorld().getBlockEntity(buf.readBlockPos()),
                 new ArrayPropertyDelegate(AbstractEnergyCookerBlockEntity.DELEGATE_SIZE));
     }
-
     @Override
     protected boolean isRecipeItem(ItemStack item) {
         return false;

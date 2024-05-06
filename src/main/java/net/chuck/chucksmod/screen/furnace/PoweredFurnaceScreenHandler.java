@@ -23,14 +23,6 @@ public class PoweredFurnaceScreenHandler extends AbstractEnergyCookerScreenHandl
         this(syncId, inventory, inventory.player.getWorld().getBlockEntity(buf.readBlockPos()),
                 new ArrayPropertyDelegate(AbstractPoweredFurnaceBlockEntity.DELEGATE_SIZE));
     }
-    public int getScaledProgress() {
-        int progress = this.propertyDelegate.get(AbstractEnergyCookerBlockEntity.PROGRESS_IDX);
-        int maxProgress = this.propertyDelegate.get(AbstractEnergyCookerBlockEntity.MAX_PROGRESS_IDX);
-        int progressArrowSize = 24;
-
-        return maxProgress != 0 && progress != 0 ? progress * progressArrowSize / maxProgress : 0;
-    }
-
     @Override
     protected boolean isRecipeItem(ItemStack item) {
         return this.world.getRecipeManager().getFirstMatch(RecipeType.SMELTING, new SimpleInventory(item),

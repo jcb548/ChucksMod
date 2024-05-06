@@ -11,6 +11,7 @@ import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.Optional;
 
@@ -22,7 +23,6 @@ public abstract class AbstractModScreen<T extends AbstractModScreenHandler> exte
     protected int getX(){
         return (width - backgroundWidth) /2;
     }
-
     protected int getY(){
         return (height - backgroundHeight) /2;
     }
@@ -61,8 +61,14 @@ public abstract class AbstractModScreen<T extends AbstractModScreenHandler> exte
         super.init();
         assignFluidStackRenderer();
     }
-    protected void assignFluidStackRenderer(){}
-    private void renderFluidAreaToolTips(DrawContext context, int pMouseX, int pMouseY, int x, int y){
+    public void assignFluidStackRenderer(){
+        if(handler.getFluidStoring() != null){
+            fluidStackRenderer = new FluidStackRenderer
+                    (FluidStack.convertDropletsToMb(FluidConstants.BUCKET)*handler.getFluidStoring().getBucketCapacity(),
+                            true, 15, 48);
+        }
+    }
+    protected void renderFluidAreaToolTips(DrawContext context, int pMouseX, int pMouseY, int x, int y){
         if(fluidDisplay() && isMouseAboveArea(pMouseX, pMouseY, x, y, getFluidXOffset(), getFluidYOffset(),
                 fluidStackRenderer.getWidth(), fluidStackRenderer.getHeight())){
             context.drawTooltip(this.client.textRenderer, fluidStackRenderer.getTooltip(handler.fluidStack,
