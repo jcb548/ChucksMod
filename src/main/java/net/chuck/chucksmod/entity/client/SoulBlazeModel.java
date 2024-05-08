@@ -13,9 +13,7 @@ import net.minecraft.util.math.MathHelper;
 // Made with Blockbench 4.8.3
 // Exported for Minecraft version 1.17+ for Yarn
 // Paste this class into your mod and generate all required imports
-public class SoulBlazeModel<T extends SoulBlazeBoss> extends SinglePartEntityModel<T> {
-	private final ModelPart bone;
-	private final ModelPart head;
+public class SoulBlazeModel<T extends SoulBlazeBoss> extends CustomSinglePartEntityModel<T> {
 	public SoulBlazeModel(ModelPart root) {
 		this.bone = root.getChild("bone");
 		this.head = bone.getChild("head");
@@ -63,22 +61,7 @@ public class SoulBlazeModel<T extends SoulBlazeBoss> extends SinglePartEntityMod
 		this.animateMovement(SoulBlazeAnimations.SOUL_BLAZE_MOVE, limbSwing, limbSwingAmount, 2f, 2.5f);
 		this.updateAnimation(entity.idleAnimationState, SoulBlazeAnimations.SOUL_BLAZE_IDLE, ageInTicks, 1);
 		this.updateAnimation(entity.leftAttackAnimationState, SoulBlazeAnimations.SOUL_BLAZE_LEFT_MELEE_ATTACK, ageInTicks, 1f);
-		this.updateAnimation(entity.rightAttackAnimationState, SoulBlazeAnimations.SOUL_BLAZE_RIGHT_MELEE_ATTACK, ageInTicks, 1f);
+		this.updateAnimation(entity.attackAnimationState, SoulBlazeAnimations.SOUL_BLAZE_RIGHT_MELEE_ATTACK, ageInTicks, 1f);
 		this.updateAnimation(entity.shootAnimationState, SoulBlazeAnimations.SOUL_BLAZE_RANGED_ATTACK, ageInTicks, 1f);
-	}
-	private void setHeadAngles(float headYaw, float headPitch){
-		headYaw = MathHelper.clamp(headYaw, -30.0f, 30.0f);
-		headPitch = MathHelper.clamp(headPitch, -25.0f, 25.0f);
-		this.head.yaw = headYaw * ((float)Math.PI/180);
-		this.head.pitch = headPitch * ((float)Math.PI/180);
-	}
-	@Override
-	public void render(MatrixStack matrices, VertexConsumer vertexConsumer, int light, int overlay, float red, float green, float blue, float alpha) {
-		bone.render(matrices, vertexConsumer, light, overlay, red, green, blue, alpha);
-	}
-
-	@Override
-	public ModelPart getPart() {
-		return bone;
 	}
 }

@@ -28,34 +28,32 @@ import net.minecraft.world.Difficulty;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-public class BigTallBoss extends HostileEntity implements MeleeAttackMob{
+public class BigTallBoss extends CustomBoss{
     public static final int RUN_AT_RANGE = 32;
-    public static final int ATTACK_ANIMATION_LENGTH = 18;
     public static final int SPINNING_ANIMATION_LENGTH = 27;
-    public static final int ATTACK_WINDUP = 5;
     private static final TrackedData<Boolean> ATTACKING =
             DataTracker.registerData(BigTallBoss.class, TrackedDataHandlerRegistry.BOOLEAN);
     private static final TrackedData<Boolean> SPINNING =
             DataTracker.registerData(BigTallBoss.class, TrackedDataHandlerRegistry.BOOLEAN);
-    public final AnimationState idleAnimationState = new AnimationState();
-    private int idleAnimationCooldown = 0;
-    public final AnimationState attackAnimationState = new AnimationState();
-    public int attackAnimationCooldown = 0;
     public final AnimationState spinAnimationState = new AnimationState();
     public int spinAnimationCooldown = 0;
-    private final ServerBossBar bossBar = (ServerBossBar)new ServerBossBar(this.getDisplayName(), BossBar.Color.PURPLE,
-            BossBar.Style.PROGRESS).setDarkenSky(false);
     public BigTallBoss(EntityType<? extends HostileEntity> entityType, World world) {
         super(entityType, world);
     }
-
+    @Override
+    public int getAttackAnimationLength() {
+        return 18;
+    }
+    @Override
+    public int getAttackWindup() {
+        return 5;
+    }
     public static DefaultAttributeContainer.Builder setAttributes(){
         return MobEntity.createMobAttributes()
                 .add(EntityAttributes.GENERIC_MAX_HEALTH, 200)
                 .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.6f)
                 .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 15);
     }
-
     @Override
     protected void initGoals() {
         this.goalSelector.add(0, new SwimGoal(this));
@@ -74,29 +72,12 @@ public class BigTallBoss extends HostileEntity implements MeleeAttackMob{
         this.dataTracker.startTracking(ATTACKING, false);
         this.dataTracker.startTracking(SPINNING, false);
     }
-
-    @Override
-    public PathAwareEntity getPathAwareEntity() {
-        return this;
-    }
-
     public void setAttacking(boolean attacking){
         this.dataTracker.set(ATTACKING, attacking);
     }
     public boolean isAttacking(){
         return this.dataTracker.get(ATTACKING);
     }
-
-    @Override
-    public void setAttackAnimationCooldown(int cooldown) {
-        attackAnimationCooldown = cooldown;
-    }
-
-    @Override
-    public int getAttackAnimationCooldown() {
-        return attackAnimationCooldown;
-    }
-
     public void setSpinning(boolean spinning){
         this.dataTracker.set(SPINNING, spinning);
     }
@@ -104,26 +85,8 @@ public class BigTallBoss extends HostileEntity implements MeleeAttackMob{
         return this.dataTracker.get(SPINNING);
     }
     @Override
-    protected void updateLimbs(float posDelta) {
-        float f = this.getPose() == EntityPose.STANDING ? Math.min(posDelta * 6.0f, 1.0f) : 0.0f;
-        this.limbAnimator.updateLimbs(f, 0.2f);
-    }
-    private void updateAnimations(){
-        if (this.idleAnimationCooldown <= 0) {
-            this.idleAnimationCooldown = this.random.nextInt(40) + 80;
-            this.idleAnimationState.start(this.age);
-        } else {
-            --this.idleAnimationCooldown;
-        }
-        if(isAttacking() && attackAnimationCooldown <= 0){
-            attackAnimationCooldown = ATTACK_ANIMATION_LENGTH;
-            attackAnimationState.start(age);
-        } else if(attackAnimationCooldown >= 0){
-            --attackAnimationCooldown;
-        }
-        if(!isAttacking()){
-            attackAnimationState.stop();
-        }
+    protected void updateAnimations(){
+        super.updateAnimations();
         if(isSpinning() && spinAnimationCooldown<=0){
             spinAnimationCooldown = SPINNING_ANIMATION_LENGTH;
             spinAnimationState.start(this.age);
@@ -134,44 +97,6 @@ public class BigTallBoss extends HostileEntity implements MeleeAttackMob{
             spinAnimationState.stop();
         }
     }
-    @Override
-    public void checkDespawn() {
-        if (this.getWorld().getDifficulty() == Difficulty.PEACEFUL && this.isDisallowedInPeaceful()) {
-            this.discard();
-            return;
-        }
-        this.despawnCounter = 0;
-    }
-    @Override
-    public void onStartedTrackingBy(ServerPlayerEntity player) {
-        super.onStartedTrackingBy(player);
-        this.bossBar.addPlayer(player);
-    }
-
-    @Override
-    public void onStoppedTrackingBy(ServerPlayerEntity player) {
-        super.onStoppedTrackingBy(player);
-        this.bossBar.removePlayer(player);
-    }
-    @Override
-    public Arm getMainArm() {
-        return Arm.RIGHT;
-    }
-
-    @Override
-    protected void mobTick() {
-        super.mobTick();
-        this.bossBar.setPercent(this.getHealth() / this.getMaxHealth());
-    }
-
-    @Override
-    public void tick() {
-        super.tick();
-        if(this.getWorld().isClient()){
-            updateAnimations();
-        }
-    }
-
     @Override
     public boolean isInvulnerableTo(DamageSource damageSource) {
         return super.isInvulnerableTo(damageSource) || (getHealth() < getMaxHealth()/2 && damageSource.isIn(DamageTypeTags.IS_PROJECTILE));

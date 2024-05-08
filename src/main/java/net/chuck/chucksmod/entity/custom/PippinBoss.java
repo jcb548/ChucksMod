@@ -32,23 +32,25 @@ import net.minecraft.util.math.random.Random;
 import net.minecraft.world.*;
 import org.jetbrains.annotations.Nullable;
 
-public class PippinBoss extends HostileEntity implements MeleeAttackMob{
+public class PippinBoss extends CustomBoss{
     public static final int LANTERN_RANGE = 32;
-    public static final int ATTACK_ANIMATION_LENGTH = 18;
-    public static final int ATTACK_WINDUP = 5;
     private static final int TICKS_BETWEEN_HEAL = 12;
     private static final TrackedData<Boolean> ATTACKING =
             DataTracker.registerData(PippinBoss.class, TrackedDataHandlerRegistry.BOOLEAN);
-    public final AnimationState idleAnimationState = new AnimationState();
-    private int idleAnimationCooldown = 0;
-    public final AnimationState attackAnimationState = new AnimationState();
-    public int attackAnimationCooldown = 0;
     private int healTickCounter = 5;
     private BlockPos healingLanternPos = null;
     private final ServerBossBar bossBar = (ServerBossBar)new ServerBossBar(this.getDisplayName(), BossBar.Color.PURPLE,
             BossBar.Style.PROGRESS).setDarkenSky(false);
     public PippinBoss(EntityType<? extends HostileEntity> entityType, World world) {
         super(entityType, world);
+    }
+    @Override
+    public int getAttackAnimationLength() {
+        return 18;
+    }
+    @Override
+    public int getAttackWindup() {
+        return 5;
     }
     public static DefaultAttributeContainer.Builder setAttributes(){
         return MobEntity.createMobAttributes()
@@ -61,7 +63,7 @@ public class PippinBoss extends HostileEntity implements MeleeAttackMob{
         this.goalSelector.add(0, new SwimGoal(this));
         this.goalSelector.add(1, new PippinGoToHealGoal(this, 0.7f));
         this.goalSelector.add(2, new CustomMeleeAttackGoal(this, 1.0f, true,
-                ATTACK_WINDUP, ATTACK_ANIMATION_LENGTH, 3f));
+                getAttackWindup(), getAttackAnimationLength(), 3f));
         this.goalSelector.add(3, new WanderAroundFarGoal(this, 0.5f, 1));
         this.goalSelector.add(4, new LookAtEntityGoal(this, PlayerEntity.class, 40));
         this.goalSelector.add(5, new LookAroundGoal(this));
@@ -81,35 +83,10 @@ public class PippinBoss extends HostileEntity implements MeleeAttackMob{
         return this.dataTracker.get(ATTACKING);
     }
     @Override
-    protected void updateLimbs(float posDelta) {
-        float f = this.getPose() == EntityPose.STANDING ? Math.min(posDelta * 6.0f, 1.0f) : 0.0f;
-        this.limbAnimator.updateLimbs(f, 0.2f);
-    }
-    private void updateAnimations(){
-        if (this.idleAnimationCooldown <= 0) {
-            this.idleAnimationCooldown = this.random.nextInt(40) + 80;
-            this.idleAnimationState.start(this.age);
-        } else {
-            --this.idleAnimationCooldown;
-        }
-        if(isAttacking() && attackAnimationCooldown <=0){
-            attackAnimationCooldown = ATTACK_ANIMATION_LENGTH;
-            attackAnimationState.start(age);
-        } else {
-            --attackAnimationCooldown;
-        }
-        if(!isAttacking()){
-            attackAnimationState.stop();
-        }
-    }
-
-    @Override
     public void tick() {
         super.tick();
         setPositionTarget(getBlockPos(), -1);
-        if(this.getWorld().isClient()){
-            updateAnimations();
-        } else {
+        if(!this.getWorld().isClient()){
             if(nearLantern()) {
                if(healTickCounter <=0) {
                    heal(1);
@@ -125,35 +102,6 @@ public class PippinBoss extends HostileEntity implements MeleeAttackMob{
                } else healTickCounter--;
             }
         }
-    }
-    @Override
-    public void checkDespawn() {
-        if (this.getWorld().getDifficulty() == Difficulty.PEACEFUL && this.isDisallowedInPeaceful()) {
-            this.discard();
-            return;
-        }
-        this.despawnCounter = 0;
-    }
-    @Override
-    public void onStartedTrackingBy(ServerPlayerEntity player) {
-        super.onStartedTrackingBy(player);
-        this.bossBar.addPlayer(player);
-    }
-
-    @Override
-    public void onStoppedTrackingBy(ServerPlayerEntity player) {
-        super.onStoppedTrackingBy(player);
-        this.bossBar.removePlayer(player);
-    }
-    @Override
-    public Arm getMainArm() {
-        return Arm.RIGHT;
-    }
-
-    @Override
-    protected void mobTick() {
-        super.mobTick();
-        this.bossBar.setPercent(this.getHealth() / this.getMaxHealth());
     }
     private boolean nearLantern(){
         int range = 2;
@@ -174,20 +122,5 @@ public class PippinBoss extends HostileEntity implements MeleeAttackMob{
         }
         healingLanternPos = null;
         return false;
-    }
-
-    @Override
-    public PathAwareEntity getPathAwareEntity() {
-        return this;
-    }
-
-    @Override
-    public void setAttackAnimationCooldown(int cooldown) {
-        attackAnimationCooldown = cooldown;
-    }
-
-    @Override
-    public int getAttackAnimationCooldown() {
-        return attackAnimationCooldown;
     }
 }

@@ -14,9 +14,7 @@ import net.minecraft.util.math.MathHelper;
 // Made with Blockbench 4.9.4
 // Exported for Minecraft version 1.17+ for Yarn
 // Paste this class into your mod and generate all required imports
-public class TriafianPigModel <T extends TriafianPigEntity> extends SinglePartEntityModel<T> {
-	private final ModelPart bone;
-	private final ModelPart head;
+public class TriafianPigModel <T extends TriafianPigEntity> extends CustomSinglePartEntityModel<T> {
 	public TriafianPigModel(ModelPart root) {
 		this.bone = root.getChild("bone");
 		this.head = bone.getChild("body").getChild("head");
@@ -56,20 +54,5 @@ public class TriafianPigModel <T extends TriafianPigEntity> extends SinglePartEn
 		this.animateMovement(TriafianPigAnimations.WALK, limbAngle, limbDistance, 2f, 2.5f);
 		this.updateAnimation(entity.idleAnimationState, TriafianPigAnimations.IDLE, animationProgress, 1f);
 		this.updateAnimation(entity.attackAnimationState, TriafianPigAnimations.BITE, animationProgress, 1f);
-	}
-	@Override
-	public void render(MatrixStack matrices, VertexConsumer vertexConsumer, int light, int overlay, float red, float green, float blue, float alpha) {
-		bone.render(matrices, vertexConsumer, light, overlay, red, green, blue, alpha);
-	}
-
-	@Override
-	public ModelPart getPart() {
-		return bone;
-	}
-	private void setHeadAngles(float headYaw, float headPitch){
-		headYaw = MathHelper.clamp(headYaw, -30.0f, 30.0f);
-		headPitch = MathHelper.clamp(headPitch, -25.0f, 45.0f);
-		this.head.yaw = headYaw*0.017453292F;
-		this.head.pitch = headPitch*0.017453292F;
 	}
 }

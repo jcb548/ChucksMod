@@ -9,8 +9,7 @@ import net.minecraft.client.render.VertexConsumer;
 // Made with Blockbench 4.8.3
 // Exported for Minecraft version 1.17+ for Yarn
 // Paste this class into your mod and generate all required imports
-public class FrankFireballModel<T extends FrankFireballEntity> extends SinglePartEntityModel<T> {
-	private final ModelPart bone;
+public class FrankFireballModel<T extends FrankFireballEntity> extends CustomSinglePartEntityModel<T> {
 	public FrankFireballModel(ModelPart root) {
 		this.bone = root.getChild("bone");
 	}
@@ -28,14 +27,5 @@ public class FrankFireballModel<T extends FrankFireballEntity> extends SinglePar
 	}
 	@Override
 	public void setAngles(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-	}
-	@Override
-	public void render(MatrixStack matrices, VertexConsumer vertexConsumer, int light, int overlay, float red, float green, float blue, float alpha) {
-		bone.render(matrices, vertexConsumer, light, overlay, red, green, blue, alpha);
-	}
-
-	@Override
-	public ModelPart getPart() {
-		return bone;
 	}
 }

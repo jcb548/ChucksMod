@@ -12,9 +12,7 @@ import net.minecraft.client.render.entity.model.SinglePartEntityModel;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.math.MathHelper;
 
-public class SmotolModel<T extends SmotolEntity> extends SinglePartEntityModel<T> {
-	private final ModelPart bone;
-	private final ModelPart head;
+public class SmotolModel<T extends SmotolEntity> extends CustomSinglePartEntityModel<T> {
 	public SmotolModel(ModelPart root) {
 		this.bone = root.getChild("bone");
 		this.head = bone.getChild("torso").getChild("head");
@@ -52,22 +50,6 @@ public class SmotolModel<T extends SmotolEntity> extends SinglePartEntityModel<T
 				.uv(22, 7).cuboid(-1.0F, -5.0F, -1.0F, 2.0F, 1.0F, 2.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, -9.0F, 0.0F));
 		return TexturedModelData.of(modelData, 64, 64);
 	}
-	@Override
-	public void render(MatrixStack matrices, VertexConsumer vertexConsumer, int light, int overlay, float red, float green, float blue, float alpha) {
-		bone.render(matrices, vertexConsumer, light, overlay, red, green, blue, alpha);
-	}
-	private void setHeadAngles(float headYaw, float headPitch){
-		headYaw = MathHelper.clamp(headYaw, -30.0f, 30.0f);
-		headPitch = MathHelper.clamp(headPitch, -25.0f, 45.0f);
-		this.head.yaw = headYaw*0.017453292F;
-		this.head.pitch = headPitch*0.017453292F;
-	}
-
-	@Override
-	public ModelPart getPart() {
-		return bone;
-	}
-
 	@Override
 	public void setAngles(SmotolEntity entity, float limbAngle, float limbDistance, float animationProgress, float headYaw, float headPitch) {
 		this.getPart().traverse().forEach(ModelPart::resetTransform);

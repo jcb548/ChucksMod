@@ -6,7 +6,7 @@ import net.chuck.chucksmod.entity.custom.MeleeAttackMob;
 public class BigTallBasicAttackGoal extends CustomMeleeAttackGoal {
     private final BigTallBoss boss;
     public BigTallBasicAttackGoal(BigTallBoss mob, double speed, boolean pauseWhenMobIdle) {
-        super(mob, speed, pauseWhenMobIdle, BigTallBoss.ATTACK_WINDUP, BigTallBoss.ATTACK_ANIMATION_LENGTH, 3f);
+        super(mob, speed, pauseWhenMobIdle, mob.getAttackWindup(), mob.getAttackAnimationLength(), 3f);
         boss = mob;
     }
     @Override

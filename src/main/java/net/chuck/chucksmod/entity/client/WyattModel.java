@@ -11,9 +11,7 @@ import net.minecraft.util.math.MathHelper;
 // Made with Blockbench 4.8.3
 // Exported for Minecraft version 1.17+ for Yarn
 // Paste this class into your mod and generate all required imports
-public class WyattModel<T extends WyattEntity> extends SinglePartEntityModel<T> {
-	private final ModelPart bone;
-	private final ModelPart head;
+public class WyattModel<T extends WyattEntity> extends CustomSinglePartEntityModel<T> {
 	public WyattModel(ModelPart root) {
 		this.bone = root.getChild("bone");
 		this.head = bone.getChild("head");
@@ -57,21 +55,5 @@ public class WyattModel<T extends WyattEntity> extends SinglePartEntityModel<T> 
 		this.animateMovement(WyattAnimations.WALK, limbSwing, limbSwingAmount, 1f, 1f);
 		this.updateAnimation(entity.idleAnimationState, WyattAnimations.IDLE, ageInTicks);
 		this.updateAnimation(entity.attackingAnimationState, WyattAnimations.ATTACK, ageInTicks);
-	}
-
-	private void setHeadAngles(float headYaw, float headPitch){
-		headYaw = MathHelper.clamp(headYaw, -30.0f, 30.0f);
-		headPitch = MathHelper.clamp(headPitch, -25.0f, 25.0f);
-		this.head.yaw = headYaw * ((float)Math.PI/180);
-		this.head.pitch = headPitch * ((float)Math.PI/180);
-	}
-	@Override
-	public void render(MatrixStack matrices, VertexConsumer vertexConsumer, int light, int overlay, float red, float green, float blue, float alpha) {
-		bone.render(matrices, vertexConsumer, light, overlay, red, green, blue, alpha);
-	}
-
-	@Override
-	public ModelPart getPart() {
-		return bone;
 	}
 }

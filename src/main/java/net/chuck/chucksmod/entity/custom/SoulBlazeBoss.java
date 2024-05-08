@@ -37,7 +37,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldEvents;
 import org.jetbrains.annotations.Nullable;
 
-public class SoulBlazeBoss extends HostileEntity implements RangedAttackMob, MeleeAttackMob{
+public class SoulBlazeBoss extends CustomBoss implements RangedAttackMob{
     private static final TrackedData<Boolean> ATTACKING =
             DataTracker.registerData(SoulBlazeBoss.class, TrackedDataHandlerRegistry.BOOLEAN);
     private static final TrackedData<Integer> INVUL = DataTracker.registerData(SoulBlazeBoss.class,
@@ -48,10 +48,6 @@ public class SoulBlazeBoss extends HostileEntity implements RangedAttackMob, Mel
     public final AnimationState idleAnimationState = new AnimationState();
     private int idleAnimationTimeout = 0;
     public final AnimationState leftAttackAnimationState = new AnimationState();
-    public final AnimationState rightAttackAnimationState = new AnimationState();
-    public int attackAnimationTimeout = 0;
-    public static final int ANIMATION_LENGTH = 10;
-    public static final int ATTACK_WINDUP = 5;
     private boolean leftAttack = false;
     public final AnimationState shootAnimationState = new AnimationState();
     public static final int SHOOT_WINDUP = 4;
@@ -67,7 +63,14 @@ public class SoulBlazeBoss extends HostileEntity implements RangedAttackMob, Mel
         this.moveControl = new SoulBlazeMoveControl(this);
         this.setInvulnerable(true);
     }
-
+    @Override
+    public int getAttackAnimationLength() {
+        return 10;
+    }
+    @Override
+    public int getAttackWindup() {
+        return 5;
+    }
     @Override
     public boolean isFireImmune() {
         return true;
@@ -136,36 +139,29 @@ public class SoulBlazeBoss extends HostileEntity implements RangedAttackMob, Mel
     }
 
     @Override
-    public void tick() {
-        super.tick();
-        if(this.getWorld().isClient){
-            setupAnimationStates();
-        }
-    }
-
-    private void setupAnimationStates(){
+    protected void updateAnimations(){
         if (this.idleAnimationTimeout <= 0) {
             this.idleAnimationTimeout = this.random.nextInt(40) + 80;
             this.idleAnimationState.start(this.age);
         } else {
             --this.idleAnimationTimeout;
         }
-        if(this.isAttacking() && attackAnimationTimeout<=0){
-            attackAnimationTimeout = ANIMATION_LENGTH;
+        if(this.isAttacking() && attackAnimationCooldown<=0){
+            attackAnimationCooldown = getAttackAnimationLength();
             leftAttack = !leftAttack;
             if(leftAttack) {
                 leftAttackAnimationState.start(age);
             } else {
-                rightAttackAnimationState.start(age);
+                attackAnimationState.start(age);
             }
         } else {
-            if(attackAnimationTimeout>=0) --this.attackAnimationTimeout;
+            if(attackAnimationCooldown>=0) --this.attackAnimationCooldown;
         }
         if(!this.isAttacking()){
             stopMeleeAttackAnimation();
         }
         if(this.isShooting() && shootAnimationTimeout <= 0){
-            shootAnimationTimeout = ANIMATION_LENGTH;
+            shootAnimationTimeout = getAttackAnimationCooldown();
             shootAnimationState.start(age);
         } else {
             if(shootAnimationTimeout>=0) --this.shootAnimationTimeout;
@@ -178,7 +174,7 @@ public class SoulBlazeBoss extends HostileEntity implements RangedAttackMob, Mel
         if (leftAttack) {
             leftAttackAnimationState.stop();
         } else {
-            rightAttackAnimationState.stop();
+            attackAnimationState.stop();
         }
     }
 
@@ -207,13 +203,6 @@ public class SoulBlazeBoss extends HostileEntity implements RangedAttackMob, Mel
     public void setInvulTimer(int invulnerableTime) {
         this.dataTracker.set(INVUL, invulnerableTime);
     }
-
-    @Override
-    public void setCustomName(@Nullable Text name) {
-        super.setCustomName(name);
-        this.bossBar.setName(this.getDisplayName());
-    }
-
     @Override
     protected void mobTick() {
         int invulTicks = this.getInvulTimer();
@@ -234,16 +223,6 @@ public class SoulBlazeBoss extends HostileEntity implements RangedAttackMob, Mel
         }
         handleShootAfterAttackCombo();
         super.mobTick();
-        this.bossBar.setPercent(this.getHealth() / this.getMaxHealth());
-    }
-
-    @Override
-    public void checkDespawn() {
-        if (this.getWorld().getDifficulty() == Difficulty.PEACEFUL && this.isDisallowedInPeaceful()) {
-            this.discard();
-            return;
-        }
-        this.despawnCounter = 0;
     }
 
     private void handleShootAfterAttackCombo(){
@@ -251,7 +230,7 @@ public class SoulBlazeBoss extends HostileEntity implements RangedAttackMob, Mel
             ticksUntilShoot--;
             if (ticksUntilShoot == 4) {
                 this.setShooting(true);
-                shootAnimationTicksRemaining = ANIMATION_LENGTH;
+                shootAnimationTicksRemaining = getAttackAnimationLength();
             }
             if (ticksUntilShoot == 0) {
                 if (getTarget() != null) shootAt(getTarget(), 1);
@@ -262,17 +241,6 @@ public class SoulBlazeBoss extends HostileEntity implements RangedAttackMob, Mel
         } else {
             this.setShooting(false);
         }
-    }
-    @Override
-    public void onStartedTrackingBy(ServerPlayerEntity player) {
-        super.onStartedTrackingBy(player);
-        this.bossBar.addPlayer(player);
-    }
-
-    @Override
-    public void onStoppedTrackingBy(ServerPlayerEntity player) {
-        super.onStoppedTrackingBy(player);
-        this.bossBar.removePlayer(player);
     }
     @Override
     public void writeCustomDataToNbt(NbtCompound nbt) {
@@ -325,20 +293,5 @@ public class SoulBlazeBoss extends HostileEntity implements RangedAttackMob, Mel
             return false;
         }
         return super.damage(source, amount);
-    }
-
-    @Override
-    public PathAwareEntity getPathAwareEntity() {
-        return this;
-    }
-
-    @Override
-    public void setAttackAnimationCooldown(int cooldown) {
-        attackAnimationTimeout = cooldown;
-    }
-
-    @Override
-    public int getAttackAnimationCooldown() {
-        return attackAnimationTimeout;
     }
 }

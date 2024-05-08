@@ -11,9 +11,7 @@ import net.minecraft.util.math.MathHelper;
 // Made with Blockbench 4.8.3
 // Exported for Minecraft version 1.17+ for Yarn
 // Paste this class into your mod and generate all required imports
-public class FrankModel<T extends FrankBoss> extends SinglePartEntityModel<T> {
-	private final ModelPart bone;
-	private final ModelPart head;
+public class FrankModel<T extends FrankBoss> extends CustomSinglePartEntityModel<T> {
 	public FrankModel(ModelPart root) {
 		this.bone = root.getChild("bone");
 		this.head = bone.getChild("upper_body").getChild("head");
@@ -58,15 +56,6 @@ public class FrankModel<T extends FrankBoss> extends SinglePartEntityModel<T> {
 		ModelPartData left_leg_lower = left_leg.addChild("left_leg_lower", ModelPartBuilder.create().uv(24, 26).cuboid(-2.0F, 0.0F, -2.0F, 4.0F, 6.0F, 4.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, 6.0F, 0.0F));
 		return TexturedModelData.of(modelData, 64, 64);
 	}
-	@Override
-	public void render(MatrixStack matrices, VertexConsumer vertexConsumer, int light, int overlay, float red, float green, float blue, float alpha) {
-		bone.render(matrices, vertexConsumer, light, overlay, red, green, blue, alpha);
-	}
-
-	@Override
-	public ModelPart getPart() {
-		return bone;
-	}
 
 	@Override
 	public void setAngles(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
@@ -75,12 +64,5 @@ public class FrankModel<T extends FrankBoss> extends SinglePartEntityModel<T> {
 		this.animateMovement(FrankAnimations.WALK, limbSwing, limbSwingAmount, 2f, 2f);
 		this.updateAnimation(entity.idleAnimationState, FrankAnimations.IDLE, ageInTicks);
 		this.updateAnimation(entity.attackingAnimationState, FrankAnimations.THROW_FIREBALL, ageInTicks);
-	}
-
-	private void setHeadAngles(float headYaw, float headPitch){
-		headYaw = MathHelper.clamp(headYaw, -30.0f, 30.0f);
-		headPitch = MathHelper.clamp(headPitch, -25.0f, 25.0f);
-		this.head.yaw = headYaw * ((float)Math.PI/180);
-		this.head.pitch = headPitch * ((float)Math.PI/180);
 	}
 }

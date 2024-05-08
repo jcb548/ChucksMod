@@ -18,10 +18,10 @@ public class SoulBlazeAttackGoal extends CustomMeleeAttackGoal {
     private final float squaredMaxShootRange;
     private final double mobSpeed;
 
-    public SoulBlazeAttackGoal(MeleeAttackMob mob, double speed, int intervalTicks,
+    public SoulBlazeAttackGoal(SoulBlazeBoss mob, double speed, int intervalTicks,
                                float maxShootRange, boolean pauseWhenMobIdle) {
-        super(mob, speed, pauseWhenMobIdle, SoulBlazeBoss.ATTACK_WINDUP, SoulBlazeBoss.ANIMATION_LENGTH, 6f);
-        soulBlaze = (SoulBlazeBoss) mob;
+        super(mob, speed, pauseWhenMobIdle, mob.getAttackWindup(), mob.getAttackAnimationLength(), 6f);
+        soulBlaze = mob;
         this.mobSpeed = speed;
         this.intervalTicks = intervalTicks;
         this.squaredMaxShootRange = maxShootRange * maxShootRange;
@@ -84,7 +84,7 @@ public class SoulBlazeAttackGoal extends CustomMeleeAttackGoal {
             vec.normalize();
             target.takeKnockback(3, vec.x, vec.z);
             target.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 40));
-            soulBlaze.ticksUntilShoot = SoulBlazeBoss.ATTACK_WINDUP + SoulBlazeBoss.SHOOT_WINDUP;
+            soulBlaze.ticksUntilShoot = this.soulBlaze.getAttackWindup() + SoulBlazeBoss.SHOOT_WINDUP;
             soulBlaze.attackCounter = 0;
         }
     }

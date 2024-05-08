@@ -25,18 +25,20 @@ import net.minecraft.text.Text;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-public class TriafianPigEntity extends AnimalEntity implements MeleeAttackMob{
-    public static final int ANIMATION_LENGTH = 11;
-    public static final int ATTACK_WINDUP = 8;
-    public final AnimationState idleAnimationState = new AnimationState();
-    private int idleAnimationCooldown = 0;
-    public final AnimationState attackAnimationState = new AnimationState();
-    public int attackAnimationCooldown = 0;
+public class TriafianPigEntity extends CustomAnimalEntity{
     private static final Ingredient BREEDING_INGREDIENT = Ingredient.ofItems(Items.CARROT, ModItems.TOMATO);
     private static final TrackedData<Boolean> ATTACKING =
             DataTracker.registerData(TriafianPigEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
     public TriafianPigEntity(EntityType<? extends AnimalEntity> entityType, World world) {
         super(entityType, world);
+    }
+    @Override
+    public int getAttackAnimationLength() {
+        return 11;
+    }
+    @Override
+    public int getAttackWindup() {
+        return 8;
     }
     public static DefaultAttributeContainer.Builder setAttributes(){
         return MobEntity.createMobAttributes()
@@ -44,24 +46,21 @@ public class TriafianPigEntity extends AnimalEntity implements MeleeAttackMob{
                 .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.33f)
                 .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 6);
     }
-
     @Nullable
     @Override
     public PassiveEntity createChild(ServerWorld world, PassiveEntity entity) {
         return ModEntities.TRIAFIAN_PIG.create(world);
     }
-
     @Override
     public boolean isBreedingItem(ItemStack stack) {
         return BREEDING_INGREDIENT.test(stack);
     }
-
     @Override
     protected void initGoals() {
         this.goalSelector.add(0, new SwimGoal(this));
         //this.goalSelector.add(1, new EscapeDangerGoal(this, 1.25f));
         this.goalSelector.add(2, new CustomMeleeAttackGoal(this, 0.8f, false,
-                ATTACK_WINDUP, ANIMATION_LENGTH, 2f));
+                getAttackWindup(), getAttackAnimationLength(), 2f));
         this.goalSelector.add(3, new AnimalMateGoal(this, 1.0f));
         this.goalSelector.add(3, new TemptGoal(this, 1.2f, BREEDING_INGREDIENT, false));
         this.goalSelector.add(4, new FollowParentGoal(this, 1.1f));
@@ -71,7 +70,6 @@ public class TriafianPigEntity extends AnimalEntity implements MeleeAttackMob{
 
         this.targetSelector.add(1, new RevengeGoal(this, new Class[0]));
     }
-
     @Override
     protected void initDataTracker() {
         super.initDataTracker();
@@ -83,54 +81,8 @@ public class TriafianPigEntity extends AnimalEntity implements MeleeAttackMob{
     public boolean isAttacking(){
         return this.dataTracker.get(ATTACKING);
     }
-
-    @Override
-    protected void updateLimbs(float posDelta) {
-        float f = this.getPose() == EntityPose.STANDING ? Math.min(posDelta * 6.0f, 1.0f) : 0.0f;
-        this.limbAnimator.updateLimbs(f, 0.2f);
-    }
-    private void updateAnimations(){
-        if (this.idleAnimationCooldown <= 0) {
-            this.idleAnimationCooldown = this.random.nextInt(40) + 80;
-            this.idleAnimationState.start(this.age);
-        } else {
-            --this.idleAnimationCooldown;
-        }
-        if(isAttacking() && attackAnimationCooldown <=0){
-            attackAnimationCooldown = ANIMATION_LENGTH;
-            attackAnimationState.start(age);
-        } else {
-            --attackAnimationCooldown;
-        }
-        if(!isAttacking()){
-            attackAnimationState.stop();
-        }
-    }
-
-    @Override
-    public void tick() {
-        super.tick();
-        if(this.getWorld().isClient()){
-            updateAnimations();
-        }
-    }
     @Override
     public int getXpToDrop() {
         return 2 + this.getWorld().random.nextInt(5);
-    }
-
-    @Override
-    public PathAwareEntity getPathAwareEntity() {
-        return this;
-    }
-
-    @Override
-    public void setAttackAnimationCooldown(int cooldown) {
-        attackAnimationCooldown = cooldown;
-    }
-
-    @Override
-    public int getAttackAnimationCooldown() {
-        return attackAnimationCooldown;
     }
 }

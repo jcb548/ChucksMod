@@ -19,15 +19,17 @@ import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-public class SmotolEntity extends HostileEntity implements MeleeAttackMob {
-    public static final int ANIMATION_LENGTH = 22;
-    public static final int ATTACK_WINDUP = 9;
-    public final AnimationState idleAnimationState = new AnimationState();
-    private int idleAnimationCooldown = 0;
-    public final AnimationState attackAnimationState = new AnimationState();
-    public int attackAnimationCooldown = 0;
+public class SmotolEntity extends CustomHostileEntity {
     public SmotolEntity(EntityType<? extends HostileEntity> entityType, World world) {
         super(entityType, world);
+    }
+    @Override
+    public int getAttackAnimationLength() {
+        return 22;
+    }
+    @Override
+    public int getAttackWindup() {
+        return 9;
     }
     public static DefaultAttributeContainer.Builder createSmotolAttributes(){
         return MobEntity.createMobAttributes()
@@ -40,60 +42,12 @@ public class SmotolEntity extends HostileEntity implements MeleeAttackMob {
     protected void initGoals() {
         this.goalSelector.add(0, new SwimGoal(this));
         this.goalSelector.add(2, new CustomMeleeAttackGoal(this, 1.0d, true,
-                ATTACK_WINDUP, ANIMATION_LENGTH, 2f));
+                getAttackWindup(), getAttackAnimationLength(), 2f));
         this.goalSelector.add(3, new WanderAroundFarGoal(this, 0.8f, 5));
         this.goalSelector.add(4, new LookAtEntityGoal(this, PlayerEntity.class, 64));
         this.goalSelector.add(5, new LookAroundGoal(this));
 
         this.targetSelector.add(1, new RevengeGoal(this, new Class[0]));
         this.targetSelector.add(2, new ActiveTargetGoal<>(this, PlayerEntity.class, true));
-    }
-
-    @Override
-    public PathAwareEntity getPathAwareEntity() {
-        return this;
-    }
-
-    @Override
-    public void setAttackAnimationCooldown(int cooldown) {
-        attackAnimationCooldown = cooldown;
-    }
-
-    @Override
-    public int getAttackAnimationCooldown() {
-        return attackAnimationCooldown;
-    }
-    @Override
-    protected void updateLimbs(float posDelta) {
-        float f = this.getPose() == EntityPose.STANDING ? Math.min(posDelta * 6.0f, 1.0f) : 0.0f;
-        this.limbAnimator.updateLimbs(f, 0.2f);
-    }
-    private void updateAnimations(){
-        if (this.idleAnimationCooldown <= 0) {
-            this.idleAnimationCooldown = this.random.nextInt(40) + 80;
-            this.idleAnimationState.start(this.age);
-        } else {
-            --this.idleAnimationCooldown;
-        }
-        if(isAttacking() && attackAnimationCooldown <=0){
-            attackAnimationCooldown = ANIMATION_LENGTH;
-            attackAnimationState.start(age);
-        } else {
-            --attackAnimationCooldown;
-        }
-        if(!isAttacking()){
-            attackAnimationState.stop();
-        }
-    }
-    @Override
-    public void tick() {
-        super.tick();
-        if(this.getWorld().isClient()){
-            updateAnimations();
-        }
-    }
-    @Override
-    public Arm getMainArm() {
-        return Arm.RIGHT;
     }
 }
