@@ -36,34 +36,12 @@ public class FarmabynEntity extends HostileEntity implements MeleeAttackMob{
                 .add(EntityAttributes.GENERIC_ARMOR, 5)
                 .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 10);
     }
-    @Nullable
-    @Override
-    public EntityData initialize(ServerWorldAccess world, LocalDifficulty difficulty, SpawnReason spawnReason,
-                                 @Nullable EntityData entityData, @Nullable NbtCompound entityNbt) {
-        entityData = super.initialize(world, difficulty, spawnReason, entityData, entityNbt);
-        Random random = world.getRandom();
-        this.initEquipment(random, difficulty);
-        return entityData;
-    }
-
-    @Override
-    protected void initEquipment(Random random, LocalDifficulty localDifficulty) {
-        super.initEquipment(random, localDifficulty);
-        int i = random.nextInt(3);
-        if(i ==0){
-            this.equipStack(EquipmentSlot.MAINHAND, new ItemStack(ModItems.TRIAFIUM_HOE));
-        } else if(i==1){
-            this.equipStack(EquipmentSlot.MAINHAND, new ItemStack(ModItems.TRIAFIUM_AXE));
-        } else {
-            this.equipStack(EquipmentSlot.MAINHAND, new ItemStack(ModItems.TRIAFIUM_SHOVEL));
-        }
-    }
 
     @Override
     protected void initGoals() {
         this.goalSelector.add(0, new SwimGoal(this));
         this.goalSelector.add(2, new CustomMeleeAttackGoal(this, 1.0d, true,
-                ATTACK_WINDUP, ANIMATION_LENGTH, 3f));
+                ATTACK_WINDUP, ANIMATION_LENGTH, 2f));
         this.goalSelector.add(3, new WanderAroundFarGoal(this, 0.8f, 5));
         this.goalSelector.add(4, new LookAtEntityGoal(this, PlayerEntity.class, 64));
         this.goalSelector.add(5, new LookAroundGoal(this));

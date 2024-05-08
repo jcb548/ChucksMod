@@ -36,24 +36,11 @@ public class SmotolEntity extends HostileEntity implements MeleeAttackMob {
                 .add(EntityAttributes.GENERIC_ARMOR, 3)
                 .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 9);
     }
-    @Nullable
-    @Override
-    public EntityData initialize(ServerWorldAccess world, LocalDifficulty difficulty, SpawnReason spawnReason, @Nullable EntityData entityData, @Nullable NbtCompound entityNbt) {
-        entityData = super.initialize(world, difficulty, spawnReason, entityData, entityNbt);
-        this.initEquipment(world.getRandom(), difficulty);
-        return entityData;
-    }
-
-    @Override
-    protected void initEquipment(Random random, LocalDifficulty localDifficulty) {
-        super.initEquipment(random, localDifficulty);
-        this.equipStack(EquipmentSlot.MAINHAND, new ItemStack(ModItems.TRIAFIUM_SWORD));
-    }
     @Override
     protected void initGoals() {
         this.goalSelector.add(0, new SwimGoal(this));
         this.goalSelector.add(2, new CustomMeleeAttackGoal(this, 1.0d, true,
-                ATTACK_WINDUP, ANIMATION_LENGTH, 3f));
+                ATTACK_WINDUP, ANIMATION_LENGTH, 2f));
         this.goalSelector.add(3, new WanderAroundFarGoal(this, 0.8f, 5));
         this.goalSelector.add(4, new LookAtEntityGoal(this, PlayerEntity.class, 64));
         this.goalSelector.add(5, new LookAroundGoal(this));

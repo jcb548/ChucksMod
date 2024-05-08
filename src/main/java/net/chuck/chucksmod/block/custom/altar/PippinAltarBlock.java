@@ -35,7 +35,6 @@ public class PippinAltarBlock extends Block {
         if(heldItem.isOf(ModItems.COOKED_TRIAFIAN_PORKCHOP) || heldItem.isOf(ModItems.TRIAFIAN_PORKCHOP)){
             PippinBoss entity = new PippinBoss(ModEntities.PIPPIN, world);
             entity.setPos(pos.getX() + 0.5, pos.getY() + 1, pos.getZ() + 0.5);
-            entity.initEquipment(world.random, world.getLocalDifficulty(entity.getBlockPos()));
             world.spawnEntity(entity);
             world.setBlockState(pos, Blocks.AIR.getDefaultState(), Block.NOTIFY_ALL | Block.REDRAW_ON_MAIN_THREAD );
             int count = heldItem.getCount();

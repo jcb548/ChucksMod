@@ -56,19 +56,6 @@ public class PippinBoss extends HostileEntity implements MeleeAttackMob{
                 .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.6f)
                 .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 15);
     }
-    @Nullable
-    @Override
-    public EntityData initialize(ServerWorldAccess world, LocalDifficulty difficulty, SpawnReason spawnReason, @Nullable EntityData entityData, @Nullable NbtCompound entityNbt) {
-        entityData = super.initialize(world, difficulty, spawnReason, entityData, entityNbt);
-        this.initEquipment(world.getRandom(), difficulty);
-        return entityData;
-    }
-
-    @Override
-    public void initEquipment(Random random, LocalDifficulty localDifficulty) {
-        super.initEquipment(random, localDifficulty);
-        this.equipStack(EquipmentSlot.MAINHAND, new ItemStack(ModItems.TRIAFIUM_SWORD));
-    }
     @Override
     protected void initGoals() {
         this.goalSelector.add(0, new SwimGoal(this));

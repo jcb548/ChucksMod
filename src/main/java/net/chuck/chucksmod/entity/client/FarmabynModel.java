@@ -15,14 +15,12 @@ import net.minecraft.util.math.RotationAxis;
 // Made with Blockbench 4.8.3
 // Exported for Minecraft version 1.17+ for Yarn
 // Paste this class into your mod and generate all required imports
-public class FarmabynModel<T extends FarmabynEntity> extends SinglePartEntityModel<T> implements ModelWithArms {
+public class FarmabynModel<T extends FarmabynEntity> extends SinglePartEntityModel<T> {
 	private final ModelPart bone;
 	private final ModelPart head;
-	private final ModelPart rightArm;
 	public FarmabynModel(ModelPart root) {
 		this.bone = root.getChild("bone");
 		this.head = bone.getChild("upper_body").getChild("head");
-		this.rightArm = bone.getChild("upper_body").getChild("body").getChild("arms").getChild("right2");
 	}
 	public static TexturedModelData getTexturedModelData() {
 		ModelData modelData = new ModelData();
@@ -101,18 +99,5 @@ public class FarmabynModel<T extends FarmabynEntity> extends SinglePartEntityMod
 		headPitch = MathHelper.clamp(headPitch, -25.0f, 45.0f);
 		this.head.yaw = headYaw*0.017453292F;
 		this.head.pitch = headPitch*0.017453292F;
-	}
-
-	@Override
-	public void setArmAngle(Arm arm, MatrixStack matrices) {
-		ModelPart modelPart = getArm();
-		modelPart.pivotX += 1.0f;
-		matrices.translate(-0.07f, 1.6f, -0.15);
-		matrices.multiply(RotationAxis.POSITIVE_X.rotationDegrees(-10));
-		modelPart.rotate(matrices);
-		modelPart.pivotX -= 1.0f;
-	}
-	protected ModelPart getArm(){
-		return rightArm;
 	}
 }
