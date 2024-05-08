@@ -86,6 +86,7 @@ public class ChucksMod implements ModInitializer {
 		FabricDefaultAttributeRegistry.register(ModEntities.TRIAFIAN_PIG, TriafianPigEntity.setAttributes());
 		FabricDefaultAttributeRegistry.register(ModEntities.PIPPIN, PippinBoss.setAttributes());
 		FabricDefaultAttributeRegistry.register(ModEntities.BIG_TALL, BigTallBoss.setAttributes());
+		FabricDefaultAttributeRegistry.register(ModEntities.SMOTOL, SmotolEntity.createSmotolAttributes());
 		ModMessages.registerC2SPackets();
 	}
 }

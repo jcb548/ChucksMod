@@ -29,7 +29,6 @@ public class CopierScreen extends AbstractEnergyCookerScreen<CopierScreenHandler
                     97, 58, 8453920, true);
         }
     }
-
     @Override
     protected boolean fluidDisplay() {
         return true;

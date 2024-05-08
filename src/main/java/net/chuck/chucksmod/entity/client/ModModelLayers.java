@@ -23,4 +23,6 @@ public class ModModelLayers {
             new EntityModelLayer(new Identifier(ChucksMod.MOD_ID, "pippin"), "main");
     public static final EntityModelLayer BIG_TALL =
             new EntityModelLayer(new Identifier(ChucksMod.MOD_ID, "big_tall"), "main");
+    public static final EntityModelLayer SMOTOL =
+            new EntityModelLayer(new Identifier(ChucksMod.MOD_ID, "smotol"), "main");
 }

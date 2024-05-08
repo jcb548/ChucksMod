@@ -51,4 +51,8 @@ public class ModEntities {
             Registries.ENTITY_TYPE, new Identifier(ChucksMod.MOD_ID, "big_tall"),
             FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, BigTallBoss::new)
                     .dimensions(EntityDimensions.fixed(0.8f, 3.0f)).build());
+    public static final EntityType<SmotolEntity> SMOTOL = Registry.register(
+            Registries.ENTITY_TYPE, new Identifier(ChucksMod.MOD_ID, "smotol"),
+            FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, SmotolEntity::new)
+                    .dimensions(EntityDimensions.fixed(0.5f, 1.4f)).build());
 }

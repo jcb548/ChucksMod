@@ -126,6 +126,8 @@ public class ChucksModClient implements ClientModInitializer {
         EntityRendererRegistry.register(ModEntities.PIPPIN, PippinRenderer::new);
         EntityModelLayerRegistry.registerModelLayer((ModModelLayers.BIG_TALL), BigTallModel::getTexturedModelData);
         EntityRendererRegistry.register(ModEntities.BIG_TALL, BigTallRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer((ModModelLayers.SMOTOL), SmotolModel::getTexturedModelData);
+        EntityRendererRegistry.register(ModEntities.SMOTOL, SmotolRenderer::new);
 
     }
 

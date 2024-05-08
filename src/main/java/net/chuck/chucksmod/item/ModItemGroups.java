@@ -461,6 +461,7 @@ public class ModItemGroups {
                         entries.add(ModItems.COOKED_TRIAFIAN_PORKCHOP);
                         entries.add(ModItems.PIPPIN_SPAWN_EGG);
                         entries.add(ModItems.BIG_TALL_SPAWN_EGG);
+                        entries.add(ModItems.SMOTOL_SPAWN_EGG);
 
                         entries.add(ModItems.RAW_PACSARIUM);
                         entries.add(ModItems.PACSARIUM_INGOT);

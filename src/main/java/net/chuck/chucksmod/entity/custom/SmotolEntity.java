@@ -19,46 +19,36 @@ import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-public class FarmabynEntity extends HostileEntity implements MeleeAttackMob{
-    public static final int ANIMATION_LENGTH = 15;
-    public static final int ATTACK_WINDUP = 13;
+public class SmotolEntity extends HostileEntity implements MeleeAttackMob {
+    public static final int ANIMATION_LENGTH = 22;
+    public static final int ATTACK_WINDUP = 9;
     public final AnimationState idleAnimationState = new AnimationState();
     private int idleAnimationCooldown = 0;
     public final AnimationState attackAnimationState = new AnimationState();
     public int attackAnimationCooldown = 0;
-    public FarmabynEntity(EntityType<? extends HostileEntity> entityType, World world) {
+    public SmotolEntity(EntityType<? extends HostileEntity> entityType, World world) {
         super(entityType, world);
     }
-    public static DefaultAttributeContainer.Builder createFarmabynAttributes(){
+    public static DefaultAttributeContainer.Builder createSmotolAttributes(){
         return MobEntity.createMobAttributes()
-                .add(EntityAttributes.GENERIC_MAX_HEALTH, 25)
-                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.4f)
-                .add(EntityAttributes.GENERIC_ARMOR, 5)
-                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 10);
+                .add(EntityAttributes.GENERIC_MAX_HEALTH, 30)
+                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.35f)
+                .add(EntityAttributes.GENERIC_ARMOR, 3)
+                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 9);
     }
     @Nullable
     @Override
-    public EntityData initialize(ServerWorldAccess world, LocalDifficulty difficulty, SpawnReason spawnReason,
-                                 @Nullable EntityData entityData, @Nullable NbtCompound entityNbt) {
+    public EntityData initialize(ServerWorldAccess world, LocalDifficulty difficulty, SpawnReason spawnReason, @Nullable EntityData entityData, @Nullable NbtCompound entityNbt) {
         entityData = super.initialize(world, difficulty, spawnReason, entityData, entityNbt);
-        Random random = world.getRandom();
-        this.initEquipment(random, difficulty);
+        this.initEquipment(world.getRandom(), difficulty);
         return entityData;
     }
 
     @Override
     protected void initEquipment(Random random, LocalDifficulty localDifficulty) {
         super.initEquipment(random, localDifficulty);
-        int i = random.nextInt(3);
-        if(i ==0){
-            this.equipStack(EquipmentSlot.MAINHAND, new ItemStack(ModItems.TRIAFIUM_HOE));
-        } else if(i==1){
-            this.equipStack(EquipmentSlot.MAINHAND, new ItemStack(ModItems.TRIAFIUM_AXE));
-        } else {
-            this.equipStack(EquipmentSlot.MAINHAND, new ItemStack(ModItems.TRIAFIUM_SHOVEL));
-        }
+        this.equipStack(EquipmentSlot.MAINHAND, new ItemStack(ModItems.TRIAFIUM_SWORD));
     }
-
     @Override
     protected void initGoals() {
         this.goalSelector.add(0, new SwimGoal(this));
@@ -86,7 +76,6 @@ public class FarmabynEntity extends HostileEntity implements MeleeAttackMob{
     public int getAttackAnimationCooldown() {
         return attackAnimationCooldown;
     }
-
     @Override
     protected void updateLimbs(float posDelta) {
         float f = this.getPose() == EntityPose.STANDING ? Math.min(posDelta * 6.0f, 1.0f) : 0.0f;
@@ -109,7 +98,6 @@ public class FarmabynEntity extends HostileEntity implements MeleeAttackMob{
             attackAnimationState.stop();
         }
     }
-
     @Override
     public void tick() {
         super.tick();

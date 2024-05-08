@@ -5,17 +5,12 @@
 package net.chuck.chucksmod.entity.client;
 
 import net.chuck.chucksmod.entity.animation.BigTallAnimations;
-import net.chuck.chucksmod.entity.animation.FarmabynAnimations;
 import net.chuck.chucksmod.entity.custom.BigTallBoss;
-import net.chuck.chucksmod.entity.custom.FarmabynEntity;
 import net.minecraft.client.model.*;
 import net.minecraft.client.render.VertexConsumer;
-import net.minecraft.client.render.entity.model.ModelWithArms;
 import net.minecraft.client.render.entity.model.SinglePartEntityModel;
 import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.util.Arm;
 import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.math.RotationAxis;
 
 public class BigTallModel<T extends BigTallBoss> extends SinglePartEntityModel<T> {
 	private final ModelPart bone;
