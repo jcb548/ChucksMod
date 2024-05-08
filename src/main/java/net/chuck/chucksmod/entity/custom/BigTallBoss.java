@@ -31,8 +31,6 @@ import org.jetbrains.annotations.Nullable;
 public class BigTallBoss extends CustomBoss{
     public static final int RUN_AT_RANGE = 32;
     public static final int SPINNING_ANIMATION_LENGTH = 27;
-    private static final TrackedData<Boolean> ATTACKING =
-            DataTracker.registerData(BigTallBoss.class, TrackedDataHandlerRegistry.BOOLEAN);
     private static final TrackedData<Boolean> SPINNING =
             DataTracker.registerData(BigTallBoss.class, TrackedDataHandlerRegistry.BOOLEAN);
     public final AnimationState spinAnimationState = new AnimationState();
@@ -46,7 +44,7 @@ public class BigTallBoss extends CustomBoss{
     }
     @Override
     public int getAttackWindup() {
-        return 5;
+        return 6;
     }
     public static DefaultAttributeContainer.Builder setAttributes(){
         return MobEntity.createMobAttributes()
@@ -69,14 +67,7 @@ public class BigTallBoss extends CustomBoss{
     @Override
     protected void initDataTracker() {
         super.initDataTracker();
-        this.dataTracker.startTracking(ATTACKING, false);
         this.dataTracker.startTracking(SPINNING, false);
-    }
-    public void setAttacking(boolean attacking){
-        this.dataTracker.set(ATTACKING, attacking);
-    }
-    public boolean isAttacking(){
-        return this.dataTracker.get(ATTACKING);
     }
     public void setSpinning(boolean spinning){
         this.dataTracker.set(SPINNING, spinning);

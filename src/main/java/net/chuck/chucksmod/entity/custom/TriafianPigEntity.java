@@ -27,8 +27,6 @@ import org.jetbrains.annotations.Nullable;
 
 public class TriafianPigEntity extends CustomAnimalEntity{
     private static final Ingredient BREEDING_INGREDIENT = Ingredient.ofItems(Items.CARROT, ModItems.TOMATO);
-    private static final TrackedData<Boolean> ATTACKING =
-            DataTracker.registerData(TriafianPigEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
     public TriafianPigEntity(EntityType<? extends AnimalEntity> entityType, World world) {
         super(entityType, world);
     }
@@ -69,17 +67,6 @@ public class TriafianPigEntity extends CustomAnimalEntity{
         this.goalSelector.add(7, new LookAroundGoal(this));
 
         this.targetSelector.add(1, new RevengeGoal(this, new Class[0]));
-    }
-    @Override
-    protected void initDataTracker() {
-        super.initDataTracker();
-        this.dataTracker.startTracking(ATTACKING, false);
-    }
-    public void setAttacking(boolean attacking){
-        this.dataTracker.set(ATTACKING, attacking);
-    }
-    public boolean isAttacking(){
-        return this.dataTracker.get(ATTACKING);
     }
     @Override
     public int getXpToDrop() {

@@ -38,8 +38,6 @@ import net.minecraft.world.WorldEvents;
 import org.jetbrains.annotations.Nullable;
 
 public class SoulBlazeBoss extends CustomBoss implements RangedAttackMob{
-    private static final TrackedData<Boolean> ATTACKING =
-            DataTracker.registerData(SoulBlazeBoss.class, TrackedDataHandlerRegistry.BOOLEAN);
     private static final TrackedData<Integer> INVUL = DataTracker.registerData(SoulBlazeBoss.class,
             TrackedDataHandlerRegistry.INTEGER);
     private static final TrackedData<Boolean> SHOOTING =
@@ -181,15 +179,8 @@ public class SoulBlazeBoss extends CustomBoss implements RangedAttackMob{
     @Override
     protected void initDataTracker() {
         super.initDataTracker();
-        this.dataTracker.startTracking(ATTACKING, false);
         this.dataTracker.startTracking(INVUL, INVUL_TIME);
         this.dataTracker.startTracking(SHOOTING, false);
-    }
-    public void setAttacking(boolean attacking){
-        this.dataTracker.set(ATTACKING, attacking);
-    }
-    public boolean isAttacking(){
-        return this.dataTracker.get(ATTACKING);
     }
     public void setShooting(boolean shooting){
         this.dataTracker.set(SHOOTING, shooting);

@@ -35,8 +35,6 @@ import org.jetbrains.annotations.Nullable;
 public class PippinBoss extends CustomBoss{
     public static final int LANTERN_RANGE = 32;
     private static final int TICKS_BETWEEN_HEAL = 12;
-    private static final TrackedData<Boolean> ATTACKING =
-            DataTracker.registerData(PippinBoss.class, TrackedDataHandlerRegistry.BOOLEAN);
     private int healTickCounter = 5;
     private BlockPos healingLanternPos = null;
     private final ServerBossBar bossBar = (ServerBossBar)new ServerBossBar(this.getDisplayName(), BossBar.Color.PURPLE,
@@ -70,17 +68,6 @@ public class PippinBoss extends CustomBoss{
 
         this.targetSelector.add(1, new RevengeGoal(this, new Class[0]));
         this.targetSelector.add(2, new ActiveTargetGoal<>(this, PlayerEntity.class, true));
-    }
-    @Override
-    protected void initDataTracker() {
-        super.initDataTracker();
-        this.dataTracker.startTracking(ATTACKING, false);
-    }
-    public void setAttacking(boolean attacking){
-        this.dataTracker.set(ATTACKING, attacking);
-    }
-    public boolean isAttacking(){
-        return this.dataTracker.get(ATTACKING);
     }
     @Override
     public void tick() {
