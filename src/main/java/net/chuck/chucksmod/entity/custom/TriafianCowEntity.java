@@ -3,17 +3,11 @@ package net.chuck.chucksmod.entity.custom;
 import net.chuck.chucksmod.entity.ModEntities;
 import net.chuck.chucksmod.entity.ai.CustomMeleeAttackGoal;
 import net.chuck.chucksmod.item.ModItems;
-import net.minecraft.entity.AnimationState;
-import net.minecraft.entity.EntityPose;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
-import net.minecraft.entity.data.DataTracker;
-import net.minecraft.entity.data.TrackedData;
-import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.mob.MobEntity;
-import net.minecraft.entity.mob.PathAwareEntity;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.PassiveEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -21,37 +15,36 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.server.world.ServerWorld;
-import net.minecraft.text.Text;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-public class TriafianPigEntity extends CustomAnimalEntity{
+public class TriafianCowEntity extends CustomAnimalEntity{
     private static final Ingredient BREEDING_INGREDIENT = Ingredient.ofItems(Items.CARROT, Items.WHEAT, Items.POTATO, ModItems.TOMATO);
-    public TriafianPigEntity(EntityType<? extends AnimalEntity> entityType, World world) {
+    public TriafianCowEntity(EntityType<? extends AnimalEntity> entityType, World world) {
         super(entityType, world);
-    }
-    @Override
-    public int getAttackAnimationLength() {
-        return 11;
-    }
-    @Override
-    public int getAttackWindup() {
-        return 8;
     }
     public static DefaultAttributeContainer.Builder setAttributes(){
         return MobEntity.createMobAttributes()
-                .add(EntityAttributes.GENERIC_MAX_HEALTH, 15)
-                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.33f)
+                .add(EntityAttributes.GENERIC_MAX_HEALTH, 20)
+                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.35f)
                 .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 6);
-    }
-    @Nullable
-    @Override
-    public PassiveEntity createChild(ServerWorld world, PassiveEntity entity) {
-        return ModEntities.TRIAFIAN_PIG.create(world);
     }
     @Override
     public boolean isBreedingItem(ItemStack stack) {
         return BREEDING_INGREDIENT.test(stack);
+    }
+    @Override
+    public int getAttackAnimationLength() {
+        return 20;
+    }
+    @Override
+    public int getAttackWindup() {
+        return 6;
+    }
+    @Nullable
+    @Override
+    public PassiveEntity createChild(ServerWorld world, PassiveEntity entity) {
+        return ModEntities.TRIAFIAN_COW.create(world);
     }
     @Override
     protected void initGoals() {
@@ -69,6 +62,6 @@ public class TriafianPigEntity extends CustomAnimalEntity{
     }
     @Override
     public int getXpToDrop() {
-        return 2 + this.getWorld().random.nextInt(5);
+        return 2 + this.getWorld().random.nextInt(6);
     }
 }

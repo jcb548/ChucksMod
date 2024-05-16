@@ -43,6 +43,10 @@ public class ModEntities {
             Registries.ENTITY_TYPE, new Identifier(ChucksMod.MOD_ID, "triafian_pig"),
             FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, TriafianPigEntity::new)
                     .dimensions(EntityDimensions.fixed(0.9f, 0.9f)).build());
+    public static final EntityType<TriafianCowEntity> TRIAFIAN_COW = Registry.register(
+            Registries.ENTITY_TYPE, new Identifier(ChucksMod.MOD_ID, "triafian_cow"),
+            FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, TriafianCowEntity::new)
+                    .dimensions(EntityDimensions.fixed(0.9f, 1.5f)).build());
     public static final EntityType<PippinBoss> PIPPIN = Registry.register(
             Registries.ENTITY_TYPE, new Identifier(ChucksMod.MOD_ID, "pippin"),
             FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, PippinBoss::new)

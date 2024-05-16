@@ -19,6 +19,8 @@ public class ModModelLayers {
             new EntityModelLayer(new Identifier(ChucksMod.MOD_ID, "farmabyn"), "main");
     public static final EntityModelLayer TRIAFIAN_PIG =
             new EntityModelLayer(new Identifier(ChucksMod.MOD_ID, "triafian_pig"), "main");
+    public static final EntityModelLayer TRIAFIAN_COW =
+            new EntityModelLayer(new Identifier(ChucksMod.MOD_ID, "triafian_cow"), "main");
     public static final EntityModelLayer PIPPIN =
             new EntityModelLayer(new Identifier(ChucksMod.MOD_ID, "pippin"), "main");
     public static final EntityModelLayer BIG_TALL =

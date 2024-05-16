@@ -1,15 +1,8 @@
 package net.chuck.chucksmod.entity.client;
 
-import net.chuck.chucksmod.entity.animation.FarmabynAnimations;
 import net.chuck.chucksmod.entity.animation.TriafianPigAnimations;
 import net.chuck.chucksmod.entity.custom.TriafianPigEntity;
 import net.minecraft.client.model.*;
-import net.minecraft.client.render.VertexConsumer;
-import net.minecraft.client.render.entity.model.EntityModel;
-import net.minecraft.client.render.entity.model.SinglePartEntityModel;
-import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.entity.Entity;
-import net.minecraft.util.math.MathHelper;
 
 // Made with Blockbench 4.9.4
 // Exported for Minecraft version 1.17+ for Yarn

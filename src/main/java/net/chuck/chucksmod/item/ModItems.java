@@ -305,6 +305,8 @@ public class ModItems {
         new SpawnEggItem(ModEntities.FARMABYN, 0xFFE9AE, 0x345E7E, new FabricItemSettings()));
     public static final Item TRIAFIAN_PIG_SPAWN_EGG = registerItem("triafian_pig_spawn_egg",
         new SpawnEggItem(ModEntities.TRIAFIAN_PIG, 0x9ED57C, 0x527835, new FabricItemSettings()));
+    public static final Item TRIAFIAN_COW_SPAWN_EGG = registerItem("triafian_cow_spawn_egg",
+        new SpawnEggItem(ModEntities.TRIAFIAN_COW, 0x1c2917, 0x6b6b6b, new FabricItemSettings()));
     public static final Item TRIAFIAN_PORKCHOP = registerItem("triafian_porkchop",
             new Item(new FabricItemSettings().food(ModFoodComponents.TRIAFIAN_PORKCHOP)));
     public static final Item COOKED_TRIAFIAN_PORKCHOP = registerItem("cooked_triafian_porkchop",
