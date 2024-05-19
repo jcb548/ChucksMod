@@ -13,6 +13,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.screen.ArrayPropertyDelegate;
 import net.minecraft.screen.PropertyDelegate;
+import net.minecraft.screen.slot.Slot;
 
 public class PumpScreenHandler extends AbstractEnergyUsingScreenHandler implements FluidDisplayingScreenHandler {
     public AbstractPumpBlockEntity pump;
@@ -25,10 +26,6 @@ public class PumpScreenHandler extends AbstractEnergyUsingScreenHandler implemen
     public PumpScreenHandler(int syncId, PlayerInventory inventory, PacketByteBuf buf){
         this(syncId, inventory, inventory.player.getWorld().getBlockEntity(buf.readBlockPos()),
                 new ArrayPropertyDelegate(AbstractPumpBlockEntity.DELEGATE_SIZE));
-    }
-    @Override
-    public ItemStack quickMove(PlayerEntity player, int slot) {
-        return null;
     }
     @Override
     public FluidStoring getFluidStoring() {

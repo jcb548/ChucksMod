@@ -4,6 +4,7 @@ import net.chuck.chucksmod.block.entity.FluidStoring;
 import net.chuck.chucksmod.util.FluidStack;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.item.ItemStack;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.screen.slot.Slot;
@@ -45,5 +46,32 @@ public abstract class AbstractModScreenHandler extends ScreenHandler {
 
     public void setFluidStack(FluidStack fluidStack) {
         this.fluidStack = fluidStack;
+    }
+    @Override
+    public ItemStack quickMove(PlayerEntity player, int slot) {
+        ItemStack newStack = ItemStack.EMPTY;
+        Slot originalSlot = this.slots.get(slot);
+        if(originalSlot != null && originalSlot.hasStack()){
+            ItemStack oldStack = originalSlot.getStack();
+            if(oldStack.isEmpty()){
+                originalSlot.setStack(ItemStack.EMPTY);
+            } else {
+                if(slot < 9) {
+                    if (!this.insertItem(oldStack, 9, PLAYER_INVENTORY_END_IDX, false)) {
+                        return ItemStack.EMPTY;
+                    }
+                } else {
+                    if (!this.insertItem(oldStack, PLAYER_INVENTORY_START_IDX, 9, false)) {
+                        return ItemStack.EMPTY;
+                    }
+                }
+                originalSlot.setStack(ItemStack.EMPTY);
+            }
+            if(oldStack.getCount() == newStack.getCount()){
+                return ItemStack.EMPTY;
+            }
+            originalSlot.markDirty();
+        }
+        return newStack;
     }
 }

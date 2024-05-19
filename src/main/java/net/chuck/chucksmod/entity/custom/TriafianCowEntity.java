@@ -26,7 +26,7 @@ public class TriafianCowEntity extends CustomAnimalEntity{
     public static DefaultAttributeContainer.Builder setAttributes(){
         return MobEntity.createMobAttributes()
                 .add(EntityAttributes.GENERIC_MAX_HEALTH, 20)
-                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.35f)
+                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.33f)
                 .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 6);
     }
     @Override
@@ -49,9 +49,9 @@ public class TriafianCowEntity extends CustomAnimalEntity{
     @Override
     protected void initGoals() {
         this.goalSelector.add(0, new SwimGoal(this));
-        this.goalSelector.add(2, new CustomMeleeAttackGoal(this, 0.8f, false,
+        this.goalSelector.add(1, new CustomMeleeAttackGoal(this, 0.8f, false,
                 getAttackWindup(), getAttackAnimationLength(), 2f));
-        this.goalSelector.add(3, new AnimalMateGoal(this, 1.0f));
+        this.goalSelector.add(2, new AnimalMateGoal(this, 1.0f));
         this.goalSelector.add(3, new TemptGoal(this, 1.2f, BREEDING_INGREDIENT, false));
         this.goalSelector.add(4, new FollowParentGoal(this, 1.1f));
         this.goalSelector.add(5, new WanderAroundFarGoal(this, 0.8f, 5));

@@ -56,9 +56,9 @@ public class TriafianPigEntity extends CustomAnimalEntity{
     @Override
     protected void initGoals() {
         this.goalSelector.add(0, new SwimGoal(this));
-        this.goalSelector.add(2, new CustomMeleeAttackGoal(this, 0.8f, false,
+        this.goalSelector.add(1, new CustomMeleeAttackGoal(this, 0.8f, false,
                 getAttackWindup(), getAttackAnimationLength(), 2f));
-        this.goalSelector.add(3, new AnimalMateGoal(this, 1.0f));
+        this.goalSelector.add(2, new AnimalMateGoal(this, 1.0f));
         this.goalSelector.add(3, new TemptGoal(this, 1.2f, BREEDING_INGREDIENT, false));
         this.goalSelector.add(4, new FollowParentGoal(this, 1.1f));
         this.goalSelector.add(5, new WanderAroundFarGoal(this, 0.8f, 5));

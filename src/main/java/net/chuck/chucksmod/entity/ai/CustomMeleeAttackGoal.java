@@ -3,6 +3,8 @@ package net.chuck.chucksmod.entity.ai;
 import net.chuck.chucksmod.entity.custom.MeleeAttackMob;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.goal.MeleeAttackGoal;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
 
 public class CustomMeleeAttackGoal extends MeleeAttackGoal {
@@ -46,8 +48,11 @@ public class CustomMeleeAttackGoal extends MeleeAttackGoal {
     protected boolean isEnemyWithinAttackDistance(LivingEntity pEnemy){
         return mob.distanceTo(pEnemy) <= attackRange;
     }
-    private void resetAttackCooldown(){this.ticksUntilNextAttack = getTickCount(animationLength+1);}
-    private boolean isTimeToStartAttackAnimation(){return ticksUntilNextAttack <= windup;}
+    private void resetAttackCooldown(){
+        this.ticksUntilNextAttack = getTickCount(animationLength+1);}
+    private boolean isTimeToStartAttackAnimation(){
+        return ticksUntilNextAttack <= windup;
+    }
     private boolean isTimeToAttack(){return ticksUntilNextAttack <= 0;}
     protected void performAttack(LivingEntity pEnemy){
         resetAttackCooldown();
@@ -66,5 +71,20 @@ public class CustomMeleeAttackGoal extends MeleeAttackGoal {
     public void stop() {
         mob.setAttacking(false);
         super.stop();
+    }
+
+    @Override
+    public boolean shouldContinue() {
+        LivingEntity livingEntity = this.mob.getTarget();
+        if (livingEntity == null) {
+            return false;
+        }
+        if (!livingEntity.isAlive()) {
+            return false;
+        }
+        if (!this.mob.isInWalkTargetRange(livingEntity.getBlockPos())) {
+            return false;
+        }
+        return !(livingEntity instanceof PlayerEntity) || !livingEntity.isSpectator() && !((PlayerEntity)livingEntity).isCreative();
     }
 }
