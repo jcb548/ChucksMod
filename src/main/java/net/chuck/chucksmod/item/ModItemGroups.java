@@ -457,9 +457,11 @@ public class ModItemGroups {
                         entries.add(ModItems.TRIAFIA_CRYSTAL_SEEDS);
                         entries.add(ModItems.FARMABYN_SPAWN_EGG);
                         entries.add(ModItems.TRIAFIAN_PIG_SPAWN_EGG);
-                        entries.add(ModItems.TRIAFIAN_COW_SPAWN_EGG);
                         entries.add(ModItems.TRIAFIAN_PORKCHOP);
                         entries.add(ModItems.COOKED_TRIAFIAN_PORKCHOP);
+                        entries.add(ModItems.TRIAFIAN_COW_SPAWN_EGG);
+                        entries.add(ModItems.TRIAFIAN_BEEF);
+                        entries.add(ModItems.COOKED_TRIAFIAN_BEEF);
                         entries.add(ModItems.PIPPIN_SPAWN_EGG);
                         entries.add(ModItems.BIG_TALL_SPAWN_EGG);
                         entries.add(ModItems.SMOTOL_SPAWN_EGG);

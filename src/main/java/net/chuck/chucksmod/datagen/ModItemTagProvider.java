@@ -57,7 +57,9 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(Items.COOKED_RABBIT)
                 .add(Items.COOKED_COD)
                 .add(Items.COOKED_SALMON)
-                .add(Items.COOKED_MUTTON);
+                .add(Items.COOKED_MUTTON)
+                .add(ModItems.COOKED_TRIAFIAN_PORKCHOP)
+                .add(ModItems.COOKED_TRIAFIAN_BEEF);
 
         getOrCreateTagBuilder(ModItemTags.RAW_MEAT)
                 .add(Items.BEEF)
@@ -66,7 +68,9 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(Items.RABBIT)
                 .add(Items.COD)
                 .add(Items.SALMON)
-                .add(Items.MUTTON);
+                .add(Items.MUTTON)
+                .add(ModItems.TRIAFIAN_PORKCHOP)
+                .add(ModItems.TRIAFIAN_BEEF);
 
         getOrCreateTagBuilder(ModItemTags.SEEDS)
                 .add(Items.WHEAT_SEEDS)

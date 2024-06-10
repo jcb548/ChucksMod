@@ -303,14 +303,23 @@ public class ModItems {
                     Text.translatable("tooltip.chucksmod.triafia_crystal_seeds")));
     public static final Item FARMABYN_SPAWN_EGG = registerItem("farmabyn_spawn_egg",
         new SpawnEggItem(ModEntities.FARMABYN, 0xFFE9AE, 0x345E7E, new FabricItemSettings()));
+
+    public static final Item RAW_FARMABYN = registerItem("raw_farmabyn",
+            new Item(new FabricItemSettings().food(ModFoodComponents.RAW_FARMABYN)));
+    public static final Item COOKED_FARMABYN = registerItem("cooked_farmabyn",
+            new Item(new FabricItemSettings().food(ModFoodComponents.COOKED_FARMABYN)));
     public static final Item TRIAFIAN_PIG_SPAWN_EGG = registerItem("triafian_pig_spawn_egg",
         new SpawnEggItem(ModEntities.TRIAFIAN_PIG, 0x9ED57C, 0x527835, new FabricItemSettings()));
-    public static final Item TRIAFIAN_COW_SPAWN_EGG = registerItem("triafian_cow_spawn_egg",
-        new SpawnEggItem(ModEntities.TRIAFIAN_COW, 0x1c2917, 0x6b6b6b, new FabricItemSettings()));
     public static final Item TRIAFIAN_PORKCHOP = registerItem("triafian_porkchop",
             new Item(new FabricItemSettings().food(ModFoodComponents.TRIAFIAN_PORKCHOP)));
     public static final Item COOKED_TRIAFIAN_PORKCHOP = registerItem("cooked_triafian_porkchop",
             new Item(new FabricItemSettings().food(ModFoodComponents.COOKED_TRIAFIAN_PORKCHOP)));
+    public static final Item TRIAFIAN_COW_SPAWN_EGG = registerItem("triafian_cow_spawn_egg",
+            new SpawnEggItem(ModEntities.TRIAFIAN_COW, 0x1c2917, 0x6b6b6b, new FabricItemSettings()));
+    public static final Item TRIAFIAN_BEEF = registerItem("triafian_beef",
+            new Item(new FabricItemSettings().food(ModFoodComponents.TRIAFIAN_BEEF)));
+    public static final Item COOKED_TRIAFIAN_BEEF = registerItem("cooked_triafian_beef",
+            new Item(new FabricItemSettings().food(ModFoodComponents.COOKED_TRIAFIAN_BEEF)));
     public static final Item PIPPIN_SPAWN_EGG = registerItem("pippin_spawn_egg",
             new SpawnEggItem(ModEntities.PIPPIN, 0x221708, 0xfee3b9, new FabricItemSettings()));
     public static final Item BIG_TALL_SPAWN_EGG = registerItem("big_tall_spawn_egg",

@@ -553,10 +553,22 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
     private void generateTriafiaRecipes(RecipeExporter exporter) {
         offerCompactingRecipe(exporter, RecipeCategory.MISC, ModItems.TRIAFIA_CRYSTAL,
                 ModItems.TRIAFIA_CRYSTAL_SHARD);
+
+        offerSmelting(exporter, List.of(ModItems.RAW_FARMABYN), RecipeCategory.FOOD, ModItems.COOKED_FARMABYN,
+                0.5f, 200, "raw_farmabyn");
+        offerFoodCookingRecipe(exporter, "smoking", RecipeSerializer.SMOKING, 100,
+                ModItems.RAW_FARMABYN, ModItems.COOKED_FARMABYN, 0.5f);
+
         offerSmelting(exporter, List.of(ModItems.TRIAFIAN_PORKCHOP), RecipeCategory.FOOD, ModItems.COOKED_TRIAFIAN_PORKCHOP,
                 0.5f, 200, "triafian_porkchop");
         offerFoodCookingRecipe(exporter, "smoking", RecipeSerializer.SMOKING, 100,
                 ModItems.TRIAFIAN_PORKCHOP, ModItems.COOKED_TRIAFIAN_PORKCHOP, 0.5f);
+
+        offerSmelting(exporter, List.of(ModItems.TRIAFIAN_BEEF), RecipeCategory.FOOD, ModItems.COOKED_TRIAFIAN_BEEF,
+                0.5f, 200, "triafian_beef");
+        offerFoodCookingRecipe(exporter, "smoking", RecipeSerializer.SMOKING, 100,
+                ModItems.TRIAFIAN_BEEF, ModItems.COOKED_TRIAFIAN_BEEF, 0.5f);
+
         offerCrushingRecipe(exporter, ModItems.TRIAFIA_CRYSTAL, ModItems.TRIAFIA_CRYSTAL_DUST);
     }
 

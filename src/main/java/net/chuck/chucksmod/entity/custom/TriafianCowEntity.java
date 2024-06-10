@@ -3,10 +3,12 @@ package net.chuck.chucksmod.entity.custom;
 import net.chuck.chucksmod.entity.ModEntities;
 import net.chuck.chucksmod.entity.ai.CustomMeleeAttackGoal;
 import net.chuck.chucksmod.item.ModItems;
+import net.minecraft.block.BlockState;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
+import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.PassiveEntity;
@@ -15,6 +17,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.sound.SoundEvent;
+import net.minecraft.sound.SoundEvents;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
@@ -63,5 +68,28 @@ public class TriafianCowEntity extends CustomAnimalEntity{
     @Override
     public int getXpToDrop() {
         return 2 + this.getWorld().random.nextInt(6);
+    }
+    @Override
+    protected SoundEvent getAmbientSound() {
+        return SoundEvents.ENTITY_COW_AMBIENT;
+    }
+
+    @Override
+    protected SoundEvent getHurtSound(DamageSource source) {
+        return SoundEvents.ENTITY_COW_HURT;
+    }
+
+    @Override
+    protected SoundEvent getDeathSound() {
+        return SoundEvents.ENTITY_COW_DEATH;
+    }
+
+    @Override
+    protected void playStepSound(BlockPos pos, BlockState state) {
+        this.playSound(SoundEvents.ENTITY_COW_STEP, 0.15f, 1.0f);
+    }
+    @Override
+    protected float getSoundVolume() {
+        return 0.4f;
     }
 }

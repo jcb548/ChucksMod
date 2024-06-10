@@ -18,6 +18,10 @@ public class ModFoodComponents {
     public static final FoodComponent LETTUCE = new FoodComponent.Builder().hunger(3).saturationModifier(0.4f).build();
     public static final FoodComponent PINEAPPLE = new FoodComponent.Builder().hunger(6).saturationModifier(0.4f).build();
     //public static final FoodComponent PRISMARINE_APPLE = new FoodComponent.Builder().hunger(4).statusEffect(StatusEffectInstance.WATER_BREATHING, 1.0f, 30).snack().build();
-    public static final FoodComponent TRIAFIAN_PORKCHOP = new FoodComponent.Builder().hunger(5).saturationModifier(0.4f).build();
+    public static final FoodComponent RAW_FARMABYN = new FoodComponent.Builder().hunger(3).saturationModifier(0.3f).build();
+    public static final FoodComponent COOKED_FARMABYN = new FoodComponent.Builder().hunger(8).saturationModifier(1.1f).build();
+    public static final FoodComponent TRIAFIAN_PORKCHOP = new FoodComponent.Builder().hunger(4).saturationModifier(0.4f).build();
     public static final FoodComponent COOKED_TRIAFIAN_PORKCHOP = new FoodComponent.Builder().hunger(10).saturationModifier(1.0f).build();
+    public static final FoodComponent TRIAFIAN_BEEF = new FoodComponent.Builder().hunger(4).saturationModifier(0.4f).build();
+    public static final FoodComponent COOKED_TRIAFIAN_BEEF = new FoodComponent.Builder().hunger(10).saturationModifier(1.0f).build();
 }
