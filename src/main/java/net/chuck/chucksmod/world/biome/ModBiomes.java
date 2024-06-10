@@ -91,6 +91,7 @@ public class ModBiomes{
         DefaultBiomeFeatures.addDefaultFlowers(biomeBuilder);
         DefaultBiomeFeatures.addExtraDefaultFlowers(biomeBuilder);
         biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, VegetationPlacedFeatures.FLOWER_MEADOW);
+        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.TRIAFIA_CRYSTAL_PLANT_PLACED);
 
         return new Biome.Builder()
                 .precipitation(true)

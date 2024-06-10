@@ -9,6 +9,7 @@ import net.chuck.chucksmod.block.custom.altar.FrankAltarBlock;
 import net.chuck.chucksmod.block.custom.altar.PippinAltarBlock;
 import net.chuck.chucksmod.block.custom.altar.SoulBlazeAltarBlock;
 import net.chuck.chucksmod.block.custom.cleanser.TitaniumCleanserBlock;
+import net.chuck.chucksmod.block.custom.cleanser.TriafiumCleanserBlock;
 import net.chuck.chucksmod.block.custom.copier.TitaniumCopierBlock;
 import net.chuck.chucksmod.block.custom.copier.TriafiumCopierBlock;
 import net.chuck.chucksmod.block.custom.crop.*;
@@ -507,6 +508,8 @@ public class ModBlocks {
             new TriafiumLavaGeneratorBlock(FabricBlockSettings.copy(ModBlocks.TRIAFIUM_BLOCK)));
     public static final Block TRIAFIUM_COPIER = registerBlock("triafium_copier",
             new TriafiumCopierBlock(FabricBlockSettings.copy(ModBlocks.TRIAFIUM_BLOCK)));
+    public static final Block TRIAFIUM_CLEANSER = registerBlock("triafium_cleanser",
+            new TriafiumCleanserBlock(FabricBlockSettings.copy(TRIAFIUM_BLOCK)));
     public static final Block TRIAFIUM_PORTAL_BUILDER = registerBlock("triafium_portal_builder",
             new TriafiumPortalBuilderBlock(FabricBlockSettings.copy(ModBlocks.TRIAFIUM_BLOCK)));
     

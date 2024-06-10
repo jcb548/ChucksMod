@@ -547,6 +547,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.TRIAFIUM_QUARRY)
                 .add(ModBlocks.TRIAFIUM_LAVA_GENERATOR)
                 .add(ModBlocks.TRIAFIUM_COPIER)
+                .add(ModBlocks.TRIAFIUM_CLEANSER)
                 .add(ModBlocks.TRIAFIUM_PORTAL_BUILDER);
 
         getOrCreateTagBuilder(BlockTags.LEAVES)

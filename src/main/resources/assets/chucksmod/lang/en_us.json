@@ -265,6 +265,7 @@
   "tooltip.chucksmod.triafium_quarry": "Mines blocks in a 11x11 area in front of Quarry",
   "block.chucksmod.triafium_lava_generator": "Triafium Lava Generator",
   "block.chucksmod.triafium_copier": "Triafium Copier",
+  "block.chucksmod.triafium_cleanser": "Triafium Cleanser",
   "block.chucksmod.triafium_portal_builder": "Triafium Portal Block Builder",
   "tooltip.chucksmod.portal_builder.1": "Assembles Portal Blocks from",
   "tooltip.chucksmod.portal_builder.2":"resource blocks and boss drops",

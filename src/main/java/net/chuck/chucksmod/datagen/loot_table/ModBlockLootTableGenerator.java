@@ -385,6 +385,7 @@ public class ModBlockLootTableGenerator extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.TRIAFIUM_QUARRY);
         addDrop(ModBlocks.TRIAFIUM_LAVA_GENERATOR);
         addDrop(ModBlocks.TRIAFIUM_COPIER);
+        addDrop(ModBlocks.TRIAFIUM_CLEANSER);
         addDrop(ModBlocks.TRIAFIUM_PORTAL_BUILDER);
 
         addDrop(ModBlocks.RAW_PACSARIUM_BLOCK);

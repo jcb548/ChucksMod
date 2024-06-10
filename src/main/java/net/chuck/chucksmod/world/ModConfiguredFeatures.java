@@ -120,6 +120,8 @@ public class ModConfiguredFeatures {
             registerKey("triafia_plant_patch");
     public static final RegistryKey<ConfiguredFeature<?, ?>> TRIAFIAN_VINES_KEY =
             registerKey("triafian_vines");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> TRIAFIA_CRYSTAL_PLANT_KEY =
+            registerKey("triafian_crystal_plant");
 
     // Generation for Pacsaria Islands
     public static final RegistryKey<ConfiguredFeature<?, ?>> PACSARIA_PACSARIUM_ORE_KEY =
@@ -361,7 +363,7 @@ public class ModConfiguredFeatures {
                         new SimpleBlockFeatureConfig(BlockStateProvider.of(ModBlocks.TRIAFIA_PLANT))));
         register(context, TRIAFIAN_VINES_KEY, ModFeatures.TRIAFIAN_VINES, FeatureConfig.DEFAULT);
 
-        DataPool states = DataPool.builder()
+        DataPool netherCrystalStates = DataPool.builder()
                 .add(ModBlocks.NETHER_CRYSTAL_CROP.getDefaultState().with(AbstractMagicalCropBlock.AGE, 0), 1)
                 .add(ModBlocks.NETHER_CRYSTAL_CROP.getDefaultState().with(AbstractMagicalCropBlock.AGE, 1), 1)
                 .add(ModBlocks.NETHER_CRYSTAL_CROP.getDefaultState().with(AbstractMagicalCropBlock.AGE, 2), 1)
@@ -371,7 +373,7 @@ public class ModConfiguredFeatures {
                 .build();
         register(context, NETHER_CRYSTAL_PLANT_KEY, Feature.RANDOM_PATCH,
                 createRandomPatchFeatureConfig(Feature.SIMPLE_BLOCK,
-                        new SimpleBlockFeatureConfig(new WeightedBlockStateProvider(states)),0, 3, 1));
+                        new SimpleBlockFeatureConfig(new WeightedBlockStateProvider(netherCrystalStates)),0, 3, 1));
 
         // Register Overworld Ores
         register(context, TIN_ORE_KEY, Feature.ORE, new OreFeatureConfig(overworldTinOres, 9));
@@ -409,6 +411,17 @@ public class ModConfiguredFeatures {
         register(context, TRIAFIA_QUARTZ_ORE_KEY, Feature.ORE, new OreFeatureConfig(triafiaQuartzOre, 9));
         register(context, TRIAFIA_ECLOGITE_VEIN_KEY, Feature.ORE, new OreFeatureConfig(triafiaEclogiteVein, 64));
         register(context, TRIAFIA_TUFF_VEIN_KEY, Feature.ORE, new OreFeatureConfig(triafiaTuffVein, 64));
+        DataPool triafiaCrystalStates = DataPool.builder()
+                .add(ModBlocks.TRIAFIA_CRYSTAL_CROP.getDefaultState().with(AbstractMagicalCropBlock.AGE, 0), 1)
+                .add(ModBlocks.TRIAFIA_CRYSTAL_CROP.getDefaultState().with(AbstractMagicalCropBlock.AGE, 1), 1)
+                .add(ModBlocks.TRIAFIA_CRYSTAL_CROP.getDefaultState().with(AbstractMagicalCropBlock.AGE, 2), 1)
+                .add(ModBlocks.TRIAFIA_CRYSTAL_CROP.getDefaultState().with(AbstractMagicalCropBlock.AGE, 3), 1)
+                .add(ModBlocks.TRIAFIA_CRYSTAL_CROP.getDefaultState().with(AbstractMagicalCropBlock.AGE, 4), 1)
+                .add(ModBlocks.TRIAFIA_CRYSTAL_CROP.getDefaultState().with(AbstractMagicalCropBlock.AGE, 5), 1)
+                .build();
+        register(context, TRIAFIA_CRYSTAL_PLANT_KEY, Feature.RANDOM_PATCH,
+                createRandomPatchFeatureConfig(Feature.SIMPLE_BLOCK,
+                        new SimpleBlockFeatureConfig(new WeightedBlockStateProvider(triafiaCrystalStates)),0, 3, 1));
         // Register Pacsaria Ores
         register(context, PACSARIA_PACSARIUM_ORE_KEY, Feature.ORE, new OreFeatureConfig(pacsariaPacsariumOre, 12));
         register(context, PACSARIA_TITANIUM_ORE_KEY, Feature.ORE, new OreFeatureConfig(pacsariaTitaniumOre, 8));

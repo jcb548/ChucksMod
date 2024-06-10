@@ -92,6 +92,8 @@ public class ModPlacedFeatures {
             registerKey("triafia_plant_patch_placed");
     public static final RegistryKey<PlacedFeature> TRIAFIAN_VINES_PLACED_KEY =
             registerKey("triafian_vines_placed");
+    public static final RegistryKey<PlacedFeature> TRIAFIA_CRYSTAL_PLANT_PLACED =
+            registerKey("triafian_crystal_plant_placed");
 
     //Pacsaria
     public static final RegistryKey<PlacedFeature> PACSARIA_PACSARIUM_ORE_PLACED_KEY =
@@ -245,6 +247,9 @@ public class ModPlacedFeatures {
                 CountPlacementModifier.of(127), SquarePlacementModifier.of(),
                 HeightRangePlacementModifier.uniform(YOffset.fixed(64),
                         YOffset.fixed(100)), BiomePlacementModifier.of());
+        register(context, TRIAFIA_CRYSTAL_PLANT_PLACED, configuredFeatureRegistryEntryLookup
+                        .getOrThrow(ModConfiguredFeatures.TRIAFIA_CRYSTAL_PLANT_KEY),
+                ModOrePlacement.modifiersWithRarity(5, CountMultilayerPlacementModifier.of(1)));
 
         //Register Pacsaria ores
         register(context, PACSARIA_PACSARIUM_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup

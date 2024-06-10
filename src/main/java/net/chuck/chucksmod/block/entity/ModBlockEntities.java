@@ -4,6 +4,7 @@ import net.chuck.chucksmod.ChucksMod;
 import net.chuck.chucksmod.block.ModBlocks;
 import net.chuck.chucksmod.block.custom.experience_drain.IronExperienceDrainBlock;
 import net.chuck.chucksmod.block.entity.cleanser.TitaniumCleanserBlockEntity;
+import net.chuck.chucksmod.block.entity.cleanser.TriafiumCleanserBlockEntity;
 import net.chuck.chucksmod.block.entity.copier.TitaniumCopierBlockEntity;
 import net.chuck.chucksmod.block.entity.copier.TriafiumCopierBlockEntity;
 import net.chuck.chucksmod.block.entity.crusher.CrusherBlockEntity;
@@ -108,6 +109,7 @@ public class ModBlockEntities {
     public static BlockEntityType<TriafiumQuarryBlockEntity> TRIAFIUM_QUARRY;
     public static BlockEntityType<TriafiumLavaGeneratorBlockEntity> TRIAFIUM_LAVA_GENERATOR;
     public static BlockEntityType<TriafiumCopierBlockEntity> TRIAFIUM_COPIER;
+    public static BlockEntityType<TriafiumCleanserBlockEntity> TRIAFIUM_CLEANSER;
     public static BlockEntityType<TriafiumPortalBuilderBlockEntity> TRIAFIUM_PORTAL_BUILDER;
     public static void registerBlockEntities() {
         CRUSHER = Registry.register(Registries.BLOCK_ENTITY_TYPE,
@@ -408,6 +410,15 @@ public class ModBlockEntities {
                 TRIAFIUM_COPIER);
         FluidStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.fluidStorage,
                 TRIAFIUM_COPIER);
+
+        TRIAFIUM_CLEANSER = Registry.register(Registries.BLOCK_ENTITY_TYPE,
+                new Identifier(ChucksMod.MOD_ID, "triafium_cleanser"),
+                FabricBlockEntityTypeBuilder.create(TriafiumCleanserBlockEntity::new,
+                        ModBlocks.TRIAFIUM_CLEANSER).build());
+        EnergyStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.energyStorage,
+                TRIAFIUM_CLEANSER);
+        FluidStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.fluidStorage,
+                TRIAFIUM_CLEANSER);
         
         TRIAFIUM_PORTAL_BUILDER = Registry.register(Registries.BLOCK_ENTITY_TYPE,
                 new Identifier(ChucksMod.MOD_ID, "triafium_portal_builder"),
