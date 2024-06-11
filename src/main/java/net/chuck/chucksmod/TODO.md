@@ -2,9 +2,6 @@
 
 Next features to be added
 
-- [ ] Triafia Crystal Plant
-  - [ ] Spawning in world
-
 - [ ] Near lantern healing enchantment - when near a lantern, heals wearer
 - [ ] Bigtal's staff - when right clicked, player spins twice, like Bigtal's attack
 
@@ -18,11 +15,14 @@ Next features to be added
 
 - [ ] Triafium Elytra
 
-- [ ] Cleanser Recipes
-
 - [ ] item that points toward pippin dungeon
   - [ ] draws line of particles in direction
   - [ ] crafted from shards dropped by farmabyn
 
 - [ ] better minecarts
   - [ ] better rails & powered rails
+    - [ ] better rail models
+      - [ ] fix corner model
+    - [ ] better powered rail models
+    - [ ] better activator rail models
+    - [ ] better detector rail models

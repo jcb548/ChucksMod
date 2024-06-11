@@ -549,6 +549,8 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 ModBlocks.NETHERITE_WIRE, ModBlocks.TRIAFIUM_MACHINE_BASE, ModBlocks.TRIAFIUM_LAVA_GENERATOR);
         offerCopierRecipe(exporter, ModBlocks.TRIAFIUM_COPIER, ModBlocks.TRIAFIUM_MACHINE_BASE, ModBlocks.TRIAFIUM_FLUID_TANK,
                 ModItems.NETHERITE_POWER_CIRCUIT, ModBlocks.NETHERITE_WIRE);
+        offerCleanserRecipe(exporter, ModBlocks.TRIAFIUM_CLEANSER, ModBlocks.TRIAFIUM_MACHINE_BASE, ModBlocks.TRIAFIUM_FLUID_TANK,
+                ModItems.NETHERITE_POWER_CIRCUIT, ModBlocks.NETHERITE_WIRE);
         }
     private void generateTriafiaRecipes(RecipeExporter exporter) {
         offerCompactingRecipe(exporter, RecipeCategory.MISC, ModItems.TRIAFIA_CRYSTAL,
@@ -769,6 +771,8 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 ModItems.GOLD_POWER_CIRCUIT, ModBlocks.GOLD_WIRE, ModBlocks.TITANIUM_MACHINE_BASE,
                 ModBlocks.TITANIUM_FLUID_TANK);
         offerCopierRecipe(exporter, ModBlocks.TITANIUM_COPIER, ModBlocks.TITANIUM_MACHINE_BASE, ModBlocks.TITANIUM_FLUID_TANK,
+                ModItems.GOLD_POWER_CIRCUIT, ModBlocks.GOLD_WIRE);
+        offerCleanserRecipe(exporter, ModBlocks.TITANIUM_CLEANSER, ModBlocks.TITANIUM_MACHINE_BASE, ModBlocks.TITANIUM_FLUID_TANK,
                 ModItems.GOLD_POWER_CIRCUIT, ModBlocks.GOLD_WIRE);
     }
 
@@ -1710,6 +1714,24 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .criterion(hasTag(material), conditionsFromTag(material))
                 .criterion(hasTag(ModItemTags.GLASS), conditionsFromTag(ModItemTags.GLASS))
                 .criterion(hasItem(Items.ENCHANTED_BOOK), conditionsFromItem(Items.ENCHANTED_BOOK))
+                .offerTo(exporter);
+    }
+    public static void offerCleanserRecipe(RecipeExporter exporter, Block cleanser, Block machineBase, Block tank,
+                                         ItemConvertible powerCircuit, Block wire){
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, cleanser)
+                .pattern(" P ")
+                .pattern("WMW")
+                .pattern("T A")
+                .input('P', powerCircuit)
+                .input('W', wire)
+                .input('M', machineBase)
+                .input('A', ItemTags.ANVIL)
+                .input('T', tank)
+                .criterion(hasItem(powerCircuit), conditionsFromItem(powerCircuit))
+                .criterion(hasItem(wire), conditionsFromItem(wire))
+                .criterion(hasItem(machineBase), conditionsFromItem(machineBase))
+                .criterion(hasTag(ItemTags.ANVIL), conditionsFromTag(ItemTags.ANVIL))
+                .criterion(hasItem(tank), conditionsFromItem(tank))
                 .offerTo(exporter);
     }
 }
