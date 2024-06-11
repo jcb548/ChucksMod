@@ -22,7 +22,6 @@ Next features to be added
 - [ ] better minecarts
   - [ ] better rails & powered rails
     - [ ] better rail models
-      - [ ] fix corner model
     - [ ] better powered rail models
     - [ ] better activator rail models
     - [ ] better detector rail models
