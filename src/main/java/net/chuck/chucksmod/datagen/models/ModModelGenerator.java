@@ -4,7 +4,10 @@ import net.chuck.chucksmod.block.ModBlocks;
 import net.chuck.chucksmod.block.custom.energy_storage.AbstractEnergyStorageBlock;
 import net.chuck.chucksmod.util.DirectionIOProperty;
 import net.minecraft.block.Block;
+import net.minecraft.block.RailBlock;
+import net.minecraft.block.enums.RailShape;
 import net.minecraft.data.client.*;
+import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Direction;
@@ -249,5 +252,91 @@ public class ModModelGenerator {
         TextureMap textureMap = new TextureMap().put(TextureKey.TEXTURE, TextureMap.getId(drain));
         Identifier id = ModModels.EXPERIENCE_DRAIN.upload(drain, textureMap, blockStateModelGenerator.modelCollector);
         blockStateModelGenerator.registerSimpleState(drain);
+    }
+
+    public static void registerTurnableRail(BlockStateModelGenerator blockStateModelGenerator, Block block) {
+        TextureMap textureMap = new TextureMap().put(TextureKey.TEXTURE, TextureMap.getId(block));
+        Identifier rail = ModModels.RAIL.upload(block, textureMap, blockStateModelGenerator.modelCollector);
+        Identifier railRaised = ModModels.RAIL_RAISED.upload(block, "_raised", textureMap, blockStateModelGenerator.modelCollector);
+        Identifier railCorner = ModModels.RAIL_CORNER.upload(block, "_corner",
+                new TextureMap().put(TextureKey.TEXTURE, TextureMap.getSubId(block, "_corner")),
+                blockStateModelGenerator.modelCollector);
+        blockStateModelGenerator.blockStateCollector.accept(MultipartBlockStateSupplier.create(block)
+                .with(When.create().set(Properties.RAIL_SHAPE, RailShape.NORTH_SOUTH),
+                        BlockStateVariant.create().put(VariantSettings.MODEL, rail))
+                .with(When.create().set(Properties.RAIL_SHAPE, RailShape.EAST_WEST),
+                        BlockStateVariant.create().put(VariantSettings.MODEL, rail)
+                                .put(VariantSettings.Y, VariantSettings.Rotation.R90))
+
+                .with(When.create().set(Properties.RAIL_SHAPE, RailShape.ASCENDING_NORTH),
+                        BlockStateVariant.create().put(VariantSettings.MODEL, railRaised))
+                .with(When.create().set(Properties.RAIL_SHAPE, RailShape.ASCENDING_EAST),
+                        BlockStateVariant.create().put(VariantSettings.MODEL, railRaised)
+                                .put(VariantSettings.Y, VariantSettings.Rotation.R90))
+                .with(When.create().set(Properties.RAIL_SHAPE, RailShape.ASCENDING_SOUTH),
+                        BlockStateVariant.create().put(VariantSettings.MODEL, railRaised)
+                                .put(VariantSettings.Y, VariantSettings.Rotation.R180))
+                .with(When.create().set(Properties.RAIL_SHAPE, RailShape.ASCENDING_WEST),
+                        BlockStateVariant.create().put(VariantSettings.MODEL, railRaised)
+                                .put(VariantSettings.Y, VariantSettings.Rotation.R270))
+
+                .with(When.create().set(Properties.RAIL_SHAPE, RailShape.NORTH_EAST),
+                        BlockStateVariant.create().put(VariantSettings.MODEL, railCorner)
+                                .put(VariantSettings.Y, VariantSettings.Rotation.R90))
+                .with(When.create().set(Properties.RAIL_SHAPE, RailShape.NORTH_WEST),
+                        BlockStateVariant.create().put(VariantSettings.MODEL, railCorner))
+                .with(When.create().set(Properties.RAIL_SHAPE, RailShape.SOUTH_EAST),
+                        BlockStateVariant.create().put(VariantSettings.MODEL, railCorner)
+                                .put(VariantSettings.Y, VariantSettings.Rotation.R180))
+                .with(When.create().set(Properties.RAIL_SHAPE, RailShape.SOUTH_WEST),
+                        BlockStateVariant.create().put(VariantSettings.MODEL, railCorner)
+                                .put(VariantSettings.Y, VariantSettings.Rotation.R270))
+        );
+        blockStateModelGenerator.registerParentedItemModel(block, rail);
+    }public static void registerStraightRail(BlockStateModelGenerator blockStateModelGenerator, Block block) {
+        TextureMap textureMap = new TextureMap().put(TextureKey.TEXTURE, TextureMap.getId(block));
+        TextureMap onMap = new TextureMap().put(TextureKey.TEXTURE, TextureMap.getSubId(block, "_on"));
+        Identifier rail = ModModels.RAIL.upload(block, textureMap, blockStateModelGenerator.modelCollector);
+        Identifier railRaised = ModModels.RAIL_RAISED.upload(block, "_raised", textureMap, blockStateModelGenerator.modelCollector);
+        Identifier railOn = ModModels.RAIL.upload(block, "_on", onMap, blockStateModelGenerator.modelCollector);
+        Identifier railRaisedOn = ModModels.RAIL_RAISED.upload(block, "_raised_on", onMap, blockStateModelGenerator.modelCollector);
+        blockStateModelGenerator.blockStateCollector.accept(MultipartBlockStateSupplier.create(block)
+                .with(When.create().set(Properties.STRAIGHT_RAIL_SHAPE, RailShape.NORTH_SOUTH).set(Properties.POWERED, false),
+                        BlockStateVariant.create().put(VariantSettings.MODEL, rail))
+                .with(When.create().set(Properties.STRAIGHT_RAIL_SHAPE, RailShape.EAST_WEST).set(Properties.POWERED, false),
+                        BlockStateVariant.create().put(VariantSettings.MODEL, rail)
+                                .put(VariantSettings.Y, VariantSettings.Rotation.R90))
+
+                .with(When.create().set(Properties.STRAIGHT_RAIL_SHAPE, RailShape.ASCENDING_NORTH).set(Properties.POWERED, false),
+                        BlockStateVariant.create().put(VariantSettings.MODEL, railRaised))
+                .with(When.create().set(Properties.STRAIGHT_RAIL_SHAPE, RailShape.ASCENDING_EAST).set(Properties.POWERED, false),
+                        BlockStateVariant.create().put(VariantSettings.MODEL, railRaised)
+                                .put(VariantSettings.Y, VariantSettings.Rotation.R90))
+                .with(When.create().set(Properties.STRAIGHT_RAIL_SHAPE, RailShape.ASCENDING_SOUTH).set(Properties.POWERED, false),
+                        BlockStateVariant.create().put(VariantSettings.MODEL, railRaised)
+                                .put(VariantSettings.Y, VariantSettings.Rotation.R180))
+                .with(When.create().set(Properties.STRAIGHT_RAIL_SHAPE, RailShape.ASCENDING_WEST).set(Properties.POWERED, false),
+                        BlockStateVariant.create().put(VariantSettings.MODEL, railRaised)
+                                .put(VariantSettings.Y, VariantSettings.Rotation.R270))
+                
+                .with(When.create().set(Properties.STRAIGHT_RAIL_SHAPE, RailShape.NORTH_SOUTH).set(Properties.POWERED, true),
+                        BlockStateVariant.create().put(VariantSettings.MODEL, railOn))
+                .with(When.create().set(Properties.STRAIGHT_RAIL_SHAPE, RailShape.EAST_WEST).set(Properties.POWERED, true),
+                        BlockStateVariant.create().put(VariantSettings.MODEL, railOn)
+                                .put(VariantSettings.Y, VariantSettings.Rotation.R90))
+
+                .with(When.create().set(Properties.STRAIGHT_RAIL_SHAPE, RailShape.ASCENDING_NORTH).set(Properties.POWERED, true),
+                        BlockStateVariant.create().put(VariantSettings.MODEL, railRaisedOn))
+                .with(When.create().set(Properties.STRAIGHT_RAIL_SHAPE, RailShape.ASCENDING_EAST).set(Properties.POWERED, true),
+                        BlockStateVariant.create().put(VariantSettings.MODEL, railRaisedOn)
+                                .put(VariantSettings.Y, VariantSettings.Rotation.R90))
+                .with(When.create().set(Properties.STRAIGHT_RAIL_SHAPE, RailShape.ASCENDING_SOUTH).set(Properties.POWERED, true),
+                        BlockStateVariant.create().put(VariantSettings.MODEL, railRaisedOn)
+                                .put(VariantSettings.Y, VariantSettings.Rotation.R180))
+                .with(When.create().set(Properties.STRAIGHT_RAIL_SHAPE, RailShape.ASCENDING_WEST).set(Properties.POWERED, true),
+                        BlockStateVariant.create().put(VariantSettings.MODEL, railRaisedOn)
+                                .put(VariantSettings.Y, VariantSettings.Rotation.R270))
+        );
+        blockStateModelGenerator.registerParentedItemModel(block, rail);
     }
 }

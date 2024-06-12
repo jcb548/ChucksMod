@@ -447,8 +447,8 @@ public class ModModelProvider extends FabricModelProvider {
 
         blockStateModelGenerator.registerCooker(ModBlocks.CRUSHER, TexturedModel.ORIENTABLE);
 
-
-
+        ModModelGenerator.registerTurnableRail(blockStateModelGenerator, Blocks.RAIL);
+        ModModelGenerator.registerStraightRail(blockStateModelGenerator, Blocks.POWERED_RAIL);
 
         BlockStateModelGenerator.BlockTexturePool sandstone_bricks_pool =
                 blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.SANDSTONE_BRICKS);

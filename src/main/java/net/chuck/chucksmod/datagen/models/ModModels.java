@@ -27,4 +27,13 @@ public class ModModels {
     public static final Model EXPERIENCE_DRAIN =
             new Model(Optional.of(new Identifier(ChucksMod.MOD_ID, "block/template/experience_drain_template")),
                     Optional.empty(), TextureKey.TEXTURE);
+    public static final Model RAIL =
+            new Model(Optional.of(new Identifier(ChucksMod.MOD_ID, "block/template/rail_template")),
+                    Optional.empty(), TextureKey.TEXTURE);
+    public static final Model RAIL_RAISED =
+            new Model(Optional.of(new Identifier(ChucksMod.MOD_ID, "block/template/rail_raised_template")),
+                    Optional.empty(), TextureKey.TEXTURE);
+    public static final Model RAIL_CORNER =
+            new Model(Optional.of(new Identifier(ChucksMod.MOD_ID, "block/template/rail_corner_template")),
+                    Optional.empty(), TextureKey.TEXTURE);
 }
