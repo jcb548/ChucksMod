@@ -449,6 +449,8 @@ public class ModModelProvider extends FabricModelProvider {
 
         ModModelGenerator.registerTurnableRail(blockStateModelGenerator, Blocks.RAIL);
         ModModelGenerator.registerStraightRail(blockStateModelGenerator, Blocks.POWERED_RAIL);
+        ModModelGenerator.registerStraightRail(blockStateModelGenerator, Blocks.ACTIVATOR_RAIL);
+        ModModelGenerator.registerDetectorRail(blockStateModelGenerator, Blocks.DETECTOR_RAIL);
 
         BlockStateModelGenerator.BlockTexturePool sandstone_bricks_pool =
                 blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.SANDSTONE_BRICKS);

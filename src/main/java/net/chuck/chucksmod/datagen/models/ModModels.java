@@ -36,4 +36,16 @@ public class ModModels {
     public static final Model RAIL_CORNER =
             new Model(Optional.of(new Identifier(ChucksMod.MOD_ID, "block/template/rail_corner_template")),
                     Optional.empty(), TextureKey.TEXTURE);
+    public static final Model DETECTOR_RAIL =
+            new Model(Optional.of(new Identifier(ChucksMod.MOD_ID, "block/template/detector_rail_template")),
+                    Optional.empty(), TextureKey.TEXTURE);
+    public static final Model DETECTOR_RAIL_RAISED =
+            new Model(Optional.of(new Identifier(ChucksMod.MOD_ID, "block/template/detector_rail_raised_template")),
+                    Optional.empty(), TextureKey.TEXTURE);
+    public static final Model DETECTOR_RAIL_ON =
+            new Model(Optional.of(new Identifier(ChucksMod.MOD_ID, "block/template/detector_rail_on_template")),
+                    Optional.empty(), TextureKey.TEXTURE);
+    public static final Model DETECTOR_RAIL_RAISED_ON =
+            new Model(Optional.of(new Identifier(ChucksMod.MOD_ID, "block/template/detector_rail_raised_on_template")),
+                    Optional.empty(), TextureKey.TEXTURE);
 }

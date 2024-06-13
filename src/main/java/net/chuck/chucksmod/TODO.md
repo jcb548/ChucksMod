@@ -2,6 +2,8 @@
 
 Next features to be added
 
+- [ ] Bigtal Boss Room
+
 - [ ] Near lantern healing enchantment - when near a lantern, heals wearer
 - [ ] Bigtal's staff - when right clicked, player spins twice, like Bigtal's attack
 
@@ -27,10 +29,8 @@ Next features to be added
 
 - [ ] better minecarts
   - [ ] better rails
-    - [ ] better powered rail models
-    - [ ] better activator rail models
-    - [ ] better detector rail models
 
 
 - [ ] auto crafter
+- [ ] auto plant grower
 - [ ] auto tree grower
