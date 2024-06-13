@@ -50,6 +50,7 @@ public class ModBlockTags {
     public static final TagKey<Block> CONCRETE_STAIRS = ModBlockTags.commonOf("concrete_stairs");
     public static final TagKey<Block> CONCRETE_WALLS = ModBlockTags.commonOf("concrete_walls");
     public static final TagKey<Block> EXPERIENCE_DRAINS = ModBlockTags.of("experience_drains");
+    public static final TagKey<Block> POWERED_RAILS = ModBlockTags.of("powered_rails");
 
     private static TagKey<Block> of(String id) {
         return TagKey.of(RegistryKeys.BLOCK, new Identifier(ChucksMod.MOD_ID, id));

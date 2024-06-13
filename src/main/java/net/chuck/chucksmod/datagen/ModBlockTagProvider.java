@@ -662,5 +662,8 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.IRON_EXPERIENCE_DRAIN)
                 .add(ModBlocks.TITANIUM_EXPERIENCE_DRAIN)
                 .add(ModBlocks.TRIAFIUM_EXPERIENCE_DRAIN);
+
+        getOrCreateTagBuilder(ModBlockTags.POWERED_RAILS)
+                .add(Blocks.POWERED_RAIL);
     }
 }
