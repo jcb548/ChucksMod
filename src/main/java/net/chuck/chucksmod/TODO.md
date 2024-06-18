@@ -29,6 +29,7 @@ Next features to be added
 
 - [ ] better minecarts
   - [ ] better rails
+  - [ ] reprogram moving on rails
 
 
 - [ ] auto crafter
