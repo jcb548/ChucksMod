@@ -30,6 +30,12 @@ Next features to be added
 - [ ] better minecarts
   - [ ] better rails
   - [ ] reprogram moving on rails
+    - [ ] custom collision code
+      - [ ] collisions with blocks under rails ignored
+    - [ ] all slanted rails
+    - [ ] corner rails
+      - [ ] position locking
+      - [ ] switching velocity directions
 
 
 - [ ] auto crafter
