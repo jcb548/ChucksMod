@@ -9,10 +9,12 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.MovementType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.vehicle.AbstractMinecartEntity;
+import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.Vec3i;
+import net.minecraft.util.shape.VoxelShape;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -20,6 +22,8 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+
+import java.util.List;
 
 @Mixin(AbstractMinecartEntity.class)
 public abstract class AbstractMinecartEntityMixin{
@@ -66,7 +70,7 @@ public abstract class AbstractMinecartEntityMixin{
         minecart.onLanding();
         Vec3d velocity = minecart.getVelocity().multiply(1, 0, 1);
         RailShape railShape = state.get(((AbstractRailBlock)state.getBlock()).getShapeProperty());
-        velocity = MinecartUtil.snapVelocityToTrack(railShape, velocity);
+        velocity = MinecartUtil.snapVelocityToTrack(railShape, velocity, minecart.getPos());
         double gravity = 1.0/128;
         boolean poweredRail = false;
         boolean isPowered = false;
@@ -97,17 +101,13 @@ public abstract class AbstractMinecartEntityMixin{
         Vec3i nextRail = rail1;
         if(velocity.x > 0 && rail1.getX() < 0 && velocity.z == 0) nextRail = rail2;
         else if(velocity.z > 0 && rail1.getZ() < 0 && velocity.x == 0) nextRail = rail2;
-        //System.out.println(rail1 + " + " + rail2);
         int railXDif = Math.abs(rail1.getX() - rail2.getX());
         int railYDif = Math.abs(rail1.getY() - rail2.getY());
         int railZDif = Math.abs(rail1.getZ() - rail2.getZ());
-        /*if(velocity.x < 0) railXDif = -railXDif;
-        if(velocity.y < 0) railYDif = -railYDif;
-        if(velocity.z < 0) railZDif = -railZDif;*/
         if(minecart.getVelocity().horizontalLength() > 0) minecart.setVelocity(Vec3d.of(nextRail).multiply(0.1, 0, 0.1));
-        minecart.noClip = true;
-        minecart.move(MovementType.SELF, velocity);
-        minecart.noClip = false;
-        minecart.setPosition(MinecartUtil.snapPositionToRails(railShape, minecart.getPos()));
+        List<VoxelShape> collisions = MinecartUtil.checkCollisions(minecart, velocity, pos);
+        velocity = MinecartUtil.adjustVelocityForCollisions(velocity, minecart.getBoundingBox(), collisions);
+        minecart.setPosition(x + velocity.x, y + velocity.y, z + velocity.z);
+        minecart.setPosition(MinecartUtil.snapPositionToRails(railShape, pos, minecart.getPos()));
     }
 }
